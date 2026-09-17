@@ -504,7 +504,54 @@ button, input, select, textarea {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
 
-/* Responsive */
+/* Responsive Grid Classes */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.presence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Tablet View (<= 1024px) */
 @media (max-width: 1024px) {
   .nav-container {
     display: none;
@@ -513,16 +560,146 @@ button, input, select, textarea {
   .mobile-menu-toggle {
     display: flex;
   }
+
+  .hero-grid,
+  .calculator-grid,
+  .founder-grid,
+  .presence-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
 }
 
+/* Mobile Screens (<= 768px) */
 @media (max-width: 768px) {
-  .section {
-    padding: 64px 0;
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
   }
+
+  .container {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+  }
+
+  .section-description {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .glass-card {
+    padding: 20px 16px !important;
+    border-radius: var(--radius-md);
+  }
+
+  .services-grid,
+  .why-us-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr !important;
+    gap: 0;
+  }
+
   .top-bar {
+    display: none !important;
+  }
+
+  .navbar-inner {
+    height: 64px;
+    gap: 8px;
+  }
+
+  .gear-icon-wrapper {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .nav-quote-btn {
+    display: none !important;
+  }
+
+  .navbar-actions {
+    gap: 6px;
+  }
+
+  .nav-btn {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 0.78rem;
+  }
+
+  .modal-content {
+    padding: 24px 16px;
+    margin: 12px;
+    max-height: 94vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .hero-cta-group .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+}
+
+/* Extra Small Phones (<= 420px) */
+@media (max-width: 420px) {
+  .brand-subtitle {
     display: none;
   }
-  .modal-content {
-    padding: 24px;
+
+  .brand-title {
+    font-size: 0.88rem;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .btn {
+    padding: 11px 16px;
+    font-size: 0.84rem;
   }
 }

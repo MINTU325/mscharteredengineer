@@ -18,8 +18,8 @@ export default function Footer({ onOpenQuote }) {
       <div className="container">
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '40px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+          gap: '32px',
           marginBottom: '50px'
         }}>
           {/* Col 1: Brand & Tagline */}

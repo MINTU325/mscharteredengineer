@@ -49,14 +49,9 @@ export default function PanIndiaPresence({ onOpenQuote }) {
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '32px',
-          alignItems: 'start'
-        }}>
+        <div className="presence-grid">
           {/* Left Column: Official Headquarters Card */}
-          <div className="glass-card" style={{ padding: '36px' }}>
+          <div className="glass-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
               <div style={{
                 width: '48px',
@@ -136,7 +131,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
           </div>
 
           {/* Right Column: Interactive Pan-India Regional Coverage */}
-          <div className="glass-card gold-accent" style={{ padding: '36px' }}>
+          <div className="glass-card gold-accent">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
               <div>
                 <span style={{ fontSize: '0.78rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>

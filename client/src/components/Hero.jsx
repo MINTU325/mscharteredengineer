@@ -35,12 +35,7 @@ export default function Hero({ onOpenQuote }) {
   return (
     <section className="section" style={{ paddingTop: '50px', paddingBottom: '70px', overflow: 'hidden' }}>
       <div className="container">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '48px',
-          alignItems: 'center'
-        }}>
+        <div className="hero-grid">
           {/* Left Column: Heading & Authority */}
           <div>
             <div className="section-badge gold">
@@ -123,11 +118,11 @@ export default function Hero({ onOpenQuote }) {
             </div>
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}>
+            <div className="hero-cta-group" style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
               <button 
                 onClick={() => onOpenQuote()} 
                 className="btn btn-primary"
-                style={{ padding: '15px 32px', fontSize: '1rem' }}
+                style={{ padding: '14px 28px', fontSize: '0.96rem' }}
               >
                 <span>Request Formal Certification</span>
                 <ArrowRight size={18} />
@@ -136,7 +131,7 @@ export default function Hero({ onOpenQuote }) {
               <a 
                 href="#calculator" 
                 className="btn btn-outline"
-                style={{ padding: '15px 28px', fontSize: '0.98rem' }}
+                style={{ padding: '14px 24px', fontSize: '0.94rem' }}
               >
                 <Calculator size={18} color="#38bdf8" />
                 <span>Smart Valuation Tool</span>
@@ -147,7 +142,7 @@ export default function Hero({ onOpenQuote }) {
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-whatsapp"
-                style={{ padding: '15px 24px', fontSize: '0.95rem' }}
+                style={{ padding: '14px 22px', fontSize: '0.92rem' }}
               >
                 <MessageSquare size={18} />
                 <span>WhatsApp Us</span>
@@ -166,7 +161,7 @@ export default function Hero({ onOpenQuote }) {
               zIndex: 0
             }} />
 
-            <div className="glass-card gold-accent" style={{ zIndex: 1, padding: '36px' }}>
+            <div className="glass-card gold-accent" style={{ zIndex: 1 }}>
               {/* Header inside card */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
                 <div>
@@ -194,11 +189,11 @@ export default function Hero({ onOpenQuote }) {
                 </div>
               </div>
 
-              {/* 4 Stat Highlights in 2x2 Grid */}
+              {/* 4 Stat Highlights in Grid */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '16px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                gap: '14px',
                 marginBottom: '28px'
               }}>
                 <div style={{

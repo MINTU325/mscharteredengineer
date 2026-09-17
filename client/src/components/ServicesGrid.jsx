@@ -171,11 +171,7 @@ export default function ServicesGrid({ onOpenQuote }) {
         </div>
 
         {/* Services Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '28px'
-        }}>
+        <div className="services-grid">
           {filteredServices.map((service) => {
             const Icon = service.icon;
             return (

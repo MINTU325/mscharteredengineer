@@ -107,14 +107,9 @@ export default function ValuationCalculator({ onOpenQuote }) {
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-          gap: '36px',
-          alignItems: 'start'
-        }}>
+        <div className="calculator-grid">
           {/* Input Form Card */}
-          <div className="glass-card" style={{ padding: '36px' }}>
+          <div className="glass-card">
             <h3 style={{ fontSize: '1.25rem', marginBottom: '20px', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span>Asset Parameters</span>
             </h3>
@@ -137,7 +132,7 @@ export default function ValuationCalculator({ onOpenQuote }) {
                 </select>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="form-row-2col">
                 <div className="form-group">
                   <label className="form-label">Original Cost (₹)</label>
                   <input 
@@ -164,7 +159,7 @@ export default function ValuationCalculator({ onOpenQuote }) {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div className="form-row-2col">
                 <div className="form-group">
                   <label className="form-label">Expected Life (Years)</label>
                   <input 
@@ -218,7 +213,7 @@ export default function ValuationCalculator({ onOpenQuote }) {
 
           {/* Realtime Output Result Card */}
           {result && (
-            <div className="glass-card gold-accent" style={{ padding: '36px' }}>
+            <div className="glass-card gold-accent">
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
                 <div>
                   <span style={{ fontSize: '0.78rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>

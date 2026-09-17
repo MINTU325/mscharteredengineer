@@ -80,7 +80,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <span>{isAdminOpen ? 'Website' : 'Portal'}</span>
             </button>
 
-            <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn">
+            <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn nav-quote-btn">
               <span>Request Quote</span>
               <ArrowRight size={15} />
             </button>

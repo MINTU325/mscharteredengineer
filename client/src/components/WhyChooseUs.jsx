@@ -72,12 +72,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
           </p>
         </div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '26px',
-          marginBottom: '48px'
-        }}>
+        <div className="why-us-grid" style={{ marginBottom: '48px' }}>
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
@@ -85,7 +80,6 @@ export default function WhyChooseUs({ onOpenQuote }) {
                 key={idx} 
                 className="glass-card"
                 style={{
-                  padding: '32px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',

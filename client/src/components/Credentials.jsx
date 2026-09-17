@@ -28,18 +28,20 @@ export default function Credentials() {
         </div>
 
         {/* Credential Seal Card */}
-        <div style={{
-          maxWidth: '960px',
-          margin: '0 auto 48px auto',
-          background: 'linear-gradient(135deg, rgba(16, 33, 74, 0.9) 0%, rgba(10, 20, 48, 0.9) 100%)',
-          border: '1px solid rgba(245, 158, 11, 0.35)',
-          borderRadius: 'var(--radius-xl)',
-          padding: '40px',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.5), inset 0 0 40px rgba(245, 158, 11, 0.05)'
-        }}>
+        <div 
+          className="glass-card"
+          style={{
+            maxWidth: '960px',
+            margin: '0 auto 48px auto',
+            background: 'linear-gradient(135deg, rgba(16, 33, 74, 0.9) 0%, rgba(10, 20, 48, 0.9) 100%)',
+            border: '1px solid rgba(245, 158, 11, 0.35)',
+            borderRadius: 'var(--radius-xl)',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.5), inset 0 0 40px rgba(245, 158, 11, 0.05)'
+          }}
+        >
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '32px',
             alignItems: 'center'
           }}>
@@ -117,11 +119,11 @@ export default function Credentials() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '20px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+          gap: '18px'
         }}>
           {recognizedEntities.map((entity, idx) => (
-            <div key={idx} className="glass-card" style={{ padding: '24px' }}>
+            <div key={idx} className="glass-card">
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
                 <div style={{
                   background: 'rgba(24, 90, 219, 0.15)',

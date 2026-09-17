@@ -18,16 +18,18 @@ export default function FounderProfile({ onOpenQuote }) {
           </p>
         </div>
 
-        <div style={{
-          maxWidth: '1000px',
-          margin: '0 auto',
-          background: 'linear-gradient(135deg, rgba(16, 33, 74, 0.75) 0%, rgba(8, 16, 38, 0.85) 100%)',
-          border: '1px solid rgba(59, 130, 246, 0.3)',
-          borderRadius: 'var(--radius-xl)',
-          padding: '44px',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
+        <div 
+          className="glass-card"
+          style={{
+            maxWidth: '1000px',
+            margin: '0 auto',
+            background: 'linear-gradient(135deg, rgba(16, 33, 74, 0.75) 0%, rgba(8, 16, 38, 0.85) 100%)',
+            border: '1px solid rgba(59, 130, 246, 0.3)',
+            borderRadius: 'var(--radius-xl)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
           {/* Subtle background gear */}
           <div style={{
             position: 'absolute',
@@ -41,12 +43,7 @@ export default function FounderProfile({ onOpenQuote }) {
             </svg>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '40px',
-            alignItems: 'center'
-          }}>
+          <div className="founder-grid">
             {/* Left: Founder Avatar / Seal */}
             <div style={{ textAlign: 'center' }}>
               <div style={{

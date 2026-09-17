@@ -102,6 +102,7 @@ export default function App() {
         href="https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20would%20like%20to%20consult%20regarding%20Chartered%20Engineer%20services."
         target="_blank"
         rel="noreferrer"
+        className="floating-whatsapp-btn"
         style={{
           position: 'fixed',
           bottom: '24px',

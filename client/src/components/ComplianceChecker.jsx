@@ -79,19 +79,17 @@ export default function ComplianceChecker({ onOpenQuote }) {
           </p>
         </div>
 
-        <div style={{
-          maxWidth: '1000px',
-          margin: '0 auto',
-          background: 'var(--bg-card)',
-          border: '1px solid var(--border-subtle)',
-          borderRadius: 'var(--radius-xl)',
-          padding: '36px',
-          backdropFilter: 'var(--glass-blur)'
-        }}>
+        <div 
+          className="glass-card"
+          style={{
+            maxWidth: '1000px',
+            margin: '0 auto'
+          }}
+        >
           <form onSubmit={handleCheck} style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '20px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '16px',
             alignItems: 'end',
             marginBottom: '32px'
           }}>
