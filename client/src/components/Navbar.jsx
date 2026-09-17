@@ -64,11 +64,11 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             </ul>
           </nav>
 
-          {/* Action CTAs (Pixel-perfect vertical & horizontal alignment) */}
+          {/* Action CTAs (On desktop: visible in navbar; On mobile: cleanly accessible inside hamburger) */}
           <div className="navbar-actions">
             <button
               onClick={onToggleAdmin}
-              className="btn btn-outline nav-btn"
+              className="btn btn-outline nav-btn desktop-nav-action"
               style={{
                 borderColor: isAdminOpen ? 'var(--accent-gold)' : 'rgba(255,255,255,0.18)',
                 color: isAdminOpen ? 'var(--accent-gold)' : '#e2e8f0',
@@ -80,7 +80,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <span>{isAdminOpen ? 'Website' : 'Portal'}</span>
             </button>
 
-            <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn nav-quote-btn">
+            <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn desktop-nav-action">
               <span>Request Quote</span>
               <ArrowRight size={15} />
             </button>
@@ -91,36 +91,71 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Accessible on mobile) */}
       {mobileMenuOpen && (
         <div style={{
           background: 'rgba(7, 14, 30, 0.98)',
           borderBottom: '1px solid rgba(255,255,255,0.1)',
-          padding: '24px',
+          padding: '24px 20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '16px'
+          gap: '16px',
+          animation: 'fadeIn 0.2s ease'
         }}>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.1rem', fontWeight: 600 }}>Services We Offer</a>
-          <a href="#credentials" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.1rem', fontWeight: 600 }}>Credentials & IEI</a>
-          <a href="#calculator" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.1rem', fontWeight: 600 }}>Valuation Calculator</a>
-          <a href="#solar-checker" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.1rem', fontWeight: 600 }}>CEIG Solar Checker</a>
-          <a href="#founder" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.1rem', fontWeight: 600 }}>Core Team (IIT Roorkee)</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.1rem', fontWeight: 600 }}>Contact Jaipur HQ</a>
-          <hr style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <a href="tel:+919158658885" className="btn btn-outline" style={{ width: '100%' }}>
-              <Phone size={16} /> Call +91 91586 58885
-            </a>
-            <button onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }} className="btn btn-gold" style={{ width: '100%' }}>
-              Instant Quote Request
+          <a href="#services" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Services We Offer</a>
+          <a href="#credentials" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Credentials & IEI</a>
+          <a href="#calculator" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Valuation Calculator</a>
+          <a href="#solar-checker" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>CEIG Solar Checker</a>
+          <a href="#founder" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Core Team (IIT Roorkee)</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Contact Jaipur HQ</a>
+          
+          <hr style={{ borderColor: 'rgba(255,255,255,0.1)', margin: '4px 0' }} />
+          
+          {/* Action CTAs inside mobile hamburger menu */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {/* Request Quote Button */}
+            <button 
+              onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }} 
+              className="btn btn-primary" 
+              style={{ width: '100%', justifyContent: 'center', height: '46px', fontSize: '0.95rem' }}
+            >
+              <span>Request Quote / Valuation</span>
+              <ArrowRight size={16} />
             </button>
+
+            {/* Portal Button */}
+            <button
+              onClick={() => { setMobileMenuOpen(false); onToggleAdmin(); }}
+              className="btn btn-outline"
+              style={{
+                width: '100%',
+                justifyContent: 'center',
+                height: '46px',
+                fontSize: '0.92rem',
+                borderColor: isAdminOpen ? 'var(--accent-gold)' : 'rgba(255,255,255,0.2)',
+                color: isAdminOpen ? 'var(--accent-gold)' : '#ffffff',
+                background: isAdminOpen ? 'rgba(245, 158, 11, 0.15)' : 'rgba(255, 255, 255, 0.04)'
+              }}
+            >
+              <LayoutDashboard size={16} color={isAdminOpen ? '#f59e0b' : '#38bdf8'} />
+              <span>{isAdminOpen ? 'Switch to Website View' : 'Admin Lead Portal'}</span>
+            </button>
+
+            {/* Direct Call Button */}
+            <a 
+              href="tel:+919158658885" 
+              className="btn btn-gold" 
+              style={{ width: '100%', justifyContent: 'center', height: '46px', fontSize: '0.92rem' }}
+            >
+              <Phone size={16} />
+              <span>Call +91 91586 58885</span>
+            </a>
           </div>
         </div>
       )}

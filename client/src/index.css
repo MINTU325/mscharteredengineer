@@ -556,6 +556,10 @@ button, input, select, textarea {
   .nav-container {
     display: none;
   }
+
+  .desktop-nav-action {
+    display: none !important;
+  }
   
   .mobile-menu-toggle {
     display: flex;
