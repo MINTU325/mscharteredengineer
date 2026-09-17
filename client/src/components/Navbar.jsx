@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, ShieldCheck, Menu, X, ArrowRight, LayoutDashboard } from 'lucide-react';
 
 export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Close drawer on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1024) setMobileMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <header className="header-wrapper">
@@ -64,8 +73,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             </ul>
           </nav>
 
-          {/* Action CTAs (On desktop: visible in navbar; On mobile: cleanly accessible inside hamburger) */}
+          {/* Action CTAs — Desktop only; on mobile these hide and appear in hamburger drawer */}
           <div className="navbar-actions">
+            {/* Desktop-only: Portal button */}
             <button
               onClick={onToggleAdmin}
               className="btn btn-outline nav-btn desktop-nav-action"
@@ -80,16 +90,17 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <span>{isAdminOpen ? 'Website' : 'Portal'}</span>
             </button>
 
+            {/* Desktop-only: Request Quote button */}
             <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn desktop-nav-action">
               <span>Request Quote</span>
               <ArrowRight size={15} />
             </button>
 
-            {/* Mobile Menu Toggle */}
-            <button 
+            {/* Hamburger Toggle — always visible on mobile */}
+            <button
               className="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
@@ -97,68 +108,59 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
         </div>
       </div>
 
-      {/* Mobile Drawer (Accessible on mobile) */}
-      {mobileMenuOpen && (
-        <div style={{
-          background: 'rgba(7, 14, 30, 0.98)',
-          borderBottom: '1px solid rgba(255,255,255,0.1)',
-          padding: '24px 20px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '16px',
-          animation: 'fadeIn 0.2s ease'
-        }}>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Services We Offer</a>
-          <a href="#credentials" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Credentials & IEI</a>
-          <a href="#calculator" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Valuation Calculator</a>
-          <a href="#solar-checker" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>CEIG Solar Checker</a>
-          <a href="#founder" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Core Team (IIT Roorkee)</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)} style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600, padding: '4px 0' }}>Contact Jaipur HQ</a>
-          
-          <hr style={{ borderColor: 'rgba(255,255,255,0.1)', margin: '4px 0' }} />
-          
-          {/* Action CTAs inside mobile hamburger menu */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {/* Request Quote Button */}
-            <button 
-              onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }} 
-              className="btn btn-primary" 
-              style={{ width: '100%', justifyContent: 'center', height: '46px', fontSize: '0.95rem' }}
-            >
-              <span>Request Quote / Valuation</span>
-              <ArrowRight size={16} />
-            </button>
-
-            {/* Portal Button */}
-            <button
-              onClick={() => { setMobileMenuOpen(false); onToggleAdmin(); }}
-              className="btn btn-outline"
-              style={{
-                width: '100%',
-                justifyContent: 'center',
-                height: '46px',
-                fontSize: '0.92rem',
-                borderColor: isAdminOpen ? 'var(--accent-gold)' : 'rgba(255,255,255,0.2)',
-                color: isAdminOpen ? 'var(--accent-gold)' : '#ffffff',
-                background: isAdminOpen ? 'rgba(245, 158, 11, 0.15)' : 'rgba(255, 255, 255, 0.04)'
-              }}
-            >
-              <LayoutDashboard size={16} color={isAdminOpen ? '#f59e0b' : '#38bdf8'} />
-              <span>{isAdminOpen ? 'Switch to Website View' : 'Admin Lead Portal'}</span>
-            </button>
-
-            {/* Direct Call Button */}
-            <a 
-              href="tel:+919158658885" 
-              className="btn btn-gold" 
-              style={{ width: '100%', justifyContent: 'center', height: '46px', fontSize: '0.92rem' }}
-            >
-              <Phone size={16} />
-              <span>Call +91 91586 58885</span>
-            </a>
-          </div>
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           MOBILE HAMBURGER DRAWER
+           Shows on ≤1024px screens only
+           Contains: Nav links + Portal + Request Quote + Call
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <div className={`mobile-drawer ${mobileMenuOpen ? 'mobile-drawer--open' : ''}`}>
+        {/* Navigation Links */}
+        <div className="mobile-drawer-links">
+          <a href="#services"       onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 Services We Offer</a>
+          <a href="#credentials"    onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🏅 Credentials &amp; IEI</a>
+          <a href="#calculator"     onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🧮 Valuation Calculator</a>
+          <a href="#solar-checker"  onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">☀️ CEIG Solar Checker</a>
+          <a href="#founder"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👤 Core Team (IIT Roorkee)</a>
+          <a href="#contact"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📍 Contact Jaipur HQ</a>
         </div>
-      )}
+
+        <div className="mobile-drawer-divider" />
+
+        {/* ── CTA Buttons ── */}
+        <div className="mobile-drawer-ctas">
+          {/* 1. Request Quote */}
+          <button
+            onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
+            className="btn btn-primary mobile-cta-btn"
+          >
+            <ArrowRight size={18} />
+            <span>Request Quote / Valuation</span>
+          </button>
+
+          {/* 2. Admin Portal */}
+          <button
+            onClick={() => { setMobileMenuOpen(false); onToggleAdmin(); }}
+            className="btn btn-outline mobile-cta-btn"
+            style={{
+              borderColor: isAdminOpen ? 'var(--accent-gold)' : 'rgba(255,255,255,0.25)',
+              color:       isAdminOpen ? 'var(--accent-gold)' : '#e2e8f0',
+              background:  isAdminOpen ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.05)'
+            }}
+          >
+            <LayoutDashboard size={18} color={isAdminOpen ? '#f59e0b' : '#38bdf8'} />
+            <span>{isAdminOpen ? 'Back to Website' : 'Admin Lead Portal'}</span>
+          </button>
+
+          {/* 3. Direct Call */}
+          <a
+            href="tel:+919158658885"
+            className="btn btn-gold mobile-cta-btn"
+          >
+            <Phone size={18} />
+            <span>Call +91 91586 58885</span>
+          </a>
+        </div>
+      </div>
     </header>
   );
 }

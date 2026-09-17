@@ -574,6 +574,76 @@ button, input, select, textarea {
   }
 }
 
+/* ============================================================
+   MOBILE DRAWER — Hamburger slide-down panel
+   ============================================================ */
+.mobile-drawer {
+  display: none; /* hidden by default on desktop */
+  overflow: hidden;
+  max-height: 0;
+  background: rgba(7, 14, 30, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+
+.mobile-drawer--open {
+  max-height: 600px;
+  opacity: 1;
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 20px 20px 12px 20px;
+}
+
+.mobile-drawer-link {
+  display: block;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-drawer-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+}
+
+.mobile-drawer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.09);
+  margin: 4px 20px;
+}
+
+.mobile-drawer-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 20px 20px 20px;
+}
+
+.mobile-cta-btn {
+  width: 100% !important;
+  justify-content: center !important;
+  height: 48px !important;
+  font-size: 0.95rem !important;
+  border-radius: var(--radius-full) !important;
+}
+
+/* Show drawer only on tablet/mobile */
+@media (max-width: 1024px) {
+  .mobile-drawer {
+    display: block;
+  }
+}
+
 /* Mobile Screens (<= 768px) */
 @media (max-width: 768px) {
   html, body {
