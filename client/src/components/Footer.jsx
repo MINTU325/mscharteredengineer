@@ -52,9 +52,9 @@ export default function Footer({ onOpenQuote }) {
               borderRadius: 'var(--radius-sm)',
               color: '#fbbf24',
               fontSize: '0.78rem'
-            }}>
+            }}
               <Award size={14} />
-              <span>B.Tech (Mechanical), IIT Roorkee</span>
+              <span>CEng (India) MIE — Institution of Engineers (India)</span>
             </div>
           </div>
 
@@ -64,12 +64,12 @@ export default function Footer({ onOpenQuote }) {
               Our Practice Areas
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem' }}>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Engineering Certification & Machinery Nexus</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Plant & Machinery Asset Valuation</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Detailed Project Report (DPR) & ROI</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Structural Stability & Factory Inspection</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>CEIG Approval for Solar Projects</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>EPCG / DGFT & Regulatory Compliance</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Assets Valuation Services (Banking, Insurance, M&amp;A, Taxation)</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Chartered Engineer Certificates (DGFT, CBIC, MSME, MoFPI)</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>FSSAI Compliance — License, Renewal, Hygiene Audit</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Asset Componentization &amp; Advisory Services</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Equipment Effectiveness &amp; Process Capability Analysis</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Impairment Study, Liquidation &amp; Balance Useful Life</a></li>
             </ul>
           </div>
 
