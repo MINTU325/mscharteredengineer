@@ -27,18 +27,19 @@ export default function Footer({ onOpenQuote }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
               <div className="gear-icon-wrapper" style={{ background: 'transparent', border: 'none', width: '40px', height: '40px' }}>
                 <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M 50,4
-                           L 56,15 A 32,32 0 0,1 67,19 L 77,10
-                           L 86,19 L 77,29 A 32,32 0 0,1 81,40 L 92,44
-                           L 92,56 L 81,60 A 32,32 0 0,1 77,71 L 86,81
-                           L 77,90 L 67,81 A 32,32 0 0,1 56,85 L 50,96
-                           L 40,96 L 44,85 A 32,32 0 0,1 33,81 L 23,90
-                           L 14,81 L 23,71 A 32,32 0 0,1 19,60 L 8,56
-                           L 8,44 L 19,40 A 32,32 0 0,1 23,29 L 14,19
-                           L 23,10 L 33,19 A 32,32 0 0,1 44,15 L 40,4
-                           Z" fill="#0A3C6E" />
-                  <circle className="spin-ring" cx="50" cy="50" r="28" fill="none" stroke="#FFFFFF" strokeWidth="5" strokeDasharray="145 30" strokeLinecap="round" />
-                  <text x="50" y="63" fontFamily="Arial, Helvetica, sans-serif" fontWeight="900" fontSize="36" fill="#FFFFFF" textAnchor="middle">MS</text>
+                  <defs>
+                    <linearGradient id="blueGearFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#38bdf8" />
+                      <stop offset="100%" stopColor="#1e40af" />
+                    </linearGradient>
+                  </defs>
+                  <g className="spin-ring" style={{ transformOrigin: '50px 50px' }}>
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="url(#blueGearFoot)" strokeWidth="7" strokeDasharray="14 9" strokeLinecap="round" />
+                    <circle cx="50" cy="50" r="35" fill="none" stroke="url(#blueGearFoot)" strokeWidth="3" opacity="0.9" />
+                  </g>
+                  <circle cx="50" cy="50" r="26" fill="#040914" stroke="#ffffff" strokeWidth="3" />
+                  <circle cx="50" cy="50" r="20" fill="none" stroke="#38bdf8" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
+                  <text x="50" y="60.5" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="28" fill="#ffffff" textAnchor="middle" letterSpacing="1">MS</text>
                 </svg>
               </div>
               <div>
