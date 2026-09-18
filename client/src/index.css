@@ -1055,51 +1055,88 @@ button, input, select, textarea {
 .hs-arrow--left  { left: 24px; }
 .hs-arrow--right { right: 24px; }
 
-/* ── Bottom Controls ── */
-.hs-controls {
+/* ── Vertical Right-Side Service Navigator ── */
+.hs-sidenav {
   position: absolute;
-  bottom: 28px;
-  left: 60px;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 20;
   display: flex;
-  align-items: center;
-  gap: 24px;
+  flex-direction: column;
+  gap: 8px;
 }
-.hs-dots {
+
+.hs-sidenav-item {
   display: flex;
-  gap: 10px;
   align-items: center;
-}
-.hs-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.35);
+  gap: 10px;
+  background: none;
   border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-  padding: 0;
+  padding: 6px 0;
+  text-align: left;
+  transition: all 0.3s ease;
 }
-.hs-dot--active {
-  width: 28px;
-  border-radius: 5px;
+
+.hs-sidenav-item:hover .hs-sidenav-title {
+  color: rgba(255,255,255,0.8) !important;
 }
-.hs-dot:not(.hs-dot--active):hover {
-  background: rgba(255,255,255,0.6);
-  transform: scale(1.2);
-}
-.hs-counter {
+
+/* The vertical colored line */
+.hs-sidenav-line {
   display: flex;
-  align-items: baseline;
-  gap: 4px;
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.5);
+  flex-direction: column;
+  width: 3px;
+  height: 48px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
-.hs-counter-sep {
-  margin: 0 2px;
-  opacity: 0.4;
+
+/* Animated fill inside the line for active slide */
+.hs-sidenav-line-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 3px;
+  transition: height 0.05s linear;
+}
+
+/* Label: number + service name */
+.hs-sidenav-label {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.hs-sidenav-num {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+  line-height: 1;
+}
+
+.hs-sidenav-title {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hs-sidenav-item--active .hs-sidenav-line {
+  width: 3px;
+  height: 56px;
 }
 
 /* ── Progress bar ── */
@@ -1142,12 +1179,19 @@ button, input, select, textarea {
     max-height: 680px;
   }
   .hs-inner {
-    padding: 0 70px 0 40px;
+    padding: 0 24px 0 40px;
     gap: 16px;
   }
   .hs-arrow--left  { left: 12px; }
   .hs-arrow--right { right: 12px; }
-  .hs-controls { left: 40px; }
+  /* Shrink sidenav to lines only on tablet */
+  .hs-sidenav {
+    right: 16px;
+    gap: 6px;
+  }
+  .hs-sidenav-label { display: none; }
+  .hs-sidenav-line  { height: 40px; }
+  .hs-sidenav-item--active .hs-sidenav-line { height: 50px; }
 }
 
 /* ── RESPONSIVE — Mobile (≤768px) ── */
@@ -1161,7 +1205,7 @@ button, input, select, textarea {
     padding: 0 20px;
     gap: 14px;
     justify-content: flex-end;
-    padding-bottom: 90px;
+    padding-bottom: 64px;
   }
   .hs-title {
     font-size: clamp(2rem, 7.5vw, 2.6rem);
@@ -1171,9 +1215,7 @@ button, input, select, textarea {
     font-size: 0.88rem;
     max-width: 100%;
   }
-  .hs-stats {
-    gap: 20px;
-  }
+  .hs-stats { gap: 20px; }
   .hs-stat-value { font-size: 1.3rem; }
   .hs-stat-label { font-size: 0.65rem; }
   .hs-ctas {
@@ -1188,32 +1230,24 @@ button, input, select, textarea {
     padding: 13px 20px;
     font-size: 0.9rem;
   }
-  .hs-arrow {
-    width: 40px;
-    height: 40px;
-    top: auto;
-    bottom: 56px;
-    transform: none;
-  }
-  .hs-arrow:hover { transform: scale(1.08); }
-  .hs-arrow--left  { left: 20px;  bottom: 56px; }
-  .hs-arrow--right { right: 20px; bottom: 56px; }
-  .hs-controls {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-    flex-direction: row;
-    gap: 14px;
-  }
+  /* Hide arrows on mobile — swipe is enough */
+  .hs-arrow { display: none; }
+  /* Hide sidenav on mobile */
+  .hs-sidenav { display: none; }
   .hs-paused-badge { display: none; }
   .hs-grid-lines { display: none; }
   .hs-overlay {
     background: linear-gradient(
       180deg,
-      rgba(7,14,30,0.55) 0%,
-      rgba(7,14,30,0.72) 40%,
-      rgba(7,14,30,0.95) 100%
+      rgba(7,14,30,0.45) 0%,
+      rgba(7,14,30,0.72) 45%,
+      rgba(7,14,30,0.96) 100%
     ) !important;
+  }
+  /* Mobile: show tiny bottom progress dots via progress bar only */
+  .hs-progress-track {
+    height: 4px;
+    bottom: 0;
   }
 }
 

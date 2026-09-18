@@ -269,29 +269,56 @@ export default function HeroSlider({ onOpenQuote }) {
         <ChevronRight size={28} />
       </button>
 
-      {/* ── Bottom Controls: Dots + Progress ── */}
-      <div className="hs-controls">
-        {/* Dot indicators */}
-        <div className="hs-dots">
-          {SLIDES.map((s, i) => (
+      {/* ── RIGHT SIDE: Unique Vertical Service Navigator ── */}
+      <div className="hs-sidenav">
+        {SLIDES.map((s, i) => {
+          const isActive = i === current;
+          const slideColor = ACCENT_COLORS[s.accent];
+          return (
             <button
               key={s.id}
-              className={`hs-dot ${i === current ? 'hs-dot--active' : ''}`}
+              className={`hs-sidenav-item ${isActive ? 'hs-sidenav-item--active' : ''}`}
               onClick={() => goTo(i, i > current ? 'next' : 'prev')}
-              aria-label={`Go to slide ${i + 1}`}
-              style={i === current ? { background: color.primary, boxShadow: `0 0 10px ${color.glow}` } : {}}
-            />
-          ))}
-        </div>
+              aria-label={`Go to ${s.titleHighlight}`}
+            >
+              {/* Animated left border line */}
+              <span
+                className="hs-sidenav-line"
+                style={{
+                  background: isActive ? slideColor.primary : 'rgba(255,255,255,0.15)',
+                  boxShadow: isActive ? `0 0 8px ${slideColor.glow}` : 'none',
+                }}
+              >
+                {/* Progress fill on active line */}
+                {isActive && (
+                  <span
+                    className="hs-sidenav-line-fill"
+                    style={{
+                      height: `${progress}%`,
+                      background: slideColor.light,
+                    }}
+                  />
+                )}
+              </span>
 
-        {/* Slide counter */}
-        <div className="hs-counter">
-          <span style={{ color: color.light, fontSize: '1.1rem', fontWeight: 700 }}>
-            {String(current + 1).padStart(2, '0')}
-          </span>
-          <span className="hs-counter-sep">/</span>
-          <span>{String(total).padStart(2, '0')}</span>
-        </div>
+              {/* Number + Label */}
+              <span className="hs-sidenav-label">
+                <span
+                  className="hs-sidenav-num"
+                  style={{ color: isActive ? slideColor.light : 'rgba(255,255,255,0.3)' }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span
+                  className="hs-sidenav-title"
+                  style={{ color: isActive ? '#ffffff' : 'rgba(255,255,255,0.45)' }}
+                >
+                  {s.titleHighlight}
+                </span>
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {/* ── Bottom Progress Bar ── */}
