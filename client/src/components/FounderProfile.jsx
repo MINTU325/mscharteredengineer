@@ -136,14 +136,10 @@ export default function FounderProfile({ onOpenQuote }) {
               </h4>
 
               <p style={{ color: '#cbd5e1', fontSize: '0.94rem', lineHeight: 1.7, marginBottom: '20px' }}>
-                Mukesh Singh brings over 10 years of intensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Armed with an engineering foundation from <strong>IIT Roorkee</strong> and recognition from the <strong>Institution of Engineers (India)</strong>, he oversees every valuation and statutory certificate with unmatched analytical precision.
+                Mukesh Singh brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a <strong>Chartered Engineer (India) MIE</strong> by the <strong>Institution of Engineers (India)</strong>, he oversees every valuation and statutory certificate with unmatched analytical precision.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginBottom: '28px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0' }}>
-                  <CheckCircle2 size={16} color="#10b981" />
-                  <span>B.Tech Mechanical, IIT Roorkee</span>
-                </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0' }}>
                   <CheckCircle2 size={16} color="#10b981" />
                   <span>Chartered Engineer (India)</span>
@@ -154,7 +150,11 @@ export default function FounderProfile({ onOpenQuote }) {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0' }}>
                   <CheckCircle2 size={16} color="#10b981" />
-                  <span>10+ Yrs Industrial Evaluation</span>
+                  <span>Valuation & Certification Expert</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0' }}>
+                  <CheckCircle2 size={16} color="#10b981" />
+                  <span>Pan-India Practice</span>
                 </div>
               </div>
 

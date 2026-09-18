@@ -22,9 +22,9 @@ export default function WhyChooseUs({ onOpenQuote }) {
     {
       icon: Clock,
       color: "#f59e0b",
-      title: "10+ Years Experience",
-      subtitle: "Industry Proven Track Record",
-      description: "Over a decade of hands-on industrial valuation, plant commissioning, statutory inspections, and techno-commercial risk appraisals."
+      title: "Extensive Industry Experience",
+      subtitle: "Proven Track Record",
+      description: "Deep hands-on industrial experience in technical valuation, plant commissioning, statutory inspections, and techno-commercial risk appraisals across sectors."
     },
     {
       icon: Cpu,

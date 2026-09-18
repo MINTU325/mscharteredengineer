@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { 
   ShieldCheck, 
   Award, 
@@ -8,29 +8,16 @@ import {
   Building2, 
   FileText, 
   Compass, 
-  Zap, 
-  TrendingUp,
   MessageSquare
 } from 'lucide-react';
 
 export default function Hero({ onOpenQuote }) {
-  const [stats, setStats] = useState({
-    completedValuations: "1,200+",
-    dprProjectsFinanced: "₹650+ Cr",
-    solarCeigClearances: "450+ MW",
-    clientSatisfaction: "99.4%"
-  });
-
-  useEffect(() => {
-    fetch('/api/stats')
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.data) {
-          setStats(data.data);
-        }
-      })
-      .catch(() => {});
-  }, []);
+  const credentials = [
+    { label: 'Chartered Engineer', value: 'CEng (India) MIE' },
+    { label: 'Member', value: 'Institution of Engineers (India)' },
+    { label: 'Recognized By', value: 'Govt., Banks & Courts' },
+    { label: 'Practice', value: 'Pan-India' },
+  ];
 
   return (
     <section className="section" style={{ paddingTop: '50px', paddingBottom: '70px', overflow: 'hidden' }}>
@@ -61,7 +48,7 @@ export default function Hero({ onOpenQuote }) {
               marginBottom: '28px',
               maxWidth: '580px'
             }}>
-              Backed by <strong>IIT Roorkee alumni credentials</strong> and the <strong>Institution of Engineers (India)</strong>. We deliver statutory Chartered Engineer certifications, machinery valuations, CEIG solar clearances, and bankable DPRs for business expansion and fundraising.
+              Backed by the <strong>Institution of Engineers (India)</strong> — we deliver statutory Chartered Engineer certifications, machinery valuations, FSSAI compliance advisory, and asset componentization services for commercial &amp; corporate governance obligations.
             </p>
 
             {/* Credential Pills */}
@@ -189,76 +176,28 @@ export default function Hero({ onOpenQuote }) {
                 </div>
               </div>
 
-              {/* 4 Stat Highlights in Grid */}
+              {/* 4 Verified Credential Highlights in Grid */}
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
                 gap: '14px',
                 marginBottom: '28px'
               }}>
-                <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '18px'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#38bdf8', marginBottom: '6px' }}>
-                    <TrendingUp size={18} />
-                    <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Valuations</span>
+                {credentials.map((cred, i) => (
+                  <div key={i} style={{
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '18px'
+                  }}>
+                    <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', color: '#94a3b8', marginBottom: '6px', fontWeight: 600 }}>
+                      {cred.label}
+                    </div>
+                    <div style={{ fontSize: '1rem', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-heading)', lineHeight: 1.3 }}>
+                      {cred.value}
+                    </div>
                   </div>
-                  <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#ffffff', fontFamily: 'var(--font-heading)' }}>
-                    {stats.completedValuations}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Machinery & Asset Audits</div>
-                </div>
-
-                <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '18px'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#f59e0b', marginBottom: '6px' }}>
-                    <FileText size={18} />
-                    <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>DPR Financed</span>
-                  </div>
-                  <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#fbbf24', fontFamily: 'var(--font-heading)' }}>
-                    {stats.dprProjectsFinanced}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Project Loan Reports</div>
-                </div>
-
-                <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '18px'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#10b981', marginBottom: '6px' }}>
-                    <Zap size={18} />
-                    <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Solar CEIG</span>
-                  </div>
-                  <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#34d399', fontFamily: 'var(--font-heading)' }}>
-                    {stats.solarCeigClearances}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Electrical Approvals</div>
-                </div>
-
-                <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '18px'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a78bfa', marginBottom: '6px' }}>
-                    <CheckCircle2 size={18} />
-                    <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Success Rate</span>
-                  </div>
-                  <div style={{ fontSize: '1.65rem', fontWeight: 800, color: '#c4b5fd', fontFamily: 'var(--font-heading)' }}>
-                    {stats.clientSatisfaction}
-                  </div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Statutory Acceptance</div>
-                </div>
+                ))}
               </div>
 
               {/* Quick Inquiry Callout */}
@@ -273,15 +212,15 @@ export default function Hero({ onOpenQuote }) {
                 gap: '12px'
               }}>
                 <div style={{ fontSize: '0.86rem', color: '#e2e8f0' }}>
-                  <strong>Need Fast Turnaround?</strong> <br />
-                  <span style={{ color: '#94a3b8', fontSize: '0.8rem' }}>Express 48-hour inspection & report dispatch.</span>
+                  <strong>Need a Certified Report?</strong> <br />
+                  <span style={{ color: '#94a3b8', fontSize: '0.8rem' }}>Contact us for professional valuation & certification services.</span>
                 </div>
                 <button 
-                  onClick={() => onOpenQuote('Express Valuation')} 
+                  onClick={() => onOpenQuote('Valuation Services')} 
                   className="btn btn-gold" 
                   style={{ padding: '8px 18px', fontSize: '0.85rem' }}
                 >
-                  Book Visit
+                  Enquire Now
                 </button>
               </div>
             </div>
