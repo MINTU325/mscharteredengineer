@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import HeroSlider from './components/HeroSlider';
 import Hero from './components/Hero';
 import Credentials from './components/Credentials';
 import ServicesGrid from './components/ServicesGrid';
@@ -69,6 +70,8 @@ export default function App() {
         />
       ) : (
         <main>
+          {/* ── Advanced Hero Slider (full-width, top of page) ── */}
+          <HeroSlider onOpenQuote={handleOpenQuote} />
           <Hero onOpenQuote={handleOpenQuote} />
           <Credentials />
           <ServicesGrid onOpenQuote={handleOpenQuote} />
