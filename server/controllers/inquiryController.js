@@ -36,6 +36,48 @@ exports.getInquiries = async (req, res) => {
   }
 };
 
+const https = require('https');
+
+// Helper function to send free automated WhatsApp notification to owner (+91 91586 58885)
+const sendWhatsAppAlert = (entry) => {
+  try {
+    const ownerPhone = process.env.WHATSAPP_OWNER_PHONE || "919158658885";
+    const apiKey = process.env.CALLMEBOT_API_KEY; // Optional CallMeBot Free API Key
+
+    const messageText = 
+`🔔 *NEW CLIENT INQUIRY RECEIVED*
+━━━━━━━━━━━━━━━━━━━━━━
+🆔 *Ref ID*: ${entry.id}
+👤 *Name*: ${entry.name}
+🏢 *Company*: ${entry.company}
+📞 *Phone*: ${entry.phone}
+📧 *Email*: ${entry.email}
+🛠️ *Service*: ${entry.service}
+📌 *Scope*: ${entry.subCategory}
+📍 *Location*: ${entry.location}
+💰 *Asset Scale*: ${entry.estimatedAssetValue}
+⏱️ *Urgency*: ${entry.urgency}
+📝 *Project Notes*: ${entry.projectScope}
+━━━━━━━━━━━━━━━━━━━━━━
+🌐 *MS Chartered Engineers Portal Alert*`;
+
+    // If CallMeBot API key is present, trigger automatic background HTTP GET dispatch
+    if (apiKey) {
+      const encodedText = encodeURIComponent(messageText);
+      const url = `https://api.callmebot.com/whatsapp.php?phone=${ownerPhone}&text=${encodedText}&apikey=${apiKey}`;
+      https.get(url, (res) => {
+        console.log(`[WhatsApp Alert] Dispatched for ${entry.id}`);
+      }).on('error', (err) => {
+        console.error('[WhatsApp Alert Error]:', err.message);
+      });
+    } else {
+      console.log(`[WhatsApp Alert Prepared for ${ownerPhone}]:\n${messageText}`);
+    }
+  } catch (err) {
+    console.error('Error preparing WhatsApp alert:', err);
+  }
+};
+
 // Create new inquiry / consultation request
 exports.createInquiry = async (req, res) => {
   try {
@@ -60,6 +102,9 @@ exports.createInquiry = async (req, res) => {
       estimatedAssetValue: estimatedAssetValue || 'Under Assessment',
       urgency: urgency || 'Standard (1-2 Weeks)'
     });
+
+    // Trigger instant WhatsApp notification to +91 91586 58885
+    sendWhatsAppAlert(newEntry);
 
     return res.status(201).json({
       success: true,
