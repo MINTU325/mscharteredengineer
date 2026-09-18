@@ -504,6 +504,12 @@ button, input, select, textarea {
   outline: none;
 }
 
+select.form-control option,
+select option {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
 .form-control:focus {
   border-color: var(--primary-light);
   background: rgba(255, 255, 255, 0.08);
