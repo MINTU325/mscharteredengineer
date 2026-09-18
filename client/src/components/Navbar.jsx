@@ -46,14 +46,21 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
         <div className="navbar-inner">
           {/* Brand Identity */}
           <a href="#" className="brand-logo">
-            <div className="gear-icon-wrapper">
-              <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="spin-slow">
-                <path d="M50 15L56 22H68V34L75 40L68 46V58H56L50 65L44 58H32V46L25 40L32 34V22H44L50 15Z" fill="#3b82f6" opacity="0.3"/>
-                <circle cx="50" cy="50" r="38" stroke="#38bdf8" strokeWidth="6" strokeDasharray="6 4" />
-                <circle cx="50" cy="50" r="22" fill="#185adb" />
-                <path d="M50 36V64M36 50H64" stroke="#ffffff" strokeWidth="4" strokeLinecap="round" />
+            <div className="gear-icon-wrapper" style={{ background: 'transparent', border: 'none' }}>
+              <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 50,4
+                         L 56,15 A 32,32 0 0,1 67,19 L 77,10
+                         L 86,19 L 77,29 A 32,32 0 0,1 81,40 L 92,44
+                         L 92,56 L 81,60 A 32,32 0 0,1 77,71 L 86,81
+                         L 77,90 L 67,81 A 32,32 0 0,1 56,85 L 50,96
+                         L 40,96 L 44,85 A 32,32 0 0,1 33,81 L 23,90
+                         L 14,81 L 23,71 A 32,32 0 0,1 19,60 L 8,56
+                         L 8,44 L 19,40 A 32,32 0 0,1 23,29 L 14,19
+                         L 23,10 L 33,19 A 32,32 0 0,1 44,15 L 40,4
+                         Z" fill="#0A3C6E" />
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#FFFFFF" strokeWidth="5" />
+                <text x="50" y="63" fontFamily="Arial, Helvetica, sans-serif" fontWeight="900" fontSize="36" fill="#FFFFFF" textAnchor="middle">MS</text>
               </svg>
-              <span style={{ position: 'absolute', fontSize: '10px', fontWeight: '800', letterSpacing: '0.5px' }}>MS</span>
             </div>
             <div>
               <div className="brand-title">MS CHARTERED <span>ENGINEERS</span></div>

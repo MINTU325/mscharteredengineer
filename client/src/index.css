@@ -311,14 +311,10 @@ button, input, select, textarea {
 .gear-icon-wrapper {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #185adb, #0b1b3d);
-  border: 1px solid rgba(59, 130, 246, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  box-shadow: 0 0 15px rgba(24, 90, 219, 0.4);
   position: relative;
   flex-shrink: 0;
 }
