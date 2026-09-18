@@ -319,6 +319,16 @@ button, input, select, textarea {
   flex-shrink: 0;
 }
 
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-ring {
+  transform-origin: 50px 50px;
+  animation: spinRing 6s linear infinite;
+}
+
 .brand-title {
   font-size: 1.12rem;
   font-weight: 800;

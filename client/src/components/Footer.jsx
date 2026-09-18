@@ -37,7 +37,7 @@ export default function Footer({ onOpenQuote }) {
                            L 8,44 L 19,40 A 32,32 0 0,1 23,29 L 14,19
                            L 23,10 L 33,19 A 32,32 0 0,1 44,15 L 40,4
                            Z" fill="#0A3C6E" />
-                  <circle cx="50" cy="50" r="28" fill="none" stroke="#FFFFFF" strokeWidth="5" />
+                  <circle className="spin-ring" cx="50" cy="50" r="28" fill="none" stroke="#FFFFFF" strokeWidth="5" strokeDasharray="145 30" strokeLinecap="round" />
                   <text x="50" y="63" fontFamily="Arial, Helvetica, sans-serif" fontWeight="900" fontSize="36" fill="#FFFFFF" textAnchor="middle">MS</text>
                 </svg>
               </div>
