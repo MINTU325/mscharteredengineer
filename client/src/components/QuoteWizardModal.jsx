@@ -12,8 +12,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
     company: '',
     phone: '',
     email: '',
-    service: initialService || 'Valuation Services',
-    subCategory: 'Machinery Valuation & Certification',
+    service: initialService || 'Assets Valuation Services',
+    subCategory: 'Banking & Lending Valuation',
     location: 'Jaipur, Rajasthan',
     estimatedAssetValue: '₹50 Lakhs - ₹2 Crores',
     urgency: 'Immediate (Within 3-5 Days)',
@@ -59,12 +59,66 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
   };
 
   const serviceOptions = [
-    { name: "Engineering Certification", sub: ["Mechanical Works Certification", "Machinery Installation / Nexus Certificate", "Second-Hand Machinery Import Certificate", "Customs / DGFT Endorsement"] },
-    { name: "Valuation Services", sub: ["New & Old Machinery Valuation", "Asset Valuation & Balance Sheet Certification", "Remaining Useful Life (RUL) Assessment", "Valuation for Bank Hypothecation / CC Limit"] },
-    { name: "Project Consultancy & DPR", sub: ["Detailed Project Report (DPR) Preparation", "Bank Loan Viability & Cash Flow Modeling", "Site Inspection & Techno-Economic Viability", "EPR Advisory & Plastic Waste Compliance"] },
-    { name: "Structural & Industrial Services", sub: ["Factory & Warehouse Structural Stability Certificate", "Plant Safety & Heavy Equipment Foundation Audit", "Plant Capacity & Utilization Certification", "Factory Act Compliance Support"] },
-    { name: "Energy & Environmental Services", sub: ["CEIG Certificate for Solar Power Projects", "Electrical SLD Stamping & MEP Review", "Rain Water Harvesting Engineering Design", "Environmental Audit & Green Energy Advisory"] },
-    { name: "Regulatory & Business Support", sub: ["EPCG / Advance Authorization Stamped Certificate", "Company Registration / GST Statutory Filings", "China Visa Consultation & Liaison", "Technical Language Translation Services"] }
+    { 
+      name: "Assets Valuation Services", 
+      sub: [
+        "Banking & Lending Valuation", 
+        "Insurance (Reinstatement) Valuation", 
+        "Stamp Duty Valuation", 
+        "Financial Reporting / IndAS 16", 
+        "Sale / Purchase of Asset", 
+        "Leasing / Renting of Assets", 
+        "Asset Retirement & Disposal", 
+        "Litigation & Dispute Resolution", 
+        "Impairment Study (Ind AS, IFRS)", 
+        "Insolvency & Bankruptcy Valuation", 
+        "Liquidation (Orderly/Forced)", 
+        "Balance Useful Life Calculation", 
+        "Mergers and Acquisitions", 
+        "Taxation and Regulations (CBDT)"
+      ] 
+    },
+    { 
+      name: "Chartered Engineer Services", 
+      sub: [
+        "DGFT Declarations / Compliances", 
+        "CBIC / Customs Declarations", 
+        "MoFPI Declarations / Compliances", 
+        "MoEF (e-waste, CDM) Declarations", 
+        "GAIL Verification/Credentials", 
+        "MSME Grant-in-Aid/Incentives", 
+        "MiETY (EHTP/STP/M-SIP) Declarations", 
+        "Ministry of Textiles (ITP/NHDP)", 
+        "MoCA (Useful Life of Assets)", 
+        "MoCI (APEDA/EOU Scheme)", 
+        "MoST (Bio Technology Park)", 
+        "Remaining Life Assessment (RLA)", 
+        "Equipment Efficiency & Tool Life"
+      ] 
+    },
+    { 
+      name: "FSSAI Compliance Services", 
+      sub: [
+        "New Registration / State / Central License", 
+        "Renewal of License / Registration", 
+        "Modifications in License", 
+        "Filing Annual Returns / Declarations", 
+        "Appeal for Revocation of Suspension", 
+        "FBO Training by FSSAI Trainers", 
+        "Hygiene Auditing by FSSAI Auditors", 
+        "Mock Surveys of Facility/Unit"
+      ] 
+    },
+    { 
+      name: "Advisory Services", 
+      sub: [
+        "Asset Componentization Analysis", 
+        "Equipment Effectiveness Analysis", 
+        "Measurement System Analysis (MSA)", 
+        "Machine Capability Analysis", 
+        "Process Capability Analysis"
+      ] 
+    }
   ];
 
   const currentSubs = serviceOptions.find(s => s.name === formData.service)?.sub || [];
