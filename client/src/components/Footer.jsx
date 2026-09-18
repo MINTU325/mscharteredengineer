@@ -52,7 +52,7 @@ export default function Footer({ onOpenQuote }) {
               borderRadius: 'var(--radius-sm)',
               color: '#fbbf24',
               fontSize: '0.78rem'
-            }}
+            }}>
               <Award size={14} />
               <span>CEng (India) MIE — Institution of Engineers (India)</span>
             </div>
