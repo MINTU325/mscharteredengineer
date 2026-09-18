@@ -17,14 +17,14 @@ import { MessageSquare, PhoneCall } from 'lucide-react';
 
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState('Valuation Services');
+  const [selectedService, setSelectedService] = useState('Assets Valuation Services');
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(() => {
     return sessionStorage.getItem('ms_admin_auth') === 'true';
   });
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const handleOpenQuote = (serviceName = 'Valuation Services') => {
+  const handleOpenQuote = (serviceName = 'Assets Valuation Services') => {
     setSelectedService(serviceName);
     setIsQuoteOpen(true);
   };

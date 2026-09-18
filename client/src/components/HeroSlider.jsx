@@ -13,7 +13,7 @@ const SLIDES = [
     tag: 'CERTIFIED VALUATION EXPERT',
     accent: 'gold',
     cta: 'Request Valuation Report',
-    ctaService: 'Valuation Services',
+    ctaService: 'Assets Valuation Services',
     stats: [
       { value: 'Banks', label: 'Empanelled' },
       { value: 'IBBI', label: 'Valuation Standards' },
@@ -32,7 +32,7 @@ const SLIDES = [
     tag: 'INSTITUTION OF ENGINEERS (INDIA)',
     accent: 'cyan',
     cta: 'Request Certification',
-    ctaService: 'Engineering Certification',
+    ctaService: 'Chartered Engineer Services',
     stats: [
       { value: 'IEI', label: 'Corporate Member' },
       { value: 'Govt.', label: 'Recognized Body' },

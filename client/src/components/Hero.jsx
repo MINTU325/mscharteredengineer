@@ -216,7 +216,7 @@ export default function Hero({ onOpenQuote }) {
                   <span style={{ color: '#94a3b8', fontSize: '0.8rem' }}>Contact us for professional valuation & certification services.</span>
                 </div>
                 <button 
-                  onClick={() => onOpenQuote('Valuation Services')} 
+                  onClick={() => onOpenQuote('Assets Valuation Services')} 
                   className="btn btn-gold" 
                   style={{ padding: '8px 18px', fontSize: '0.85rem' }}
                 >
