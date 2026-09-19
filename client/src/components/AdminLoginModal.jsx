@@ -145,22 +145,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
             </div>
           </div>
 
-          {/* Hint for the owner */}
-          <div style={{
-            background: 'rgba(255, 255, 255, 0.03)',
-            border: '1px dashed rgba(255, 255, 255, 0.12)',
-            borderRadius: 'var(--radius-sm)',
-            padding: '8px 12px',
-            fontSize: '0.78rem',
-            color: '#cbd5e1',
-            marginBottom: '22px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}>
-            <span>Default Passkey:</span>
-            <code style={{ color: '#fbbf24', fontWeight: 600, fontFamily: 'var(--font-mono)' }}>ms@admin2026</code>
-          </div>
+
 
           <button
             type="submit"
