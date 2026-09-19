@@ -59,65 +59,65 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
   };
 
   const serviceOptions = [
-    { 
-      name: "Assets Valuation Services", 
+    {
+      name: "Assets Valuation Services",
       sub: [
-        "Banking & Lending Valuation", 
-        "Insurance (Reinstatement) Valuation", 
-        "Stamp Duty Valuation", 
-        "Financial Reporting / IndAS 16", 
-        "Sale / Purchase of Asset", 
-        "Leasing / Renting of Assets", 
-        "Asset Retirement & Disposal", 
-        "Litigation & Dispute Resolution", 
-        "Impairment Study (Ind AS, IFRS)", 
-        "Insolvency & Bankruptcy Valuation", 
-        "Liquidation (Orderly/Forced)", 
-        "Balance Useful Life Calculation", 
-        "Mergers and Acquisitions", 
+        "Banking & Lending Valuation",
+        "Insurance (Reinstatement) Valuation",
+        "Stamp Duty Valuation",
+        "Financial Reporting / IndAS 16",
+        "Sale / Purchase of Asset",
+        "Leasing / Renting of Assets",
+        "Asset Retirement & Disposal",
+        "Litigation & Dispute Resolution",
+        "Impairment Study (Ind AS, IFRS)",
+        "Insolvency & Bankruptcy Valuation",
+        "Liquidation (Orderly/Forced)",
+        "Balance Useful Life Calculation",
+        "Mergers and Acquisitions",
         "Taxation and Regulations (CBDT)"
-      ] 
+      ]
     },
-    { 
-      name: "Chartered Engineer Services", 
+    {
+      name: "Chartered Engineer Services",
       sub: [
-        "DGFT Declarations / Compliances", 
-        "CBIC / Customs Declarations", 
-        "MoFPI Declarations / Compliances", 
-        "MoEF (e-waste, CDM) Declarations", 
-        "GAIL Verification/Credentials", 
-        "MSME Grant-in-Aid/Incentives", 
-        "MiETY (EHTP/STP/M-SIP) Declarations", 
-        "Ministry of Textiles (ITP/NHDP)", 
-        "MoCA (Useful Life of Assets)", 
-        "MoCI (APEDA/EOU Scheme)", 
-        "MoST (Bio Technology Park)", 
-        "Remaining Life Assessment (RLA)", 
+        "DGFT Declarations / Compliances",
+        "CBIC / Customs Declarations",
+        "MoFPI Declarations / Compliances",
+        "MoEF (e-waste, CDM) Declarations",
+        "GAIL Verification/Credentials",
+        "MSME Grant-in-Aid/Incentives",
+        "MiETY (EHTP/STP/M-SIP) Declarations",
+        "Ministry of Textiles (ITP/NHDP)",
+        "MoCA (Useful Life of Assets)",
+        "MoCI (APEDA/EOU Scheme)",
+        "MoST (Bio Technology Park)",
+        "Remaining Life Assessment (RLA)",
         "Equipment Efficiency & Tool Life"
-      ] 
+      ]
     },
-    { 
-      name: "FSSAI Compliance Services", 
+    {
+      name: "FSSAI Compliance Services",
       sub: [
-        "New Registration / State / Central License", 
-        "Renewal of License / Registration", 
-        "Modifications in License", 
-        "Filing Annual Returns / Declarations", 
-        "Appeal for Revocation of Suspension", 
-        "FBO Training by FSSAI Trainers", 
-        "Hygiene Auditing by FSSAI Auditors", 
+        "New Registration / State / Central License",
+        "Renewal of License / Registration",
+        "Modifications in License",
+        "Filing Annual Returns / Declarations",
+        "Appeal for Revocation of Suspension",
+        "FBO Training by FSSAI Trainers",
+        "Hygiene Auditing by FSSAI Auditors",
         "Mock Surveys of Facility/Unit"
-      ] 
+      ]
     },
-    { 
-      name: "Advisory Services", 
+    {
+      name: "Advisory Services",
       sub: [
-        "Asset Componentization Analysis", 
-        "Equipment Effectiveness Analysis", 
-        "Measurement System Analysis (MSA)", 
-        "Machine Capability Analysis", 
+        "Asset Componentization Analysis",
+        "Equipment Effectiveness Analysis",
+        "Measurement System Analysis (MSA)",
+        "Machine Capability Analysis",
         "Process Capability Analysis"
-      ] 
+      ]
     }
   ];
 
@@ -144,7 +144,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
               {step === 2 && "Project Location & Asset Scale"}
               {step === 3 && "Contact Details & Submission"}
             </h3>
-            
+
             {/* Progress bar */}
             <div style={{
               width: '100%',
@@ -183,7 +183,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
           <div>
             <div className="form-group">
               <label className="form-label">Select Core Service Pillar</label>
-              <select 
+              <select
                 className="form-control"
                 value={formData.service}
                 onChange={(e) => {
@@ -204,7 +204,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
 
             <div className="form-group">
               <label className="form-label">Sub-Category / Scope of Work</label>
-              <select 
+              <select
                 className="form-control"
                 value={formData.subCategory}
                 onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
@@ -217,7 +217,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
 
             <div className="form-group">
               <label className="form-label">Brief Description of Requirement</label>
-              <textarea 
+              <textarea
                 className="form-control"
                 rows="3"
                 value={formData.projectScope}
@@ -227,8 +227,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '24px' }}>
-              <button 
-                onClick={() => setStep(2)} 
+              <button
+                onClick={() => setStep(2)}
                 className="btn btn-primary"
                 style={{ padding: '12px 28px' }}
               >
@@ -244,8 +244,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
           <div>
             <div className="form-group">
               <label className="form-label">Plant / Site Location (City, State)</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 className="form-control"
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
@@ -256,7 +256,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
 
             <div className="form-group">
               <label className="form-label">Approximate Asset / Project Investment Scale</label>
-              <select 
+              <select
                 className="form-control"
                 value={formData.estimatedAssetValue}
                 onChange={(e) => setFormData({ ...formData, estimatedAssetValue: e.target.value })}
@@ -271,7 +271,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
 
             <div className="form-group">
               <label className="form-label">Timeline / Urgency</label>
-              <select 
+              <select
                 className="form-control"
                 value={formData.urgency}
                 onChange={(e) => setFormData({ ...formData, urgency: e.target.value })}
@@ -283,8 +283,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px' }}>
-              <button 
-                onClick={() => setStep(1)} 
+              <button
+                onClick={() => setStep(1)}
                 className="btn btn-outline"
                 style={{ padding: '12px 22px' }}
               >
@@ -292,8 +292,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
                 <span>Back</span>
               </button>
 
-              <button 
-                onClick={() => setStep(3)} 
+              <button
+                onClick={() => setStep(3)}
                 className="btn btn-primary"
                 style={{ padding: '12px 28px' }}
               >
@@ -309,8 +309,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label className="form-label">Full Name *</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 className="form-control"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -321,8 +321,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
 
             <div className="form-group">
               <label className="form-label">Company / Firm Name</label>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 className="form-control"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -333,8 +333,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
             <div className="form-row-2col">
               <div className="form-group">
                 <label className="form-label">Phone Number *</label>
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   className="form-control"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -345,8 +345,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
 
               <div className="form-group">
                 <label className="form-label">Email Address</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   className="form-control"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -356,9 +356,9 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px' }}>
-              <button 
+              <button
                 type="button"
-                onClick={() => setStep(2)} 
+                onClick={() => setStep(2)}
                 className="btn btn-outline"
                 style={{ padding: '12px 22px' }}
               >
@@ -366,8 +366,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
                 <span>Back</span>
               </button>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={loading}
                 className="btn btn-gold"
                 style={{ padding: '12px 32px' }}
@@ -424,7 +424,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
-              <a 
+              <a
                 href={`https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20have%20submitted%20inquiry%20${submittedData?.inquiryId}%20for%20${encodeURIComponent(formData.service)}.`}
                 target="_blank"
                 rel="noreferrer"
@@ -435,7 +435,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService }) {
                 <span>Instant WhatsApp Connect</span>
               </a>
 
-              <button 
+              <button
                 onClick={onClose}
                 className="btn btn-outline"
                 style={{ padding: '12px 24px' }}
