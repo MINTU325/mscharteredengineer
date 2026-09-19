@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowRight, Phone } from 'lucide-react';
 const SLIDES = [
   {
     id: 1,
-    image: '/slides/slide1.jpg',
+    image: '/slides/slide1.webp',
     badge: '🏆 IEI Recognized | Government Approved Valuer',
     title: 'Assets',
     titleHighlight: 'Valuation Services',
@@ -23,7 +23,7 @@ const SLIDES = [
   },
   {
     id: 2,
-    image: '/slides/slide2.jpg',
+    image: '/slides/slide2.webp',
     badge: '📋 IEI Chartered Engineer (India) — CEng (INDIA) MIE',
     title: 'Chartered',
     titleHighlight: 'Engineer Services',
@@ -42,7 +42,7 @@ const SLIDES = [
   },
   {
     id: 3,
-    image: '/slides/slide3.jpg',
+    image: '/slides/slide3.webp',
     badge: '🍽️ FSSAI Expert Consultants | Food Business Advisory',
     title: 'FSSAI',
     titleHighlight: 'Compliance Services',
@@ -61,7 +61,7 @@ const SLIDES = [
   },
   {
     id: 4,
-    image: '/slides/slide4.jpg',
+    image: '/slides/slide4.webp',
     badge: '📊 Strategic Business & Asset Advisory',
     title: 'Other Advisory',
     titleHighlight: 'Services',
@@ -173,14 +173,17 @@ export default function HeroSlider({ onOpenQuote }) {
     >
       {/* ── Background Images ── */}
       {SLIDES.map((s, i) => (
-        <div
+        <img
           key={s.id}
+          src={s.image}
+          alt={`MS Chartered Engineers Service ${i + 1}`}
+          loading={i === 0 ? "eager" : "lazy"}
+          fetchpriority={i === 0 ? "high" : "auto"}
           className={`hs-bg ${i === current ? 'hs-bg--active' : ''} ${
             animating && i === current
               ? direction === 'next' ? 'hs-bg--enter-next' : 'hs-bg--enter-prev'
               : ''
           }`}
-          style={{ backgroundImage: `url(${s.image})` }}
           aria-hidden={i !== current}
         />
       ))}
