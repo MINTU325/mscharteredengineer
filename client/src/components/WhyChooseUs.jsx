@@ -57,7 +57,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
   ];
 
   return (
-    <section className="section" style={{ background: 'rgba(11, 23, 54, 0.4)' }}>
+    <section id="why-us" className="section" style={{ background: 'rgba(11, 23, 54, 0.4)' }}>
       <div className="container">
         <div className="section-header">
           <div className="section-badge gold">

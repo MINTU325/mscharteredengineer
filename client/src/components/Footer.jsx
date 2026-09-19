@@ -122,30 +122,47 @@ export default function Footer({ onOpenQuote }) {
               Jaipur Headquarters
             </h4>
             
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.88rem' }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+            <address
+              itemScope
+              itemType="https://schema.org/LocalBusiness"
+              style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.88rem' }}
+            >
+              <meta itemProp="name" content="MS Chartered Engineers, Valuers & Technical Consultancy Services" />
+              <meta itemProp="url" content="https://www.mscharteredengineer.com/" />
+              <div
+                itemProp="address"
+                itemScope
+                itemType="https://schema.org/PostalAddress"
+                style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}
+              >
                 <MapPin size={18} color="#f59e0b" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span>Jaipur, RAJASTHAN - 302019, India</span>
+                <span>
+                  <span itemProp="addressLocality">Jaipur</span>,{' '}
+                  <span itemProp="addressRegion">RAJASTHAN</span> -{' '}
+                  <span itemProp="postalCode">302019</span>,{' '}
+                  <span itemProp="addressCountry">India</span>
+                </span>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Phone size={18} color="#10b981" style={{ flexShrink: 0 }} />
-                <a href="tel:+919158658885" style={{ color: '#ffffff', fontWeight: 600 }}>+91 91586 58885</a>
+                <a href="tel:+919158658885" itemProp="telephone" style={{ color: '#ffffff', fontWeight: 600 }}>+91 91586 58885</a>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Mail size={18} color="#38bdf8" style={{ flexShrink: 0 }} />
-                <a href="mailto:ms.charteredengineer@gmail.com" style={{ color: '#cbd5e1' }}>ms.charteredengineer@gmail.com</a>
+                <a href="mailto:ms.charteredengineer@gmail.com" itemProp="email" style={{ color: '#cbd5e1' }}>ms.charteredengineer@gmail.com</a>
               </div>
 
               <button 
                 onClick={() => onOpenQuote()}
                 className="btn btn-gold"
                 style={{ padding: '8px 16px', fontSize: '0.82rem', marginTop: '6px' }}
+                aria-label="Book a Chartered Engineer Visit"
               >
                 Book Chartered Engineer Visit
               </button>
-            </div>
+            </address>
           </div>
         </div>
 

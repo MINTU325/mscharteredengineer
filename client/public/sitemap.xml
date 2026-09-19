@@ -4,12 +4,20 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Homepage - Highest Priority -->
+  <!-- Homepage — Highest Priority -->
   <url>
     <loc>https://www.mscharteredengineer.com/</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Hero / Home Section -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/#home</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- Services Section -->
@@ -44,12 +52,12 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- CEIG Solar Checker / Compliance -->
+  <!-- Credentials Section -->
   <url>
-    <loc>https://www.mscharteredengineer.com/#solar-checker</loc>
+    <loc>https://www.mscharteredengineer.com/#credentials</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Valuation Calculator Tool -->
@@ -60,9 +68,17 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Credentials / About -->
+  <!-- CEIG Solar Checker -->
   <url>
-    <loc>https://www.mscharteredengineer.com/#credentials</loc>
+    <loc>https://www.mscharteredengineer.com/#solar-checker</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Why Choose Us -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/#why-us</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -76,12 +92,12 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Contact Section -->
+  <!-- Contact / Pan India Presence -->
   <url>
     <loc>https://www.mscharteredengineer.com/#contact</loc>
     <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

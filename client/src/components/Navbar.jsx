@@ -45,7 +45,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
       <div className="container">
         <div className="navbar-inner">
           {/* Brand Identity */}
-          <a href="#" className="brand-logo">
+          <a href="/" className="brand-logo" aria-label="MS Chartered Engineers – Homepage">
             <div className="gear-icon-wrapper" style={{ background: 'transparent', border: 'none' }}>
               <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>

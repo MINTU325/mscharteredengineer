@@ -124,6 +124,7 @@ export default function App() {
           cursor: 'pointer'
         }}
         title="Chat on WhatsApp (+91 91586 58885)"
+        aria-label="Chat on WhatsApp with MS Chartered Engineers"
         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
       >

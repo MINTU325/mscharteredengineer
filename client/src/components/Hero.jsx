@@ -20,7 +20,7 @@ export default function Hero({ onOpenQuote }) {
   ];
 
   return (
-    <section className="section" style={{ paddingTop: '50px', paddingBottom: '70px', overflow: 'hidden' }}>
+    <section id="home" className="section" style={{ paddingTop: '50px', paddingBottom: '70px', overflow: 'hidden' }} aria-label="MS Chartered Engineers Homepage">
       <div className="container">
         <div className="hero-grid">
           {/* Left Column: Heading & Authority */}
@@ -130,6 +130,7 @@ export default function Hero({ onOpenQuote }) {
                 rel="noreferrer"
                 className="btn btn-whatsapp"
                 style={{ padding: '14px 22px', fontSize: '0.92rem' }}
+                aria-label="Chat on WhatsApp with MS Chartered Engineers"
               >
                 <MessageSquare size={18} />
                 <span>WhatsApp Us</span>
@@ -230,3 +231,4 @@ export default function Hero({ onOpenQuote }) {
     </section>
   );
 }
+
