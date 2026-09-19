@@ -194,6 +194,7 @@ export default function ServicesGrid({ onOpenQuote }) {
             return (
               <div
                 key={service.id}
+                id={service.code}
                 className="glass-card"
                 style={{
                   display: 'flex',

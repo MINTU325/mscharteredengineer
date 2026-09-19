@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin
 
+# Block crawling of hash-only URLs that aren't useful
+Crawl-delay: 5
+
+# XML Sitemap location
 Sitemap: https://www.mscharteredengineer.com/sitemap.xml
