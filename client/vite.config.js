@@ -12,5 +12,22 @@ export default defineConfig({
         secure: false
       }
     }
+  },
+  build: {
+    // Minification — esbuild is faster and produces smaller output
+    minify: 'esbuild',
+    cssMinify: true,
+    // Reduce chunk size warnings threshold
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        // Split vendor chunks for better caching & parallel loading
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'icons': ['lucide-react'],
+        }
+      }
+    }
   }
 });
+

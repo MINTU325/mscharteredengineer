@@ -206,13 +206,13 @@ export default function HeroSlider({ onOpenQuote }) {
             {slide.badge}
           </div>
 
-          {/* Title */}
-          <h1 className={`hs-title ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.08s' }}>
+          {/* Title — h2 here; canonical H1 is in the Hero section below */}
+          <h2 className={`hs-title ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.08s' }}>
             {slide.title}{' '}
             <span className="hs-title-hl" style={{ color: color.light, textShadow: `0 0 40px ${color.glow}` }}>
               {slide.titleHighlight}
             </span>
-          </h1>
+          </h2>
 
           {/* Subtitle */}
           <p className={`hs-subtitle ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.16s' }}>
