@@ -250,6 +250,22 @@ button, input, select, textarea {
   transform: translateY(-2px);
 }
 
+.ceig-submit-btn {
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1;
+  font-size: 0.85rem !important;
+  padding: 0 14px !important;
+  gap: 6px !important;
+}
+
+@media (max-width: 480px) {
+  .ceig-submit-btn {
+    font-size: 0.78rem !important;
+    padding: 0 10px !important;
+  }
+}
+
 /* Header & Navigation */
 .header-wrapper {
   position: sticky;

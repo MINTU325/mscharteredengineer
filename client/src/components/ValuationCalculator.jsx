@@ -86,6 +86,26 @@ export default function ValuationCalculator({ onOpenQuote }) {
     }
   };
 
+  const handleGetStampedReport = () => {
+    if (!result) return;
+    onOpenQuote('Assets Valuation Services', {
+      isValuationReport: true,
+      subCategory: 'Official Stamped Machinery Valuation Report',
+      assetType: formData.assetType,
+      originalCost: formData.originalCost,
+      assetAgeYears: formData.assetAgeYears,
+      expectedTotalLifeYears: formData.expectedTotalLifeYears,
+      maintenanceCondition: formData.maintenanceCondition,
+      usageIntensity: formData.usageIntensity,
+      estimatedRUL: result.estimatedRUL,
+      fairMarketValueRange: result.fairMarketValueRange?.display,
+      wdvDepreciatedValue: result.wdvDepreciatedValue,
+      slmDepreciatedValue: result.slmDepreciatedValue,
+      recommendedAction: result.recommendedAction,
+      estimatedAssetValue: result.fairMarketValueRange?.display || `₹ ${parseFloat(formData.originalCost || 0).toLocaleString('en-IN')}`
+    });
+  };
+
   // Run initial calculation once
   React.useEffect(() => {
     setResult(calculateLocally(formData));
@@ -312,7 +332,7 @@ export default function ValuationCalculator({ onOpenQuote }) {
 
               {/* Action Button */}
               <button 
-                onClick={() => onOpenQuote('Official Machinery Valuation Certificate')}
+                onClick={handleGetStampedReport}
                 className="btn btn-gold"
                 style={{ width: '100%', padding: '14px', fontSize: '0.96rem' }}
               >

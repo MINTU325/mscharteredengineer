@@ -256,6 +256,23 @@ export default function AdminDashboard({ onClose, onLogout }) {
                           <Building size={14} /> {inq.company}
                         </span>
                       )}
+
+                      {(inq.subCategory?.includes('Valuation Report') || inq.projectScope?.includes('STAMPED VALUATION REPORT')) && (
+                        <span style={{
+                          fontSize: '0.74rem',
+                          fontWeight: 700,
+                          padding: '3px 10px',
+                          background: 'rgba(245, 158, 11, 0.2)',
+                          border: '1px solid rgba(245, 158, 11, 0.4)',
+                          borderRadius: 'var(--radius-full)',
+                          color: '#fbbf24',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '5px'
+                        }}>
+                          ⭐ Stamped Valuation Report Lead
+                        </span>
+                      )}
                     </div>
 
                     <div style={{ fontSize: '0.85rem', color: 'var(--accent-gold)', marginTop: '4px', fontWeight: 600 }}>
@@ -296,17 +313,19 @@ export default function AdminDashboard({ onClose, onLogout }) {
                 </div>
 
                 {/* Scope & Details */}
-                <p style={{
-                  fontSize: '0.9rem',
+                <div style={{
+                  fontSize: '0.88rem',
                   color: '#e2e8f0',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  padding: '12px 16px',
+                  background: 'rgba(255, 255, 255, 0.03)',
+                  border: '1px solid rgba(255, 255, 255, 0.07)',
+                  padding: '14px 18px',
                   borderRadius: 'var(--radius-sm)',
                   marginBottom: '16px',
-                  lineHeight: 1.5
+                  lineHeight: 1.6,
+                  whiteSpace: 'pre-line'
                 }}>
                   {inq.projectScope}
-                </p>
+                </div>
 
                 {/* Footer metadata & direct contact triggers */}
                 <div style={{

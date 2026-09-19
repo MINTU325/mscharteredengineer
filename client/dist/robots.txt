@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin
+
+
+# XML Sitemap location
+Sitemap: https://www.mscharteredengineer.com/sitemap.xml

@@ -75,48 +75,74 @@ exports.calculateValuationEstimate = (req, res) => {
 
 exports.checkCeigReadiness = (req, res) => {
   try {
-    const { plantCapacityKw, installationType, connectionVoltage, hasSingleLineDiagram } = req.body;
+    const { plantCapacityKw, installationType, connectionVoltage } = req.body;
     const capacity = parseFloat(plantCapacityKw) || 0;
-
-    let approvalCategory = '';
-    let requiredCertificates = [];
-    let processingTimeline = '';
 
     if (capacity <= 0) {
       return res.status(400).json({ success: false, message: 'Please provide valid plant capacity in kW.' });
     }
 
+    let approvalCategory = '';
+    let ceigRequirement = '';
+    let ceCertRequired = '';
+    let requiredCertificates = [];
+    let processingTimeline = '';
+    let feesEstimate = '';
+
     if (capacity <= 10) {
-      approvalCategory = 'Low Voltage Rooftop Solar (Self-Certification / DISCOM Exemption tier)';
-      requiredCertificates = ['DISCOM Work Completion Report', 'Vendor Net-Metering Testing Certificate'];
-      processingTimeline = '3 - 7 Working Days';
-    } else if (capacity <= 100) {
-      approvalCategory = 'Medium Commercial/Industrial Solar (Mandatory CEIG Safety Inspection Tier)';
+      approvalCategory = 'Low Voltage Micro Solar (Up to 10 kW)';
+      ceigRequirement = 'Exempt from physical CEIG officer site inspection in most Indian states (DISCOM self-certification tier under MNRE & CEA Safety Amendment Regulations). Clearance handled via DISCOM field engineer verification.';
+      ceCertRequired = 'Chartered Engineer roof structural stability undertaking recommended for industrial/commercial sheds and wind-load resistance certification.';
       requiredCertificates = [
-        'CEIG Safety Approval Certificate (Chief Electrical Inspectorate to Govt)',
-        'Approved Electrical Single Line Diagram (SLD) stamped by Chartered Engineer',
-        'Earthing & Earth Resistance Test Reports',
-        'Lightning Arrestor (LA) Coverage Verification Report'
+        'DISCOM Approved Net-Metering Single Line Diagram (SLD)',
+        'Earthing Pit Resistance Megger Report (< 5 Ohms for AC/DC equipment)',
+        'Inverter Type Test Certificate & Anti-Islanding Compliance (IEC 62116 / IS 16221)',
+        'Factory Roof Structural Stability Undertaking from Chartered Engineer'
+      ];
+      processingTimeline = '3 - 7 Working Days';
+      feesEstimate = 'Nominal DISCOM Net-Metering Application & Meter Testing Fee (~₹1,500 - ₹3,000)';
+    } else if (capacity <= 100) {
+      approvalCategory = 'Commercial & Industrial Solar (11 kW to 100 kW)';
+      ceigRequirement = 'Mandatory electrical drawing approval (SLD) & statutory CEIG electrical safety clearance under CEA Regulation 43 prior to DISCOM net-meter synchronization.';
+      ceCertRequired = 'Mandatory Chartered Engineer Stamped Electrical Single Line Diagram (SLD) with cable ampacity, switchgear ratings, and Structural Wind Load Stability Certificate (IS 875 Part 3).';
+      requiredCertificates = [
+        'Chartered Engineer Stamped Electrical SLD with Switchgear & Protection Relay Ratings',
+        'CEIG Form A/B Statutory Application & State Govt Treasury Challan',
+        'Dual Earthing Pit Resistance Megger Test Reports (< 2 Ohms for LA, < 5 Ohms for AC/DC)',
+        'Lightning Protection System (LPS) Risk Assessment & Radius Coverage Report (IS/IEC 62305)',
+        'Structural Stability & Wind Load Certificate from Chartered Engineer (Up to 150 km/h)',
+        'Inverter Factory Test Certificate & Grid Anti-Islanding Protection Report'
       ];
       processingTimeline = '7 - 14 Working Days';
+      feesEstimate = 'State CEIG Treasury Challan (kW slab-based) + DISCOM Interconnection Charges';
     } else {
-      approvalCategory = 'High Voltage / HT Grid Interactive Solar (> 100 kW to MW Scale)';
+      approvalCategory = 'High Voltage (HT) / MW-Scale Solar Plant (> 100 kW to MW Scale)';
+      ceigRequirement = 'Mandatory formal CEIG drawing pre-approval, HT Substation Breaker safety clearance, CT/PT calibration, and physical on-site audit by Chief Electrical Inspector prior to energization (CEA Regulation 43).';
+      ceCertRequired = 'Comprehensive Chartered Engineer Substation Nexus, HT VCB/Transformer BDV Safety Certification, Structural Stability of Mounting Structures, and MEP Stamping.';
       requiredCertificates = [
-        'CEIG Formal Drawing Approval & Site Physical Inspection Clearance',
-        'Detailed Chartered Engineer Stability & MEP Nexus Assessment',
-        'Transformer / Substation HT Breaker Safety Clearance',
-        'Interconnection Feasibility & Protection Relay Calibration Report'
+        'Comprehensive SLD with HT VCB / SF6 Breaker & Protection Relay Settings Stamped by Chartered Engineer',
+        'CEIG Formal Pre-Commissioning Electrical Safety Clearance & Charging Permission Certificate',
+        'Transformer Oil Breakdown Voltage (BDV > 50 kV) & Tan Delta Insulation Test Report',
+        'HT CT/PT Metering Cubicle Laboratory Calibration & Test Certificate',
+        'Ground-Mount Tracker / Industrial Shed Structural Stability & Wind Load Compliance (IS 875 Part 3)',
+        'Grid Interconnection Feasibility & Protection Relay Coordination Study (Overcurrent, Earth Fault & Anti-Islanding)'
       ];
       processingTimeline = '14 - 21 Working Days';
+      feesEstimate = 'State CEIG Statutory Slab Fee (MW scale) + HT Bay / Substation Verification Treasury Challan';
     }
 
     return res.status(200).json({
       success: true,
       data: {
         capacityKw: capacity,
+        installationType: installationType || 'Industrial Factory Rooftop',
+        connectionVoltage: connectionVoltage || (capacity > 100 ? '11 kV HT Supply' : '415V LT Supply'),
         approvalCategory,
+        ceigRequirement,
+        ceCertRequired,
         requiredCertificates,
         processingTimeline,
+        feesEstimate,
         consultantRole: 'MS Chartered Engineers provides end-to-end electrical drawing preparation, Chartered Engineer stamping, CEIG liaison, and physical testing certification.'
       }
     });

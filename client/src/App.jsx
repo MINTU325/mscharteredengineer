@@ -18,14 +18,16 @@ import { MessageSquare, PhoneCall } from 'lucide-react';
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('Assets Valuation Services');
+  const [quotePrefill, setQuotePrefill] = useState(null);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(() => {
     return sessionStorage.getItem('ms_admin_auth') === 'true';
   });
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const handleOpenQuote = (serviceName = 'Assets Valuation Services') => {
+  const handleOpenQuote = (serviceName = 'Assets Valuation Services', prefillData = null) => {
     setSelectedService(serviceName);
+    setQuotePrefill(prefillData);
     setIsQuoteOpen(true);
   };
 
@@ -89,8 +91,12 @@ export default function App() {
       {/* Interactive Quotation / Lead Wizard Modal */}
       <QuoteWizardModal 
         isOpen={isQuoteOpen}
-        onClose={() => setIsQuoteOpen(false)}
+        onClose={() => {
+          setIsQuoteOpen(false);
+          setQuotePrefill(null);
+        }}
         initialService={selectedService}
+        prefillData={quotePrefill}
       />
 
       {/* Admin Login & Security Modal */}

@@ -180,7 +180,7 @@ export default function ComplianceChecker({ onOpenQuote }) {
             <div>
               <button 
                 type="submit" 
-                className="btn btn-primary" 
+                className="btn btn-primary ceig-submit-btn" 
                 disabled={loading}
                 style={{ width: '100%', height: '48px', justifyContent: 'center' }}
               >
@@ -235,7 +235,7 @@ export default function ComplianceChecker({ onOpenQuote }) {
               {/* Grid 2-col info cards */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
                 gap: '20px',
                 marginBottom: '24px'
               }}>
@@ -275,7 +275,7 @@ export default function ComplianceChecker({ onOpenQuote }) {
                 <div style={{ fontSize: '0.84rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '14px' }}>
                   Mandatory Submission Package (CEIG & DISCOM Dossier):
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px', marginBottom: '20px' }}>
                   {result.documents.map((doc, idx) => (
                     <div key={idx} style={{
                       display: 'flex',
@@ -313,11 +313,11 @@ export default function ComplianceChecker({ onOpenQuote }) {
                 <button
                   onClick={() => onOpenQuote('Chartered Engineer Services')}
                   className="btn btn-gold"
-                  style={{ padding: '12px 26px', fontSize: '0.9rem' }}
+                  style={{ padding: '8px 16px', fontSize: '0.8rem' }}
                 >
-                  <FileCheck size={17} />
+                  <FileCheck size={15} />
                   <span>Request CEIG Drawing Approval &amp; SLD</span>
-                  <ArrowRight size={15} />
+                  <ArrowRight size={13} />
                 </button>
               </div>
             </div>
