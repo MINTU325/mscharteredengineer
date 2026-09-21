@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, Phone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Phone, MessageCircle } from 'lucide-react';
 
 const SLIDES = [
   {
@@ -251,6 +251,16 @@ export default function HeroSlider({ onOpenQuote }) {
             >
               <Phone size={16} />
               <span>+91 91586 58885</span>
+            </a>
+            <a
+              href="https://wa.me/919158658885"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hs-cta-secondary hs-whatsapp-btn"
+              style={{ borderColor: 'rgba(37, 211, 102, 0.3)', background: 'rgba(37, 211, 102, 0.1)' }}
+            >
+              <MessageCircle size={16} color="#25D366" />
+              <span style={{ color: '#ffffff' }}>WhatsApp</span>
             </a>
           </div>
 
