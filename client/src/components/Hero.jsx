@@ -8,7 +8,7 @@ import {
   Building2, 
   FileText, 
   Compass, 
-  MessageSquare
+  MessageCircle
 } from 'lucide-react';
 
 export default function Hero({ onOpenQuote }) {
@@ -128,12 +128,18 @@ export default function Hero({ onOpenQuote }) {
                 href="https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20need%20technical%20consultancy%20or%20valuation%20services."
                 target="_blank"
                 rel="noreferrer"
-                className="btn btn-whatsapp"
-                style={{ padding: '14px 22px', fontSize: '0.92rem' }}
+                className="hs-cta-secondary hs-whatsapp-btn"
+                style={{ 
+                  padding: '13px 22px', 
+                  fontSize: '0.92rem',
+                  borderColor: 'rgba(37, 211, 102, 0.35)',
+                  background: 'rgba(37, 211, 102, 0.1)',
+                  textDecoration: 'none'
+                }}
                 aria-label="Chat on WhatsApp with MS Chartered Engineers"
               >
-                <MessageSquare size={18} />
-                <span>WhatsApp Us</span>
+                <MessageCircle size={18} color="#25D366" />
+                <span style={{ color: '#ffffff' }}>WhatsApp Us</span>
               </a>
             </div>
           </div>
