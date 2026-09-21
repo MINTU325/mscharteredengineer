@@ -260,7 +260,7 @@ export default function HeroSlider({ onOpenQuote }) {
               style={{ borderColor: 'rgba(37, 211, 102, 0.3)', background: 'rgba(37, 211, 102, 0.1)' }}
             >
               <MessageCircle size={16} color="#25D366" />
-              <span style={{ color: '#ffffff' }}>WhatsApp</span>
+              <span style={{ color: '#ffffff' }}>WhatsApp Us</span>
             </a>
           </div>
 
