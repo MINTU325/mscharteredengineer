@@ -47,7 +47,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
     {
       name: "Chartered Engineer Services",
       sub: [
-        "DGFT Declarations / Compliances",
+        "DGFT Advance Authorisation Certificate",
+        "DGFT EPCG & SION Declarations",
         "CBIC / Customs Declarations",
         "MoFPI Declarations / Compliances",
         "MoEF (e-waste, CDM) Declarations",
@@ -83,6 +84,17 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
         "Measurement System Analysis (MSA)",
         "Machine Capability Analysis",
         "Process Capability Analysis"
+      ]
+    },
+    {
+      name: "Industrial Safety & Energy Audits",
+      sub: [
+        "Chartered Electrical Safety Engineer (CESE) Certification",
+        "Electrical Safety Inspection & Auditing (CEA Regulations)",
+        "Certified Energy Manager (BEE) Energy Audit",
+        "Certificate of Competency (Factories & Boilers Act)",
+        "National Safety Council of India (NSCI / NSAT) Audit",
+        "Thermography & Earth Pit Resistance Audit"
       ]
     }
   ];

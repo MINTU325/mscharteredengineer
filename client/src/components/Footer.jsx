@@ -78,12 +78,13 @@ export default function Footer({ onOpenQuote }) {
               Our Practice Areas
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem' }}>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Assets Valuation Services (Banking, Insurance, M&amp;A, Taxation)</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Chartered Engineer Certificates (DGFT, CBIC, MSME, MoFPI)</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>FSSAI Compliance — License, Renewal, Hygiene Audit</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Assets Valuation Services (Banking, IndAS 16, M&amp;A)</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>DGFT Advance Authorisation &amp; CE Certificates</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Chartered Electrical Safety Engineer (CESE) Audits</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>BEE Certified Energy Audits &amp; Conservation</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>Factories &amp; Boilers Competency Certification</a></li>
+              <li><a href="#services" style={{ color: '#cbd5e1' }}>FSSAI Compliance — Central &amp; State Licensing</a></li>
               <li><a href="#services" style={{ color: '#cbd5e1' }}>Asset Componentization &amp; Advisory Services</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Equipment Effectiveness &amp; Process Capability Analysis</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Impairment Study, Liquidation &amp; Balance Useful Life</a></li>
             </ul>
           </div>
 
@@ -95,23 +96,27 @@ export default function Footer({ onOpenQuote }) {
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem' }}>
               <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <ShieldCheck size={16} color="#38bdf8" />
-                <span>Chartered Engineer (India)</span>
+                <span>Chartered Engineer (India) — IEI</span>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <ShieldCheck size={16} color="#f97316" />
+                <span>Chartered Electrical Safety Engineer (CESE)</span>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <ShieldCheck size={16} color="#f59e0b" />
+                <span>Certified Energy Manager — BEE</span>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <ShieldCheck size={16} color="#10b981" />
+                <span>Competent Person — Factories &amp; Boilers</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <ShieldCheck size={16} color="#38bdf8" />
-                <span>Institution of Engineers (India) Member</span>
+                <span>NSCI / NSAT Authorized Safety Auditor</span>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <ShieldCheck size={16} color="#38bdf8" />
-                <span>Mechanical Engineering Division</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#38bdf8" />
-                <span>Accepted by Banks, Customs & DGFT</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#38bdf8" />
-                <span>Companies Act 2013 Compliance</span>
+                <span>DGFT, Customs, Banks &amp; IBC/NCLT</span>
               </li>
             </ul>
           </div>

@@ -1,13 +1,15 @@
 import React from 'react';
-import { Award, CheckCircle, Shield, FileCheck, Scale, Landmark, Building } from 'lucide-react';
+import { Award, CheckCircle, Shield, FileCheck, Scale, Landmark, Building, Zap, Flame, ShieldAlert } from 'lucide-react';
 
 export default function Credentials() {
   const recognizedEntities = [
     { name: "Commercial & Nationalized Banks", desc: "Approved for machinery hypothecation & asset valuation" },
     { name: "Customs & Central Excise", desc: "Import-export appraisal, machinery nexus & DIFT compliance" },
-    { name: "Directorate General of Foreign Trade (DGFT)", desc: "EPCG scheme, Advance Authorization & capital goods audit" },
-    { name: "Financial Institutions & NBFCs", desc: "Project financing, DPR appraisal & working capital limits" },
-    { name: "Industrial & State DISCOMs", desc: "CEIG solar drawings, electrical SLD & safety approvals" },
+    { name: "Directorate General of Foreign Trade (DGFT)", desc: "Advance Authorisation, EPCG scheme & capital goods audit" },
+    { name: "Bureau of Energy Efficiency (BEE)", desc: "Certified Energy Manager & statutory energy conservation audits" },
+    { name: "Electrical Inspectorate / CEIG", desc: "Chartered Electrical Safety Engineer (CESE) & HT/LT safety audits" },
+    { name: "Directorate of Factories & Boilers", desc: "Competent Person under Factories Act 1948 (vessels, cranes & safety)" },
+    { name: "National Safety Council of India (NSCI)", desc: "NSAT authorized comprehensive industrial safety & EHS audits" },
     { name: "Courts & Insolvency (IBC/NCLT)", desc: "Statutory liquidation value & fair market value assessment" }
   ];
 
@@ -23,7 +25,7 @@ export default function Credentials() {
             Our <span className="gold-gradient-text">Statutory Credentials</span>
           </h2>
           <p className="section-description">
-            Certified engineering expertise backed by the <strong>Institution of Engineers (India)</strong> and registered chartered engineering authorities.
+            Certified engineering expertise backed by the <strong>Institution of Engineers (India)</strong>, BEE, CEIG, and registered statutory authorities.
           </p>
         </div>
 
@@ -85,25 +87,33 @@ export default function Credentials() {
                 Nationally Recognized Authority
               </h3>
               <p style={{ color: '#cbd5e1', fontSize: '0.98rem', marginBottom: '20px', lineHeight: 1.6 }}>
-                &ldquo;Certified engineering expertise backed by the Institution of Engineers (India). Our certifications are officially accepted across government departments, statutory tribunals, customs hubs, and premier banking consortiums.&rdquo;
+                &ldquo;Certified engineering expertise backed by the Institution of Engineers (India). Our certifications and statutory audit reports are officially accepted across government ministries, DISCOMs, customs hubs, and banking consortiums.&rdquo;
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <CheckCircle size={18} color="#10b981" />
-                  <span style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>Chartered Engineer (India)</span>
+                  <span style={{ fontSize: '0.88rem', color: '#e2e8f0' }}>Chartered Engineer (India) — IEI</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <CheckCircle size={18} color="#10b981" />
-                  <span style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>Mechanical Engineering Div</span>
+                  <span style={{ fontSize: '0.88rem', color: '#e2e8f0' }}>Chartered Electrical Safety Engineer (CESE)</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <CheckCircle size={18} color="#10b981" />
-                  <span style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>Corporate Member of IEI</span>
+                  <span style={{ fontSize: '0.88rem', color: '#e2e8f0' }}>Certified Energy Manager — BEE</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   <CheckCircle size={18} color="#10b981" />
-                  <span style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>B.Tech Mechanical, IIT Roorkee</span>
+                  <span style={{ fontSize: '0.88rem', color: '#e2e8f0' }}>Competent Person — Factories & Boilers</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <CheckCircle size={18} color="#10b981" />
+                  <span style={{ fontSize: '0.88rem', color: '#e2e8f0' }}>NSCI / NSAT Authorized Safety Auditor</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <CheckCircle size={18} color="#10b981" />
+                  <span style={{ fontSize: '0.88rem', color: '#e2e8f0' }}>B.Tech Mechanical, IIT Roorkee</span>
                 </div>
               </div>
             </div>
@@ -136,9 +146,11 @@ export default function Credentials() {
                   {idx === 0 && <Landmark size={22} />}
                   {idx === 1 && <FileCheck size={22} />}
                   {idx === 2 && <Shield size={22} />}
-                  {idx === 3 && <Scale size={22} />}
-                  {idx === 4 && <Building size={22} />}
-                  {idx === 5 && <Award size={22} />}
+                  {idx === 3 && <Zap size={22} />}
+                  {idx === 4 && <ShieldAlert size={22} />}
+                  {idx === 5 && <Building size={22} />}
+                  {idx === 6 && <Award size={22} />}
+                  {idx === 7 && <Scale size={22} />}
                 </div>
                 <div>
                   <h5 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '4px' }}>{entity.name}</h5>

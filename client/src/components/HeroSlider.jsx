@@ -29,14 +29,14 @@ const SLIDES = [
     titleHighlight: 'Engineer Services',
     subtitle:
       'We are an Independent Engineer certified & authorized by the prestigious Institution of Engineers (India) to attest/certify different types of Government Declarations / Compliances.',
-    tag: 'INSTITUTION OF ENGINEERS (INDIA)',
+    tag: 'INSTITUTION OF ENGINEERS (INDIA) | DGFT',
     accent: 'cyan',
     cta: 'Request Certification',
     ctaService: 'Chartered Engineer Services',
     stats: [
       { value: 'IEI', label: 'Corporate Member' },
+      { value: 'DGFT', label: 'Advance Auth' },
       { value: 'Govt.', label: 'Recognized Body' },
-      { value: 'DGFT', label: 'Customs Approved' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.90) 0%, rgba(6,26,70,0.72) 55%, rgba(7,14,30,0.35) 100%)',
   },
@@ -78,6 +78,25 @@ const SLIDES = [
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.88) 0%, rgba(20,10,5,0.70) 55%, rgba(7,14,30,0.3) 100%)',
   },
+  {
+    id: 5,
+    image: '/slides/slide2.webp',
+    badge: '⚡ CESE & BEE Certified Energy Manager | Safety Auditing',
+    title: 'Industrial Safety &',
+    titleHighlight: 'Energy Audits',
+    subtitle:
+      'Authorized Chartered Electrical Safety Engineer (CESE) inspections, Bureau of Energy Efficiency (BEE) audits, Factories Act competency & NSCI industrial safety auditing.',
+    tag: 'STATUTORY SAFETY & ENERGY AUDITS',
+    accent: 'amber',
+    cta: 'Request Safety / Energy Audit',
+    ctaService: 'Industrial Safety & Energy Audits',
+    stats: [
+      { value: 'CESE', label: 'Electrical Safety' },
+      { value: 'BEE', label: 'Energy Manager' },
+      { value: 'NSCI', label: 'Safety Auditor' },
+    ],
+    gradient: 'linear-gradient(105deg, rgba(7,14,30,0.92) 0%, rgba(35,18,5,0.78) 55%, rgba(7,14,30,0.38) 100%)',
+  },
 ];
 
 
@@ -86,6 +105,7 @@ const ACCENT_COLORS = {
   cyan:    { primary: '#06b6d4', glow: 'rgba(6,182,212,0.5)',   light: '#22d3ee' },
   orange:  { primary: '#f97316', glow: 'rgba(249,115,22,0.5)',  light: '#fb923c' },
   emerald: { primary: '#10b981', glow: 'rgba(16,185,129,0.5)',  light: '#34d399' },
+  amber:   { primary: '#f59e0b', glow: 'rgba(245,158,11,0.5)',  light: '#fde047' },
 };
 
 const AUTOPLAY_DELAY = 5500;

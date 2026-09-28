@@ -13,6 +13,8 @@ import {
   Scale,
   LineChart,
   Cpu,
+  Zap,
+  ShieldAlert,
 } from 'lucide-react';
 
 export const servicesData = [
@@ -54,21 +56,22 @@ export const servicesData = [
     description:
       'Chartered Engineer is an Independent Engineer certified and authorized by the prestigious Institution of Engineers (India) to attest / certify different types of Government Declarations / Compliances across multiple Central Government Ministries and Authorities.',
     deliverables: [
-      'DGFT — EPCG Nexus, SION Fixation, Advanced Authorization, Self Ratification, Drawback Rate (Appendix 5A, 4A, 4E, 4K, 7E, 2Q)',
+      'DGFT Advance Authorisation — Chartered Engineer Certificate for Duty-Free Import of Inputs & Raw Material Nexus (Appendix 4E / 4K)',
+      'DGFT Compliances — EPCG Nexus (Appendix 5A), SION Fixation (Appendix 4A), Self-Ratification Scheme, Duty Drawback Rate Fixation (Appendix 7E, 2Q)',
       'CBIC / Customs — EOU Investment Certificate, Served from India Scheme (General Exemption 42), Duty Credit Entitlement',
       'MoFPI — Grant-in-Aid for Food Testing Labs, Abattoirs, HACCP/ISO 22000/FSSC/BRC, PMKSY (CEFPPC)',
       'MoEF — Assessment of Imported EEA as e-waste, CDM Project Certification',
-      'GAIL — Verification of Documents/Credentials for Bidding purposes',
-      'MSME — Grant-in-Aid for Plant & Machinery under Investment Promotion Schemes (Central & State)',
+      'GAIL & PSUs — Verification of Technical Documents & Credentials for Bidding',
+      'MSME — Grant-in-Aid for Plant & Machinery under Central & State Investment Promotion Schemes',
       'MiETY — EHTP/STP Scheme, Modified Special Incentive Package (M-SIP)',
       'Ministry of Textiles — Integrated Textile Park (ITP), National Handicrafts Development Program (NHDP)',
       'MoCA — Useful Life of Assets if different from Companies Act 2013, Schedule II',
       'MoCI — APEDA Agriculture Export Promotion, EOU Scheme Setup Certificate',
       'MoST — Bio Technology Park (BTP) Setup Certification',
-      'Other Services — Remaining Life Assessment (RLA), Equipment Efficiency, Tool Life Estimation',
+      'Other Engineering Services — Remaining Life Assessment (RLA), Equipment Efficiency, Tool Life Estimation',
     ],
     highlight:
-      'Certified & authorized by Institution of Engineers (India) — Corporate Member MIE.',
+      'Certified & authorized by Institution of Engineers (India) — Corporate Member MIE & Approved Valuer.',
   },
   {
     id: '03',
@@ -112,10 +115,37 @@ export const servicesData = [
     highlight:
       'Data-driven advisory for Asset Componentization, OEE, MSA, Machine & Process Capability Studies.',
   },
+  {
+    id: '05',
+    code: 'safety-energy-audits',
+    title: 'Industrial Safety & Energy Audits',
+    category: 'Safety, Energy & Statutory Audits',
+    icon: Zap,
+    badgeColor: '#f97316',
+    description:
+      'Comprehensive statutory electrical safety, energy efficiency, and industrial health & safety audits authorized under Central Electricity Authority (CEA) Regulations, Bureau of Energy Efficiency (BEE), Factories Act 1948, and National Safety Council of India (NSCI).',
+    deliverables: [
+      'Chartered Electrical Safety Engineer (CESE) — Statutory inspection, load flow study & certification for HT/LT electrical installations',
+      'Electrical Safety Inspection & Auditing — Mandatory audits as per CEA (Safety and Electric Supply) Regulations 2010',
+      'Certified Energy Manager, BEE — Mandatory & voluntary energy audits, PAT scheme compliance & thermal/electrical energy conservation',
+      'Certificate of Competency, Factories & Boilers — Periodic statutory testing of pressure vessels, lifting machines, cranes & safety gears (Factories Act 1948)',
+      'National Safety Council of India (NSCI / NSAT) — Comprehensive industrial safety audit, HAZOP, fire safety & EHS compliance',
+      'Thermography & Earthing Audits — Infrared thermal imaging of switchboards, transformers, and earth pit resistance verification',
+    ],
+    highlight:
+      'Authorized CESE, BEE Certified Energy Manager, Competent Person (Factories & Boilers) & NSCI/NSAT Safety Auditor.',
+  },
 ];
 
-// Category filter options matching the 4 real services
-const CATEGORIES = ['All', 'Banking, Legal & Financial', 'Government Certifications & Compliances', 'Food Safety & Regulatory Advisory', 'Productivity & Profitability Enhancement'];
+// Category filter options matching all 5 services
+const CATEGORIES = [
+  'All',
+  'Banking, Legal & Financial',
+  'Government Certifications & Compliances',
+  'Food Safety & Regulatory Advisory',
+  'Productivity & Profitability Enhancement',
+  'Safety, Energy & Statutory Audits',
+];
 
 export default function ServicesGrid({ onOpenQuote }) {
   const [activeFilter, setActiveFilter] = useState('All');

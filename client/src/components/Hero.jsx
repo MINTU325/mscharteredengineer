@@ -48,7 +48,7 @@ export default function Hero({ onOpenQuote }) {
               marginBottom: '28px',
               maxWidth: '580px'
             }}>
-              Backed by the <strong>Institution of Engineers (India)</strong> — we deliver statutory Chartered Engineer certifications, machinery valuations, FSSAI compliance advisory, and asset componentization services for commercial &amp; corporate governance obligations.
+              Backed by the <strong>Institution of Engineers (India)</strong> — we deliver statutory Chartered Engineer certifications, plant &amp; machinery valuations, FSSAI compliance advisory, and CESE/BEE certified industrial safety &amp; energy audits for commercial &amp; corporate governance obligations.
             </p>
 
             {/* Credential Pills */}
@@ -86,6 +86,21 @@ export default function Hero({ onOpenQuote }) {
               }}>
                 <Award size={16} color="#f59e0b" />
                 <span>B.Tech Mechanical, IIT Roorkee</span>
+              </div>
+
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(249, 115, 22, 0.12)',
+                border: '1px solid rgba(249, 115, 22, 0.25)',
+                padding: '8px 14px',
+                borderRadius: 'var(--radius-full)',
+                fontSize: '0.85rem',
+                color: '#fed7aa'
+              }}>
+                <CheckCircle2 size={16} color="#f97316" />
+                <span>CESE &amp; BEE Certified Energy Manager</span>
               </div>
 
               <div style={{
