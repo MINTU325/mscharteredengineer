@@ -62,7 +62,34 @@ export default function App() {
 
     handleRoute();
     window.addEventListener('popstate', handleRoute);
-    return () => window.removeEventListener('popstate', handleRoute);
+
+    // Intercept internal routing links to provide seamless SPA navigation while keeping real HTML hrefs for Googlebot
+    const handleLinkClick = (e) => {
+      const anchor = e.target.closest('a');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (href && href.startsWith('/') && !href.startsWith('//') && !anchor.getAttribute('target')) {
+        const cleanPath = href.replace(/\/$/, '') || '/';
+        const config = ROUTE_CONFIG[cleanPath];
+        if (config) {
+          e.preventDefault();
+          window.history.pushState({}, '', href);
+          document.title = config.title;
+          if (config.id && config.id !== 'home') {
+            const el = document.getElementById(config.id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleLinkClick);
+    return () => {
+      window.removeEventListener('popstate', handleRoute);
+      document.removeEventListener('click', handleLinkClick);
+    };
   }, []);
 
   const handleOpenQuote = (serviceName = 'Assets Valuation Services', prefillData = null) => {

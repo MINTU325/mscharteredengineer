@@ -105,13 +105,13 @@ export default function Footer({ onOpenQuote }) {
               Our Practice Areas
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem' }}>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Assets Valuation Services (Banking, IndAS 16, M&amp;A)</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>DGFT Advance Authorisation &amp; CE Certificates</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Chartered Electrical Safety Engineer (CESE) Audits</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>BEE Certified Energy Audits &amp; Conservation</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Factories &amp; Boilers Competency Certification</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>FSSAI Compliance — Central &amp; State Licensing</a></li>
-              <li><a href="#services" style={{ color: '#cbd5e1' }}>Asset Componentization &amp; Advisory Services</a></li>
+              <li><a href="/valuation" style={{ color: '#cbd5e1' }}>Assets Valuation Services (Banking, IndAS 16, M&amp;A)</a></li>
+              <li><a href="/chartered-engineer" style={{ color: '#cbd5e1' }}>DGFT Advance Authorisation &amp; CE Certificates</a></li>
+              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>Chartered Electrical Safety Engineer (CESE) Audits</a></li>
+              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>BEE Certified Energy Audits &amp; Conservation</a></li>
+              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>Factories &amp; Boilers Competency Certification</a></li>
+              <li><a href="/fssai" style={{ color: '#cbd5e1' }}>FSSAI Compliance — Central &amp; State Licensing</a></li>
+              <li><a href="/advisory" style={{ color: '#cbd5e1' }}>Asset Componentization &amp; Advisory Services</a></li>
             </ul>
           </div>
 
