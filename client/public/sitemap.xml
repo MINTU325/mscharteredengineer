@@ -7,7 +7,7 @@
   <!-- Homepage — Highest Priority -->
   <url>
     <loc>https://www.mscharteredengineer.com/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,7 +15,7 @@
   <!-- Hero / Home Section -->
   <url>
     <loc>https://www.mscharteredengineer.com/#home</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -23,31 +23,47 @@
   <!-- Services Section -->
   <url>
     <loc>https://www.mscharteredengineer.com/#services</loc>
-    <lastmod>2026-09-19</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Assets Valuation Services -->
   <url>
     <loc>https://www.mscharteredengineer.com/#valuation</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
 
-  <!-- Chartered Engineer Services -->
+  <!-- Chartered Engineer & DGFT Advance Authorisation -->
   <url>
     <loc>https://www.mscharteredengineer.com/#chartered-engineer</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Industrial Safety & Energy Audits (CESE, BEE, Boilers) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/#safety-energy-audits</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 
   <!-- FSSAI Compliance Services -->
   <url>
     <loc>https://www.mscharteredengineer.com/#fssai</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Strategic Advisory Services -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/#advisory</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -55,31 +71,31 @@
   <!-- Credentials Section -->
   <url>
     <loc>https://www.mscharteredengineer.com/#credentials</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
   </url>
 
   <!-- Valuation Calculator Tool -->
   <url>
     <loc>https://www.mscharteredengineer.com/#calculator</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- CEIG Solar Checker -->
+  <!-- CEIG Solar Compliance Checker -->
   <url>
     <loc>https://www.mscharteredengineer.com/#solar-checker</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Why Choose Us -->
   <url>
     <loc>https://www.mscharteredengineer.com/#why-us</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -87,17 +103,17 @@
   <!-- Founder Profile -->
   <url>
     <loc>https://www.mscharteredengineer.com/#founder</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Contact / Pan India Presence -->
+  <!-- Contact / Jaipur HQ -->
   <url>
     <loc>https://www.mscharteredengineer.com/#contact</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
 
 </urlset>
