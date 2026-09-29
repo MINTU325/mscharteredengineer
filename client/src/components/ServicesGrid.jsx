@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Calculator,
   FileCheck2,
@@ -15,6 +15,9 @@ import {
   Cpu,
   Zap,
   ShieldAlert,
+  Search,
+  X,
+  RotateCcw,
 } from 'lucide-react';
 
 export const servicesData = [
@@ -137,6 +140,17 @@ export const servicesData = [
   },
 ];
 
+// Quick search suggestion chips
+const QUICK_SUGGESTIONS = [
+  { label: 'Advance Authorisation', query: 'Advance Authorisation', icon: '⚡' },
+  { label: 'CESE Electrical Safety', query: 'CESE', icon: '🛡️' },
+  { label: 'BEE Energy Audit', query: 'Energy Manager', icon: '🌱' },
+  { label: 'Bank Loan Valuation', query: 'Banking', icon: '🏛️' },
+  { label: 'Factories & Boilers', query: 'Boilers', icon: '⚙️' },
+  { label: 'FSSAI License', query: 'FSSAI', icon: '🍽️' },
+  { label: 'IndAS 16 Componentization', query: 'Componentization', icon: '📊' },
+];
+
 // Category filter options matching all 5 services
 const CATEGORIES = [
   'All',
@@ -149,17 +163,75 @@ const CATEGORIES = [
 
 export default function ServicesGrid({ onOpenQuote }) {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState(null);
 
-  const filteredServices =
-    activeFilter === 'All'
-      ? servicesData
-      : servicesData.filter((s) => s.category === activeFilter);
+  // Keyword highlighting helper
+  const highlightText = (text, query) => {
+    if (!query || !query.trim() || typeof text !== 'string') return text;
+    const cleanQuery = query.trim();
+    const regex = new RegExp(`(${cleanQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    const parts = text.split(regex);
+    return parts.map((part, i) =>
+      regex.test(part) ? (
+        <mark
+          key={i}
+          style={{
+            background: 'rgba(245, 158, 11, 0.35)',
+            color: '#fbbf24',
+            fontWeight: 700,
+            padding: '1px 4px',
+            borderRadius: '4px',
+          }}
+        >
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    );
+  };
+
+  // Filter services by category AND real-time search query
+  const filteredServices = useMemo(() => {
+    let list = servicesData;
+
+    if (activeFilter !== 'All') {
+      list = list.filter((s) => s.category === activeFilter);
+    }
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      list = list.filter((s) => {
+        const inTitle = s.title.toLowerCase().includes(q);
+        const inCat = s.category.toLowerCase().includes(q);
+        const inDesc = s.description.toLowerCase().includes(q);
+        const inHighlight = s.highlight.toLowerCase().includes(q);
+        const inDeliverables = s.deliverables.some((d) => d.toLowerCase().includes(q));
+        return inTitle || inCat || inDesc || inHighlight || inDeliverables;
+      });
+    }
+
+    return list;
+  }, [activeFilter, searchQuery]);
 
   const toggleExpand = (id) => setExpandedId(expandedId === id ? null : id);
 
+  const clearSearch = () => {
+    setSearchQuery('');
+  };
+
+  const handleChipClick = (query) => {
+    if (searchQuery.toLowerCase() === query.toLowerCase()) {
+      setSearchQuery('');
+    } else {
+      setSearchQuery(query);
+      setActiveFilter('All');
+    }
+  };
+
   return (
-    <section id="services" className="section">
+    <section id="services" className="section" style={{ position: 'relative' }}>
       <div className="container">
         <div className="section-header">
           <div className="section-badge">
@@ -171,8 +243,132 @@ export default function ServicesGrid({ onOpenQuote }) {
           </h2>
           <p className="section-description">
             From statutory asset valuation and government certifications to FSSAI compliance
-            advisory and productivity enhancement — end-to-end chartered engineering expertise.
+            advisory, CESE electrical safety, and BEE energy audits — end-to-end chartered engineering expertise.
           </p>
+
+          {/* 🔍 OPTION 3: Interactive Floating Search Bar */}
+          <div
+            style={{
+              maxWidth: '680px',
+              margin: '36px auto 0 auto',
+              position: 'relative',
+              zIndex: 10,
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                background: 'rgba(10, 22, 51, 0.75)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(56, 189, 248, 0.35)',
+                borderRadius: 'var(--radius-full)',
+                padding: '6px 12px 6px 18px',
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.35), inset 0 0 20px rgba(24, 90, 219, 0.1)',
+                transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
+              }}
+            >
+              <Search size={20} color="#38bdf8" style={{ flexShrink: 0, marginRight: '10px' }} />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search 50+ services (e.g. Advance Authorisation, CESE, BEE, Bank Loan, Solar)..."
+                style={{
+                  width: '100%',
+                  background: 'transparent',
+                  border: 'none',
+                  outline: 'none',
+                  color: '#ffffff',
+                  fontSize: '0.94rem',
+                  fontFamily: 'inherit',
+                  padding: '8px 0',
+                }}
+                aria-label="Search services and statutory compliances"
+              />
+              {searchQuery && (
+                <button
+                  onClick={clearSearch}
+                  style={{
+                    background: 'rgba(255,255,255,0.08)',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: '28px',
+                    height: '28px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#cbd5e1',
+                    cursor: 'pointer',
+                    marginRight: '8px',
+                    flexShrink: 0,
+                  }}
+                  title="Clear search"
+                >
+                  <X size={15} />
+                </button>
+              )}
+              {searchQuery && (
+                <span
+                  style={{
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    padding: '4px 10px',
+                    borderRadius: 'var(--radius-full)',
+                    background: filteredServices.length > 0 ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)',
+                    color: filteredServices.length > 0 ? '#34d399' : '#f87171',
+                    border: `1px solid ${filteredServices.length > 0 ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`,
+                    whiteSpace: 'nowrap',
+                    flexShrink: 0,
+                  }}
+                >
+                  {filteredServices.length} {filteredServices.length === 1 ? 'Match' : 'Matches'}
+                </span>
+              )}
+            </div>
+
+            {/* Quick 1-Tap Search Suggestion Chips */}
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '8px',
+                marginTop: '14px',
+              }}
+            >
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8', fontWeight: 600 }}>Popular:</span>
+              {QUICK_SUGGESTIONS.map((chip, idx) => {
+                const isSelected = searchQuery.toLowerCase() === chip.query.toLowerCase();
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => handleChipClick(chip.query)}
+                    style={{
+                      background: isSelected ? 'rgba(56, 189, 248, 0.22)' : 'rgba(255, 255, 255, 0.04)',
+                      border: `1px solid ${isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.1)'}`,
+                      borderRadius: 'var(--radius-full)',
+                      padding: '4px 11px',
+                      fontSize: '0.74rem',
+                      color: isSelected ? '#ffffff' : '#cbd5e1',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    <span>{chip.icon}</span>
+                    <span>{chip.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
           {/* Category Filter Pills */}
           <div
@@ -181,13 +377,16 @@ export default function ServicesGrid({ onOpenQuote }) {
               justifyContent: 'center',
               flexWrap: 'wrap',
               gap: '10px',
-              marginTop: '32px',
+              marginTop: '26px',
             }}
           >
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveFilter(cat)}
+                onClick={() => {
+                  setActiveFilter(cat);
+                  // Optional: keep searchQuery or leave as-is
+                }}
                 style={{
                   padding: '8px 18px',
                   borderRadius: 'var(--radius-full)',
@@ -213,13 +412,62 @@ export default function ServicesGrid({ onOpenQuote }) {
           </div>
         </div>
 
+        {/* Empty State when 0 services match search */}
+        {filteredServices.length === 0 && (
+          <div
+            className="glass-card"
+            style={{
+              maxWidth: '620px',
+              margin: '30px auto',
+              textAlign: 'center',
+              padding: '40px 24px',
+              border: '1px dashed rgba(245, 158, 11, 0.4)',
+              borderRadius: 'var(--radius-lg)',
+            }}
+          >
+            <div
+              style={{
+                width: '56px',
+                height: '56px',
+                margin: '0 auto 16px auto',
+                borderRadius: '50%',
+                background: 'rgba(245, 158, 11, 0.15)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#f59e0b',
+              }}
+            >
+              <Search size={26} />
+            </div>
+            <h4 style={{ fontSize: '1.2rem', color: '#ffffff', marginBottom: '8px' }}>
+              No services found for &ldquo;{searchQuery}&rdquo;
+            </h4>
+            <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '22px' }}>
+              Looking for a custom statutory compliance, government clearance, or technical audit? Our corporate Chartered Engineers provide tailored engineering solutions across all ministries.
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
+              <button onClick={clearSearch} className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.85rem' }}>
+                <RotateCcw size={15} />
+                <span>Reset Search</span>
+              </button>
+              <button onClick={() => onOpenQuote('Custom Inquiry', { notes: `User searched for: ${searchQuery}` })} className="btn btn-primary" style={{ padding: '9px 18px', fontSize: '0.85rem' }}>
+                <span>Request Custom Consultation</span>
+                <ArrowRight size={15} />
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Services Grid */}
         <div className="services-grid">
           {filteredServices.map((service) => {
             const Icon = service.icon;
-            const isExpanded = expandedId === service.id;
-            const previewItems = service.deliverables.slice(0, 4);
-            const extraItems = service.deliverables.slice(4);
+            const hasActiveSearch = Boolean(searchQuery.trim());
+            // Auto-expand card if user searched so matching bullet points are visible
+            const isExpanded = hasActiveSearch || expandedId === service.id;
+            const previewItems = hasActiveSearch ? service.deliverables : service.deliverables.slice(0, 4);
+            const extraItems = hasActiveSearch ? [] : service.deliverables.slice(4);
 
             return (
               <div
@@ -231,6 +479,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   borderTop: `3px solid ${service.badgeColor}`,
+                  boxShadow: hasActiveSearch ? `0 10px 30px ${service.badgeColor}22` : undefined,
                   transition: 'all 0.3s ease',
                 }}
               >
@@ -287,7 +536,7 @@ export default function ServicesGrid({ onOpenQuote }) {
 
                   {/* Title */}
                   <h3 style={{ fontSize: '1.3rem', marginBottom: '12px', color: '#ffffff' }}>
-                    {service.title}
+                    {highlightText(service.title, searchQuery)}
                   </h3>
 
                   {/* Description */}
@@ -299,10 +548,10 @@ export default function ServicesGrid({ onOpenQuote }) {
                       lineHeight: 1.65,
                     }}
                   >
-                    {service.description}
+                    {highlightText(service.description, searchQuery)}
                   </p>
 
-                  {/* Sub-services list — always show first 4 */}
+                  {/* Sub-services list */}
                   <div style={{ marginBottom: '8px' }}>
                     <div
                       style={{
@@ -330,12 +579,12 @@ export default function ServicesGrid({ onOpenQuote }) {
                           }}
                         >
                           <Check size={15} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
-                          <span>{item}</span>
+                          <span>{highlightText(item, searchQuery)}</span>
                         </li>
                       ))}
 
-                      {/* Expandable extra items */}
-                      {isExpanded &&
+                      {/* Expandable extra items (when not actively searching) */}
+                      {!hasActiveSearch && isExpanded &&
                         extraItems.map((item, i) => (
                           <li
                             key={`extra-${i}`}
@@ -349,13 +598,13 @@ export default function ServicesGrid({ onOpenQuote }) {
                             }}
                           >
                             <Check size={15} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
-                            <span>{item}</span>
+                            <span>{highlightText(item, searchQuery)}</span>
                           </li>
                         ))}
                     </ul>
 
-                    {/* Show more / less toggle */}
-                    {extraItems.length > 0 && (
+                    {/* Show more / less toggle (hidden during active search) */}
+                    {!hasActiveSearch && extraItems.length > 0 && (
                       <button
                         onClick={() => toggleExpand(service.id)}
                         style={{
@@ -400,7 +649,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                       marginBottom: '16px',
                     }}
                   >
-                    💡 {service.highlight}
+                    💡 {highlightText(service.highlight, searchQuery)}
                   </div>
 
                   <button
