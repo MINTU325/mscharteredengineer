@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import QuoteWizardModal from './components/QuoteWizardModal';
 import AdminDashboard from './components/AdminDashboard';
 import AdminLoginModal from './components/AdminLoginModal';
+import BlogPage from './components/BlogPage';
 import { MessageSquare, PhoneCall } from 'lucide-react';
 
 const ROUTE_CONFIG = {
@@ -30,6 +31,8 @@ const ROUTE_CONFIG = {
   '/credentials': { id: 'credentials', title: 'Statutory Credentials & IEI Recognition | MS Chartered Engineers' },
   '/founder': { id: 'founder', title: 'Core Team & Leadership — IIT Roorkee | MS Chartered Engineers' },
   '/contact': { id: 'contact', title: 'Contact Us — Jaipur Head Office | MS Chartered Engineers' },
+  '/blog': { id: 'blog', title: 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers' },
+  '/insights': { id: 'blog', title: 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers' },
 };
 
 export default function App() {
@@ -41,21 +44,25 @@ export default function App() {
     return sessionStorage.getItem('ms_admin_auth') === 'true';
   });
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [currentRoute, setCurrentRoute] = useState(() => window.location.pathname.replace(/\/$/, '') || '/');
 
   // Handle direct clean URL navigation on initial load & browser Back/Forward
   useEffect(() => {
     const handleRoute = () => {
       const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+      setCurrentRoute(pathname);
       const config = ROUTE_CONFIG[pathname];
       if (config) {
         document.title = config.title;
-        if (config.id && config.id !== 'home') {
+        if (config.id && config.id !== 'home' && config.id !== 'blog') {
           setTimeout(() => {
             const el = document.getElementById(config.id);
             if (el) {
               el.scrollIntoView({ behavior: 'smooth' });
             }
           }, 350);
+        } else if (config.id === 'home' || config.id === 'blog') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }
     };
@@ -74,10 +81,13 @@ export default function App() {
         if (config) {
           e.preventDefault();
           window.history.pushState({}, '', href);
+          setCurrentRoute(cleanPath);
           document.title = config.title;
-          if (config.id && config.id !== 'home') {
-            const el = document.getElementById(config.id);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (config.id && config.id !== 'home' && config.id !== 'blog') {
+            setTimeout(() => {
+              const el = document.getElementById(config.id);
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
           } else {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }
@@ -131,11 +141,21 @@ export default function App() {
         isAdminOpen={isAdminOpen}
       />
 
-      {/* Main View: Admin Portal OR Main Corporate Presentation */}
+      {/* Main View: Admin Portal OR Blog Page OR Main Corporate Presentation */}
       {isAdminOpen ? (
         <AdminDashboard 
           onClose={() => setIsAdminOpen(false)} 
           onLogout={handleLogout}
+        />
+      ) : currentRoute === '/blog' || currentRoute === '/insights' ? (
+        <BlogPage 
+          onOpenQuote={handleOpenQuote}
+          onNavigateHome={() => {
+            window.history.pushState({}, '', '/');
+            setCurrentRoute('/');
+            document.title = ROUTE_CONFIG['/'].title;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         />
       ) : (
         <main>

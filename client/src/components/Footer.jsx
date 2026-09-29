@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ShieldCheck, Award, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Award, ArrowUp, BookOpen } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 
 export default function Footer({ onOpenQuote }) {
@@ -97,6 +97,30 @@ export default function Footer({ onOpenQuote }) {
                 <span>LinkedIn Company Profile</span>
               </a>
             </div>
+
+            <div style={{ marginTop: '10px' }}>
+              <a
+                href="/blog"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '7px 14px',
+                  background: 'rgba(245, 158, 11, 0.12)',
+                  border: '1px solid rgba(245, 158, 11, 0.35)',
+                  borderRadius: 'var(--radius-sm)',
+                  color: '#fbbf24',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease'
+                }}
+                aria-label="Knowledge Hub and Engineering Blog"
+              >
+                <BookOpen size={15} color="#fbbf24" />
+                <span>Technical Knowledge Hub &amp; Blog</span>
+              </a>
+            </div>
           </div>
 
           {/* Col 2: Services Quick Links */}
@@ -112,6 +136,12 @@ export default function Footer({ onOpenQuote }) {
               <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>Factories &amp; Boilers Competency Certification</a></li>
               <li><a href="/fssai" style={{ color: '#cbd5e1' }}>FSSAI Compliance — Central &amp; State Licensing</a></li>
               <li><a href="/advisory" style={{ color: '#cbd5e1' }}>Asset Componentization &amp; Advisory Services</a></li>
+              <li style={{ paddingTop: '6px', borderTop: '1px dashed rgba(255, 255, 255, 0.1)' }}>
+                <a href="/blog" style={{ color: '#38bdf8', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <span>📚 Regulatory Insights &amp; Blog Articles</span>
+                  <span>&rarr;</span>
+                </a>
+              </li>
             </ul>
           </div>
 
