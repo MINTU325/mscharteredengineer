@@ -638,15 +638,14 @@ export default function ServicesGrid({ onOpenQuote }) {
 
                   <button
                     onClick={() => onOpenQuote(service.title)}
-                    className="btn btn-outline"
-                    style={{
-                      width: '100%',
-                      justifyContent: 'space-between',
-                      padding: '12px 20px',
-                      fontSize: '0.88rem',
-                    }}
+                    className="service-request-btn"
+                    title={`Request Quote and fill inquiry for ${service.title}`}
+                    type="button"
                   >
-                    <span>Enquire — {service.title}</span>
+                    <span className="service-request-btn-content">
+                      <FileCheck2 size={16} className="service-request-btn-icon" />
+                      <span>Request Quote / Fill Inquiry</span>
+                    </span>
                     <ArrowRight size={16} />
                   </button>
                 </div>

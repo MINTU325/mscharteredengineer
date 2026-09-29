@@ -106,14 +106,14 @@ button, input, select, textarea {
 }
 
 .section {
-  padding: 56px 0;
+  padding: 44px 0;
   position: relative;
 }
 
 .section-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 36px auto;
+  margin: 0 auto 24px auto;
 }
 
 .section-badge {
@@ -299,6 +299,61 @@ button, input, select, textarea {
 
 .section-light .service-card-num {
   color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Service Card Dedicated Request / Fill Inquiry Button */
+.service-request-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #1e40af 0%, #0284c7 100%);
+  color: #ffffff !important;
+  border: none;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.32);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.service-request-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #0369a1 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(2, 132, 199, 0.5);
+  color: #ffffff !important;
+}
+
+.service-request-btn:active {
+  transform: scale(0.98);
+}
+
+.service-request-btn-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.service-request-btn-icon {
+  color: #fbbf24 !important;
+  flex-shrink: 0;
+}
+
+.card-light .btn-outline {
+  background: rgba(14, 165, 233, 0.08) !important;
+  border-color: rgba(14, 165, 233, 0.35) !important;
+  color: #0369a1 !important;
+  font-weight: 600 !important;
+}
+
+.card-light .btn-outline:hover {
+  background: rgba(14, 165, 233, 0.16) !important;
+  border-color: #0284c7 !important;
+  color: #0c4a6e !important;
 }
 
 /* Light Why Choose Us Pillars */
@@ -1053,11 +1108,11 @@ select option {
   }
 
   .section {
-    padding: 40px 0;
+    padding: 32px 0;
   }
 
   .section-header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .section-title {
