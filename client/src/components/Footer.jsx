@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ShieldCheck, Award, ArrowUp } from 'lucide-react';
+import LinkedinIcon from './LinkedinIcon';
 
 export default function Footer({ onOpenQuote }) {
   const scrollToTop = () => {
@@ -69,6 +70,32 @@ export default function Footer({ onOpenQuote }) {
             }}>
               <Award size={14} />
               <span>CEng (India) MIE — Institution of Engineers (India)</span>
+            </div>
+
+            <div style={{ marginTop: '12px' }}>
+              <a
+                href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '7px 14px',
+                  background: 'rgba(10, 102, 194, 0.15)',
+                  border: '1px solid rgba(10, 102, 194, 0.4)',
+                  borderRadius: 'var(--radius-sm)',
+                  color: '#38bdf8',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease'
+                }}
+                aria-label="MS Chartered Engineers on LinkedIn"
+              >
+                <LinkedinIcon size={15} color="#38bdf8" />
+                <span>LinkedIn Company Profile</span>
+              </a>
             </div>
           </div>
 
@@ -157,6 +184,19 @@ export default function Footer({ onOpenQuote }) {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Mail size={18} color="#38bdf8" style={{ flexShrink: 0 }} />
                 <a href="mailto:ms.charteredengineer@gmail.com" itemProp="email" style={{ color: '#cbd5e1' }}>ms.charteredengineer@gmail.com</a>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <LinkedinIcon size={18} color="#0077b5" style={{ flexShrink: 0 }} />
+                <a 
+                  href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  itemProp="sameAs" 
+                  style={{ color: '#38bdf8', fontWeight: 600, fontSize: '0.84rem' }}
+                >
+                  Official LinkedIn Page &rarr;
+                </a>
               </div>
 
               <button 

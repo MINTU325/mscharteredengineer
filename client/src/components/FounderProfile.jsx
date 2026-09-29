@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, GraduationCap, ShieldCheck, Mail, Phone, ExternalLink, CheckCircle2, Landmark } from 'lucide-react';
+import LinkedinIcon from './LinkedinIcon';
 
 export default function FounderProfile({ onOpenQuote }) {
   return (
@@ -166,6 +167,16 @@ export default function FounderProfile({ onOpenQuote }) {
                 <a href="mailto:ms.charteredengineer@gmail.com" className="btn btn-outline" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
                   <Mail size={15} color="#f59e0b" />
                   <span>Email Principal Engineer</span>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-outline" 
+                  style={{ padding: '10px 20px', fontSize: '0.88rem', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.4)' }}
+                >
+                  <LinkedinIcon size={15} color="#38bdf8" />
+                  <span>LinkedIn Profile</span>
                 </a>
                 <button onClick={() => onOpenQuote()} className="btn btn-gold" style={{ padding: '10px 20px', fontSize: '0.88rem' }}>
                   Book Consultation

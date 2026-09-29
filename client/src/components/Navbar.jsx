@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, ShieldCheck, Menu, X, ArrowRight, LayoutDashboard } from 'lucide-react';
+import LinkedinIcon from './LinkedinIcon';
 
 export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,6 +37,17 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             <a href="mailto:ms.charteredengineer@gmail.com" className="top-bar-item">
               <Mail size={14} color="#f59e0b" />
               <span>ms.charteredengineer@gmail.com</span>
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="top-bar-item"
+              title="Official LinkedIn Company Page"
+              style={{ color: '#38bdf8' }}
+            >
+              <LinkedinIcon size={14} color="#0077b5" />
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
@@ -136,6 +148,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           <a href="#solar-checker"  onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">☀️ CEIG Solar Checker</a>
           <a href="#founder"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👤 Core Team (IIT Roorkee)</a>
           <a href="#contact"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📍 Contact Jaipur HQ</a>
+          <a href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8' }}>💼 LinkedIn Company Page</a>
         </div>
 
         <div className="mobile-drawer-divider" />
