@@ -310,7 +310,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
         {/* ──────────────────────────────────────────────────────────
             BREADCRUMB BAR (Home > Technical Knowledge Hub > [Blog Title])
             ────────────────────────────────────────────────────────── */}
-        <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', fontSize: '0.86rem', color: '#94a3b8', marginBottom: '28px' }}>
+        <nav aria-label="Breadcrumb" className="blog-breadcrumb">
           <a 
             href="/" 
             onClick={(e) => { 
@@ -321,36 +321,28 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 window.location.href = '/';
               }
             }} 
-            style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 500 }}
+            className="blog-breadcrumb-link"
           >
             Home
           </a>
           
-          <ChevronRight size={14} color="#64748b" />
+          <ChevronRight size={13} color="#64748b" style={{ flexShrink: 0 }} />
           
           {activeArticle ? (
             <>
               <button 
                 onClick={handleBackToHub} 
-                style={{ 
-                  background: 'none', 
-                  border: 'none', 
-                  color: '#38bdf8', 
-                  padding: 0, 
-                  cursor: 'pointer', 
-                  fontSize: 'inherit',
-                  fontWeight: 500
-                }}
+                className="blog-breadcrumb-btn"
               >
                 Technical Knowledge Hub
               </button>
-              <ChevronRight size={14} color="#64748b" />
-              <span style={{ color: '#ffffff', fontWeight: 600, maxWidth: '400px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={activeArticle.title}>
+              <ChevronRight size={13} color="#64748b" style={{ flexShrink: 0 }} />
+              <span className="blog-breadcrumb-current" title={activeArticle.title}>
                 {activeArticle.title}
               </span>
             </>
           ) : (
-            <span style={{ color: '#ffffff', fontWeight: 600 }}>
+            <span className="blog-breadcrumb-current">
               Technical Knowledge Hub &amp; Blog
             </span>
           )}
@@ -362,11 +354,10 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
         {activeArticle ? (
           <div className="article-full-page">
             {/* Top Back & Share Actions */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+            <div className="article-top-bar">
               <button
                 onClick={handleBackToHub}
-                className="btn btn-outline"
-                style={{ padding: '8px 16px', fontSize: '0.84rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                className="btn btn-outline article-top-btn"
               >
                 <ArrowLeft size={16} />
                 <span>&larr; Back to All Guides</span>
@@ -374,8 +365,8 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
 
               <button
                 onClick={handleShare}
-                className="btn btn-outline"
-                style={{ padding: '8px 16px', fontSize: '0.84rem', display: 'inline-flex', alignItems: 'center', gap: '8px', color: copied ? '#10b981' : '#38bdf8' }}
+                className="btn btn-outline article-top-btn"
+                style={{ color: copied ? '#10b981' : '#38bdf8' }}
               >
                 {copied ? <Check size={16} color="#10b981" /> : <Share2 size={16} />}
                 <span>{copied ? 'Citation Link Copied!' : 'Share / Copy Citation'}</span>
@@ -383,100 +374,60 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Article Main Card */}
-            <article className="glass-card" style={{ padding: '0', overflow: 'hidden', marginBottom: '40px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+            <article className="glass-card article-main-card">
               
               {/* Humanized Hero Cover Image */}
-              <div style={{ position: 'relative', width: '100%', height: 'clamp(260px, 40vw, 440px)', overflow: 'hidden', background: '#0a101f' }}>
+              <div className="article-cover-wrapper">
                 <img 
                   src={activeArticle.image} 
                   alt={activeArticle.imageAlt || activeArticle.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  className="article-cover-img"
                   loading="eager"
                 />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(180deg, rgba(4, 9, 20, 0.2) 0%, rgba(4, 9, 20, 0.88) 100%)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-end',
-                  padding: 'clamp(20px, 4vw, 36px)'
-                }}>
-                  <span style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '5px 12px',
-                    background: 'rgba(56, 189, 248, 0.25)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(56, 189, 248, 0.5)',
-                    borderRadius: 'var(--radius-sm)',
-                    color: '#38bdf8',
-                    fontSize: '0.8rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.06em',
-                    width: 'fit-content',
-                    marginBottom: '12px'
-                  }}>
+                <div className="article-cover-overlay">
+                  <span className="article-category-badge">
                     {activeArticle.category}
                   </span>
 
-                  <h1 style={{
-                    fontSize: 'clamp(1.5rem, 3.2vw, 2.3rem)',
-                    color: '#ffffff',
-                    fontWeight: 800,
-                    lineHeight: 1.25,
-                    marginBottom: '14px',
-                    textShadow: '0 2px 10px rgba(0,0,0,0.7)'
-                  }}>
+                  <h1 className="article-main-title">
                     {activeArticle.title}
                   </h1>
 
                   {/* Author Byline Strip */}
-                  <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    gap: '14px',
-                    fontSize: '0.84rem',
-                    color: '#cbd5e1'
-                  }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#ffffff', fontWeight: 600 }}>
-                      <UserCheck size={16} color="#38bdf8" />
-                      {activeArticle.author}
+                  <div className="article-byline-strip">
+                    <span className="article-byline-item">
+                      <UserCheck size={14} color="#38bdf8" />
+                      <span>{activeArticle.author}</span>
                     </span>
-                    <span>&bull;</span>
-                    <span style={{ color: 'var(--accent-gold)' }}>{activeArticle.authorRole}</span>
-                    <span>&bull;</span>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                      <Calendar size={14} /> {activeArticle.date}
+                    <span className="article-byline-bullet">&bull;</span>
+                    <span className="article-byline-item byline-gold">
+                      {activeArticle.authorRole}
                     </span>
-                    <span>&bull;</span>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                      <Clock size={14} /> {activeArticle.readTime}
+                    <span className="article-byline-bullet">&bull;</span>
+                    <span className="article-byline-item">
+                      <Calendar size={13} />
+                      <span>{activeArticle.date}</span>
+                    </span>
+                    <span className="article-byline-bullet">&bull;</span>
+                    <span className="article-byline-item">
+                      <Clock size={13} />
+                      <span>{activeArticle.readTime}</span>
                     </span>
                   </div>
                 </div>
               </div>
 
               {/* Article Body Content */}
-              <div style={{ padding: 'clamp(24px, 4vw, 44px)' }}>
+              <div className="article-body-container">
                 {/* Key Takeaways Box */}
-                <div style={{
-                  background: 'rgba(24, 90, 219, 0.08)',
-                  border: '1px solid rgba(56, 189, 248, 0.25)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '20px 24px',
-                  marginBottom: '32px'
-                }}>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>
+                <div className="article-takeaways-box">
+                  <div className="article-takeaways-heading">
                     Executive Takeaways &amp; Regulatory Essentials
                   </div>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', margin: 0, padding: 0 }}>
+                  <ul className="article-takeaways-list">
                     {activeArticle.keyTakeaways.map((point, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.9rem', color: '#e2e8f0', lineHeight: 1.5 }}>
-                        <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '3px' }} />
+                      <li key={idx} className="article-takeaways-item">
+                        <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -484,60 +435,34 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 </div>
 
                 {/* Markdown text body */}
-                <div style={{
-                  color: '#cbd5e1',
-                  fontSize: '1rem',
-                  lineHeight: 1.75,
-                  whiteSpace: 'pre-line',
-                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                  paddingBottom: '32px',
-                  marginBottom: '32px'
-                }}>
+                <div className="article-markdown-body">
                   {activeArticle.content}
                 </div>
 
                 {/* Tags */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
+                <div className="article-tags-wrap">
                   {activeArticle.tags.map((t) => (
-                    <span key={t} style={{
-                      padding: '5px 12px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: 'var(--radius-sm)',
-                      fontSize: '0.8rem',
-                      color: '#93c5fd'
-                    }}>
+                    <span key={t} className="article-tag-pill">
                       #{t}
                     </span>
                   ))}
                 </div>
 
                 {/* Action CTA Banner */}
-                <div style={{
-                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, rgba(245, 158, 11, 0.2) 100%)',
-                  border: '1px solid rgba(56, 189, 248, 0.4)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '28px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  gap: '20px'
-                }}>
-                  <div>
-                    <h3 style={{ fontSize: '1.25rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
+                <div className="article-cta-box">
+                  <div className="article-cta-content">
+                    <h3 className="article-cta-title">
                       Require Statutory Certification or Valuation for this Requirement?
                     </h3>
-                    <p style={{ color: '#cbd5e1', fontSize: '0.88rem', margin: 0, maxWidth: '620px', lineHeight: 1.5 }}>
+                    <p className="article-cta-desc">
                       Directly certified by <strong>Mukesh Singh, IIT Roorkee alumni</strong>. Valid for DGFT, Customs, Commercial Banks, NCLT, and State Electrical Inspectorates across India.
                     </p>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <div className="article-cta-actions">
                     <button
                       onClick={() => onOpenQuote(activeArticle.category)}
-                      className="btn btn-gold"
-                      style={{ padding: '10px 22px', fontSize: '0.88rem' }}
+                      className="btn btn-gold article-cta-btn"
                     >
                       Request Quotation
                     </button>
@@ -545,10 +470,9 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       href={`https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20am%20inquiring%20about%20${encodeURIComponent(activeArticle.title)}.`}
                       target="_blank"
                       rel="noreferrer"
-                      className="btn btn-whatsapp"
-                      style={{ padding: '10px 20px', fontSize: '0.88rem' }}
+                      className="btn btn-whatsapp article-cta-btn article-cta-whatsapp"
                     >
-                      <MessageSquare size={16} />
+                      <MessageSquare size={16} style={{ flexShrink: 0 }} />
                       <span>WhatsApp Principal Engineer</span>
                     </a>
                   </div>
@@ -557,9 +481,9 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             </article>
 
             {/* Related Articles Section */}
-            <div style={{ marginTop: '50px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                <h3 style={{ fontSize: '1.3rem', color: '#ffffff', fontWeight: 700 }}>
+            <div className="article-related-section">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
+                <h3 style={{ fontSize: '1.25rem', color: '#ffffff', fontWeight: 700 }}>
                   Explore Other Technical Guides
                 </h3>
                 <button
@@ -570,11 +494,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 </button>
               </div>
 
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-                gap: '20px'
-              }}>
+              <div className="article-related-grid">
                 {BLOG_POSTS.filter(p => p.id !== activeArticle.id).slice(0, 3).map((post) => (
                   <div
                     key={post.id}
@@ -615,7 +535,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
               ────────────────────────────────────────────────────────── */
           <div className="blog-hub-grid-view">
             {/* Hero Banner Header */}
-            <div className="glass-card" style={{ padding: '40px 32px', marginBottom: '36px', position: 'relative', overflow: 'hidden' }}>
+            <div className="glass-card blog-hub-hero">
               <div style={{
                 position: 'absolute',
                 top: '-50px',
@@ -632,22 +552,22 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 <span>Official Engineering &amp; Regulatory Insights</span>
               </div>
 
-              <h1 style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.5rem)', color: '#ffffff', fontWeight: 800, marginBottom: '14px', lineHeight: 1.25 }}>
+              <h1 className="blog-hub-title">
                 Chartered Engineering, Valuation &amp; <span className="gold-gradient-text">Statutory Compliance</span> Articles
               </h1>
 
-              <p style={{ color: '#cbd5e1', fontSize: '1rem', maxWidth: '780px', lineHeight: 1.6, marginBottom: '24px' }}>
+              <p className="blog-hub-desc">
                 Practical statutory guides, technical inspection checklists, DGFT procedures, and asset valuation methodologies compiled by verified corporate members of the <strong>Institution of Engineers (India)</strong> and IIT Roorkee alumni.
               </p>
 
               {/* Quick Search & Filters Bar */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div style={{ position: 'relative', maxWidth: '600px' }}>
+                <div style={{ position: 'relative', maxWidth: '600px', width: '100%' }}>
                   <Search size={18} color="#94a3b8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
                   <input
                     type="text"
                     className="form-control"
-                    style={{ paddingLeft: '46px', height: '46px', fontSize: '0.92rem' }}
+                    style={{ paddingLeft: '46px', height: '46px', fontSize: '0.92rem', width: '100%', boxSizing: 'border-box' }}
                     placeholder="Search articles (DGFT, IndAS 16, CESE, Boilers, Solar)..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -655,23 +575,12 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 </div>
 
                 {/* Category Filter Chips */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                <div className="blog-filter-chips">
                   {categories.map((cat) => (
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      style={{
-                        padding: '6px 14px',
-                        borderRadius: '20px',
-                        border: '1px solid',
-                        borderColor: selectedCategory === cat ? 'var(--accent-gold)' : 'rgba(255, 255, 255, 0.1)',
-                        background: selectedCategory === cat ? 'rgba(245, 158, 11, 0.2)' : 'rgba(255, 255, 255, 0.04)',
-                        color: selectedCategory === cat ? '#fbbf24' : '#cbd5e1',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease'
-                      }}
+                      className={`blog-filter-chip ${selectedCategory === cat ? 'active' : ''}`}
                     >
                       {cat}
                     </button>
@@ -688,12 +597,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Blog Posts Grid with Humanized Images */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-              gap: '26px',
-              marginBottom: '50px'
-            }}>
+            <div className="blog-posts-grid">
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
@@ -814,27 +718,25 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Bottom Lead Consultation Strip */}
-            <div className="glass-card gold-accent" style={{ padding: '36px', textAlign: 'center' }}>
-              <h3 style={{ fontSize: '1.45rem', color: '#ffffff', marginBottom: '8px' }}>
+            <div className="glass-card gold-accent blog-bottom-strip">
+              <h3 className="blog-bottom-title">
                 Need Certified Chartered Engineer or Plant &amp; Machinery Valuation?
               </h3>
-              <p style={{ color: '#cbd5e1', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto 20px auto', lineHeight: 1.6 }}>
+              <p className="blog-bottom-desc">
                 Led by <strong>Mukesh Singh (B.Tech Mechanical Engineering, IIT Roorkee)</strong>. Providing approved reports for Banks, DGFT, Customs, State CEIG, and Industries across India.
               </p>
 
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
+              <div className="blog-bottom-actions">
                 <button
                   onClick={() => onOpenQuote('Chartered Engineer Certification')}
-                  className="btn btn-gold"
-                  style={{ padding: '12px 26px', fontSize: '0.92rem' }}
+                  className="btn btn-gold blog-bottom-btn"
                 >
                   <span>Request Priority Quote</span>
                   <ArrowRight size={16} />
                 </button>
                 <a
                   href="tel:+919158658885"
-                  className="btn btn-outline"
-                  style={{ padding: '12px 22px', fontSize: '0.92rem' }}
+                  className="btn btn-outline blog-bottom-btn"
                 >
                   <Phone size={16} color="#10b981" />
                   <span>Direct Call +91 91586 58885</span>
