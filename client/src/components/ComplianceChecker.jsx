@@ -106,9 +106,9 @@ export default function ComplianceChecker({ onOpenQuote }) {
   }, []);
 
   return (
-    <section id="solar-checker" className="section" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <section id="solar-checker" className="section" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '52px 0' }}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" style={{ marginBottom: '28px' }}>
           <div className="section-badge gold">
             <Zap size={15} />
             <span>Solar & Industrial Electrical Safety</span>

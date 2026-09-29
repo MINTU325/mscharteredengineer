@@ -1,9 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, ShieldCheck, Menu, X, ArrowRight, LayoutDashboard } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Home, 
+  Briefcase, 
+  Calculator, 
+  BookOpen, 
+  Send, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  ShieldCheck, 
+  Menu, 
+  X, 
+  ArrowRight, 
+  LayoutDashboard 
+} from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 
 export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+  const [currentPath, setCurrentPath] = useState('/');
+  const lastScrollY = useRef(0);
+
+  // Sync current pathname for active states
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname);
+    }
+  }, []);
 
   // Close drawer on resize to desktop
   useEffect(() => {
@@ -14,9 +38,52 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // LinkedIn-style scroll listener:
+  // - Swiping up to read down (diff > 8): nav bar hides
+  // - Swiping down to go up (diff < -8): nav bar appears
+  // - Near top (scrollY <= 60): nav bar always visible
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const diff = currentScrollY - lastScrollY.current;
+
+          // If mobile drawer is open, keep navbar visible
+          if (mobileMenuOpen) {
+            setNavVisible(true);
+            lastScrollY.current = currentScrollY;
+            ticking = false;
+            return;
+          }
+
+          if (currentScrollY <= 60) {
+            setNavVisible(true);
+          } else if (diff > 8) {
+            // Scrolling down into content -> hide navbar
+            setNavVisible(false);
+          } else if (diff < -8) {
+            // Scrolling up towards top -> show navbar
+            setNavVisible(true);
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [mobileMenuOpen]);
+
   return (
-    <header className="header-wrapper">
-      {/* Top Notification & Credential Bar */}
+    <>
+      <header className={`header-wrapper ${navVisible ? 'header-wrapper--visible' : 'header-wrapper--hidden'}`}>
+        {/* Top Notification & Credential Bar */}
       <div className="top-bar">
         <div className="container top-bar-inner">
           <div className="top-bar-left">
@@ -191,5 +258,49 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
         </div>
       </div>
     </header>
+
+    {/* LinkedIn-Style Mobile Bottom Navigation View */}
+    <nav 
+      className={`mobile-bottom-nav ${navVisible ? 'mobile-bottom-nav--visible' : 'mobile-bottom-nav--hidden'}`}
+      aria-label="Mobile Bottom Navigation"
+    >
+      <a 
+        href="/" 
+        className={`bottom-nav-item ${currentPath === '/' ? 'active' : ''}`}
+      >
+        <Home size={20} />
+        <span>Home</span>
+      </a>
+      <a 
+        href="/services" 
+        className={`bottom-nav-item ${currentPath.startsWith('/services') ? 'active' : ''}`}
+      >
+        <Briefcase size={20} />
+        <span>Services</span>
+      </a>
+      <a 
+        href="/calculator" 
+        className={`bottom-nav-item ${currentPath.startsWith('/calculator') ? 'active' : ''}`}
+      >
+        <Calculator size={20} />
+        <span>Calculator</span>
+      </a>
+      <a 
+        href="/blog" 
+        className={`bottom-nav-item ${currentPath.startsWith('/blog') ? 'active' : ''}`}
+      >
+        <BookOpen size={20} />
+        <span>Blog</span>
+      </a>
+      <button 
+        onClick={onOpenQuote} 
+        className="bottom-nav-item bottom-nav-quote-btn"
+        type="button"
+      >
+        <Send size={20} />
+        <span>Quote</span>
+      </button>
+    </nav>
+  </>
   );
 }

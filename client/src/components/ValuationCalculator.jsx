@@ -112,18 +112,18 @@ export default function ValuationCalculator({ onOpenQuote }) {
   }, []);
 
   return (
-    <section id="calculator" className="section" style={{ background: 'rgba(7, 14, 30, 0.6)' }}>
+    <section id="calculator" className="section" style={{ background: '#080f24', padding: '52px 0' }}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" style={{ marginBottom: '28px' }}>
           <div className="section-badge gold">
             <Calculator size={15} />
             <span>Smart Engineering Estimation Engine</span>
           </div>
           <h2 className="section-title">
-            Interactive Machinery & <span className="gold-gradient-text">Asset Valuation Tool</span>
+            Interactive Machinery &amp; <span className="gold-gradient-text">Asset Valuation Tool</span>
           </h2>
           <p className="section-description">
-            Calculate Remaining Useful Life (RUL), straight-line & written-down depreciation, and fair market estimates aligned with <strong>Companies Act 2013</strong> norms.
+            Calculate Remaining Useful Life (RUL), straight-line &amp; written-down depreciation, and fair market estimates aligned with <strong>Companies Act 2013</strong> norms.
           </p>
         </div>
 

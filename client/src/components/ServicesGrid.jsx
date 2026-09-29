@@ -231,9 +231,9 @@ export default function ServicesGrid({ onOpenQuote }) {
   };
 
   return (
-    <section id="services" className="section" style={{ position: 'relative' }}>
+    <section id="services" className="section section-light" style={{ position: 'relative' }}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" style={{ marginBottom: '28px' }}>
           <div className="section-badge">
             <Sparkles size={15} />
             <span>Comprehensive Professional Services</span>
@@ -246,32 +246,29 @@ export default function ServicesGrid({ onOpenQuote }) {
             advisory, CESE electrical safety, and BEE energy audits — end-to-end chartered engineering expertise.
           </p>
 
-          {/* 🔍 OPTION 3: Interactive Floating Search Bar */}
+          {/* 🔍 Interactive Floating Search Bar */}
           <div
             style={{
               maxWidth: '680px',
-              margin: '36px auto 0 auto',
+              margin: '28px auto 0 auto',
               position: 'relative',
               zIndex: 10,
             }}
           >
             <div
+              className="services-search-bar"
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                background: 'rgba(10, 22, 51, 0.75)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(56, 189, 248, 0.35)',
                 borderRadius: 'var(--radius-full)',
                 padding: '6px 12px 6px 18px',
-                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.35), inset 0 0 20px rgba(24, 90, 219, 0.1)',
                 transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
               }}
             >
-              <Search size={20} color="#38bdf8" style={{ flexShrink: 0, marginRight: '10px' }} />
+              <Search size={20} color="#1d4ed8" style={{ flexShrink: 0, marginRight: '10px' }} />
               <input
                 type="text"
+                className="services-search-input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search 50+ services (e.g. Advance Authorisation, CESE, BEE, Bank Loan, Solar)..."
@@ -280,7 +277,6 @@ export default function ServicesGrid({ onOpenQuote }) {
                   background: 'transparent',
                   border: 'none',
                   outline: 'none',
-                  color: '#ffffff',
                   fontSize: '0.94rem',
                   fontFamily: 'inherit',
                   padding: '8px 0',
@@ -341,7 +337,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                 marginTop: '14px',
               }}
             >
-              <span style={{ fontSize: '0.74rem', color: '#94a3b8', fontWeight: 600 }}>Popular:</span>
+              <span style={{ fontSize: '0.74rem', color: '#64748b', fontWeight: 600 }}>Popular:</span>
               {QUICK_SUGGESTIONS.map((chip, idx) => {
                 const isSelected = searchQuery.toLowerCase() === chip.query.toLowerCase();
                 return (
@@ -349,12 +345,14 @@ export default function ServicesGrid({ onOpenQuote }) {
                     key={idx}
                     onClick={() => handleChipClick(chip.query)}
                     style={{
-                      background: isSelected ? 'rgba(56, 189, 248, 0.22)' : 'rgba(255, 255, 255, 0.04)',
-                      border: `1px solid ${isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.1)'}`,
+                      background: isSelected ? '#1e40af' : '#ffffff',
+                      border: `1px solid ${isSelected ? '#1e40af' : '#cbd5e1'}`,
                       borderRadius: 'var(--radius-full)',
                       padding: '4px 11px',
                       fontSize: '0.74rem',
-                      color: isSelected ? '#ffffff' : '#cbd5e1',
+                      fontWeight: 500,
+                      color: isSelected ? '#ffffff' : '#475569',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -377,7 +375,7 @@ export default function ServicesGrid({ onOpenQuote }) {
               justifyContent: 'center',
               flexWrap: 'wrap',
               gap: '10px',
-              marginTop: '26px',
+              marginTop: '22px',
             }}
           >
             {CATEGORIES.map((cat) => (
@@ -385,24 +383,14 @@ export default function ServicesGrid({ onOpenQuote }) {
                 key={cat}
                 onClick={() => {
                   setActiveFilter(cat);
-                  // Optional: keep searchQuery or leave as-is
                 }}
+                className={`service-filter-chip ${activeFilter === cat ? 'active' : ''}`}
                 style={{
-                  padding: '8px 18px',
+                  padding: '7px 16px',
                   borderRadius: 'var(--radius-full)',
                   fontSize: '0.82rem',
                   fontWeight: 600,
                   cursor: 'pointer',
-                  border: '1px solid',
-                  borderColor:
-                    activeFilter === cat
-                      ? 'var(--primary-light)'
-                      : 'rgba(255,255,255,0.1)',
-                  background:
-                    activeFilter === cat
-                      ? 'rgba(24, 90, 219, 0.25)'
-                      : 'rgba(255,255,255,0.03)',
-                  color: activeFilter === cat ? '#ffffff' : 'var(--text-muted)',
                   transition: 'var(--transition)',
                 }}
               >
@@ -473,7 +461,7 @@ export default function ServicesGrid({ onOpenQuote }) {
               <div
                 key={service.id}
                 id={service.code}
-                className="glass-card"
+                className="glass-card service-card"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -509,11 +497,11 @@ export default function ServicesGrid({ onOpenQuote }) {
                       <Icon size={26} />
                     </div>
                     <span
+                      className="service-card-num"
                       style={{
                         fontSize: '1.25rem',
                         fontWeight: 800,
                         fontFamily: 'var(--font-mono)',
-                        color: 'rgba(255,255,255,0.18)',
                       }}
                     >
                       {service.id}
@@ -535,16 +523,16 @@ export default function ServicesGrid({ onOpenQuote }) {
                   </div>
 
                   {/* Title */}
-                  <h3 style={{ fontSize: '1.3rem', marginBottom: '12px', color: '#ffffff' }}>
+                  <h3 className="service-card-title" style={{ fontSize: '1.25rem', marginBottom: '10px' }}>
                     {highlightText(service.title, searchQuery)}
                   </h3>
 
                   {/* Description */}
                   <p
+                    className="service-card-desc"
                     style={{
                       fontSize: '0.88rem',
-                      color: '#cbd5e1',
-                      marginBottom: '20px',
+                      marginBottom: '18px',
                       lineHeight: 1.65,
                     }}
                   >
@@ -557,7 +545,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                       style={{
                         fontSize: '0.76rem',
                         fontWeight: 700,
-                        color: '#94a3b8',
+                        color: '#64748b',
                         textTransform: 'uppercase',
                         letterSpacing: '0.06em',
                         marginBottom: '10px',
@@ -565,7 +553,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                     >
                       Scope of Services:
                     </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '7px' }}>
+                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '7px', margin: 0, padding: 0 }}>
                       {previewItems.map((item, i) => (
                         <li
                           key={i}
@@ -574,12 +562,11 @@ export default function ServicesGrid({ onOpenQuote }) {
                             alignItems: 'flex-start',
                             gap: '9px',
                             fontSize: '0.84rem',
-                            color: '#e2e8f0',
                             lineHeight: 1.5,
                           }}
                         >
                           <Check size={15} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
-                          <span>{highlightText(item, searchQuery)}</span>
+                          <span className="service-deliverable-item">{highlightText(item, searchQuery)}</span>
                         </li>
                       ))}
 
@@ -593,12 +580,11 @@ export default function ServicesGrid({ onOpenQuote }) {
                               alignItems: 'flex-start',
                               gap: '9px',
                               fontSize: '0.84rem',
-                              color: '#e2e8f0',
                               lineHeight: 1.5,
                             }}
                           >
                             <Check size={15} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
-                            <span>{highlightText(item, searchQuery)}</span>
+                            <span className="service-deliverable-item">{highlightText(item, searchQuery)}</span>
                           </li>
                         ))}
                     </ul>
@@ -639,13 +625,11 @@ export default function ServicesGrid({ onOpenQuote }) {
                 {/* Card Footer */}
                 <div style={{ marginTop: '20px' }}>
                   <div
+                    className="service-highlight-box"
                     style={{
-                      background: 'rgba(255,255,255,0.03)',
-                      border: '1px dashed rgba(255,255,255,0.1)',
                       borderRadius: 'var(--radius-sm)',
                       padding: '10px 14px',
                       fontSize: '0.8rem',
-                      color: '#fbbf24',
                       marginBottom: '16px',
                     }}
                   >

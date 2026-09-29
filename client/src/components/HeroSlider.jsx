@@ -184,6 +184,7 @@ export default function HeroSlider({ onOpenQuote }) {
 
   return (
     <section
+      id="home"
       className="hero-slider"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}

@@ -34,9 +34,9 @@ export default function PanIndiaPresence({ onOpenQuote }) {
   const currentZoneData = zones.find(z => z.name === activeZone) || zones[0];
 
   return (
-    <section id="contact" className="section" style={{ background: 'rgba(7, 14, 30, 0.7)' }}>
+    <section id="contact" className="section section-white">
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" style={{ marginBottom: '28px' }}>
           <div className="section-badge gold">
             <Globe size={15} />
             <span>PAN INDIA PRESENCE | JAIPUR HEADQUARTERS</span>
@@ -51,32 +51,32 @@ export default function PanIndiaPresence({ onOpenQuote }) {
 
         <div className="presence-grid">
           {/* Left Column: Official Headquarters Card */}
-          <div className="glass-card">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+          <div className="glass-card presence-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: '0 4px 18px rgba(15, 23, 42, 0.05)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
               <div style={{
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                background: 'rgba(24, 90, 219, 0.2)',
-                border: '1px solid rgba(59, 130, 246, 0.4)',
+                background: '#eff6ff',
+                border: '1px solid #bfdbfe',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#38bdf8'
+                color: '#1d4ed8'
               }}>
                 <MapPin size={24} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.25rem', color: '#ffffff' }}>Central Headquarters</h3>
-                <div style={{ fontSize: '0.82rem', color: 'var(--accent-gold)' }}>Jaipur, Rajasthan - 302019</div>
+                <h3 style={{ fontSize: '1.25rem', color: '#0f172a', fontWeight: 800 }}>Central Headquarters</h3>
+                <div style={{ fontSize: '0.82rem', color: '#b45309', fontWeight: 700 }}>Jaipur, Rajasthan - 302019</div>
               </div>
             </div>
 
-            <p style={{ color: '#cbd5e1', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '24px' }}>
+            <p style={{ color: '#475569', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '22px' }}>
               Our Jaipur office coordinates on-site technical audits, statutory documentation, DGFT and customs liaisons, and bankable DPR engineering throughout Rajasthan and North India.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
               <a 
                 href="tel:+919158658885" 
                 style={{
@@ -84,17 +84,19 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                   alignItems: 'center',
                   gap: '14px',
                   padding: '12px 16px',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)'
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: 'var(--radius-md)',
+                  textDecoration: 'none',
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.03)'
                 }}
               >
-                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#ecfdf5', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#059669' }}>
                   <Phone size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Direct Telephone Helpline</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff' }}>+91 91586 58885</div>
+                  <div style={{ fontSize: '0.74rem', color: '#64748b', fontWeight: 500 }}>Direct Telephone Helpline</div>
+                  <div style={{ fontSize: '0.98rem', fontWeight: 700, color: '#0f172a' }}>+91 91586 58885</div>
                 </div>
               </a>
 
@@ -105,17 +107,19 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                   alignItems: 'center',
                   gap: '14px',
                   padding: '12px 16px',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)'
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: 'var(--radius-md)',
+                  textDecoration: 'none',
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.03)'
                 }}
               >
-                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f59e0b' }}>
+                <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#fffbeb', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#d97706' }}>
                   <Mail size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Official Statutory Correspondence</div>
-                  <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#ffffff' }}>ms.charteredengineer@gmail.com</div>
+                  <div style={{ fontSize: '0.74rem', color: '#64748b', fontWeight: 500 }}>Official Statutory Correspondence</div>
+                  <div style={{ fontSize: '0.90rem', fontWeight: 700, color: '#0f172a' }}>ms.charteredengineer@gmail.com</div>
                 </div>
               </a>
             </div>
@@ -123,7 +127,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
             <button 
               onClick={() => onOpenQuote()}
               className="btn btn-gold"
-              style={{ width: '100%', padding: '14px' }}
+              style={{ width: '100%', padding: '12px', fontSize: '0.90rem', justifyContent: 'center' }}
             >
               <span>Schedule On-Site Inspection</span>
               <ArrowRight size={16} />
@@ -131,44 +135,46 @@ export default function PanIndiaPresence({ onOpenQuote }) {
           </div>
 
           {/* Right Column: Interactive Pan-India Regional Coverage */}
-          <div className="glass-card gold-accent">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <div className="glass-card presence-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: '0 4px 18px rgba(15, 23, 42, 0.05)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
               <div>
-                <span style={{ fontSize: '0.78rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.76rem', color: '#b45309', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
                   Active Operational Corridors
                 </span>
-                <h3 style={{ fontSize: '1.25rem', color: '#ffffff', marginTop: '2px' }}>
+                <h3 style={{ fontSize: '1.25rem', color: '#0f172a', fontWeight: 800, marginTop: '2px' }}>
                   Pan-India Field Inspections
                 </h3>
               </div>
               <span style={{
-                fontSize: '0.75rem',
+                fontSize: '0.74rem',
                 padding: '4px 10px',
                 borderRadius: 'var(--radius-full)',
-                background: 'rgba(59, 130, 246, 0.15)',
-                color: '#93c5fd',
-                fontWeight: 600
+                background: '#eff6ff',
+                color: '#1d4ed8',
+                fontWeight: 700,
+                border: '1px solid #bfdbfe'
               }}>
                 All India Acceptance
               </span>
             </div>
 
             {/* Zone Selector Tabs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
               {zones.map((z) => (
                 <button
                   key={z.name}
                   onClick={() => setActiveZone(z.name)}
                   style={{
-                    padding: '8px 14px',
+                    padding: '7px 14px',
                     borderRadius: 'var(--radius-md)',
-                    fontSize: '0.82rem',
+                    fontSize: '0.80rem',
                     fontWeight: 600,
                     cursor: 'pointer',
                     border: '1px solid',
-                    borderColor: activeZone === z.name ? 'var(--accent-gold)' : 'rgba(255,255,255,0.08)',
-                    background: activeZone === z.name ? 'rgba(245, 158, 11, 0.15)' : 'rgba(255,255,255,0.02)',
-                    color: activeZone === z.name ? '#fbbf24' : '#94a3b8',
+                    borderColor: activeZone === z.name ? '#1e40af' : '#cbd5e1',
+                    background: activeZone === z.name ? '#1e40af' : '#ffffff',
+                    color: activeZone === z.name ? '#ffffff' : '#475569',
+                    boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
                     transition: 'var(--transition)'
                   }}
                 >
@@ -179,33 +185,35 @@ export default function PanIndiaPresence({ onOpenQuote }) {
 
             {/* Selected Zone Content */}
             <div style={{
-              background: 'rgba(255, 255, 255, 0.02)',
-              border: '1px solid rgba(255, 255, 255, 0.06)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: 'var(--radius-md)',
-              padding: '20px',
-              marginBottom: '20px'
+              padding: '18px',
+              marginBottom: '16px',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.03)'
             }}>
-              <div style={{ fontSize: '0.82rem', color: '#38bdf8', fontWeight: 600, marginBottom: '6px' }}>
+              <div style={{ fontSize: '0.80rem', color: '#1d4ed8', fontWeight: 700, marginBottom: '6px' }}>
                 Operational Scope:
               </div>
-              <p style={{ fontSize: '0.88rem', color: '#cbd5e1', lineHeight: 1.6, marginBottom: '16px' }}>
+              <p style={{ fontSize: '0.88rem', color: '#334155', lineHeight: 1.6, marginBottom: '14px' }}>
                 {currentZoneData.specialty}
               </p>
 
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '10px' }}>
+              <div style={{ fontSize: '0.76rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600, marginBottom: '8px' }}>
                 Key Industrial Hubs Covered:
               </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                 {currentZoneData.coverage.map((city, cIdx) => (
                   <span 
                     key={cIdx} 
                     style={{
-                      padding: '5px 12px',
-                      background: 'rgba(24, 90, 219, 0.15)',
-                      border: '1px solid rgba(59, 130, 246, 0.25)',
+                      padding: '4px 10px',
+                      background: '#eff6ff',
+                      border: '1px solid #bfdbfe',
                       borderRadius: 'var(--radius-full)',
-                      fontSize: '0.78rem',
-                      color: '#e2e8f0'
+                      fontSize: '0.76rem',
+                      color: '#1e40af',
+                      fontWeight: 500
                     }}
                   >
                     📍 {city}
@@ -219,13 +227,13 @@ export default function PanIndiaPresence({ onOpenQuote }) {
               display: 'flex',
               alignItems: 'center',
               gap: '12px',
-              padding: '12px 16px',
-              background: 'rgba(16, 185, 129, 0.08)',
-              border: '1px solid rgba(16, 185, 129, 0.2)',
+              padding: '11px 14px',
+              background: '#ecfdf5',
+              border: '1px solid #a7f3d0',
               borderRadius: 'var(--radius-md)'
             }}>
-              <Shield size={20} color="#10b981" style={{ flexShrink: 0 }} />
-              <div style={{ fontSize: '0.82rem', color: '#cbd5e1' }}>
+              <Shield size={18} color="#059669" style={{ flexShrink: 0 }} />
+              <div style={{ fontSize: '0.80rem', color: '#065f46', lineHeight: 1.45 }}>
                 Chartered Engineer site visit mobilization within <strong>24 to 48 hours</strong> across all Tier-1 and Tier-2 industrial zones.
               </div>
             </div>

@@ -14,9 +14,9 @@ export default function Credentials() {
   ];
 
   return (
-    <section id="credentials" className="section" style={{ background: 'rgba(11, 23, 54, 0.45)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+    <section id="credentials" className="section" style={{ background: 'rgba(11, 23, 54, 0.65)', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '48px 0' }}>
       <div className="container">
-        <div className="section-header">
+        <div className="section-header" style={{ marginBottom: '28px' }}>
           <div className="section-badge gold">
             <Award size={15} />
             <span>RECOGNITION | TRUST | PROFESSIONAL EXCELLENCE</span>
@@ -34,7 +34,7 @@ export default function Credentials() {
           className="glass-card"
           style={{
             maxWidth: '960px',
-            margin: '0 auto 48px auto',
+            margin: '0 auto 32px auto',
             background: 'linear-gradient(135deg, rgba(16, 33, 74, 0.9) 0%, rgba(10, 20, 48, 0.9) 100%)',
             border: '1px solid rgba(245, 158, 11, 0.35)',
             borderRadius: 'var(--radius-xl)',

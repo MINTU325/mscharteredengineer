@@ -106,30 +106,30 @@ button, input, select, textarea {
 }
 
 .section {
-  padding: 96px 0;
+  padding: 56px 0;
   position: relative;
 }
 
 .section-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 60px auto;
+  margin: 0 auto 36px auto;
 }
 
 .section-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
+  padding: 5px 14px;
   background: rgba(24, 90, 219, 0.15);
   border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: var(--radius-full);
-  font-size: 0.82rem;
+  font-size: 0.80rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--primary-light);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .section-badge.gold {
@@ -139,8 +139,9 @@ button, input, select, textarea {
 }
 
 .section-title {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  margin-bottom: 16px;
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  margin-bottom: 12px;
+  font-weight: 800;
 }
 
 .gradient-text {
@@ -156,8 +157,270 @@ button, input, select, textarea {
 }
 
 .section-description {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+}
+
+/* ==============================================================
+   LIGHT & WHITE SECTION CORPORATE DESIGN SYSTEM
+   Alternating sections for high-trust humanized contrast
+   ============================================================== */
+.section-light {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.section-white {
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.section-light .section-title,
+.section-white .section-title {
+  color: #0f172a !important;
+}
+
+.section-light .gradient-text,
+.section-white .gradient-text {
+  background: linear-gradient(135deg, #0f172a 20%, #1e40af 65%, #2563eb 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.section-light .gold-gradient-text,
+.section-white .gold-gradient-text {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 60%, #92400e 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.section-light .section-description,
+.section-white .section-description {
+  color: #475569 !important;
+}
+
+.section-light .section-badge,
+.section-white .section-badge {
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  color: #1d4ed8 !important;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08) !important;
+}
+
+.section-light .section-badge.gold,
+.section-white .section-badge.gold {
+  background: #fffbeb !important;
+  border: 1px solid #fde68a !important;
+  color: #b45309 !important;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.08) !important;
+}
+
+/* Light Card System */
+.card-light {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-light:hover {
+  border-color: #93c5fd !important;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Light Services Specific Styling */
+.section-light .services-search-bar {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+}
+
+.section-light .services-search-input {
+  color: #0f172a !important;
+}
+
+.section-light .services-search-input::placeholder {
+  color: #64748b !important;
+}
+
+.section-light .service-filter-chip {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #475569 !important;
+}
+
+.section-light .service-filter-chip:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.section-light .service-filter-chip.active {
+  background: #1e40af !important;
+  border-color: #1e40af !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.25) !important;
+}
+
+.section-light .service-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+}
+
+.section-light .service-card:hover {
+  border-color: #93c5fd !important;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12) !important;
+  transform: translateY(-4px);
+}
+
+.section-light .service-card-title {
+  color: #0f172a !important;
+}
+
+.section-light .service-card-desc {
+  color: #475569 !important;
+}
+
+.section-light .service-deliverable-item {
+  color: #334155 !important;
+}
+
+.section-light .service-highlight-box {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+.section-light .service-card-num {
+  color: rgba(15, 23, 42, 0.12) !important;
+}
+
+/* Light Why Choose Us Pillars */
+.section-white .pillar-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.section-white .pillar-card:hover {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08) !important;
+}
+
+.section-white .pillar-title {
+  color: #0f172a !important;
+}
+
+.section-white .pillar-desc {
+  color: #475569 !important;
+}
+
+/* Humanized Founder Section in Light Mode */
+.section-light .founder-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08) !important;
+}
+
+.founder-photo-wrapper,
+.founder-logo-wrapper {
+  position: relative;
+  width: 230px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.22);
+  border: 3px solid #f59e0b;
+  background: radial-gradient(circle at 50% 35%, #0e2048 0%, #070e1e 70%, #040814 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-logo-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 42px rgba(245, 158, 11, 0.25);
+}
+
+.founder-logo-glow {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.founder-logo-svg-box {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.founder-logo-badge {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+
+.founder-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.founder-photo-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(7, 14, 30, 0.95) 75%);
+  padding: 18px 8px 8px 8px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.founder-content-light h3 {
+  color: #0f172a !important;
+}
+
+.founder-content-light p {
+  color: #334155 !important;
+}
+
+.founder-content-light .checklist-item {
+  color: #1e293b !important;
+}
+
+.founder-content-light .btn-outline {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+.founder-content-light .btn-outline:hover {
+  background: #e2e8f0 !important;
+  color: #0f172a !important;
 }
 
 /* Glassmorphic Cards */
@@ -273,7 +536,89 @@ button, input, select, textarea {
   z-index: 1000;
   background: rgba(7, 14, 30, 0.88);
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.header-wrapper--hidden {
+  transform: translateY(-100%);
+}
+
+.header-wrapper--visible {
+  transform: translateY(0);
+}
+
+/* LinkedIn-Style Mobile Bottom Navigation */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(7, 14, 30, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1400;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .mobile-bottom-nav--hidden {
+    transform: translateY(100%);
+  }
+
+  .mobile-bottom-nav--visible {
+    transform: translateY(0);
+  }
+
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bottom-nav-item:active {
+    transform: scale(0.92);
+  }
+
+  .bottom-nav-item.active {
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  .bottom-nav-item.bottom-nav-quote-btn {
+    color: #f59e0b;
+    font-weight: 600;
+  }
+
+  .bottom-nav-item svg {
+    flex-shrink: 0;
+  }
 }
 
 .top-bar {
@@ -708,11 +1053,11 @@ select option {
   }
 
   .section {
-    padding: 48px 0;
+    padding: 40px 0;
   }
 
   .section-header {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .section-title {
@@ -800,7 +1145,7 @@ select option {
   }
 
   .floating-whatsapp-btn {
-    bottom: 16px !important;
+    bottom: 74px !important;
     right: 16px !important;
     width: 48px !important;
     height: 48px !important;
