@@ -92,9 +92,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             <ul className="nav-links">
               <li><a href="/services" className="nav-link">Services</a></li>
               <li><a href="/credentials" className="nav-link">Credentials</a></li>
-              <li><a href="/calculator" className="nav-link">Valuation Tool</a></li>
-              <li><a href="/solar-checker" className="nav-link">CEIG Checker</a></li>
-              <li><a href="/founder" className="nav-link">Core Team</a></li>
+              <li><a href="/calculator" className="nav-link">Calculator</a></li>
+              <li><a href="/solar-checker" className="nav-link">CEIG Solar</a></li>
+              <li><a href="/founder" className="nav-link">Team</a></li>
               <li><a href="/contact" className="nav-link">Contact</a></li>
               <li><a href="/blog" className="nav-link" style={{ color: '#38bdf8', fontWeight: 600 }}>Blog</a></li>
             </ul>
