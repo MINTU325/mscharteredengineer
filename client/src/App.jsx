@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import Hero from './components/Hero';
@@ -15,6 +15,23 @@ import AdminDashboard from './components/AdminDashboard';
 import AdminLoginModal from './components/AdminLoginModal';
 import { MessageSquare, PhoneCall } from 'lucide-react';
 
+const ROUTE_CONFIG = {
+  '/': { id: 'home', title: 'MS Chartered Engineers & Valuers | Jaipur, Rajasthan' },
+  '/services': { id: 'services', title: 'Services We Offer | MS Chartered Engineers' },
+  '/valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
+  '/assets-valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
+  '/chartered-engineer': { id: 'chartered-engineer', title: 'Chartered Engineer & DGFT Advance Authorisation | MS Chartered Engineers' },
+  '/safety-energy-audits': { id: 'safety-energy-audits', title: 'Industrial Safety & BEE Energy Audits | MS Chartered Engineers' },
+  '/fssai': { id: 'fssai', title: 'FSSAI Compliance Services | MS Chartered Engineers' },
+  '/advisory': { id: 'advisory', title: 'Technical Advisory & IndAS 16 | MS Chartered Engineers' },
+  '/calculator': { id: 'calculator', title: 'Plant & Machinery Valuation Calculator | MS Chartered Engineers' },
+  '/valuation-calculator': { id: 'calculator', title: 'Plant & Machinery Valuation Calculator | MS Chartered Engineers' },
+  '/solar-checker': { id: 'solar-checker', title: 'Solar CEIG Compliance Checker | MS Chartered Engineers' },
+  '/credentials': { id: 'credentials', title: 'Statutory Credentials & IEI Recognition | MS Chartered Engineers' },
+  '/founder': { id: 'founder', title: 'Core Team & Leadership — IIT Roorkee | MS Chartered Engineers' },
+  '/contact': { id: 'contact', title: 'Contact Us — Jaipur Head Office | MS Chartered Engineers' },
+};
+
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('Assets Valuation Services');
@@ -24,6 +41,29 @@ export default function App() {
     return sessionStorage.getItem('ms_admin_auth') === 'true';
   });
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  // Handle direct clean URL navigation on initial load & browser Back/Forward
+  useEffect(() => {
+    const handleRoute = () => {
+      const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+      const config = ROUTE_CONFIG[pathname];
+      if (config) {
+        document.title = config.title;
+        if (config.id && config.id !== 'home') {
+          setTimeout(() => {
+            const el = document.getElementById(config.id);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 350);
+        }
+      }
+    };
+
+    handleRoute();
+    window.addEventListener('popstate', handleRoute);
+    return () => window.removeEventListener('popstate', handleRoute);
+  }, []);
 
   const handleOpenQuote = (serviceName = 'Assets Valuation Services', prefillData = null) => {
     setSelectedService(serviceName);

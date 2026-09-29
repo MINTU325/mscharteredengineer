@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 1. Homepage -->
   <url>
     <loc>https://www.mscharteredengineer.com/</loc>
     <lastmod>2026-09-29</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- 2. Services Overview -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/services</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Assets Valuation Services -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/valuation</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 4. Chartered Engineer & DGFT Advance Authorisation -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/chartered-engineer</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 5. Industrial Safety & BEE Energy Audits -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/safety-energy-audits</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 6. FSSAI Compliance Services -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/fssai</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 7. Technical Advisory & Componentization -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/advisory</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 8. Online Machinery Valuation Calculator -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/calculator</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 9. Solar CEIG Compliance Checker -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/solar-checker</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 10. Statutory Credentials & IEI -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/credentials</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 11. Core Team & IIT Roorkee Leadership -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/founder</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 12. Contact Jaipur Office -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/contact</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>
