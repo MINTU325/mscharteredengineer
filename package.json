@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "MS Chartered Engineers, Valuers & Technical Consultancy Services - Full MERN Stack Application",
   "scripts": {
+    "dev": "npm run dev --prefix client",
     "install-all": "npm install --include=dev --prefix server && npm install --include=dev --prefix client",
     "build": "npm install --include=dev --prefix client && npm run build --prefix client && npm install --prefix server",
     "start": "node server/server.js",
