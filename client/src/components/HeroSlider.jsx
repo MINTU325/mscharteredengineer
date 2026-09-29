@@ -15,9 +15,9 @@ const SLIDES = [
     cta: 'Request Valuation Report',
     ctaService: 'Assets Valuation Services',
     stats: [
-      { value: 'Banks', label: 'Empanelled' },
+      { value: 'BANKS', label: 'Empanelled' },
       { value: 'IBBI', label: 'Valuation Standards' },
-      { value: 'Pan', label: 'India Service' },
+      { value: 'PAN', label: 'India Service' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.92) 0%, rgba(11,23,54,0.75) 50%, rgba(7,14,30,0.4) 100%)',
   },
@@ -101,11 +101,11 @@ const SLIDES = [
 
 
 const ACCENT_COLORS = {
-  gold:    { primary: '#f59e0b', glow: 'rgba(245,158,11,0.5)',  light: '#fbbf24' },
-  cyan:    { primary: '#06b6d4', glow: 'rgba(6,182,212,0.5)',   light: '#22d3ee' },
-  orange:  { primary: '#f97316', glow: 'rgba(249,115,22,0.5)',  light: '#fb923c' },
-  emerald: { primary: '#10b981', glow: 'rgba(16,185,129,0.5)',  light: '#34d399' },
-  amber:   { primary: '#f59e0b', glow: 'rgba(245,158,11,0.5)',  light: '#fde047' },
+  gold: { primary: '#f59e0b', glow: 'rgba(245,158,11,0.5)', light: '#fbbf24' },
+  cyan: { primary: '#06b6d4', glow: 'rgba(6,182,212,0.5)', light: '#22d3ee' },
+  orange: { primary: '#f97316', glow: 'rgba(249,115,22,0.5)', light: '#fb923c' },
+  emerald: { primary: '#10b981', glow: 'rgba(16,185,129,0.5)', light: '#34d399' },
+  amber: { primary: '#f59e0b', glow: 'rgba(245,158,11,0.5)', light: '#fde047' },
 };
 
 const AUTOPLAY_DELAY = 5500;
@@ -164,7 +164,7 @@ export default function HeroSlider({ onOpenQuote }) {
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'ArrowRight') goNext();
-      if (e.key === 'ArrowLeft')  goPrev();
+      if (e.key === 'ArrowLeft') goPrev();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -172,7 +172,7 @@ export default function HeroSlider({ onOpenQuote }) {
 
   // Touch/swipe support
   const onTouchStart = (e) => setTouchStart(e.touches[0].clientX);
-  const onTouchEnd   = (e) => {
+  const onTouchEnd = (e) => {
     if (touchStart === null) return;
     const delta = touchStart - e.changedTouches[0].clientX;
     if (Math.abs(delta) > 50) delta > 0 ? goNext() : goPrev();
@@ -200,11 +200,10 @@ export default function HeroSlider({ onOpenQuote }) {
           alt={`MS Chartered Engineers Service ${i + 1}`}
           loading={i === 0 ? "eager" : "lazy"}
           fetchpriority={i === 0 ? "high" : "auto"}
-          className={`hs-bg ${i === current ? 'hs-bg--active' : ''} ${
-            animating && i === current
+          className={`hs-bg ${i === current ? 'hs-bg--active' : ''} ${animating && i === current
               ? direction === 'next' ? 'hs-bg--enter-next' : 'hs-bg--enter-prev'
               : ''
-          }`}
+            }`}
           aria-hidden={i !== current}
         />
       ))}
