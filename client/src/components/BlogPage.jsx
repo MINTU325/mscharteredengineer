@@ -1,17 +1,19 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   BookOpen, Search, ArrowRight, Calendar, Clock, UserCheck, 
   Share2, CheckCircle2, ChevronRight, FileText, Shield, 
   Zap, Wrench, Sun, Award, ArrowLeft, Copy, Check, MessageSquare, Phone
 } from 'lucide-react';
 
-const BLOG_POSTS = [
+export const BLOG_POSTS = [
   {
     id: 'dgft-advance-authorisation-guide',
     slug: 'dgft-advance-authorisation-guide',
     title: 'DGFT Advance Authorisation & EPCG: Complete Chartered Engineer Certification Guide (2026)',
     excerpt: 'Step-by-step statutory process for exporters to obtain duty-free raw material import licenses, Appendix 4K certification, and EPCG nexus verification under Foreign Trade Policy (FTP) 2023.',
     category: 'DGFT & Foreign Trade',
+    image: '/blog/dgft-engineer.jpg',
+    imageAlt: 'Indian Chartered Engineer verifying export manufacturing compliance in factory',
     icon: Shield,
     date: 'September 2026',
     readTime: '6 min read',
@@ -63,6 +65,8 @@ However, to prevent misuse of customs duty exemptions, the DGFT mandates technic
     title: 'Plant & Machinery Valuation for Bank Finance & IndAS 16: Complete Methodology Guide',
     excerpt: 'Detailed analysis of valuation methodologies (Cost, Market, and Income Approaches) used for Consortium Bank Loans, Stamp Duty, Impairment testing, and Asset Componentization.',
     category: 'Asset Valuation',
+    image: '/blog/valuation-machinery.jpg',
+    imageAlt: 'Senior Indian Valuation Engineer inspecting industrial CNC machinery and production lines',
     icon: Award,
     date: 'September 2026',
     readTime: '8 min read',
@@ -111,6 +115,8 @@ Under Indian Accounting Standard 16 (**IndAS 16**), companies must split complex
     title: 'Chartered Electrical Safety Engineer (CESE) & BEE Energy Audits under CEA Regulations',
     excerpt: 'Mandatory statutory electrical inspections, CEA Regulations compliance, infrared thermography, and BEE energy conservation protocols for industrial and commercial power consumers.',
     category: 'Electrical & Energy Audits',
+    image: '/blog/electrical-cese.jpg',
+    imageAlt: 'Indian Electrical Safety Engineer conducting thermal imaging audit on HT substation panel',
     icon: Zap,
     date: 'September 2026',
     readTime: '7 min read',
@@ -152,6 +158,8 @@ Conducted by accredited **Bureau of Energy Efficiency (BEE)** Energy Managers:
     title: 'Factories Act 1948: Mandatory Competent Person Certification for Boilers & Lifting Tackles',
     excerpt: 'Statutory compliance requirements under Section 28, 29, and 31 of the Factories Act 1948 for industrial cranes, hoists, pressure vessels, and steam boilers.',
     category: 'Industrial Safety & Boilers',
+    image: '/blog/boilers-inspection.jpg',
+    imageAlt: 'Competent Person Safety Engineer inspecting industrial steam boiler and EOT crane',
     icon: Wrench,
     date: 'September 2026',
     readTime: '6 min read',
@@ -195,6 +203,8 @@ Operating plant machinery without valid statutory fitness certificates can lead 
     title: 'Solar CEIG Compliance & Drawing Approval: Essential Checklist for MW & Rooftop Projects',
     excerpt: 'Detailed statutory pathway to secure Chief Electrical Inspector to Government (CEIG) electrical stability approvals and grid synchronization clearances for solar power plants.',
     category: 'Solar & Renewable Energy',
+    image: '/blog/solar-ceig.jpg',
+    imageAlt: 'Indian Solar Engineer reviewing single line diagram drawings at utility-scale solar farm',
     icon: Sun,
     date: 'September 2026',
     readTime: '5 min read',
@@ -230,13 +240,34 @@ Securing CEIG clearance typically takes 10 to 20 days. Common rejection reasons 
   }
 ];
 
-export default function BlogPage({ onOpenQuote, onNavigateHome }) {
+export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
+  const [selectedSlug, setSelectedSlug] = useState(initialSlug || null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [activeArticle, setActiveArticle] = useState(null);
-  const [copiedSlug, setCopiedSlug] = useState(null);
+  const [copied, setCopied] = useState(false);
+
+  // Sync state if initialSlug prop changes
+  useEffect(() => {
+    if (initialSlug) {
+      setSelectedSlug(initialSlug);
+    }
+  }, [initialSlug]);
 
   const categories = ['All', 'DGFT & Foreign Trade', 'Asset Valuation', 'Electrical & Energy Audits', 'Industrial Safety & Boilers', 'Solar & Renewable Energy'];
+
+  const activeArticle = useMemo(() => {
+    if (!selectedSlug) return null;
+    return BLOG_POSTS.find(p => p.slug === selectedSlug || p.id === selectedSlug) || null;
+  }, [selectedSlug]);
+
+  // Update page title when viewing an article
+  useEffect(() => {
+    if (activeArticle) {
+      document.title = `${activeArticle.title} | MS Chartered Engineers`;
+    } else {
+      document.title = 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers';
+    }
+  }, [activeArticle]);
 
   const filteredPosts = useMemo(() => {
     return BLOG_POSTS.filter(post => {
@@ -251,422 +282,568 @@ export default function BlogPage({ onOpenQuote, onNavigateHome }) {
     });
   }, [searchQuery, selectedCategory]);
 
-  const handleShare = (post, e) => {
-    e.stopPropagation();
-    const url = `${window.location.origin}/blog#${post.slug}`;
+  const handleOpenArticle = (post) => {
+    setSelectedSlug(post.slug);
+    window.history.pushState({}, '', `/blog/${post.slug}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToHub = () => {
+    setSelectedSlug(null);
+    window.history.pushState({}, '', '/blog');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleShare = () => {
+    const url = window.location.href;
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url);
-      setCopiedSlug(post.slug);
-      setTimeout(() => setCopiedSlug(null), 2500);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
     }
   };
 
   return (
-    <div className="blog-page-container" style={{ minHeight: '85vh', background: 'var(--bg-dark)', paddingTop: '40px', paddingBottom: '80px' }}>
+    <div className="blog-page-container" style={{ minHeight: '85vh', background: 'var(--bg-dark)', paddingTop: '32px', paddingBottom: '80px' }}>
       <div className="container">
-        {/* Navigation Breadcrumb */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#94a3b8', marginBottom: '28px' }}>
-          <a href="/" onClick={(e) => { e.preventDefault(); if (onNavigateHome) onNavigateHome(); else window.location.href = '/'; }} style={{ color: '#38bdf8', textDecoration: 'none' }}>
+        
+        {/* ──────────────────────────────────────────────────────────
+            BREADCRUMB BAR (Home > Technical Knowledge Hub > [Blog Title])
+            ────────────────────────────────────────────────────────── */}
+        <nav aria-label="Breadcrumb" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', fontSize: '0.86rem', color: '#94a3b8', marginBottom: '28px' }}>
+          <a 
+            href="/" 
+            onClick={(e) => { 
+              e.preventDefault(); 
+              if (onNavigateHome) onNavigateHome(); 
+              else {
+                window.history.pushState({}, '', '/');
+                window.location.href = '/';
+              }
+            }} 
+            style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 500 }}
+          >
             Home
           </a>
-          <ChevronRight size={14} />
-          <span style={{ color: '#ffffff', fontWeight: 600 }}>Technical Knowledge Hub &amp; Blog</span>
-        </div>
-
-        {/* Hero Banner Header */}
-        <div className="glass-card" style={{ padding: '40px 32px', marginBottom: '40px', position: 'relative', overflow: 'hidden' }}>
-          <div style={{
-            position: 'absolute',
-            top: '-50px',
-            right: '-50px',
-            width: '240px',
-            height: '240px',
-            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%)',
-            borderRadius: '50%',
-            pointerEvents: 'none'
-          }} />
-
-          <div className="section-badge gold" style={{ marginBottom: '14px' }}>
-            <BookOpen size={14} />
-            <span>Official Engineering &amp; Regulatory Insights</span>
-          </div>
-
-          <h1 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', color: '#ffffff', fontWeight: 800, marginBottom: '14px', lineHeight: 1.25 }}>
-            Chartered Engineering, Valuation &amp; <span className="gold-gradient-text">Statutory Compliance</span> Articles
-          </h1>
-
-          <p style={{ color: '#cbd5e1', fontSize: '1rem', maxWidth: '780px', lineHeight: 1.6, marginBottom: '24px' }}>
-            Practical statutory guides, technical inspection checklists, DGFT procedures, and asset valuation methodologies compiled by verified corporate members of the <strong>Institution of Engineers (India)</strong> and IIT Roorkee alumni.
-          </p>
-
-          {/* Quick Search & Filters Bar */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ position: 'relative', maxWidth: '600px' }}>
-              <Search size={18} color="#94a3b8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
-              <input
-                type="text"
-                className="form-control"
-                style={{ paddingLeft: '46px', height: '48px', fontSize: '0.92rem' }}
-                placeholder="Search articles by keyword (e.g. DGFT, IndAS 16, CESE, Boilers, Solar)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
-
-            {/* Category Filter Chips */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  style={{
-                    padding: '6px 14px',
-                    borderRadius: '20px',
-                    border: '1px solid',
-                    borderColor: selectedCategory === cat ? 'var(--accent-gold)' : 'rgba(255, 255, 255, 0.1)',
-                    background: selectedCategory === cat ? 'rgba(245, 158, 11, 0.2)' : 'rgba(255, 255, 255, 0.04)',
-                    color: selectedCategory === cat ? '#fbbf24' : '#cbd5e1',
-                    fontSize: '0.8rem',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Results Counter */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-          <span style={{ fontSize: '0.88rem', color: '#94a3b8' }}>
-            Showing <strong>{filteredPosts.length}</strong> authoritative engineering guides
-          </span>
-          {copiedSlug && (
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 12px',
-              background: 'rgba(16, 185, 129, 0.2)',
-              border: '1px solid rgba(16, 185, 129, 0.4)',
-              borderRadius: 'var(--radius-sm)',
-              color: '#34d399',
-              fontSize: '0.78rem'
-            }}>
-              <Check size={14} />
-              <span>Backlink URL copied to clipboard!</span>
-            </span>
-          )}
-        </div>
-
-        {/* Blog Posts Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-          gap: '24px',
-          marginBottom: '50px'
-        }}>
-          {filteredPosts.map((post) => {
-            const PostIcon = post.icon;
-            return (
-              <article
-                key={post.id}
-                className="glass-card"
-                onClick={() => setActiveArticle(post)}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  padding: '28px 24px',
-                  cursor: 'pointer',
-                  transition: 'all 0.25s ease',
-                  borderTop: '3px solid #38bdf8'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.borderColor = 'var(--accent-gold)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+          
+          <ChevronRight size={14} color="#64748b" />
+          
+          {activeArticle ? (
+            <>
+              <button 
+                onClick={handleBackToHub} 
+                style={{ 
+                  background: 'none', 
+                  border: 'none', 
+                  color: '#38bdf8', 
+                  padding: 0, 
+                  cursor: 'pointer', 
+                  fontSize: 'inherit',
+                  fontWeight: 500
                 }}
               >
-                {/* Meta Header */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                Technical Knowledge Hub
+              </button>
+              <ChevronRight size={14} color="#64748b" />
+              <span style={{ color: '#ffffff', fontWeight: 600, maxWidth: '400px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={activeArticle.title}>
+                {activeArticle.title}
+              </span>
+            </>
+          ) : (
+            <span style={{ color: '#ffffff', fontWeight: 600 }}>
+              Technical Knowledge Hub &amp; Blog
+            </span>
+          )}
+        </nav>
+
+        {/* ──────────────────────────────────────────────────────────
+            VIEW 1: FULL-PAGE ARTICLE VIEW (When an article is open)
+            ────────────────────────────────────────────────────────── */}
+        {activeArticle ? (
+          <div className="article-full-page">
+            {/* Top Back & Share Actions */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+              <button
+                onClick={handleBackToHub}
+                className="btn btn-outline"
+                style={{ padding: '8px 16px', fontSize: '0.84rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+              >
+                <ArrowLeft size={16} />
+                <span>&larr; Back to All Guides</span>
+              </button>
+
+              <button
+                onClick={handleShare}
+                className="btn btn-outline"
+                style={{ padding: '8px 16px', fontSize: '0.84rem', display: 'inline-flex', alignItems: 'center', gap: '8px', color: copied ? '#10b981' : '#38bdf8' }}
+              >
+                {copied ? <Check size={16} color="#10b981" /> : <Share2 size={16} />}
+                <span>{copied ? 'Citation Link Copied!' : 'Share / Copy Citation'}</span>
+              </button>
+            </div>
+
+            {/* Article Main Card */}
+            <article className="glass-card" style={{ padding: '0', overflow: 'hidden', marginBottom: '40px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+              
+              {/* Humanized Hero Cover Image */}
+              <div style={{ position: 'relative', width: '100%', height: 'clamp(260px, 40vw, 440px)', overflow: 'hidden', background: '#0a101f' }}>
+                <img 
+                  src={activeArticle.image} 
+                  alt={activeArticle.imageAlt || activeArticle.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  loading="eager"
+                />
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(180deg, rgba(4, 9, 20, 0.2) 0%, rgba(4, 9, 20, 0.88) 100%)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'flex-end',
+                  padding: 'clamp(20px, 4vw, 36px)'
+                }}>
                   <span style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '4px 10px',
-                    background: 'rgba(56, 189, 248, 0.12)',
-                    border: '1px solid rgba(56, 189, 248, 0.3)',
+                    padding: '5px 12px',
+                    background: 'rgba(56, 189, 248, 0.25)',
+                    backdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(56, 189, 248, 0.5)',
                     borderRadius: 'var(--radius-sm)',
                     color: '#38bdf8',
-                    fontSize: '0.75rem',
-                    fontWeight: 600
+                    fontSize: '0.8rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    width: 'fit-content',
+                    marginBottom: '12px'
                   }}>
-                    <PostIcon size={13} />
-                    <span>{post.category}</span>
+                    {activeArticle.category}
                   </span>
 
-                  <button
-                    onClick={(e) => handleShare(post, e)}
-                    style={{
-                      background: 'none',
-                      border: 'none',
-                      color: '#94a3b8',
-                      cursor: 'pointer',
-                      padding: '4px'
-                    }}
-                    title="Copy Citation Backlink"
-                  >
-                    <Share2 size={16} />
-                  </button>
-                </div>
+                  <h1 style={{
+                    fontSize: 'clamp(1.5rem, 3.2vw, 2.3rem)',
+                    color: '#ffffff',
+                    fontWeight: 800,
+                    lineHeight: 1.25,
+                    marginBottom: '14px',
+                    textShadow: '0 2px 10px rgba(0,0,0,0.7)'
+                  }}>
+                    {activeArticle.title}
+                  </h1>
 
-                {/* Title */}
-                <h2 style={{ fontSize: '1.2rem', color: '#ffffff', fontWeight: 700, lineHeight: 1.35, marginBottom: '12px' }}>
-                  {post.title}
-                </h2>
-
-                {/* Excerpt */}
-                <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.55, marginBottom: '18px', flexGrow: 1 }}>
-                  {post.excerpt}
-                </p>
-
-                {/* Key Takeaway Bullet Box */}
-                <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.06)',
-                  borderRadius: 'var(--radius-sm)',
-                  padding: '12px 14px',
-                  marginBottom: '18px',
-                  fontSize: '0.8rem',
-                  color: '#94a3b8'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                    <CheckCircle2 size={14} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ color: '#e2e8f0' }}>{post.keyTakeaways[0]}</span>
+                  {/* Author Byline Strip */}
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: '14px',
+                    fontSize: '0.84rem',
+                    color: '#cbd5e1'
+                  }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#ffffff', fontWeight: 600 }}>
+                      <UserCheck size={16} color="#38bdf8" />
+                      {activeArticle.author}
+                    </span>
+                    <span>&bull;</span>
+                    <span style={{ color: 'var(--accent-gold)' }}>{activeArticle.authorRole}</span>
+                    <span>&bull;</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      <Calendar size={14} /> {activeArticle.date}
+                    </span>
+                    <span>&bull;</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      <Clock size={14} /> {activeArticle.readTime}
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                {/* Card Footer */}
+              {/* Article Body Content */}
+              <div style={{ padding: 'clamp(24px, 4vw, 44px)' }}>
+                {/* Key Takeaways Box */}
                 <div style={{
+                  background: 'rgba(24, 90, 219, 0.08)',
+                  border: '1px solid rgba(56, 189, 248, 0.25)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '20px 24px',
+                  marginBottom: '32px'
+                }}>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '12px' }}>
+                    Executive Takeaways &amp; Regulatory Essentials
+                  </div>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', margin: 0, padding: 0 }}>
+                    {activeArticle.keyTakeaways.map((point, idx) => (
+                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.9rem', color: '#e2e8f0', lineHeight: 1.5 }}>
+                        <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '3px' }} />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Markdown text body */}
+                <div style={{
+                  color: '#cbd5e1',
+                  fontSize: '1rem',
+                  lineHeight: 1.75,
+                  whiteSpace: 'pre-line',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                  paddingBottom: '32px',
+                  marginBottom: '32px'
+                }}>
+                  {activeArticle.content}
+                </div>
+
+                {/* Tags */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
+                  {activeArticle.tags.map((t) => (
+                    <span key={t} style={{
+                      padding: '5px 12px',
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.8rem',
+                      color: '#93c5fd'
+                    }}>
+                      #{t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action CTA Banner */}
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, rgba(245, 158, 11, 0.2) 100%)',
+                  border: '1px solid rgba(56, 189, 248, 0.4)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '28px',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  paddingTop: '14px',
-                  borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                  fontSize: '0.78rem',
-                  color: '#94a3b8'
+                  flexWrap: 'wrap',
+                  gap: '20px'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Calendar size={13} /> {post.date}
-                    </span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                      <Clock size={13} /> {post.readTime}
-                    </span>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
+                      Require Statutory Certification or Valuation for this Requirement?
+                    </h3>
+                    <p style={{ color: '#cbd5e1', fontSize: '0.88rem', margin: 0, maxWidth: '620px', lineHeight: 1.5 }}>
+                      Directly certified by <strong>Mukesh Singh, IIT Roorkee alumni</strong>. Valid for DGFT, Customs, Commercial Banks, NCLT, and State Electrical Inspectorates across India.
+                    </p>
                   </div>
 
-                  <span style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    Read Guide <ArrowRight size={13} />
-                  </span>
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    <button
+                      onClick={() => onOpenQuote(activeArticle.category)}
+                      className="btn btn-gold"
+                      style={{ padding: '10px 22px', fontSize: '0.88rem' }}
+                    >
+                      Request Quotation
+                    </button>
+                    <a
+                      href={`https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20am%20inquiring%20about%20${encodeURIComponent(activeArticle.title)}.`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-whatsapp"
+                      style={{ padding: '10px 20px', fontSize: '0.88rem' }}
+                    >
+                      <MessageSquare size={16} />
+                      <span>WhatsApp Principal Engineer</span>
+                    </a>
+                  </div>
                 </div>
-              </article>
-            );
-          })}
-        </div>
+              </div>
+            </article>
 
-        {/* Lead Magnet Box: Instant Consultation & Citation Box */}
-        <div className="glass-card gold-accent" style={{ padding: '36px', textAlign: 'center', position: 'relative' }}>
-          <h3 style={{ fontSize: '1.5rem', color: '#ffffff', marginBottom: '10px' }}>
-            Need Official Chartered Engineer Certification or Stamped Valuation Report?
-          </h3>
-          <p style={{ color: '#cbd5e1', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
-            Consult directly with <strong>Mukesh Singh (B.Tech Mechanical Engineering, IIT Roorkee)</strong>. Fast 24–48 hour dispatch for DGFT Advance Authorisation, Bank Valuations, CESE Audits, and Factories Act Certifications.
-          </p>
+            {/* Related Articles Section */}
+            <div style={{ marginTop: '50px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                <h3 style={{ fontSize: '1.3rem', color: '#ffffff', fontWeight: 700 }}>
+                  Explore Other Technical Guides
+                </h3>
+                <button
+                  onClick={handleBackToHub}
+                  style={{ background: 'none', border: 'none', color: '#38bdf8', fontSize: '0.86rem', fontWeight: 600, cursor: 'pointer' }}
+                >
+                  View All Guides &rarr;
+                </button>
+              </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
-            <button
-              onClick={() => onOpenQuote('Chartered Engineer Certification')}
-              className="btn btn-gold"
-              style={{ padding: '12px 28px', fontSize: '0.92rem' }}
-            >
-              <span>Request Priority Quotation</span>
-              <ArrowRight size={16} />
-            </button>
-            <a
-              href="tel:+919158658885"
-              className="btn btn-outline"
-              style={{ padding: '12px 24px', fontSize: '0.92rem' }}
-            >
-              <Phone size={16} color="#10b981" />
-              <span>Call +91 91586 58885</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* ──────────────────────────────────────────────────────────
-          ARTICLE FULL READER MODAL
-          ────────────────────────────────────────────────────────── */}
-      {activeArticle && (
-        <div 
-          className="modal-overlay" 
-          onClick={() => setActiveArticle(null)}
-          style={{ padding: '20px', zIndex: 2000 }}
-        >
-          <div 
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-            style={{ 
-              maxWidth: '820px', 
-              maxHeight: '90vh', 
-              overflowY: 'auto', 
-              padding: '36px',
-              textAlign: 'left'
-            }}
-          >
-            {/* Modal Navigation Top */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <button
-                onClick={() => setActiveArticle(null)}
-                className="btn btn-outline"
-                style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-              >
-                <ArrowLeft size={14} />
-                <span>Back to Articles</span>
-              </button>
-
-              <button
-                onClick={(e) => handleShare(activeArticle, e)}
-                className="btn btn-outline"
-                style={{ padding: '6px 14px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px' }}
-                title="Copy Article Citation Link"
-              >
-                <Share2 size={14} />
-                <span>Share / Copy Citation</span>
-              </button>
-            </div>
-
-            {/* Category & Title */}
-            <div style={{ marginBottom: '14px' }}>
-              <span style={{
-                fontSize: '0.78rem',
-                color: 'var(--accent-gold)',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em'
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                gap: '20px'
               }}>
-                {activeArticle.category}
-              </span>
-              <h1 style={{ fontSize: 'clamp(1.4rem, 2.5vw, 1.85rem)', color: '#ffffff', fontWeight: 800, marginTop: '6px', lineHeight: 1.3 }}>
-                {activeArticle.title}
-              </h1>
+                {BLOG_POSTS.filter(p => p.id !== activeArticle.id).slice(0, 3).map((post) => (
+                  <div
+                    key={post.id}
+                    className="glass-card"
+                    onClick={() => handleOpenArticle(post)}
+                    style={{ padding: '0', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.2s ease' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; }}
+                  >
+                    <div style={{ width: '100%', height: '140px', overflow: 'hidden' }}>
+                      <img 
+                        src={post.image} 
+                        alt={post.title} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                        loading="lazy"
+                      />
+                    </div>
+                    <div style={{ padding: '16px' }}>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--accent-gold)', fontWeight: 700, textTransform: 'uppercase' }}>
+                        {post.category}
+                      </span>
+                      <h4 style={{ fontSize: '0.98rem', color: '#ffffff', marginTop: '4px', lineHeight: 1.35, minHeight: '42px' }}>
+                        {post.title}
+                      </h4>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px', fontSize: '0.76rem', color: '#94a3b8' }}>
+                        <span>{post.readTime}</span>
+                        <span style={{ color: '#38bdf8', fontWeight: 600 }}>Read Article &rarr;</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
+          </div>
+        ) : (
+          /* ──────────────────────────────────────────────────────────
+              VIEW 2: TECHNICAL KNOWLEDGE HUB (Grid View of all 5 blogs)
+              ────────────────────────────────────────────────────────── */
+          <div className="blog-hub-grid-view">
+            {/* Hero Banner Header */}
+            <div className="glass-card" style={{ padding: '40px 32px', marginBottom: '36px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{
+                position: 'absolute',
+                top: '-50px',
+                right: '-50px',
+                width: '240px',
+                height: '240px',
+                background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%)',
+                borderRadius: '50%',
+                pointerEvents: 'none'
+              }} />
 
-            {/* Author Byline */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px',
-              padding: '12px 16px',
-              background: 'rgba(255, 255, 255, 0.03)',
-              borderRadius: 'var(--radius-sm)',
-              marginBottom: '24px',
-              fontSize: '0.82rem',
-              color: '#94a3b8'
-            }}>
-              <UserCheck size={18} color="#38bdf8" />
-              <div>
-                <span style={{ color: '#ffffff', fontWeight: 600 }}>By {activeArticle.author}</span>
-                <span style={{ margin: '0 8px' }}>&bull;</span>
-                <span>{activeArticle.authorRole}</span>
-                <span style={{ margin: '0 8px' }}>&bull;</span>
-                <span>{activeArticle.date}</span>
+              <div className="section-badge gold" style={{ marginBottom: '14px' }}>
+                <BookOpen size={14} />
+                <span>Official Engineering &amp; Regulatory Insights</span>
+              </div>
+
+              <h1 style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.5rem)', color: '#ffffff', fontWeight: 800, marginBottom: '14px', lineHeight: 1.25 }}>
+                Chartered Engineering, Valuation &amp; <span className="gold-gradient-text">Statutory Compliance</span> Articles
+              </h1>
+
+              <p style={{ color: '#cbd5e1', fontSize: '1rem', maxWidth: '780px', lineHeight: 1.6, marginBottom: '24px' }}>
+                Practical statutory guides, technical inspection checklists, DGFT procedures, and asset valuation methodologies compiled by verified corporate members of the <strong>Institution of Engineers (India)</strong> and IIT Roorkee alumni.
+              </p>
+
+              {/* Quick Search & Filters Bar */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ position: 'relative', maxWidth: '600px' }}>
+                  <Search size={18} color="#94a3b8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
+                  <input
+                    type="text"
+                    className="form-control"
+                    style={{ paddingLeft: '46px', height: '46px', fontSize: '0.92rem' }}
+                    placeholder="Search articles (DGFT, IndAS 16, CESE, Boilers, Solar)..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </div>
+
+                {/* Category Filter Chips */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      style={{
+                        padding: '6px 14px',
+                        borderRadius: '20px',
+                        border: '1px solid',
+                        borderColor: selectedCategory === cat ? 'var(--accent-gold)' : 'rgba(255, 255, 255, 0.1)',
+                        background: selectedCategory === cat ? 'rgba(245, 158, 11, 0.2)' : 'rgba(255, 255, 255, 0.04)',
+                        color: selectedCategory === cat ? '#fbbf24' : '#cbd5e1',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Article Content Rendered */}
-            <div 
-              style={{
-                color: '#cbd5e1',
-                fontSize: '0.94rem',
-                lineHeight: 1.7,
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                paddingBottom: '28px',
-                marginBottom: '28px',
-                whiteSpace: 'pre-line'
-              }}
-            >
-              {activeArticle.content}
+            {/* Results Counter */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <span style={{ fontSize: '0.88rem', color: '#94a3b8' }}>
+                Showing <strong>{filteredPosts.length}</strong> authoritative engineering guides
+              </span>
             </div>
 
-            {/* Article Tags */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '28px' }}>
-              {activeArticle.tags.map((t) => (
-                <span key={t} style={{
-                  padding: '4px 10px',
-                  background: 'rgba(255, 255, 255, 0.06)',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.76rem',
-                  color: '#93c5fd'
-                }}>
-                  #{t}
-                </span>
+            {/* Blog Posts Grid with Humanized Images */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+              gap: '26px',
+              marginBottom: '50px'
+            }}>
+              {filteredPosts.map((post) => (
+                <article
+                  key={post.id}
+                  className="glass-card"
+                  onClick={() => handleOpenArticle(post)}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    padding: '0',
+                    overflow: 'hidden',
+                    cursor: 'pointer',
+                    transition: 'all 0.25s ease',
+                    border: '1px solid rgba(255, 255, 255, 0.08)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-5px)';
+                    e.currentTarget.style.borderColor = 'var(--accent-gold)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  }}
+                >
+                  {/* Humanized Card Image */}
+                  <div style={{ position: 'relative', width: '100%', height: '210px', overflow: 'hidden', background: '#0a101f' }}>
+                    <img 
+                      src={post.image} 
+                      alt={post.imageAlt || post.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }}
+                      loading="lazy"
+                    />
+                    <div style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      background: 'rgba(4, 9, 20, 0.85)',
+                      backdropFilter: 'blur(6px)',
+                      border: '1px solid rgba(56, 189, 248, 0.4)',
+                      borderRadius: 'var(--radius-sm)',
+                      padding: '4px 10px',
+                      color: '#38bdf8',
+                      fontSize: '0.74rem',
+                      fontWeight: 700,
+                      textTransform: 'uppercase'
+                    }}>
+                      {post.category}
+                    </div>
+
+                    <div style={{
+                      position: 'absolute',
+                      bottom: '10px',
+                      right: '12px',
+                      background: 'rgba(0, 0, 0, 0.75)',
+                      borderRadius: 'var(--radius-sm)',
+                      padding: '3px 8px',
+                      color: '#ffffff',
+                      fontSize: '0.72rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}>
+                      <Clock size={12} />
+                      <span>{post.readTime}</span>
+                    </div>
+                  </div>
+
+                  {/* Card Details */}
+                  <div style={{ padding: '22px 20px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                    <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ color: 'var(--accent-gold)', fontWeight: 600 }}>By {post.author.split(',')[0]}</span>
+                      <span>&bull;</span>
+                      <span>{post.date}</span>
+                    </div>
+
+                    <h2 style={{ fontSize: '1.15rem', color: '#ffffff', fontWeight: 700, lineHeight: 1.35, marginBottom: '10px' }}>
+                      {post.title}
+                    </h2>
+
+                    <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.55, marginBottom: '18px', flexGrow: 1 }}>
+                      {post.excerpt}
+                    </p>
+
+                    {/* Key Takeaway Bullet Preview */}
+                    <div style={{
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(255, 255, 255, 0.06)',
+                      borderRadius: 'var(--radius-sm)',
+                      padding: '10px 12px',
+                      marginBottom: '16px',
+                      fontSize: '0.8rem',
+                      color: '#cbd5e1',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '8px'
+                    }}>
+                      <CheckCircle2 size={14} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <span>{post.keyTakeaways[0]}</span>
+                    </div>
+
+                    {/* Footer CTA */}
+                    <div style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      paddingTop: '12px',
+                      borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+                    }}>
+                      <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
+                        Full Statutory Guide
+                      </span>
+                      <span style={{ color: '#38bdf8', fontWeight: 700, fontSize: '0.84rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        Read Guide <ArrowRight size={14} />
+                      </span>
+                    </div>
+                  </div>
+                </article>
               ))}
             </div>
 
-            {/* Reader Modal Bottom CTA */}
-            <div style={{
-              background: 'linear-gradient(135deg, rgba(30, 64, 175, 0.25) 0%, rgba(245, 158, 11, 0.15) 100%)',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
-              borderRadius: 'var(--radius-md)',
-              padding: '24px',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '16px'
-            }}>
-              <div>
-                <div style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff' }}>
-                  Have questions about this regulatory requirement?
-                </div>
-                <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '2px' }}>
-                  Our Chartered Engineers provide authoritative, compliant reports recognized across India.
-                </div>
-              </div>
+            {/* Bottom Lead Consultation Strip */}
+            <div className="glass-card gold-accent" style={{ padding: '36px', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '1.45rem', color: '#ffffff', marginBottom: '8px' }}>
+                Need Certified Chartered Engineer or Plant &amp; Machinery Valuation?
+              </h3>
+              <p style={{ color: '#cbd5e1', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto 20px auto', lineHeight: 1.6 }}>
+                Led by <strong>Mukesh Singh (B.Tech Mechanical Engineering, IIT Roorkee)</strong>. Providing approved reports for Banks, DGFT, Customs, State CEIG, and Industries across India.
+              </p>
 
-              <div style={{ display: 'flex', gap: '10px' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
                 <button
-                  onClick={() => {
-                    setActiveArticle(null);
-                    onOpenQuote(activeArticle.category);
-                  }}
+                  onClick={() => onOpenQuote('Chartered Engineer Certification')}
                   className="btn btn-gold"
-                  style={{ padding: '8px 18px', fontSize: '0.84rem' }}
+                  style={{ padding: '12px 26px', fontSize: '0.92rem' }}
                 >
-                  Request Consultation
+                  <span>Request Priority Quote</span>
+                  <ArrowRight size={16} />
                 </button>
                 <a
-                  href={`https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20read%20your%20article%20on%20${encodeURIComponent(activeArticle.title)}%20and%20need%20assistance.`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-whatsapp"
-                  style={{ padding: '8px 18px', fontSize: '0.84rem' }}
+                  href="tel:+919158658885"
+                  className="btn btn-outline"
+                  style={{ padding: '12px 22px', fontSize: '0.92rem' }}
                 >
-                  <MessageSquare size={14} />
-                  <span>WhatsApp</span>
+                  <Phone size={16} color="#10b981" />
+                  <span>Direct Call +91 91586 58885</span>
                 </a>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

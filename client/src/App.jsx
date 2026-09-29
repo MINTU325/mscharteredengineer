@@ -64,6 +64,8 @@ export default function App() {
         } else if (config.id === 'home' || config.id === 'blog') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+      } else if (pathname.startsWith('/blog/')) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     };
 
@@ -78,12 +80,14 @@ export default function App() {
       if (href && href.startsWith('/') && !href.startsWith('//') && !anchor.getAttribute('target')) {
         const cleanPath = href.replace(/\/$/, '') || '/';
         const config = ROUTE_CONFIG[cleanPath];
-        if (config) {
+        if (config || cleanPath.startsWith('/blog') || cleanPath.startsWith('/insights')) {
           e.preventDefault();
           window.history.pushState({}, '', href);
           setCurrentRoute(cleanPath);
-          document.title = config.title;
-          if (config.id && config.id !== 'home' && config.id !== 'blog') {
+          if (config) {
+            document.title = config.title;
+          }
+          if (config && config.id && config.id !== 'home' && config.id !== 'blog') {
             setTimeout(() => {
               const el = document.getElementById(config.id);
               if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -147,8 +151,15 @@ export default function App() {
           onClose={() => setIsAdminOpen(false)} 
           onLogout={handleLogout}
         />
-      ) : currentRoute === '/blog' || currentRoute === '/insights' ? (
+      ) : currentRoute === '/blog' || currentRoute === '/insights' || currentRoute.startsWith('/blog/') || currentRoute.startsWith('/insights/') ? (
         <BlogPage 
+          initialSlug={
+            currentRoute.startsWith('/blog/') 
+              ? currentRoute.replace('/blog/', '') 
+              : currentRoute.startsWith('/insights/') 
+                ? currentRoute.replace('/insights/', '') 
+                : null
+          }
           onOpenQuote={handleOpenQuote}
           onNavigateHome={() => {
             window.history.pushState({}, '', '/');
