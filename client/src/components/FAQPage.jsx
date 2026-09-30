@@ -5,6 +5,46 @@ import {
   FileCheck2, Building2, Sun, Scale, ExternalLink
 } from 'lucide-react';
 
+function parseInlineLinks(text) {
+  if (!text) return '';
+  const parts = [];
+  const regex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    if (match[1] !== undefined) {
+      parts.push(
+        <a
+          key={`lnk-${match.index}`}
+          href={match[2]}
+          style={{
+            color: '#38bdf8',
+            fontWeight: 600,
+            textDecoration: 'underline',
+            textUnderlineOffset: '3px',
+            transition: 'color 0.2s'
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#fbbf24')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#38bdf8')}
+        >
+          {match[1]}
+        </a>
+      );
+    } else if (match[3] !== undefined) {
+      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#ffffff' }}>{match[3]}</strong>);
+    }
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
+}
+
 export const FAQ_CATEGORIES = [
   { id: 'all', label: 'All Questions', icon: HelpCircle },
   { id: 'chartered-engineer', label: 'Chartered Engineer & DGFT', icon: FileCheck2 },
@@ -18,31 +58,31 @@ export const FAQ_ITEMS = [
     id: 'ce-01',
     category: 'chartered-engineer',
     question: 'Who is a Chartered Engineer (CEng) in India and what are their statutory powers?',
-    answer: `A Chartered Engineer in India is a corporate member (Fellow / Member) of the prestigious **Institution of Engineers (India) — IEI**, chartered under the Royal Charter of 1935.
+    answer: `A Chartered Engineer in India is a corporate member (Fellow / Member) of the prestigious **[Institution of Engineers (India) — IEI](/credentials)**, chartered under the Royal Charter of 1935.
     
-Statutory authorities including the **Directorate General of Foreign Trade (DGFT)**, **CBIC (Customs & Central Excise)**, Ministry of Food Processing Industries (MoFPI), Ministry of Environment, Forest & Climate Change (MoEF), State Electricity Boards, and Courts of Law authorize Chartered Engineers to inspect, evaluate, and issue formal technical certificates with statutory evidentiary value across India.`
+Statutory authorities including the **[Directorate General of Foreign Trade (DGFT)](/chartered-engineer)**, **[CBIC Customs & Central Excise](/chartered-engineer)**, Ministry of Food Processing Industries (MoFPI), Ministry of Environment, Forest & Climate Change (MoEF), State Electricity Boards, and Courts of Law authorize Chartered Engineers to inspect, evaluate, and issue formal technical certificates with statutory evidentiary value across India.`
   },
   {
     id: 'ce-02',
     category: 'chartered-engineer',
     question: 'Why do exporters and importers require a Chartered Engineer Certificate in Jaipur / Rajasthan?',
-    answer: `Exporters and manufacturers require Chartered Engineer Certificates for:
-1. **DGFT Advance Authorisation (Appendix 4K):** Mandatory nexus certification determining exact input-to-output consumption norms and process wastage for duty-free raw material imports.
-2. **EPCG Scheme Nexus Verification:** Certifying that imported capital machinery directly contributes to export production.
-3. **Customs Clearance of Second-Hand Machinery:** Certifying fair market value, residual useful life (minimum 5-10 years), and condition for customs tariff valuation.
-4. **EOU / SEZ Procurement & SION Fixation:** Certification for Export Oriented Units under CBIC regulations.`
+    answer: `Exporters and manufacturers require **[Chartered Engineer Certificates in Jaipur](/chartered-engineer)** for:
+1. **[DGFT Advance Authorisation (Appendix 4K)](/chartered-engineer):** Mandatory nexus certification determining exact input-to-output consumption norms and process wastage for duty-free raw material imports.
+2. **[EPCG Scheme Nexus Verification](/chartered-engineer):** Certifying that imported capital machinery directly contributes to export production.
+3. **[Customs Clearance of Second-Hand Machinery](/valuation):** Certifying fair market value, residual useful life (minimum 5-10 years), and condition for customs tariff valuation.
+4. **[EOU / SEZ Procurement & SION Fixation](/chartered-engineer):** Certification for Export Oriented Units under CBIC regulations.`
   },
   {
     id: 'ce-03',
     category: 'chartered-engineer',
-    question: 'How fast can MS Chartered Engineers issue a Chartered Engineer Certificate?',
-    answer: `We provide expedited turnaround within **24 to 48 hours** for standard DGFT Appendix 4K, customs valuation, and EPCG certifications upon receiving the complete technical documentation and bill of materials (BOM). Emergency customs clearance services are also supported across Jaipur, Rajasthan, and nationwide.`
+    question: 'How fast can MS Chartered Engineers issue a Chartered Engineer Certificate in Jaipur?',
+    answer: `At **[MS Chartered Engineers in Jaipur](/)**, we provide expedited turnaround within **24 to 48 hours** for standard **[DGFT Appendix 4K Certificates](/chartered-engineer)**, customs machinery valuations, and EPCG certifications upon receiving the complete technical documentation and bill of materials (BOM). Emergency customs clearance services are also supported across Jaipur, Rajasthan, and nationwide.`
   },
   {
     id: 'ce-04',
     category: 'chartered-engineer',
     question: 'What documents are required to obtain a Chartered Engineer Certificate for DGFT / Customs?',
-    answer: `The primary documents needed include:
+    answer: `The primary documents needed for a **[Chartered Engineer Certificate](/chartered-engineer)** include:
 * Copy of IEC (Import Export Code) & GST Certificate.
 * Proforma Invoice / Commercial Purchase Invoice of imported goods or machinery.
 * Technical datasheets, machine specifications, and catalog.
@@ -53,9 +93,9 @@ Statutory authorities including the **Directorate General of Foreign Trade (DGFT
     id: 'val-01',
     category: 'valuation',
     question: 'What is Plant & Machinery Valuation and which banks accept your reports in Jaipur?',
-    answer: `Plant & Machinery Valuation is a scientific appraisal determining Fair Market Value (FMV), Realizable Value, and Orderly/Forced Liquidation Value as per Companies Act 2013, Income Tax Act 1961, and IBBI Valuation Standards.
+    answer: `**[Plant & Machinery Valuation](/valuation)** is a scientific appraisal determining Fair Market Value (FMV), Realizable Value, and Orderly/Forced Liquidation Value as per Companies Act 2013, Income Tax Act 1961, and IBBI Valuation Standards.
     
-Led by Mukesh Singh (B.Tech Mechanical, IIT Roorkee), our valuation reports are accepted by major public sector banks, private commercial banks, NBFCs, and financial institutions for mortgage loans, collateral security, and consortium lending across Jaipur and Pan-India.`
+Led by **[Mukesh Singh, IIT Roorkee Alumni](/founder)**, our valuation reports are accepted by major public sector banks, private commercial banks, NBFCs, and financial institutions for mortgage loans, collateral security, and consortium lending across Jaipur and Pan-India. You can also estimate machinery depreciation with our **[Online Valuation Calculator](/calculator)**.`
   },
   {
     id: 'val-02',
@@ -63,31 +103,31 @@ Led by Mukesh Singh (B.Tech Mechanical, IIT Roorkee), our valuation reports are 
     question: 'What is Componentization of assets under IndAS 16 (PPE)?',
     answer: `Under IndAS 16 (Property, Plant and Equipment) and Schedule II of the Companies Act 2013, industrial assets must be segregated into significant components having substantially different useful lives. 
     
-MS Chartered Engineers conducts detailed technical inspections of manufacturing plants to separate base frames, motors, electronic controls, and high-wear tooling, providing compliant depreciation schedules for audit and balance sheet finalization.`
+Our specialized **[Technical Advisory & Asset Componentization Services](/advisory)** conduct detailed technical inspections of manufacturing plants to separate base frames, motors, electronic controls, and high-wear tooling, providing compliant depreciation schedules for statutory audits.`
   },
   {
     id: 'val-03',
     category: 'valuation',
     question: 'Do you provide valuation reports for IBC (Insolvency & Bankruptcy) and NCLT proceedings?',
-    answer: `Yes, we provide specialized valuations under the Insolvency and Bankruptcy Code (IBC) 2016 for Resolution Professionals (RPs), Committee of Creditors (CoC), and Liquidators, determining Fair Value and Liquidation Value adhering strictly to IBBI regulations.`
+    answer: `Yes, we provide specialized valuations under our **[Assets Valuation Services](/valuation)** for Resolution Professionals (RPs), Committee of Creditors (CoC), and Liquidators under the Insolvency and Bankruptcy Code (IBC) 2016, determining Fair Value and Liquidation Value adhering strictly to IBBI regulations.`
   },
   {
     id: 'sol-01',
     category: 'solar-safety',
     question: 'What is CEIG Solar Drawing Approval and why is it mandatory in Rajasthan?',
-    answer: `Under Central Electricity Authority (CEA) Regulations and the Indian Electricity Rules, any rooftop or ground-mounted solar power plant (typically >10 kW to multi-megawatt) connecting to the electrical grid requires prior drawing approval and statutory inspection by the **Chief Electrical Inspector to Government (CEIG)**.
+    answer: `Under Central Electricity Authority (CEA) Regulations and the Indian Electricity Rules, any rooftop or ground-mounted solar power plant connecting to the electrical grid requires prior drawing approval and statutory inspection by the **Chief Electrical Inspector to Government (CEIG)**.
     
-Our authorized Chartered Electrical Safety Engineers (CESE) prepare Single Line Diagrams (SLD), earthing layout drawings, relay coordination studies, and ensure 100% regulatory approval with the Electrical Inspectorate.`
+Check your solar installation readiness with our free **[CEIG Solar Compliance Checker](/solar-checker)**. Our authorized **[Chartered Electrical Safety Engineers (CESE)](/safety-energy-audits)** prepare Single Line Diagrams (SLD), earthing layout drawings, relay coordination studies, and ensure 100% regulatory clearance.`
   },
   {
     id: 'sol-02',
     category: 'solar-safety',
     question: 'What statutory industrial safety audits does your team perform?',
-    answer: `We conduct:
-1. **Chartered Electrical Safety Engineer (CESE) Audits** under CEA Regulations 2010.
-2. **BEE Certified Energy Audits** under the Energy Conservation Act 2001.
-3. **Factories & Boilers Competency Certification** under the Factories Act 1948 (testing of pressure vessels, cranes, lifting tackles).
-4. **NSCI / NSAT Authorized Safety Audits** (fire load assessment, HAZOP, and industrial risk mitigation).`
+    answer: `Under our **[Industrial Safety & Energy Audits](/safety-energy-audits)** practice, we conduct:
+1. **[Chartered Electrical Safety Engineer (CESE) Audits](/safety-energy-audits)** under CEA Regulations 2010.
+2. **[BEE Certified Energy Audits](/safety-energy-audits)** under the Energy Conservation Act 2001.
+3. **[Factories & Boilers Competency Certification](/safety-energy-audits)** under the Factories Act 1948 (testing of pressure vessels, cranes, lifting tackles).
+4. **[NSCI / NSAT Authorized Safety Audits](/safety-energy-audits)** (fire load assessment, HAZOP, and industrial risk mitigation).`
   },
   {
     id: 'fssai-01',
@@ -97,19 +137,19 @@ Our authorized Chartered Electrical Safety Engineers (CESE) prepare Single Line 
 * **FSSAI State License:** Required for medium-scale manufacturers, hotels (3-star & 4-star), restaurants, and distributors (turnover ₹12 Lakhs to ₹20 Crores/year).
 * **FSSAI Registration:** Required for small food handlers and petty retailers (turnover up to ₹12 Lakhs/year).
     
-MS Chartered Engineers handles new applications, annual returns (Form D1/D2), and statutory audit compliance.`
+Our dedicated **[FSSAI Compliance Services](/fssai)** team handles new applications, annual returns (Form D1/D2), and statutory audit compliance.`
   },
   {
     id: 'fssai-02',
     category: 'fssai',
     question: 'Can you handle FSSAI license suspension revocation and annual return filings?',
-    answer: `Yes, our regulatory team assists food businesses in preparing statutory responses, corrective action reports (CAPA), hygiene audits, and filing appeals before the Designated Officer (DO) / Central Licensing Authority to revoke suspended FSSAI licenses.`
+    answer: `Yes, our regulatory team at **[MS Chartered Engineers](/fssai)** assists food businesses in preparing statutory responses, corrective action reports (CAPA), hygiene audits, and filing appeals before the Designated Officer (DO) / Central Licensing Authority to revoke suspended FSSAI licenses.`
   },
   {
     id: 'gen-01',
     category: 'chartered-engineer',
     question: 'Can MS Chartered Engineers serve clients located outside Jaipur, Rajasthan?',
-    answer: `Yes, absolutely. MS Chartered Engineers has an established **Pan-India practice** with 15+ years of operational experience. We regularly serve corporate, banking, industrial, and exporter clients across Delhi-NCR, Mumbai, Ahmedabad, Bengaluru, Chennai, Hyderabad, and Kolkata.`
+    answer: `Yes, absolutely. **[MS Chartered Engineers](/)** has an established **[Pan-India Practice](/credentials)** with 15+ years of operational experience. We regularly serve corporate, banking, industrial, and exporter clients across Delhi-NCR, Mumbai, Ahmedabad, Bengaluru, Chennai, Hyderabad, and Kolkata for **[Chartered Engineer Certification](/chartered-engineer)** and **[Machinery Valuation](/valuation)**.`
   }
 ];
 
@@ -165,7 +205,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             "name": item.question,
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": item.answer.replace(/\*\*/g, '').replace(/\n/g, ' ')
+              "text": item.answer.replace(/\[(.*?)\]\(.*?\)/g, '$1').replace(/\*\*/g, '').replace(/\n/g, ' ')
             }
           }))
         })
@@ -447,13 +487,13 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                             if (line.startsWith('* ') || line.startsWith('1. ') || line.startsWith('2. ') || line.startsWith('3. ') || line.startsWith('4. ')) {
                               return (
                                 <span key={lIdx} style={{ display: 'block', paddingLeft: '8px', margin: '4px 0' }}>
-                                  {line.replace(/\*\*(.*?)\*\*/g, '$1')}
+                                  {parseInlineLinks(line)}
                                 </span>
                               );
                             }
                             return (
                               <span key={lIdx} style={{ display: 'block' }}>
-                                {line.replace(/\*\*(.*?)\*\*/g, '$1')}
+                                {parseInlineLinks(line)}
                               </span>
                             );
                           })}

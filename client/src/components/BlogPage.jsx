@@ -29,15 +29,15 @@ export const BLOG_POSTS = [
 ### 1. Introduction: The Role of a Chartered Engineer in DGFT
 Under the **Foreign Trade Policy (FTP) 2023** formulated by the Directorate General of Foreign Trade (DGFT), Ministry of Commerce & Industry, Indian exporters are eligible to import duty-free raw materials and capital machinery to boost export competitiveness. 
 
-However, to prevent misuse of customs duty exemptions, the DGFT mandates technical validation by an **empaneled Corporate Member of the Institution of Engineers (India) — Chartered Engineer (CEng)**.
+However, to prevent misuse of customs duty exemptions, the DGFT mandates technical validation by an empaneled Corporate Member of the **[Institution of Engineers (India) — IEI](/credentials)**, holding official authorization as a **[Chartered Engineer (CEng)](/chartered-engineer)**.
 
 ---
 
 ### 2. When is a Chartered Engineer Certificate Mandatory?
-1. **Ad-hoc Norms Fixation (Appendix 4K):** When standard input-output norms (SION) do not exist for your export product, a Chartered Engineer must certify the actual consumption ratio and process waste.
-2. **EPCG Scheme Nexus Certificate:** Verifying that imported capital goods (machinery, testing equipment) are directly required for manufacturing the export product.
-3. **Second-Hand Machinery Import:** Certifying the residual useful life, fair market valuation, and refurbished status of imported used capital equipment for Customs valuation.
-4. **Duty Drawback & Clubbing of Authorisations:** Certifying accountability of raw materials across multiple export orders.
+1. **Ad-hoc Norms Fixation (Appendix 4K):** When standard input-output norms (SION) do not exist for your export product, a certified **[Chartered Engineer in Jaipur](/chartered-engineer)** must certify the actual consumption ratio, bill of materials (BOM), and process waste under the **[DGFT Advance Authorisation Scheme](/chartered-engineer)**.
+2. **EPCG Scheme Nexus Certificate:** Verifying that imported capital goods (machinery, testing equipment) have a direct statutory nexus with the manufacture of export products under **[Chartered Engineer Services](/chartered-engineer)**.
+3. **Second-Hand Machinery Import:** Certifying the residual useful life (minimum 5 years), fair market valuation, and refurbished status of imported used capital equipment for Customs duty assessment under **[Plant & Machinery Valuation](/valuation)**.
+4. **Duty Drawback & Clubbing of Authorisations:** Certifying accountability and reconciliation of raw materials across multiple export consignments.
 
 ---
 
@@ -45,7 +45,7 @@ However, to prevent misuse of customs duty exemptions, the DGFT mandates technic
 * **Step 1 — Technical Process Review:** The Chartered Engineer inspects the manufacturing flow-chart, technical drawings, and batch yield reports.
 * **Step 2 — Bill of Materials (BOM) & Wastage Calculation:** Scientific determination of stoichiometric consumption, invisible losses, recoverable scraps, and non-recoverable wastes.
 * **Step 3 — Factory Inspection:** On-site verification of machine production capacity and input-to-output conversion ratios.
-* **Step 4 — Issuance of Stamped Certificate:** Formal issuance of the statutory Certificate with official IEI corporate membership credentials and registration seal.
+* **Step 4 — Issuance of Stamped Certificate:** Formal issuance of the statutory Certificate with official IEI corporate membership credentials and registration seal. Check our **[Frequently Asked Questions (FAQ)](/faq)** for common checklist queries.
 
 ---
 
@@ -56,7 +56,7 @@ However, to prevent misuse of customs duty exemptions, the DGFT mandates technic
 * Purchase invoices of raw materials and export shipping bills/invoices.
 * Proposed consumption norm sheet with justification for scrap percentage.
 
-> **Need Rapid Assistance?** MS Chartered Engineers provides certified DGFT Appendix 4K and EPCG certificates with 24–48 hour turnaround across Jaipur and Pan-India.
+> **Need Rapid Assistance?** [MS Chartered Engineers in Jaipur](/) provides certified DGFT Appendix 4K, EPCG certificates, and Customs valuations with 24–48 hour turnaround across Jaipur, Rajasthan, and Pan-India. Explore our full suite of [Chartered Engineer Services](/chartered-engineer) or [Consult our Experts](/contact).
     `
   },
   {
@@ -80,14 +80,14 @@ However, to prevent misuse of customs duty exemptions, the DGFT mandates technic
     ],
     content: `
 ### 1. The Critical Importance of Machinery Valuation
-Plant and Machinery assets constitute the single largest capital investment for manufacturing, mining, chemical, and engineering industries. For commercial banks, NBFCs, and financial institutions, accurately evaluating these assets as secondary collateral is critical to mitigate non-performing asset (NPA) risks.
+Plant and Machinery assets constitute the single largest capital investment for manufacturing, mining, chemical, and engineering industries. For commercial banks, NBFCs, and financial institutions, accurately evaluating these assets as secondary collateral is critical to mitigate non-performing asset (NPA) risks. Discover our comprehensive **[Plant & Machinery Valuation Services](/valuation)** accepted by all major banks.
 
 ---
 
 ### 2. Core Valuation Methodologies
 1. **The Cost Approach (Depreciated Replacement Cost - DRC):**
    * Computes the Gross Current Replacement Cost (GCRC) of acquiring a new equivalent machine.
-   * Deducts physical deterioration (wear and tear), functional obsolescence (technological changes), and economic obsolescence (market factors).
+   * Deducts physical deterioration (wear and tear), functional obsolescence (technological changes), and economic obsolescence (market factors). You can also test initial depreciation estimates with our interactive **[Machinery Valuation Calculator](/calculator)**.
 2. **The Market Approach (Comparable Sales Method):**
    * Benchmarks asset value against recent verified secondary market transactions of identical make and model.
 3. **The Income Approach (Discounted Cash Flow - DCF):**
@@ -97,16 +97,16 @@ Plant and Machinery assets constitute the single largest capital investment for 
 
 ### 3. IndAS 16 Componentization & Impairment Review
 Under Indian Accounting Standard 16 (**IndAS 16**), companies must split complex industrial machinery into distinct components if their cost is significant in relation to the total asset cost and their useful lives differ.
-* **Component Splitting:** Separating boiler drums, turbine rotors, and electrical panels from the main structure.
+* **Component Splitting:** Separating boiler drums, turbine rotors, and electrical panels from the main structure via **[Asset Componentization Advisory](/advisory)**.
 * **Impairment Study (IndAS 36):** Determining if the recoverable amount of cash-generating units (CGUs) has fallen below their balance sheet carrying value.
 
 ---
 
 ### 4. What Bankers Look for in a Chartered Engineer Valuation Report
-* Physical verification proof with serial number plates and timestamped photos.
+* Physical verification proof with serial number plates and timestamped photos by an authorized **[Chartered Engineer & Registered Valuer](/founder)**.
 * Technological obsolescence assessment and availability of OEM spare parts.
-* Balance Economic Useful Life calculation.
-* Distressed Sale Value (Liquidation Value) alongside Fair Market Value (FMV).
+* Balance Economic Useful Life calculation adhering to Companies Act 2013 Schedule II.
+* Distressed Sale Value (Liquidation Value) alongside Fair Market Value (FMV). For complete valuation guidelines, visit our **[Frequently Asked Questions (FAQ)](/faq)** or consult **[MS Chartered Engineers in Jaipur](/)**.
     `
   },
   {
@@ -132,7 +132,7 @@ Under Indian Accounting Standard 16 (**IndAS 16**), companies must split complex
 ### 1. Regulatory Mandate: Central Electricity Authority (CEA) Regulations
 According to Regulation 30 & 43 of the **Central Electricity Authority (Measures Relating to Safety and Electric Supply) Regulations**, all electrical installations (HT substations, transformers, switchgears, DG sets, and industrial switchboards) must undergo periodic safety inspections.
 
-State Electrical Inspectorates (CEIG) empower authorized **Chartered Electrical Safety Engineers (CESE)** to inspect installations up to specified voltage levels and issue compliance clearance certificates.
+State Electrical Inspectorates (CEIG) empower authorized **[Chartered Electrical Safety Engineers (CESE)](/safety-energy-audits)** to inspect installations up to specified voltage levels and issue statutory compliance clearance certificates. For solar installations, verify clearance requirements with our **[CEIG Solar Compliance Checker](/solar-checker)**.
 
 ---
 
@@ -145,11 +145,12 @@ State Electrical Inspectorates (CEIG) empower authorized **Chartered Electrical 
 ---
 
 ### 3. BEE Industrial Energy Audits
-Conducted by accredited **Bureau of Energy Efficiency (BEE)** Energy Managers:
+Conducted by accredited Bureau of Energy Efficiency (BEE) Energy Managers under our **[Industrial Safety & Energy Audits](/safety-energy-audits)**:
 * **Electrical Load Profiling:** Maximum Demand (MD) optimization and power factor penalty elimination.
 * **Thermal System Efficiency:** Boiler blowdown heat recovery, steam trap surveys, and flue gas oxygen analysis.
 * **Motor & Pump Optimization:** Upgrading to IE3/IE4 super-premium efficiency electric motors.
 * **Compressed Air Leak Auditing:** Ultrasonic detection of air leaks that consume up to 25% of compressor power.
+* Have statutory questions? Read our **[Electrical Safety FAQs](/faq)** or contact our certified **[Chartered Engineer in Jaipur](/chartered-engineer)**.
     `
   },
   {
@@ -173,9 +174,9 @@ Conducted by accredited **Bureau of Energy Efficiency (BEE)** Energy Managers:
     ],
     content: `
 ### 1. Statutory Framework: The Factories Act, 1948
-To safeguard human life in factories and industrial manufacturing plants, the **Factories Act, 1948** and respective State Factory Rules mandate periodic technical examination of high-hazard mechanical machinery by an authorized **Competent Person**.
+To safeguard human life in factories and industrial manufacturing plants, the **Factories Act, 1948** and respective State Factory Rules mandate periodic technical examination of high-hazard mechanical machinery by an authorized **[Competent Person (Factories & Boilers)](/safety-energy-audits)**.
 
-Operating plant machinery without valid statutory fitness certificates can lead to immediate factory closure notices and severe legal liability for factory managers.
+Operating plant machinery without valid statutory fitness certificates can lead to immediate factory closure notices and severe legal liability for factory managers. Consult **[MS Chartered Engineers in Jaipur](/)** for comprehensive plant inspection and safety certification.
 
 ---
 
@@ -183,10 +184,10 @@ Operating plant machinery without valid statutory fitness certificates can lead 
 1. **Section 28 — Hoists and Lifts:**
    * Thorough examination of all mechanical cages, guide rails, safety clutches, and wire ropes every 6 months.
 2. **Section 29 — Lifting Machinery, Cranes, Chains & Tackles:**
-   * Annual proof load testing of overhead EOT cranes, mobile cranes, slings, shackles, and chain pulley blocks.
+   * Annual proof load testing of overhead EOT cranes, mobile cranes, slings, shackles, and chain pulley blocks by our certified **[Chartered Engineers](/chartered-engineer)**.
    * Non-destructive testing (NDT) of crane hooks and welds to detect fatigue micro-cracks.
 3. **Section 31 — Pressure Plant & Pressure Vessels:**
-   * Hydrostatic and hydraulic testing of air receivers, reaction vessels, heat exchangers, and steam pipelines to 1.5x operating pressure every 12 to 24 months.
+   * Hydrostatic and hydraulic testing of air receivers, reaction vessels, heat exchangers, and steam pipelines to 1.5x operating pressure every 12 to 24 months, with parallel **[Machinery Valuation](/valuation)** where required.
 
 ---
 
@@ -195,6 +196,7 @@ Operating plant machinery without valid statutory fitness certificates can lead 
 * **Form 9:** Report of examination of lifting machinery and gear.
 * **Form 10:** Report of examination and test of pressure plant and vessels.
 * **Form 11:** Gantry girder alignment and crane rail deflection test reports.
+* Need inspection scheduling? View our **[Compliance FAQs](/faq)** or book an on-site visit with our **[Chartered Engineer Team](/contact)**.
     `
   },
   {
@@ -223,22 +225,162 @@ The **Chief Electrical Inspector to Government (CEIG)** approval is the statutor
 Without CEIG clearance:
 * State DISCOMs will refuse net-metering or gross-metering synchronization.
 * Insurance policies will not honor claims in the event of electrical fire or equipment burnout.
+Check your system parameters instantly with our free **[Solar CEIG Compliance Checker Tool](/solar-checker)**.
 
 ---
 
 ### 2. Mandatory Technical Drawings Requiring Chartered Engineer Validation
-* **Single Line Diagram (SLD):** Showing PV array strings, string inverters / central inverters, ACDB, HT switchgear, transformer protection, and grid export meters.
-* **Earthing System Layout:** Calculation of earth fault loop impedance, chemical earth electrode grid, and dedicated lightning arrestor (LA) protection radius.
+* **Single Line Diagram (SLD):** Showing PV array strings, string inverters / central inverters, ACDB, HT switchgear, transformer protection, and grid export meters certified by an authorized **[Chartered Engineer in Jaipur](/chartered-engineer)**.
+* **Earthing System Layout:** Calculation of earth fault loop impedance, chemical earth electrode grid, and dedicated lightning arrestor (LA) protection radius under our **[Electrical Safety Audits](/safety-energy-audits)**.
 * **Protection Relay Coordination:** Numerical relay curves for overcurrent, earth fault, reverse power, and anti-islanding protection.
-* **Structural Stability Certification:** Ensuring rooftop shed load-bearing capacity and ground-mount pile pullout safety under gale wind conditions.
+* **Structural Stability Certification:** Ensuring rooftop shed load-bearing capacity and ground-mount pile pullout safety under gale wind conditions as part of **[Chartered Engineer Services](/chartered-engineer)**.
 
 ---
 
 ### 3. Typical Approval Timeline & Pitfalls to Avoid
-Securing CEIG clearance typically takes 10 to 20 days. Common rejection reasons include inadequate distance between inverter transformer yards, missing dual-earth rings, and improperly calculated fault level capacities.
+Securing CEIG clearance typically takes 10 to 20 days. Common rejection reasons include inadequate distance between inverter transformer yards, missing dual-earth rings, and improperly calculated fault level capacities. For detailed technical answers, visit our **[Solar FAQs](/faq)** or consult **[MS Chartered Engineers Head Office](/)**.
     `
   }
 ];
+
+function parseFormattedText(text) {
+  if (!text) return '';
+  const parts = [];
+  const regex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
+    }
+    if (match[1] !== undefined) {
+      parts.push(
+        <a
+          key={`lnk-${match.index}`}
+          href={match[2]}
+          style={{
+            color: '#38bdf8',
+            fontWeight: 600,
+            textDecoration: 'underline',
+            textUnderlineOffset: '3px',
+            transition: 'color 0.2s'
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#fbbf24')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#38bdf8')}
+        >
+          {match[1]}
+        </a>
+      );
+    } else if (match[3] !== undefined) {
+      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#ffffff' }}>{match[3]}</strong>);
+    }
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
+}
+
+function renderArticleBody(content) {
+  if (!content) return null;
+  const lines = content.trim().split('\n');
+  const elements = [];
+  let currentList = [];
+  let listType = null;
+
+  const flushList = () => {
+    if (currentList.length > 0) {
+      const ListTag = listType === 'ol' ? 'ol' : 'ul';
+      elements.push(
+        <ListTag key={`list-${elements.length}`} style={{ paddingLeft: '22px', margin: '14px 0', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          {currentList.map((item, i) => (
+            <li key={i} style={{ lineHeight: 1.65 }}>{parseFormattedText(item)}</li>
+          ))}
+        </ListTag>
+      );
+      currentList = [];
+      listType = null;
+    }
+  };
+
+  lines.forEach((rawLine, idx) => {
+    const line = rawLine.trim();
+    if (!line) {
+      flushList();
+      return;
+    }
+
+    if (line === '---') {
+      flushList();
+      elements.push(<hr key={`hr-${idx}`} style={{ borderColor: 'rgba(255, 255, 255, 0.08)', margin: '24px 0' }} />);
+      return;
+    }
+
+    if (line.startsWith('### ')) {
+      flushList();
+      elements.push(
+        <h3 key={`h3-${idx}`} style={{ fontSize: '1.25rem', color: '#38bdf8', fontWeight: 800, margin: '26px 0 12px 0' }}>
+          {parseFormattedText(line.replace('### ', ''))}
+        </h3>
+      );
+      return;
+    }
+
+    if (line.startsWith('## ')) {
+      flushList();
+      elements.push(
+        <h2 key={`h2-${idx}`} style={{ fontSize: '1.45rem', color: '#ffffff', fontWeight: 800, margin: '30px 0 14px 0' }}>
+          {parseFormattedText(line.replace('## ', ''))}
+        </h2>
+      );
+      return;
+    }
+
+    if (line.startsWith('> ')) {
+      flushList();
+      elements.push(
+        <blockquote key={`quote-${idx}`} style={{
+          background: 'rgba(245, 158, 11, 0.08)',
+          borderLeft: '4px solid #f59e0b',
+          padding: '14px 18px',
+          borderRadius: '0 8px 8px 0',
+          margin: '20px 0',
+          color: '#fbbf24',
+          fontSize: '0.94rem',
+          lineHeight: 1.6
+        }}>
+          {parseFormattedText(line.replace('> ', ''))}
+        </blockquote>
+      );
+      return;
+    }
+
+    if (line.startsWith('* ') || line.startsWith('- ')) {
+      listType = 'ul';
+      currentList.push(line.replace(/^[\*\-]\s+/, ''));
+      return;
+    }
+
+    const olMatch = line.match(/^(\d+)\.\s+(.*)/);
+    if (olMatch) {
+      listType = 'ol';
+      currentList.push(olMatch[2]);
+      return;
+    }
+
+    flushList();
+    elements.push(
+      <p key={`p-${idx}`} style={{ margin: '14px 0', lineHeight: 1.75, color: '#cbd5e1' }}>
+        {parseFormattedText(line)}
+      </p>
+    );
+  });
+
+  flushList();
+  return elements;
+}
 
 export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
   const [selectedSlug, setSelectedSlug] = useState(initialSlug || null);
@@ -436,7 +578,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
 
                 {/* Markdown text body */}
                 <div className="article-markdown-body">
-                  {activeArticle.content}
+                  {renderArticleBody(activeArticle.content)}
                 </div>
 
                 {/* Tags */}
