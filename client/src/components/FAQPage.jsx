@@ -27,20 +27,20 @@ function parseInlineLinks(text) {
           key={`lnk-${match.index}`}
           href={linkHref}
           style={{
-            color: '#38bdf8',
+            color: '#1d4ed8',
             fontWeight: isBoldLink ? 700 : 600,
             textDecoration: 'underline',
             textUnderlineOffset: '3px',
             transition: 'color 0.2s',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#fbbf24')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = '#38bdf8')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#b45309')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#1d4ed8')}
         >
           {linkText}
         </a>
       );
     } else if (normalBold !== undefined) {
-      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#ffffff' }}>{normalBold}</strong>);
+      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#0f172a' }}>{normalBold}</strong>);
     }
     lastIndex = regex.lastIndex;
   }
@@ -199,7 +199,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div id="faq" style={{ background: '#040914', color: '#cbd5e1', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
+    <div id="faq" style={{ background: '#f8fafc', color: '#334155', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
       {/* Schema.org FAQPage structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
@@ -226,23 +226,27 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
               alignItems: 'center',
               gap: '8px',
               padding: '8px 16px',
-              background: 'rgba(56, 189, 248, 0.08)',
-              border: '1px solid rgba(56, 189, 248, 0.25)',
+              background: '#ffffff',
+              border: '1px solid #cbd5e1',
               borderRadius: '8px',
-              color: '#38bdf8',
+              color: '#1d4ed8',
               fontSize: '0.88rem',
               fontWeight: 600,
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+              transition: 'all 0.2s ease'
             }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1d4ed8'; e.currentTarget.style.background = '#eff6ff'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#ffffff'; }}
           >
             <ArrowLeft size={16} />
             <span>&larr; Back to Homepage</span>
           </button>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#94a3b8' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#64748b' }}>
             <span>Home</span>
             <span>&gt;</span>
-            <span style={{ color: '#ffffff', fontWeight: 600 }}>Frequently Asked Questions</span>
+            <span style={{ color: '#0f172a', fontWeight: 600 }}>Frequently Asked Questions</span>
           </div>
         </div>
 
@@ -253,25 +257,26 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             alignItems: 'center',
             gap: '8px',
             padding: '6px 14px',
-            background: 'rgba(245, 158, 11, 0.1)',
-            border: '1px solid rgba(245, 158, 11, 0.25)',
+            background: '#eff6ff',
+            border: '1px solid #bfdbfe',
             borderRadius: '999px',
-            color: '#fbbf24',
+            color: '#1d4ed8',
             fontSize: '0.82rem',
             fontWeight: 700,
             textTransform: 'uppercase',
             letterSpacing: '0.05em',
-            marginBottom: '16px'
+            marginBottom: '16px',
+            boxShadow: '0 2px 6px rgba(37, 99, 235, 0.08)'
           }}>
             <HelpCircle size={15} />
             <span>Statutory Knowledge &amp; Regulatory Help Desk</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#ffffff', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px' }}>
-            Frequently Asked <span style={{ color: '#38bdf8' }}>Questions</span>
+          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#0f172a', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px' }}>
+            Frequently Asked <span style={{ background: 'linear-gradient(135deg, #1e40af 0%, #0284c7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Questions</span>
           </h1>
 
-          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#94a3b8', marginBottom: '28px' }}>
+          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#475569', marginBottom: '28px' }}>
             Authoritative answers on <strong>Chartered Engineer certification</strong>, <strong>DGFT Advance Authorisation</strong>, <strong>Bank Plant &amp; Machinery Valuation</strong>, <strong>CEIG Solar approvals</strong>, and <strong>FSSAI statutory compliance</strong> in Jaipur &amp; Pan-India.
           </p>
 
@@ -281,7 +286,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             maxWidth: '560px',
             margin: '0 auto',
           }}>
-            <Search size={20} color="#38bdf8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
+            <Search size={20} color="#1d4ed8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
             <input
               type="text"
               value={searchQuery}
@@ -290,14 +295,17 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
               style={{
                 width: '100%',
                 padding: '14px 16px 14px 48px',
-                background: 'rgba(15, 23, 42, 0.8)',
-                border: '1px solid rgba(56, 189, 248, 0.3)',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
                 borderRadius: '12px',
-                color: '#ffffff',
+                color: '#0f172a',
                 fontSize: '0.95rem',
                 outline: 'none',
-                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)'
+                boxShadow: '0 4px 16px rgba(15, 23, 42, 0.06)',
+                transition: 'border-color 0.2s, box-shadow 0.2s'
               }}
+              onFocus={(e) => { e.currentTarget.style.borderColor = '#1d4ed8'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(29, 78, 216, 0.15)'; }}
+              onBlur={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.06)'; }}
             />
             {searchQuery && (
               <button
@@ -309,9 +317,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   transform: 'translateY(-50%)',
                   background: 'transparent',
                   border: 'none',
-                  color: '#94a3b8',
+                  color: '#64748b',
                   fontSize: '0.8rem',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  fontWeight: 600
                 }}
               >
                 Clear
@@ -341,16 +350,17 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   gap: '8px',
                   padding: '9px 18px',
                   borderRadius: '30px',
-                  background: isSelected ? '#185adb' : 'rgba(255, 255, 255, 0.04)',
-                  border: `1px solid ${isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.1)'}`,
-                  color: isSelected ? '#ffffff' : '#cbd5e1',
+                  background: isSelected ? '#1e40af' : '#ffffff',
+                  border: `1px solid ${isSelected ? '#1e40af' : '#e2e8f0'}`,
+                  color: isSelected ? '#ffffff' : '#475569',
                   fontWeight: isSelected ? 700 : 500,
                   fontSize: '0.86rem',
                   cursor: 'pointer',
+                  boxShadow: isSelected ? '0 2px 8px rgba(30, 64, 175, 0.25)' : '0 1px 3px rgba(0,0,0,0.04)',
                   transition: 'all 0.2s ease'
                 }}
               >
-                <Icon size={15} color={isSelected ? '#ffffff' : '#38bdf8'} />
+                <Icon size={15} color={isSelected ? '#ffffff' : '#1d4ed8'} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -365,20 +375,20 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           maxWidth: '860px',
           margin: '0 auto 16px auto',
           fontSize: '0.86rem',
-          color: '#94a3b8'
+          color: '#64748b'
         }}>
-          <span>Showing <strong>{filteredFaqs.length}</strong> statutory questions</span>
+          <span>Showing <strong style={{ color: '#0f172a' }}>{filteredFaqs.length}</strong> statutory questions</span>
           <div style={{ display: 'flex', gap: '12px' }}>
             <button
               onClick={expandAll}
-              style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', fontWeight: 600, fontSize: '0.82rem' }}
+              style={{ background: 'transparent', border: 'none', color: '#1d4ed8', cursor: 'pointer', fontWeight: 600, fontSize: '0.82rem' }}
             >
               Expand All
             </button>
             <span>|</span>
             <button
               onClick={collapseAll}
-              style={{ background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer', fontSize: '0.82rem' }}
+              style={{ background: 'transparent', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: '0.82rem' }}
             >
               Collapse All
             </button>
@@ -388,10 +398,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
         {/* FAQ Accordion List */}
         <div style={{ maxWidth: '860px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {filteredFaqs.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 20px', background: 'rgba(15, 23, 42, 0.5)', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.1)' }}>
+            <div style={{ textAlign: 'center', padding: '60px 20px', background: '#ffffff', borderRadius: '12px', border: '1px dashed #cbd5e1', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
               <HelpCircle size={40} color="#f59e0b" style={{ margin: '0 auto 16px auto' }} />
-              <h3 style={{ color: '#ffffff', marginBottom: '8px' }}>No exact matching questions found</h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '20px' }}>
+              <h3 style={{ color: '#0f172a', marginBottom: '8px' }}>No exact matching questions found</h3>
+              <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '20px' }}>
                 Need specific guidance on your compliance case? Speak directly with our Chartered Engineer team.
               </p>
               <button
@@ -403,7 +413,8 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   borderRadius: '8px',
                   color: '#000000',
                   fontWeight: 700,
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 14px rgba(245, 158, 11, 0.25)'
                 }}
               >
                 Ask Our Chartered Engineers Directly
@@ -416,12 +427,12 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 <div
                   key={faq.id}
                   style={{
-                    background: isOpen ? 'rgba(11, 27, 61, 0.65)' : 'rgba(15, 23, 42, 0.45)',
-                    border: `1px solid ${isOpen ? 'rgba(56, 189, 248, 0.35)' : 'rgba(255, 255, 255, 0.08)'}`,
+                    background: '#ffffff',
+                    border: `1px solid ${isOpen ? '#93c5fd' : '#e2e8f0'}`,
                     borderRadius: '12px',
                     overflow: 'hidden',
                     transition: 'all 0.25s ease',
-                    boxShadow: isOpen ? '0 10px 24px rgba(0, 0, 0, 0.25)' : 'none'
+                    boxShadow: isOpen ? '0 8px 24px rgba(37, 99, 235, 0.08)' : '0 2px 6px rgba(15, 23, 42, 0.04)'
                   }}
                 >
                   <button
@@ -434,13 +445,14 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       gap: '16px',
-                      background: 'transparent',
+                      background: isOpen ? '#f8fafc' : '#ffffff',
                       border: 'none',
-                      color: isOpen ? '#ffffff' : '#e2e8f0',
+                      color: isOpen ? '#1e40af' : '#0f172a',
                       textAlign: 'left',
                       fontSize: '1rem',
                       fontWeight: 700,
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      transition: 'background 0.2s ease, color 0.2s ease'
                     }}
                   >
                     <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -448,18 +460,18 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                         display: 'inline-flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        width: '26px',
-                        height: '26px',
+                        width: '28px',
+                        height: '28px',
                         borderRadius: '50%',
-                        background: isOpen ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)',
-                        color: isOpen ? '#040914' : '#94a3b8',
+                        background: isOpen ? '#1e40af' : '#f1f5f9',
+                        color: isOpen ? '#ffffff' : '#64748b',
                         fontSize: '0.8rem',
                         fontWeight: 800,
                         flexShrink: 0
                       }}>
                         {index + 1}
                       </span>
-                      <span>{faq.question}</span>
+                      <span style={{ color: isOpen ? '#1e40af' : '#0f172a' }}>{faq.question}</span>
                     </span>
 
                     <span style={{
@@ -469,8 +481,8 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                       width: '32px',
                       height: '32px',
                       borderRadius: '8px',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      color: isOpen ? '#38bdf8' : '#94a3b8',
+                      background: isOpen ? '#eff6ff' : '#f8fafc',
+                      color: isOpen ? '#1e40af' : '#64748b',
                       flexShrink: 0
                     }}>
                       {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -479,25 +491,25 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
 
                   {isOpen && (
                     <div style={{
-                      padding: '0 22px 22px 58px',
-                      fontSize: '0.92rem',
-                      lineHeight: 1.7,
-                      color: '#cbd5e1',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-                      paddingTop: '16px'
+                      padding: '16px 22px 22px 62px',
+                      fontSize: '0.94rem',
+                      lineHeight: 1.75,
+                      color: '#334155',
+                      borderTop: '1px solid #e2e8f0',
+                      background: '#ffffff'
                     }}>
                       {faq.answer.split('\n\n').map((paragraph, pIdx) => (
                         <p key={pIdx} style={{ marginBottom: pIdx === faq.answer.split('\n\n').length - 1 ? 0 : '12px' }}>
                           {paragraph.split('\n').map((line, lIdx) => {
                             if (line.startsWith('* ') || line.startsWith('1. ') || line.startsWith('2. ') || line.startsWith('3. ') || line.startsWith('4. ')) {
                               return (
-                                <span key={lIdx} style={{ display: 'block', paddingLeft: '8px', margin: '4px 0' }}>
+                                <span key={lIdx} style={{ display: 'block', paddingLeft: '8px', margin: '6px 0', color: '#334155' }}>
                                   {parseInlineLinks(line)}
                                 </span>
                               );
                             }
                             return (
-                              <span key={lIdx} style={{ display: 'block' }}>
+                              <span key={lIdx} style={{ display: 'block', color: '#334155' }}>
                                 {parseInlineLinks(line)}
                               </span>
                             );
@@ -516,17 +528,17 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
         <div style={{
           maxWidth: '860px',
           margin: '50px auto 0 auto',
-          padding: '36px',
-          background: 'linear-gradient(135deg, rgba(11,27,61,0.9) 0%, rgba(4,9,20,0.95) 100%)',
-          border: '1px solid rgba(56, 189, 248, 0.3)',
+          padding: '38px',
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)',
+          border: '1px solid #3b82f6',
           borderRadius: '16px',
           textAlign: 'center',
-          boxShadow: '0 12px 32px rgba(0, 0, 0, 0.4)'
+          boxShadow: '0 14px 36px rgba(15, 23, 42, 0.16)'
         }}>
-          <h3 style={{ fontSize: '1.4rem', color: '#ffffff', fontWeight: 800, marginBottom: '10px' }}>
+          <h3 style={{ fontSize: '1.45rem', color: '#ffffff', fontWeight: 800, marginBottom: '10px' }}>
             Still Have a Statutory or Technical Question?
           </h3>
-          <p style={{ color: '#94a3b8', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
+          <p style={{ color: '#cbd5e1', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
             Our corporate team led by <strong>Mukesh Singh, Chartered Engineer (India) MIE</strong>, is available for direct consultation regarding DGFT, Customs, Banking Valuation, and CEIG approvals.
           </p>
 
@@ -581,8 +593,8 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '12px 24px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
                 borderRadius: '8px',
                 color: '#ffffff',
                 fontWeight: 600,
