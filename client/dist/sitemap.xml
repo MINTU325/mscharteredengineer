@@ -113,4 +113,44 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- 15. Article: DGFT Advance Authorisation & EPCG Guide -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/blog/dgft-advance-authorisation-guide</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 16. Article: Plant & Machinery Valuation Methodology -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/blog/plant-machinery-valuation-methods-bank-collateral</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 17. Article: CESE Electrical Safety & CEIG Approvals -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/blog/chartered-electrical-safety-engineer-cese-audits</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 18. Article: Pressure Vessels & Lifting Tackles Testing -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/blog/factories-act-pressure-vessel-lifting-testing</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 19. Article: Solar Power Plant CEIG Drawing Approval -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/blog/solar-power-plant-ceig-drawing-approval-checklist</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
 </urlset>

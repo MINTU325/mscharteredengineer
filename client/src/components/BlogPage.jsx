@@ -452,6 +452,59 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
 
   return (
     <div className="blog-page-container" style={{ minHeight: '85vh', background: '#f8fafc', color: '#334155', paddingTop: '32px', paddingBottom: '80px' }}>
+      {/* Schema.org Blog / BlogPosting structured data */}
+      {activeArticle ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://www.mscharteredengineer.com/blog/${activeArticle.slug}`
+            },
+            "headline": activeArticle.title,
+            "description": activeArticle.excerpt,
+            "image": activeArticle.image.startsWith('http') ? activeArticle.image : `https://www.mscharteredengineer.com${activeArticle.image}`,
+            "datePublished": "2026-03-24",
+            "dateModified": "2026-03-25",
+            "author": {
+              "@type": "Person",
+              "name": activeArticle.author,
+              "jobTitle": activeArticle.authorRole,
+              "url": "https://www.mscharteredengineer.com/founder"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "MS Chartered Engineers, Valuers & Technical Consultancy",
+              "url": "https://www.mscharteredengineer.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.mscharteredengineer.com/logo.png"
+              }
+            },
+            "keywords": activeArticle.tags.join(', ')
+          })
+        }} />
+      ) : (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "@id": "https://www.mscharteredengineer.com/blog#hub",
+            "name": "MS Chartered Engineers Technical Knowledge Hub",
+            "url": "https://www.mscharteredengineer.com/blog",
+            "description": "Authoritative engineering insights, statutory compliance procedures, DGFT Advance Authorisation guides, Plant & Machinery Valuation methodologies.",
+            "blogPost": BLOG_POSTS.map(p => ({
+              "@type": "BlogPosting",
+              "headline": p.title,
+              "url": `https://www.mscharteredengineer.com/blog/${p.slug}`,
+              "description": p.excerpt,
+              "datePublished": "2026-03-24"
+            }))
+          })
+        }} />
+      )}
+
       <div className="container">
         
         {/* ──────────────────────────────────────────────────────────
