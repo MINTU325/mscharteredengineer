@@ -59,12 +59,18 @@ export default function App() {
         if (config.id === 'faq' || config.id === 'home' || config.id === 'blog') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
-          setTimeout(() => {
+          const scrollToTarget = () => {
             const el = document.getElementById(config.id);
             if (el) {
               el.scrollIntoView({ behavior: 'smooth' });
+              return true;
             }
-          }, 350);
+            return false;
+          };
+          if (!scrollToTarget()) {
+            setTimeout(scrollToTarget, 120);
+            setTimeout(scrollToTarget, 350);
+          }
         }
       } else if (pathname.startsWith('/blog/')) {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -92,10 +98,18 @@ export default function App() {
           if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           } else if (config && config.id) {
-            setTimeout(() => {
+            const scrollToTarget = () => {
               const el = document.getElementById(config.id);
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                return true;
+              }
+              return false;
+            };
+            if (!scrollToTarget()) {
+              setTimeout(scrollToTarget, 120);
+              setTimeout(scrollToTarget, 350);
+            }
           } else {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           }

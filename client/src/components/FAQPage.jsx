@@ -8,7 +8,7 @@ import {
 function parseInlineLinks(text) {
   if (!text) return '';
   const parts = [];
-  const regex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g;
+  const regex = /\*\*\[(.*?)\]\((.*?)\)\*\*|\[\*\*(.*?)\*\*\]\((.*?)\)|\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g;
   let lastIndex = 0;
   let match;
 
@@ -16,26 +16,31 @@ function parseInlineLinks(text) {
     if (match.index > lastIndex) {
       parts.push(text.substring(lastIndex, match.index));
     }
-    if (match[1] !== undefined) {
+    const linkText = match[1] || match[3] || match[5];
+    const linkHref = match[2] || match[4] || match[6];
+    const isBoldLink = Boolean(match[1] || match[3]);
+    const normalBold = match[7];
+
+    if (linkText && linkHref) {
       parts.push(
         <a
           key={`lnk-${match.index}`}
-          href={match[2]}
+          href={linkHref}
           style={{
             color: '#38bdf8',
-            fontWeight: 600,
+            fontWeight: isBoldLink ? 700 : 600,
             textDecoration: 'underline',
             textUnderlineOffset: '3px',
-            transition: 'color 0.2s'
+            transition: 'color 0.2s',
           }}
           onMouseEnter={(e) => (e.currentTarget.style.color = '#fbbf24')}
           onMouseLeave={(e) => (e.currentTarget.style.color = '#38bdf8')}
         >
-          {match[1]}
+          {linkText}
         </a>
       );
-    } else if (match[3] !== undefined) {
-      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#ffffff' }}>{match[3]}</strong>);
+    } else if (normalBold !== undefined) {
+      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#ffffff' }}>{normalBold}</strong>);
     }
     lastIndex = regex.lastIndex;
   }
