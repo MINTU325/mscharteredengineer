@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ShieldCheck, Award, ArrowUp, BookOpen } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Award, ArrowUp, BookOpen, HelpCircle } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 
 export default function Footer({ onOpenQuote }) {
@@ -121,6 +121,24 @@ export default function Footer({ onOpenQuote }) {
                 <span>Technical Knowledge Hub &amp; Blog</span>
               </a>
             </div>
+
+            <div style={{ marginTop: '10px' }}>
+              <a
+                href="/faq"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  color: '#38bdf8',
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                  textDecoration: 'none'
+                }}
+              >
+                <HelpCircle size={15} color="#38bdf8" />
+                <span>Statutory FAQs &amp; Help Desk &rarr;</span>
+              </a>
+            </div>
           </div>
 
           {/* Col 2: Services Quick Links */}
@@ -139,6 +157,12 @@ export default function Footer({ onOpenQuote }) {
               <li style={{ paddingTop: '6px', borderTop: '1px dashed rgba(255, 255, 255, 0.1)' }}>
                 <a href="/blog" style={{ color: '#38bdf8', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   <span>📚 Regulatory Insights &amp; Blog Articles</span>
+                  <span>&rarr;</span>
+                </a>
+              </li>
+              <li style={{ paddingTop: '2px' }}>
+                <a href="/faq" style={{ color: '#fbbf24', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <span>❓ Frequently Asked Questions (FAQ)</span>
                   <span>&rarr;</span>
                 </a>
               </li>
@@ -254,7 +278,34 @@ export default function Footer({ onOpenQuote }) {
           </div>
         </div>
 
-        <hr style={{ borderColor: 'rgba(255, 255, 255, 0.08)', marginBottom: '24px' }} />
+        <hr style={{ borderColor: 'rgba(255, 255, 255, 0.08)', marginBottom: '20px' }} />
+
+        {/* Quick Internal SEO Navigation */}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: '12px 16px',
+          marginBottom: '20px',
+          fontSize: '0.82rem',
+          color: '#64748b'
+        }}>
+          <a href="/" style={{ color: '#94a3b8', textDecoration: 'none' }}>Home</a>
+          <span>&bull;</span>
+          <a href="/chartered-engineer" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 600 }}>Chartered Engineer in Jaipur</a>
+          <span>&bull;</span>
+          <a href="/valuation" style={{ color: '#94a3b8', textDecoration: 'none' }}>Plant &amp; Machinery Valuation</a>
+          <span>&bull;</span>
+          <a href="/safety-energy-audits" style={{ color: '#94a3b8', textDecoration: 'none' }}>CESE Electrical Safety Audits</a>
+          <span>&bull;</span>
+          <a href="/fssai" style={{ color: '#94a3b8', textDecoration: 'none' }}>FSSAI Compliance</a>
+          <span>&bull;</span>
+          <a href="/blog" style={{ color: '#94a3b8', textDecoration: 'none' }}>Regulatory Insights &amp; Blog</a>
+          <span>&bull;</span>
+          <a href="/faq" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 700 }}>Frequently Asked Questions (FAQ)</a>
+          <span>&bull;</span>
+          <a href="/contact" style={{ color: '#94a3b8', textDecoration: 'none' }}>Contact Jaipur Office</a>
+        </div>
 
         {/* Disclaimer & Bottom Line */}
         <div style={{

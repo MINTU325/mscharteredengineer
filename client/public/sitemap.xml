@@ -100,7 +100,15 @@
   <!-- 13. Technical Knowledge Hub & Regulatory Blog -->
   <url>
     <loc>https://www.mscharteredengineer.com/blog</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 14. Frequently Asked Questions (FAQ) Help Desk -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/faq</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

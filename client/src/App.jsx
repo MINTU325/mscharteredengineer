@@ -13,14 +13,15 @@ import QuoteWizardModal from './components/QuoteWizardModal';
 import AdminDashboard from './components/AdminDashboard';
 import AdminLoginModal from './components/AdminLoginModal';
 import BlogPage from './components/BlogPage';
+import FAQPage from './components/FAQPage';
 import { MessageSquare, PhoneCall } from 'lucide-react';
 
 const ROUTE_CONFIG = {
-  '/': { id: 'home', title: 'MS Chartered Engineers & Valuers | Jaipur, Rajasthan' },
+  '/': { id: 'home', title: 'Chartered Engineer in Jaipur | MS Chartered Engineers & Valuers (Pan-India)' },
   '/services': { id: 'services', title: 'Services We Offer | MS Chartered Engineers' },
   '/valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
   '/assets-valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
-  '/chartered-engineer': { id: 'chartered-engineer', title: 'Chartered Engineer & DGFT Advance Authorisation | MS Chartered Engineers' },
+  '/chartered-engineer': { id: 'chartered-engineer', title: 'Chartered Engineer Certificate Jaipur | DGFT, Customs & Machinery | MS Chartered Engineers' },
   '/safety-energy-audits': { id: 'safety-energy-audits', title: 'Industrial Safety & BEE Energy Audits | MS Chartered Engineers' },
   '/fssai': { id: 'fssai', title: 'FSSAI Compliance Services | MS Chartered Engineers' },
   '/advisory': { id: 'advisory', title: 'Technical Advisory & IndAS 16 | MS Chartered Engineers' },
@@ -32,6 +33,8 @@ const ROUTE_CONFIG = {
   '/contact': { id: 'contact', title: 'Contact Us — Jaipur Head Office | MS Chartered Engineers' },
   '/blog': { id: 'blog', title: 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers' },
   '/insights': { id: 'blog', title: 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers' },
+  '/faq': { id: 'faq', title: 'Frequently Asked Questions (FAQ) | Chartered Engineer & Valuers | MS Chartered Engineers' },
+  '/faqs': { id: 'faq', title: 'Frequently Asked Questions (FAQ) | Chartered Engineer & Valuers | MS Chartered Engineers' },
 };
 
 export default function App() {
@@ -149,6 +152,16 @@ export default function App() {
         <AdminDashboard 
           onClose={() => setIsAdminOpen(false)} 
           onLogout={handleLogout}
+        />
+      ) : currentRoute === '/faq' || currentRoute === '/faqs' ? (
+        <FAQPage 
+          onOpenQuote={handleOpenQuote}
+          onNavigateHome={() => {
+            window.history.pushState({}, '', '/');
+            setCurrentRoute('/');
+            document.title = ROUTE_CONFIG['/'].title;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         />
       ) : currentRoute === '/blog' || currentRoute === '/insights' || currentRoute.startsWith('/blog/') || currentRoute.startsWith('/insights/') ? (
         <BlogPage 

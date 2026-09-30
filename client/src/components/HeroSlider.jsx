@@ -5,19 +5,19 @@ const SLIDES = [
   {
     id: 1,
     image: '/slides/slide1.webp',
-    badge: '🏆 IEI Recognized | Government Approved Valuer',
-    title: 'Assets',
+    badge: '🏆 IEI Chartered Engineer (India) | Government Approved Valuer',
+    title: 'Chartered Engineer &',
     titleHighlight: 'Valuation Services',
     subtitle:
-      'We impart the expert Valuers\' services required for commercial & corporate governance obligations — machinery, plant, property & equipment.',
-    tag: 'CERTIFIED VALUATION EXPERT',
+      'Certified Chartered Engineer (India) MIE & Government Approved Valuers. Statutory DGFT certificates, Plant & Machinery valuations for banks, and CEIG approvals across Jaipur & Pan-India.',
+    tag: 'CHARTERED ENGINEER & VALUATION EXPERT',
     accent: 'gold',
-    cta: 'Request Valuation Report',
-    ctaService: 'Assets Valuation Services',
+    cta: 'Request Valuation & Certificate',
+    ctaService: 'Chartered Engineer Services',
     stats: [
-      { value: 'BANKS', label: 'Empanelled' },
-      { value: 'IBBI', label: 'Valuation Standards' },
-      { value: 'PAN', label: 'India Service' },
+      { value: 'IEI', label: 'Chartered Engineer' },
+      { value: 'BANKS', label: 'Empanelled Valuer' },
+      { value: 'JAIPUR', label: 'Pan-India Practice' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.92) 0%, rgba(11,23,54,0.75) 50%, rgba(7,14,30,0.4) 100%)',
   },
@@ -229,13 +229,13 @@ export default function HeroSlider({ onOpenQuote }) {
             {slide.badge}
           </div>
 
-          {/* Title — h2 here; canonical H1 is in the Hero section below */}
-          <h2 className={`hs-title ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.08s' }}>
+          {/* Title — Semantic canonical H1 for SEO */}
+          <h1 className={`hs-title ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.08s' }}>
             {slide.title}{' '}
             <span className="hs-title-hl" style={{ color: color.light, textShadow: `0 0 40px ${color.glow}` }}>
               {slide.titleHighlight}
             </span>
-          </h2>
+          </h1>
 
           {/* Subtitle */}
           <p className={`hs-subtitle ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.16s' }}>
