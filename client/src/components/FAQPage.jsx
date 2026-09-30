@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   HelpCircle, Search, ChevronDown, ChevronUp, ShieldCheck, 
   Phone, MessageSquare, ArrowLeft, CheckCircle2, Award, 
@@ -118,6 +118,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [openIds, setOpenIds] = useState(() => new Set(['ce-01', 'ce-02']));
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   const toggleAccordion = (id) => {
     setOpenIds(prev => {
       const next = new Set(prev);
@@ -150,7 +154,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div style={{ background: '#040914', color: '#cbd5e1', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
+    <div id="faq" style={{ background: '#040914', color: '#cbd5e1', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
       {/* Schema.org FAQPage structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({

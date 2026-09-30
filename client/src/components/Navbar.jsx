@@ -164,6 +164,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <li><a href="/founder" className="nav-link">Team</a></li>
               <li><a href="/contact" className="nav-link">Contact</a></li>
               <li><a href="/blog" className="nav-link" style={{ color: '#38bdf8', fontWeight: 600 }}>Blog</a></li>
+              <li><a href="/faq" className="nav-link" style={{ color: '#fbbf24', fontWeight: 600 }}>FAQs</a></li>
             </ul>
           </nav>
 
@@ -216,7 +217,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           <a href="/solar-checker"  onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">☀️ CEIG Solar Checker</a>
           <a href="/founder"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👤 Core Team (IIT Roorkee)</a>
           <a href="/contact"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📍 Contact Jaipur HQ</a>
-          <a href="/blog"           onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 600 }}>📚 Insights &amp; Blog Guides</a>
+          <a href="/blog"           onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>📚 Insights &amp; Blog Guides</a>
+          <a href="/faq"            onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 600 }}>❓ FAQs &amp; Help Desk</a>
           <a href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8' }}>💼 LinkedIn Company Page</a>
         </div>
 
