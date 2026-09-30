@@ -199,10 +199,23 @@ export default function Footer({ onOpenQuote }) {
               >
                 <MapPin size={18} color="#f59e0b" style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span>
-                  <span itemProp="addressLocality">Jaipur</span>,{' '}
-                  <span itemProp="addressRegion">RAJASTHAN</span> -{' '}
-                  <span itemProp="postalCode">302019</span>,{' '}
-                  <span itemProp="addressCountry">India</span>
+                  <a
+                    href="https://maps.app.goo.gl/3ZJmQFkrpLZEU3Ao6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View MS Chartered Engineers on Google Maps"
+                    style={{ color: '#cbd5e1', textDecoration: 'none', transition: 'color 0.2s' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#38bdf8')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#cbd5e1')}
+                  >
+                    <span itemProp="addressLocality">Jaipur</span>,{' '}
+                    <span itemProp="addressRegion">RAJASTHAN</span> -{' '}
+                    <span itemProp="postalCode">302019</span>,{' '}
+                    <span itemProp="addressCountry">India</span>
+                    <span style={{ display: 'block', fontSize: '0.75rem', color: '#f59e0b', marginTop: '3px' }}>
+                      📍 View on Google Maps &rarr;
+                    </span>
+                  </a>
                 </span>
               </div>
 
