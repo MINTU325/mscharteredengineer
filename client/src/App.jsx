@@ -17,11 +17,11 @@ import FAQPage from './components/FAQPage';
 import { MessageSquare, PhoneCall } from 'lucide-react';
 
 const ROUTE_CONFIG = {
-  '/': { id: 'home', title: 'Chartered Engineer in Jaipur | MS Chartered Engineers & Valuers (Pan-India)' },
+  '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
   '/services': { id: 'services', title: 'Services We Offer | MS Chartered Engineers' },
   '/valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
   '/assets-valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
-  '/chartered-engineer': { id: 'chartered-engineer', title: 'Chartered Engineer Certificate Jaipur | DGFT, Customs & Machinery | MS Chartered Engineers' },
+  '/chartered-engineer': { id: 'chartered-engineer', title: 'Chartered Engineer in Jaipur & India | DGFT, Customs & Machinery | MS Chartered Engineers' },
   '/safety-energy-audits': { id: 'safety-energy-audits', title: 'Industrial Safety & BEE Energy Audits | MS Chartered Engineers' },
   '/fssai': { id: 'fssai', title: 'FSSAI Compliance Services | MS Chartered Engineers' },
   '/advisory': { id: 'advisory', title: 'Technical Advisory & IndAS 16 | MS Chartered Engineers' },

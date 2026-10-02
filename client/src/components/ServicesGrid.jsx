@@ -57,7 +57,7 @@ export const servicesData = [
     icon: FileCheck2,
     badgeColor: '#38bdf8',
     description:
-      'Chartered Engineer is an Independent Engineer certified and authorized by the prestigious Institution of Engineers (India) to attest / certify different types of Government Declarations / Compliances across multiple Central Government Ministries and Authorities.',
+      'Leading Chartered Engineer in Jaipur and across India, certified and authorized by the prestigious Institution of Engineers (India) [IEI] to attest and certify statutory Government Declarations, DGFT Certificates, Customs Clearances, and Bank Valuations across all Central Ministries.',
     deliverables: [
       'DGFT Advance Authorisation — Chartered Engineer Certificate for Duty-Free Import of Inputs & Raw Material Nexus (Appendix 4E / 4K)',
       'DGFT Compliances — EPCG Nexus (Appendix 5A), SION Fixation (Appendix 4A), Self-Ratification Scheme, Duty Drawback Rate Fixation (Appendix 7E, 2Q)',
