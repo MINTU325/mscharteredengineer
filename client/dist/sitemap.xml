@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- 1. Homepage -->
   <url>
     <loc>https://www.mscharteredengineer.com/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/seo/chartered-engineer-jaipur.jpg</image:loc>
+      <image:title>Chartered Engineer in Jaipur - MS Chartered Engineers (IIT Roorkee)</image:title>
+      <image:caption>Leading Chartered Engineer in Jaipur &amp; India - Asset Valuation, DGFT and Bank Certifications</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/seo/plant-machinery-asset-valuation-india.jpg</image:loc>
+      <image:title>Chartered Engineer India - Plant and Machinery Valuation Expert</image:title>
+      <image:caption>Plant and Machinery Valuation for Banks, IndAS 16 Componentization and Statutory Appraisals across India</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/seo/chartered-engineer-certificate-statutory.jpg</image:loc>
+      <image:title>Chartered Engineer Certificate India - DGFT, Customs &amp; CEIG Solar</image:title>
+      <image:caption>Statutory Chartered Engineer Certificates for DGFT EPCG, Customs Clearance and CEIG Solar Approvals in Jaipur &amp; India</image:caption>
+    </image:image>
   </url>
 
   <!-- 2. Services Overview -->
