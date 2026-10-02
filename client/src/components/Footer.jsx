@@ -213,8 +213,19 @@ export default function Footer({ onOpenQuote }) {
               itemType="https://schema.org/LocalBusiness"
               style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.88rem' }}
             >
-              <meta itemProp="name" content="MS Chartered Engineers, Valuers & Technical Consultancy Services" />
+              <meta itemProp="name" content="MS Chartered Engineers (IIT Roorkee)" />
+              <meta itemProp="description" content="MS Chartered Engineers (IIT Roorkee). Expert in Plant & Asset Valuation, Jaipur, Rajasthan - 302019" />
               <meta itemProp="url" content="https://www.mscharteredengineer.com/" />
+              
+              <div>
+                <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.96rem' }}>
+                  MS Chartered Engineers <span style={{ color: '#f59e0b', fontSize: '0.84rem', fontWeight: 600 }}>(IIT Roorkee)</span>
+                </div>
+                <div style={{ color: '#94a3b8', fontSize: '0.80rem', marginTop: '2px', fontWeight: 500 }}>
+                  Expert in Plant &amp; Asset Valuation
+                </div>
+              </div>
+
               <div
                 itemProp="address"
                 itemScope
@@ -233,7 +244,7 @@ export default function Footer({ onOpenQuote }) {
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#cbd5e1')}
                   >
                     <span itemProp="addressLocality">Jaipur</span>,{' '}
-                    <span itemProp="addressRegion">RAJASTHAN</span> -{' '}
+                    <span itemProp="addressRegion">Rajasthan</span> -{' '}
                     <span itemProp="postalCode">302019</span>,{' '}
                     <span itemProp="addressCountry">India</span>
                     <span style={{ display: 'block', fontSize: '0.75rem', color: '#f59e0b', marginTop: '3px' }}>

@@ -67,8 +67,12 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                 <MapPin size={24} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.25rem', color: '#0f172a', fontWeight: 800 }}>Central Headquarters</h3>
-                <div style={{ fontSize: '0.82rem', color: '#b45309', fontWeight: 700 }}>Jaipur, Rajasthan - 302019</div>
+                <h3 style={{ fontSize: '1.25rem', color: '#0f172a', fontWeight: 800 }}>
+                  MS Chartered Engineers <span style={{ fontSize: '0.85rem', color: '#1d4ed8', fontWeight: 600 }}>(IIT Roorkee)</span>
+                </h3>
+                <div style={{ fontSize: '0.82rem', color: '#b45309', fontWeight: 700 }}>
+                  Expert in Plant &amp; Asset Valuation | Jaipur, Rajasthan - 302019
+                </div>
               </div>
             </div>
 
