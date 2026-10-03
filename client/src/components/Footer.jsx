@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, ShieldCheck, Award, ArrowUp, BookOpen, HelpCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, ShieldCheck, Award, ArrowUp, BookOpen } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 
 export default function Footer({ onOpenQuote }) {
@@ -72,33 +72,7 @@ export default function Footer({ onOpenQuote }) {
               <span>CEng (India) MIE — Institution of Engineers (India)</span>
             </div>
 
-            <div style={{ marginTop: '12px' }}>
-              <a
-                href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '7px 14px',
-                  background: 'rgba(10, 102, 194, 0.15)',
-                  border: '1px solid rgba(10, 102, 194, 0.4)',
-                  borderRadius: 'var(--radius-sm)',
-                  color: '#38bdf8',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease'
-                }}
-                aria-label="MS Chartered Engineers on LinkedIn"
-              >
-                <LinkedinIcon size={15} color="#38bdf8" />
-                <span>LinkedIn Company Profile</span>
-              </a>
-            </div>
-
-            <div style={{ marginTop: '10px' }}>
+            <div style={{ marginTop: '14px' }}>
               <a
                 href="/blog"
                 style={{
@@ -119,24 +93,6 @@ export default function Footer({ onOpenQuote }) {
               >
                 <BookOpen size={15} color="#fbbf24" />
                 <span>Technical Knowledge Hub &amp; Blog</span>
-              </a>
-            </div>
-
-            <div style={{ marginTop: '10px' }}>
-              <a
-                href="/faq"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  color: '#38bdf8',
-                  fontSize: '0.84rem',
-                  fontWeight: 600,
-                  textDecoration: 'none'
-                }}
-              >
-                <HelpCircle size={15} color="#38bdf8" />
-                <span>Statutory FAQs &amp; Help Desk &rarr;</span>
               </a>
             </div>
           </div>
