@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
-import { Calculator, ArrowRight, CheckCircle, AlertCircle, RefreshCw, FileText } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Calculator, ArrowRight, CheckCircle, AlertCircle, RefreshCw, FileText, Sparkles } from 'lucide-react';
 
-export default function ValuationCalculator({ onOpenQuote }) {
+const PRESETS = [
+  { label: 'CNC Machine (₹25L)', cost: '2500000', age: '4', life: '15', type: 'CNC & Heavy Engineering Machinery', maint: 'Good', usage: '2-Shift' },
+  { label: 'Textile Loom (₹40L)', cost: '4000000', age: '5', life: '15', type: 'Textile, Spinning & Garment Machinery', maint: 'Excellent', usage: '2-Shift' },
+  { label: 'Pharma Reactor (₹85L)', cost: '8500000', age: '3', life: '20', type: 'Chemical, Pharmaceutical & Process Plant', maint: 'Excellent', usage: 'Continuous 3-Shift' },
+  { label: 'Earthmover / JCB (₹55L)', cost: '5500000', age: '6', life: '12', type: 'Earthmoving & Construction Equipment', maint: 'Fair', usage: 'Single Shift (8 hrs/day)' }
+];
+
+export default function ValuationCalculator({ onOpenQuote, lightMode = false }) {
   const [formData, setFormData] = useState({
     assetType: 'CNC & Heavy Engineering Machinery',
     originalCost: '2500000',
@@ -61,6 +68,19 @@ export default function ValuationCalculator({ onOpenQuote }) {
     };
   };
 
+  const handleApplyPreset = (p) => {
+    const updated = {
+      assetType: p.type,
+      originalCost: p.cost,
+      assetAgeYears: p.age,
+      expectedTotalLifeYears: p.life,
+      maintenanceCondition: p.maint,
+      usageIntensity: p.usage
+    };
+    setFormData(updated);
+    setResult(calculateLocally(updated));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -76,7 +96,6 @@ export default function ValuationCalculator({ onOpenQuote }) {
       if (data.success && data.data) {
         setResult(data.data);
       } else {
-        // Fallback to client calculations if server is unavailable
         setResult(calculateLocally(formData));
       }
     } catch (err) {
@@ -106,41 +125,148 @@ export default function ValuationCalculator({ onOpenQuote }) {
     });
   };
 
-  // Run initial calculation once
-  React.useEffect(() => {
+  useEffect(() => {
     setResult(calculateLocally(formData));
   }, []);
 
   return (
-    <section id="calculator" className="section" style={{ background: '#080f24', padding: '52px 0' }}>
+    <section 
+      id="calculator" 
+      className="section" 
+      style={{ 
+        background: lightMode ? 'transparent' : '#080f24', 
+        padding: lightMode ? '16px 0 32px 0' : '52px 0',
+        color: lightMode ? '#0f172a' : '#f8fafc'
+      }}
+    >
       <div className="container">
-        <div className="section-header" style={{ marginBottom: '28px' }}>
-          <div className="section-badge gold">
+        {/* Header */}
+        <div className="section-header" style={{ marginBottom: '24px' }}>
+          <div 
+            className="section-badge" 
+            style={{
+              background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.12)',
+              border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.35)'}`,
+              color: lightMode ? '#1d4ed8' : '#fbbf24',
+              borderRadius: '9999px',
+              padding: '5px 14px',
+              fontSize: '0.80rem',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
             <Calculator size={15} />
             <span>Smart Engineering Estimation Engine</span>
           </div>
-          <h2 className="section-title">
-            Interactive Machinery &amp; <span className="gold-gradient-text">Asset Valuation Tool</span>
+          <h2 
+            className="section-title"
+            style={{
+              color: lightMode ? '#0f172a' : '#ffffff',
+              fontSize: 'clamp(1.6rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              lineHeight: 1.25,
+              marginTop: '8px'
+            }}
+          >
+            Interactive Machinery &amp; <span style={{ color: lightMode ? '#1d4ed8' : '#f59e0b' }}>Asset Valuation Tool</span>
           </h2>
-          <p className="section-description">
+          <p 
+            className="section-description"
+            style={{
+              color: lightMode ? '#475569' : '#cbd5e1',
+              fontSize: '0.96rem',
+              lineHeight: 1.6,
+              maxWidth: '720px',
+              margin: '0 auto'
+            }}
+          >
             Calculate Remaining Useful Life (RUL), straight-line &amp; written-down depreciation, and fair market estimates aligned with <strong>Companies Act 2013</strong> norms.
           </p>
         </div>
 
-        <div className="calculator-grid">
+        {/* Quick Dynamic Preset Bar */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          gap: '8px',
+          marginBottom: '26px'
+        }}>
+          <span style={{ fontSize: '0.80rem', fontWeight: 700, color: lightMode ? '#64748b' : '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em', marginRight: '4px' }}>
+            ⚡ Quick Presets:
+          </span>
+          {PRESETS.map((p, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => handleApplyPreset(p)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: '9999px',
+                fontSize: '0.80rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                background: lightMode ? '#ffffff' : 'rgba(255, 255, 255, 0.06)',
+                border: lightMode ? '1px solid #cbd5e1' : '1px solid rgba(255, 255, 255, 0.15)',
+                color: lightMode ? '#1e293b' : '#e2e8f0',
+                boxShadow: lightMode ? '0 2px 6px rgba(0, 0, 0, 0.04)' : 'none',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#3b82f6';
+                e.currentTarget.style.color = '#1d4ed8';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)';
+                e.currentTarget.style.color = lightMode ? '#1e293b' : '#e2e8f0';
+              }}
+            >
+              <span>{p.label}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="calculator-grid" style={{ alignItems: 'start' }}>
           {/* Input Form Card */}
-          <div className="glass-card">
-            <h3 style={{ fontSize: '1.25rem', marginBottom: '20px', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span>Asset Parameters</span>
-            </h3>
+          <div 
+            style={{
+              background: lightMode ? '#ffffff' : 'rgba(15, 26, 54, 0.75)',
+              border: `1px solid ${lightMode ? '#e2e8f0' : 'rgba(255, 255, 255, 0.1)'}`,
+              borderRadius: '20px',
+              padding: 'clamp(20px, 3.2vw, 32px)',
+              boxShadow: lightMode ? '0 10px 30px rgba(15, 23, 42, 0.05)' : '0 10px 30px rgba(0, 0, 0, 0.35)',
+              boxSizing: 'border-box'
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '1.25rem', color: lightMode ? '#0f172a' : '#ffffff', fontWeight: 800, margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span>Asset Parameters</span>
+              </h3>
+              <span style={{ fontSize: '0.74rem', color: lightMode ? '#2563eb' : '#38bdf8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                Schedule II Norms
+              </span>
+            </div>
 
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label className="form-label">Asset / Machinery Category</label>
+              <div className="form-group" style={{ marginBottom: '18px' }}>
+                <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                  Asset / Machinery Category
+                </label>
                 <select 
                   className="form-control"
                   value={formData.assetType}
                   onChange={(e) => setFormData({...formData, assetType: e.target.value})}
+                  style={{
+                    background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                    border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                    color: lightMode ? '#0f172a' : '#ffffff'
+                  }}
                 >
                   <option value="CNC & Heavy Engineering Machinery">CNC & Heavy Engineering Machinery</option>
                   <option value="Textile, Spinning & Garment Machinery">Textile, Spinning & Garment Machinery</option>
@@ -152,9 +278,11 @@ export default function ValuationCalculator({ onOpenQuote }) {
                 </select>
               </div>
 
-              <div className="form-row-2col">
-                <div className="form-group">
-                  <label className="form-label">Original Cost (₹)</label>
+              <div className="form-row-2col" style={{ gap: '14px', marginBottom: '18px' }}>
+                <div className="form-group" style={{ marginBottom: 0 }}>
+                  <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                    Original Cost (₹)
+                  </label>
                   <input 
                     type="number" 
                     className="form-control"
@@ -162,11 +290,18 @@ export default function ValuationCalculator({ onOpenQuote }) {
                     onChange={(e) => setFormData({...formData, originalCost: e.target.value})}
                     placeholder="e.g. 2500000"
                     required
+                    style={{
+                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      color: lightMode ? '#0f172a' : '#ffffff'
+                    }}
                   />
                 </div>
 
-                <div className="form-group">
-                  <label className="form-label">Asset Age (Years)</label>
+                <div className="form-group" style={{ marginBottom: 0 }}>
+                  <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                    Asset Age (Years)
+                  </label>
                   <input 
                     type="number" 
                     step="0.5"
@@ -175,28 +310,47 @@ export default function ValuationCalculator({ onOpenQuote }) {
                     onChange={(e) => setFormData({...formData, assetAgeYears: e.target.value})}
                     placeholder="e.g. 4"
                     required
+                    style={{
+                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      color: lightMode ? '#0f172a' : '#ffffff'
+                    }}
                   />
                 </div>
               </div>
 
-              <div className="form-row-2col">
-                <div className="form-group">
-                  <label className="form-label">Expected Life (Years)</label>
+              <div className="form-row-2col" style={{ gap: '14px', marginBottom: '18px' }}>
+                <div className="form-group" style={{ marginBottom: 0 }}>
+                  <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                    Expected Life (Years)
+                  </label>
                   <input 
                     type="number" 
                     className="form-control"
                     value={formData.expectedTotalLifeYears}
                     onChange={(e) => setFormData({...formData, expectedTotalLifeYears: e.target.value})}
                     placeholder="Default: 15"
+                    style={{
+                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      color: lightMode ? '#0f172a' : '#ffffff'
+                    }}
                   />
                 </div>
 
-                <div className="form-group">
-                  <label className="form-label">Maintenance Status</label>
+                <div className="form-group" style={{ marginBottom: 0 }}>
+                  <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                    Maintenance Status
+                  </label>
                   <select 
                     className="form-control"
                     value={formData.maintenanceCondition}
                     onChange={(e) => setFormData({...formData, maintenanceCondition: e.target.value})}
+                    style={{
+                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      color: lightMode ? '#0f172a' : '#ffffff'
+                    }}
                   >
                     <option value="Excellent">Excellent (OEM Serviced)</option>
                     <option value="Good">Good (Routine Maintenance)</option>
@@ -206,12 +360,19 @@ export default function ValuationCalculator({ onOpenQuote }) {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label className="form-label">Operating Duty Cycle</label>
+              <div className="form-group" style={{ marginBottom: '22px' }}>
+                <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                  Operating Duty Cycle
+                </label>
                 <select 
                   className="form-control"
                   value={formData.usageIntensity}
                   onChange={(e) => setFormData({...formData, usageIntensity: e.target.value})}
+                  style={{
+                    background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                    border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                    color: lightMode ? '#0f172a' : '#ffffff'
+                  }}
                 >
                   <option value="Single Shift (8 hrs/day)">Single Shift (8 hrs/day)</option>
                   <option value="2-Shift (16 hrs/day)">2-Shift (16 hrs/day)</option>
@@ -223,7 +384,7 @@ export default function ValuationCalculator({ onOpenQuote }) {
                 type="submit" 
                 className="btn btn-primary"
                 disabled={loading}
-                style={{ width: '100%', marginTop: '10px' }}
+                style={{ width: '100%', padding: '13px', fontSize: '0.94rem', fontWeight: 700 }}
               >
                 {loading ? <RefreshCw size={18} className="spin-slow" /> : <Calculator size={18} />}
                 <span>Recalculate Valuation Benchmark</span>
@@ -233,50 +394,60 @@ export default function ValuationCalculator({ onOpenQuote }) {
 
           {/* Realtime Output Result Card */}
           {result && (
-            <div className="glass-card gold-accent">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <div 
+              style={{
+                background: lightMode ? '#ffffff' : 'rgba(15, 26, 54, 0.75)',
+                border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.35)'}`,
+                borderRadius: '20px',
+                padding: 'clamp(20px, 3.2vw, 32px)',
+                boxShadow: lightMode ? '0 12px 36px rgba(37, 99, 235, 0.08)' : '0 10px 30px rgba(0, 0, 0, 0.35)',
+                boxSizing: 'border-box'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
                 <div>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>
+                  <span style={{ fontSize: '0.78rem', color: lightMode ? '#b45309' : 'var(--accent-gold)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
                     Technical Assessment Output
                   </span>
-                  <h3 style={{ fontSize: '1.4rem', color: '#ffffff', marginTop: '2px' }}>
+                  <h3 style={{ fontSize: '1.35rem', color: lightMode ? '#0f172a' : '#ffffff', fontWeight: 800, marginTop: '2px', margin: 0 }}>
                     Estimated Valuation Summary
                   </h3>
                 </div>
                 <span style={{
-                  padding: '5px 12px',
-                  background: 'rgba(245, 158, 11, 0.15)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.78rem',
-                  color: '#fbbf24',
-                  fontWeight: 600
+                  padding: '4px 12px',
+                  background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.15)',
+                  border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.3)'}`,
+                  borderRadius: '9999px',
+                  fontSize: '0.76rem',
+                  color: lightMode ? '#1d4ed8' : '#fbbf24',
+                  fontWeight: 700
                 }}>
-                  Pre-Audit Estimate
+                  Pre-Audit Benchmark
                 </span>
               </div>
 
               {/* Fair Market Value Big Box */}
               <div style={{
-                background: 'linear-gradient(135deg, rgba(24, 90, 219, 0.25) 0%, rgba(11, 23, 54, 0.4) 100%)',
-                border: '1px solid rgba(59, 130, 246, 0.4)',
-                borderRadius: 'var(--radius-md)',
-                padding: '24px',
-                marginBottom: '24px',
-                textAlign: 'center'
+                background: lightMode ? 'linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)' : 'linear-gradient(135deg, rgba(24, 90, 219, 0.25) 0%, rgba(11, 23, 54, 0.4) 100%)',
+                border: `1px solid ${lightMode ? '#93c5fd' : 'rgba(59, 130, 246, 0.4)'}`,
+                borderRadius: '16px',
+                padding: '24px 18px',
+                marginBottom: '20px',
+                textAlign: 'center',
+                boxShadow: lightMode ? '0 4px 16px rgba(37, 99, 235, 0.08)' : 'none'
               }}>
-                <div style={{ fontSize: '0.85rem', color: '#93c5fd', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
-                  Chartered Engineer Estimated Fair Market Value
+                <div style={{ fontSize: '0.82rem', color: lightMode ? '#1e40af' : '#93c5fd', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700, marginBottom: '6px' }}>
+                  Estimated Fair Market Value (FMV)
                 </div>
                 <div style={{
-                  fontSize: 'clamp(1.7rem, 2.5vw, 2.2rem)',
-                  fontWeight: 800,
-                  color: '#ffffff',
+                  fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)',
+                  fontWeight: 900,
+                  color: lightMode ? '#0f172a' : '#ffffff',
                   fontFamily: 'var(--font-heading)'
                 }}>
                   {result.fairMarketValueRange?.display}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#cbd5e1', marginTop: '4px' }}>
+                <div style={{ fontSize: '0.80rem', color: lightMode ? '#475569' : '#cbd5e1', marginTop: '6px' }}>
                   Based on physical condition, usage cycle, and secondary machinery indices.
                 </div>
               </div>
@@ -284,30 +455,30 @@ export default function ValuationCalculator({ onOpenQuote }) {
               {/* Breakdown Grid */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '14px',
-                marginBottom: '24px'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+                gap: '12px',
+                marginBottom: '20px'
               }}>
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-sm)',
+                  background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.03)',
+                  border: `1px solid ${lightMode ? '#e2e8f0' : 'rgba(255, 255, 255, 0.08)'}`,
+                  borderRadius: '12px',
                   padding: '14px'
                 }}>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Remaining Useful Life (RUL)</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#38bdf8', marginTop: '2px' }}>
+                  <div style={{ fontSize: '0.74rem', color: lightMode ? '#64748b' : '#94a3b8', fontWeight: 600 }}>Remaining Useful Life (RUL)</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: lightMode ? '#0284c7' : '#38bdf8', marginTop: '2px' }}>
                     {result.estimatedRUL}
                   </div>
                 </div>
 
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-sm)',
+                  background: lightMode ? '#fffbeb' : 'rgba(255, 255, 255, 0.03)',
+                  border: `1px solid ${lightMode ? '#fde68a' : 'rgba(255, 255, 255, 0.08)'}`,
+                  borderRadius: '12px',
                   padding: '14px'
                 }}>
-                  <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>WDV Book Value Approx</div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#fbbf24', marginTop: '2px' }}>
+                  <div style={{ fontSize: '0.74rem', color: lightMode ? '#92400e' : '#94a3b8', fontWeight: 600 }}>WDV Book Value Approx</div>
+                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: lightMode ? '#b45309' : '#fbbf24', marginTop: '2px' }}>
                     ₹ {result.wdvDepreciatedValue?.toLocaleString('en-IN')}
                   </div>
                 </div>
@@ -315,17 +486,17 @@ export default function ValuationCalculator({ onOpenQuote }) {
 
               {/* Engineering Recommendation Note */}
               <div style={{
-                background: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
-                borderRadius: 'var(--radius-md)',
+                background: lightMode ? '#f0fdf4' : 'rgba(16, 185, 129, 0.08)',
+                border: `1px solid ${lightMode ? '#bbf7d0' : 'rgba(16, 185, 129, 0.25)'}`,
+                borderRadius: '12px',
                 padding: '16px',
-                marginBottom: '26px'
+                marginBottom: '24px'
               }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle size={18} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <CheckCircle size={18} color="#15803d" style={{ flexShrink: 0, marginTop: '2px' }} />
                   <div>
-                    <div style={{ fontSize: '0.86rem', color: '#e2e8f0', fontWeight: 600 }}>Technical Observation:</div>
-                    <div style={{ fontSize: '0.82rem', color: '#94a3b8', marginTop: '2px' }}>{result.recommendedAction}</div>
+                    <div style={{ fontSize: '0.86rem', color: lightMode ? '#166534' : '#e2e8f0', fontWeight: 700 }}>Technical Observation:</div>
+                    <div style={{ fontSize: '0.82rem', color: lightMode ? '#15803d' : '#94a3b8', marginTop: '2px', lineHeight: 1.5 }}>{result.recommendedAction}</div>
                   </div>
                 </div>
               </div>
@@ -334,7 +505,7 @@ export default function ValuationCalculator({ onOpenQuote }) {
               <button 
                 onClick={handleGetStampedReport}
                 className="btn btn-gold"
-                style={{ width: '100%', padding: '14px', fontSize: '0.96rem' }}
+                style={{ width: '100%', padding: '13px', fontSize: '0.94rem', fontWeight: 700, borderRadius: '12px' }}
               >
                 <FileText size={18} />
                 <span>Get Stamped Valuation Report</span>

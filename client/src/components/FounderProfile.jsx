@@ -6,9 +6,9 @@ export default function FounderProfile({ onOpenQuote }) {
   return (
     <section id="founder" className="section section-light">
       <div className="container">
-        <div className="section-header" style={{ marginBottom: '28px' }}>
+        <div className="section-header" style={{ marginBottom: '16px' }}>
           <div className="section-badge">
-            <GraduationCap size={15} />
+            <GraduationCap size={14} />
             <span>Leadership &amp; Technical Governance</span>
           </div>
           <h2 className="section-title">
@@ -27,7 +27,7 @@ export default function FounderProfile({ onOpenQuote }) {
             borderRadius: 'var(--radius-xl)',
             position: 'relative',
             overflow: 'hidden',
-            padding: '36px'
+            padding: '24px 28px'
           }}
         >
           <div className="founder-grid">

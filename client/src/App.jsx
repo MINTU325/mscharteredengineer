@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import Credentials from './components/Credentials';
-import ServicesGrid from './components/ServicesGrid';
-import ValuationCalculator from './components/ValuationCalculator';
-import ComplianceChecker from './components/ComplianceChecker';
+import ServicesTeaser from './components/ServicesTeaser';
+import ServicesPage from './components/ServicesPage';
 import WhyChooseUs from './components/WhyChooseUs';
 import FounderProfile from './components/FounderProfile';
 import PanIndiaPresence from './components/PanIndiaPresence';
@@ -14,11 +13,24 @@ import AdminDashboard from './components/AdminDashboard';
 import AdminLoginModal from './components/AdminLoginModal';
 import BlogPage from './components/BlogPage';
 import FAQPage from './components/FAQPage';
+import ValuationPurposeWizard from './components/ValuationPurposeWizard';
+import WhoWeServe from './components/WhoWeServe';
+import OurProcess from './components/OurProcess';
+import ToolsPage from './components/ToolsPage';
 import { MessageSquare, PhoneCall } from 'lucide-react';
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
+  '/tools': { id: 'tools', title: 'Interactive Engineering & Valuation Tools | MS Chartered Engineers' },
+  '/purpose-selector': { id: 'purpose-selector', title: 'Valuation Purpose Selector | MS Chartered Engineers' },
+  '/who-we-serve': { id: 'who-we-serve', title: 'Who We Serve | Banks, CAs, Advocates, Builders & MSMEs | MS Chartered Engineers' },
   '/services': { id: 'services', title: 'Services We Offer | MS Chartered Engineers' },
+  '/process': { id: 'process', title: '8-Step Valuation & Certification Process | MS Chartered Engineers' },
+  '/property-valuation': { id: 'property-land-valuation', title: 'Property & Land Valuation Services | MS Chartered Engineers' },
+  '/bank-valuation': { id: 'bank-mortgage-valuation', title: 'Bank Loan & Mortgage Valuation (FMV & FSV) | MS Chartered Engineers' },
+  '/tax-valuation': { id: 'statutory-tax-valuation', title: 'Capital Gains & 2001 Fair Market Valuation | MS Chartered Engineers' },
+  '/ibc-valuation': { id: 'ibc-nclt-corporate-valuation', title: 'IBC 2016 & NCLT Asset Valuation | MS Chartered Engineers' },
+  '/machinery-valuation': { id: 'plant-machinery-valuation', title: 'Plant & Machinery Valuation | MS Chartered Engineers' },
   '/valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
   '/assets-valuation': { id: 'valuation', title: 'Assets Valuation Services | MS Chartered Engineers' },
   '/chartered-engineer': { id: 'chartered-engineer', title: 'Chartered Engineer in Jaipur & India | DGFT, Customs & Machinery | MS Chartered Engineers' },
@@ -56,7 +68,7 @@ export default function App() {
       const config = ROUTE_CONFIG[pathname];
       if (config) {
         document.title = config.title;
-        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog') {
+        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
           const scrollToTarget = () => {
@@ -68,8 +80,9 @@ export default function App() {
             return false;
           };
           if (!scrollToTarget()) {
-            setTimeout(scrollToTarget, 120);
-            setTimeout(scrollToTarget, 350);
+            setTimeout(scrollToTarget, 100);
+            setTimeout(scrollToTarget, 300);
+            setTimeout(scrollToTarget, 600);
           }
         }
       } else if (pathname.startsWith('/blog/')) {
@@ -95,7 +108,7 @@ export default function App() {
           if (config) {
             document.title = config.title;
           }
-          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog')) {
+          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           } else if (config && config.id) {
             const scrollToTarget = () => {
@@ -107,8 +120,9 @@ export default function App() {
               return false;
             };
             if (!scrollToTarget()) {
-              setTimeout(scrollToTarget, 120);
-              setTimeout(scrollToTarget, 350);
+              setTimeout(scrollToTarget, 100);
+              setTimeout(scrollToTarget, 300);
+              setTimeout(scrollToTarget, 600);
             }
           } else {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -154,6 +168,26 @@ export default function App() {
     setIsAdminOpen(false);
   };
 
+  const isServicesRoute = 
+    currentRoute === '/services' || 
+    currentRoute === '/property-valuation' || 
+    currentRoute === '/bank-valuation' || 
+    currentRoute === '/tax-valuation' || 
+    currentRoute === '/ibc-valuation' || 
+    currentRoute === '/machinery-valuation' || 
+    currentRoute === '/valuation' || 
+    currentRoute === '/assets-valuation' || 
+    currentRoute === '/chartered-engineer' || 
+    currentRoute === '/safety-energy-audits' || 
+    currentRoute === '/fssai' || 
+    currentRoute === '/advisory';
+
+  const isToolsRoute =
+    currentRoute === '/tools' ||
+    currentRoute === '/calculator' ||
+    currentRoute === '/valuation-calculator' ||
+    currentRoute === '/solar-checker';
+
   return (
     <div className="app-container">
       {/* Top Sticky Navbar */}
@@ -163,11 +197,33 @@ export default function App() {
         isAdminOpen={isAdminOpen}
       />
 
-      {/* Main View: Admin Portal OR Blog Page OR Main Corporate Presentation */}
+      {/* Main View: Admin Portal OR Services Page OR Tools Page OR Blog Page OR FAQ Page OR Main Home Page */}
       {isAdminOpen ? (
         <AdminDashboard 
           onClose={() => setIsAdminOpen(false)} 
           onLogout={handleLogout}
+        />
+      ) : isServicesRoute ? (
+        <ServicesPage 
+          onOpenQuote={handleOpenQuote}
+          onNavigateHome={() => {
+            window.history.pushState({}, '', '/');
+            setCurrentRoute('/');
+            document.title = ROUTE_CONFIG['/'].title;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          currentRoute={currentRoute}
+        />
+      ) : isToolsRoute ? (
+        <ToolsPage 
+          onOpenQuote={handleOpenQuote}
+          onNavigateHome={() => {
+            window.history.pushState({}, '', '/');
+            setCurrentRoute('/');
+            document.title = ROUTE_CONFIG['/'].title;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          currentRoute={currentRoute}
         />
       ) : currentRoute === '/faq' || currentRoute === '/faqs' ? (
         <FAQPage 
@@ -201,9 +257,10 @@ export default function App() {
           {/* ── Advanced Hero Slider (full-width, top of page) ── */}
           <HeroSlider onOpenQuote={handleOpenQuote} />
           <Credentials />
-          <ServicesGrid onOpenQuote={handleOpenQuote} />
-          <ValuationCalculator onOpenQuote={handleOpenQuote} />
-          <ComplianceChecker onOpenQuote={handleOpenQuote} />
+          <ValuationPurposeWizard onOpenQuote={handleOpenQuote} />
+          <WhoWeServe onOpenQuote={handleOpenQuote} />
+          <ServicesTeaser onOpenQuote={handleOpenQuote} />
+          <OurProcess onOpenQuote={handleOpenQuote} />
           <WhyChooseUs onOpenQuote={handleOpenQuote} />
           <FounderProfile onOpenQuote={handleOpenQuote} />
           <PanIndiaPresence onOpenQuote={handleOpenQuote} />

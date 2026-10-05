@@ -15,6 +15,7 @@ import {
   LayoutDashboard 
 } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -32,7 +33,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   // Close drawer on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1024) setMobileMenuOpen(false);
+      if (window.innerWidth > 1140) setMobileMenuOpen(false);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -121,12 +122,12 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
       </div>
 
       {/* Main Navbar */}
-      <div className="container">
+      <div className="container navbar-container">
         <div className="navbar-inner">
           {/* Brand Identity */}
           <a href="/" className="brand-logo" aria-label="MS Chartered Engineers – Homepage">
             <div className="gear-icon-wrapper" style={{ background: 'transparent', border: 'none' }}>
-              <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="blueGear" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#38bdf8" />
@@ -150,17 +151,18 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             </div>
             <div>
               <div className="brand-title">MS CHARTERED <span>ENGINEERS</span></div>
-              <div className="brand-subtitle">Valuers & Technical Consultancy</div>
+              <div className="brand-subtitle">Valuers &amp; Technical Consultancy</div>
             </div>
           </a>
 
           {/* Desktop Nav Links (Centered & Aligned) */}
           <nav className="nav-container">
             <ul className="nav-links">
+              <li><a href="/purpose-selector" className="nav-link" style={{ color: '#fbbf24', fontWeight: 600 }}>Purpose Selector</a></li>
+              <li><a href="/who-we-serve" className="nav-link">Who We Serve</a></li>
               <li><a href="/services" className="nav-link">Services</a></li>
               <li><a href="/credentials" className="nav-link">Credentials</a></li>
-              <li><a href="/calculator" className="nav-link">Calculator</a></li>
-              <li><a href="/solar-checker" className="nav-link">CEIG Solar</a></li>
+              <li><a href="/tools" className="nav-link" style={{ color: '#38bdf8', fontWeight: 600 }}>Tools</a></li>
               <li><a href="/founder" className="nav-link">Team</a></li>
               <li><a href="/contact" className="nav-link">Contact</a></li>
               <li><a href="/blog" className="nav-link" style={{ color: '#38bdf8', fontWeight: 600 }}>Blog</a></li>
@@ -170,6 +172,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
 
           {/* Action CTAs — Desktop only; on mobile these hide and appear in hamburger drawer */}
           <div className="navbar-actions">
+            {/* 🌐 One-Click English/Hindi Language Switcher */}
+            <LanguageToggle />
+
             {/* Desktop-only: Portal button */}
             <button
               onClick={onToggleAdmin}
@@ -211,10 +216,12 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
       <div className={`mobile-drawer ${mobileMenuOpen ? 'mobile-drawer--open' : ''}`}>
         {/* Navigation Links */}
         <div className="mobile-drawer-links">
-          <a href="/services"       onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 Services We Offer</a>
+          <a href="/purpose-selector" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 700 }}>🎯 Valuation Purpose Selector</a>
+          <a href="/who-we-serve"     onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>👥 Who We Serve</a>
+          <a href="/services"       onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 12 Valuation Services</a>
+          <a href="/process"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
           <a href="/credentials"    onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🏅 Credentials &amp; IEI</a>
-          <a href="/calculator"     onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🧮 Valuation Calculator</a>
-          <a href="/solar-checker"  onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">☀️ CEIG Solar Checker</a>
+          <a href="/tools"          onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>🛠️ Tools (Calculator &amp; Solar)</a>
           <a href="/founder"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👤 Core Team (IIT Roorkee)</a>
           <a href="/contact"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📍 Contact Jaipur HQ</a>
           <a href="/blog"           onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>📚 Insights &amp; Blog Guides</a>
@@ -226,6 +233,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
 
         {/* ── CTA Buttons ── */}
         <div className="mobile-drawer-ctas">
+          {/* 🌐 Mobile Language Switcher */}
+          <LanguageToggle isMobile={true} onToggleCallback={() => setMobileMenuOpen(false)} />
+
           {/* 1. Request Quote */}
           <button
             onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
@@ -281,11 +291,11 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
         <span>Services</span>
       </a>
       <a 
-        href="/calculator" 
-        className={`bottom-nav-item ${currentPath.startsWith('/calculator') ? 'active' : ''}`}
+        href="/tools" 
+        className={`bottom-nav-item ${currentPath.startsWith('/tools') || currentPath.startsWith('/calculator') ? 'active' : ''}`}
       >
         <Calculator size={20} />
-        <span>Calculator</span>
+        <span>Tools</span>
       </a>
       <a 
         href="/blog" 

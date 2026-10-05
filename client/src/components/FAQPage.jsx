@@ -50,7 +50,7 @@ function parseInlineLinks(text) {
   return parts.length > 0 ? parts : text;
 }
 
-export const FAQ_CATEGORIES = [
+const FAQ_CATEGORIES = [
   { id: 'all', label: 'All Questions', icon: HelpCircle },
   { id: 'chartered-engineer', label: 'Chartered Engineer & DGFT', icon: FileCheck2 },
   { id: 'valuation', label: 'Asset & Machinery Valuation', icon: Building2 },
@@ -58,7 +58,7 @@ export const FAQ_CATEGORIES = [
   { id: 'fssai', label: 'FSSAI Food Compliance', icon: ShieldCheck },
 ];
 
-export const FAQ_ITEMS = [
+const FAQ_ITEMS = [
   {
     id: 'ce-01',
     category: 'chartered-engineer',
@@ -101,6 +101,47 @@ Statutory authorities including the **[Directorate General of Foreign Trade (DGF
     answer: `**[Plant & Machinery Valuation](/valuation)** is a scientific appraisal determining Fair Market Value (FMV), Realizable Value, and Orderly/Forced Liquidation Value as per Companies Act 2013, Income Tax Act 1961, and IBBI Valuation Standards.
     
 Led by **[Mukesh Singh, IIT Roorkee Alumni](/founder)**, our valuation reports are accepted by major public sector banks, private commercial banks, NBFCs, and financial institutions for mortgage loans, collateral security, and consortium lending across Jaipur and Pan-India. You can also estimate machinery depreciation with our **[Online Valuation Calculator](/calculator)**.`
+  },
+  {
+    id: 'val-prop-01',
+    category: 'valuation',
+    question: 'How is Property & Land Valuation conducted in Jaipur for Residential, Commercial & Industrial Assets?',
+    answer: `At **[MS Chartered Engineers in Jaipur](/property-valuation)**, property valuation is conducted through physical site inspection and dual assessment:
+1. **DLC / Circle Rate Benchmark:** Verified against the latest Rajasthan Sub-Registrar / IGRS portal rates.
+2. **Fair Market Value (FMV):** Evaluated using the Sales Comparison (Direct Market) Approach, CPWD Plinth Area construction rates, and local registry transaction history across Jaipur (Mansarovar, Vaishali Nagar, Jagatpura, Sitapura, Malviya Nagar, RIICO zones).
+3. **Statutory Acceptance:** Our reports adhere to IBBI valuation standards and are accepted by commercial banks, tax authorities, and civil courts across Rajasthan.`
+  },
+  {
+    id: 'val-tax-01',
+    category: 'valuation',
+    question: 'What is Capital Gains Tax Valuation under Section 50C and Fair Market Value as on 01-04-2001?',
+    answer: `When selling property acquired before April 1, 2001, taxpayers can substitute the original purchase cost with the **[Fair Market Value as on 01-04-2001](/tax-valuation)** (capped at stamp duty / circle rate) for indexation benefit under Section 55(2)(b).
+
+Additionally, under **Section 50C / 43CA / 56(2)(x)** of the Income Tax Act 1961, if the registered consideration is lower than the circle rate, a Government Registered Valuer report provides admissible technical evidence before the Assessing Officer (AO), CIT(Appeals), or ITAT. Contact **[MS Chartered Engineers](/tax-valuation)** for Section 50C defense reports.`
+  },
+  {
+    id: 'val-bank-01',
+    category: 'valuation',
+    question: 'What is the difference between Fair Market Value (FMV) and Forced Sale Value (FSV) in Bank Valuation?',
+    answer: `In **[Bank Mortgage Valuation](/bank-valuation)**:
+* **Fair Market Value (FMV):** The estimated price an asset would sell for in an open, competitive market between willing parties with reasonable time for negotiation.
+* **Realizable Value (RV):** The realistic price achievable under prevailing localized market conditions.
+* **Forced Sale Value (FSV) / Distress Value:** The estimated amount realized when the seller is under financial or statutory duress to liquidate within an abbreviated timeline (typically 15% to 30% below FMV).
+Banks and NBFCs require both FMV and FSV for loan-to-value (LTV) underwriting, LAP sanctions, and SARFAESI reserve price fixation.`
+  },
+  {
+    id: 'ce-proc-01',
+    category: 'chartered-engineer',
+    question: 'What is the 8-Step Valuation and Chartered Engineer certification process at MS Chartered Engineers?',
+    answer: `Our transparent **[8-Step Valuation Process](/process)** ensures complete auditability and quick delivery:
+1. **Purpose Assessment & Scrutiny** (15 mins)
+2. **Document Completeness Review** (Title deed, sanctioned map, BOM, purchase invoice)
+3. **Upfront Transparent Quotation** (Fixed fees, committed timelines)
+4. **Physical Site & Technical Inspection** (Physical measurements & geo-tagged site photographs)
+5. **Regulatory & Market Analysis** (DLC rates, CPWD plinth schedules, IndAS 16 / DGFT norms)
+6. **Statutory Computation & Draft Review** (FMV, FSV, or duty consumption calculation)
+7. **Quality Audit & Peer Verification** (Internal peer review)
+8. **Final Stamped Report & Pan-India Dispatch** (Digital PDF + hard copy delivery within 24–48 hours).`
   },
   {
     id: 'val-02',

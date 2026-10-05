@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Zap, CheckCircle2, ShieldAlert, ArrowRight, Clock, FileCheck, Shield, Sparkles, Building2, AlertTriangle, Layers } from 'lucide-react';
 
-export default function ComplianceChecker({ onOpenQuote }) {
+const SOLAR_PRESETS = [
+  { label: '10 kW Rooftop LT', cap: '10', type: 'Industrial Rooftop Captive', voltage: '415V LT Supply' },
+  { label: '50 kW Commercial', cap: '50', type: 'Commercial Complex', voltage: '415V LT Supply' },
+  { label: '150 kW Factory HT', cap: '150', type: 'Industrial Rooftop Captive', voltage: '11 kV (HT Supply)' },
+  { label: '1 MW Ground Open-Access', cap: '1000', type: 'Ground Mounted MW Solar', voltage: '33 kV (EHT Supply)' }
+];
+
+export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
   const [capacity, setCapacity] = useState('150');
   const [plantType, setPlantType] = useState('Industrial Rooftop Captive');
   const [voltageLevel, setVoltageLevel] = useState('11 kV (HT Supply)');
@@ -66,12 +73,18 @@ export default function ComplianceChecker({ onOpenQuote }) {
     }
   };
 
+  const handleApplyPreset = (p) => {
+    setCapacity(p.cap);
+    setPlantType(p.type);
+    setVoltageLevel(p.voltage);
+    setResult(evaluateCompliance(p.cap, p.type, p.voltage));
+  };
+
   const handleCheck = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // Fetch live calculations from backend API
       const res = await fetch('/api/tools/ceig-readiness', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -106,38 +119,133 @@ export default function ComplianceChecker({ onOpenQuote }) {
   }, []);
 
   return (
-    <section id="solar-checker" className="section" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '52px 0' }}>
+    <section 
+      id="solar-checker" 
+      className="section" 
+      style={{ 
+        background: lightMode ? 'transparent' : 'transparent', 
+        borderTop: lightMode ? 'none' : '1px solid rgba(255,255,255,0.06)', 
+        padding: lightMode ? '16px 0 32px 0' : '52px 0',
+        color: lightMode ? '#0f172a' : '#f8fafc'
+      }}
+    >
       <div className="container">
-        <div className="section-header" style={{ marginBottom: '28px' }}>
-          <div className="section-badge gold">
+        {/* Header */}
+        <div className="section-header" style={{ marginBottom: '24px' }}>
+          <div 
+            className="section-badge" 
+            style={{
+              background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.12)',
+              border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.35)'}`,
+              color: lightMode ? '#1d4ed8' : '#fbbf24',
+              borderRadius: '9999px',
+              padding: '5px 14px',
+              fontSize: '0.80rem',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}
+          >
             <Zap size={15} />
-            <span>Solar & Industrial Electrical Safety</span>
+            <span>Solar &amp; Industrial Electrical Safety</span>
           </div>
-          <h2 className="section-title">
-            CEIG Solar & <span className="gradient-text">Statutory Clearance Guide</span>
+          <h2 
+            className="section-title"
+            style={{
+              color: lightMode ? '#0f172a' : '#ffffff',
+              fontSize: 'clamp(1.6rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              lineHeight: 1.25,
+              marginTop: '8px'
+            }}
+          >
+            CEIG Solar &amp; <span style={{ color: lightMode ? '#0284c7' : '#38bdf8' }}>Statutory Clearance Guide</span>
           </h2>
-          <p className="section-description">
+          <p 
+            className="section-description"
+            style={{
+              color: lightMode ? '#475569' : '#cbd5e1',
+              fontSize: '0.96rem',
+              lineHeight: 1.6,
+              maxWidth: '740px',
+              margin: '0 auto'
+            }}
+          >
             Quickly determine mandatory regulatory approvals, CEIG inspection prerequisites, electrical drawing compliance, and Chartered Engineer certification requirements for your solar plant.
           </p>
         </div>
 
+        {/* Quick Presets Bar */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          gap: '8px',
+          marginBottom: '26px'
+        }}>
+          <span style={{ fontSize: '0.80rem', fontWeight: 700, color: lightMode ? '#64748b' : '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em', marginRight: '4px' }}>
+            ⚡ Solar Presets:
+          </span>
+          {SOLAR_PRESETS.map((p, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => handleApplyPreset(p)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 14px',
+                borderRadius: '9999px',
+                fontSize: '0.80rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                background: lightMode ? '#ffffff' : 'rgba(255, 255, 255, 0.06)',
+                border: lightMode ? '1px solid #cbd5e1' : '1px solid rgba(255, 255, 255, 0.15)',
+                color: lightMode ? '#1e293b' : '#e2e8f0',
+                boxShadow: lightMode ? '0 2px 6px rgba(0, 0, 0, 0.04)' : 'none',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#0284c7';
+                e.currentTarget.style.color = '#0284c7';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)';
+                e.currentTarget.style.color = lightMode ? '#1e293b' : '#e2e8f0';
+              }}
+            >
+              <span>{p.label}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Main Card */}
         <div 
-          className="glass-card"
           style={{
-            maxWidth: '1050px',
+            maxWidth: '1080px',
             margin: '0 auto',
-            padding: '32px'
+            padding: 'clamp(20px, 3.5vw, 36px)',
+            background: lightMode ? '#ffffff' : 'rgba(15, 26, 54, 0.75)',
+            border: `1px solid ${lightMode ? '#e2e8f0' : 'rgba(255, 255, 255, 0.1)'}`,
+            borderRadius: '20px',
+            boxShadow: lightMode ? '0 10px 30px rgba(15, 23, 42, 0.05)' : '0 10px 30px rgba(0, 0, 0, 0.35)',
+            boxSizing: 'border-box'
           }}
         >
           <form onSubmit={handleCheck} style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '20px',
+            gap: '18px',
             alignItems: 'end',
-            marginBottom: '32px'
+            marginBottom: '28px'
           }}>
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="form-label">Solar Plant Capacity (kW)</label>
+              <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                Solar Plant Capacity (kW)
+              </label>
               <input 
                 type="number" 
                 className="form-control"
@@ -146,15 +254,27 @@ export default function ComplianceChecker({ onOpenQuote }) {
                 placeholder="e.g. 150"
                 min="1"
                 required
+                style={{
+                  background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                  border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                  color: lightMode ? '#0f172a' : '#ffffff'
+                }}
               />
             </div>
 
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="form-label">Installation Type</label>
+              <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                Installation Type
+              </label>
               <select 
                 className="form-control"
                 value={plantType}
                 onChange={(e) => setPlantType(e.target.value)}
+                style={{
+                  background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                  border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                  color: lightMode ? '#0f172a' : '#ffffff'
+                }}
               >
                 <option value="Industrial Rooftop Captive">Industrial Factory Rooftop (Captive)</option>
                 <option value="Commercial Complex">Commercial Mall / Institutional Building</option>
@@ -164,11 +284,18 @@ export default function ComplianceChecker({ onOpenQuote }) {
             </div>
 
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="form-label">Grid Connection Voltage</label>
+              <label className="form-label" style={{ color: lightMode ? '#334155' : '#e2e8f0', fontWeight: 600, fontSize: '0.86rem', marginBottom: '6px' }}>
+                Grid Connection Voltage
+              </label>
               <select 
                 className="form-control"
                 value={voltageLevel}
                 onChange={(e) => setVoltageLevel(e.target.value)}
+                style={{
+                  background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
+                  border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                  color: lightMode ? '#0f172a' : '#ffffff'
+                }}
               >
                 <option value="415V LT Supply">415V 3-Phase LT Supply</option>
                 <option value="11 kV (HT Supply)">11 kV HT Supply</option>
@@ -182,7 +309,7 @@ export default function ComplianceChecker({ onOpenQuote }) {
                 type="submit" 
                 className="btn btn-primary ceig-submit-btn" 
                 disabled={loading}
-                style={{ width: '100%', height: '48px', justifyContent: 'center' }}
+                style={{ width: '100%', height: '48px', justifyContent: 'center', fontWeight: 700 }}
               >
                 {loading ? <Sparkles size={18} className="spin-slow" /> : <Zap size={18} />}
                 <span>Calculate Mandatory Clearances</span>
@@ -193,24 +320,38 @@ export default function ComplianceChecker({ onOpenQuote }) {
           {/* Result Card */}
           {result && (
             <div style={{
-              background: 'linear-gradient(135deg, rgba(16, 33, 74, 0.75) 0%, rgba(7, 14, 30, 0.9) 100%)',
-              border: '1px solid rgba(59, 130, 246, 0.35)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '32px'
+              background: lightMode ? '#f8fafc' : 'linear-gradient(135deg, rgba(16, 33, 74, 0.75) 0%, rgba(7, 14, 30, 0.9) 100%)',
+              border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(59, 130, 246, 0.35)'}`,
+              borderRadius: '16px',
+              padding: 'clamp(20px, 3vw, 28px)',
+              boxShadow: lightMode ? '0 6px 20px rgba(37, 99, 235, 0.06)' : 'none'
             }}>
               {/* Header Info */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '22px' }}>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-                    <span className="section-badge gold" style={{ padding: '3px 10px', fontSize: '0.72rem' }}>
+                    <span 
+                      style={{
+                        padding: '3px 10px',
+                        fontSize: '0.72rem',
+                        fontWeight: 700,
+                        borderRadius: '9999px',
+                        background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.15)',
+                        border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.35)'}`,
+                        color: lightMode ? '#1d4ed8' : '#fbbf24',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px'
+                      }}
+                    >
                       <Layers size={13} />
                       STATUTORY CEIG MATRIX
                     </span>
-                    <span style={{ fontSize: '0.8rem', color: '#93c5fd', fontFamily: 'var(--font-mono)' }}>
+                    <span style={{ fontSize: '0.80rem', color: lightMode ? '#1e40af' : '#93c5fd', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
                       Voltage: {result.voltage}
                     </span>
                   </div>
-                  <h3 style={{ fontSize: '1.45rem', color: '#ffffff' }}>
+                  <h3 style={{ fontSize: '1.35rem', color: lightMode ? '#0f172a' : '#ffffff', fontWeight: 800, margin: 0 }}>
                     {result.category}
                   </h3>
                 </div>
@@ -219,77 +360,80 @@ export default function ComplianceChecker({ onOpenQuote }) {
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: 'rgba(245, 158, 11, 0.15)',
-                  border: '1px solid rgba(245, 158, 11, 0.35)',
-                  padding: '8px 16px',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.84rem',
-                  color: '#fbbf24',
-                  fontWeight: 600
+                  background: lightMode ? '#fffbeb' : 'rgba(245, 158, 11, 0.15)',
+                  border: `1px solid ${lightMode ? '#fde68a' : 'rgba(245, 158, 11, 0.35)'}`,
+                  padding: '7px 14px',
+                  borderRadius: '9999px',
+                  fontSize: '0.82rem',
+                  color: lightMode ? '#b45309' : '#fbbf24',
+                  fontWeight: 700
                 }}>
                   <Clock size={16} />
-                  <span>Estimated Clearance Timeline: {result.timeline}</span>
+                  <span>Clearance Timeline: {result.timeline}</span>
                 </div>
               </div>
 
               {/* Grid 2-col info cards */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                gap: '20px',
-                marginBottom: '24px'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gap: '16px',
+                marginBottom: '22px'
               }}>
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '20px'
+                  background: lightMode ? '#ffffff' : 'rgba(255, 255, 255, 0.03)',
+                  border: `1px solid ${lightMode ? '#e2e8f0' : 'rgba(255, 255, 255, 0.08)'}`,
+                  borderRadius: '12px',
+                  padding: '18px',
+                  boxShadow: lightMode ? '0 2px 8px rgba(0, 0, 0, 0.03)' : 'none'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#38bdf8', fontWeight: 700, marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: lightMode ? '#0284c7' : '#38bdf8', fontWeight: 700, marginBottom: '8px' }}>
                     <Zap size={16} />
                     <span>CEIG Statutory Inspection Rule:</span>
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.88rem', color: lightMode ? '#334155' : '#cbd5e1', lineHeight: 1.55, margin: 0 }}>
                     {result.ceigRequirement}
                   </p>
                 </div>
 
                 <div style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '20px'
+                  background: lightMode ? '#ffffff' : 'rgba(255, 255, 255, 0.03)',
+                  border: `1px solid ${lightMode ? '#e2e8f0' : 'rgba(255, 255, 255, 0.08)'}`,
+                  borderRadius: '12px',
+                  padding: '18px',
+                  boxShadow: lightMode ? '0 2px 8px rgba(0, 0, 0, 0.03)' : 'none'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#fbbf24', fontWeight: 700, marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: lightMode ? '#b45309' : '#fbbf24', fontWeight: 700, marginBottom: '8px' }}>
                     <Shield size={16} />
                     <span>Chartered Engineer Certification Scope:</span>
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.88rem', color: lightMode ? '#334155' : '#cbd5e1', lineHeight: 1.55, margin: 0 }}>
                     {result.ceCertRequired}
                   </p>
                 </div>
               </div>
 
               {/* Document Package Section */}
-              <div style={{ marginBottom: '28px' }}>
-                <div style={{ fontSize: '0.84rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '14px' }}>
-                  Mandatory Submission Package (CEIG & DISCOM Dossier):
+              <div style={{ marginBottom: '24px' }}>
+                <div style={{ fontSize: '0.82rem', color: lightMode ? '#475569' : '#94a3b8', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                  Mandatory Submission Package (CEIG &amp; DISCOM Dossier):
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px', marginBottom: '20px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
                   {result.documents.map((doc, idx) => (
                     <div key={idx} style={{
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '10px',
-                      background: 'rgba(255, 255, 255, 0.02)',
-                      border: '1px solid rgba(255, 255, 255, 0.05)',
-                      borderRadius: 'var(--radius-sm)',
+                      background: lightMode ? '#ffffff' : 'rgba(255, 255, 255, 0.02)',
+                      border: `1px solid ${lightMode ? '#e2e8f0' : 'rgba(255, 255, 255, 0.05)'}`,
+                      borderRadius: '10px',
                       padding: '12px 14px',
-                      fontSize: '0.86rem',
-                      color: '#e2e8f0',
-                      lineHeight: 1.45
+                      fontSize: '0.85rem',
+                      color: lightMode ? '#1e293b' : '#e2e8f0',
+                      lineHeight: 1.45,
+                      boxShadow: lightMode ? '0 2px 4px rgba(0, 0, 0, 0.02)' : 'none'
                     }}>
-                      <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <CheckCircle2 size={16} color="#15803d" style={{ flexShrink: 0, marginTop: '2px' }} />
                       <span>{doc}</span>
                     </div>
                   ))}
@@ -303,17 +447,17 @@ export default function ComplianceChecker({ onOpenQuote }) {
                 justifyContent: 'space-between',
                 flexWrap: 'wrap',
                 gap: '16px',
-                paddingTop: '20px',
-                borderTop: '1px dashed rgba(255, 255, 255, 0.12)'
+                paddingTop: '18px',
+                borderTop: `1px dashed ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.12)'}`
               }}>
-                <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+                <div style={{ fontSize: '0.85rem', color: lightMode ? '#475569' : '#94a3b8' }}>
                   💡 Need CEIG drawing approval or Chartered Engineer stamped SLD for your solar plant?
                 </div>
 
                 <button
                   onClick={() => onOpenQuote('Chartered Engineer Services')}
                   className="btn btn-gold"
-                  style={{ padding: '8px 16px', fontSize: '0.8rem' }}
+                  style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '10px' }}
                 >
                   <FileCheck size={15} />
                   <span>Request CEIG Drawing Approval &amp; SLD</span>

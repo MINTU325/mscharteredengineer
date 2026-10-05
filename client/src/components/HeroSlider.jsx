@@ -5,95 +5,95 @@ const SLIDES = [
   {
     id: 1,
     image: '/slides/slide1.webp',
-    badge: '🏆 IEI Chartered Engineer (India) | Government Approved Valuer',
-    title: 'Chartered Engineer in Jaipur &',
-    titleHighlight: 'India | Valuation Expert',
+    badge: '🏆 IEI Chartered Engineer (India) | Government Approved Valuers',
+    title: 'Chartered Engineers & Valuers for',
+    titleHighlight: 'Property, Financial & Technical Assessments',
     subtitle:
-      'Certified Chartered Engineer (India) MIE & Government Approved Valuer led by Mukesh Singh (IIT Roorkee). Statutory DGFT certificates, Plant & Machinery valuations for banks, and CEIG approvals across Jaipur & Pan-India.',
-    tag: 'CHARTERED ENGINEER IN JAIPUR & INDIA',
+      'Government Approved Valuer & Corporate Member IEI led by Mukesh Singh (IIT Roorkee). Bankable property appraisals, plant & machinery valuation, capital gains 50C reports, and statutory DGFT certifications across Jaipur & Pan-India.',
+    tag: 'CHARTERED ENGINEERS & VALUERS | JAIPUR & PAN-INDIA',
     accent: 'gold',
-    cta: 'Request Valuation & Certificate',
-    ctaService: 'Chartered Engineer Services',
+    cta: 'Request Valuation / Quote',
+    ctaService: 'Property & Land Valuation',
     stats: [
-      { value: 'JAIPUR', label: 'Central HQ' },
-      { value: 'INDIA', label: 'Pan-India Practice' },
-      { value: 'IIT', label: 'Roorkee Leadership' },
+      { value: 'JAIPUR', label: 'Central HQ (302019)' },
+      { value: 'PAN-INDIA', label: 'Statutory Practice' },
+      { value: 'IIT ROORKEE', label: 'Leadership' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.92) 0%, rgba(11,23,54,0.75) 50%, rgba(7,14,30,0.4) 100%)',
   },
   {
     id: 2,
     image: '/slides/slide2.webp',
-    badge: '📋 IEI Chartered Engineer (India) — CEng (INDIA) MIE',
-    title: 'Chartered',
-    titleHighlight: 'Engineer Services',
+    badge: '⚖️ Statutory CBDT & Direct Tax Valuers | Section 50C & 54',
+    title: 'Statutory & Capital Gains',
+    titleHighlight: 'Tax Valuation & 2001 Indexation',
     subtitle:
-      'We are an Independent Engineer certified & authorized by the prestigious Institution of Engineers (India) to attest/certify different types of Government Declarations / Compliances.',
-    tag: 'INSTITUTION OF ENGINEERS (INDIA) | DGFT',
+      'Authorized registered valuer reports for Fair Market Value (FMV) as on 01-04-2001 for ancestral properties, Section 50C stamp duty dispute defense, and ITAT scrutiny compliance.',
+    tag: 'CAPITAL GAINS & CBDT STATUTORY VALUATION',
     accent: 'cyan',
-    cta: 'Request Certification',
-    ctaService: 'Chartered Engineer Services',
+    cta: 'Get Tax Valuation Report',
+    ctaService: 'Statutory & Capital Gains Tax Valuation',
     stats: [
-      { value: 'IEI', label: 'Corporate Member' },
-      { value: 'DGFT', label: 'Advance Auth' },
-      { value: 'Govt.', label: 'Recognized Body' },
+      { value: 'SEC 50C', label: 'Stamp Duty Defense' },
+      { value: '01-04-2001', label: 'Ancestral FMV' },
+      { value: 'ITAT', label: 'Accepted Reports' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.90) 0%, rgba(6,26,70,0.72) 55%, rgba(7,14,30,0.35) 100%)',
   },
   {
     id: 3,
     image: '/slides/slide3.webp',
-    badge: '🍽️ FSSAI Expert Consultants | Food Business Advisory',
-    title: 'FSSAI',
-    titleHighlight: 'Compliance Services',
+    badge: '🏛️ Scheduled Commercial Banks & NBFCs Empanelled Standards',
+    title: 'Bank & Mortgage Valuation',
+    titleHighlight: 'Home Loan, LAP & Project Finance',
     subtitle:
-      'We as Expert Consultants offer advisory services to the Food Business Operators (FBOs) to comply with the different Mandatory Compliances of FSSAI.',
-    tag: 'FSSAI COMPLIANCE ADVISORY',
+      'Bank-compliant Fair Market Value (FMV) and Forced Sale Value (FSV) reports for mortgage collateral, commercial borrowing, SARFAESI auctions, and consortium finance.',
+    tag: 'BANKABLE COLLATERAL & MORTGAGE VALUATION',
     accent: 'emerald',
-    cta: 'Get FSSAI Compliance Help',
-    ctaService: 'FSSAI Compliance Services',
+    cta: 'Request Bank Valuation',
+    ctaService: 'Bank & Mortgage Valuation',
     stats: [
-      { value: 'FBO', label: 'Advisory Support' },
-      { value: 'FSSAI', label: 'Mandatory Compliance' },
-      { value: 'Expert', label: 'Consultants' },
+      { value: 'FMV + FSV', label: 'Dual Methodology' },
+      { value: '24–48h', label: 'Fast Turnaround' },
+      { value: 'ALL BANKS', label: 'Standard Compliant' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.88) 0%, rgba(5,30,15,0.72) 55%, rgba(7,14,30,0.35) 100%)',
   },
   {
     id: 4,
     image: '/slides/slide4.webp',
-    badge: '📊 Strategic Business & Asset Advisory',
-    title: 'Other Advisory',
-    titleHighlight: 'Services',
+    badge: '📋 Institution of Engineers (India) — Corporate Member CEng MIE',
+    title: 'Chartered Engineer',
+    titleHighlight: 'Certification & DGFT EPCG Clearances',
     subtitle:
-      'We also provide Advisory Service for Asset Componentization as well as Productivity & Profitability Enhancement for industrial and commercial businesses.',
-    tag: 'PRODUCTIVITY & PROFITABILITY',
+      'Statutory certifications for DGFT Advance Authorisation (Appendix 4E/4K), EPCG Scheme Nexus (Appendix 5A), Customs second-hand machinery import appraisal, and MoFPI subsidies.',
+    tag: 'DGFT, CUSTOMS & STATUTORY ATTESTATIONS',
     accent: 'orange',
-    cta: 'Explore Advisory Services',
-    ctaService: 'Advisory Services',
+    cta: 'Request DGFT / CE Certificate',
+    ctaService: 'Chartered Engineer Certification (IEI MIE)',
     stats: [
-      { value: 'Asset', label: 'Componentization' },
-      { value: 'Productivity', label: 'Enhancement' },
-      { value: 'Business', label: 'Growth Advisory' },
+      { value: 'IEI MIE', label: 'Chartered Engineer' },
+      { value: 'DGFT', label: 'Advance / EPCG' },
+      { value: 'CUSTOMS', label: 'Machinery Import' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.88) 0%, rgba(20,10,5,0.70) 55%, rgba(7,14,30,0.3) 100%)',
   },
   {
     id: 5,
     image: '/slides/slide2.webp',
-    badge: '⚡ CESE & BEE Certified Energy Manager | Safety Auditing',
-    title: 'Industrial Safety &',
-    titleHighlight: 'Energy Audits',
+    badge: '⚙️ Plant & Machinery Appraisals & CESE Electrical Safety Audits',
+    title: 'Plant & Machinery Valuation &',
+    titleHighlight: 'Statutory Industrial Safety Audits',
     subtitle:
-      'Authorized Chartered Electrical Safety Engineer (CESE) inspections, Bureau of Energy Efficiency (BEE) audits, Factories Act competency & NSCI industrial safety auditing.',
-    tag: 'STATUTORY SAFETY & ENERGY AUDITS',
+      'Depreciated Replacement Cost (DRC) machinery appraisals, CEIG solar rooftop clearances, Factories Act 1948 competency certifications, and BEE accredited energy audits.',
+    tag: 'PLANT VALUATION, CESE & ENERGY AUDITS',
     accent: 'amber',
-    cta: 'Request Safety / Energy Audit',
-    ctaService: 'Industrial Safety & Energy Audits',
+    cta: 'Request Machinery / Safety Audit',
+    ctaService: 'Plant & Machinery Valuation',
     stats: [
+      { value: 'DRC', label: 'Depreciated Cost' },
       { value: 'CESE', label: 'Electrical Safety' },
       { value: 'BEE', label: 'Energy Manager' },
-      { value: 'NSCI', label: 'Safety Auditor' },
     ],
     gradient: 'linear-gradient(105deg, rgba(7,14,30,0.92) 0%, rgba(35,18,5,0.78) 55%, rgba(7,14,30,0.38) 100%)',
   },
@@ -217,16 +217,25 @@ export default function HeroSlider({ onOpenQuote }) {
       {/* ── Content ── */}
       <div className="hs-content">
         <div className="hs-inner">
-          {/* Badge */}
-          <div
-            className={`hs-badge ${animating ? 'hs-anim--out' : 'hs-anim--in'}`}
-            style={{ borderColor: color.primary, color: color.light }}
-          >
-            <span
-              className="hs-badge-dot"
-              style={{ background: color.primary, boxShadow: `0 0 8px ${color.glow}` }}
-            />
-            {slide.badge}
+          {/* Top Badge & Tag Row */}
+          <div className="hs-top-row">
+            <div
+              className={`hs-badge ${animating ? 'hs-anim--out' : 'hs-anim--in'}`}
+              style={{ borderColor: color.primary, color: color.light }}
+            >
+              <span
+                className="hs-badge-dot"
+                style={{ background: color.primary, boxShadow: `0 0 8px ${color.glow}` }}
+              />
+              {slide.badge}
+            </div>
+
+            <div
+              className={`hs-tag ${animating ? 'hs-anim--out' : 'hs-anim--in'}`}
+              style={{ '--delay': '0.06s', background: `${color.primary}25`, borderColor: color.primary, color: color.light }}
+            >
+              {slide.tag}
+            </div>
           </div>
 
           {/* Title — Semantic canonical H1 for SEO */}
@@ -238,12 +247,12 @@ export default function HeroSlider({ onOpenQuote }) {
           </h1>
 
           {/* Subtitle */}
-          <p className={`hs-subtitle ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.16s' }}>
+          <p className={`hs-subtitle ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.14s' }}>
             {slide.subtitle}
           </p>
 
           {/* Stats row */}
-          <div className={`hs-stats ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.24s' }}>
+          <div className={`hs-stats ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.20s' }}>
             {slide.stats.map((st, i) => (
               <div key={i} className="hs-stat">
                 <span className="hs-stat-value" style={{ color: color.light }}>{st.value}</span>
@@ -253,12 +262,12 @@ export default function HeroSlider({ onOpenQuote }) {
           </div>
 
           {/* CTAs */}
-          <div className={`hs-ctas ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.32s' }}>
+          <div className={`hs-ctas ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.26s' }}>
             <button
               className="hs-cta-primary"
               style={{
                 background: `linear-gradient(135deg, ${color.primary}, ${color.light})`,
-                boxShadow: `0 6px 28px ${color.glow}`,
+                boxShadow: `0 6px 24px ${color.glow}`,
               }}
               onClick={() => onOpenQuote(slide.ctaService)}
             >
@@ -277,19 +286,11 @@ export default function HeroSlider({ onOpenQuote }) {
               target="_blank"
               rel="noopener noreferrer"
               className="hs-cta-secondary hs-whatsapp-btn"
-              style={{ borderColor: 'rgba(37, 211, 102, 0.3)', background: 'rgba(37, 211, 102, 0.1)' }}
+              style={{ borderColor: 'rgba(37, 211, 102, 0.35)', background: 'rgba(37, 211, 102, 0.12)' }}
             >
               <MessageCircle size={16} color="#25D366" />
               <span style={{ color: '#ffffff' }}>WhatsApp Us</span>
             </a>
-          </div>
-
-          {/* Tag ribbon */}
-          <div
-            className={`hs-tag ${animating ? 'hs-anim--out' : 'hs-anim--in'}`}
-            style={{ '--delay': '0.40s', background: `${color.primary}22`, borderColor: color.primary, color: color.light }}
-          >
-            {slide.tag}
           </div>
         </div>
       </div>
@@ -365,11 +366,6 @@ export default function HeroSlider({ onOpenQuote }) {
           }}
         />
       </div>
-
-      {/* ── Pause indicator ── */}
-      {isPaused && (
-        <div className="hs-paused-badge">⏸ Paused</div>
-      )}
     </section>
   );
 }

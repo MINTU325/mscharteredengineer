@@ -36,19 +36,19 @@ export default function Hero({ onOpenQuote }) {
               marginBottom: '20px',
               fontWeight: 800
             }}>
-              Chartered Engineers, <br />
-              <span className="gradient-text">Valuers & Technical</span> <br />
-              <span className="gold-gradient-text">Consultancy Services</span>
+              Chartered Engineers &amp; <br />
+              <span className="gradient-text">Valuers for Property,</span> <br />
+              <span className="gold-gradient-text">Financial &amp; Technical Assessments</span>
             </h1>
 
             <p style={{
-              fontSize: '1.15rem',
+              fontSize: '1.12rem',
               color: '#cbd5e1',
               lineHeight: 1.7,
               marginBottom: '28px',
               maxWidth: '580px'
             }}>
-              Backed by the <strong>Institution of Engineers (India)</strong> — we deliver statutory Chartered Engineer certifications, plant &amp; machinery valuations, FSSAI compliance advisory, and CESE/BEE certified industrial safety &amp; energy audits for commercial &amp; corporate governance obligations.
+              Government Approved Valuer &amp; Corporate Member IEI led by <strong>Mukesh Singh (IIT Roorkee)</strong>. Bank-compliant property valuations, plant &amp; machinery appraisal, capital gains 50C reports, and statutory DGFT certifications across Jaipur &amp; Pan-India.
             </p>
 
             {/* Credential Pills */}

@@ -10,155 +10,332 @@ import {
   ChevronUp,
   Sparkles,
   Building2,
+  Landmark,
   Scale,
-  LineChart,
   Cpu,
   Zap,
-  ShieldAlert,
+  HardHat,
+  Eye,
+  Award,
+  Layers,
   Search,
   X,
   RotateCcw,
+  Clock,
+  FileText,
+  FileSpreadsheet,
 } from 'lucide-react';
 
-export const servicesData = [
+const servicesData = [
   {
     id: '01',
-    code: 'valuation',
-    title: 'Assets Valuation Services',
-    category: 'Banking, Legal & Financial',
-    icon: Calculator,
-    badgeColor: '#f59e0b',
+    code: 'property-land-valuation',
+    title: 'Property & Land Valuation',
+    category: 'Property & Real Estate',
+    icon: Building2,
+    badgeColor: '#38bdf8',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'All Banks, Registrars & Courts',
     description:
-      'Asset valuation and reconciliation are an essential part of many transactions. We impart the expert Valuers\' services to your business which is required for its commercial and corporate governance obligations. We conduct valuation of Plant & Machinery as per Companies Act 2013, Income Tax Act 1961 and general purpose valuations.',
+      'Statutory and commercial valuation of residential, commercial, industrial, and agricultural properties across Jaipur and Pan-India. Evaluated as per IBBI standards, CPWD schedules, and state circle rates.',
     deliverables: [
-      'Banking & Lending — Valuation of assets for mortgage or auctioning of collateral security',
-      'Insurance — Reinstatement Valuation as Surveyor and Loss Assessor',
-      'Stamp Duty — Valuation for transfer of ownership and legal documentation',
-      'Financial Reporting — Balance sheet, Fair value, IndAS 16 (PPE), Componentization, Impairment Analysis',
-      'Sale / Purchase of Asset — Market value & fair value appraisal of used/new assets',
-      'Leasing / Renting of Assets — Specialized valuation for leased and rented assets',
-      'Asset Retirement & Disposal — Scrap value, salvage value & componentization assessment',
-      'Litigation, Dispute Resolution & Arbitrations — Expert opinion in the Court of Law',
-      'Impairment Study — Re-assessment under Ind AS, IFRS or US GAAP',
-      'Insolvency & Bankruptcy — Valuation as per Insolvency & Bankruptcy Code 2016',
-      'Liquidation — Market value, Orderly & Forced liquidation value assessment',
-      'Balance Useful Life Calculation — Estimation of extended useful life of assets',
-      'Mergers and Acquisitions — Company valuation using different valuation approaches',
-      'Taxation & Regulations — Valuation under direct tax laws (CBDT / Ministry of Finance)',
+      'Residential Property Valuation (Bungalows, Independent Villas, Flats & Apartments)',
+      'Commercial Real Estate Appraisals (Retail Malls, Office Buildings, Commercial Plots)',
+      'Industrial Land & Factory Valuation (GIDC, RIICO, Warehouses, Logistics Hubs)',
+      'Agricultural & Farmhouse Land Appraisals (DLC verification & land conversion status)',
+      'High-Rise Apartments, Flats & Penthouse Fair Market Appraisals',
+      'Plotted Developments, Sub-divided Land & Unbuilt Land Parcel Valuation',
+      'Institutional Assets (Hotels, Hospitals, Private Colleges & University Campuses)',
+      'Land & Building Combined Appraisals with Plinth Area Rate Analysis',
     ],
+    documents: ['Registry / Sale Deed / Patta Copy', 'Approved Building Sanction Map', 'Latest Mutation / Jamabandi', 'Site Photographs & Boundaries'],
     highlight:
-      'Valuation conducted as per Companies Act 2013, Income Tax Act 1961, IBBI Standards & IndAS 16.',
+      'Conducted strictly as per IBBI Valuation Standards, CPWD Plinth Area Rates, and State DLC / Circle Rates.',
   },
   {
     id: '02',
-    code: 'chartered-engineer',
-    title: 'Chartered Engineer Services',
-    category: 'Government Certifications & Compliances',
-    icon: FileCheck2,
-    badgeColor: '#38bdf8',
+    code: 'bank-mortgage-valuation',
+    title: 'Bank & Mortgage Valuation',
+    category: 'Banking & Finance',
+    icon: Landmark,
+    badgeColor: '#f59e0b',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'Scheduled Commercial Banks & NBFCs',
     description:
-      'Leading Chartered Engineer in Jaipur and across India, certified and authorized by the prestigious Institution of Engineers (India) [IEI] to attest and certify statutory Government Declarations, DGFT Certificates, Customs Clearances, and Bank Valuations across all Central Ministries.',
+      'Bankable Fair Market Value (FMV), Realizable Value (RV), and Forced Sale Value (FSV) reports for mortgage loans, Loan Against Property (LAP), project finance, and NPA resolution.',
     deliverables: [
-      'DGFT Advance Authorisation — Chartered Engineer Certificate for Duty-Free Import of Inputs & Raw Material Nexus (Appendix 4E / 4K)',
-      'DGFT Compliances — EPCG Nexus (Appendix 5A), SION Fixation (Appendix 4A), Self-Ratification Scheme, Duty Drawback Rate Fixation (Appendix 7E, 2Q)',
-      'CBIC / Customs — EOU Investment Certificate, Served from India Scheme (General Exemption 42), Duty Credit Entitlement',
-      'MoFPI — Grant-in-Aid for Food Testing Labs, Abattoirs, HACCP/ISO 22000/FSSC/BRC, PMKSY (CEFPPC)',
-      'MoEF — Assessment of Imported EEA as e-waste, CDM Project Certification',
-      'GAIL & PSUs — Verification of Technical Documents & Credentials for Bidding',
-      'MSME — Grant-in-Aid for Plant & Machinery under Central & State Investment Promotion Schemes',
-      'MiETY — EHTP/STP Scheme, Modified Special Incentive Package (M-SIP)',
-      'Ministry of Textiles — Integrated Textile Park (ITP), National Handicrafts Development Program (NHDP)',
-      'MoCA — Useful Life of Assets if different from Companies Act 2013, Schedule II',
-      'MoCI — APEDA Agriculture Export Promotion, EOU Scheme Setup Certificate',
-      'MoST — Bio Technology Park (BTP) Setup Certification',
-      'Other Engineering Services — Remaining Life Assessment (RLA), Equipment Efficiency, Tool Life Estimation',
+      'Home Loan & Housing Finance Valuation for Nationalized & Private Commercial Banks',
+      'Loan Against Property (LAP) & Commercial Collateral Security Appraisals',
+      'Consortium Project Finance & Industrial Term Loan Collateral Valuations',
+      'NBFC Empaneled & Pre-Sanction Property Technical Appraisals',
+      'Distressed Asset, Auction Reserve Price & SARFAESI Security Valuation',
+      'Periodic Portfolio Revaluation & Collateral Asset Verification for Lenders',
+      'Stage-wise Construction Milestone Verification for Loan Drawdowns',
+      'Technical Due Diligence & Title Alignment for Banking Approvals',
     ],
+    documents: ['Chain of Title Deeds (13–30 Years)', 'Bank Loan Application / Reference', 'Sanctioned Map / Layout Plan', 'Property Tax Receipts'],
     highlight:
-      'Certified & authorized by Institution of Engineers (India) — Corporate Member MIE & Approved Valuer.',
+      'Dual valuation methodology (FMV + FSV) compliant with RBI Lending Guidelines & Bank Empanelment Standards.',
   },
   {
     id: '03',
-    code: 'fssai',
-    title: 'FSSAI Compliance Services',
-    category: 'Food Safety & Regulatory Advisory',
-    icon: ShieldCheck,
+    code: 'statutory-tax-valuation',
+    title: 'Statutory & Capital Gains Tax Valuation',
+    category: 'Tax & Corporate Legal',
+    icon: Scale,
     badgeColor: '#10b981',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'Income Tax Dept, ITAT & CBDT',
     description:
-      'As per Section 31(1) & 31(2) of FSS Act, 2006 every Food Business Operator (FBO) in the country is required to be Licensed / Registered under FSSAI. We as Expert Consultants offer advisory services to Food Business Operators (FBOs) to comply with the different Mandatory Compliances of FSSAI.',
+      'Registered Valuer reports for Income Tax scrutiny, Capital Gains Tax calculation (Section 50C, 54, 54EC), Fair Market Value as on 01-04-2001 for indexation benefit, and stamp duty disputes.',
     deliverables: [
-      'Applying for New Registration / State License / Central License',
-      'Filing for Renewal of Registration / State License / Central License',
-      'Filing for Modifications in Registration / State License / Central License',
-      'Filing Annual Returns (Form D1 / D2) and Declarations',
-      'Appealing for Revocation of FSSAI Suspended Licenses / Registrations',
-      'FBO Training by FSSAI Trained and Authorized Food Safety Trainers',
-      'Hygiene Auditing by FSSAI Authorized Hygiene Auditors',
-      'Mock Surveys before Authority\'s inspection & addressing shortcomings in the system',
-      'Advisory for: Dairy units, Vegetable oil units, Slaughter/Meat processing, Food Manufacturing, Hotels, Restaurants, Caterers, Importers/Exporters, E-commerce FBOs',
+      'Fair Market Value (FMV) as on 01-04-2001 for Ancestral & Inherited Property Indexation',
+      'Section 50C / 43CA / 56(2)(x) Stamp Duty Value vs. Actual Consideration Defense Reports',
+      'Capital Gains Exemption Reinvestment Appraisals (Section 54, 54F, 54EC)',
+      'Income Tax Scrutiny, Search & Seizure Assessment Defense Valuation Reports',
+      'Stamp Duty & Circle Rate Dispute Resolution for Sub-Registrar Offices',
+      'Family Settlement, Partition Deed & Gift Deed Asset Appraisals',
+      'Estate Tax & Probate Asset Appraisals for Legal Beneficiaries',
     ],
+    documents: ['Title Deed prior to 2001 (if available)', 'Sub-Registrar Order / Notice', 'Current Circle Rate Sheet', 'Copy of Sale Agreement / Registry'],
     highlight:
-      'Covers all FBO categories: Manufacturing, Retail, Hospitality, Transport, Import/Export & E-commerce.',
+      'Statutory compliance under Income Tax Act 1961 Section 55A and CBDT valuation notifications.',
   },
   {
     id: '04',
-    code: 'advisory',
-    title: 'Advisory Services',
-    category: 'Productivity & Profitability Enhancement',
+    code: 'ibc-nclt-corporate-valuation',
+    title: 'IBC / NCLT / Corporate Valuation',
+    category: 'Tax & Corporate Legal',
     icon: Briefcase,
     badgeColor: '#a78bfa',
+    turnaround: '3–5 Working Days',
+    acceptedBy: 'NCLT Benches, RPs & Committee of Creditors',
     description:
-      'We provide specialized Advisory Services for Asset Componentization as well as Productivity & Profitability Enhancement. Our quantitative, data-driven approach helps industrial enterprises identify pitfalls in manufacturing systems and achieve sustainable growth.',
+      'High-stakes asset appraisals under the Insolvency and Bankruptcy Code (IBC 2016) for Resolution Professionals (RPs), Committee of Creditors (CoC), and NCLT corporate restructuring.',
     deliverables: [
-      'Asset Componentization Analysis — Identifying components with substantially different useful lives as per Companies Act 2013 & IFRS (IndAS 16)',
-      'Equipment Effectiveness Analysis — Robust quantitative approach to explore pitfalls in manufacturing & improve productivity',
-      'Measurement System Analysis (MSA) — Determining how much measurement process variation contributes to overall process variability',
-      'Machine Capability Analysis — Assessing whether the manufacturing process reliably produces characteristic values within tolerance limits',
-      'Process Capability Analysis — Predicting whether a manufacturing process can repeatably produce parts meeting specifications',
+      'Fair Value and Liquidation Value calculation under IBBI (CIRP) Regulations 2016',
+      'Asset Verification and Physical Reconciliation for Resolution Applicants',
+      'Orderly Liquidation Value (OLV) and Forced Sale Value (FSV) Determination',
+      'Corporate Restructuring, Mergers & Demergers Asset Swap Appraisals',
+      'Financial Reporting under IndAS 16 (PPE), IndAS 36 (Impairment) & IndAS 113',
+      'Asset Componentization & Remaining Useful Life Schedule II Compliance',
+      'Expert Witness Testimony in NCLT & Commercial Dispute Tribunals',
     ],
+    documents: ['CIRP Order / NCLT Notice', 'Audited Balance Sheets (Last 3 Yrs)', 'Fixed Asset Register (FAR)', 'Site Ownership Records'],
     highlight:
-      'Data-driven advisory for Asset Componentization, OEE, MSA, Machine & Process Capability Studies.',
+      'Strict adherence to IBBI Valuation Standards 2018 and Companies Act 2013 registered valuer provisions.',
   },
   {
     id: '05',
+    code: 'chartered-engineer-certification',
+    title: 'Chartered Engineer Certification (IEI MIE)',
+    category: 'Chartered Engineering & DGFT',
+    icon: FileCheck2,
+    badgeColor: '#0284c7',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'DGFT, CBIC Customs & Central Ministries',
+    description:
+      'Government-authorized Chartered Engineer certification by Corporate Member MIE of The Institution of Engineers (India) for DGFT schemes, Customs clearance, and Central Ministry subsidies.',
+    deliverables: [
+      'DGFT Advance Authorisation — Duty-free Import of Inputs & Raw Material Nexus (Appendix 4E / 4K)',
+      'EPCG Scheme Nexus Certification for Capital Goods Import (Appendix 5A / 5B)',
+      'Customs / CBIC — Second-Hand Plant & Machinery Import Appraisal & Residual Life',
+      'MoFPI Grant-in-Aid Certification for Food Parks, Cold Chain & Agro Processing (PMKSY)',
+      'Central & State MSME Investment Subsidy Certification for Plant & Machinery',
+      'Useful Life of Assets Certification differing from Companies Act 2013 Schedule II',
+      'SION Norms Fixation (Appendix 4A) & Duty Drawback Rate Fixation (Appendix 7E)',
+      'Verification of Technical Documents & Vendor Credentials for PSU / Central Tenders',
+    ],
+    documents: ['Bill of Entry / Proforma Invoice', 'Machinery Technical Catalog & Specs', 'Manufacturing Process Flowchart', 'Import Export Code (IEC)'],
+    highlight:
+      'Attested by Corporate Member MIE (India) of The Institution of Engineers (India) with statutory pan-India validity.',
+  },
+  {
+    id: '06',
+    code: 'plant-machinery-valuation',
+    title: 'Plant & Machinery Valuation',
+    category: 'Industrial, Safety & Energy',
+    icon: Cpu,
+    badgeColor: '#ea580c',
+    turnaround: '48–72 Hours',
+    acceptedBy: 'Banks, Insolvency RPs, Insurance & Tax',
+    description:
+      'Technical and economic valuation of plant, machinery, heavy equipment, and industrial infrastructure using Depreciated Replacement Cost (DRC) and income methodologies.',
+    deliverables: [
+      'Industrial Plant & Complete Manufacturing Facility Comprehensive Appraisals',
+      'Heavy Fabrication, CNC Machinery, Rolling Mills & Foundry Equipment Valuations',
+      'Electrical Substation, Transformers, Switchgear & DG Sets Appraisals',
+      'Textile Mills, Chemical Processing Units & Pharma Infrastructure Appraisals',
+      'Balance Useful Life Calculation & Remaining Life Assessment (RLA)',
+      'Scrap, Salvage & Dismantling Realization Assessment',
+      'Insurance Reinstatement Value (RIV) as Surveyor and Loss Assessor',
+    ],
+    documents: ['Machinery Purchase Invoices / Bills', 'Fixed Asset Register (FAR)', 'Maintenance & Log Books', 'Nameplate Photos & Capacity Specs'],
+    highlight:
+      'Quantitative Depreciated Replacement Cost (DRC) & Balance Useful Life verification by certified mechanical engineering experts.',
+  },
+  {
+    id: '07',
+    code: 'construction-cost-verification',
+    title: 'Project Cost & Construction Verification',
+    category: 'Property & Real Estate',
+    icon: HardHat,
+    badgeColor: '#14b8a6',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'Banks, Housing Finance & RERA',
+    description:
+      'Independent engineering verification of construction expenditure, physical progress monitoring, and stage-wise drawdown certification for financial institutions and builders.',
+    deliverables: [
+      'Stage-wise Construction Certification for Bank Loan Tranche Disbursements',
+      'Bill of Quantities (BOQ) Audit & Construction Cost Estimation',
+      'Cost-to-Complete Verification for Incomplete & Stalled Real Estate Projects',
+      'Technical Due Diligence & Physical Milestone Audits for Real Estate Developments',
+      'Building Completion Verification as per Approved Architectural Blueprints',
+      'Contractor Bill Reconciliation & Measurement Book (MB) Validation',
+    ],
+    documents: ['Approved Sanction Plans', 'Structural Blueprints', 'Contractor BOQs & Invoices', 'Stage-wise Construction Photos'],
+    highlight:
+      'Physical site measurements verified with CPWD/PWD specifications and geo-tagged photographic evidence.',
+  },
+  {
+    id: '08',
+    code: 'property-inspection-due-diligence',
+    title: 'Property Inspection & Technical Due Diligence',
+    category: 'Property & Real Estate',
+    icon: Eye,
+    badgeColor: '#6366f1',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'Property Buyers, Corporates & Law Firms',
+    description:
+      'Unbiased structural, architectural, and quality inspection of residential and commercial properties before purchase, handover, or corporate lease commitment.',
+    deliverables: [
+      'Pre-Purchase Independent Property Inspection & Defect Identification',
+      'Structural Observation & Crack/Seepage Vulnerability Assessment',
+      'Construction Quality Verification & Finish Specification Audit',
+      'Carpet Area, Super Built-up Area & Floor Area Ratio (FAR) Physical Verification',
+      'Electrical, Plumbing & Mechanical Installation Functional Health Check',
+      'Comprehensive High-Resolution Photographic Inspection Dossier',
+    ],
+    documents: ['Builder Floor Plan / Layout Map', 'Agreement to Sell / Brochure', 'Possession Notice (if applicable)'],
+    highlight:
+      'Objective, non-destructive visual examination eliminating latent construction defects and legal boundary surprises.',
+  },
+  {
+    id: '09',
+    code: 'jda-local-authority-services',
+    title: 'JDA & Local Authority Technical Reports',
+    category: 'Regulatory & Compliance',
+    icon: Layers,
+    badgeColor: '#ec4899',
+    turnaround: '48–72 Hours',
+    acceptedBy: 'JDA, Nagar Nigam, RIICO & Town Planning',
+    description:
+      'Technical certificates and documentation guidance for Jaipur Development Authority (JDA), Nagar Nigam, RIICO, and local municipal bodies across Rajasthan.',
+    deliverables: [
+      'JDA Building Completion Technical Reports & Inspection Dossiers',
+      'Local Authority Regularization & Setback Verification Certificates',
+      'Building Height, FAR & Ground Coverage Compliance Assessment',
+      'RIICO Industrial Plot Building Construction Milestone Certification',
+      'Fire NOC & Architectural Safety Observation Documentation',
+      'Site Boundary & Physical Dimension Confirmation Reports',
+    ],
+    documents: ['JDA Lease Deed / Patta Copy', 'Approved Building Map', 'Site Dimension Plan', 'Construction Site Photos'],
+    highlight:
+      'Tailored strictly to Rajasthan Urban Building Bye-laws and JDA development control regulations.',
+  },
+  {
+    id: '10',
+    code: 'special-purpose-valuation',
+    title: 'Special Purpose Valuation (Court, Litigation & Visa)',
+    category: 'Tax & Corporate Legal',
+    icon: Award,
+    badgeColor: '#d97706',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'High Courts, District Courts & Foreign Consulates',
+    description:
+      'Legally defensible valuation certificates for High Court / Civil Court proceedings, family probate, divorce settlements, and foreign visa financial net worth proof.',
+    deliverables: [
+      'Civil Court Litigation & Expert Witness Valuation Reports',
+      'Family Asset Partition, Succession & Will Probate Asset Assessment',
+      'Visa & Immigration Financial Net Worth Asset Certification (Canada, USA, UK, Australia)',
+      'Insurance Reinstatement Value Certification as Licensed Surveyor',
+      'Land Acquisition Compensation Claim & Highway Widening Objections',
+      'Solvency Certificate Asset Valuation for Government Tenders & Contracts',
+    ],
+    documents: ['Property Ownership Proofs', 'Court Case Reference / Notice', 'Passport Copy (for Visa Net Worth)', 'Valuation Requisition'],
+    highlight:
+      'Affidavit-backed, evidentiary valuation reports formatted for formal judicial scrutiny and international consulates.',
+  },
+  {
+    id: '11',
     code: 'safety-energy-audits',
     title: 'Industrial Safety & Energy Audits',
-    category: 'Safety, Energy & Statutory Audits',
+    category: 'Industrial, Safety & Energy',
     icon: Zap,
     badgeColor: '#f97316',
+    turnaround: '3–5 Working Days',
+    acceptedBy: 'CEIG, DISCOMs, BEE & DISH',
     description:
-      'Comprehensive statutory electrical safety, energy efficiency, and industrial health & safety audits authorized under Central Electricity Authority (CEA) Regulations, Bureau of Energy Efficiency (BEE), Factories Act 1948, and National Safety Council of India (NSCI).',
+      'Statutory electrical safety inspections, energy efficiency audits, and plant safety examinations authorized under CEA regulations, BEE, and Factories Act 1948.',
     deliverables: [
-      'Chartered Electrical Safety Engineer (CESE) — Statutory inspection, load flow study & certification for HT/LT electrical installations',
-      'Electrical Safety Inspection & Auditing — Mandatory audits as per CEA (Safety and Electric Supply) Regulations 2010',
-      'Certified Energy Manager, BEE — Mandatory & voluntary energy audits, PAT scheme compliance & thermal/electrical energy conservation',
-      'Certificate of Competency, Factories & Boilers — Periodic statutory testing of pressure vessels, lifting machines, cranes & safety gears (Factories Act 1948)',
-      'National Safety Council of India (NSCI / NSAT) — Comprehensive industrial safety audit, HAZOP, fire safety & EHS compliance',
-      'Thermography & Earthing Audits — Infrared thermal imaging of switchboards, transformers, and earth pit resistance verification',
+      'Chartered Electrical Safety Engineer (CESE) — Statutory HT/LT Installation Certification',
+      'CEIG Solar Rooftop & Captive Solar Power Plant Electrical Clearance Inspection',
+      'BEE Certified Energy Manager — Mandatory & Voluntary Industrial Energy Audits',
+      'Factories Act 1948 Competent Person Inspection (Pressure Vessels, Cranes, Lifts, Hoists)',
+      'Thermography Inspection — Infrared Thermal Scanning of Switchgear & Transformers',
+      'Earthing Resistance Verification & Earth Pit Network Audit',
+      'National Safety Council of India (NSCI / NSAT) Safety Audit & EHS Compliances',
     ],
+    documents: ['Single Line Diagram (SLD)', 'Electricity Bills (Last 12 Months)', 'Connected Load List & Transformer Specs', 'Equipment Test Certificates'],
     highlight:
-      'Authorized CESE, BEE Certified Energy Manager, Competent Person (Factories & Boilers) & NSCI/NSAT Safety Auditor.',
+      'Dual authorization as Chartered Electrical Safety Engineer (CESE) and BEE Certified Energy Manager.',
+  },
+  {
+    id: '12',
+    code: 'fssai-compliance-services',
+    title: 'FSSAI Regulatory Advisory',
+    category: 'Regulatory & Compliance',
+    icon: ShieldCheck,
+    badgeColor: '#10b981',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'FSSAI & Ministry of Food Processing (MoFPI)',
+    description:
+      'Comprehensive regulatory advisory for Food Business Operators (FBOs) covering mandatory licensing, hygiene auditing, and MoFPI subsidy technical project appraisal.',
+    deliverables: [
+      'New Central & State FSSAI License Filing, Renewal & Modification',
+      'FSSAI Annual Returns (Form D1 / D2) & Mandatory Statutory Declarations',
+      'Revocation of Suspended FSSAI Licenses & Appeal Processing',
+      'FSSAI Authorized Food Safety Training & Third-Party Hygiene Audits',
+      'MoFPI Grant-in-Aid Detailed Project Report (DPR) & Equipment Appraisal',
+      'Advisory for Food Manufacturing, Cold Storage, Meat Processing, Dairy & E-commerce',
+    ],
+    documents: ['Manufacturing Unit Layout Plan', 'List of Directors / Partners', 'Machinery List with Horsepower', 'Water Test Report'],
+    highlight:
+      'Complete statutory coverage under Section 31(1) & 31(2) of the Food Safety and Standards Act 2006.',
   },
 ];
 
 // Quick search suggestion chips
 const QUICK_SUGGESTIONS = [
-  { label: 'Advance Authorisation', query: 'Advance Authorisation', icon: '⚡' },
-  { label: 'CESE Electrical Safety', query: 'CESE', icon: '🛡️' },
-  { label: 'BEE Energy Audit', query: 'Energy Manager', icon: '🌱' },
-  { label: 'Bank Loan Valuation', query: 'Banking', icon: '🏛️' },
-  { label: 'Factories & Boilers', query: 'Boilers', icon: '⚙️' },
-  { label: 'FSSAI License', query: 'FSSAI', icon: '🍽️' },
-  { label: 'IndAS 16 Componentization', query: 'Componentization', icon: '📊' },
+  { label: 'Property Valuation', query: 'Property', icon: '🏢' },
+  { label: 'Bank Loan (FMV/FSV)', query: 'Bank', icon: '🏛️' },
+  { label: 'Capital Gains (2001 FMV)', query: 'Capital Gains', icon: '⚖️' },
+  { label: 'DGFT Advance Auth', query: 'Advance Authorisation', icon: '⚡' },
+  { label: 'Plant & Machinery', query: 'Machinery', icon: '⚙️' },
+  { label: 'IBC / NCLT CIRP', query: 'IBC', icon: '💼' },
+  { label: 'CEIG Solar & CESE', query: 'CESE', icon: '☀️' },
+  { label: 'JDA Completion', query: 'JDA', icon: '📐' },
 ];
 
-// Category filter options matching all 5 services
+// Sector categories for clean filtering
 const CATEGORIES = [
   'All',
-  'Banking, Legal & Financial',
-  'Government Certifications & Compliances',
-  'Food Safety & Regulatory Advisory',
-  'Productivity & Profitability Enhancement',
-  'Safety, Energy & Statutory Audits',
+  'Property & Real Estate',
+  'Banking & Finance',
+  'Tax & Corporate Legal',
+  'Chartered Engineering & DGFT',
+  'Industrial, Safety & Energy',
+  'Regulatory & Compliance',
 ];
 
 export default function ServicesGrid({ onOpenQuote }) {
@@ -208,7 +385,9 @@ export default function ServicesGrid({ onOpenQuote }) {
         const inDesc = s.description.toLowerCase().includes(q);
         const inHighlight = s.highlight.toLowerCase().includes(q);
         const inDeliverables = s.deliverables.some((d) => d.toLowerCase().includes(q));
-        return inTitle || inCat || inDesc || inHighlight || inDeliverables;
+        const inAccepted = s.acceptedBy?.toLowerCase().includes(q);
+        const inDocs = s.documents?.some((doc) => doc.toLowerCase().includes(q));
+        return inTitle || inCat || inDesc || inHighlight || inDeliverables || inAccepted || inDocs;
       });
     }
 
@@ -236,14 +415,13 @@ export default function ServicesGrid({ onOpenQuote }) {
         <div className="section-header" style={{ marginBottom: '28px' }}>
           <div className="section-badge">
             <Sparkles size={15} />
-            <span>Comprehensive Professional Services</span>
+            <span>12 Comprehensive Engineering &amp; Valuation Verticals</span>
           </div>
           <h2 className="section-title">
             Services <span className="gradient-text">We Offer</span>
           </h2>
           <p className="section-description">
-            From statutory asset valuation and government certifications to FSSAI compliance
-            advisory, CESE electrical safety, and BEE energy audits — end-to-end chartered engineering expertise.
+            From statutory asset valuation, bank mortgage appraisals, and capital gains tax reports to DGFT Chartered Engineer certification, CESE electrical safety, and industrial plant valuation.
           </p>
 
           {/* 🔍 Interactive Floating Search Bar */}
@@ -271,7 +449,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                 className="services-search-input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 50+ services (e.g. Advance Authorisation, CESE, BEE, Bank Loan, Solar)..."
+                placeholder="Search 12 services (e.g. Property, Bank Loan, Capital Gains 50C, DGFT, Machinery)..."
                 style={{
                   width: '100%',
                   background: 'transparent',
@@ -368,7 +546,7 @@ export default function ServicesGrid({ onOpenQuote }) {
             </div>
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Sector Category Filter Pills */}
           <div
             style={{
               display: 'flex',
@@ -447,7 +625,7 @@ export default function ServicesGrid({ onOpenQuote }) {
           </div>
         )}
 
-        {/* Services Grid */}
+        {/* Services Grid (12 Verticals) */}
         <div className="services-grid">
           {filteredServices.map((service) => {
             const Icon = service.icon;
@@ -469,23 +647,37 @@ export default function ServicesGrid({ onOpenQuote }) {
                   borderTop: `3px solid ${service.badgeColor}`,
                   boxShadow: hasActiveSearch ? `0 10px 30px ${service.badgeColor}22` : undefined,
                   transition: 'all 0.3s ease',
+                  padding: '24px 22px',
+                  borderRadius: 'var(--radius-lg)',
+                  position: 'relative',
                 }}
               >
+                {/* Route alias anchors for seamless deep-linking */}
+                {service.code === 'chartered-engineer-certification' && <span id="chartered-engineer" style={{ position: 'absolute', top: '-85px' }} />}
+                {service.code === 'plant-machinery-valuation' && (
+                  <>
+                    <span id="machinery-valuation" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="valuation" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="assets-valuation" style={{ position: 'absolute', top: '-85px' }} />
+                  </>
+                )}
+                {service.code === 'fssai-compliance-services' && <span id="fssai" style={{ position: 'absolute', top: '-85px' }} />}
+
                 <div>
-                  {/* Card Header */}
+                  {/* Card Header: Icon + Number */}
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      marginBottom: '18px',
+                      marginBottom: '14px',
                     }}
                   >
                     <div
                       style={{
-                        width: '52px',
-                        height: '52px',
-                        borderRadius: '14px',
+                        width: '48px',
+                        height: '48px',
+                        borderRadius: '12px',
                         background: `${service.badgeColor}18`,
                         border: `1px solid ${service.badgeColor}40`,
                         display: 'flex',
@@ -494,14 +686,15 @@ export default function ServicesGrid({ onOpenQuote }) {
                         color: service.badgeColor,
                       }}
                     >
-                      <Icon size={26} />
+                      <Icon size={24} />
                     </div>
                     <span
                       className="service-card-num"
                       style={{
-                        fontSize: '1.25rem',
+                        fontSize: '1.2rem',
                         fontWeight: 800,
                         fontFamily: 'var(--font-mono)',
+                        color: '#64748b',
                       }}
                     >
                       {service.id}
@@ -515,7 +708,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
                       color: service.badgeColor,
-                      fontWeight: 600,
+                      fontWeight: 700,
                       marginBottom: '6px',
                     }}
                   >
@@ -523,35 +716,73 @@ export default function ServicesGrid({ onOpenQuote }) {
                   </div>
 
                   {/* Title */}
-                  <h3 className="service-card-title" style={{ fontSize: '1.25rem', marginBottom: '10px' }}>
+                  <h3 className="service-card-title" style={{ fontSize: '1.22rem', marginBottom: '8px', lineHeight: 1.35 }}>
                     {highlightText(service.title, searchQuery)}
                   </h3>
+
+                  {/* Badges: Turnaround + Acceptance */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        fontSize: '0.7rem',
+                        fontWeight: 600,
+                        padding: '2px 8px',
+                        borderRadius: 'var(--radius-full)',
+                        background: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        color: '#e2e8f0',
+                      }}
+                    >
+                      <Clock size={11} color="#f59e0b" />
+                      <span>{service.turnaround}</span>
+                    </span>
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        fontSize: '0.7rem',
+                        fontWeight: 600,
+                        padding: '2px 8px',
+                        borderRadius: 'var(--radius-full)',
+                        background: `${service.badgeColor}12`,
+                        border: `1px solid ${service.badgeColor}30`,
+                        color: service.badgeColor,
+                      }}
+                    >
+                      <span>🏛️ {service.acceptedBy}</span>
+                    </span>
+                  </div>
 
                   {/* Description */}
                   <p
                     className="service-card-desc"
                     style={{
-                      fontSize: '0.88rem',
-                      marginBottom: '18px',
-                      lineHeight: 1.65,
+                      fontSize: '0.86rem',
+                      marginBottom: '16px',
+                      lineHeight: 1.6,
+                      color: '#cbd5e1',
                     }}
                   >
                     {highlightText(service.description, searchQuery)}
                   </p>
 
-                  {/* Sub-services list */}
+                  {/* Sub-services / Scope of Services */}
                   <div style={{ marginBottom: '8px' }}>
                     <div
                       style={{
-                        fontSize: '0.76rem',
+                        fontSize: '0.74rem',
                         fontWeight: 700,
                         color: '#64748b',
                         textTransform: 'uppercase',
                         letterSpacing: '0.06em',
-                        marginBottom: '10px',
+                        marginBottom: '8px',
                       }}
                     >
-                      Scope of Services:
+                      Scope of Deliverables:
                     </div>
                     <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '7px', margin: 0, padding: 0 }}>
                       {previewItems.map((item, i) => (
@@ -560,12 +791,12 @@ export default function ServicesGrid({ onOpenQuote }) {
                           style={{
                             display: 'flex',
                             alignItems: 'flex-start',
-                            gap: '9px',
-                            fontSize: '0.84rem',
-                            lineHeight: 1.5,
+                            gap: '8px',
+                            fontSize: '0.82rem',
+                            lineHeight: 1.48,
                           }}
                         >
-                          <Check size={15} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
+                          <Check size={14} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
                           <span className="service-deliverable-item">{highlightText(item, searchQuery)}</span>
                         </li>
                       ))}
@@ -578,12 +809,12 @@ export default function ServicesGrid({ onOpenQuote }) {
                             style={{
                               display: 'flex',
                               alignItems: 'flex-start',
-                              gap: '9px',
-                              fontSize: '0.84rem',
-                              lineHeight: 1.5,
+                              gap: '8px',
+                              fontSize: '0.82rem',
+                              lineHeight: 1.48,
                             }}
                           >
-                            <Check size={15} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
+                            <Check size={14} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
                             <span className="service-deliverable-item">{highlightText(item, searchQuery)}</span>
                           </li>
                         ))}
@@ -601,7 +832,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                           background: 'none',
                           border: 'none',
                           color: service.badgeColor,
-                          fontSize: '0.82rem',
+                          fontSize: '0.8rem',
                           fontWeight: 600,
                           cursor: 'pointer',
                           padding: '4px 0',
@@ -610,11 +841,11 @@ export default function ServicesGrid({ onOpenQuote }) {
                       >
                         {isExpanded ? (
                           <>
-                            <ChevronUp size={15} /> Show Less
+                            <ChevronUp size={14} /> Show Less
                           </>
                         ) : (
                           <>
-                            <ChevronDown size={15} /> +{extraItems.length} More Services
+                            <ChevronDown size={14} /> +{extraItems.length} More Deliverables
                           </>
                         )}
                       </button>
@@ -623,30 +854,18 @@ export default function ServicesGrid({ onOpenQuote }) {
                 </div>
 
                 {/* Card Footer */}
-                <div style={{ marginTop: '20px' }}>
-                  <div
-                    className="service-highlight-box"
-                    style={{
-                      borderRadius: 'var(--radius-sm)',
-                      padding: '10px 14px',
-                      fontSize: '0.8rem',
-                      marginBottom: '16px',
-                    }}
-                  >
-                    💡 {highlightText(service.highlight, searchQuery)}
-                  </div>
-
+                <div style={{ marginTop: '18px' }}>
                   <button
-                    onClick={() => onOpenQuote(service.title)}
+                    onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
                     className="service-request-btn"
                     title={`Request Quote and fill inquiry for ${service.title}`}
                     type="button"
                   >
                     <span className="service-request-btn-content">
-                      <FileCheck2 size={16} className="service-request-btn-icon" />
-                      <span>Request Quote / Fill Inquiry</span>
+                      <FileCheck2 size={15} className="service-request-btn-icon" />
+                      <span>Request Quote / Inquiry</span>
                     </span>
-                    <ArrowRight size={16} />
+                    <ArrowRight size={15} />
                   </button>
                 </div>
               </div>

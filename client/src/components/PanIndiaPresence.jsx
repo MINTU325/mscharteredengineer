@@ -36,9 +36,9 @@ export default function PanIndiaPresence({ onOpenQuote }) {
   return (
     <section id="contact" className="section section-white">
       <div className="container">
-        <div className="section-header" style={{ marginBottom: '28px' }}>
+        <div className="section-header" style={{ marginBottom: '16px' }}>
           <div className="section-badge gold">
-            <Globe size={15} />
+            <Globe size={14} />
             <span>PAN INDIA PRESENCE | JAIPUR HEADQUARTERS</span>
           </div>
           <h2 className="section-title">
@@ -51,7 +51,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
 
         <div className="presence-grid">
           {/* Left Column: Official Headquarters Card */}
-          <div className="glass-card presence-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: '0 4px 18px rgba(15, 23, 42, 0.05)' }}>
+          <div className="glass-card presence-card" style={{ background: '#ffffff', border: '1px solid #E8E2D8', boxShadow: '0 4px 18px rgba(15, 23, 42, 0.05)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
               <div style={{
                 width: '48px',
@@ -139,7 +139,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
           </div>
 
           {/* Right Column: Interactive Pan-India Regional Coverage */}
-          <div className="glass-card presence-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', boxShadow: '0 4px 18px rgba(15, 23, 42, 0.05)' }}>
+          <div className="glass-card presence-card" style={{ background: '#ffffff', border: '1px solid #E8E2D8', boxShadow: '0 4px 18px rgba(15, 23, 42, 0.05)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
               <div>
                 <span style={{ fontSize: '0.76rem', color: '#b45309', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>

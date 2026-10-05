@@ -102,17 +102,30 @@ export default function Footer({ onOpenQuote }) {
             <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Our Practice Areas
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem' }}>
-              <li><a href="/valuation" style={{ color: '#cbd5e1' }}>Assets Valuation Services (Banking, IndAS 16, M&amp;A)</a></li>
-              <li><a href="/chartered-engineer" style={{ color: '#cbd5e1' }}>DGFT Advance Authorisation &amp; CE Certificates</a></li>
-              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>Chartered Electrical Safety Engineer (CESE) Audits</a></li>
-              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>BEE Certified Energy Audits &amp; Conservation</a></li>
-              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>Factories &amp; Boilers Competency Certification</a></li>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.84rem' }}>
+              <li><a href="/property-valuation" style={{ color: '#cbd5e1' }}>Property &amp; Land Valuation (Jaipur &amp; Rajasthan)</a></li>
+              <li><a href="/bank-valuation" style={{ color: '#cbd5e1' }}>Bank Loan &amp; Mortgage Valuation (FMV / FSV)</a></li>
+              <li><a href="/tax-valuation" style={{ color: '#cbd5e1' }}>Capital Gains Tax Valuation (Sec 50C &amp; 2001 FMV)</a></li>
+              <li><a href="/chartered-engineer" style={{ color: '#cbd5e1' }}>Chartered Engineer &amp; DGFT Advance Authorisation</a></li>
+              <li><a href="/machinery-valuation" style={{ color: '#cbd5e1' }}>Plant &amp; Machinery Valuation (IndAS 16 &amp; DRC)</a></li>
+              <li><a href="/ibc-valuation" style={{ color: '#cbd5e1' }}>IBC 2016 &amp; NCLT Asset Liquidation Valuation</a></li>
+              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>Chartered Electrical Safety Engineer (CESE) &amp; Solar CEIG</a></li>
               <li><a href="/fssai" style={{ color: '#cbd5e1' }}>FSSAI Compliance — Central &amp; State Licensing</a></li>
-              <li><a href="/advisory" style={{ color: '#cbd5e1' }}>Asset Componentization &amp; Advisory Services</a></li>
               <li style={{ paddingTop: '6px', borderTop: '1px dashed rgba(255, 255, 255, 0.1)' }}>
+                <a href="/services" style={{ color: '#fbbf24', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <span>🔩 View All 12 Valuation Services</span>
+                  <span>&rarr;</span>
+                </a>
+              </li>
+              <li style={{ paddingTop: '2px' }}>
                 <a href="/blog" style={{ color: '#38bdf8', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   <span>📚 Regulatory Insights &amp; Blog Articles</span>
+                  <span>&rarr;</span>
+                </a>
+              </li>
+              <li style={{ paddingTop: '2px' }}>
+                <a href="/tools" style={{ color: '#38bdf8', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <span>🛠️ Valuation &amp; Solar Tools</span>
                   <span>&rarr;</span>
                 </a>
               </li>
@@ -131,29 +144,47 @@ export default function Footer({ onOpenQuote }) {
               Statutory Recognition
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem' }}>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#38bdf8" />
-                <span>Chartered Engineer (India) — IEI</span>
+              <li>
+                <a href="/credentials" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldCheck size={16} color="#38bdf8" />
+                  <span>Chartered Engineer (India) — IEI</span>
+                </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#f97316" />
-                <span>Chartered Electrical Safety Engineer (CESE)</span>
+              <li>
+                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldCheck size={16} color="#f97316" />
+                  <span>Chartered Electrical Safety Engineer (CESE)</span>
+                </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#f59e0b" />
-                <span>Certified Energy Manager — BEE</span>
+              <li>
+                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldCheck size={16} color="#f59e0b" />
+                  <span>Certified Energy Manager — BEE</span>
+                </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#10b981" />
-                <span>Competent Person — Factories &amp; Boilers</span>
+              <li>
+                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldCheck size={16} color="#10b981" />
+                  <span>Competent Person — Factories &amp; Boilers</span>
+                </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#38bdf8" />
-                <span>NSCI / NSAT Authorized Safety Auditor</span>
+              <li>
+                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldCheck size={16} color="#38bdf8" />
+                  <span>NSCI / NSAT Authorized Safety Auditor</span>
+                </a>
               </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldCheck size={16} color="#38bdf8" />
-                <span>DGFT, Customs, Banks &amp; IBC/NCLT</span>
+              <li>
+                <a href="/credentials" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <ShieldCheck size={16} color="#38bdf8" />
+                  <span>DGFT, Customs, Banks &amp; IBC/NCLT</span>
+                </a>
+              </li>
+              <li style={{ paddingTop: '6px', borderTop: '1px dashed rgba(255, 255, 255, 0.1)' }}>
+                <a href="/founder" style={{ color: '#fbbf24', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600 }}>
+                  <Award size={16} color="#fbbf24" />
+                  <span>Core Team — IIT Roorkee Leadership &rarr;</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -252,24 +283,46 @@ export default function Footer({ onOpenQuote }) {
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
-          gap: '12px 16px',
+          gap: '8px 14px',
           marginBottom: '20px',
-          fontSize: '0.82rem',
+          fontSize: '0.80rem',
           color: '#64748b'
         }}>
           <a href="/" style={{ color: '#94a3b8', textDecoration: 'none' }}>Home</a>
           <span>&bull;</span>
+          <a href="/services" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 600 }}>12 Services</a>
+          <span>&bull;</span>
+          <a href="/purpose-selector" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 600 }}>Purpose Selector</a>
+          <span>&bull;</span>
+          <a href="/who-we-serve" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 600 }}>Who We Serve</a>
+          <span>&bull;</span>
+          <a href="/process" style={{ color: '#94a3b8', textDecoration: 'none' }}>8-Step Process</a>
+          <span>&bull;</span>
+          <a href="/property-valuation" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Property Valuation Jaipur</a>
+          <span>&bull;</span>
+          <a href="/bank-valuation" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Bank Loan Valuation</a>
+          <span>&bull;</span>
+          <a href="/tax-valuation" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Capital Gains 50C Valuation</a>
+          <span>&bull;</span>
           <a href="/chartered-engineer" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 600 }}>Chartered Engineer in Jaipur</a>
           <span>&bull;</span>
-          <a href="/valuation" style={{ color: '#94a3b8', textDecoration: 'none' }}>Plant &amp; Machinery Valuation</a>
+          <a href="/machinery-valuation" style={{ color: '#94a3b8', textDecoration: 'none' }}>Plant &amp; Machinery Valuation</a>
           <span>&bull;</span>
-          <a href="/safety-energy-audits" style={{ color: '#94a3b8', textDecoration: 'none' }}>CESE Electrical Safety Audits</a>
+          <a href="/safety-energy-audits" style={{ color: '#94a3b8', textDecoration: 'none' }}>CESE Electrical Safety</a>
           <span>&bull;</span>
           <a href="/fssai" style={{ color: '#94a3b8', textDecoration: 'none' }}>FSSAI Compliance</a>
           <span>&bull;</span>
-          <a href="/blog" style={{ color: '#94a3b8', textDecoration: 'none' }}>Regulatory Insights &amp; Blog</a>
+          <a href="/calculator" style={{ color: '#94a3b8', textDecoration: 'none' }}>Valuation Calculator</a>
           <span>&bull;</span>
-          <a href="/faq" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 700 }}>Frequently Asked Questions (FAQ)</a>
+          <a href="/solar-checker" style={{ color: '#94a3b8', textDecoration: 'none' }}>Solar CEIG Checker</a>
+          <span>&bull;</span>
+          <a href="/credentials" style={{ color: '#94a3b8', textDecoration: 'none' }}>Credentials &amp; IEI</a>
+          <span>&bull;</span>
+          <a href="/founder" style={{ color: '#94a3b8', textDecoration: 'none' }}>Core Team (IIT Roorkee)</a>
+          <span>&bull;</span>
+          <a href="/blog" style={{ color: '#94a3b8', textDecoration: 'none' }}>Regulatory Blog</a>
+          <span>&bull;</span>
+          <a href="/faq" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 700 }}>Frequently Asked Questions</a>
           <span>&bull;</span>
           <a href="/contact" style={{ color: '#94a3b8', textDecoration: 'none' }}>Contact Jaipur Office</a>
         </div>

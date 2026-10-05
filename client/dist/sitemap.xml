@@ -24,18 +24,82 @@
     </image:image>
   </url>
 
-  <!-- 2. Services Overview -->
+  <!-- 1.1 Valuation Purpose Selector -->
   <url>
-    <loc>https://www.mscharteredengineer.com/services</loc>
-    <lastmod>2026-09-29</lastmod>
+    <loc>https://www.mscharteredengineer.com/purpose-selector</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
-  <!-- 3. Assets Valuation Services -->
+  <!-- 1.2 Who We Serve Client Hub -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/who-we-serve</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 1.3 8-Step Valuation Process -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/process</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 2. Services Overview (12 Dedicated Verticals) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/services</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 2.1 Property & Land Valuation -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/property-valuation</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 2.2 Bank Loan & Mortgage Valuation -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/bank-valuation</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 2.3 Statutory & Capital Gains Tax Valuation -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/tax-valuation</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 2.4 IBC & NCLT Corporate Valuation -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/ibc-valuation</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 2.5 Plant & Machinery Valuation -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/machinery-valuation</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 3. Assets Valuation Services (Legacy Canonical) -->
   <url>
     <loc>https://www.mscharteredengineer.com/valuation</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -43,9 +107,9 @@
   <!-- 4. Chartered Engineer & DGFT Advance Authorisation -->
   <url>
     <loc>https://www.mscharteredengineer.com/chartered-engineer</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
   <!-- 5. Industrial Safety & BEE Energy Audits -->
@@ -86,6 +150,14 @@
     <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+
+  <!-- 9.1 Interactive Engineering & Valuation Tools Hub -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/tools</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 
   <!-- 10. Statutory Credentials & IEI -->
