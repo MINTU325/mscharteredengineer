@@ -298,305 +298,153 @@ export default function Footer({ onOpenQuote }) {
             alignItems: 'center',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
-            gap: '14px',
-            marginBottom: '20px',
+            gap: '10px',
+            marginBottom: '12px',
             borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-            paddingBottom: '16px'
+            paddingBottom: '10px'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
               <span className="corridor-live-beacon">
                 <span className="beacon-ping"></span>
                 <span className="beacon-dot"></span>
               </span>
-              <div>
-                <h5 style={{
-                  color: '#ffffff',
-                  margin: 0,
-                  fontSize: '0.98rem',
-                  fontWeight: 800,
-                  letterSpacing: '0.04em',
-                  textTransform: 'uppercase',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}>
-                  <span>Pan-India Chartered Engineer Practice Corridors</span>
-                </h5>
-                <p style={{ margin: '3px 0 0 0', fontSize: '0.76rem', color: '#94a3b8' }}>
-                  Statutory Valuation, DGFT EPCG, Customs &amp; Physical Engineering Inspection Across India
-                </p>
-              </div>
+              <span style={{
+                color: '#ffffff',
+                fontSize: '0.86rem',
+                fontWeight: 800,
+                letterSpacing: '0.03em',
+                textTransform: 'uppercase'
+              }}>
+                Pan-India Chartered Engineer Practice Corridors
+              </span>
             </div>
 
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              padding: '6px 14px',
+              gap: '5px',
+              padding: '4px 10px',
               borderRadius: '9999px',
               background: 'rgba(245, 158, 11, 0.1)',
-              border: '1px solid rgba(245, 158, 11, 0.25)',
+              border: '1px solid rgba(245, 158, 11, 0.22)',
               color: '#fbbf24',
-              fontSize: '0.75rem',
+              fontSize: '0.72rem',
               fontWeight: 600
             }}>
-              <Zap size={13} color="#fbbf24" />
-              <span>24–48h Site Inspection Dispatch Across India</span>
+              <Zap size={12} color="#fbbf24" />
+              <span>24–48h Site Inspection Across India</span>
             </div>
           </div>
 
-          {/* Interactive 6-Card Grid */}
+          {/* Compact 6-Card Grid (Main Heading + Locations Only) */}
           <div className="corridor-grid">
             {/* Delhi-NCR */}
-            <a href="/chartered-engineer-delhi" className="corridor-card-link">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <div className="card-icon-box">
-                    <Landmark size={17} />
-                  </div>
-                  <span style={{
-                    fontSize: '0.66rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    padding: '3px 8px',
-                    borderRadius: '9999px',
-                    background: 'rgba(56, 189, 248, 0.12)',
-                    color: '#38bdf8',
-                    border: '1px solid rgba(56, 189, 248, 0.25)'
-                  }}>
-                    DGFT HQ Zone
-                  </span>
+            <a href="/chartered-engineer-delhi" className="corridor-card-link" title="Chartered Engineer Delhi-NCR">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
+                <div className="card-icon-box">
+                  <Landmark size={15} />
                 </div>
-                <h6 style={{ color: '#ffffff', fontSize: '0.92rem', fontWeight: 700, margin: '0 0 4px 0' }}>
-                  Chartered Engineer Delhi-NCR
-                </h6>
-                <p style={{ fontSize: '0.74rem', color: '#94a3b8', margin: '0 0 10px 0', lineHeight: 1.4 }}>
-                  Delhi &bull; Gurugram &bull; Noida &bull; Faridabad &bull; Manesar IMT
-                </p>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Chartered Engineer Delhi-NCR
+                  </div>
+                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Delhi &bull; Gurugram &bull; Noida &bull; Faridabad &bull; Manesar
+                  </div>
+                </div>
               </div>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '8px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)'
-              }}>
-                <span style={{ fontSize: '0.70rem', color: '#38bdf8', fontWeight: 600 }}>
-                  ICD Tughlakabad &bull; DGFT Direct
-                </span>
-                <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-              </div>
+              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
             </a>
 
             {/* Mumbai & Pune */}
-            <a href="/chartered-engineer-mumbai" className="corridor-card-link">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <div className="card-icon-box">
-                    <Factory size={17} />
-                  </div>
-                  <span style={{
-                    fontSize: '0.66rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    padding: '3px 8px',
-                    borderRadius: '9999px',
-                    background: 'rgba(56, 189, 248, 0.12)',
-                    color: '#38bdf8',
-                    border: '1px solid rgba(56, 189, 248, 0.25)'
-                  }}>
-                    JNPT Port Hub
-                  </span>
+            <a href="/chartered-engineer-mumbai" className="corridor-card-link" title="Chartered Engineer Mumbai & Pune">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
+                <div className="card-icon-box">
+                  <Factory size={15} />
                 </div>
-                <h6 style={{ color: '#ffffff', fontSize: '0.92rem', fontWeight: 700, margin: '0 0 4px 0' }}>
-                  Chartered Engineer Mumbai &amp; Pune
-                </h6>
-                <p style={{ fontSize: '0.74rem', color: '#94a3b8', margin: '0 0 10px 0', lineHeight: 1.4 }}>
-                  Mumbai &bull; Pune &bull; JNPT &bull; Chakan &bull; Talegaon MIDC
-                </p>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Chartered Engineer Mumbai &amp; Pune
+                  </div>
+                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Mumbai &bull; Pune &bull; JNPT Port &bull; Chakan MIDC
+                  </div>
+                </div>
               </div>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '8px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)'
-              }}>
-                <span style={{ fontSize: '0.70rem', color: '#38bdf8', fontWeight: 600 }}>
-                  Nhava Sheva Customs &bull; EPCG Valuer
-                </span>
-                <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-              </div>
+              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
             </a>
 
             {/* Gujarat */}
-            <a href="/chartered-engineer-ahmedabad" className="corridor-card-link">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <div className="card-icon-box">
-                    <Building2 size={17} />
-                  </div>
-                  <span style={{
-                    fontSize: '0.66rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    padding: '3px 8px',
-                    borderRadius: '9999px',
-                    background: 'rgba(56, 189, 248, 0.12)',
-                    color: '#38bdf8',
-                    border: '1px solid rgba(56, 189, 248, 0.25)'
-                  }}>
-                    GIDC Manufacturing
-                  </span>
+            <a href="/chartered-engineer-ahmedabad" className="corridor-card-link" title="Chartered Engineer Gujarat">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
+                <div className="card-icon-box">
+                  <Building2 size={15} />
                 </div>
-                <h6 style={{ color: '#ffffff', fontSize: '0.92rem', fontWeight: 700, margin: '0 0 4px 0' }}>
-                  Chartered Engineer Gujarat
-                </h6>
-                <p style={{ fontSize: '0.74rem', color: '#94a3b8', margin: '0 0 10px 0', lineHeight: 1.4 }}>
-                  Ahmedabad &bull; Surat &bull; Vadodara &bull; Mundra &bull; Kandla
-                </p>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Chartered Engineer Gujarat
+                  </div>
+                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Ahmedabad &bull; Surat &bull; Vadodara &bull; Mundra Port
+                  </div>
+                </div>
               </div>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '8px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)'
-              }}>
-                <span style={{ fontSize: '0.70rem', color: '#38bdf8', fontWeight: 600 }}>
-                  Chemical, Textile &bull; Port SEZ Plants
-                </span>
-                <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-              </div>
+              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
             </a>
 
             {/* Jaipur & Rajasthan HQ */}
-            <a href="/chartered-engineer-jaipur" className="corridor-card-link hq-featured-card">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <div className="card-icon-box">
-                    <Award size={17} />
-                  </div>
-                  <span style={{
-                    fontSize: '0.66rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    padding: '3px 8px',
-                    borderRadius: '9999px',
-                    background: 'rgba(245, 158, 11, 0.18)',
-                    color: '#fbbf24',
-                    border: '1px solid rgba(245, 158, 11, 0.4)'
-                  }}>
-                    ⭐ Physical HQ &bull; IIT Roorkee
-                  </span>
+            <a href="/chartered-engineer-jaipur" className="corridor-card-link hq-featured-card" title="Chartered Engineer Jaipur HQ">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
+                <div className="card-icon-box">
+                  <Award size={15} />
                 </div>
-                <h6 style={{ color: '#ffffff', fontSize: '0.92rem', fontWeight: 700, margin: '0 0 4px 0' }}>
-                  Chartered Engineer Jaipur (HQ)
-                </h6>
-                <p style={{ fontSize: '0.74rem', color: '#cbd5e1', margin: '0 0 10px 0', lineHeight: 1.4 }}>
-                  Jaipur Central &bull; Bhiwadi &bull; Neemrana &bull; Kota &bull; RIICO
-                </p>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <span>Chartered Engineer Jaipur</span>
+                    <span style={{ fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', background: 'rgba(245, 158, 11, 0.22)', color: '#fbbf24', fontWeight: 800 }}>HQ</span>
+                  </div>
+                  <div style={{ fontSize: '0.70rem', color: '#cbd5e1', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Jaipur Central &bull; Bhiwadi &bull; Neemrana &bull; Kota
+                  </div>
+                </div>
               </div>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '8px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.15)'
-              }}>
-                <span style={{ fontSize: '0.70rem', color: '#fbbf24', fontWeight: 700 }}>
-                  Central HQ &bull; Solar CEIG Approvals
-                </span>
-                <ArrowRight size={13} color="#fbbf24" className="arrow-icon" />
-              </div>
+              <ArrowRight size={13} color="#fbbf24" className="arrow-icon" />
             </a>
 
             {/* South India Hub */}
-            <a href="/chartered-engineer-bangalore" className="corridor-card-link">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <div className="card-icon-box">
-                    <Cpu size={17} />
-                  </div>
-                  <span style={{
-                    fontSize: '0.66rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    padding: '3px 8px',
-                    borderRadius: '9999px',
-                    background: 'rgba(56, 189, 248, 0.12)',
-                    color: '#38bdf8',
-                    border: '1px solid rgba(56, 189, 248, 0.25)'
-                  }}>
-                    Tech &amp; Hardware SEZ
-                  </span>
+            <a href="/chartered-engineer-bangalore" className="corridor-card-link" title="Chartered Engineer South Hub">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
+                <div className="card-icon-box">
+                  <Cpu size={15} />
                 </div>
-                <h6 style={{ color: '#ffffff', fontSize: '0.92rem', fontWeight: 700, margin: '0 0 4px 0' }}>
-                  Chartered Engineer South Hub
-                </h6>
-                <p style={{ fontSize: '0.74rem', color: '#94a3b8', margin: '0 0 10px 0', lineHeight: 1.4 }}>
-                  Bengaluru &bull; Chennai &bull; Hyderabad &bull; Sriperumbudur
-                </p>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Chartered Engineer South Hub
+                  </div>
+                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Bengaluru &bull; Chennai &bull; Hyderabad &bull; Sriperumbudur
+                  </div>
+                </div>
               </div>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '8px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)'
-              }}>
-                <span style={{ fontSize: '0.70rem', color: '#38bdf8', fontWeight: 600 }}>
-                  Cleanroom, IT Assets &bull; Electronics
-                </span>
-                <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-              </div>
+              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
             </a>
 
             {/* Central India */}
-            <a href="/chartered-engineer-indore" className="corridor-card-link">
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <div className="card-icon-box">
-                    <Zap size={17} />
-                  </div>
-                  <span style={{
-                    fontSize: '0.66rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    padding: '3px 8px',
-                    borderRadius: '9999px',
-                    background: 'rgba(56, 189, 248, 0.12)',
-                    color: '#38bdf8',
-                    border: '1px solid rgba(56, 189, 248, 0.25)'
-                  }}>
-                    Auto &amp; Heavy Industry
-                  </span>
+            <a href="/chartered-engineer-indore" className="corridor-card-link" title="Chartered Engineer Central India">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
+                <div className="card-icon-box">
+                  <Zap size={15} />
                 </div>
-                <h6 style={{ color: '#ffffff', fontSize: '0.92rem', fontWeight: 700, margin: '0 0 4px 0' }}>
-                  Chartered Engineer Central India
-                </h6>
-                <p style={{ fontSize: '0.74rem', color: '#94a3b8', margin: '0 0 10px 0', lineHeight: 1.4 }}>
-                  Indore &bull; Pithampur Auto SEZ &bull; Bhopal &bull; Raipur
-                </p>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Chartered Engineer Central India
+                  </div>
+                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Indore &bull; Pithampur Auto SEZ &bull; Bhopal &bull; Raipur
+                  </div>
+                </div>
               </div>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingTop: '8px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)'
-              }}>
-                <span style={{ fontSize: '0.70rem', color: '#38bdf8', fontWeight: 600 }}>
-                  Automotive Stamping &bull; Heavy Metals
-                </span>
-                <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-              </div>
+              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
             </a>
           </div>
         </div>

@@ -2686,12 +2686,12 @@ body > .skiptranslate:not(#google_translate_element) {
 .pan-india-corridors-hub {
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 14px;
   background: linear-gradient(145deg, #090e1f 0%, #0d172e 100%);
-  border: 1px solid rgba(56, 189, 248, 0.22);
-  box-shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.75), 0 0 25px rgba(56, 189, 248, 0.08);
-  padding: 24px;
-  margin-bottom: 30px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 15px 35px -12px rgba(2, 6, 23, 0.7), 0 0 20px rgba(56, 189, 248, 0.06);
+  padding: 16px 20px;
+  margin-bottom: 24px;
 }
 
 .pan-india-corridors-hub::before {
@@ -2700,7 +2700,7 @@ body > .skiptranslate:not(#google_translate_element) {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 2.5px;
   background: linear-gradient(90deg, #f59e0b, #38bdf8, #10b981, #f59e0b);
   background-size: 300% 100%;
   animation: gradientFlow 6s ease infinite;
@@ -2709,8 +2709,8 @@ body > .skiptranslate:not(#google_translate_element) {
 .corridor-live-beacon {
   position: relative;
   display: inline-flex;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   flex-shrink: 0;
 }
 
@@ -2727,8 +2727,8 @@ body > .skiptranslate:not(#google_translate_element) {
 
 .corridor-live-beacon .beacon-dot {
   position: relative;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: #10b981;
   box-shadow: 0 0 8px #10b981;
@@ -2737,7 +2737,7 @@ body > .skiptranslate:not(#google_translate_element) {
 .corridor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 10px;
 }
 
 @media (max-width: 992px) {
@@ -2755,15 +2755,15 @@ body > .skiptranslate:not(#google_translate_element) {
 .corridor-card-link {
   position: relative;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   text-decoration: none;
   background: rgba(15, 23, 42, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 16px 18px;
+  border-radius: 10px;
+  padding: 9px 13px;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(8px);
 }
 
@@ -2774,15 +2774,15 @@ body > .skiptranslate:not(#google_translate_element) {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .corridor-card-link:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   background: rgba(26, 38, 66, 0.85);
   border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 12px 24px -6px rgba(14, 165, 233, 0.25), 0 0 20px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 8px 18px -4px rgba(14, 165, 233, 0.22);
 }
 
 .corridor-card-link.hq-featured-card {
@@ -2792,33 +2792,36 @@ body > .skiptranslate:not(#google_translate_element) {
 
 .corridor-card-link.hq-featured-card:hover {
   border-color: rgba(245, 158, 11, 0.7);
-  box-shadow: 0 12px 24px -6px rgba(245, 158, 11, 0.3), 0 0 25px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 8px 18px -4px rgba(245, 158, 11, 0.25);
 }
 
 .corridor-card-link .arrow-icon {
-  transition: transform 0.25s ease;
+  transition: transform 0.22s ease;
+  flex-shrink: 0;
+  margin-left: 8px;
 }
 
 .corridor-card-link:hover .arrow-icon {
-  transform: translateX(4px);
+  transform: translateX(3px);
 }
 
 .corridor-card-link .card-icon-box {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.22);
   color: #38bdf8;
-  transition: all 0.25s ease;
+  flex-shrink: 0;
+  transition: all 0.22s ease;
 }
 
 .corridor-card-link:hover .card-icon-box {
   background: rgba(56, 189, 248, 0.22);
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .corridor-card-link.hq-featured-card .card-icon-box {
@@ -2830,3 +2833,4 @@ body > .skiptranslate:not(#google_translate_element) {
 .corridor-card-link.hq-featured-card:hover .card-icon-box {
   background: rgba(245, 158, 11, 0.28);
 }
+
