@@ -1,17 +1,19 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
-import Credentials from './components/Credentials';
-import ServicesTeaser from './components/ServicesTeaser';
-import WhyChooseUs from './components/WhyChooseUs';
-import FounderProfile from './components/FounderProfile';
-import PanIndiaPresence from './components/PanIndiaPresence';
-import Footer from './components/Footer';
-import ValuationPurposeWizard from './components/ValuationPurposeWizard';
-import WhoWeServe from './components/WhoWeServe';
-import OurProcess from './components/OurProcess';
+import LazySection from './components/LazySection';
+// Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
 import { getCityBySlug, PAN_INDIA_CITIES } from './data/cityHubData';
 import { MessageSquare, PhoneCall } from 'lucide-react';
+const Credentials = lazy(() => import('./components/Credentials'));
+const ServicesTeaser = lazy(() => import('./components/ServicesTeaser'));
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
+const FounderProfile = lazy(() => import('./components/FounderProfile'));
+const PanIndiaPresence = lazy(() => import('./components/PanIndiaPresence'));
+const Footer = lazy(() => import('./components/Footer'));
+const ValuationPurposeWizard = lazy(() => import('./components/ValuationPurposeWizard'));
+const WhoWeServe = lazy(() => import('./components/WhoWeServe'));
+const OurProcess = lazy(() => import('./components/OurProcess'));
 
 // Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
@@ -293,20 +295,20 @@ export default function App() {
           <main>
             {/* ── Advanced Hero Slider (full-width, top of page) ── */}
             <HeroSlider onOpenQuote={handleOpenQuote} />
-            <Credentials />
-            <ValuationPurposeWizard onOpenQuote={handleOpenQuote} />
-            <WhoWeServe onOpenQuote={handleOpenQuote} />
-            <ServicesTeaser onOpenQuote={handleOpenQuote} />
-            <OurProcess onOpenQuote={handleOpenQuote} />
-            <WhyChooseUs onOpenQuote={handleOpenQuote} />
-            <FounderProfile onOpenQuote={handleOpenQuote} />
-            <PanIndiaPresence onOpenQuote={handleOpenQuote} />
+            <LazySection minHeight="400px"><Credentials /></LazySection>
+            <LazySection minHeight="500px"><ValuationPurposeWizard onOpenQuote={handleOpenQuote} /></LazySection>
+            <LazySection minHeight="500px"><WhoWeServe onOpenQuote={handleOpenQuote} /></LazySection>
+            <LazySection minHeight="500px"><ServicesTeaser onOpenQuote={handleOpenQuote} /></LazySection>
+            <LazySection minHeight="500px"><OurProcess onOpenQuote={handleOpenQuote} /></LazySection>
+            <LazySection minHeight="500px"><WhyChooseUs onOpenQuote={handleOpenQuote} /></LazySection>
+            <LazySection minHeight="400px"><FounderProfile onOpenQuote={handleOpenQuote} /></LazySection>
+            <LazySection minHeight="400px"><PanIndiaPresence onOpenQuote={handleOpenQuote} /></LazySection>
           </main>
         )}
       </Suspense>
 
       {/* Footer */}
-      <Footer onOpenQuote={handleOpenQuote} />
+      <LazySection minHeight="400px"><Footer onOpenQuote={handleOpenQuote} /></LazySection>
 
       {/* Interactive Quotation / Lead Wizard Modal */}
       {isQuoteOpen && (

@@ -331,7 +331,8 @@ export default function HeroSlider({ onOpenQuote }) {
                   <span
                     className="hs-sidenav-line-fill"
                     style={{
-                      height: `${progress}%`,
+                      transform: `scaleY(${progress / 100})`,
+                      transformOrigin: 'top',
                       background: slideColor.light,
                     }}
                   />
@@ -363,7 +364,8 @@ export default function HeroSlider({ onOpenQuote }) {
         <div
           className="hs-progress-fill"
           style={{
-            width: `${isPaused ? progress : progress}%`,
+            transform: `scaleX(${progress / 100})`,
+            transformOrigin: 'left',
             background: `linear-gradient(90deg, ${color.primary}, ${color.light})`,
             boxShadow: `0 0 12px ${color.glow}`,
           }}
