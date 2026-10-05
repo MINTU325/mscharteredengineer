@@ -4,7 +4,7 @@
   <!-- 1. Homepage -->
   <url>
     <loc>https://www.mscharteredengineer.com/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -101,29 +101,34 @@
     <loc>https://www.mscharteredengineer.com/valuation</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
   </url>
 
-  <!-- 4. Chartered Engineer & DGFT Advance Authorisation -->
+  <!-- 4. Chartered Engineer in India — SEO Pillar Page (Dedicated) -->
   <url>
     <loc>https://www.mscharteredengineer.com/chartered-engineer</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/seo/chartered-engineer-certificate-statutory.jpg</image:loc>
+      <image:title>Chartered Engineer Certificate India - DGFT, Customs &amp; CEIG Approvals</image:title>
+      <image:caption>Government Certified Chartered Engineer in India for DGFT Advance Authorisation, EPCG, Customs Clearance and CEIG Solar Approvals</image:caption>
+    </image:image>
   </url>
 
   <!-- 5. Industrial Safety & BEE Energy Audits -->
   <url>
     <loc>https://www.mscharteredengineer.com/safety-energy-audits</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
 
   <!-- 6. FSSAI Compliance Services -->
   <url>
     <loc>https://www.mscharteredengineer.com/fssai</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -131,15 +136,15 @@
   <!-- 7. Technical Advisory & Componentization -->
   <url>
     <loc>https://www.mscharteredengineer.com/advisory</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- 8. Online Machinery Valuation Calculator -->
   <url>
     <loc>https://www.mscharteredengineer.com/calculator</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -147,7 +152,7 @@
   <!-- 9. Solar CEIG Compliance Checker -->
   <url>
     <loc>https://www.mscharteredengineer.com/solar-checker</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -163,23 +168,23 @@
   <!-- 10. Statutory Credentials & IEI -->
   <url>
     <loc>https://www.mscharteredengineer.com/credentials</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- 11. Core Team & IIT Roorkee Leadership -->
   <url>
     <loc>https://www.mscharteredengineer.com/founder</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- 12. Contact Jaipur Office -->
   <url>
     <loc>https://www.mscharteredengineer.com/contact</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -187,23 +192,23 @@
   <!-- 13. Technical Knowledge Hub & Regulatory Blog -->
   <url>
     <loc>https://www.mscharteredengineer.com/blog</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
 
   <!-- 14. Frequently Asked Questions (FAQ) Help Desk -->
   <url>
     <loc>https://www.mscharteredengineer.com/faq</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
 
   <!-- 15. Article: DGFT Advance Authorisation & EPCG Guide -->
   <url>
     <loc>https://www.mscharteredengineer.com/blog/dgft-advance-authorisation-guide</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -211,7 +216,7 @@
   <!-- 16. Article: Plant & Machinery Valuation Methodology -->
   <url>
     <loc>https://www.mscharteredengineer.com/blog/plant-machinery-valuation-methods-bank-collateral</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -219,7 +224,7 @@
   <!-- 17. Article: CESE Electrical Safety & CEIG Approvals -->
   <url>
     <loc>https://www.mscharteredengineer.com/blog/chartered-electrical-safety-engineer-cese-audits</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -227,7 +232,7 @@
   <!-- 18. Article: Pressure Vessels & Lifting Tackles Testing -->
   <url>
     <loc>https://www.mscharteredengineer.com/blog/factories-act-pressure-vessel-lifting-testing</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -235,7 +240,7 @@
   <!-- 19. Article: Solar Power Plant CEIG Drawing Approval -->
   <url>
     <loc>https://www.mscharteredengineer.com/blog/solar-power-plant-ceig-drawing-approval-checklist</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -253,7 +258,7 @@
     <loc>https://www.mscharteredengineer.com/chartered-engineer-delhi</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
   </url>
 
   <!-- 20.2 Chartered Engineer Mumbai & Pune Corridor (JNPT, Chakan, Talegaon) -->
@@ -261,7 +266,7 @@
     <loc>https://www.mscharteredengineer.com/chartered-engineer-mumbai</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
   </url>
 
   <!-- 20.3 Chartered Engineer Gujarat (Ahmedabad, Surat, Vadodara, Mundra) -->
@@ -269,7 +274,7 @@
     <loc>https://www.mscharteredengineer.com/chartered-engineer-ahmedabad</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
   </url>
 
   <!-- 20.4 Chartered Engineer Jaipur & Rajasthan HQ (Bhiwadi, Neemrana, Kota) -->
@@ -277,7 +282,7 @@
     <loc>https://www.mscharteredengineer.com/chartered-engineer-jaipur</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
   </url>
 
   <!-- 20.5 Chartered Engineer South India Hub (Bengaluru, Chennai, Hyderabad) -->
@@ -285,7 +290,7 @@
     <loc>https://www.mscharteredengineer.com/chartered-engineer-bangalore</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
   </url>
 
   <!-- 20.6 Chartered Engineer Central India Hub (Indore, Pithampur Auto SEZ, Bhopal) -->
@@ -293,7 +298,7 @@
     <loc>https://www.mscharteredengineer.com/chartered-engineer-indore</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
   </url>
 
 </urlset>
