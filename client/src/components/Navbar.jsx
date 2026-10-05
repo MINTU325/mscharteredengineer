@@ -202,7 +202,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
-              {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+              {mobileMenuOpen ? <X size={23} /> : <Menu size={23} />}
             </button>
           </div>
         </div>
