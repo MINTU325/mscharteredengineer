@@ -199,7 +199,10 @@ export default function HeroSlider({ onOpenQuote }) {
           src={s.image}
           alt={`MS Chartered Engineers Service ${i + 1}`}
           loading={i === 0 ? "eager" : "lazy"}
-          fetchpriority={i === 0 ? "high" : "auto"}
+          fetchPriority={i === 0 ? "high" : "auto"}
+          decoding={i === 0 ? "sync" : "async"}
+          width="1920"
+          height="1080"
           className={`hs-bg ${i === current ? 'hs-bg--active' : ''} ${animating && i === current
               ? direction === 'next' ? 'hs-bg--enter-next' : 'hs-bg--enter-prev'
               : ''

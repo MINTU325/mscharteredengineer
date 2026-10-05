@@ -1,21 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { Globe, Languages } from 'lucide-react';
 
+const loadGoogleTranslateScript = (onLoaded) => {
+  if (window.google && window.google.translate) {
+    if (onLoaded) onLoaded();
+    return;
+  }
+
+  window.googleTranslateElementInit = function() {
+    try {
+      new window.google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi',
+        autoDisplay: false
+      }, 'google_translate_element');
+    } catch (e) {
+      console.warn('Translate element init warning', e);
+    }
+    if (onLoaded) setTimeout(onLoaded, 150);
+  };
+
+  if (!document.getElementById('google-translate-script')) {
+    const script = document.createElement('script');
+    script.id = 'google-translate-script';
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.body.appendChild(script);
+  }
+};
+
 export default function LanguageToggle({ isMobile = false, onToggleCallback }) {
   const [currentLang, setCurrentLang] = useState('en');
 
   // Check language state on mount
   useEffect(() => {
-    const checkLang = () => {
-      const cookies = document.cookie;
-      const isHindi = cookies.includes('googtrans=/en/hi') || localStorage.getItem('site_lang') === 'hi';
-      setCurrentLang(isHindi ? 'hi' : 'en');
-    };
+    const cookies = document.cookie;
+    const isHindi = cookies.includes('googtrans=/en/hi') || localStorage.getItem('site_lang') === 'hi';
+    setCurrentLang(isHindi ? 'hi' : 'en');
 
-    checkLang();
-    // Listen for storage changes if multiple tabs
-    window.addEventListener('storage', checkLang);
-    return () => window.removeEventListener('storage', checkLang);
+    // If already in Hindi, load translate script lazily after page is interactive
+    if (isHindi) {
+      const timer = setTimeout(() => {
+        loadGoogleTranslateScript();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const toggleLanguage = () => {
@@ -40,13 +69,6 @@ export default function LanguageToggle({ isMobile = false, onToggleCallback }) {
       }
     }
 
-    // Trigger Google Translate combo dropdown if available
-    const select = document.querySelector('.goog-te-combo');
-    if (select) {
-      select.value = nextLang;
-      select.dispatchEvent(new Event('change'));
-    }
-
     // Instantly suppress any injected banner frame and body top displacement
     const suppressBanner = () => {
       if (document.body) {
@@ -63,12 +85,20 @@ export default function LanguageToggle({ isMobile = false, onToggleCallback }) {
       });
     };
 
-    setTimeout(suppressBanner, 50);
-    setTimeout(suppressBanner, 200);
-    setTimeout(suppressBanner, 500);
-
-    // If switching back to English, reload cleanly to reset DOM and Google iframe hooks
-    if (nextLang === 'en') {
+    // If switching to Hindi, ensure script is loaded and trigger select
+    if (nextLang === 'hi') {
+      loadGoogleTranslateScript(() => {
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+          select.value = 'hi';
+          select.dispatchEvent(new Event('change'));
+        }
+        setTimeout(suppressBanner, 50);
+        setTimeout(suppressBanner, 250);
+        setTimeout(suppressBanner, 600);
+      });
+    } else {
+      // If switching back to English, clear cookies and reload cleanly
       document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${hostname};`;
       setTimeout(() => {

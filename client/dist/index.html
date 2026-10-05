@@ -4,14 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJERZPYXRW"></script>
+    <!-- Google tag (gtag.js) - Deferred to prioritize Core Web Vitals -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-JJERZPYXRW');
+
+      function loadGtag() {
+        if (window.__gtagLoaded) return;
+        window.__gtagLoaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JJERZPYXRW';
+        document.head.appendChild(s);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtag, { timeout: 3000 });
+      } else {
+        window.addEventListener('load', function() {
+          setTimeout(loadGtag, 1500);
+        });
+      }
     </script>
 
     <!-- ═══════════════════════════════════════════════════════ -->
@@ -28,7 +42,7 @@
     <link rel="canonical" href="https://www.mscharteredengineer.com/" />
     <link rel="dns-prefetch" href="//www.mscharteredengineer.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="preload" as="image" href="/slides/slide1.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/slides/slide1.webp" type="image/webp" fetchpriority="high" />
 
     <!-- ═══════════════════════════════════════════════════════ -->
     <!-- GEO / LOCAL SEO (Jaipur, Rajasthan, India)             -->
@@ -76,12 +90,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     </noscript>
 
     <!-- ═══════════════════════════════════════════════════════ -->
@@ -778,14 +792,16 @@
     }
     </script>
 
-    <script type="module" crossorigin src="/assets/index-BY9U6T-h.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/icons-DxYlSGgc.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-BWCODWQB.js">
+    <script type="module" crossorigin src="/assets/index-C4yps5lG.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/icons-Bo0uREvL.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-DK9ksjEu.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Di43jlO1.css">
   </head>
   <body>
-    <div id="root">
-      <!-- Semantic Static Pre-render for Search Engine Crawlers & SEO Bots -->
+    <div id="root"></div>
+
+    <noscript>
+      <!-- Semantic Static Pre-render for Search Engine Crawlers & Non-JS Bots -->
       <header>
         <nav aria-label="Main Navigation">
           <a href="/">Home</a> |
@@ -923,54 +939,9 @@
           <a href="/contact">Contact Us</a>
         </nav>
       </footer>
-    </div>
+    </noscript>
 
-    <!-- ═══════════════════════════════════════════════════════ -->
-    <!-- GOOGLE TRANSLATE ENGINE FOR ONE-CLICK HINDI/ENGLISH     -->
-    <!-- ═══════════════════════════════════════════════════════ -->
     <div id="google_translate_element" style="display:none;position:absolute;top:-9999px;left:-9999px;"></div>
-    <script>
-      function googleTranslateElementInit() {
-        if (window.google && window.google.translate) {
-          new window.google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,hi',
-            autoDisplay: false
-          }, 'google_translate_element');
-        }
-      }
-
-      // Foolproof banner suppression and body top reset
-      (function() {
-        function killBanner() {
-          if (document.body && document.body.style.top && document.body.style.top !== '0px') {
-            document.body.style.setProperty('top', '0px', 'important');
-          }
-          var banners = document.querySelectorAll(
-            'iframe.skiptranslate, .goog-te-banner-frame, [class*="VIpgJd"], iframe[id*=":1.container"], iframe[id*=":2.container"]'
-          );
-          for (var i = 0; i < banners.length; i++) {
-            banners[i].style.setProperty('display', 'none', 'important');
-            banners[i].style.setProperty('visibility', 'hidden', 'important');
-            banners[i].style.setProperty('height', '0px', 'important');
-            banners[i].style.setProperty('opacity', '0', 'important');
-            banners[i].style.setProperty('pointer-events', 'none', 'important');
-          }
-        }
-
-        var observer = new MutationObserver(killBanner);
-        if (document.documentElement) {
-          observer.observe(document.documentElement, {
-            childList: true,
-            subtree: true,
-            attributes: true,
-            attributeFilter: ['style', 'class']
-          });
-        }
-        window.addEventListener('load', killBanner);
-      })();
-    </script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
 
   </body>
 </html>

@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import Credentials from './components/Credentials';
 import ServicesTeaser from './components/ServicesTeaser';
-import ServicesPage from './components/ServicesPage';
 import WhyChooseUs from './components/WhyChooseUs';
 import FounderProfile from './components/FounderProfile';
 import PanIndiaPresence from './components/PanIndiaPresence';
 import Footer from './components/Footer';
-import QuoteWizardModal from './components/QuoteWizardModal';
-import AdminDashboard from './components/AdminDashboard';
-import AdminLoginModal from './components/AdminLoginModal';
-import BlogPage from './components/BlogPage';
-import FAQPage from './components/FAQPage';
 import ValuationPurposeWizard from './components/ValuationPurposeWizard';
 import WhoWeServe from './components/WhoWeServe';
 import OurProcess from './components/OurProcess';
-import ToolsPage from './components/ToolsPage';
-import CityLandingPage from './components/CityLandingPage';
 import { getCityBySlug, PAN_INDIA_CITIES } from './data/cityHubData';
 import { MessageSquare, PhoneCall } from 'lucide-react';
+
+// Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
+const ServicesPage = lazy(() => import('./components/ServicesPage'));
+const ToolsPage = lazy(() => import('./components/ToolsPage'));
+const CityLandingPage = lazy(() => import('./components/CityLandingPage'));
+const BlogPage = lazy(() => import('./components/BlogPage'));
+const FAQPage = lazy(() => import('./components/FAQPage'));
+const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
+const AdminLoginModal = lazy(() => import('./components/AdminLoginModal'));
+const QuoteWizardModal = lazy(() => import('./components/QuoteWizardModal'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
@@ -211,116 +213,126 @@ export default function App() {
       />
 
       {/* Main View: Admin Portal OR Services Page OR Tools Page OR Blog Page OR FAQ Page OR City Landing Page OR Main Home Page */}
-      {isAdminOpen ? (
-        <AdminDashboard 
-          onClose={() => setIsAdminOpen(false)} 
-          onLogout={handleLogout}
-        />
-      ) : isServicesRoute ? (
-        <ServicesPage 
-          onOpenQuote={handleOpenQuote}
-          onNavigateHome={() => {
-            window.history.pushState({}, '', '/');
-            setCurrentRoute('/');
-            document.title = ROUTE_CONFIG['/'].title;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          currentRoute={currentRoute}
-        />
-      ) : isToolsRoute ? (
-        <ToolsPage 
-          onOpenQuote={handleOpenQuote}
-          onNavigateHome={() => {
-            window.history.pushState({}, '', '/');
-            setCurrentRoute('/');
-            document.title = ROUTE_CONFIG['/'].title;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          currentRoute={currentRoute}
-        />
-      ) : isCityRoute ? (
-        <CityLandingPage 
-          cityData={activeCityData}
-          onOpenQuote={handleOpenQuote}
-          onNavigateHome={() => {
-            window.history.pushState({}, '', '/');
-            setCurrentRoute('/');
-            document.title = ROUTE_CONFIG['/'].title;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          onSelectCity={(slug) => {
-            const nextPath = `/${slug}`;
-            window.history.pushState({}, '', nextPath);
-            setCurrentRoute(nextPath);
-            const config = ROUTE_CONFIG[nextPath];
-            if (config) {
-              document.title = config.title;
+      <Suspense fallback={<div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />}>
+        {isAdminOpen ? (
+          <AdminDashboard 
+            onClose={() => setIsAdminOpen(false)} 
+            onLogout={handleLogout}
+          />
+        ) : isServicesRoute ? (
+          <ServicesPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            currentRoute={currentRoute}
+          />
+        ) : isToolsRoute ? (
+          <ToolsPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            currentRoute={currentRoute}
+          />
+        ) : isCityRoute ? (
+          <CityLandingPage 
+            cityData={activeCityData}
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onSelectCity={(slug) => {
+              const nextPath = `/${slug}`;
+              window.history.pushState({}, '', nextPath);
+              setCurrentRoute(nextPath);
+              const config = ROUTE_CONFIG[nextPath];
+              if (config) {
+                document.title = config.title;
+              }
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            }}
+          />
+        ) : currentRoute === '/faq' || currentRoute === '/faqs' ? (
+          <FAQPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : currentRoute === '/blog' || currentRoute === '/insights' || currentRoute.startsWith('/blog/') || currentRoute.startsWith('/insights/') ? (
+          <BlogPage 
+            initialSlug={
+              currentRoute.startsWith('/blog/') 
+                ? currentRoute.replace('/blog/', '') 
+                : currentRoute.startsWith('/insights/') 
+                  ? currentRoute.replace('/insights/', '') 
+                  : null
             }
-            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-          }}
-        />
-      ) : currentRoute === '/faq' || currentRoute === '/faqs' ? (
-        <FAQPage 
-          onOpenQuote={handleOpenQuote}
-          onNavigateHome={() => {
-            window.history.pushState({}, '', '/');
-            setCurrentRoute('/');
-            document.title = ROUTE_CONFIG['/'].title;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        />
-      ) : currentRoute === '/blog' || currentRoute === '/insights' || currentRoute.startsWith('/blog/') || currentRoute.startsWith('/insights/') ? (
-        <BlogPage 
-          initialSlug={
-            currentRoute.startsWith('/blog/') 
-              ? currentRoute.replace('/blog/', '') 
-              : currentRoute.startsWith('/insights/') 
-                ? currentRoute.replace('/insights/', '') 
-                : null
-          }
-          onOpenQuote={handleOpenQuote}
-          onNavigateHome={() => {
-            window.history.pushState({}, '', '/');
-            setCurrentRoute('/');
-            document.title = ROUTE_CONFIG['/'].title;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        />
-      ) : (
-        <main>
-          {/* ── Advanced Hero Slider (full-width, top of page) ── */}
-          <HeroSlider onOpenQuote={handleOpenQuote} />
-          <Credentials />
-          <ValuationPurposeWizard onOpenQuote={handleOpenQuote} />
-          <WhoWeServe onOpenQuote={handleOpenQuote} />
-          <ServicesTeaser onOpenQuote={handleOpenQuote} />
-          <OurProcess onOpenQuote={handleOpenQuote} />
-          <WhyChooseUs onOpenQuote={handleOpenQuote} />
-          <FounderProfile onOpenQuote={handleOpenQuote} />
-          <PanIndiaPresence onOpenQuote={handleOpenQuote} />
-        </main>
-      )}
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : (
+          <main>
+            {/* ── Advanced Hero Slider (full-width, top of page) ── */}
+            <HeroSlider onOpenQuote={handleOpenQuote} />
+            <Credentials />
+            <ValuationPurposeWizard onOpenQuote={handleOpenQuote} />
+            <WhoWeServe onOpenQuote={handleOpenQuote} />
+            <ServicesTeaser onOpenQuote={handleOpenQuote} />
+            <OurProcess onOpenQuote={handleOpenQuote} />
+            <WhyChooseUs onOpenQuote={handleOpenQuote} />
+            <FounderProfile onOpenQuote={handleOpenQuote} />
+            <PanIndiaPresence onOpenQuote={handleOpenQuote} />
+          </main>
+        )}
+      </Suspense>
 
       {/* Footer */}
       <Footer onOpenQuote={handleOpenQuote} />
 
       {/* Interactive Quotation / Lead Wizard Modal */}
-      <QuoteWizardModal 
-        isOpen={isQuoteOpen}
-        onClose={() => {
-          setIsQuoteOpen(false);
-          setQuotePrefill(null);
-        }}
-        initialService={selectedService}
-        prefillData={quotePrefill}
-      />
+      {isQuoteOpen && (
+        <Suspense fallback={null}>
+          <QuoteWizardModal 
+            isOpen={isQuoteOpen}
+            onClose={() => {
+              setIsQuoteOpen(false);
+              setQuotePrefill(null);
+            }}
+            initialService={selectedService}
+            prefillData={quotePrefill}
+          />
+        </Suspense>
+      )}
 
       {/* Admin Login & Security Modal */}
-      <AdminLoginModal
-        isOpen={isLoginModalOpen}
-        onClose={() => setIsLoginModalOpen(false)}
-        onLoginSuccess={handleLoginSuccess}
-      />
+      {isLoginModalOpen && (
+        <Suspense fallback={null}>
+          <AdminLoginModal
+            isOpen={isLoginModalOpen}
+            onClose={() => setIsLoginModalOpen(false)}
+            onLoginSuccess={handleLoginSuccess}
+          />
+        </Suspense>
+      )}
 
       {/* Floating Action Button: WhatsApp Quick Connect */}
       <a 
