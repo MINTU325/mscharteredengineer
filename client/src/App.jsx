@@ -24,6 +24,7 @@ const FAQPage = lazy(() => import('./components/FAQPage'));
 const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 const AdminLoginModal = lazy(() => import('./components/AdminLoginModal'));
 const QuoteWizardModal = lazy(() => import('./components/QuoteWizardModal'));
+const CharteredEngineerPage = lazy(() => import('./components/CharteredEngineerPage'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
@@ -190,7 +191,6 @@ export default function App() {
     currentRoute === '/machinery-valuation' || 
     currentRoute === '/valuation' || 
     currentRoute === '/assets-valuation' || 
-    currentRoute === '/chartered-engineer' || 
     currentRoute === '/safety-energy-audits' || 
     currentRoute === '/fssai' || 
     currentRoute === '/advisory';
@@ -220,6 +220,16 @@ export default function App() {
           <AdminDashboard 
             onClose={() => setIsAdminOpen(false)} 
             onLogout={handleLogout}
+          />
+        ) : currentRoute === '/chartered-engineer' ? (
+          <CharteredEngineerPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
           />
         ) : isServicesRoute ? (
           <ServicesPage 

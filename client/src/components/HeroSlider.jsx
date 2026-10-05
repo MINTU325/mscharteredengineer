@@ -5,12 +5,12 @@ const SLIDES = [
   {
     id: 1,
     image: '/slides/slide1.webp',
-    badge: '🏆 IEI Chartered Engineer (India) | Government Approved Valuers',
-    title: 'Chartered Engineers & Valuers for',
-    titleHighlight: 'Property, Financial & Technical Assessments',
+    badge: '🏆 IEI Corporate Member (MIE) | Government Approved Valuers',
+    title: 'Government Certified',
+    titleHighlight: 'Chartered Engineer in India',
     subtitle:
-      'Government Approved Valuer & Corporate Member IEI led by Mukesh Singh (IIT Roorkee). Bankable property appraisals, plant & machinery valuation, capital gains 50C reports, and statutory DGFT certifications across Jaipur & Pan-India.',
-    tag: 'CHARTERED ENGINEERS & VALUERS | JAIPUR & PAN-INDIA',
+      'Looking for a Chartered Engineer in India? MS Chartered Engineers (IIT Roorkee) provides statutory DGFT certifications, plant & machinery valuation, bank appraisals, and capital gains 50C reports across Jaipur & Pan-India.',
+    tag: 'CHARTERED ENGINEER IN INDIA | VALUERS',
     accent: 'gold',
     cta: 'Request Valuation / Quote',
     ctaService: 'Property & Land Valuation',
