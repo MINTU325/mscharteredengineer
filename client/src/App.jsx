@@ -17,6 +17,8 @@ import ValuationPurposeWizard from './components/ValuationPurposeWizard';
 import WhoWeServe from './components/WhoWeServe';
 import OurProcess from './components/OurProcess';
 import ToolsPage from './components/ToolsPage';
+import CityLandingPage from './components/CityLandingPage';
+import { getCityBySlug, PAN_INDIA_CITIES } from './data/cityHubData';
 import { MessageSquare, PhoneCall } from 'lucide-react';
 
 const ROUTE_CONFIG = {
@@ -47,6 +49,13 @@ const ROUTE_CONFIG = {
   '/insights': { id: 'blog', title: 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers' },
   '/faq': { id: 'faq', title: 'Frequently Asked Questions (FAQ) | Chartered Engineer & Valuers | MS Chartered Engineers' },
   '/faqs': { id: 'faq', title: 'Frequently Asked Questions (FAQ) | Chartered Engineer & Valuers | MS Chartered Engineers' },
+  '/pan-india': { id: 'city-hub', title: 'Chartered Engineer Pan-India Corridors & Industrial Practice Hubs | MS Chartered Engineers' },
+  '/chartered-engineer-delhi': { id: 'city-hub', title: 'Chartered Engineer Delhi NCR, Gurgaon & Noida | DGFT & Customs Valuer' },
+  '/chartered-engineer-mumbai': { id: 'city-hub', title: 'Chartered Engineer Mumbai & Pune | JNPT Customs, EPCG & Plant Valuation' },
+  '/chartered-engineer-ahmedabad': { id: 'city-hub', title: 'Chartered Engineer Ahmedabad, Gujarat & Surat | GIDC Industrial Valuer' },
+  '/chartered-engineer-jaipur': { id: 'city-hub', title: 'Chartered Engineer Jaipur & Rajasthan | IIT Roorkee HQ | RIICO Approved' },
+  '/chartered-engineer-bangalore': { id: 'city-hub', title: 'Chartered Engineer Bangalore, Chennai & Hyderabad | Tech & Industrial SEZ Valuer' },
+  '/chartered-engineer-indore': { id: 'city-hub', title: 'Chartered Engineer Indore, Pithampur & Central India | Industrial Valuer' },
 };
 
 export default function App() {
@@ -68,7 +77,7 @@ export default function App() {
       const config = ROUTE_CONFIG[pathname];
       if (config) {
         document.title = config.title;
-        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools') {
+        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
           const scrollToTarget = () => {
@@ -85,7 +94,7 @@ export default function App() {
             setTimeout(scrollToTarget, 600);
           }
         }
-      } else if (pathname.startsWith('/blog/')) {
+      } else if (pathname.startsWith('/blog/') || pathname.startsWith('/chartered-engineer-')) {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
     };
@@ -101,14 +110,14 @@ export default function App() {
       if (href && href.startsWith('/') && !href.startsWith('//') && !anchor.getAttribute('target')) {
         const cleanPath = href.replace(/\/$/, '') || '/';
         const config = ROUTE_CONFIG[cleanPath];
-        if (config || cleanPath.startsWith('/blog') || cleanPath.startsWith('/insights')) {
+        if (config || cleanPath.startsWith('/blog') || cleanPath.startsWith('/insights') || cleanPath.startsWith('/chartered-engineer-') || cleanPath === '/pan-india') {
           e.preventDefault();
           window.history.pushState({}, '', href);
           setCurrentRoute(cleanPath);
           if (config) {
             document.title = config.title;
           }
-          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools')) {
+          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           } else if (config && config.id) {
             const scrollToTarget = () => {
@@ -188,6 +197,10 @@ export default function App() {
     currentRoute === '/valuation-calculator' ||
     currentRoute === '/solar-checker';
 
+  const isCityRoute = currentRoute.startsWith('/chartered-engineer-') || currentRoute === '/pan-india';
+  const citySlug = currentRoute === '/pan-india' ? 'chartered-engineer-jaipur' : currentRoute.replace(/^\//, '');
+  const activeCityData = getCityBySlug(citySlug);
+
   return (
     <div className="app-container">
       {/* Top Sticky Navbar */}
@@ -197,7 +210,7 @@ export default function App() {
         isAdminOpen={isAdminOpen}
       />
 
-      {/* Main View: Admin Portal OR Services Page OR Tools Page OR Blog Page OR FAQ Page OR Main Home Page */}
+      {/* Main View: Admin Portal OR Services Page OR Tools Page OR Blog Page OR FAQ Page OR City Landing Page OR Main Home Page */}
       {isAdminOpen ? (
         <AdminDashboard 
           onClose={() => setIsAdminOpen(false)} 
@@ -224,6 +237,27 @@ export default function App() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
           currentRoute={currentRoute}
+        />
+      ) : isCityRoute ? (
+        <CityLandingPage 
+          cityData={activeCityData}
+          onOpenQuote={handleOpenQuote}
+          onNavigateHome={() => {
+            window.history.pushState({}, '', '/');
+            setCurrentRoute('/');
+            document.title = ROUTE_CONFIG['/'].title;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          onSelectCity={(slug) => {
+            const nextPath = `/${slug}`;
+            window.history.pushState({}, '', nextPath);
+            setCurrentRoute(nextPath);
+            const config = ROUTE_CONFIG[nextPath];
+            if (config) {
+              document.title = config.title;
+            }
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          }}
         />
       ) : currentRoute === '/faq' || currentRoute === '/faqs' ? (
         <FAQPage 

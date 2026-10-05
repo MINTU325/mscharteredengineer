@@ -276,6 +276,68 @@ export default function Footer({ onOpenQuote }) {
           </div>
         </div>
 
+        {/* Pan-India Chartered Engineer Practice Hubs & Corridors */}
+        <div style={{
+          background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(30, 41, 59, 0.4) 100%)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
+          padding: '20px 24px',
+          marginBottom: '28px'
+        }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '12px',
+            marginBottom: '16px',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.07)',
+            paddingBottom: '12px'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <MapPin size={18} color="#fbbf24" />
+              <h5 style={{ color: '#ffffff', margin: 0, fontSize: '0.95rem', fontWeight: 700, letterSpacing: '0.03em', textTransform: 'uppercase' }}>
+                Pan-India Chartered Engineer Practice Corridors
+              </h5>
+            </div>
+            <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
+              On-Site Valuation, DGFT EPCG, Customs &amp; Statutory Approvals Across India
+            </span>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: '14px',
+            fontSize: '0.82rem'
+          }}>
+            <a href="/chartered-engineer-delhi" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+              <strong style={{ color: '#38bdf8' }}>Chartered Engineer Delhi-NCR</strong>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Delhi &bull; Gurugram &bull; Noida &bull; Faridabad</span>
+            </a>
+            <a href="/chartered-engineer-mumbai" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+              <strong style={{ color: '#38bdf8' }}>Chartered Engineer Mumbai &amp; Pune</strong>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Mumbai &bull; Pune &bull; JNPT &bull; Chakan MIDC</span>
+            </a>
+            <a href="/chartered-engineer-ahmedabad" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+              <strong style={{ color: '#38bdf8' }}>Chartered Engineer Gujarat</strong>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Ahmedabad &bull; Surat &bull; Vadodara &bull; GIDC</span>
+            </a>
+            <a href="/chartered-engineer-jaipur" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+              <strong style={{ color: '#fbbf24' }}>Chartered Engineer Jaipur (HQ)</strong>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Jaipur Central &bull; Bhiwadi &bull; Neemrana &bull; RIICO</span>
+            </a>
+            <a href="/chartered-engineer-bangalore" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+              <strong style={{ color: '#38bdf8' }}>Chartered Engineer South Hub</strong>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Bengaluru &bull; Chennai &bull; Hyderabad &bull; SEZs</span>
+            </a>
+            <a href="/chartered-engineer-indore" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '3px' }}>
+              <strong style={{ color: '#38bdf8' }}>Chartered Engineer Central India</strong>
+              <span style={{ fontSize: '0.74rem', color: '#94a3b8' }}>Indore &bull; Pithampur &bull; Bhopal &bull; Raipur</span>
+            </a>
+          </div>
+        </div>
+
         <hr style={{ borderColor: 'rgba(255, 255, 255, 0.08)', marginBottom: '20px' }} />
 
         {/* Quick Internal SEO Navigation */}
@@ -305,6 +367,16 @@ export default function Footer({ onOpenQuote }) {
           <a href="/tax-valuation" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Capital Gains 50C Valuation</a>
           <span>&bull;</span>
           <a href="/chartered-engineer" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 600 }}>Chartered Engineer in Jaipur</a>
+          <span>&bull;</span>
+          <a href="/chartered-engineer-delhi" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Delhi-NCR Hub</a>
+          <span>&bull;</span>
+          <a href="/chartered-engineer-mumbai" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Mumbai-Pune Hub</a>
+          <span>&bull;</span>
+          <a href="/chartered-engineer-ahmedabad" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Gujarat Hub</a>
+          <span>&bull;</span>
+          <a href="/chartered-engineer-bangalore" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Bengaluru South Hub</a>
+          <span>&bull;</span>
+          <a href="/chartered-engineer-indore" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Indore Hub</a>
           <span>&bull;</span>
           <a href="/machinery-valuation" style={{ color: '#94a3b8', textDecoration: 'none' }}>Plant &amp; Machinery Valuation</a>
           <span>&bull;</span>

@@ -240,4 +240,60 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- 20. Pan-India Industrial Corridors & City Practice Hubs -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/pan-india</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 20.1 Chartered Engineer Delhi NCR (Delhi, Gurgaon, Noida, Faridabad) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/chartered-engineer-delhi</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 20.2 Chartered Engineer Mumbai & Pune Corridor (JNPT, Chakan, Talegaon) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/chartered-engineer-mumbai</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 20.3 Chartered Engineer Gujarat (Ahmedabad, Surat, Vadodara, Mundra) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/chartered-engineer-ahmedabad</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 20.4 Chartered Engineer Jaipur & Rajasthan HQ (Bhiwadi, Neemrana, Kota) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/chartered-engineer-jaipur</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 20.5 Chartered Engineer South India Hub (Bengaluru, Chennai, Hyderabad) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/chartered-engineer-bangalore</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 20.6 Chartered Engineer Central India Hub (Indore, Pithampur Auto SEZ, Bhopal) -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/chartered-engineer-indore</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
 </urlset>
