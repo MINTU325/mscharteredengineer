@@ -12,7 +12,8 @@ import {
   Factory, 
   Cpu, 
   Zap, 
-  ArrowRight 
+  ArrowRight,
+  ExternalLink
 } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 
@@ -21,267 +22,255 @@ export default function Footer({ onOpenQuote }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const linkStyle = {
+    color: '#94a3b8',
+    textDecoration: 'none',
+    fontSize: '0.84rem',
+    lineHeight: 1.5,
+    transition: 'color 0.2s ease',
+    display: 'block',
+    padding: '2px 0',
+  };
+
+  const hoverLink = (e, enter) => {
+    e.currentTarget.style.color = enter ? '#e2e8f0' : '#94a3b8';
+  };
+
   return (
     <footer style={{
       background: '#040914',
-      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-      paddingTop: '64px',
-      paddingBottom: '32px',
+      borderTop: '1px solid rgba(255, 255, 255, 0.07)',
+      paddingTop: '56px',
+      paddingBottom: '28px',
       color: '#94a3b8',
       fontSize: '0.9rem'
     }}>
       <div className="container">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-          gap: '32px',
-          marginBottom: '50px'
-        }}>
-          {/* Col 1: Brand & Tagline */}
+
+        {/* ─── Main 4-Column Grid ─── */}
+        <div
+          className="footer-main-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '220px 1fr 1fr 230px',
+            gap: '40px',
+            marginBottom: '44px',
+            alignItems: 'start'
+          }}
+        >
+
+          {/* ── Col 1: Brand ── */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <div className="gear-icon-wrapper" style={{ background: 'transparent', border: 'none', width: '40px', height: '40px' }}>
-                <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="blueGearFoot" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#38bdf8" />
-                      <stop offset="100%" stopColor="#1e40af" />
-                    </linearGradient>
-                  </defs>
-                  <g className="spin-ring" style={{ transformOrigin: '50px 50px' }}>
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="url(#blueGearFoot)" strokeWidth="7" strokeDasharray="14 9" strokeLinecap="round" />
-                    <circle cx="50" cy="50" r="35" fill="none" stroke="url(#blueGearFoot)" strokeWidth="3" opacity="0.9" />
-                  </g>
-                  <circle cx="50" cy="50" r="26" fill="#040914" stroke="#ffffff" strokeWidth="3" />
-                  <circle cx="50" cy="50" r="20" fill="none" stroke="#38bdf8" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
-                  <text x="50" y="60.5" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="28" fill="#ffffff" textAnchor="middle" letterSpacing="1">MS</text>
-                </svg>
-              </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+              <svg width="36" height="36" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="blueGearFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#38bdf8" />
+                    <stop offset="100%" stopColor="#1e40af" />
+                  </linearGradient>
+                </defs>
+                <g className="spin-ring" style={{ transformOrigin: '50px 50px' }}>
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="url(#blueGearFoot)" strokeWidth="7" strokeDasharray="14 9" strokeLinecap="round" />
+                  <circle cx="50" cy="50" r="35" fill="none" stroke="url(#blueGearFoot)" strokeWidth="3" opacity="0.9" />
+                </g>
+                <circle cx="50" cy="50" r="26" fill="#040914" stroke="#ffffff" strokeWidth="3" />
+                <text x="50" y="60.5" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="28" fill="#ffffff" textAnchor="middle" letterSpacing="1">MS</text>
+              </svg>
               <div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff' }}>
+                <div style={{ fontSize: '1rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.2 }}>
                   MS CHARTERED <span style={{ color: '#38bdf8' }}>ENGINEERS</span>
                 </div>
-                <div style={{ fontSize: '0.7rem', color: 'var(--accent-gold)', fontWeight: 600, textTransform: 'uppercase' }}>
+                <div style={{ fontSize: '0.65rem', color: 'var(--accent-gold)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   Valuers & Technical Consultancy
                 </div>
               </div>
             </div>
 
-            <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '16px' }}>
-              &ldquo;Engineering Valuation Consultancy for a Stronger Tomorrow.&rdquo; From assessment to growth: delivering certified Chartered Engineer excellence.
+            <p style={{ color: '#64748b', fontSize: '0.82rem', lineHeight: 1.6, marginBottom: '14px' }}>
+              Certified Chartered Engineer &amp; Registered Valuer practice led by Er. Mukesh Singh (IIT Roorkee, MIE).
             </p>
 
             <div style={{
-              display: 'inline-flex',
+              display: 'flex',
               alignItems: 'center',
-              gap: '8px',
-              padding: '6px 12px',
-              background: 'rgba(245, 158, 11, 0.1)',
-              border: '1px solid rgba(245, 158, 11, 0.25)',
-              borderRadius: 'var(--radius-sm)',
+              gap: '7px',
+              padding: '5px 10px',
+              background: 'rgba(245, 158, 11, 0.08)',
+              border: '1px solid rgba(245, 158, 11, 0.2)',
+              borderRadius: '6px',
               color: '#fbbf24',
-              fontSize: '0.78rem'
+              fontSize: '0.75rem',
+              marginBottom: '10px'
             }}>
-              <Award size={14} />
-              <span>CEng (India) MIE — Institution of Engineers (India)</span>
+              <Award size={13} />
+              <span>CEng (India) MIE — IEI</span>
             </div>
 
-            <div style={{ marginTop: '14px' }}>
-              <a
-                href="/blog"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '7px 14px',
-                  background: 'rgba(245, 158, 11, 0.12)',
-                  border: '1px solid rgba(245, 158, 11, 0.35)',
-                  borderRadius: 'var(--radius-sm)',
-                  color: '#fbbf24',
-                  fontSize: '0.8rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease'
-                }}
-                aria-label="Knowledge Hub and Engineering Blog"
-              >
-                <BookOpen size={15} color="#fbbf24" />
-                <span>Technical Knowledge Hub &amp; Blog</span>
+            <a
+              href="/blog"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '6px 12px',
+                background: 'rgba(245, 158, 11, 0.1)',
+                border: '1px solid rgba(245, 158, 11, 0.25)',
+                borderRadius: '6px',
+                color: '#fbbf24',
+                fontSize: '0.78rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+              }}
+              aria-label="Knowledge Hub and Engineering Blog"
+            >
+              <BookOpen size={13} />
+              <span>Knowledge Hub &amp; Blog</span>
+            </a>
+          </div>
+
+          {/* ── Col 2: Practice Areas (2-column sub-grid) ── */}
+          <div>
+            <h4 style={{ fontSize: '0.75rem', color: '#ffffff', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
+              Our Practice Areas
+            </h4>
+            <div className="footer-services-subgrid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+              {[
+                { href: '/property-valuation', label: 'Property & Land Valuation' },
+                { href: '/bank-valuation', label: 'Bank & Mortgage Valuation' },
+                { href: '/tax-valuation', label: 'Capital Gains Tax (50C)' },
+                { href: '/chartered-engineer', label: 'Chartered Engineer & DGFT' },
+                { href: '/machinery-valuation', label: 'Plant & Machinery Valuation' },
+                { href: '/ibc-valuation', label: 'IBC 2016 & NCLT Valuation' },
+                { href: '/safety-energy-audits', label: 'CESE & Energy Audits' },
+                { href: '/fssai', label: 'FSSAI Compliance' },
+                { href: '/advisory', label: 'IndAS 16 Advisory' },
+                { href: '/calculator', label: 'Valuation Calculator' },
+                { href: '/solar-checker', label: 'Solar CEIG Checker' },
+                { href: '/tools', label: 'All Tools' },
+              ].map(({ href, label }) => (
+                <a
+                  key={href}
+                  href={href}
+                  style={linkStyle}
+                  onMouseEnter={(e) => hoverLink(e, true)}
+                  onMouseLeave={(e) => hoverLink(e, false)}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+            <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px dashed rgba(255,255,255,0.07)', display: 'flex', gap: '16px' }}>
+              <a href="/services" style={{ color: '#fbbf24', fontSize: '0.80rem', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                All 12 Services <ArrowRight size={12} />
+              </a>
+              <a href="/faq" style={{ color: '#38bdf8', fontSize: '0.80rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                FAQ <ArrowRight size={12} />
               </a>
             </div>
           </div>
 
-          {/* Col 2: Services Quick Links */}
+          {/* ── Col 3: Credentials + Quick Links ── */}
           <div>
-            <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Our Practice Areas
-            </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.84rem' }}>
-              <li><a href="/property-valuation" style={{ color: '#cbd5e1' }}>Property &amp; Land Valuation (Jaipur &amp; Rajasthan)</a></li>
-              <li><a href="/bank-valuation" style={{ color: '#cbd5e1' }}>Bank Loan &amp; Mortgage Valuation (FMV / FSV)</a></li>
-              <li><a href="/tax-valuation" style={{ color: '#cbd5e1' }}>Capital Gains Tax Valuation (Sec 50C &amp; 2001 FMV)</a></li>
-              <li><a href="/chartered-engineer" style={{ color: '#cbd5e1' }}>Chartered Engineer &amp; DGFT Advance Authorisation</a></li>
-              <li><a href="/machinery-valuation" style={{ color: '#cbd5e1' }}>Plant &amp; Machinery Valuation (IndAS 16 &amp; DRC)</a></li>
-              <li><a href="/ibc-valuation" style={{ color: '#cbd5e1' }}>IBC 2016 &amp; NCLT Asset Liquidation Valuation</a></li>
-              <li><a href="/safety-energy-audits" style={{ color: '#cbd5e1' }}>Chartered Electrical Safety Engineer (CESE) &amp; Solar CEIG</a></li>
-              <li><a href="/fssai" style={{ color: '#cbd5e1' }}>FSSAI Compliance — Central &amp; State Licensing</a></li>
-              <li style={{ paddingTop: '6px', borderTop: '1px dashed rgba(255, 255, 255, 0.1)' }}>
-                <a href="/services" style={{ color: '#fbbf24', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <span>🔩 View All 12 Valuation Services</span>
-                  <span>&rarr;</span>
-                </a>
-              </li>
-              <li style={{ paddingTop: '2px' }}>
-                <a href="/blog" style={{ color: '#38bdf8', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <span>📚 Regulatory Insights &amp; Blog Articles</span>
-                  <span>&rarr;</span>
-                </a>
-              </li>
-              <li style={{ paddingTop: '2px' }}>
-                <a href="/tools" style={{ color: '#38bdf8', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <span>🛠️ Valuation &amp; Solar Tools</span>
-                  <span>&rarr;</span>
-                </a>
-              </li>
-              <li style={{ paddingTop: '2px' }}>
-                <a href="/faq" style={{ color: '#fbbf24', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                  <span>❓ Frequently Asked Questions (FAQ)</span>
-                  <span>&rarr;</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Statutory Credentials */}
-          <div>
-            <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <h4 style={{ fontSize: '0.75rem', color: '#ffffff', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
               Statutory Recognition
             </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.86rem' }}>
-              <li>
-                <a href="/credentials" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#38bdf8" />
-                  <span>Chartered Engineer (India) — IEI</span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '18px' }}>
+              {[
+                { label: 'Chartered Engineer (India) — IEI', color: '#38bdf8', href: '/credentials' },
+                { label: 'Chartered Electrical Safety Engineer (CESE)', color: '#f97316', href: '/safety-energy-audits' },
+                { label: 'Certified Energy Manager — BEE', color: '#f59e0b', href: '/safety-energy-audits' },
+                { label: 'Competent Person — Factories & Boilers', color: '#10b981', href: '/safety-energy-audits' },
+                { label: 'NSCI / NSAT Safety Auditor', color: '#38bdf8', href: '/safety-energy-audits' },
+                { label: 'DGFT, Customs, Banks & IBC/NCLT', color: '#38bdf8', href: '/credentials' },
+              ].map(({ label, color, href }) => (
+                <a key={label} href={href} style={{ ...linkStyle, display: 'flex', alignItems: 'flex-start', gap: '7px' }}
+                  onMouseEnter={(e) => hoverLink(e, true)}
+                  onMouseLeave={(e) => hoverLink(e, false)}
+                >
+                  <ShieldCheck size={14} color={color} style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <span>{label}</span>
                 </a>
-              </li>
-              <li>
-                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#f97316" />
-                  <span>Chartered Electrical Safety Engineer (CESE)</span>
-                </a>
-              </li>
-              <li>
-                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#f59e0b" />
-                  <span>Certified Energy Manager — BEE</span>
-                </a>
-              </li>
-              <li>
-                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#10b981" />
-                  <span>Competent Person — Factories &amp; Boilers</span>
-                </a>
-              </li>
-              <li>
-                <a href="/safety-energy-audits" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#38bdf8" />
-                  <span>NSCI / NSAT Authorized Safety Auditor</span>
-                </a>
-              </li>
-              <li>
-                <a href="/credentials" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <ShieldCheck size={16} color="#38bdf8" />
-                  <span>DGFT, Customs, Banks &amp; IBC/NCLT</span>
-                </a>
-              </li>
-              <li style={{ paddingTop: '6px', borderTop: '1px dashed rgba(255, 255, 255, 0.1)' }}>
-                <a href="/founder" style={{ color: '#fbbf24', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600 }}>
-                  <Award size={16} color="#fbbf24" />
-                  <span>Core Team — IIT Roorkee Leadership &rarr;</span>
-                </a>
-              </li>
-            </ul>
+              ))}
+            </div>
+            <a href="/founder" style={{ color: '#fbbf24', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.80rem', fontWeight: 600, paddingTop: '6px', borderTop: '1px dashed rgba(255,255,255,0.07)', width: '100%' }}>
+              <Award size={14} color="#fbbf24" />
+              Core Team — IIT Roorkee Leadership →
+            </a>
           </div>
 
-          {/* Col 4: Official Contact & Address */}
+          {/* ── Col 4: Contact ── */}
           <div>
-            <h4 style={{ fontSize: '1rem', color: '#ffffff', marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            <h4 style={{ fontSize: '0.75rem', color: '#ffffff', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700 }}>
               Jaipur Headquarters
             </h4>
-            
+
             <address
               itemScope
               itemType="https://schema.org/LocalBusiness"
-              style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.88rem' }}
+              style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '11px', fontSize: '0.84rem' }}
             >
               <meta itemProp="name" content="MS Chartered Engineers (IIT Roorkee)" />
-              <meta itemProp="description" content="MS Chartered Engineers (IIT Roorkee). Expert in Plant & Asset Valuation, Jaipur, Rajasthan - 302019" />
               <meta itemProp="url" content="https://www.mscharteredengineer.com/" />
-              
+
               <div>
-                <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.96rem' }}>
-                  MS Chartered Engineers <span style={{ color: '#f59e0b', fontSize: '0.84rem', fontWeight: 600 }}>(IIT Roorkee)</span>
+                <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.88rem' }}>
+                  MS Chartered Engineers
+                  <span style={{ color: '#f59e0b', fontSize: '0.78rem', fontWeight: 600, marginLeft: '5px' }}>(IIT Roorkee)</span>
                 </div>
-                <div style={{ color: '#94a3b8', fontSize: '0.80rem', marginTop: '2px', fontWeight: 500 }}>
-                  Expert in Plant &amp; Asset Valuation
-                </div>
+                <div style={{ color: '#64748b', fontSize: '0.75rem', marginTop: '2px' }}>Expert in Plant & Asset Valuation</div>
               </div>
 
-              <div
-                itemProp="address"
-                itemScope
-                itemType="https://schema.org/PostalAddress"
-                style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}
-              >
-                <MapPin size={18} color="#f59e0b" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span>
+              <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                <MapPin size={15} color="#f59e0b" style={{ flexShrink: 0, marginTop: '2px' }} />
+                <div>
                   <a
                     href="https://maps.app.goo.gl/3ZJmQFkrpLZEU3Ao6"
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="View MS Chartered Engineers on Google Maps"
-                    style={{ color: '#cbd5e1', textDecoration: 'none', transition: 'color 0.2s' }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = '#38bdf8')}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = '#cbd5e1')}
+                    style={{ color: '#94a3b8', textDecoration: 'none', fontSize: '0.82rem', lineHeight: 1.5 }}
                   >
                     <span itemProp="addressLocality">Jaipur</span>,{' '}
                     <span itemProp="addressRegion">Rajasthan</span> -{' '}
                     <span itemProp="postalCode">302019</span>,{' '}
                     <span itemProp="addressCountry">India</span>
-                    <span style={{ display: 'block', fontSize: '0.75rem', color: '#f59e0b', marginTop: '3px' }}>
-                      📍 View on Google Maps &rarr;
+                    <span style={{ display: 'block', fontSize: '0.72rem', color: '#f59e0b', marginTop: '2px' }}>
+                      📍 View on Google Maps →
                     </span>
                   </a>
-                </span>
+                </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Phone size={18} color="#10b981" style={{ flexShrink: 0 }} />
-                <a href="tel:+919158658885" itemProp="telephone" style={{ color: '#ffffff', fontWeight: 600 }}>+91 91586 58885</a>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Mail size={18} color="#38bdf8" style={{ flexShrink: 0 }} />
-                <a href="mailto:ms.charteredengineer@gmail.com" itemProp="email" style={{ color: '#cbd5e1' }}>ms.charteredengineer@gmail.com</a>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <LinkedinIcon size={18} color="#0077b5" style={{ flexShrink: 0 }} />
-                <a 
-                  href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  itemProp="sameAs" 
-                  style={{ color: '#38bdf8', fontWeight: 600, fontSize: '0.84rem' }}
-                >
-                  Official LinkedIn Page &rarr;
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Phone size={15} color="#10b981" style={{ flexShrink: 0 }} />
+                <a href="tel:+919158658885" itemProp="telephone" style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}>
+                  +91 91586 58885
                 </a>
               </div>
 
-              <button 
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Mail size={15} color="#38bdf8" style={{ flexShrink: 0 }} />
+                <a href="mailto:ms.charteredengineer@gmail.com" itemProp="email" style={{ color: '#94a3b8', fontSize: '0.80rem', textDecoration: 'none', wordBreak: 'break-all' }}>
+                  ms.charteredengineer@gmail.com
+                </a>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <LinkedinIcon size={15} color="#0077b5" style={{ flexShrink: 0 }} />
+                <a
+                  href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  itemProp="sameAs"
+                  style={{ color: '#38bdf8', fontWeight: 600, fontSize: '0.80rem', textDecoration: 'none' }}
+                >
+                  Official LinkedIn Page →
+                </a>
+              </div>
+
+              <button
                 onClick={() => onOpenQuote()}
                 className="btn btn-gold"
-                style={{ padding: '8px 16px', fontSize: '0.82rem', marginTop: '6px' }}
+                style={{ padding: '9px 16px', fontSize: '0.82rem', marginTop: '4px', width: '100%' }}
                 aria-label="Book a Chartered Engineer Visit"
               >
                 Book Chartered Engineer Visit
@@ -290,9 +279,8 @@ export default function Footer({ onOpenQuote }) {
           </div>
         </div>
 
-        {/* Pan-India Chartered Engineer Practice Hubs & Corridors - Advanced Animated Design */}
+        {/* ─── Pan-India Corridors Hub ─── */}
         <div className="pan-india-corridors-hub">
-          {/* Top Header Bar */}
           <div style={{
             display: 'flex',
             alignItems: 'center',
@@ -300,7 +288,7 @@ export default function Footer({ onOpenQuote }) {
             flexWrap: 'wrap',
             gap: '10px',
             marginBottom: '12px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.07)',
             paddingBottom: '10px'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
@@ -308,244 +296,122 @@ export default function Footer({ onOpenQuote }) {
                 <span className="beacon-ping"></span>
                 <span className="beacon-dot"></span>
               </span>
-              <span style={{
-                color: '#ffffff',
-                fontSize: '0.86rem',
-                fontWeight: 800,
-                letterSpacing: '0.03em',
-                textTransform: 'uppercase'
-              }}>
+              <span style={{ color: '#ffffff', fontSize: '0.82rem', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
                 Pan-India Chartered Engineer Practice Corridors
               </span>
             </div>
-
             <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '5px',
-              padding: '4px 10px',
-              borderRadius: '9999px',
-              background: 'rgba(245, 158, 11, 0.1)',
-              border: '1px solid rgba(245, 158, 11, 0.22)',
-              color: '#fbbf24',
-              fontSize: '0.72rem',
-              fontWeight: 600
+              display: 'inline-flex', alignItems: 'center', gap: '5px',
+              padding: '3px 10px', borderRadius: '9999px',
+              background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)',
+              color: '#fbbf24', fontSize: '0.70rem', fontWeight: 600
             }}>
-              <Zap size={12} color="#fbbf24" />
+              <Zap size={11} color="#fbbf24" />
               <span>24–48h Site Inspection Across India</span>
             </div>
           </div>
 
-          {/* Compact 6-Card Grid (Main Heading + Locations Only) */}
           <div className="corridor-grid">
-            {/* Delhi-NCR */}
-            <a href="/chartered-engineer-delhi" className="corridor-card-link" title="Chartered Engineer Delhi-NCR">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
-                <div className="card-icon-box">
-                  <Landmark size={15} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Chartered Engineer Delhi-NCR
-                  </div>
-                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Delhi &bull; Gurugram &bull; Noida &bull; Faridabad &bull; Manesar
-                  </div>
-                </div>
-              </div>
-              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-            </a>
-
-            {/* Mumbai & Pune */}
-            <a href="/chartered-engineer-mumbai" className="corridor-card-link" title="Chartered Engineer Mumbai & Pune">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
-                <div className="card-icon-box">
-                  <Factory size={15} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Chartered Engineer Mumbai &amp; Pune
-                  </div>
-                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Mumbai &bull; Pune &bull; JNPT Port &bull; Chakan MIDC
+            {[
+              { href: '/chartered-engineer-delhi', title: 'Chartered Engineer Delhi-NCR', locations: 'Delhi · Gurugram · Noida · Faridabad', icon: <Landmark size={14} />, hq: false },
+              { href: '/chartered-engineer-mumbai', title: 'Chartered Engineer Mumbai & Pune', locations: 'Mumbai · Pune · JNPT · Chakan MIDC', icon: <Factory size={14} />, hq: false },
+              { href: '/chartered-engineer-ahmedabad', title: 'Chartered Engineer Gujarat', locations: 'Ahmedabad · Surat · Vadodara · Mundra', icon: <Building2 size={14} />, hq: false },
+              { href: '/chartered-engineer-jaipur', title: 'Chartered Engineer Jaipur', locations: 'Jaipur · Bhiwadi · Neemrana · Kota', icon: <Award size={14} />, hq: true },
+              { href: '/chartered-engineer-bangalore', title: 'Chartered Engineer South Hub', locations: 'Bengaluru · Chennai · Hyderabad', icon: <Cpu size={14} />, hq: false },
+              { href: '/chartered-engineer-indore', title: 'Chartered Engineer Central India', locations: 'Indore · Pithampur · Bhopal · Raipur', icon: <Zap size={14} />, hq: false },
+            ].map(({ href, title, locations, icon, hq }) => (
+              <a key={href} href={href} className={`corridor-card-link${hq ? ' hq-featured-card' : ''}`} title={title}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0, flex: 1 }}>
+                  <div className="card-icon-box">{icon}</div>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{ color: '#ffffff', fontSize: '0.82rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      {title}
+                      {hq && <span style={{ fontSize: '0.58rem', padding: '1px 5px', borderRadius: '4px', background: 'rgba(245,158,11,0.2)', color: '#fbbf24', fontWeight: 800 }}>HQ</span>}
+                    </div>
+                    <div style={{ fontSize: '0.68rem', color: '#64748b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {locations}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-            </a>
-
-            {/* Gujarat */}
-            <a href="/chartered-engineer-ahmedabad" className="corridor-card-link" title="Chartered Engineer Gujarat">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
-                <div className="card-icon-box">
-                  <Building2 size={15} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Chartered Engineer Gujarat
-                  </div>
-                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Ahmedabad &bull; Surat &bull; Vadodara &bull; Mundra Port
-                  </div>
-                </div>
-              </div>
-              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-            </a>
-
-            {/* Jaipur & Rajasthan HQ */}
-            <a href="/chartered-engineer-jaipur" className="corridor-card-link hq-featured-card" title="Chartered Engineer Jaipur HQ">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
-                <div className="card-icon-box">
-                  <Award size={15} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <span>Chartered Engineer Jaipur</span>
-                    <span style={{ fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', background: 'rgba(245, 158, 11, 0.22)', color: '#fbbf24', fontWeight: 800 }}>HQ</span>
-                  </div>
-                  <div style={{ fontSize: '0.70rem', color: '#cbd5e1', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Jaipur Central &bull; Bhiwadi &bull; Neemrana &bull; Kota
-                  </div>
-                </div>
-              </div>
-              <ArrowRight size={13} color="#fbbf24" className="arrow-icon" />
-            </a>
-
-            {/* South India Hub */}
-            <a href="/chartered-engineer-bangalore" className="corridor-card-link" title="Chartered Engineer South Hub">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
-                <div className="card-icon-box">
-                  <Cpu size={15} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Chartered Engineer South Hub
-                  </div>
-                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Bengaluru &bull; Chennai &bull; Hyderabad &bull; Sriperumbudur
-                  </div>
-                </div>
-              </div>
-              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-            </a>
-
-            {/* Central India */}
-            <a href="/chartered-engineer-indore" className="corridor-card-link" title="Chartered Engineer Central India">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '9px', minWidth: 0, flex: 1 }}>
-                <div className="card-icon-box">
-                  <Zap size={15} />
-                </div>
-                <div style={{ minWidth: 0 }}>
-                  <div style={{ color: '#ffffff', fontSize: '0.84rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Chartered Engineer Central India
-                  </div>
-                  <div style={{ fontSize: '0.70rem', color: '#94a3b8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    Indore &bull; Pithampur Auto SEZ &bull; Bhopal &bull; Raipur
-                  </div>
-                </div>
-              </div>
-              <ArrowRight size={13} color="#38bdf8" className="arrow-icon" />
-            </a>
+                <ArrowRight size={12} color={hq ? '#fbbf24' : '#38bdf8'} className="arrow-icon" />
+              </a>
+            ))}
           </div>
         </div>
 
-        <hr style={{ borderColor: 'rgba(255, 255, 255, 0.08)', marginBottom: '20px' }} />
+        <hr style={{ borderColor: 'rgba(255, 255, 255, 0.07)', margin: '20px 0' }} />
 
-        {/* Quick Internal SEO Navigation */}
+        {/* ─── SEO Footer Nav ─── */}
         <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          gap: '8px 14px',
-          marginBottom: '20px',
-          fontSize: '0.80rem',
-          color: '#64748b'
+          display: 'flex', flexWrap: 'wrap', alignItems: 'center',
+          gap: '6px 12px', marginBottom: '18px', fontSize: '0.75rem', color: '#475569'
         }}>
-          <a href="/" style={{ color: '#94a3b8', textDecoration: 'none' }}>Home</a>
-          <span>&bull;</span>
-          <a href="/services" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 600 }}>12 Services</a>
-          <span>&bull;</span>
-          <a href="/purpose-selector" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 600 }}>Purpose Selector</a>
-          <span>&bull;</span>
-          <a href="/who-we-serve" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 600 }}>Who We Serve</a>
-          <span>&bull;</span>
-          <a href="/process" style={{ color: '#94a3b8', textDecoration: 'none' }}>8-Step Process</a>
-          <span>&bull;</span>
-          <a href="/property-valuation" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Property Valuation Jaipur</a>
-          <span>&bull;</span>
-          <a href="/bank-valuation" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Bank Loan Valuation</a>
-          <span>&bull;</span>
-          <a href="/tax-valuation" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Capital Gains 50C Valuation</a>
-          <span>&bull;</span>
-          <a href="/chartered-engineer" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 600 }}>Chartered Engineer in Jaipur</a>
-          <span>&bull;</span>
-          <a href="/chartered-engineer-delhi" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Delhi-NCR Hub</a>
-          <span>&bull;</span>
-          <a href="/chartered-engineer-mumbai" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Mumbai-Pune Hub</a>
-          <span>&bull;</span>
-          <a href="/chartered-engineer-ahmedabad" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Gujarat Hub</a>
-          <span>&bull;</span>
-          <a href="/chartered-engineer-bangalore" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Bengaluru South Hub</a>
-          <span>&bull;</span>
-          <a href="/chartered-engineer-indore" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Indore Hub</a>
-          <span>&bull;</span>
-          <a href="/machinery-valuation" style={{ color: '#94a3b8', textDecoration: 'none' }}>Plant &amp; Machinery Valuation</a>
-          <span>&bull;</span>
-          <a href="/safety-energy-audits" style={{ color: '#94a3b8', textDecoration: 'none' }}>CESE Electrical Safety</a>
-          <span>&bull;</span>
-          <a href="/fssai" style={{ color: '#94a3b8', textDecoration: 'none' }}>FSSAI Compliance</a>
-          <span>&bull;</span>
-          <a href="/calculator" style={{ color: '#94a3b8', textDecoration: 'none' }}>Valuation Calculator</a>
-          <span>&bull;</span>
-          <a href="/solar-checker" style={{ color: '#94a3b8', textDecoration: 'none' }}>Solar CEIG Checker</a>
-          <span>&bull;</span>
-          <a href="/credentials" style={{ color: '#94a3b8', textDecoration: 'none' }}>Credentials &amp; IEI</a>
-          <span>&bull;</span>
-          <a href="/founder" style={{ color: '#94a3b8', textDecoration: 'none' }}>Core Team (IIT Roorkee)</a>
-          <span>&bull;</span>
-          <a href="/blog" style={{ color: '#94a3b8', textDecoration: 'none' }}>Regulatory Blog</a>
-          <span>&bull;</span>
-          <a href="/faq" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 700 }}>Frequently Asked Questions</a>
-          <span>&bull;</span>
-          <a href="/contact" style={{ color: '#94a3b8', textDecoration: 'none' }}>Contact Jaipur Office</a>
+          {[
+            { href: '/', label: 'Home' },
+            { href: '/services', label: '12 Services', highlight: 'gold' },
+            { href: '/purpose-selector', label: 'Purpose Selector', highlight: 'gold' },
+            { href: '/who-we-serve', label: 'Who We Serve', highlight: 'blue' },
+            { href: '/process', label: '8-Step Process' },
+            { href: '/property-valuation', label: 'Property Valuation' },
+            { href: '/bank-valuation', label: 'Bank Valuation' },
+            { href: '/tax-valuation', label: 'Capital Gains 50C' },
+            { href: '/chartered-engineer', label: 'Chartered Engineer', highlight: 'blue' },
+            { href: '/chartered-engineer-delhi', label: 'Delhi-NCR' },
+            { href: '/chartered-engineer-mumbai', label: 'Mumbai-Pune' },
+            { href: '/chartered-engineer-ahmedabad', label: 'Gujarat' },
+            { href: '/chartered-engineer-bangalore', label: 'Bengaluru' },
+            { href: '/chartered-engineer-indore', label: 'Indore' },
+            { href: '/machinery-valuation', label: 'Machinery Valuation' },
+            { href: '/safety-energy-audits', label: 'CESE Safety' },
+            { href: '/fssai', label: 'FSSAI' },
+            { href: '/calculator', label: 'Calculator' },
+            { href: '/solar-checker', label: 'CEIG Checker' },
+            { href: '/credentials', label: 'Credentials' },
+            { href: '/founder', label: 'Core Team' },
+            { href: '/blog', label: 'Blog' },
+            { href: '/faq', label: 'FAQ', highlight: 'gold' },
+            { href: '/contact', label: 'Contact' },
+          ].map(({ href, label, highlight }, i, arr) => (
+            <React.Fragment key={href}>
+              <a href={href} style={{
+                color: highlight === 'gold' ? '#fbbf24' : highlight === 'blue' ? '#38bdf8' : '#475569',
+                textDecoration: 'none',
+                fontWeight: highlight ? 600 : 400,
+              }}>
+                {label}
+              </a>
+              {i < arr.length - 1 && <span style={{ color: '#1e293b' }}>·</span>}
+            </React.Fragment>
+          ))}
         </div>
 
-        {/* Disclaimer & Bottom Line */}
+        {/* ─── Bottom Bar ─── */}
         <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '16px',
-          fontSize: '0.8rem',
-          color: '#64748b'
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          flexWrap: 'wrap', gap: '12px', fontSize: '0.76rem', color: '#334155'
         }}>
           <div>
-            &copy; {new Date().getFullYear()} <strong>MS Chartered Engineers, Valuers & Technical Consultancy Services</strong>. All Rights Reserved.
+            © {new Date().getFullYear()} <strong style={{ color: '#475569' }}>MS Chartered Engineers, Valuers & Technical Consultancy</strong>. All Rights Reserved.
           </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <span>Pan India Practice &bull; Decades of Professional Excellence</span>
-            <button 
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span>Pan-India Practice · 15+ Years Excellence</span>
+            <button
               onClick={scrollToTop}
               style={{
-                background: 'rgba(255, 255, 255, 0.06)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.1)',
                 borderRadius: '50%',
-                width: '34px',
-                height: '34px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                cursor: 'pointer'
+                width: '32px', height: '32px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                color: '#ffffff', cursor: 'pointer'
               }}
               title="Back to top"
             >
-              <ArrowUp size={16} />
+              <ArrowUp size={15} />
             </button>
           </div>
         </div>
+
       </div>
     </footer>
   );

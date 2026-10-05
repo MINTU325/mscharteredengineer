@@ -2838,3 +2838,18 @@ body > .skiptranslate:not(#google_translate_element) {
   background: rgba(245, 158, 11, 0.28);
 }
 
+/* ── Footer Main Grid Responsive ── */
+@media (max-width: 1100px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .footer-services-subgrid {
+    grid-template-columns: 1fr !important;
+  }
+}
