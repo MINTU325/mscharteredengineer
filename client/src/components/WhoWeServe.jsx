@@ -80,6 +80,7 @@ export const CLIENT_PERSONAS = [
       'Stage-wise Construction Progress Reports for Bank Drawdowns',
       'Cost-to-Complete Audit for Consortium Financiers',
       'JDA & Local Authority Completion Report Documentation',
+      'AutoCAD 2D Electrical Layouts, SLDs & Panel Drawings',
       'Technical Due Diligence & Pre-Acquisition Site Verification'
     ],
     highlightQuote: 'Strict adherence to CPWD item rates and sanctioned architectural blueprints for transparent progress audits.'
@@ -97,7 +98,8 @@ export const CLIENT_PERSONAS = [
       'Customs Second-Hand Machinery Import Appraisal & Residual Life',
       'Complete Plant & Machinery Valuation for Bank Hypothecation',
       'MoFPI & MSME Capital Investment Subsidy Certifications',
-      'Chartered Electrical Safety (CESE) & BEE Energy Audits'
+      'Chartered Electrical Safety (CESE) & BEE Energy Audits',
+      'AutoCAD 2D SLD & Substation Equipment Layouts'
     ],
     highlightQuote: 'Official Corporate Members of Institution of Engineers (India) [CEng MIE] authorized across Central Ministries.'
   },

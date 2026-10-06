@@ -24,6 +24,7 @@ import {
   Clock,
   FileText,
   FileSpreadsheet,
+  Compass,
 } from 'lucide-react';
 
 const servicesData = [
@@ -313,10 +314,42 @@ const servicesData = [
     highlight:
       'Complete statutory coverage under Section 31(1) & 31(2) of the Food Safety and Standards Act 2006.',
   },
+  {
+    id: '13',
+    code: 'autocad-electrical-drafting',
+    title: 'AutoCAD 2D Electrical Drafting Services',
+    category: 'Industrial, Safety & Energy',
+    icon: Compass,
+    badgeColor: '#0284c7',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'Consultants, Contractors, DISCOMs & Industrial Plants',
+    description:
+      'Professional preparation, drafting, and modification of AutoCAD 2D electrical engineering drawings, single line diagrams (SLD), panel schematics, and equipment layouts compliant with Indian Standards (IS), National Electrical Code (NEC), and local DISCOM norms.',
+    deliverables: [
+      'Electrical Layout Drawings (Residential, Commercial & Industrial Facilities)',
+      'Single Line Diagrams (SLD) for HT/LT Electrical Substation & Power Distribution',
+      'LT/HT Panel Drawings (General Arrangement, Schematic, Wiring & Busbar Sizing)',
+      'Cable Routing, Conduit Layout & Comprehensive Cable Schedule Preparation',
+      'Lighting & Power Layout Design with Lux Calculation & Fixture Schedules',
+      'Electrical Equipment Layout (Transformers, DG Sets, VFD Panels, HT Breakers & UPS)',
+      'PDF/JPG to AutoCAD (DWG) Accurate Vector Conversion & Legacy Redrafting',
+      'Existing Drawing Modification, As-Built Revision Control & Mark-up Incorporation',
+      'BOQ-related Drawing Support, Bill of Materials (BOM) & Equipment Sizing Schedules',
+    ],
+    documents: [
+      'Architectural Floor Plans / Layout Blueprints (DWG / PDF / Image)',
+      'Load List / Connected Power Schedule & Voltage Levels',
+      'Equipment Technical Specifications & Single Line Sketches',
+      'Existing Drawings for Modification / As-Built Redrafting',
+    ],
+    highlight:
+      'Drafted strictly as per Indian Electricity Rules, CEA regulations, IS/IEC drafting standards, and tender BOQ specifications.',
+  },
 ];
 
 // Quick search suggestion chips
 const QUICK_SUGGESTIONS = [
+  { label: 'AutoCAD Drafting', query: 'AutoCAD', icon: '📐' },
   { label: 'Property Valuation', query: 'Property', icon: '🏢' },
   { label: 'Bank Loan (FMV/FSV)', query: 'Bank', icon: '🏛️' },
   { label: 'Capital Gains (2001 FMV)', query: 'Capital Gains', icon: '⚖️' },
@@ -449,7 +482,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                 className="services-search-input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 12 services (e.g. Property, Bank Loan, Capital Gains 50C, DGFT, Machinery)..."
+                placeholder="Search 13 services (e.g. AutoCAD Drafting, Property, Bank Loan, Capital Gains 50C, DGFT, Machinery)..."
                 style={{
                   width: '100%',
                   background: 'transparent',
@@ -662,6 +695,12 @@ export default function ServicesGrid({ onOpenQuote }) {
                   </>
                 )}
                 {service.code === 'fssai-compliance-services' && <span id="fssai" style={{ position: 'absolute', top: '-85px' }} />}
+                {service.code === 'autocad-electrical-drafting' && (
+                  <>
+                    <span id="autocad-drafting" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="autocad-electrical-drafting" style={{ position: 'absolute', top: '-85px' }} />
+                  </>
+                )}
 
                 <div>
                   {/* Card Header: Icon + Number */}

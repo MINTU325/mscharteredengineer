@@ -96,6 +96,20 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
         "National Safety Council of India (NSCI / NSAT) Audit",
         "Thermography & Earth Pit Resistance Audit"
       ]
+    },
+    {
+      name: "AutoCAD 2D Electrical Drafting",
+      sub: [
+        "Electrical Layout Drawings (Residential / Commercial / Industrial)",
+        "Single Line Diagrams (SLD) for HT/LT Power Distribution",
+        "LT/HT Panel Drawings (GA, Schematics & Wiring)",
+        "Cable Routing & Cable Schedule Preparation",
+        "Lighting & Power Layout Design",
+        "Electrical Equipment Layout (Transformers & DG Sets)",
+        "PDF/JPG to AutoCAD (DWG) Conversion",
+        "Existing Drawing Modification & As-Built Revisions",
+        "BOQ-related Drawing Support & BOM Extraction"
+      ]
     }
   ];
 

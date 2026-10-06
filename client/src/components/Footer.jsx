@@ -143,6 +143,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/ibc-valuation', label: 'IBC 2016 & NCLT Valuation' },
                 { href: '/safety-energy-audits', label: 'CESE & Energy Audits' },
                 { href: '/fssai', label: 'FSSAI Compliance' },
+                { href: '/autocad-drafting', label: 'AutoCAD 2D Drafting' },
                 { href: '/advisory', label: 'IndAS 16 Advisory' },
                 { href: '/calculator', label: 'Valuation Calculator' },
                 { href: '/solar-checker', label: 'Solar CEIG Checker' },
@@ -161,7 +162,7 @@ export default function Footer({ onOpenQuote }) {
             </div>
             <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px dashed rgba(255,255,255,0.07)', display: 'flex', gap: '16px' }}>
               <a href="/services" style={{ color: '#fbbf24', fontSize: '0.80rem', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                All 12 Services <ArrowRight size={12} />
+                All 13 Services <ArrowRight size={12} />
               </a>
               <a href="/faq" style={{ color: '#38bdf8', fontSize: '0.80rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                 FAQ <ArrowRight size={12} />
@@ -348,7 +349,7 @@ export default function Footer({ onOpenQuote }) {
         }}>
           {[
             { href: '/', label: 'Home' },
-            { href: '/services', label: '12 Services', highlight: 'gold' },
+            { href: '/services', label: '13 Services', highlight: 'gold' },
             { href: '/purpose-selector', label: 'Purpose Selector', highlight: 'gold' },
             { href: '/who-we-serve', label: 'Who We Serve', highlight: 'blue' },
             { href: '/process', label: '8-Step Process' },
@@ -363,6 +364,7 @@ export default function Footer({ onOpenQuote }) {
             { href: '/chartered-engineer-indore', label: 'Indore' },
             { href: '/machinery-valuation', label: 'Machinery Valuation' },
             { href: '/safety-energy-audits', label: 'CESE Safety' },
+            { href: '/autocad-drafting', label: 'AutoCAD Drafting', highlight: 'blue' },
             { href: '/fssai', label: 'FSSAI' },
             { href: '/calculator', label: 'Calculator' },
             { href: '/solar-checker', label: 'CEIG Checker' },

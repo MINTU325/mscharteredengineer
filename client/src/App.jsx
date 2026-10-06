@@ -44,6 +44,8 @@ const ROUTE_CONFIG = {
   '/safety-energy-audits': { id: 'safety-energy-audits', title: 'Industrial Safety & BEE Energy Audits | MS Chartered Engineers' },
   '/fssai': { id: 'fssai', title: 'FSSAI Compliance Services | MS Chartered Engineers' },
   '/advisory': { id: 'advisory', title: 'Technical Advisory & IndAS 16 | MS Chartered Engineers' },
+  '/autocad-drafting': { id: 'autocad-electrical-drafting', title: 'AutoCAD 2D Electrical Drafting Services | SLD & Panel Drawings | MS Chartered Engineers' },
+  '/autocad-electrical-drafting': { id: 'autocad-electrical-drafting', title: 'AutoCAD 2D Electrical Drafting Services | SLD & Panel Drawings | MS Chartered Engineers' },
   '/calculator': { id: 'calculator', title: 'Plant & Machinery Valuation Calculator | MS Chartered Engineers' },
   '/valuation-calculator': { id: 'calculator', title: 'Plant & Machinery Valuation Calculator | MS Chartered Engineers' },
   '/solar-checker': { id: 'solar-checker', title: 'Solar CEIG Compliance Checker | MS Chartered Engineers' },
@@ -193,7 +195,9 @@ export default function App() {
     currentRoute === '/assets-valuation' || 
     currentRoute === '/safety-energy-audits' || 
     currentRoute === '/fssai' || 
-    currentRoute === '/advisory';
+    currentRoute === '/advisory' ||
+    currentRoute === '/autocad-drafting' ||
+    currentRoute === '/autocad-electrical-drafting';
 
   const isToolsRoute =
     currentRoute === '/tools' ||

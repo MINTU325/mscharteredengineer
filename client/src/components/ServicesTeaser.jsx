@@ -198,10 +198,10 @@ export default function ServicesTeaser({ onOpenQuote }) {
         }}>
           <div style={{ textAlign: 'left', maxWidth: '620px' }}>
             <h4 style={{ fontSize: '1.2rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
-              Explore All 12 Statutory &amp; Valuation Practice Areas
+              Explore All 13 Statutory &amp; Engineering Practice Areas
             </h4>
             <p style={{ fontSize: '0.88rem', color: '#cbd5e1', margin: 0 }}>
-              Including Plant &amp; Machinery, IBC/NCLT, Industrial Safety &amp; Boilers, CEIG Solar Approvals, and FSSAI Compliance.
+              Including AutoCAD 2D Electrical Drafting, Plant &amp; Machinery, IBC/NCLT, Industrial Safety &amp; Boilers, CEIG Solar Approvals, and FSSAI Compliance.
             </p>
           </div>
 
@@ -219,7 +219,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
                 textDecoration: 'none'
               }}
             >
-              <span>View All 12 Services &rarr;</span>
+              <span>View All 13 Services &rarr;</span>
             </a>
             <button
               onClick={() => onOpenQuote('General Inquiry')}

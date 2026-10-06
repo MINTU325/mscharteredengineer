@@ -24,7 +24,9 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
         '/chartered-engineer': 'chartered-engineer-certification',
         '/safety-energy-audits': 'safety-energy-audits',
         '/fssai': 'fssai-compliance-services',
-        '/advisory': 'plant-machinery-valuation'
+        '/advisory': 'plant-machinery-valuation',
+        '/autocad-drafting': 'autocad-electrical-drafting',
+        '/autocad-electrical-drafting': 'autocad-electrical-drafting'
       };
 
       const targetId = serviceIdMap[currentRoute];
@@ -152,7 +154,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
               marginBottom: '16px'
             }}>
               <Sparkles size={14} />
-              <span>12 COMPREHENSIVE STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
+              <span>13 COMPREHENSIVE STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
             </div>
 
             <h1 style={{
@@ -300,7 +302,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
           </div>
         </div>
 
-        {/* ── Main Services Grid (All 12 Practice Areas) ── */}
+        {/* ── Main Services Grid (All 13 Practice Areas) ── */}
         <ServicesGrid onOpenQuote={onOpenQuote} />
 
         {/* ── Bottom Purpose Helper Banner ── */}
