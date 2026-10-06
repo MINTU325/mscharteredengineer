@@ -12,6 +12,29 @@ export const PAN_INDIA_CITIES = [
     seoTitle: 'Chartered Engineer in Delhi NCR | DGFT, Plant Valuation & CE Certificate (IIT Roorkee)',
     seoMeta: 'Government Approved Chartered Engineer & Registered Valuer in Delhi-NCR led by Er. Mukesh Singh (IIT Roorkee). DGFT Advance Authorisation, Customs Clearance, NCLT Asset Valuation & Bank Appraisals across Delhi, Gurugram, Noida & Faridabad.',
     heroDescription: 'Serving corporate enterprises, export houses, and multinational manufacturing units across Delhi-NCR. We provide institutional Chartered Engineer certifications acceptable across DGFT Udyog Bhawan, CBIC Customs ICDs (Patparganj, Tughlakabad, Dadri), NCLT Principal Bench, and Scheduled Commercial Bank Zonal Offices.',
+    heroImage: '/corridors/delhi_ncr_hero.jpg',
+    heroImageAlt: 'Chartered Engineer Delhi-NCR Gurugram Cyber City & Industrial Practice Corridor',
+    heroImageCaption: 'Gurugram Cyber City & Delhi-NCR Industrial Expressway',
+    gallery: [
+      {
+        image: '/corridors/machinery_cnc_center.jpg',
+        category: 'HEAVY MACHINING',
+        title: 'CNC Machining Centers & Precision Tooling',
+        description: 'Physical inspection, balance useful life calculation, and Depreciated Replacement Cost (DRC) across IMT Manesar, Gurugram & Faridabad.'
+      },
+      {
+        image: '/corridors/auto_welding_robots.jpg',
+        category: 'AUTOMOTIVE SECTOR',
+        title: 'Automated Robotic Welding & Assembly',
+        description: 'Physical verification & technical asset valuation for Tier-1 automotive component manufacturers across the Delhi-Jaipur Highway belt.'
+      },
+      {
+        image: '/blog/valuation-machinery.webp',
+        category: 'ICD CUSTOMS & DGFT',
+        title: 'Second-Hand Capital Machinery Appraisal',
+        description: 'Statutory valuation and residual life certification for imported capital goods cleared via ICD Tughlakabad and ICD Patparganj.'
+      }
+    ],
     industrialClusters: [
       'IMT Manesar & Udyog Vihar (Gurugram Auto & Engineering Belt)',
       'Noida & Greater Noida Industrial Development Authority (Phases I–III)',
@@ -66,6 +89,29 @@ export const PAN_INDIA_CITIES = [
     seoTitle: 'Chartered Engineer in Mumbai & Pune | Customs JNPT & Machinery Valuation (IIT Roorkee)',
     seoMeta: 'Certified Chartered Engineer & Registered Valuer for Mumbai MMR & Pune. JNPT Port Customs second-hand machinery appraisals, MIDC Chakan auto plant valuation, NCLT Mumbai asset valuation & bankable reports by Er. Mukesh Singh (IIT Roorkee).',
     heroDescription: 'Providing high-precision engineering assessments and statutory valuation across Maharashtra’s premier industrial corridors. Expert clearance support for machinery imports at JNPT (Nhava Sheva) Port and Mumbai Port Trust, coupled with plant appraisals across MIDC Chakan, Talegaon, and Thane-Belapur.',
+    heroImage: '/corridors/mumbai_pune_hero.jpg',
+    heroImageAlt: 'Chartered Engineer Mumbai & Pune MMR Industrial Corridor',
+    heroImageCaption: 'Mumbai Coastal Skyline & Bandra-Worli Marine Corridor',
+    gallery: [
+      {
+        image: '/corridors/mumbai_jnpt_port.jpg',
+        category: 'PORT CUSTOMS & EXPORTS',
+        title: 'JNPT Port Used Machinery Import Certification',
+        description: 'Mandatory technical verification, balance useful life computation, and residual value attestation for imported capital equipment entering via Nhava Sheva.'
+      },
+      {
+        image: '/corridors/auto_welding_robots.jpg',
+        category: 'AUTOMOTIVE MIDC',
+        title: 'Robotic Welding & Stamping Plant Valuation',
+        description: 'Depreciated Replacement Cost (DRC) and physical verification across MIDC Chakan, Talegaon, and Bhosari automotive manufacturing clusters.'
+      },
+      {
+        image: '/corridors/chemical_refinery_plant.jpg',
+        category: 'HEAVY PROCESS PLANTS',
+        title: 'Chemical & Petrochemical Process Units',
+        description: 'Detailed asset component breakdown and remaining useful life determination for listed corporate balance sheets across Thane-Belapur & Taloja.'
+      }
+    ],
     industrialClusters: [
       'JNPT Nhava Sheva Port & Dronagiri Logistics Belt',
       'MIDC Chakan, Talegaon & Bhosari (Pune Automotive Hub)',
@@ -120,6 +166,29 @@ export const PAN_INDIA_CITIES = [
     seoTitle: 'Chartered Engineer in Ahmedabad & Gujarat | Port Customs & Plant Valuation (IIT Roorkee)',
     seoMeta: 'Chartered Engineer & Government Approved Valuer for Gujarat: Ahmedabad, Surat, Vadodara, Mundra & Kandla ports. Plant & machinery valuation, textile & chemical plant audits, DGFT EPCG certificates by Er. Mukesh Singh (B.Tech IIT Roorkee).',
     heroDescription: 'Supporting Gujarat’s vibrant industrial manufacturing, processing, and port trade ecosystem. We provide certified Chartered Engineer inspection for imported machinery arriving at Mundra and Kandla Ports, along with balance sheet and bank collateral appraisals across GIDC industrial estates.',
+    heroImage: '/corridors/gujarat_hero.jpg',
+    heroImageAlt: 'Chartered Engineer Gujarat Ahmedabad Mundra Port Maritime Corridor',
+    heroImageCaption: 'Deendayal Port Kandla & Mundra Maritime Logistics Corridor',
+    gallery: [
+      {
+        image: '/corridors/chemical_refinery_plant.jpg',
+        category: 'CHEMICAL & PHARMA',
+        title: 'Continuous Chemical & Process Plants',
+        description: 'Technical valuation of specialized reactors, distillation columns, and environmental compliance systems in GIDC Ankleshwar, Panoli & Vapi.'
+      },
+      {
+        image: '/corridors/machinery_cnc_center.jpg',
+        category: 'HEAVY ENGINEERING',
+        title: 'Precision Machining & Tooling Units',
+        description: 'Fair Market Value (FMV) and Bank Consortium collateral appraisals across Makarpura, Savli, and Sanand engineering estates.'
+      },
+      {
+        image: '/corridors/mumbai_jnpt_port.jpg',
+        category: 'PORT CUSTOMS',
+        title: 'Mundra & Kandla Port Customs Clearance',
+        description: 'Chartered Engineer appraisal of imported machinery, second-hand plant modules, and production lines for assessment of customs valuation.'
+      }
+    ],
     industrialClusters: [
       'Sanand & Changodar Industrial Belts (Ahmedabad)',
       'GIDC Ankleshwar, Vapi & Panoli (Chemical & Pharmaceutical Hub)',
@@ -174,6 +243,29 @@ export const PAN_INDIA_CITIES = [
     seoTitle: 'Chartered Engineer in Jaipur | Statutory Valuer Er. Mukesh Singh (IIT Roorkee)',
     seoMeta: 'Best Chartered Engineer in Jaipur & Rajasthan. Er. Mukesh Singh (B.Tech IIT Roorkee, IEI Corporate Member). Fast-track Plant Valuation, CEIG Solar Approvals, Capital Gains 50C, DGFT Certificates & Bank Loan Reports. Call +91 91586 58885.',
     heroDescription: 'Our flagship physical practice headquarters located in Jaipur, Rajasthan (302019). We conduct in-person statutory asset valuations, CPWD-standard property appraisals, CEIG electrical safety inspections, and RIICO leasehold asset certifications across Jaipur, Bhiwadi, Neemrana, Kota, and Jodhpur.',
+    heroImage: '/corridors/jaipur_hq_hero.jpg',
+    heroImageAlt: 'Chartered Engineer Jaipur HQ Rajasthan Practice Corridors',
+    heroImageCaption: 'Jaipur Central Physical Headquarters (PIN: 302019)',
+    gallery: [
+      {
+        image: '/corridors/solar_pv_plant.jpg',
+        category: 'SOLAR & CEIG ELECTRICAL',
+        title: 'CEIG Solar Approvals & HT Substation Safety',
+        description: 'Mandatory statutory drawing approval, HT/LT electrical installation clearance, and inspection of captive solar rooftop & ground-mounted solar plants.'
+      },
+      {
+        image: '/corridors/hydraulic_forging_press.jpg',
+        category: 'MINING & STONE PROCESSING',
+        title: 'Marble Gang Saws & Mineral Crushers',
+        description: 'Comprehensive appraisal of gang saws, block cutters, polishing lines, crushing plants, and heavy earthmoving machinery across Sitapura & Udaipur.'
+      },
+      {
+        image: '/seo/chartered-engineer-jaipur.jpg',
+        category: 'CENTRAL PHYSICAL HQ',
+        title: 'RIICO Plot & Capital Gains 50C Appraisals',
+        description: 'Asset valuation of RIICO leasehold land, factory sheds, and CBDT registered valuer reports for 2001 Fair Market Value indexation.'
+      }
+    ],
     industrialClusters: [
       'Sitapura Industrial Area & Jaipur Apparel Park SEZ',
       'Vishwakarma Industrial Area (VKI Jaipur) & Mansarovar',
@@ -228,6 +320,29 @@ export const PAN_INDIA_CITIES = [
     seoTitle: 'Chartered Engineer in Bengaluru & South India | High-Tech Valuation (IIT Roorkee)',
     seoMeta: 'Certified Chartered Engineer in Bengaluru, Chennai & Hyderabad. High-tech manufacturing appraisal, DGFT EPCG export nexus certificates, Air Cargo customs clearance, and IT infrastructure valuation by Er. Mukesh Singh (IIT Roorkee).',
     heroDescription: 'Catering to South India’s high-precision manufacturing, IT/ITES campuses, aerospace clusters, and renewable power parks. We deliver technical Chartered Engineer certificates acceptable before DGFT Southern Zonal Offices, Air Cargo Complex Customs, and institutional tech lenders.',
+    heroImage: '/corridors/bangalore_south_hero.jpg',
+    heroImageAlt: 'Chartered Engineer Bengaluru South Hub Electronic City',
+    heroImageCaption: 'Bengaluru Tech Hub & Electronic City Advanced Corridor',
+    gallery: [
+      {
+        image: '/corridors/south_cleanroom_electronics.jpg',
+        category: 'SEMICONDUCTORS & SMT',
+        title: 'Cleanroom Semiconductor & SMT Lines',
+        description: 'Specialized valuation of Surface Mount Technology (SMT) lines, cleanroom installations, automated test equipment, and semiconductor assembly gear.'
+      },
+      {
+        image: '/corridors/machinery_cnc_center.jpg',
+        category: 'AEROSPACE & CNC',
+        title: '5-Axis Aerospace Machining Centers',
+        description: 'Attestation under Foreign Trade Policy (FTP) for duty concessions on imported high-accuracy CNCs and composite curing ovens in Peenya & Oragadam.'
+      },
+      {
+        image: '/corridors/solar_pv_plant.jpg',
+        category: 'UTILITY INFRASTRUCTURE',
+        title: 'Solar Parks & Data Center Power Assets',
+        description: 'Remaining useful life estimation and performance ratio assessment of MW-scale solar photovoltaic farms and IT campus substations.'
+      }
+    ],
     industrialClusters: [
       'Peenya & Electronic City Industrial Clusters (Bengaluru)',
       'Sriperumbudur & Oragadam Automotive / Electronics Corridor (Chennai)',
@@ -282,6 +397,29 @@ export const PAN_INDIA_CITIES = [
     seoTitle: 'Chartered Engineer in Indore & Central India | Pithampur & Machinery Valuation (IIT Roorkee)',
     seoMeta: 'Approved Chartered Engineer & Valuer in Indore, Pithampur & Central India. Auto component plant valuation, MoFPI food subsidy DPR certificates, mining equipment valuation, and bank loans by Er. Mukesh Singh (B.Tech IIT Roorkee).',
     heroDescription: 'Powering Central India’s automotive manufacturing, pharmaceutical hubs, and agro-food processing infrastructure. We conduct on-site machinery appraisals across Pithampur SEZ, Sanwer Road, and Mandideep, alongside DPR grant certification for Ministry of Food Processing (MoFPI).',
+    heroImage: '/corridors/indore_central_hero.jpg',
+    heroImageAlt: 'Chartered Engineer Indore Central India Pithampur Corridor',
+    heroImageCaption: 'Indore Regional Hub & Central India Corridor',
+    gallery: [
+      {
+        image: '/corridors/hydraulic_forging_press.jpg',
+        category: 'HEAVY FORGING & STAMPING',
+        title: 'Hydraulic Forging Presses & Auto Tooling',
+        description: 'Asset valuation of auto stamping, forging presses, gear shaping machinery, and paint shops across Pithampur SEZ.'
+      },
+      {
+        image: '/corridors/auto_welding_robots.jpg',
+        category: 'AUTOMOTIVE CLUSTER',
+        title: 'Robotic Assembly & Auto Components',
+        description: 'Depreciated Replacement Cost (DRC) and physical verification for commercial vehicle component manufacturers.'
+      },
+      {
+        image: '/blog/boilers-inspection.webp',
+        category: 'AGRO & FOOD MoFPI',
+        title: 'Agro-Processing & MoFPI Grant Attestation',
+        description: 'Chartered Engineer technical certification of equipment costs, cold storage sizing, and processing machinery for Central government grants-in-aid.'
+      }
+    ],
     industrialClusters: [
       'Pithampur Special Economic Zone (Indore Auto Belt)',
       'Sanwer Road & Laxmibai Nagar Industrial Areas (Indore)',
