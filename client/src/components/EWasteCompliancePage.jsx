@@ -772,11 +772,19 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
               >
                 {/* Real E-Waste Recycling Facility Image */}
                 <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
-                  <img
-                    src="/seo/ewaste-recycling-facility.jpg"
-                    alt="CPCB E-Waste Recycling and Inspection Facility"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
+                  <picture>
+                    <source srcSet="/seo/ewaste-recycling-facility.webp" type="image/webp" />
+                    <img
+                      src="/seo/ewaste-recycling-facility.jpg"
+                      alt="CPCB E-Waste Recycling and Inspection Facility"
+                      width="720"
+                      height="401"
+                      loading="eager"
+                      fetchPriority="high"
+                      decoding="async"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </picture>
                   <div
                     style={{
                       position: 'absolute',
@@ -1345,11 +1353,18 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
               }}
             >
               <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
-                <img
-                  src="/seo/ewaste-circuit-recycling.jpg"
-                  alt="E-Waste Circuit Board and PCB Sustainable Recycling"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                <picture>
+                  <source srcSet="/seo/ewaste-circuit-recycling.webp" type="image/webp" />
+                  <img
+                    src="/seo/ewaste-circuit-recycling.jpg"
+                    alt="E-Waste Circuit Board and PCB Sustainable Recycling"
+                    width="720"
+                    height="401"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </picture>
                 <div
                   style={{
                     position: 'absolute',
@@ -1436,11 +1451,18 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
               }}
             >
               <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
-                <img
-                  src="/seo/ewaste-audit-engineer.jpg"
-                  alt="Chartered Engineer conducting e-waste warehouse inventory compliance audit"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                <picture>
+                  <source srcSet="/seo/ewaste-audit-engineer.webp" type="image/webp" />
+                  <img
+                    src="/seo/ewaste-audit-engineer.jpg"
+                    alt="Chartered Engineer conducting e-waste warehouse inventory compliance audit"
+                    width="720"
+                    height="537"
+                    loading="lazy"
+                    decoding="async"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </picture>
                 <div
                   style={{
                     position: 'absolute',
