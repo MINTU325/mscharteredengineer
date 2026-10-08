@@ -87,7 +87,7 @@ export default function App() {
       const config = ROUTE_CONFIG[pathname];
       if (config) {
         document.title = config.title;
-        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub') {
+        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
           const scrollToTarget = () => {
