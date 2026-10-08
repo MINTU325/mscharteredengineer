@@ -95,7 +95,26 @@ const SLIDES = [
       { value: 'CESE', label: 'Electrical Safety' },
       { value: 'BEE', label: 'Energy Manager' },
     ],
-    gradient: 'linear-gradient(105deg, rgba(7,14,30,0.92) 0%, rgba(35,18,5,0.78) 55%, rgba(7,14,30,0.38) 100%)',
+  },
+  {
+    id: 6,
+    image: '/slides/slide3.webp',
+    badge: '🌿 CPCB E-Waste EPR Compliance | MoEFCC Gazette G.S.R. 814(E)',
+    title: 'E-Waste Annual Return Filing &',
+    titleHighlight: 'CPCB EPR Compliance Services',
+    subtitle:
+      'Mandatory annual returns (Form 3), Schedule I EEE code mapping, and EPR recycling credit reconciliation for Importers, Brand Owners, Domestic Manufacturers & Recyclers across India.',
+    tag: 'CPCB EPR COMPLIANCE & ANNUAL RETURN FILING',
+    accent: 'emerald',
+    cta: 'View E-Waste Compliance Page',
+    ctaService: 'E-Waste Annual Return Filing & EPR Compliance',
+    link: '/e-waste-annual-return-filing',
+    stats: [
+      { value: 'RULES 2022', label: 'E-Waste Framework' },
+      { value: '106+ CODES', label: 'Schedule I EEE' },
+      { value: 'PAN-INDIA', label: 'Filing Practice' },
+    ],
+    gradient: 'linear-gradient(105deg, rgba(4,18,12,0.92) 0%, rgba(6,46,28,0.78) 55%, rgba(4,18,12,0.38) 100%)',
   },
 ];
 
@@ -243,10 +262,21 @@ export default function HeroSlider({ onOpenQuote }) {
 
           {/* Title — Semantic canonical H1 for SEO */}
           <h1 className={`hs-title ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.08s' }}>
-            {slide.title}{' '}
-            <span className="hs-title-hl" style={{ color: color.light, textShadow: `0 0 40px ${color.glow}` }}>
-              {slide.titleHighlight}
-            </span>
+            {slide.link ? (
+              <a href={slide.link} style={{ color: 'inherit', textDecoration: 'none' }}>
+                {slide.title}{' '}
+                <span className="hs-title-hl" style={{ color: color.light, textShadow: `0 0 40px ${color.glow}` }}>
+                  {slide.titleHighlight}
+                </span>
+              </a>
+            ) : (
+              <>
+                {slide.title}{' '}
+                <span className="hs-title-hl" style={{ color: color.light, textShadow: `0 0 40px ${color.glow}` }}>
+                  {slide.titleHighlight}
+                </span>
+              </>
+            )}
           </h1>
 
           {/* Subtitle */}
@@ -266,17 +296,35 @@ export default function HeroSlider({ onOpenQuote }) {
 
           {/* CTAs */}
           <div className={`hs-ctas ${animating ? 'hs-anim--out' : 'hs-anim--in'}`} style={{ '--delay': '0.26s' }}>
-            <button
-              className="hs-cta-primary"
-              style={{
-                background: `linear-gradient(135deg, ${color.primary}, ${color.light})`,
-                boxShadow: `0 6px 24px ${color.glow}`,
-              }}
-              onClick={() => onOpenQuote(slide.ctaService)}
-            >
-              <span>{slide.cta}</span>
-              <ArrowRight size={18} />
-            </button>
+            {slide.link ? (
+              <a
+                href={slide.link}
+                className="hs-cta-primary"
+                style={{
+                  background: `linear-gradient(135deg, ${color.primary}, ${color.light})`,
+                  boxShadow: `0 6px 24px ${color.glow}`,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+              >
+                <span>{slide.cta}</span>
+                <ArrowRight size={18} />
+              </a>
+            ) : (
+              <button
+                className="hs-cta-primary"
+                style={{
+                  background: `linear-gradient(135deg, ${color.primary}, ${color.light})`,
+                  boxShadow: `0 6px 24px ${color.glow}`,
+                }}
+                onClick={() => onOpenQuote(slide.ctaService)}
+              >
+                <span>{slide.cta}</span>
+                <ArrowRight size={18} />
+              </button>
+            )}
             <a
               href="tel:+919158658885"
               className="hs-cta-secondary"

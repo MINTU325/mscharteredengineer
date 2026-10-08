@@ -161,6 +161,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <li><a href="/purpose-selector" className="nav-link" style={{ color: '#fbbf24', fontWeight: 600 }}>Purpose Selector</a></li>
               <li><a href="/who-we-serve" className="nav-link">Who We Serve</a></li>
               <li><a href="/services" className="nav-link">Services</a></li>
+              <li><a href="/e-waste-annual-return-filing" className="nav-link" style={{ color: '#10b981', fontWeight: 700 }}>E-Waste EPR</a></li>
               <li><a href="/credentials" className="nav-link">Credentials</a></li>
               <li><a href="/tools" className="nav-link" style={{ color: '#38bdf8', fontWeight: 600 }}>Tools</a></li>
               <li><a href="/founder" className="nav-link">Team</a></li>
@@ -219,6 +220,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           <a href="/purpose-selector" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 700 }}>🎯 Valuation Purpose Selector</a>
           <a href="/who-we-serve"     onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>👥 Who We Serve</a>
           <a href="/services"       onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 12 Valuation Services</a>
+          <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 E-Waste Annual Return &amp; EPR</a>
           <a href="/process"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
           <a href="/credentials"    onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🏅 Credentials &amp; IEI</a>
           <a href="/tools"          onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>🛠️ Tools (Calculator &amp; Solar)</a>

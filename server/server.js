@@ -87,13 +87,69 @@ const fs = require('fs');
 app.post('/api/tools/valuation-estimate', toolsController.calculateValuationEstimate);
 app.post('/api/tools/ceig-readiness', toolsController.checkCeigReadiness);
 
+// Route Meta for Dynamic SEO & Social Sharing Crawlers
+const ROUTE_META = {
+  '/e-waste-annual-return-filing': {
+    title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers',
+    description: 'CPCB E-Waste Annual Return Filing (Form 3) & EPR Compliance Services by senior Chartered Engineers (IIT Roorkee alumni). 100% auditable annual filings, Schedule I EEE codes, customs BOE reconciliation & Pan-India support. Call +91 91586 58885.',
+    keywords: 'E-Waste Annual Return Filing, e waste annual return filing, E-Waste EPR compliance, E-Waste compliance consultant, E-Waste return filing consultant, CPCB E-Waste EPR registration, CPCB E-Waste annual return, E-Waste EPR consultant, EPR compliance consultant, E-Waste compliance services',
+    canonical: 'https://www.mscharteredengineer.com/e-waste-annual-return-filing',
+    ogImage: 'https://www.mscharteredengineer.com/slides/slide3.webp'
+  },
+  '/autocad-drafting': {
+    title: 'AutoCAD 2D Electrical Drafting Services | SLD & Panel Drawings | MS Chartered Engineers',
+    description: 'Professional AutoCAD 2D electrical drafting services for industrial plants, MEP consultants, and EPC contractors. Preparation and revision of Single Line Diagrams (SLD), LT/HT panel layouts, cable schedules, and DWG conversions.',
+    keywords: 'AutoCAD 2D Electrical Drafting Services, electrical drafting services, AutoCAD electrical drafting, single line diagram AutoCAD, SLD drawing services, LT HT panel drafting, cable routing AutoCAD, electrical layout drawing services',
+    canonical: 'https://www.mscharteredengineer.com/autocad-drafting',
+    ogImage: 'https://www.mscharteredengineer.com/og-image.png'
+  }
+};
+
 // Serve static client build in production if built
 const clientDist = path.join(__dirname, '..', 'client', 'dist');
 if (fs.existsSync(clientDist)) {
   app.use(express.static(clientDist));
   app.get('*', (req, res, next) => {
     if (req.url.startsWith('/api')) return next();
-    res.sendFile(path.join(clientDist, 'index.html'));
+    const cleanPath = req.path.replace(/\/$/, '') || '/';
+    const meta = ROUTE_META[cleanPath];
+
+    if (meta && fs.existsSync(path.join(clientDist, 'index.html'))) {
+      fs.readFile(path.join(clientDist, 'index.html'), 'utf8', (err, html) => {
+        if (err) return res.sendFile(path.join(clientDist, 'index.html'));
+        let modifiedHtml = html;
+        if (meta.title) {
+          modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/i, `<title>${meta.title}</title>`);
+          modifiedHtml = modifiedHtml.replace(/<meta name="title" content=".*?" \/>/i, `<meta name="title" content="${meta.title}" />`);
+        }
+        if (meta.description) {
+          modifiedHtml = modifiedHtml.replace(/<meta name="description" content=".*?" \/>/i, `<meta name="description" content="${meta.description}" />`);
+        }
+        if (meta.keywords) {
+          modifiedHtml = modifiedHtml.replace(/<meta name="keywords" content=".*?" \/>/i, `<meta name="keywords" content="${meta.keywords}" />`);
+        }
+        if (meta.canonical) {
+          modifiedHtml = modifiedHtml.replace(/<link rel="canonical" href=".*?" \/>/i, `<link rel="canonical" href="${meta.canonical}" />`);
+          modifiedHtml = modifiedHtml.replace(/<meta property="og:url" content=".*?" \/>/i, `<meta property="og:url" content="${meta.canonical}" />`);
+        }
+        if (meta.title) {
+          modifiedHtml = modifiedHtml.replace(/<meta property="og:title" content=".*?" \/>/i, `<meta property="og:title" content="${meta.title}" />`);
+          modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title" content=".*?" \/>/i, `<meta name="twitter:title" content="${meta.title}" />`);
+        }
+        if (meta.description) {
+          modifiedHtml = modifiedHtml.replace(/<meta property="og:description" content=".*?" \/>/i, `<meta property="og:description" content="${meta.description}" />`);
+          modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description" content=".*?" \/>/i, `<meta name="twitter:description" content="${meta.description}" />`);
+        }
+        if (meta.ogImage) {
+          modifiedHtml = modifiedHtml.replace(/<meta property="og:image" content=".*?" \/>/i, `<meta property="og:image" content="${meta.ogImage}" />`);
+          modifiedHtml = modifiedHtml.replace(/<meta name="twitter:image" content=".*?" \/>/i, `<meta name="twitter:image" content="${meta.ogImage}" />`);
+        }
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        return res.send(modifiedHtml);
+      });
+    } else {
+      res.sendFile(path.join(clientDist, 'index.html'));
+    }
   });
 }
 

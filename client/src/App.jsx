@@ -14,6 +14,7 @@ const Footer = lazy(() => import('./components/Footer'));
 const ValuationPurposeWizard = lazy(() => import('./components/ValuationPurposeWizard'));
 const WhoWeServe = lazy(() => import('./components/WhoWeServe'));
 const OurProcess = lazy(() => import('./components/OurProcess'));
+const EWasteHomeSection = lazy(() => import('./components/EWasteHomeSection'));
 
 // Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
@@ -323,6 +324,7 @@ export default function App() {
             {/* ── Advanced Hero Slider (full-width, top of page) ── */}
             <HeroSlider onOpenQuote={handleOpenQuote} />
             <LazySection minHeight="400px"><Credentials /></LazySection>
+            <LazySection minHeight="300px"><EWasteHomeSection /></LazySection>
             <LazySection minHeight="500px"><ValuationPurposeWizard onOpenQuote={handleOpenQuote} /></LazySection>
             <LazySection minHeight="500px"><WhoWeServe onOpenQuote={handleOpenQuote} /></LazySection>
             <LazySection minHeight="500px"><ServicesTeaser onOpenQuote={handleOpenQuote} /></LazySection>
