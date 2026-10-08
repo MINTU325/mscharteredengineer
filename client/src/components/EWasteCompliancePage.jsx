@@ -2748,33 +2748,6 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
         </div>
       </section>
 
-      {/* ── Floating Executive WhatsApp Button ── */}
-      <a
-        href="https://wa.me/919158658885?text=Hello%20MS%20CHARTERED%20ENGINEERS%2C%20I%20need%20assistance%20with%20E-Waste%20Annual%20Return%20Filing%20%2F%20EPR%20Compliance.%20Please%20help%20me%20understand%20the%20applicable%20requirements."
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Direct WhatsApp Consultation with Senior Engineer"
-        style={{
-          position: 'fixed',
-          bottom: '22px',
-          right: '22px',
-          background: 'linear-gradient(135deg, #6db87a 0%, #4fa85c 100%)',
-          color: '#09150a',
-          borderRadius: '9999px',
-          padding: '12px 20px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          boxShadow: '0 8px 24px rgba(109, 184, 122, 0.45)',
-          zIndex: 999,
-          fontWeight: 800,
-          fontSize: '0.90rem',
-          textDecoration: 'none'
-        }}
-      >
-        <span>💬</span>
-        <span>WhatsApp Consultant</span>
-      </a>
     </div>
   );
 }
