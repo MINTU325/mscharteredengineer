@@ -141,6 +141,14 @@
     <priority>0.90</priority>
   </url>
 
+  <!-- 6.2 E-Waste Annual Return Filing & EPR Compliance Services -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/e-waste-annual-return-filing</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- 7. Technical Advisory & Componentization -->
   <url>
     <loc>https://www.mscharteredengineer.com/advisory</loc>

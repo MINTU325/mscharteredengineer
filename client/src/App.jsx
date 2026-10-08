@@ -25,9 +25,12 @@ const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 const AdminLoginModal = lazy(() => import('./components/AdminLoginModal'));
 const QuoteWizardModal = lazy(() => import('./components/QuoteWizardModal'));
 const CharteredEngineerPage = lazy(() => import('./components/CharteredEngineerPage'));
+const EWasteCompliancePage = lazy(() => import('./components/EWasteCompliancePage'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
+  '/e-waste-annual-return-filing': { id: 'e-waste-compliance', title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
+  '/e-waste-annual-return-filing/': { id: 'e-waste-compliance', title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
   '/tools': { id: 'tools', title: 'Interactive Engineering & Valuation Tools | MS Chartered Engineers' },
   '/purpose-selector': { id: 'purpose-selector', title: 'Valuation Purpose Selector | MS Chartered Engineers' },
   '/who-we-serve': { id: 'who-we-serve', title: 'Who We Serve | Banks, CAs, Advocates, Builders & MSMEs | MS Chartered Engineers' },
@@ -124,7 +127,7 @@ export default function App() {
           if (config) {
             document.title = config.title;
           }
-          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub')) {
+          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           } else if (config && config.id) {
             const scrollToTarget = () => {
@@ -227,6 +230,16 @@ export default function App() {
           />
         ) : currentRoute === '/chartered-engineer' ? (
           <CharteredEngineerPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : currentRoute === '/e-waste-annual-return-filing' || currentRoute === '/e-waste-annual-return-filing/' ? (
+          <EWasteCompliancePage 
             onOpenQuote={handleOpenQuote}
             onNavigateHome={() => {
               window.history.pushState({}, '', '/');
