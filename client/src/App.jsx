@@ -158,6 +158,23 @@ export default function App() {
     };
   }, []);
 
+  // Synchronize document canonical tag with active route for search engine indexation
+  useEffect(() => {
+    const canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (canonicalTag && !currentRoute.startsWith('/blog/')) {
+      const aliasCanonicalMap = {
+        '/assets-valuation': '/valuation',
+        '/autocad-electrical-drafting': '/autocad-drafting',
+        '/faqs': '/faq',
+        '/insights': '/blog',
+        '/valuation-calculator': '/calculator',
+      };
+      const cleanTarget = aliasCanonicalMap[currentRoute] || currentRoute;
+      const canonicalUrl = cleanTarget === '/' ? 'https://www.mscharteredengineer.com/' : `https://www.mscharteredengineer.com${cleanTarget}`;
+      canonicalTag.setAttribute('href', canonicalUrl);
+    }
+  }, [currentRoute]);
+
   const handleOpenQuote = (serviceName = 'Assets Valuation Services', prefillData = null) => {
     setSelectedService(serviceName);
     setQuotePrefill(prefillData);

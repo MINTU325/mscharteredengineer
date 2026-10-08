@@ -404,15 +404,28 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
 
   const activeArticle = useMemo(() => {
     if (!selectedSlug) return null;
-    return BLOG_POSTS.find(p => p.slug === selectedSlug || p.id === selectedSlug) || null;
+    const slugMap = {
+      'plant-machinery-valuation-methods-bank-collateral': 'plant-machinery-valuation-bank-loans',
+      'factories-act-pressure-vessel-lifting-testing': 'factories-act-1948-boilers-competent-person-certification',
+      'solar-power-plant-ceig-drawing-approval-checklist': 'solar-ceig-drawing-approval-guide',
+    };
+    const targetSlug = slugMap[selectedSlug] || selectedSlug;
+    return BLOG_POSTS.find(p => p.slug === targetSlug || p.id === targetSlug) || null;
   }, [selectedSlug]);
 
-  // Update page title when viewing an article
+  // Update page title and canonical URL when viewing an article
   useEffect(() => {
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
     if (activeArticle) {
       document.title = `${activeArticle.title} | MS Chartered Engineers`;
+      if (canonicalLink) {
+        canonicalLink.setAttribute('href', `https://www.mscharteredengineer.com/blog/${activeArticle.slug}`);
+      }
     } else {
       document.title = 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers';
+      if (canonicalLink) {
+        canonicalLink.setAttribute('href', 'https://www.mscharteredengineer.com/blog');
+      }
     }
   }, [activeArticle]);
 

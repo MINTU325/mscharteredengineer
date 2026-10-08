@@ -114,33 +114,43 @@ if (fs.existsSync(clientDist)) {
     const cleanPath = req.path.replace(/\/$/, '') || '/';
     const meta = ROUTE_META[cleanPath];
 
-    if (meta && fs.existsSync(path.join(clientDist, 'index.html'))) {
+    if (fs.existsSync(path.join(clientDist, 'index.html'))) {
       fs.readFile(path.join(clientDist, 'index.html'), 'utf8', (err, html) => {
         if (err) return res.sendFile(path.join(clientDist, 'index.html'));
         let modifiedHtml = html;
-        if (meta.title) {
+        if (meta && meta.title) {
           modifiedHtml = modifiedHtml.replace(/<title>.*?<\/title>/i, `<title>${meta.title}</title>`);
           modifiedHtml = modifiedHtml.replace(/<meta name="title" content=".*?" \/>/i, `<meta name="title" content="${meta.title}" />`);
         }
-        if (meta.description) {
+        if (meta && meta.description) {
           modifiedHtml = modifiedHtml.replace(/<meta name="description" content=".*?" \/>/i, `<meta name="description" content="${meta.description}" />`);
         }
-        if (meta.keywords) {
+        if (meta && meta.keywords) {
           modifiedHtml = modifiedHtml.replace(/<meta name="keywords" content=".*?" \/>/i, `<meta name="keywords" content="${meta.keywords}" />`);
         }
-        if (meta.canonical) {
-          modifiedHtml = modifiedHtml.replace(/<link rel="canonical" href=".*?" \/>/i, `<link rel="canonical" href="${meta.canonical}" />`);
-          modifiedHtml = modifiedHtml.replace(/<meta property="og:url" content=".*?" \/>/i, `<meta property="og:url" content="${meta.canonical}" />`);
-        }
-        if (meta.title) {
+
+        // Canonical URL resolution for all indexable pages & aliases
+        const aliasCanonicalMap = {
+          '/assets-valuation': '/valuation',
+          '/autocad-electrical-drafting': '/autocad-drafting',
+          '/faqs': '/faq',
+          '/insights': '/blog',
+          '/valuation-calculator': '/calculator',
+        };
+        const targetClean = aliasCanonicalMap[cleanPath] || cleanPath;
+        const pageCanonical = (meta && meta.canonical) || (targetClean === '/' ? 'https://www.mscharteredengineer.com/' : `https://www.mscharteredengineer.com${targetClean}`);
+        modifiedHtml = modifiedHtml.replace(/<link rel="canonical" href=".*?" \/>/i, `<link rel="canonical" href="${pageCanonical}" />`);
+        modifiedHtml = modifiedHtml.replace(/<meta property="og:url" content=".*?" \/>/i, `<meta property="og:url" content="${pageCanonical}" />`);
+
+        if (meta && meta.title) {
           modifiedHtml = modifiedHtml.replace(/<meta property="og:title" content=".*?" \/>/i, `<meta property="og:title" content="${meta.title}" />`);
           modifiedHtml = modifiedHtml.replace(/<meta name="twitter:title" content=".*?" \/>/i, `<meta name="twitter:title" content="${meta.title}" />`);
         }
-        if (meta.description) {
+        if (meta && meta.description) {
           modifiedHtml = modifiedHtml.replace(/<meta property="og:description" content=".*?" \/>/i, `<meta property="og:description" content="${meta.description}" />`);
           modifiedHtml = modifiedHtml.replace(/<meta name="twitter:description" content=".*?" \/>/i, `<meta name="twitter:description" content="${meta.description}" />`);
         }
-        if (meta.ogImage) {
+        if (meta && meta.ogImage) {
           modifiedHtml = modifiedHtml.replace(/<meta property="og:image" content=".*?" \/>/i, `<meta property="og:image" content="${meta.ogImage}" />`);
           modifiedHtml = modifiedHtml.replace(/<meta name="twitter:image" content=".*?" \/>/i, `<meta name="twitter:image" content="${meta.ogImage}" />`);
         }
