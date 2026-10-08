@@ -1005,54 +1005,57 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
         </div>
       </section>
 
-      {/* ── Interactive Role-Based Compliance Console (Tabs) ── */}
-      <section style={{ padding: '64px 20px', borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
+      {/* ── Interactive Role-Based Compliance Console (Tabs - Mobile Responsive) ── */}
+      <section style={{ padding: '64px 20px', borderBottom: '1px solid #e5dfd5', background: '#faf7f2' }}>
         <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
             <span
               style={{
-                color: '#059669',
+                color: '#006235',
                 fontSize: '0.80rem',
                 fontWeight: 800,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase'
+                letterSpacing: '0.10em',
+                textTransform: 'uppercase',
+                background: 'rgba(0, 98, 53, 0.08)',
+                padding: '4px 12px',
+                borderRadius: '9999px'
               }}
             >
               Targeted Regulatory Scrutiny
             </span>
             <h2
               style={{
-                fontSize: 'clamp(1.7rem, 3vw, 2.3rem)',
+                fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
                 fontWeight: 800,
-                marginTop: '8px',
-                color: '#0f172a'
+                marginTop: '10px',
+                color: '#162916'
               }}
             >
               Select Your Business Category
             </h2>
-            <p style={{ fontSize: '0.95rem', color: '#475569', marginTop: '6px' }}>
+            <p style={{ fontSize: '0.95rem', color: '#4a5b4c', marginTop: '6px' }}>
               Statutory requirements differ completely depending on your position in the electronics supply chain:
             </p>
           </div>
 
-          {/* Segmented Control Bar */}
+          {/* Segmented Control Bar: 2x2 Grid on Mobile, 4-Cols on Desktop (No Ugly Scrollbars!) */}
           <div
             style={{
-              display: 'flex',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(135px, 1fr))',
               gap: '8px',
-              background: '#f1f5f9',
+              background: '#ece5d8',
               padding: '6px',
-              borderRadius: '12px',
-              border: '1px solid #e2e8f0',
-              marginBottom: '28px',
-              overflowX: 'auto'
+              borderRadius: '14px',
+              border: '1px solid #ddd4c4',
+              marginBottom: '26px'
             }}
           >
             {[
-              { id: 'importers', label: 'Importers & Brand Owners', icon: '🚢' },
-              { id: 'manufacturers', label: 'Domestic Manufacturers', icon: '🏭' },
+              { id: 'importers', label: 'Importers & Brands', icon: '🚢' },
+              { id: 'manufacturers', label: 'Manufacturers', icon: '🏭' },
               { id: 'refurbishers', label: 'Refurbishers', icon: '🔧' },
-              { id: 'recyclers', label: 'Registered Recyclers', icon: '♻️' }
+              { id: 'recyclers', label: 'Recyclers', icon: '♻️' }
             ].map((tab) => {
               const isSelected = activeRole === tab.id;
               return (
@@ -1060,28 +1063,25 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                   key={tab.id}
                   onClick={() => setActiveRole(tab.id)}
                   style={{
-                    flex: 1,
-                    minWidth: '180px',
-                    padding: '12px 14px',
-                    borderRadius: '8px',
-                    border: 'none',
-                    background: isSelected
-                      ? 'linear-gradient(135deg, #059669 0%, #047857 100%)'
-                      : 'transparent',
-                    color: isSelected ? '#ffffff' : '#475569',
-                    fontSize: '0.88rem',
-                    fontWeight: 700,
+                    width: '100%',
+                    padding: '12px 8px',
+                    borderRadius: '10px',
+                    border: isSelected ? '1px solid #6db87a' : '1px solid transparent',
+                    background: isSelected ? '#162916' : 'transparent',
+                    color: isSelected ? '#6db87a' : '#2d4230',
+                    fontSize: '0.86rem',
+                    fontWeight: 800,
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    gap: '8px',
-                    boxShadow: isSelected ? '0 4px 12px rgba(5, 150, 105, 0.25)' : 'none',
+                    gap: '6px',
+                    boxShadow: isSelected ? '0 4px 14px rgba(22, 41, 22, 0.25)' : 'none',
                     transition: 'all 0.2s ease',
-                    whiteSpace: 'nowrap'
+                    textAlign: 'center'
                   }}
                 >
-                  <span>{tab.icon}</span>
+                  <span style={{ fontSize: '1rem' }}>{tab.icon}</span>
                   <span>{tab.label}</span>
                 </button>
               );
@@ -1091,18 +1091,18 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
           {/* Role Detail Console Card */}
           <div
             style={{
-              background: '#f8fafc',
-              border: '1.5px solid #a7f3d0',
-              borderRadius: '14px',
-              padding: '32px',
-              boxShadow: '0 10px 30px rgba(6, 95, 70, 0.06)'
+              background: '#ffffff',
+              border: '1px solid #e5dfd5',
+              borderRadius: '16px',
+              padding: 'clamp(18px, 4vw, 32px)',
+              boxShadow: '0 10px 30px rgba(22, 39, 22, 0.05)'
             }}
           >
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                alignItems: 'flex-start',
+                alignItems: 'center',
                 flexWrap: 'wrap',
                 gap: '14px',
                 marginBottom: '20px'
@@ -1112,9 +1112,9 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                 <span
                   style={{
                     fontSize: '0.70rem',
-                    background: '#fef3c7',
-                    color: '#92400e',
-                    border: '1px solid #fde68a',
+                    background: 'rgba(212, 168, 67, 0.15)',
+                    color: '#926a10',
+                    border: '1px solid rgba(212, 168, 67, 0.35)',
                     padding: '4px 10px',
                     borderRadius: '4px',
                     fontWeight: 800,
@@ -1123,7 +1123,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                 >
                   {roleData[activeRole].badge}
                 </span>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0f172a', marginTop: '8px' }}>
+                <h3 style={{ fontSize: 'clamp(1.25rem, 3.5vw, 1.45rem)', fontWeight: 800, color: '#162916', marginTop: '8px' }}>
                   {roleData[activeRole].title}
                 </h3>
               </div>
@@ -1137,46 +1137,50 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                   }))
                 }
                 style={{
-                  background: '#ecfdf5',
-                  border: '1.5px solid #a7f3d0',
-                  color: '#065f46',
-                  padding: '8px 16px',
-                  borderRadius: '6px',
-                  fontSize: '0.84rem',
+                  background: 'linear-gradient(135deg, #6db87a 0%, #4fa85c 100%)',
+                  color: '#09150a',
+                  padding: '10px 22px',
+                  borderRadius: '9999px',
+                  fontSize: '0.86rem',
                   fontWeight: 800,
                   textDecoration: 'none',
-                  transition: 'all 0.15s ease'
+                  boxShadow: '0 4px 12px rgba(109, 184, 122, 0.3)',
+                  transition: 'all 0.15s ease',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px'
                 }}
               >
-                File for this Category →
+                <span>File for this Category</span>
+                <ArrowRight size={14} />
               </a>
             </div>
 
-            <p style={{ fontSize: '0.98rem', color: '#334155', lineHeight: 1.6, marginBottom: '24px' }}>
+            <p style={{ fontSize: '0.96rem', color: '#4a5b4c', lineHeight: 1.6, marginBottom: '24px' }}>
               {roleData[activeRole].summary}
             </p>
 
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '24px'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gap: '20px'
               }}
             >
               {/* Obligations */}
               <div
                 style={{
-                  background: '#ffffff',
+                  background: '#faf7f2',
                   padding: '20px',
-                  borderRadius: '10px',
-                  border: '1px solid #e2e8f0',
+                  borderRadius: '12px',
+                  border: '1px solid #ebe4d8',
                   boxShadow: '0 2px 6px rgba(0,0,0,0.02)'
                 }}
               >
                 <div
                   style={{
                     fontSize: '0.82rem',
-                    color: '#065f46',
+                    color: '#006235',
                     fontWeight: 800,
                     textTransform: 'uppercase',
                     marginBottom: '12px',
@@ -1185,7 +1189,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                     gap: '6px'
                   }}
                 >
-                  <Recycle size={15} color="#059669" /> Mandatory Statutory Duties:
+                  <Recycle size={15} color="#006235" /> Mandatory Statutory Duties:
                 </div>
                 <ul
                   style={{
@@ -1196,12 +1200,12 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                     flexDirection: 'column',
                     gap: '10px',
                     fontSize: '0.88rem',
-                    color: '#334155'
+                    color: '#2d4230'
                   }}
                 >
                   {roleData[activeRole].obligations.map((ob, i) => (
                     <li key={i} style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
-                      <Check size={16} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                      <Check size={16} color="#006235" style={{ flexShrink: 0, marginTop: '2px' }} />
                       <span>{ob}</span>
                     </li>
                   ))}
@@ -1211,17 +1215,17 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
               {/* Required Records */}
               <div
                 style={{
-                  background: '#ffffff',
+                  background: '#faf7f2',
                   padding: '20px',
-                  borderRadius: '10px',
-                  border: '1px solid #e2e8f0',
+                  borderRadius: '12px',
+                  border: '1px solid #ebe4d8',
                   boxShadow: '0 2px 6px rgba(0,0,0,0.02)'
                 }}
               >
                 <div
                   style={{
                     fontSize: '0.82rem',
-                    color: '#0284c7',
+                    color: '#0369a1',
                     fontWeight: 800,
                     textTransform: 'uppercase',
                     marginBottom: '12px',
@@ -1241,7 +1245,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                     flexDirection: 'column',
                     gap: '10px',
                     fontSize: '0.88rem',
-                    color: '#334155'
+                    color: '#2d4230'
                   }}
                 >
                   {roleData[activeRole].keyDocs.map((doc, i) => (
@@ -1258,7 +1262,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                     padding: '10px 12px',
                     background: '#fff1f2',
                     border: '1px solid #fecdd3',
-                    borderRadius: '6px',
+                    borderRadius: '8px',
                     fontSize: '0.80rem',
                     color: '#9f1239',
                     fontWeight: 500
