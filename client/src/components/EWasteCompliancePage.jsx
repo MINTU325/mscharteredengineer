@@ -778,7 +778,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                       src="/seo/ewaste-recycling-facility.jpg"
                       alt="CPCB E-Waste Recycling and Inspection Facility"
                       width="720"
-                      height="401"
+                      height="480"
                       loading="eager"
                       fetchPriority="high"
                       decoding="async"
@@ -1359,7 +1359,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                     src="/seo/ewaste-circuit-recycling.jpg"
                     alt="E-Waste Circuit Board and PCB Sustainable Recycling"
                     width="720"
-                    height="401"
+                    height="480"
                     loading="lazy"
                     decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -1457,7 +1457,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                     src="/seo/ewaste-audit-engineer.jpg"
                     alt="Chartered Engineer conducting e-waste warehouse inventory compliance audit"
                     width="720"
-                    height="537"
+                    height="480"
                     loading="lazy"
                     decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
