@@ -622,7 +622,8 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                   color: '#d1e3d4',
                   lineHeight: 1.7,
                   marginBottom: '28px',
-                  maxWidth: '620px'
+                  maxWidth: '620px',
+                  minHeight: '80px'
                 }}
               >
                 Navigating the Central Pollution Control Board (CPCB) portal doesn’t have to be a legal headache. Our senior Chartered Engineers audit your sales ledgers, customs Bill of Entry data, and recycling manifests—ensuring 100% auditable annual filings and zero regulatory surprises.
@@ -713,29 +714,6 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                 </a>
 
                 <a
-                  href="https://wa.me/919158658885?text=Hello%20MS%20CHARTERED%20ENGINEERS%2C%20I%20need%20assistance%20with%20E-Waste%20Annual%20Return%20Filing%20%2F%20EPR%20Compliance.%20Please%20help%20me%20understand%20the%20applicable%20requirements."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    border: '1.5px solid rgba(109, 184, 122, 0.4)',
-                    color: '#e2ede4',
-                    padding: '14px 24px',
-                    borderRadius: '9999px',
-                    fontWeight: 700,
-                    fontSize: '0.94rem',
-                    textDecoration: 'none',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    transition: 'all 0.15s ease'
-                  }}
-                >
-                  <Leaf size={16} color="#6db87a" />
-                  <span>WhatsApp Consultant</span>
-                </a>
-
-                <a
                   href="tel:+919158658885"
                   style={{
                     background: 'transparent',
@@ -773,12 +751,21 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                 {/* Real E-Waste Recycling Facility Image */}
                 <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
                   <picture>
-                    <source srcSet="/seo/ewaste-recycling-facility.webp" type="image/webp" />
+                    <source
+                      type="image/webp"
+                      srcSet="/seo/ewaste-recycling-facility-480w.webp 480w, /seo/ewaste-recycling-facility.webp 630w"
+                      sizes="(max-width: 640px) 100vw, 630px"
+                    />
+                    <source
+                      type="image/jpeg"
+                      srcSet="/seo/ewaste-recycling-facility-480w.jpg 480w, /seo/ewaste-recycling-facility.jpg 630w"
+                      sizes="(max-width: 640px) 100vw, 630px"
+                    />
                     <img
-                      src="/seo/ewaste-recycling-facility.jpg"
+                      src="/seo/ewaste-recycling-facility.webp"
                       alt="CPCB E-Waste Recycling and Inspection Facility"
-                      width="720"
-                      height="480"
+                      width="630"
+                      height="420"
                       loading="eager"
                       fetchPriority="high"
                       decoding="async"
@@ -1354,12 +1341,21 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
             >
               <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
                 <picture>
-                  <source srcSet="/seo/ewaste-circuit-recycling.webp" type="image/webp" />
+                  <source
+                    type="image/webp"
+                    srcSet="/seo/ewaste-circuit-recycling-480w.webp 480w, /seo/ewaste-circuit-recycling.webp 630w"
+                    sizes="(max-width: 640px) 100vw, 630px"
+                  />
+                  <source
+                    type="image/jpeg"
+                    srcSet="/seo/ewaste-circuit-recycling-480w.jpg 480w, /seo/ewaste-circuit-recycling.jpg 630w"
+                    sizes="(max-width: 640px) 100vw, 630px"
+                  />
                   <img
-                    src="/seo/ewaste-circuit-recycling.jpg"
+                    src="/seo/ewaste-circuit-recycling.webp"
                     alt="E-Waste Circuit Board and PCB Sustainable Recycling"
-                    width="720"
-                    height="480"
+                    width="630"
+                    height="420"
                     loading="lazy"
                     decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -1452,12 +1448,21 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
             >
               <div style={{ position: 'relative', height: '240px', overflow: 'hidden' }}>
                 <picture>
-                  <source srcSet="/seo/ewaste-audit-engineer.webp" type="image/webp" />
+                  <source
+                    type="image/webp"
+                    srcSet="/seo/ewaste-audit-engineer-480w.webp 480w, /seo/ewaste-audit-engineer.webp 630w"
+                    sizes="(max-width: 640px) 100vw, 630px"
+                  />
+                  <source
+                    type="image/jpeg"
+                    srcSet="/seo/ewaste-audit-engineer-480w.jpg 480w, /seo/ewaste-audit-engineer.jpg 630w"
+                    sizes="(max-width: 640px) 100vw, 630px"
+                  />
                   <img
-                    src="/seo/ewaste-audit-engineer.jpg"
+                    src="/seo/ewaste-audit-engineer.webp"
                     alt="Chartered Engineer conducting e-waste warehouse inventory compliance audit"
-                    width="720"
-                    height="480"
+                    width="630"
+                    height="420"
                     loading="lazy"
                     decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
