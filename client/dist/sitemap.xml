@@ -148,9 +148,19 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://www.mscharteredengineer.com/slides/slide3.webp</image:loc>
-      <image:title>E-Waste Annual Return Filing and EPR Compliance - MS Chartered Engineers</image:title>
-      <image:caption>Statutory E-Waste Annual Return Filing Form 3, Schedule I EEE Code Mapping, and CPCB EPR Compliance Services across India</image:caption>
+      <image:loc>https://www.mscharteredengineer.com/seo/ewaste-recycling-facility.webp</image:loc>
+      <image:title>CPCB E-Waste Recycling and Inspection Facility - MS Chartered Engineers</image:title>
+      <image:caption>CPCB Authorized E-Waste Recycling and Dismantling Inspection by Chartered Engineers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/seo/ewaste-circuit-recycling.webp</image:loc>
+      <image:title>Printed Circuit Board PCB E-Waste Processing and Precious Metal Recovery</image:title>
+      <image:caption>Audited electronic waste recycling streams and Schedule I EEE code verification</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/seo/ewaste-audit-engineer.webp</image:loc>
+      <image:title>Chartered Engineer Auditing E-Waste EPR Compliance and Port Records</image:title>
+      <image:caption>Senior Chartered Engineers auditing Customs Bill of Entry and sales ledger records for Form 3 annual filing</image:caption>
     </image:image>
   </url>
 
