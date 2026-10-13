@@ -86,13 +86,13 @@ export default function TexelGroupSection({ onOpenQuote }) {
           </p>
         </div>
 
-        {/* Section Title: OUR DEPARTMENTS */}
+        {/* Section Title: OUR SERVICES */}
         <div className="texel-departments-header">
           <h3 className="texel-sub-title">
-            OUR DEPARTMENTS
+            OUR SERVICES
           </h3>
 
-          {/* Golden Divider Bar */}
+          {/* Green Divider Bar */}
           <div className="texel-divider" aria-hidden="true">
             <span className="texel-divider-line" />
             <span className="texel-divider-bar" />
