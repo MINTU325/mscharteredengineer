@@ -6,6 +6,7 @@ import LazySection from './components/LazySection';
 import { getCityBySlug, PAN_INDIA_CITIES } from './data/cityHubData';
 import { MessageSquare, PhoneCall } from 'lucide-react';
 const Credentials = lazy(() => import('./components/Credentials'));
+const TexelGroupSection = lazy(() => import('./components/TexelGroupSection'));
 const ServicesTeaser = lazy(() => import('./components/ServicesTeaser'));
 const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
 const FounderProfile = lazy(() => import('./components/FounderProfile'));
@@ -67,6 +68,9 @@ const ROUTE_CONFIG = {
   '/chartered-engineer-jaipur': { id: 'city-hub', title: 'Chartered Engineer Jaipur & Rajasthan | IIT Roorkee HQ | RIICO Approved' },
   '/chartered-engineer-bangalore': { id: 'city-hub', title: 'Chartered Engineer Bangalore, Chennai & Hyderabad | Tech & Industrial SEZ Valuer' },
   '/chartered-engineer-indore': { id: 'city-hub', title: 'Chartered Engineer Indore, Pithampur & Central India | Industrial Valuer' },
+  '/ms-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
+  '/texel-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
+  '/departments': { id: 'ms-group', title: 'Our Engineering Departments | MS Group' },
 };
 
 export default function App() {
@@ -340,6 +344,7 @@ export default function App() {
           <main>
             {/* ── Advanced Hero Slider (full-width, top of page) ── */}
             <HeroSlider onOpenQuote={handleOpenQuote} />
+            <LazySection minHeight="420px"><TexelGroupSection onOpenQuote={handleOpenQuote} /></LazySection>
             <LazySection minHeight="400px"><Credentials /></LazySection>
             <LazySection minHeight="300px"><EWasteHomeSection /></LazySection>
             <LazySection minHeight="500px"><ValuationPurposeWizard onOpenQuote={handleOpenQuote} /></LazySection>
