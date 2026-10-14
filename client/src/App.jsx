@@ -28,6 +28,7 @@ const AdminLoginModal = lazy(() => import('./components/AdminLoginModal'));
 const QuoteWizardModal = lazy(() => import('./components/QuoteWizardModal'));
 const CharteredEngineerPage = lazy(() => import('./components/CharteredEngineerPage'));
 const EWasteCompliancePage = lazy(() => import('./components/EWasteCompliancePage'));
+const TechSolutionsPage = lazy(() => import('./components/TechSolutionsPage'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
@@ -71,6 +72,10 @@ const ROUTE_CONFIG = {
   '/ms-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
   '/texel-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
   '/departments': { id: 'ms-group', title: 'Our Engineering Departments | MS Group' },
+  '/tech-products': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
+  '/tech': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
+  '/software-products': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
+  '/it-solutions': { id: 'tech-products', title: 'IT, Apps & Digital Software Solutions | MS Group' },
 };
 
 export default function App() {
@@ -92,7 +97,7 @@ export default function App() {
       const config = ROUTE_CONFIG[pathname];
       if (config) {
         document.title = config.title;
-        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer') {
+        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
           const scrollToTarget = () => {
@@ -132,7 +137,7 @@ export default function App() {
           if (config) {
             document.title = config.title;
           }
-          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer')) {
+          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           } else if (config && config.id) {
             const scrollToTarget = () => {
@@ -262,6 +267,16 @@ export default function App() {
           />
         ) : currentRoute === '/e-waste-annual-return-filing' || currentRoute === '/e-waste-annual-return-filing/' ? (
           <EWasteCompliancePage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : currentRoute === '/tech-products' || currentRoute === '/tech' || currentRoute === '/software-products' || currentRoute === '/it-solutions' ? (
+          <TechSolutionsPage 
             onOpenQuote={handleOpenQuote}
             onNavigateHome={() => {
               window.history.pushState({}, '', '/');

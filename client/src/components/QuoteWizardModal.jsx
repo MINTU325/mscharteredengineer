@@ -26,6 +26,18 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
 
   const serviceOptions = [
     {
+      name: "IT, Apps & Software Development",
+      sub: [
+        "Custom Android App Development",
+        "Cross-Platform Mobile App (Flutter / React Native)",
+        "Full-Stack Web Application / SaaS",
+        "E-Commerce Platform & Mobile App",
+        "Custom Business ERP / CRM Software",
+        "Cloud Architecture & API Integration",
+        "UI/UX Design & Product Prototyping"
+      ]
+    },
+    {
       name: "Assets Valuation Services",
       sub: [
         "Banking & Lending Valuation",

@@ -12,7 +12,23 @@ import {
   Menu, 
   X, 
   ArrowRight, 
-  LayoutDashboard 
+  LayoutDashboard,
+  ChevronDown,
+  Building2,
+  Landmark,
+  Scale,
+  FileCheck2,
+  Cpu,
+  Leaf,
+  Compass,
+  Zap,
+  Users,
+  Award,
+  GraduationCap,
+  CheckCircle2,
+  HelpCircle,
+  Smartphone,
+  ExternalLink
 } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 import LanguageToggle from './LanguageToggle';
@@ -21,6 +37,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navVisible, setNavVisible] = useState(true);
   const [currentPath, setCurrentPath] = useState('/');
+  const [activeDropdown, setActiveDropdown] = useState(null);
   const lastScrollY = useRef(0);
 
   // Sync current pathname for active states
@@ -28,6 +45,17 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
     if (typeof window !== 'undefined') {
       setCurrentPath(window.location.pathname);
     }
+  }, []);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!e.target.closest('.nav-item-dropdown')) {
+        setActiveDropdown(null);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
   }, []);
 
   // Close drawer on resize to desktop
@@ -81,6 +109,10 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [mobileMenuOpen]);
 
+  const handleDropdownItemClick = () => {
+    setActiveDropdown(null);
+  };
+
   return (
     <>
       <header className={`header-wrapper ${navVisible ? 'header-wrapper--visible' : 'header-wrapper--hidden'}`}>
@@ -98,13 +130,13 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             </span>
           </div>
           <div className="top-bar-right">
-            <a href="tel:+919158658885" className="top-bar-item">
+            <a href="tel:+919158658885" className="top-bar-item" style={{ color: '#ffffff', fontWeight: 600 }}>
               <Phone size={14} color="#10b981" />
               <span>+91 91586 58885</span>
             </a>
-            <a href="mailto:ms.charteredengineer@gmail.com" className="top-bar-item">
-              <Mail size={14} color="#f59e0b" />
-              <span>ms.charteredengineer@gmail.com</span>
+            <a href="mailto:info@mscharteredengineer.com" className="top-bar-item">
+              <Mail size={14} color="#38bdf8" />
+              <span>info@mscharteredengineer.com</span>
             </a>
             <a 
               href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" 
@@ -155,19 +187,217 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             </div>
           </a>
 
-          {/* Desktop Nav Links (Centered & Aligned) */}
+          {/* Desktop Nav Links (Option 1: Streamlined 6 Items with Elegant Dropdowns) */}
           <nav className="nav-container">
             <ul className="nav-links">
-              <li><a href="/purpose-selector" className="nav-link" style={{ color: '#fbbf24', fontWeight: 600 }}>Purpose Selector</a></li>
-              <li><a href="/who-we-serve" className="nav-link">Who We Serve</a></li>
-              <li><a href="/services" className="nav-link">Services</a></li>
-              <li><a href="/e-waste-annual-return-filing" className="nav-link" style={{ color: '#10b981', fontWeight: 700 }}>E-Waste EPR</a></li>
-              <li><a href="/credentials" className="nav-link">Credentials</a></li>
-              <li><a href="/tools" className="nav-link" style={{ color: '#38bdf8', fontWeight: 600 }}>Tools</a></li>
-              <li><a href="/founder" className="nav-link">Team</a></li>
-              <li><a href="/contact" className="nav-link">Contact</a></li>
-              <li><a href="/blog" className="nav-link" style={{ color: '#38bdf8', fontWeight: 600 }}>Blog</a></li>
-              <li><a href="/faq" className="nav-link" style={{ color: '#fbbf24', fontWeight: 600 }}>FAQs</a></li>
+              
+              {/* 1. Services Dropdown */}
+              <li 
+                className="nav-item-dropdown" 
+                onMouseEnter={() => setActiveDropdown('services')} 
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button 
+                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'services' || currentPath.includes('/service') || currentPath.includes('/valuation') ? 'active' : ''}`}
+                  onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
+                  aria-expanded={activeDropdown === 'services'}
+                >
+                  <span>Services</span>
+                  <ChevronDown size={14} className={`dropdown-chevron ${activeDropdown === 'services' ? 'rotate' : ''}`} />
+                </button>
+                <div className={`nav-dropdown-menu ${activeDropdown === 'services' ? 'open' : ''}`} style={{ minWidth: '330px' }}>
+                  <a href="/property-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Building2 size={16} color="#0284c7" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Property &amp; Land Valuation</div>
+                      <div className="dropdown-item-desc">Immovable real estate &amp; land appraisals</div>
+                    </div>
+                  </a>
+                  <a href="/bank-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Landmark size={16} color="#d97706" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Bank &amp; Mortgage Valuation</div>
+                      <div className="dropdown-item-desc">FMV &amp; FSV for home loans &amp; project finance</div>
+                    </div>
+                  </a>
+                  <a href="/tax-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Scale size={16} color="#059669" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Capital Gains Tax &amp; 2001 FMV</div>
+                      <div className="dropdown-item-desc">Section 50C &amp; ITAT dispute defense</div>
+                    </div>
+                  </a>
+                  <a href="/chartered-engineer" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <FileCheck2 size={16} color="#7c3aed" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Chartered Engineer &amp; DGFT</div>
+                      <div className="dropdown-item-desc">Advance Authorisation, EPCG &amp; customs</div>
+                    </div>
+                  </a>
+                  <a href="/machinery-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Cpu size={16} color="#f59e0b" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Plant &amp; Machinery Valuation</div>
+                      <div className="dropdown-item-desc">Depreciated Replacement Cost (DRC) audit</div>
+                    </div>
+                  </a>
+                  <a href="/e-waste-annual-return-filing" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Leaf size={16} color="#10b981" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#10b981' }}>E-Waste Annual Return &amp; EPR</div>
+                      <div className="dropdown-item-desc">CPCB annual return &amp; statutory audit</div>
+                    </div>
+                  </a>
+                  <div className="dropdown-divider" />
+                  <a href="/services" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
+                    <span>Explore All 12 Statutory Services</span>
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+              </li>
+
+              {/* 2. IT & Products (Direct Highlight Link) */}
+              <li>
+                <a 
+                  href="/tech-products" 
+                  className={`nav-link ${currentPath === '/tech-products' ? 'active' : ''}`}
+                  style={{ color: '#06b6d4', fontWeight: 700, gap: '6px' }}
+                >
+                  <Smartphone size={14} />
+                  <span>IT &amp; Products</span>
+                  <span className="nav-tag-badge">NEW</span>
+                </a>
+              </li>
+
+              {/* 3. Tools Dropdown */}
+              <li 
+                className="nav-item-dropdown" 
+                onMouseEnter={() => setActiveDropdown('tools')} 
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button 
+                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'tools' || currentPath.includes('/tools') || currentPath.includes('/calculator') ? 'active' : ''}`}
+                  onClick={() => setActiveDropdown(activeDropdown === 'tools' ? null : 'tools')}
+                  aria-expanded={activeDropdown === 'tools'}
+                >
+                  <span>Tools</span>
+                  <ChevronDown size={14} className={`dropdown-chevron ${activeDropdown === 'tools' ? 'rotate' : ''}`} />
+                </button>
+                <div className={`nav-dropdown-menu ${activeDropdown === 'tools' ? 'open' : ''}`} style={{ minWidth: '310px' }}>
+                  <a href="/purpose-selector" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Compass size={16} color="#fbbf24" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#fbbf24' }}>Purpose Selector</div>
+                      <div className="dropdown-item-desc">Find exact statutory valuation &amp; certificate rules</div>
+                    </div>
+                  </a>
+                  <a href="/calculator" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Calculator size={16} color="#38bdf8" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Machinery Valuation Calculator</div>
+                      <div className="dropdown-item-desc">Instant DRC asset valuation estimator</div>
+                    </div>
+                  </a>
+                  <a href="/solar-checker" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Zap size={16} color="#f59e0b" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Solar CEIG Compliance Checker</div>
+                      <div className="dropdown-item-desc">Verify statutory drawings &amp; CEA rules</div>
+                    </div>
+                  </a>
+                  <div className="dropdown-divider" />
+                  <a href="/tools" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
+                    <span>View All Engineering Tools</span>
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+              </li>
+
+              {/* 4. About Dropdown */}
+              <li 
+                className="nav-item-dropdown" 
+                onMouseEnter={() => setActiveDropdown('about')} 
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button 
+                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'about' || currentPath === '/who-we-serve' || currentPath === '/credentials' || currentPath === '/founder' || currentPath === '/process' ? 'active' : ''}`}
+                  onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
+                  aria-expanded={activeDropdown === 'about'}
+                >
+                  <span>About</span>
+                  <ChevronDown size={14} className={`dropdown-chevron ${activeDropdown === 'about' ? 'rotate' : ''}`} />
+                </button>
+                <div className={`nav-dropdown-menu ${activeDropdown === 'about' ? 'open' : ''}`} style={{ minWidth: '300px' }}>
+                  <a href="/who-we-serve" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Users size={16} color="#38bdf8" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Who We Serve</div>
+                      <div className="dropdown-item-desc">Banks, CAs, Advocates, Builders &amp; MSMEs</div>
+                    </div>
+                  </a>
+                  <a href="/credentials" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Award size={16} color="#fbbf24" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Statutory Credentials</div>
+                      <div className="dropdown-item-desc">Institution of Engineers (India) &amp; Approvals</div>
+                    </div>
+                  </a>
+                  <a href="/founder" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <GraduationCap size={16} color="#10b981" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Core Team &amp; Leadership</div>
+                      <div className="dropdown-item-desc">IIT Roorkee mechanical engineering alumni</div>
+                    </div>
+                  </a>
+                  <a href="/process" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <CheckCircle2 size={16} color="#06b6d4" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">8-Step Valuation Process</div>
+                      <div className="dropdown-item-desc">Unassailable regulatory documentation</div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+
+              {/* 5. Insights Dropdown */}
+              <li 
+                className="nav-item-dropdown" 
+                onMouseEnter={() => setActiveDropdown('insights')} 
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button 
+                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'insights' || currentPath.startsWith('/blog') || currentPath === '/faq' ? 'active' : ''}`}
+                  onClick={() => setActiveDropdown(activeDropdown === 'insights' ? null : 'insights')}
+                  aria-expanded={activeDropdown === 'insights'}
+                >
+                  <span>Insights</span>
+                  <ChevronDown size={14} className={`dropdown-chevron ${activeDropdown === 'insights' ? 'rotate' : ''}`} />
+                </button>
+                <div className={`nav-dropdown-menu ${activeDropdown === 'insights' ? 'open' : ''}`} style={{ minWidth: '280px' }}>
+                  <a href="/blog" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <BookOpen size={16} color="#38bdf8" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Technical Blog &amp; Guides</div>
+                      <div className="dropdown-item-desc">Regulatory circulars, IndAS &amp; DGFT</div>
+                    </div>
+                  </a>
+                  <a href="/faq" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <HelpCircle size={16} color="#fbbf24" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title">Frequently Asked Questions</div>
+                      <div className="dropdown-item-desc">Direct answers to valuation questions</div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+
+              {/* 6. Contact Link */}
+              <li>
+                <a href="/contact" className={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>
+                  Contact
+                </a>
+              </li>
+
             </ul>
           </nav>
 
@@ -211,34 +441,50 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
            MOBILE HAMBURGER DRAWER
-           Shows on ≤1024px screens only
-           Contains: Nav links + Portal + Request Quote + Call
+           Clean & Structured with Category Dividers
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <div className={`mobile-drawer ${mobileMenuOpen ? 'mobile-drawer--open' : ''}`}>
-        {/* Navigation Links */}
         <div className="mobile-drawer-links">
-          <a href="/purpose-selector" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 700 }}>🎯 Valuation Purpose Selector</a>
-          <a href="/who-we-serve"     onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>👥 Who We Serve</a>
-          <a href="/services"       onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 12 Valuation Services</a>
+          
+          <div style={{ padding: '4px 14px', fontSize: '0.72rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            Core Engineering &amp; Valuation
+          </div>
+          <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 12 Valuation Services</a>
           <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 E-Waste Annual Return &amp; EPR</a>
-          <a href="/process"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
-          <a href="/credentials"    onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🏅 Credentials &amp; IEI</a>
-          <a href="/tools"          onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>🛠️ Tools (Calculator &amp; Solar)</a>
-          <a href="/founder"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👤 Core Team (IIT Roorkee)</a>
-          <a href="/contact"        onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📍 Contact Jaipur HQ</a>
-          <a href="/blog"           onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600 }}>📚 Insights &amp; Blog Guides</a>
-          <a href="/faq"            onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 600 }}>❓ FAQs &amp; Help Desk</a>
-          <a href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8' }}>💼 LinkedIn Company Page</a>
+          <a href="/process" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
+
+          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            Technology &amp; Software
+          </div>
+          <a href="/tech-products" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#06b6d4', fontWeight: 700 }}>💻 IT, Apps &amp; Software Products</a>
+
+          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            Interactive Tools
+          </div>
+          <a href="/purpose-selector" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 700 }}>🎯 Valuation Purpose Selector</a>
+          <a href="/tools" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8' }}>🛠️ Tools (Calculator &amp; Solar)</a>
+
+          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            About Company &amp; Credentials
+          </div>
+          <a href="/who-we-serve" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👥 Who We Serve</a>
+          <a href="/credentials" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🏅 Credentials &amp; IEI</a>
+          <a href="/founder" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👤 Core Team (IIT Roorkee)</a>
+
+          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            Support &amp; Insights
+          </div>
+          <a href="/blog" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📚 Insights &amp; Blog Guides</a>
+          <a href="/faq" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">❓ FAQs &amp; Help Desk</a>
+          <a href="/contact" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📍 Contact Jaipur HQ</a>
         </div>
 
         <div className="mobile-drawer-divider" />
 
         {/* ── CTA Buttons ── */}
         <div className="mobile-drawer-ctas">
-          {/* 🌐 Mobile Language Switcher */}
           <LanguageToggle isMobile={true} onToggleCallback={() => setMobileMenuOpen(false)} />
 
-          {/* 1. Request Quote */}
           <button
             onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
             className="btn btn-primary mobile-cta-btn"
@@ -247,7 +493,6 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             <span>Request Quote / Valuation</span>
           </button>
 
-          {/* 2. Admin Portal */}
           <button
             onClick={() => { setMobileMenuOpen(false); onToggleAdmin(); }}
             className="btn btn-outline mobile-cta-btn"
@@ -258,63 +503,11 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             }}
           >
             <LayoutDashboard size={18} color={isAdminOpen ? '#f59e0b' : '#38bdf8'} />
-            <span>{isAdminOpen ? 'Back to Website' : 'Admin Lead Portal'}</span>
+            <span>{isAdminOpen ? 'Back to Main Website' : 'Client Inquiries Admin Portal'}</span>
           </button>
-
-          {/* 3. Direct Call */}
-          <a
-            href="tel:+919158658885"
-            className="btn btn-gold mobile-cta-btn"
-          >
-            <Phone size={18} />
-            <span>Call +91 91586 58885</span>
-          </a>
         </div>
       </div>
     </header>
-
-    {/* LinkedIn-Style Mobile Bottom Navigation View */}
-    <nav 
-      className={`mobile-bottom-nav ${navVisible ? 'mobile-bottom-nav--visible' : 'mobile-bottom-nav--hidden'}`}
-      aria-label="Mobile Bottom Navigation"
-    >
-      <a 
-        href="/" 
-        className={`bottom-nav-item ${currentPath === '/' ? 'active' : ''}`}
-      >
-        <Home size={20} />
-        <span>Home</span>
-      </a>
-      <a 
-        href="/services" 
-        className={`bottom-nav-item ${currentPath.startsWith('/services') ? 'active' : ''}`}
-      >
-        <Briefcase size={20} />
-        <span>Services</span>
-      </a>
-      <a 
-        href="/tools" 
-        className={`bottom-nav-item ${currentPath.startsWith('/tools') || currentPath.startsWith('/calculator') ? 'active' : ''}`}
-      >
-        <Calculator size={20} />
-        <span>Tools</span>
-      </a>
-      <a 
-        href="/blog" 
-        className={`bottom-nav-item ${currentPath.startsWith('/blog') ? 'active' : ''}`}
-      >
-        <BookOpen size={20} />
-        <span>Blog</span>
-      </a>
-      <button 
-        onClick={onOpenQuote} 
-        className="bottom-nav-item bottom-nav-quote-btn"
-        type="button"
-      >
-        <Send size={20} />
-        <span>Quote</span>
-      </button>
-    </nav>
-  </>
+    </>
   );
 }

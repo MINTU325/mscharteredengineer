@@ -1,8 +1,10 @@
-import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, CheckCircle2, Smartphone, Globe, Layers, Rocket, Building2 } from 'lucide-react';
 
 export default function TexelGroupSection({ onOpenQuote }) {
-  const departments = [
+  const [activeTab, setActiveTab] = useState('engineering'); // 'engineering' or 'tech'
+
+  const engineeringServices = [
     {
       id: 'structural-design',
       title: 'STRUCTURAL DESIGN ENGINEERING',
@@ -54,6 +56,39 @@ export default function TexelGroupSection({ onOpenQuote }) {
     }
   ];
 
+  const techServices = [
+    {
+      id: 'android-development',
+      title: 'MOBILE & ANDROID APP DEVELOPMENT',
+      serviceName: 'Custom Android App Development',
+      desc: 'Native Android (Kotlin/Java) & Flutter cross-platform applications with offline-first Room database, biometric security, API sync, and Google Play Store deployment.',
+      icon: <Smartphone size={24} />
+    },
+    {
+      id: 'web-platforms',
+      title: 'FULL-STACK WEB & CLOUD PLATFORMS',
+      serviceName: 'Full-Stack Web Application / SaaS',
+      desc: 'High-speed, scalable web applications, business portals, and client dashboards engineered with React.js, Next.js, Node.js, and high Google PageSpeed scores.',
+      icon: <Globe size={24} />
+    },
+    {
+      id: 'custom-erp',
+      title: 'CUSTOM SOFTWARE & ENTERPRISE ERP',
+      serviceName: 'Custom Business ERP / CRM Software',
+      desc: 'Tailored ERP systems, automated billing software, CRM pipelines, and digital compliance engines replacing paper trails with real-time analytics.',
+      icon: <Layers size={24} />
+    },
+    {
+      id: 'digital-products',
+      title: 'DIGITAL PRODUCTS & E-COMMERCE SUITES',
+      serviceName: 'E-Commerce Platform & Mobile App',
+      desc: 'Turnkey e-commerce engines, proprietary asset valuation SaaS, industrial compliance ERPs, and field inspection mobile tools ready for deployment.',
+      icon: <Rocket size={24} />
+    }
+  ];
+
+  const activeServices = activeTab === 'engineering' ? engineeringServices : techServices;
+
   const handleDepartmentClick = (dept) => {
     if (onOpenQuote) {
       onOpenQuote(dept.serviceName);
@@ -64,7 +99,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
     <section 
       id="ms-group" 
       className="texel-section"
-      aria-label="Welcome to MS Group - Our Departments"
+      aria-label="Welcome to MS Group - Our Services & Technology"
     >
       <div className="texel-container">
         
@@ -74,7 +109,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
             Welcome to MS Group
           </h2>
 
-          {/* Golden Divider Bar */}
+          {/* Green Divider Bar */}
           <div className="texel-divider" aria-hidden="true">
             <span className="texel-divider-line" />
             <span className="texel-divider-bar" />
@@ -82,7 +117,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
           </div>
 
           <p className="texel-description">
-            An integrated engineering consultancy delivering reliable solutions for today’s structures and tomorrow's challenges. Built on strong fundamentals and evolving technologies, we support projects from assessment to delivery.
+            An integrated engineering consultancy &amp; technology solutions group delivering reliable solutions for today’s physical structures, digital ecosystems, and tomorrow's challenges. Built on strong fundamentals and evolving technologies, we support projects from assessment to delivery.
           </p>
         </div>
 
@@ -98,11 +133,64 @@ export default function TexelGroupSection({ onOpenQuote }) {
             <span className="texel-divider-bar" />
             <span className="texel-divider-line" />
           </div>
+
+          {/* Dual Category Tabs */}
+          <div style={{
+            display: 'inline-flex',
+            background: '#FFFFFF',
+            border: '1px solid #E8E2D8',
+            borderRadius: '9999px',
+            padding: '4px',
+            boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
+            marginTop: '12px'
+          }}>
+            <button
+              onClick={() => setActiveTab('engineering')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 18px',
+                borderRadius: '9999px',
+                border: 'none',
+                background: activeTab === 'engineering' ? '#10B981' : 'transparent',
+                color: activeTab === 'engineering' ? '#FFFFFF' : '#475569',
+                fontWeight: 700,
+                fontSize: '0.84rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <Building2 size={15} />
+              <span>Core Engineering</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('tech')}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 18px',
+                borderRadius: '9999px',
+                border: 'none',
+                background: activeTab === 'tech' ? '#10B981' : 'transparent',
+                color: activeTab === 'tech' ? '#FFFFFF' : '#475569',
+                fontWeight: 700,
+                fontSize: '0.84rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <Smartphone size={15} />
+              <span>IT, Apps &amp; Software</span>
+            </button>
+          </div>
         </div>
 
-        {/* Department List Grid */}
+        {/* Department / Services List Grid */}
         <div className="texel-departments-list">
-          {departments.map((dept, index) => (
+          {activeServices.map((dept) => (
             <div 
               key={dept.id}
               className="texel-dept-card"
@@ -117,7 +205,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
               }}
               aria-label={`Consultation for ${dept.title}`}
             >
-              {/* Left Badge: Golden-Yellow with folded ribbon dog-ear */}
+              {/* Left Badge: Green with folded ribbon dog-ear */}
               <div className="texel-badge-wrapper">
                 <div className="texel-badge">
                   {dept.icon}
@@ -126,7 +214,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
                 </div>
               </div>
 
-              {/* Department Title & Micro-details */}
+              {/* Service Title & Micro-details */}
               <div className="texel-dept-content">
                 <h4 className="texel-dept-title">
                   {dept.title}
@@ -143,6 +231,38 @@ export default function TexelGroupSection({ onOpenQuote }) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Prominent Link to Full IT & Digital Solutions Page */}
+        <div style={{ textAlign: 'center', marginTop: '28px' }}>
+          <a
+            href="/tech-products"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '10px 22px',
+              background: '#FFFFFF',
+              border: '1.5px solid #10B981',
+              borderRadius: '9999px',
+              color: '#047857',
+              fontSize: '0.88rem',
+              fontWeight: 700,
+              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.12)',
+              transition: 'all 0.22s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#10B981';
+              e.currentTarget.style.color = '#FFFFFF';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = '#FFFFFF';
+              e.currentTarget.style.color = '#047857';
+            }}
+          >
+            <span>Explore Our Full IT, Android Apps &amp; Products Division</span>
+            <ArrowRight size={16} />
+          </a>
         </div>
 
       </div>
