@@ -26,63 +26,250 @@ import {
   BrainCircuit,
   Send,
   Zap,
-  MessageSquareCode
+  MessageSquareCode,
+  Calculator,
+  Copy,
+  Check,
+  Play,
+  Volume2,
+  Lock,
+  FileText,
+  Sliders,
+  TrendingUp,
+  BarChart3,
+  Workflow,
+  RefreshCw,
+  Wand2
 } from 'lucide-react';
 
 export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   const [activeCategory, setActiveCategory] = useState('all');
 
-  // Interactive AI Chatbot Simulator State
-  const [chatMessages, setChatMessages] = useState([
-    {
-      sender: 'bot',
-      text: 'Hello! I am MS SmartBot AI, an intelligent conversational agent. I help businesses automate customer support, answer queries from company documents via RAG, and connect directly to WhatsApp Cloud API. Try clicking a quick prompt or ask me anything!'
-    }
-  ]);
-  const [chatInput, setChatInput] = useState('');
-  const [isBotTyping, setIsBotTyping] = useState(false);
+  // ─── 1. Interactive Pipeline Visualizer State ───
+  const [selectedPipelineStep, setSelectedPipelineStep] = useState(2); // default: RAG Retrieval
 
-  const samplePrompts = [
-    'How can an AI Chatbot automate my business inquiries?',
-    'Can you integrate AI with WhatsApp & our CRM?',
-    'How does RAG keep company documents private & secure?',
-    'What is the typical development timeline & cost?'
+  const pipelineSteps = [
+    {
+      id: 0,
+      title: '01. Ingestion',
+      badge: 'Multi-Channel',
+      subtitle: 'Omni-channel Input',
+      desc: 'Accepts live customer inputs from Web Chat Widgets, WhatsApp Cloud API, Telegram, Android Apps, or raw PDF/Excel document uploads.',
+      metrics: 'Latency: < 15ms • Protocol: Webhooks / SSE',
+      security: 'TLS 1.3 encryption & rate-limiting protection'
+    },
+    {
+      id: 1,
+      title: '02. Guardrails',
+      badge: 'PII & Security',
+      subtitle: 'Intent & Masking',
+      desc: 'Sanitizes input, strips sensitive PII (PAN, Aadhaar, card numbers), classifies intent, and rejects prompt injection or jailbreak attempts.',
+      metrics: 'Latency: ~25ms • Guardrail Pass Rate: 99.9%',
+      security: 'Strict regex filters & prompt firewall'
+    },
+    {
+      id: 2,
+      title: '03. RAG Search',
+      badge: 'Vector DB',
+      subtitle: 'Semantic Retrieval',
+      desc: 'Generates high-dimensional vector embeddings and queries a private Pinecone/pgvector database for exact company document citations.',
+      metrics: 'Latency: ~45ms • Cosine Similarity: > 0.88',
+      security: 'Isolated client namespace, zero public model training'
+    },
+    {
+      id: 3,
+      title: '04. LLM Reasoning',
+      badge: 'Cognitive Brain',
+      subtitle: 'Generative Synthesis',
+      desc: 'Feeds context-injected prompts into OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, or local Llama 3 for accurate, human-like answers.',
+      metrics: 'Latency: ~180ms • Hallucination Rate: 0.0%',
+      security: 'Constrained system prompt with mandatory source citing'
+    },
+    {
+      id: 4,
+      title: '05. Execution',
+      badge: 'Automation',
+      subtitle: 'Action & Dispatch',
+      desc: 'Dispatches instant reply to WhatsApp/Web, triggers ERP webhooks, updates CRM leads, or generates downloadable verified PDF reports.',
+      metrics: 'Latency: < 40ms • Webhook Delivery: 99.99%',
+      security: 'Signed HMAC payloads & automated audit trail'
+    }
   ];
 
-  const handleSendQuery = (customText) => {
-    const textToSend = typeof customText === 'string' ? customText : chatInput;
+  // ─── 2. Multi-Persona Live AI Agent Studio State ───
+  const [studioPersona, setStudioPersona] = useState('sales'); // 'sales', 'rag', 'whatsapp'
+  const [copiedCode, setCopiedCode] = useState(false);
+
+  // Chat conversation threads for each persona
+  const [chatThreads, setChatThreads] = useState({
+    sales: [
+      { sender: 'bot', text: 'Hello! I am MS SalesAI Agent. Looking to automate your business inquiries, build a custom mobile app, or deploy an enterprise AI chatbot? What is your primary objective?' }
+    ],
+    rag: [
+      { sender: 'bot', text: 'Document RAG Inspector initialized. I have indexed your corporate policies, technical specifications, and balance sheets into our private vector database. Ask me any precise query!' }
+    ],
+    whatsapp: [
+      { sender: 'bot', text: '👋 Namaste! Welcome to MS Group WhatsApp Concierge. How can our technical & AI engineering desk assist you today?' }
+    ]
+  });
+
+  const [studioInput, setStudioInput] = useState('');
+  const [isBotTyping, setIsBotTyping] = useState(false);
+
+  const personaPrompts = {
+    sales: [
+      'What is the estimated cost & timeline to build an AI chatbot?',
+      'Can you integrate this with our custom ERP and sales team?',
+      'How does your AI automate customer lead capture?'
+    ],
+    rag: [
+      'What is the statutory depreciation rate for industrial solar plants under IndAS 16?',
+      'Show citation for Section 50C capital gains tax valuation guidelines.',
+      'How do you prevent the AI from hallucinating on financial reports?'
+    ],
+    whatsapp: [
+      'I want to connect our business catalog to WhatsApp automated ordering.',
+      'Can this send automated WhatsApp payment receipts and invoice PDFs?',
+      'How many simultaneous chats can the WhatsApp bot handle?'
+    ]
+  };
+
+  const handleSendStudioMessage = (customText) => {
+    const textToSend = typeof customText === 'string' ? customText : studioInput;
     if (!textToSend.trim()) return;
 
-    setChatMessages(prev => [...prev, { sender: 'user', text: textToSend }]);
-    setChatInput('');
+    setChatThreads(prev => ({
+      ...prev,
+      [studioPersona]: [...prev[studioPersona], { sender: 'user', text: textToSend }]
+    }));
+    setStudioInput('');
     setIsBotTyping(true);
 
     setTimeout(() => {
-      let reply = "We engineer custom AI Chatbots & LLM integrations aligned with your exact business processes. We handle prompt engineering, fine-tuning, RAG semantic search, and multi-channel deployment.";
+      let reply = "Our engineering team designs custom AI architectures specifically mapped to your workflow. We handle everything from vector database embeddings to production deployment.";
       const lower = textToSend.toLowerCase();
 
-      if (lower.includes('whatsapp') || lower.includes('crm') || lower.includes('erp')) {
-        reply = "Yes, absolutely! We connect OpenAI GPT-4o and Anthropic Claude directly to the official Meta WhatsApp Cloud API and your CRM/ERP. Incoming customer leads are automatically qualified, tickets are logged, and sales managers receive instant alerts.";
-      } else if (lower.includes('rag') || lower.includes('private') || lower.includes('secure') || lower.includes('document')) {
-        reply = "Our RAG (Retrieval-Augmented Generation) pipeline indexes your confidential PDFs, technical catalogs, and policies into a private vector database (Pinecone/pgvector). The AI only answers from verified company data with zero hallucinations, and your data is never used to train public models.";
-      } else if (lower.includes('timeline') || lower.includes('cost') || lower.includes('price')) {
-        reply = "A functioning custom AI Chatbot prototype is typically delivered in 7-10 business days. Production deployment with WhatsApp Cloud API, custom guardrails, and CRM integrations takes 2-3 weeks. Click 'Build Your App / AI Bot' to get a customized proposal!";
-      } else if (lower.includes('business') || lower.includes('automate') || lower.includes('benefit')) {
-        reply = "Our AI chatbot solutions typically deflect 80%+ of repetitive customer calls and emails, operate 24/7 with instant sub-second response times, and double lead conversion by engaging site visitors the moment they land.";
+      if (studioPersona === 'sales') {
+        if (lower.includes('cost') || lower.includes('timeline') || lower.includes('time')) {
+          reply = "Turnkey AI Chatbot prototypes are ready in 7-10 days. Full enterprise production deployment with WhatsApp Cloud API, CRM webhooks, and custom vector search takes 2-3 weeks with fixed milestone pricing.";
+        } else if (lower.includes('erp') || lower.includes('integrate') || lower.includes('sales')) {
+          reply = "Yes! We connect webhooks to Salesforce, SAP, Zoho, HubSpot, or custom SQL databases. When a high-intent lead chats, the bot qualifies their budget and automatically pushes a lead record into your CRM.";
+        } else if (lower.includes('lead') || lower.includes('automate')) {
+          reply = "The bot actively asks qualifying questions (project type, company size, timeline), captures verified WhatsApp & email contacts, and deflects 80%+ of repetitive tier-1 support queries.";
+        }
+      } else if (studioPersona === 'rag') {
+        if (lower.includes('solar') || lower.includes('depreciation') || lower.includes('indas')) {
+          reply = "[Citation: Technical Audit Manual Doc #42, Page 18] Under IndAS 16 component accounting, industrial solar PV modules follow a 25-year economic life cycle with Straight Line Method (SLM) salvage value fixed at 5%.";
+        } else if (lower.includes('50c') || lower.includes('tax') || lower.includes('capital gains')) {
+          reply = "[Citation: CBDT Circular & ITAT Appraisal Rules, Section 50C] Fair Market Value is determined by comparing DLC circle rates with registered Stamp Duty authority values as of 1st April 2001.";
+        } else {
+          reply = "[Verified Source: Enterprise Knowledge Base] RAG performs cosine similarity searches over your private embeddings. If information is not in the source documents, the AI strictly states 'Information not found in verified documents' rather than hallucinating.";
+        }
+      } else if (studioPersona === 'whatsapp') {
+        if (lower.includes('catalog') || lower.includes('order')) {
+          reply = "✅ Our WhatsApp Cloud API engine renders native product catalogs, interactive multi-select buttons, and automated UPI payment links directly inside the WhatsApp conversation window.";
+        } else if (lower.includes('invoice') || lower.includes('receipt') || lower.includes('pdf')) {
+          reply = "📄 Yes! Our Node.js/Python backend dynamically compiles PDF bills with QR codes and dispatches them via WhatsApp media messages in under 2 seconds.";
+        } else {
+          reply = "⚡ Meta WhatsApp Cloud API handles over 10,000+ concurrent conversations with sub-second latency and zero queuing delay.";
+        }
       }
 
-      setChatMessages(prev => [...prev, { sender: 'bot', text: reply }]);
+      setChatThreads(prev => ({
+        ...prev,
+        [studioPersona]: [...prev[studioPersona], { sender: 'bot', text: reply }]
+      }));
       setIsBotTyping(false);
-    }, 600);
+    }, 650);
   };
 
+  // ─── 3. Interactive AI ROI Calculator State ───
+  const [monthlyTickets, setMonthlyTickets] = useState(2500);
+  const [supportAgents, setSupportAgents] = useState(4);
+  const [agentSalary, setAgentSalary] = useState(25000); // INR per month
+
+  const deflectedTickets = Math.round(monthlyTickets * 0.80);
+  const hoursSavedPerMonth = Math.round((deflectedTickets * 12) / 60); // 12 mins per ticket
+  const totalMonthlyPayroll = supportAgents * agentSalary;
+  const estimatedAnnualSavingsLakhs = ((totalMonthlyPayroll * 0.70 * 12) / 100000).toFixed(1);
+
+  // ─── 4. Developer Terminal Code State ───
+  const [selectedApiLang, setSelectedApiLang] = useState('python');
+
+  const codeSnippets = {
+    python: `# Install: pip install langchain openai pinecone-client fastapi
+from fastapi import FastAPI
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_community.vectorstores import Pinecone
+
+app = FastAPI(title="MS Enterprise AI Agent API")
+llm = ChatOpenAI(model="gpt-4o", temperature=0.1)
+
+@app.post("/api/v1/chat-rag")
+async def enterprise_query(user_query: str, client_id: str):
+    # Isolated private vector search with RAG
+    vectorstore = Pinecone.from_existing_index("ms-client-knowledge", OpenAIEmbeddings())
+    context_docs = vectorstore.similarity_search(user_query, k=4, filter={"tenant": client_id})
+    
+    # Synthesize verified response with zero hallucinations
+    response = llm.invoke(f"Context: {context_docs}\\n\\nQuestion: {user_query}")
+    return {"reply": response.content, "verified_citations": len(context_docs)}`,
+
+    node: `// Modern TypeScript / Node.js Express Pipeline
+import express from 'express';
+import { OpenAI } from 'openai';
+import { Pinecone } from '@pinecone-database/pinecone';
+
+const app = express();
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const pinecone = new Pinecone();
+
+app.post('/api/v1/chat-rag', async (req, res) => {
+  const { query, tenantId } = req.body;
+  
+  // 1. Semantic Vector Match
+  const index = pinecone.Index('ms-client-knowledge');
+  const queryEmbedding = await openai.embeddings.create({
+    model: 'text-embedding-3-small',
+    input: query
+  });
+  
+  // 2. Query isolated private namespace
+  const matches = await index.namespace(tenantId).query({
+    vector: queryEmbedding.data[0].embedding,
+    topK: 4,
+    includeMetadata: true
+  });
+  
+  res.json({ status: 'success', matches: matches.matches.length });
+});`,
+
+    curl: `# Direct Enterprise cURL Webhook Invocation
+curl -X POST "https://api.msgroup.tech/v1/agent/query" \\
+  -H "Authorization: Bearer ms_live_sec_9941a0b82f" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "channel": "whatsapp_cloud_api",
+    "customer_phone": "+919876543210",
+    "query": "What is the timeline for asset valuation?",
+    "guardrails": { "strict_rag": true, "max_tokens": 300 }
+  }'`
+  };
+
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText(codeSnippets[selectedApiLang]);
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 2000);
+  };
+
+  // ─── 5. Core Services Array ───
   const techServices = [
     {
       id: 'ai-chatbots',
       icon: Bot,
-      title: 'Enterprise AI Integration & Intelligent Chatbots',
+      title: 'Enterprise AI Agents & WhatsApp Chatbots',
       badge: 'OpenAI, Claude & Custom RAG',
-      accentColor: '#8b5cf6',
+      accentColor: '#8B5CF6',
       desc: 'Next-generation Conversational AI agents, RAG (Retrieval-Augmented Generation) trained on your private corporate documents, and automated multi-channel messaging (WhatsApp & Web). We connect LLMs to your private business data, ERPs, and APIs with ironclad security and zero hallucinations.',
       highlights: [
         'Custom Knowledge-Base Chatbots (RAG over PDFs, Docs & ERPs)',
@@ -99,7 +286,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       icon: Smartphone,
       title: 'Android & Mobile App Development',
       badge: 'Native & Cross-Platform',
-      accentColor: '#10b981',
+      accentColor: '#10B981',
       desc: 'High-performance Android applications built with Kotlin, Jetpack Compose, and Flutter. From responsive UI/UX to offline SQLite sync, biometric authentication, and Google Play Store deployment.',
       highlights: [
         'Custom Native Android Apps (Kotlin / Java)',
@@ -115,7 +302,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       icon: Globe,
       title: 'Full-Stack Web & Cloud Platforms',
       badge: 'Next.js, React & Node',
-      accentColor: '#06b6d4',
+      accentColor: '#06B6D4',
       desc: 'Modern, ultra-fast web applications, business portals, and client dashboards. Built with clean component-driven architecture, high Google PageSpeed scores, and enterprise-grade SEO.',
       highlights: [
         'Single Page Applications (SPA) & SSR with Next.js & React',
@@ -131,7 +318,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       icon: Layers,
       title: 'Custom Software & Enterprise ERP',
       badge: 'Business Automation',
-      accentColor: '#3b82f6',
+      accentColor: '#3B82F6',
       desc: 'Tailored enterprise software designed to replace complex spreadsheets with automated workflows, real-time analytics, inventory management, and digital audit readiness.',
       highlights: [
         'End-to-End Business ERP & Billing Automation',
@@ -147,7 +334,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       icon: ShoppingBag,
       title: 'E-Commerce Engines & Digital Stores',
       badge: 'Omnichannel Commerce',
-      accentColor: '#f59e0b',
+      accentColor: '#F59E0B',
       desc: 'Turnkey e-commerce ecosystems including headless web storefronts, Android buyer apps, merchant seller portals, automated order dispatch, and live shipment tracking.',
       highlights: [
         'Mobile-First E-Commerce Web & Android Apps',
@@ -160,6 +347,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
     }
   ];
 
+  // ─── 6. Digital Products Array ───
   const digitalProducts = [
     {
       id: 'enterprise-ai-bot',
@@ -168,7 +356,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       subtitle: 'RAG-Powered Multi-Channel Chatbot & WhatsApp AI Assistant',
       icon: Bot,
       badge: 'Live AI Engine',
-      badgeColor: '#8b5cf6',
+      badgeColor: '#8B5CF6',
       description: 'An enterprise conversational AI chatbot trained on internal corporate documents, technical specifications, and product catalogs. Automatically resolves 85%+ of client questions 24/7, captures qualified leads, and integrates with WhatsApp and CRM.',
       features: [
         'RAG semantic search with vector embeddings & instant citations',
@@ -185,7 +373,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       subtitle: 'Modern Omnichannel B2C & B2B Retail Platform',
       icon: ShoppingBag,
       badge: 'Live Product Suite',
-      badgeColor: '#10b981',
+      badgeColor: '#10B981',
       description: 'A high-converting, lightning-fast digital retail suite featuring a customer-facing responsive web store, native Android mobile app, and unified merchant admin dashboard.',
       features: [
         'Blazing-fast product search with instant live filtering',
@@ -202,7 +390,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       subtitle: 'Statutory Plant, Machinery & Property Appraisal SaaS',
       icon: FileSpreadsheet,
       badge: 'Proprietary Software',
-      badgeColor: '#06b6d4',
+      badgeColor: '#06B6D4',
       description: 'An internal and client-facing engineering SaaS platform that calculates Depreciated Replacement Cost (DRC), IndAS 16 component useful life, and generates bank-ready appraisal documents.',
       features: [
         'Depreciated Replacement Cost (DRC) calculation engine',
@@ -219,7 +407,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       subtitle: 'Industrial Auditing & Statutory Schedule Management',
       icon: ClipboardCheck,
       badge: 'Enterprise Tool',
-      badgeColor: '#f59e0b',
+      badgeColor: '#F59E0B',
       description: 'Comprehensive workflow software for manufacturing units and power plants to monitor CEIG solar approvals, electrical safety audits, Factories Act certifications, and energy logs.',
       features: [
         'Automated expiration alerts for factory statutory licenses',
@@ -236,7 +424,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       subtitle: 'GPS-Tagged On-Site Technical Audit Android App',
       icon: Smartphone,
       badge: 'Mobile App',
-      badgeColor: '#8b5cf6',
+      badgeColor: '#8B5CF6',
       description: 'A dedicated Android mobile app built for field valuation engineers and site supervisors to capture geo-tagged asset images, record equipment serials, and sync data offline.',
       features: [
         'Offline data capture with automatic cloud synchronization',
@@ -249,17 +437,16 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   ];
 
   const techStackIcons = [
-    { name: 'OpenAI & Claude APIs', category: 'Generative AI', desc: 'LLM agents & prompt engineering' },
-    { name: 'LangChain & LlamaIndex', category: 'AI Orchestration', desc: 'RAG & semantic retrieval' },
-    { name: 'Pinecone & pgvector', category: 'Vector DB', desc: 'Embeddings & fast vector search' },
-    { name: 'Python FastAPI & Ollama', category: 'AI Backend', desc: 'Secure APIs & local LLM inference' },
-    { name: 'Android / Kotlin', category: 'Mobile', desc: 'Native high-speed apps' },
-    { name: 'Flutter', category: 'Mobile', desc: 'Cross-platform iOS & Android' },
-    { name: 'React.js / Next.js', category: 'Frontend', desc: 'Modern responsive web' },
-    { name: 'Node.js / Express', category: 'Backend', desc: 'Scalable microservices' },
-    { name: 'PostgreSQL & MongoDB', category: 'Databases', desc: 'Secure reliable storage' },
-    { name: 'AWS & Cloudflare', category: 'Infrastructure', desc: 'Global CDN & high availability' },
-    { name: 'Docker & CI/CD', category: 'DevOps', desc: 'Automated reliable deployments' }
+    { name: 'OpenAI GPT-4o & Claude 3.5', category: 'Generative AI', desc: 'Reasoning agents & prompt engineering' },
+    { name: 'LangChain & LlamaIndex', category: 'AI Orchestration', desc: 'RAG pipelines & memory management' },
+    { name: 'Pinecone & pgvector', category: 'Vector DB', desc: 'Embeddings & sub-50ms vector search' },
+    { name: 'Python FastAPI & Ollama', category: 'AI Backend', desc: 'Secure APIs & local private LLM inference' },
+    { name: 'Android / Kotlin', category: 'Mobile', desc: 'Native high-speed mobile apps' },
+    { name: 'Flutter', category: 'Mobile', desc: 'Cross-platform iOS & Android applications' },
+    { name: 'React.js & Next.js', category: 'Frontend', desc: 'Ultra-fast server-rendered web portals' },
+    { name: 'Node.js & Express', category: 'Backend', desc: 'High-throughput microservices architecture' },
+    { name: 'PostgreSQL & MongoDB', category: 'Databases', desc: 'ACID compliant & flexible cloud storage' },
+    { name: 'AWS & Cloudflare', category: 'Infrastructure', desc: 'Global edge CDN & 99.99% availability' }
   ];
 
   const filteredProducts = activeCategory === 'all' 
@@ -267,97 +454,110 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
     : digitalProducts.filter(p => p.category === activeCategory);
 
   return (
-    <div className="tech-solutions-page" style={{ background: '#FAF8F5', minHeight: '100vh', paddingBottom: '70px' }}>
+    <div className="tech-solutions-page" style={{ background: '#070D1B', color: '#F8FAFC', minHeight: '100vh', paddingBottom: '70px', overflowX: 'hidden' }}>
       
-      {/* ── Breadcrumb & Back Bar ── */}
-      <div style={{ background: '#0F172A', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 0' }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#94a3b8' }}>
+      {/* ── Breadcrumb & Top Bar ── */}
+      <div style={{ background: 'rgba(11, 20, 38, 0.85)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 0', position: 'sticky', top: 0, zIndex: 900 }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#94A3B8' }}>
             <button 
               onClick={onNavigateHome}
-              style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
+              style={{ background: 'none', border: 'none', color: '#38BDF8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
             >
               <Home size={14} /> Home
             </button>
             <span>/</span>
-            <span style={{ color: '#f8fafc', fontWeight: 600 }}>MS Tech Labs &amp; Software Products</span>
+            <span style={{ color: '#F8FAFC', fontWeight: 600 }}>MS Tech Labs &bull; AI &amp; Software Products</span>
           </div>
-          <button 
-            onClick={() => onOpenQuote('Custom Android App Development')}
-            style={{
-              background: '#10b981',
-              color: '#ffffff',
-              border: 'none',
-              borderRadius: '9999px',
-              padding: '6px 16px',
-              fontSize: '0.82rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px'
-            }}
-          >
-            <Sparkles size={14} /> Build Your App / Software
-          </button>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '4px 10px', borderRadius: '9999px', fontSize: '0.74rem', color: '#34D399', fontWeight: 700 }}>
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 6px #10B981' }} />
+              <span>AI Pipeline: ACTIVE</span>
+            </div>
+
+            <button 
+              onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
+              style={{
+                background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '9999px',
+                padding: '6px 16px',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                boxShadow: '0 4px 14px rgba(139, 92, 246, 0.35)'
+              }}
+            >
+              <Sparkles size={14} /> Build Your AI / App
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* ── Hero Section (Deep Tech Aesthetic) ── */}
+      {/* ── Hero Section (Ultra-Modern AI Cybernetic Aesthetic) ── */}
       <section style={{
-        background: 'radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 45%), radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%), linear-gradient(135deg, #070e1e 0%, #0c1a3d 100%)',
-        color: '#ffffff',
-        padding: '60px 0 55px 0',
-        borderBottom: '1px solid rgba(255,255,255,0.1)'
+        background: 'radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.22) 0%, transparent 50%), radial-gradient(circle at 25% 75%, rgba(16, 185, 129, 0.18) 0%, transparent 50%), linear-gradient(135deg, #050B14 0%, #0A1324 50%, #0F1D38 100%)',
+        color: '#FFFFFF',
+        padding: '65px 0 60px 0',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
+        position: 'relative'
       }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '880px', margin: '0 auto' }}>
+        <div className="container" style={{ textAlign: 'center', maxWidth: '920px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'rgba(16, 185, 129, 0.15)',
-            border: '1px solid rgba(16, 185, 129, 0.35)',
+            background: 'rgba(139, 92, 246, 0.15)',
+            border: '1px solid rgba(139, 92, 246, 0.4)',
             borderRadius: '9999px',
-            padding: '6px 16px',
-            color: '#34d399',
+            padding: '6px 18px',
+            color: '#C084FC',
             fontSize: '0.82rem',
-            fontWeight: 700,
+            fontWeight: 800,
             letterSpacing: '0.04em',
-            marginBottom: '18px'
+            marginBottom: '20px',
+            boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)'
           }}>
-            <Terminal size={15} />
-            <span>MS TECH LABS &bull; DIGITAL INNOVATION &amp; SOFTWARE DIVISION</span>
+            <BrainCircuit size={15} />
+            <span>MS TECH LABS &bull; AUTONOMOUS AI &amp; NEXT-GEN SOFTWARE</span>
           </div>
 
           <h1 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.1rem, 4.5vw, 3.2rem)',
-            fontWeight: 800,
-            lineHeight: 1.2,
-            marginBottom: '18px',
-            color: '#f8fafc'
+            fontSize: 'clamp(2.2rem, 4.8vw, 3.5rem)',
+            fontWeight: 900,
+            lineHeight: 1.18,
+            marginBottom: '20px',
+            color: '#F8FAFC',
+            letterSpacing: '-0.02em'
           }}>
-            Engineering Next-Gen <span style={{ color: '#10b981' }}>Mobile Apps</span>, <br />
-            <span style={{ color: '#38bdf8' }}>Web Platforms</span> &amp; <span style={{ color: '#a855f7' }}>Enterprise AI Chatbots</span>
+            Engineering <span style={{ background: 'linear-gradient(135deg, #C084FC 0%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Autonomous AI Agents</span>, <br />
+            <span style={{ color: '#38BDF8' }}>Intelligent Chatbots</span> &amp; <span style={{ color: '#10B981' }}>Scalable Software</span>
           </h1>
 
           <p style={{
-            fontSize: 'clamp(1rem, 2vw, 1.12rem)',
-            color: '#cbd5e1',
+            fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+            color: '#94A3B8',
             lineHeight: 1.65,
-            maxWidth: '740px',
-            margin: '0 auto 28px auto'
+            maxWidth: '780px',
+            margin: '0 auto 30px auto'
           }}>
-            Combining rigorous <strong>IIT Roorkee analytical engineering fundamentals</strong> with modern full-stack web, native Android mobile development, and enterprise SaaS products. We engineer high-performance digital tools from concept to scale.
+            We fuse <strong>IIT Roorkee analytical engineering fundamentals</strong> with state-of-the-art Generative AI, RAG over enterprise data, native Android apps, and high-throughput cloud microservices.
           </p>
 
+          {/* Quick Hero CTAs */}
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '14px' }}>
             <button
-              onClick={() => onOpenQuote('Custom Android App Development')}
+              onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
               style={{
-                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                color: '#ffffff',
+                background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                color: '#FFFFFF',
                 border: 'none',
                 borderRadius: '12px',
                 padding: '14px 28px',
@@ -367,19 +567,19 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                boxShadow: '0 8px 24px rgba(16, 185, 129, 0.35)'
+                boxShadow: '0 8px 24px rgba(139, 92, 246, 0.45)'
               }}
             >
-              <span>Start Your Tech Project</span>
+              <span>Deploy Custom AI Agent</span>
               <ArrowRight size={18} />
             </button>
 
             <a
-              href="#products"
+              href="#ai-studio"
               style={{
-                background: 'rgba(255, 255, 255, 0.08)',
-                color: '#f8fafc',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
+                background: 'rgba(255, 255, 255, 0.06)',
+                color: '#F8FAFC',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
                 borderRadius: '12px',
                 padding: '14px 26px',
                 fontSize: '0.98rem',
@@ -389,237 +589,256 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 gap: '8px'
               }}
             >
-              <span>Explore Our Products</span>
-              <Layout size={18} />
+              <span>Test Live AI Studio</span>
+              <Bot size={18} color="#8B5CF6" />
+            </a>
+
+            <a
+              href="#roi-calculator"
+              style={{
+                background: 'rgba(16, 185, 129, 0.10)',
+                color: '#34D399',
+                border: '1px solid rgba(16, 185, 129, 0.25)',
+                borderRadius: '12px',
+                padding: '14px 22px',
+                fontSize: '0.98rem',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              <span>Calculate AI ROI</span>
+              <Calculator size={18} />
             </a>
           </div>
 
-          {/* Quick Metrics */}
+          {/* Live System Telemetry Stat Badges */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '16px',
-            marginTop: '44px',
-            paddingTop: '28px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+            marginTop: '45px',
+            paddingTop: '30px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)'
           }}>
-            <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#10b981' }}>100%</div>
-              <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Native &amp; Custom Code</div>
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#C084FC' }}>99.8%</div>
+              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Zero-Hallucination Guardrails</div>
             </div>
-            <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#38bdf8' }}>99.9%</div>
-              <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Cloud Architecture Uptime</div>
+
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#38BDF8' }}>&lt; 250ms</div>
+              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Sub-Second RAG Latency</div>
             </div>
-            <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#f59e0b' }}>Full-Stack</div>
-              <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Android, Web &amp; ERP</div>
+
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#10B981' }}>80%+</div>
+              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Support Ticket Deflection</div>
             </div>
-            <div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#a855f7' }}>IIT Roorkee</div>
-              <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>Engineering Governance</div>
+
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
+              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#F59E0B' }}>100% Isolated</div>
+              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Private Enterprise Data Security</div>
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* ── Services Division Grid ── */}
-      <section style={{ padding: '50px 0 30px 0' }}>
+      {/* ── Section 1: Interactive AI Architecture Pipeline Visualizer ── */}
+      <section style={{ padding: '60px 0 50px 0', background: '#091122', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
         <div className="container">
           
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 36px auto' }}>
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#0F172A',
-              marginBottom: '8px'
-            }}>
-              Our Core <span style={{ color: '#10b981' }}>Technology Services</span>
-            </h2>
-            <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.6 }}>
-              From initial wireframes and mobile UI/UX to cloud deployment and scalable databases, we deliver reliable and production-ready digital solutions.
-            </p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '22px'
-          }}>
-            {techServices.map((service) => {
-              const Icon = service.icon;
-              return (
-                <div 
-                  key={service.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1px solid #E8E2D8',
-                    borderRadius: '16px',
-                    padding: '28px 24px',
-                    boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <div>
-                    {/* Header */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-                      <div style={{
-                        width: '52px',
-                        height: '52px',
-                        borderRadius: '12px',
-                        background: `${service.accentColor}15`,
-                        border: `1px solid ${service.accentColor}35`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: service.accentColor
-                      }}>
-                        <Icon size={26} />
-                      </div>
-                      <span style={{
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                        color: service.accentColor,
-                        background: `${service.accentColor}12`,
-                        padding: '4px 10px',
-                        borderRadius: '9999px',
-                        border: `1px solid ${service.accentColor}25`
-                      }}>
-                        {service.badge}
-                      </span>
-                    </div>
-
-                    <h3 style={{
-                      fontSize: '1.25rem',
-                      fontWeight: 800,
-                      color: '#0F172A',
-                      marginBottom: '10px',
-                      lineHeight: 1.3
-                    }}>
-                      {service.title}
-                    </h3>
-
-                    <p style={{ fontSize: '0.90rem', color: '#475569', lineHeight: 1.55, marginBottom: '18px' }}>
-                      {service.desc}
-                    </p>
-
-                    <div style={{ borderTop: '1px solid #F1ECE1', paddingTop: '14px', marginBottom: '18px' }}>
-                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>
-                        Key Capabilities:
-                      </div>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                        {service.highlights.map((h, i) => (
-                          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: '#334155' }}>
-                            <CheckCircle2 size={16} color={service.accentColor} style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => onOpenQuote(service.serviceName)}
-                    style={{
-                      width: '100%',
-                      background: '#FAF8F5',
-                      border: `1px solid ${service.accentColor}40`,
-                      color: '#0F172A',
-                      borderRadius: '10px',
-                      padding: '10px 16px',
-                      fontSize: '0.88rem',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      transition: 'all 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = service.accentColor;
-                      e.currentTarget.style.color = '#FFFFFF';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = '#FAF8F5';
-                      e.currentTarget.style.color = '#0F172A';
-                    }}
-                  >
-                    <span>Request Proposal for this Service</span>
-                    <ArrowRight size={15} />
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Featured Digital Products Showcase ── */}
-      <section id="products" style={{ padding: '40px 0 50px 0' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 32px auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px auto' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '4px 12px',
-              background: '#ECFDF5',
-              border: '1px solid #A7F3D0',
+              padding: '4px 14px',
+              background: 'rgba(56, 189, 248, 0.12)',
+              border: '1px solid rgba(56, 189, 248, 0.3)',
               borderRadius: '9999px',
-              color: '#047857',
+              color: '#38BDF8',
               fontSize: '0.78rem',
-              fontWeight: 700,
+              fontWeight: 800,
+              letterSpacing: '0.04em',
               marginBottom: '10px'
             }}>
-              <Rocket size={14} />
-              <span>PROPRIETARY TECH &amp; CLIENT DELIVERABLES</span>
+              <Workflow size={14} />
+              <span>PRODUCTION ARCHITECTURE</span>
             </div>
-            
+
             <h2 style={{
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
               fontWeight: 800,
-              color: '#0F172A',
+              color: '#F8FAFC',
               marginBottom: '8px'
             }}>
-              Featured <span style={{ color: '#10b981' }}>Software Products</span> &amp; Applications
+              How Our <span style={{ color: '#38BDF8' }}>Enterprise AI Pipeline</span> Works
             </h2>
-            <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.6 }}>
-              Explore our in-house enterprise suites, mobile applications, and retail platforms built for modern performance and scale.
+            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
+              Click on any stage below to inspect how user messages are tokenized, sanitized, enriched with private RAG vector context, and converted into automated actions.
+            </p>
+          </div>
+
+          {/* Interactive Pipeline Bar (Clickable Nodes) */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+            gap: '12px',
+            marginBottom: '24px'
+          }}>
+            {pipelineSteps.map((step) => {
+              const isActive = selectedPipelineStep === step.id;
+              return (
+                <button
+                  key={step.id}
+                  onClick={() => setSelectedPipelineStep(step.id)}
+                  style={{
+                    background: isActive ? 'linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%)' : 'rgba(255, 255, 255, 0.03)',
+                    border: isActive ? '2px solid #8B5CF6' : '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: '14px',
+                    padding: '16px 14px',
+                    textAlign: 'left',
+                    cursor: 'pointer',
+                    transition: 'all 0.25s ease',
+                    boxShadow: isActive ? '0 8px 24px rgba(139, 92, 246, 0.3)' : 'none'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 800, color: isActive ? '#C084FC' : '#94A3B8' }}>{step.title}</span>
+                    <span style={{
+                      fontSize: '0.65rem',
+                      fontWeight: 700,
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      background: isActive ? '#8B5CF6' : 'rgba(255,255,255,0.06)',
+                      color: '#FFFFFF'
+                    }}>
+                      {step.badge}
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>{step.subtitle}</div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Detailed Stage Inspector Card */}
+          <div style={{
+            background: 'linear-gradient(135deg, #0B132B 0%, #0F1A3A 100%)',
+            border: '1.5px solid rgba(139, 92, 246, 0.35)',
+            borderRadius: '16px',
+            padding: '26px 28px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '24px',
+            alignItems: 'center'
+          }}>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                <span style={{ fontSize: '0.80rem', fontWeight: 800, color: '#8B5CF6', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  Stage Deep Dive:
+                </span>
+                <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#F8FAFC' }}>
+                  {pipelineSteps[selectedPipelineStep].title} — {pipelineSteps[selectedPipelineStep].subtitle}
+                </span>
+              </div>
+              <p style={{ color: '#CBD5E1', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '14px' }}>
+                {pipelineSteps[selectedPipelineStep].desc}
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#38BDF8' }}>
+                  <Zap size={14} />
+                  <span>{pipelineSteps[selectedPipelineStep].metrics}</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#34D399' }}>
+                  <ShieldCheck size={14} />
+                  <span>{pipelineSteps[selectedPipelineStep].security}</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{
+              background: '#060B14',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '12px',
+              padding: '16px',
+              fontFamily: 'monospace',
+              fontSize: '0.78rem',
+              color: '#38BDF8',
+              lineHeight: 1.6
+            }}>
+              <div style={{ color: '#64748B', marginBottom: '6px' }}>// Execution Log Trace</div>
+              <div>&gt; [INIT] {pipelineSteps[selectedPipelineStep].subtitle} handshake verified.</div>
+              <div>&gt; [METRIC] {pipelineSteps[selectedPipelineStep].metrics}</div>
+              <div style={{ color: '#34D399' }}>&gt; [STATUS] Zero-Data Leakage Protocol: ENFORCED</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Section 2: Multi-Persona Live AI Agent Studio (3-in-1 Interactive Simulator) ── */}
+      <section id="ai-studio" style={{ padding: '60px 0 70px 0', background: '#070D1B' }}>
+        <div className="container">
+          
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px auto' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '5px 14px',
+              background: 'rgba(139, 92, 246, 0.15)',
+              border: '1px solid rgba(139, 92, 246, 0.4)',
+              borderRadius: '9999px',
+              color: '#C084FC',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              marginBottom: '10px'
+            }}>
+              <Wand2 size={14} />
+              <span>LIVE INTERACTIVE AGENT STUDIO</span>
+            </div>
+
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              color: '#F8FAFC',
+              marginBottom: '8px'
+            }}>
+              Experience Our <span style={{ color: '#8B5CF6' }}>Autonomous AI Agents</span> in Real-Time
+            </h2>
+            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
+              Switch between our 3 live agent personas: test automated sales qualification, inspect corporate document RAG citation, or simulate live WhatsApp Cloud API messaging.
             </p>
 
-            {/* Filter Pills */}
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '18px' }}>
+            {/* Persona Switcher Tabs */}
+            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '20px' }}>
               {[
-                { id: 'all', label: 'All Products' },
-                { id: 'ai', label: '🤖 AI & Chatbots' },
-                { id: 'ecommerce', label: 'E-Commerce Engines' },
-                { id: 'enterprise', label: 'Enterprise SaaS' },
-                { id: 'mobile', label: 'Android Mobile Apps' },
-                { id: 'industrial', label: 'Industrial Compliance' }
+                { id: 'sales', label: '💼 Enterprise Sales Bot', desc: 'Auto-qualifies leads & quotes' },
+                { id: 'rag', label: '📑 Corporate Document RAG', desc: 'Cites manuals with zero-hallucination' },
+                { id: 'whatsapp', label: '📱 WhatsApp Business Bot', desc: 'Meta Cloud API simulator' }
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveCategory(tab.id)}
+                  onClick={() => setStudioPersona(tab.id)}
                   style={{
-                    padding: '6px 14px',
+                    padding: '8px 18px',
                     borderRadius: '9999px',
-                    fontSize: '0.82rem',
+                    fontSize: '0.84rem',
                     fontWeight: 700,
                     border: '1px solid',
                     cursor: 'pointer',
-                    background: activeCategory === tab.id ? '#10b981' : '#FFFFFF',
-                    color: activeCategory === tab.id ? '#FFFFFF' : '#475569',
-                    borderColor: activeCategory === tab.id ? '#10b981' : '#E2E8F0',
-                    transition: 'all 0.2s ease'
+                    background: studioPersona === tab.id ? '#8B5CF6' : 'rgba(255, 255, 255, 0.04)',
+                    color: studioPersona === tab.id ? '#FFFFFF' : '#94A3B8',
+                    borderColor: studioPersona === tab.id ? '#8B5CF6' : 'rgba(255, 255, 255, 0.12)',
+                    transition: 'all 0.2s ease',
+                    boxShadow: studioPersona === tab.id ? '0 4px 14px rgba(139, 92, 246, 0.35)' : 'none'
                   }}
                 >
                   {tab.label}
@@ -628,192 +847,19 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
           </div>
 
-          {/* Product Cards Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '24px'
-          }}>
-            {filteredProducts.map((product) => {
-              const Icon = product.icon;
-              return (
-                <div
-                  key={product.id}
-                  style={{
-                    background: '#FFFFFF',
-                    border: '1px solid #E8E2D8',
-                    borderRadius: '18px',
-                    overflow: 'hidden',
-                    boxShadow: '0 6px 20px rgba(15, 23, 42, 0.05)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div style={{ padding: '26px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                      <div style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '12px',
-                        background: '#F0FDF4',
-                        border: '1px solid #BBF7D0',
-                        color: '#059669',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
-                        <Icon size={24} />
-                      </div>
-                      <span style={{
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                        color: product.badgeColor,
-                        background: `${product.badgeColor}15`,
-                        border: `1px solid ${product.badgeColor}35`,
-                        padding: '4px 10px',
-                        borderRadius: '9999px'
-                      }}>
-                        {product.badge}
-                      </span>
-                    </div>
-
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0F172A', marginBottom: '4px' }}>
-                      {product.title}
-                    </h3>
-                    <div style={{ fontSize: '0.84rem', color: '#10b981', fontWeight: 700, marginBottom: '12px' }}>
-                      {product.subtitle}
-                    </div>
-
-                    <p style={{ fontSize: '0.90rem', color: '#475569', lineHeight: 1.55, marginBottom: '16px' }}>
-                      {product.description}
-                    </p>
-
-                    {/* Features list */}
-                    <div style={{ marginBottom: '18px' }}>
-                      <div style={{ fontSize: '0.76rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                        Core Features:
-                      </div>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        {product.features.map((f, i) => (
-                          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
-                            <CheckCircle2 size={15} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Tech Stack Badges */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                      {product.techStack.map((tech, i) => (
-                        <span key={i} style={{
-                          background: '#F8FAFC',
-                          border: '1px solid #E2E8F0',
-                          borderRadius: '6px',
-                          padding: '2px 8px',
-                          fontSize: '0.74rem',
-                          fontWeight: 600,
-                          color: '#475569'
-                        }}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div style={{
-                    padding: '16px 26px',
-                    background: '#FAF8F5',
-                    borderTop: '1px solid #E8E2D8',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                  }}>
-                    <span style={{ fontSize: '0.84rem', color: '#64748B', fontWeight: 600 }}>Custom Deployment Ready</span>
-                    <button
-                      onClick={() => onOpenQuote(`Product Demo / Customization: ${product.title}`)}
-                      style={{
-                        background: '#10b981',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '8px 16px',
-                        fontSize: '0.82rem',
-                        fontWeight: 700,
-                        cursor: 'pointer',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px'
-                      }}
-                    >
-                      <span>Inquire / Demo</span>
-                      <ArrowRight size={14} />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Interactive Live AI Chatbot Simulator Section ── */}
-      <section id="ai-demo" style={{
-        background: 'linear-gradient(180deg, #FAF8F5 0%, #F3F0E6 50%, #FAF8F5 100%)',
-        padding: '55px 0 65px 0',
-        borderTop: '1px solid #E8E2D8',
-        borderBottom: '1px solid #E8E2D8'
-      }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 34px auto' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '5px 14px',
-              background: '#F3E8FF',
-              border: '1px solid #D8B4FE',
-              borderRadius: '9999px',
-              color: '#7E22CE',
-              fontSize: '0.78rem',
-              fontWeight: 800,
-              letterSpacing: '0.04em',
-              marginBottom: '10px'
-            }}>
-              <BrainCircuit size={14} />
-              <span>LIVE INTERACTIVE AI DEMO</span>
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#0F172A',
-              marginBottom: '8px'
-            }}>
-              Test Our <span style={{ color: '#8B5CF6' }}>AI Chatbot &amp; Conversational Agent</span>
-            </h2>
-            <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.6 }}>
-              Interact with our live simulation below. We build custom RAG-powered chatbots trained exclusively on your private company documents, FAQs, and product catalogs with zero hallucinations.
-            </p>
-          </div>
-
           {/* Interactive Chat Console Window */}
           <div style={{
-            maxWidth: '820px',
+            maxWidth: '860px',
             margin: '0 auto',
-            background: '#0F172A',
+            background: '#0B1120',
             border: '1.5px solid rgba(139, 92, 246, 0.4)',
             borderRadius: '20px',
             overflow: 'hidden',
-            boxShadow: '0 20px 45px -10px rgba(139, 92, 246, 0.25)'
+            boxShadow: '0 20px 50px -10px rgba(139, 92, 246, 0.25)'
           }}>
             {/* Console Header Bar */}
             <div style={{
-              background: 'linear-gradient(90deg, #1E1B4B 0%, #0F172A 100%)',
+              background: studioPersona === 'whatsapp' ? 'linear-gradient(90deg, #064E3B 0%, #0F172A 100%)' : 'linear-gradient(90deg, #1E1B4B 0%, #0F172A 100%)',
               padding: '14px 20px',
               borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
               display: 'flex',
@@ -827,24 +873,32 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   width: '38px',
                   height: '38px',
                   borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                  background: studioPersona === 'whatsapp' ? '#10B981' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#FFFFFF'
                 }}>
-                  <Bot size={22} />
+                  {studioPersona === 'whatsapp' ? <MessageSquare size={20} /> : <Bot size={22} />}
                 </div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#F8FAFC' }}>MS SmartBot AI</span>
+                    <span style={{ fontSize: '0.94rem', fontWeight: 800, color: '#F8FAFC' }}>
+                      {studioPersona === 'sales' && 'MS Sales & Lead Qualifier Agent'}
+                      {studioPersona === 'rag' && 'Corporate Document RAG Inspector'}
+                      {studioPersona === 'whatsapp' && 'MS Group WhatsApp Cloud Verified Desk'}
+                    </span>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
                   </div>
-                  <div style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Powered by OpenAI GPT-4o &amp; Claude RAG Engine</div>
+                  <div style={{ fontSize: '0.72rem', color: '#94A3B8' }}>
+                    {studioPersona === 'sales' && 'GPT-4o Reasoning Core & CRM Webhook Sync'}
+                    {studioPersona === 'rag' && 'Vector Cosine Similarity & Mandatory Source Citations'}
+                    {studioPersona === 'whatsapp' && 'Meta Cloud API v20.0 • E2E Encryption'}
+                  </div>
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{
                   fontSize: '0.70rem',
                   padding: '3px 8px',
@@ -854,7 +908,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   color: '#34D399',
                   fontWeight: 700
                 }}>
-                  WhatsApp API Ready
+                  Latency: 180ms
                 </span>
                 <span style={{
                   fontSize: '0.70rem',
@@ -865,22 +919,22 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   color: '#C084FC',
                   fontWeight: 700
                 }}>
-                  Zero Hallucination
+                  Active Persona
                 </span>
               </div>
             </div>
 
             {/* Chat Thread Messages Box */}
             <div style={{
-              height: '320px',
+              height: '340px',
               overflowY: 'auto',
               padding: '20px',
               display: 'flex',
               flexDirection: 'column',
               gap: '14px',
-              background: '#0B1120'
+              background: studioPersona === 'whatsapp' ? '#071510' : '#070D1A'
             }}>
-              {chatMessages.map((msg, idx) => {
+              {chatThreads[studioPersona].map((msg, idx) => {
                 const isBot = msg.sender === 'bot';
                 return (
                   <div
@@ -898,7 +952,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                         width: '28px',
                         height: '28px',
                         borderRadius: '8px',
-                        background: '#8B5CF6',
+                        background: studioPersona === 'whatsapp' ? '#059669' : '#8B5CF6',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -910,13 +964,15 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                       </div>
                     )}
                     <div style={{
-                      background: isBot ? '#1E293B' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                      background: isBot 
+                        ? (studioPersona === 'whatsapp' ? '#0D281E' : '#1E293B') 
+                        : (studioPersona === 'whatsapp' ? '#059669' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)'),
                       color: '#F8FAFC',
                       padding: '12px 16px',
                       borderRadius: isBot ? '4px 16px 16px 16px' : '16px 4px 16px 16px',
                       fontSize: '0.88rem',
                       lineHeight: 1.55,
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
                       border: isBot ? '1px solid rgba(255,255,255,0.08)' : 'none'
                     }}>
                       {msg.text}
@@ -931,7 +987,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                     width: '28px',
                     height: '28px',
                     borderRadius: '8px',
-                    background: '#8B5CF6',
+                    background: studioPersona === 'whatsapp' ? '#059669' : '#8B5CF6',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -950,7 +1006,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                     alignItems: 'center',
                     gap: '4px'
                   }}>
-                    <span>Thinking</span>
+                    <span>Agent is generating verified response</span>
                     <span style={{ animation: 'pulse 1s infinite' }}>...</span>
                   </div>
                 </div>
@@ -959,7 +1015,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
             {/* Quick Suggestion Prompts */}
             <div style={{
-              background: '#0F172A',
+              background: '#0B1120',
               padding: '12px 18px',
               borderTop: '1px solid rgba(255, 255, 255, 0.08)',
               display: 'flex',
@@ -968,12 +1024,12 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               alignItems: 'center'
             }}>
               <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 700, textTransform: 'uppercase', marginRight: '4px' }}>
-                Try Asking:
+                Quick Prompts:
               </span>
-              {samplePrompts.map((q, idx) => (
+              {personaPrompts[studioPersona].map((q, idx) => (
                 <button
                   key={idx}
-                  onClick={() => handleSendQuery(q)}
+                  onClick={() => handleSendStudioMessage(q)}
                   style={{
                     background: 'rgba(139, 92, 246, 0.12)',
                     border: '1px solid rgba(139, 92, 246, 0.3)',
@@ -1004,10 +1060,10 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSendQuery();
+                handleSendStudioMessage();
               }}
               style={{
-                background: '#0B1120',
+                background: '#070D1A',
                 padding: '12px 18px',
                 borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                 display: 'flex',
@@ -1017,9 +1073,9 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             >
               <input
                 type="text"
-                value={chatInput}
-                onChange={(e) => setChatInput(e.target.value)}
-                placeholder="Type any question about our AI chatbots or enterprise integration..."
+                value={studioInput}
+                onChange={(e) => setStudioInput(e.target.value)}
+                placeholder={`Ask ${studioPersona === 'sales' ? 'about AI integration & budget...' : studioPersona === 'rag' ? 'from internal documents & specs...' : 'a question as a WhatsApp customer...'}`}
                 style={{
                   flex: 1,
                   background: '#1E293B',
@@ -1034,7 +1090,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <button
                 type="submit"
                 style={{
-                  background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                  background: studioPersona === 'whatsapp' ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
                   color: '#FFFFFF',
                   border: 'none',
                   borderRadius: '10px',
@@ -1054,7 +1110,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
             {/* Bottom Callout in Console */}
             <div style={{
-              background: '#0B0F19',
+              background: '#050912',
               padding: '12px 20px',
               borderTop: '1px solid rgba(255, 255, 255, 0.06)',
               display: 'flex',
@@ -1064,7 +1120,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               gap: '10px'
             }}>
               <span style={{ fontSize: '0.80rem', color: '#94A3B8' }}>
-                Need a custom AI Chatbot connected to your company database &amp; WhatsApp?
+                Want an autonomous AI agent integrated with your company WhatsApp &amp; ERP?
               </span>
               <button
                 onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
@@ -1083,7 +1139,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 }}
               >
                 <Sparkles size={13} />
-                <span>Build Your Custom AI Bot</span>
+                <span>Build This Agent for Your Business</span>
               </button>
             </div>
           </div>
@@ -1091,13 +1147,631 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
         </div>
       </section>
 
-      {/* ── Modern Tech Stack Badges ── */}
+      {/* ── Section 3: Interactive AI ROI & Operational Cost-Savings Calculator ── */}
+      <section id="roi-calculator" style={{ padding: '60px 0 65px 0', background: '#091122', borderTop: '1px solid rgba(255, 255, 255, 0.06)', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+        <div className="container">
+          
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px auto' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '4px 14px',
+              background: 'rgba(16, 185, 129, 0.12)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              borderRadius: '9999px',
+              color: '#34D399',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              marginBottom: '10px'
+            }}>
+              <TrendingUp size={14} />
+              <span>FINANCIAL ROI ENGINE</span>
+            </div>
+
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              color: '#F8FAFC',
+              marginBottom: '8px'
+            }}>
+              Calculate Your <span style={{ color: '#10B981' }}>Annual Cost Savings</span> with AI Automation
+            </h2>
+            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
+              Adjust the sliders to simulate how much time and operational payroll your company can reclaim by deflecting repetitive support inquiries to an autonomous AI agent.
+            </p>
+          </div>
+
+          <div style={{
+            maxWidth: '920px',
+            margin: '0 auto',
+            background: 'linear-gradient(135deg, #0B132B 0%, #0F1D38 100%)',
+            border: '1.5px solid rgba(16, 185, 129, 0.3)',
+            borderRadius: '20px',
+            padding: ' clamp(24px, 4vw, 36px)',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '32px',
+            alignItems: 'center'
+          }}>
+            {/* Left Sliders Controls */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>Monthly Customer Inquiries / Calls:</span>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#38BDF8' }}>{monthlyTickets.toLocaleString()}</span>
+                </div>
+                <input
+                  type="range"
+                  min="500"
+                  max="25000"
+                  step="500"
+                  value={monthlyTickets}
+                  onChange={(e) => setMonthlyTickets(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: '#38BDF8', cursor: 'pointer' }}
+                />
+              </div>
+
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>Dedicated Support / Operations Reps:</span>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#10B981' }}>{supportAgents} Reps</span>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="20"
+                  step="1"
+                  value={supportAgents}
+                  onChange={(e) => setSupportAgents(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: '#10B981', cursor: 'pointer' }}
+                />
+              </div>
+
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>Average Monthly Cost per Rep:</span>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#F59E0B' }}>₹{agentSalary.toLocaleString()}</span>
+                </div>
+                <input
+                  type="range"
+                  min="15000"
+                  max="60000"
+                  step="2500"
+                  value={agentSalary}
+                  onChange={(e) => setAgentSalary(Number(e.target.value))}
+                  style={{ width: '100%', accentColor: '#F59E0B', cursor: 'pointer' }}
+                />
+              </div>
+            </div>
+
+            {/* Right Calculated Results Box */}
+            <div style={{
+              background: 'rgba(5, 11, 20, 0.75)',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: '16px',
+              padding: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '16px'
+            }}>
+              <div>
+                <div style={{ fontSize: '0.78rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
+                  Projected Annual Cost Savings:
+                </div>
+                <div style={{ fontSize: 'clamp(2rem, 3.5vw, 2.7rem)', fontWeight: 900, color: '#34D399', lineHeight: 1.1, marginTop: '4px' }}>
+                  ₹{estimatedAnnualSavingsLakhs} Lakhs <span style={{ fontSize: '0.90rem', color: '#94A3B8', fontWeight: 600 }}>/ Year</span>
+                </div>
+              </div>
+
+              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
+                <div>
+                  <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>AI Auto-Deflection</div>
+                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#38BDF8' }}>{deflectedTickets.toLocaleString()} / mo</div>
+                </div>
+
+                <div>
+                  <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>Staff Hours Saved</div>
+                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#C084FC' }}>{hoursSavedPerMonth.toLocaleString()} hrs / mo</div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
+                style={{
+                  width: '100%',
+                  background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '10px',
+                  padding: '12px 18px',
+                  fontSize: '0.90rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  boxShadow: '0 4px 16px rgba(16, 185, 129, 0.4)'
+                }}
+              >
+                <span>Automate With Custom AI Agent</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Section 4: Core Technology Services Grid ── */}
+      <section style={{ padding: '60px 0 40px 0', background: '#070D1B' }}>
+        <div className="container">
+          
+          <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 36px auto' }}>
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              color: '#F8FAFC',
+              marginBottom: '8px'
+            }}>
+              Our Core <span style={{ color: '#10B981' }}>Technology Services</span>
+            </h2>
+            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
+              From initial wireframes and mobile UI/UX to cloud deployment, scalable databases, and enterprise AI integrations.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '22px'
+          }}>
+            {techServices.map((service) => {
+              const Icon = service.icon;
+              return (
+                <div 
+                  key={service.id}
+                  style={{
+                    background: 'rgba(15, 26, 54, 0.65)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: '16px',
+                    padding: '28px 24px',
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.25)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    transition: 'all 0.25s ease'
+                  }}
+                >
+                  <div>
+                    {/* Header */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+                      <div style={{
+                        width: '52px',
+                        height: '52px',
+                        borderRadius: '12px',
+                        background: `${service.accentColor}18`,
+                        border: `1px solid ${service.accentColor}40`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: service.accentColor
+                      }}>
+                        <Icon size={26} />
+                      </div>
+                      <span style={{
+                        fontSize: '0.74rem',
+                        fontWeight: 700,
+                        color: service.accentColor,
+                        background: `${service.accentColor}15`,
+                        padding: '4px 10px',
+                        borderRadius: '9999px',
+                        border: `1px solid ${service.accentColor}30`
+                      }}>
+                        {service.badge}
+                      </span>
+                    </div>
+
+                    <h3 style={{
+                      fontSize: '1.25rem',
+                      fontWeight: 800,
+                      color: '#F8FAFC',
+                      marginBottom: '10px',
+                      lineHeight: 1.3
+                    }}>
+                      {service.title}
+                    </h3>
+
+                    <p style={{ fontSize: '0.90rem', color: '#94A3B8', lineHeight: 1.55, marginBottom: '18px' }}>
+                      {service.desc}
+                    </p>
+
+                    <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px', marginBottom: '18px' }}>
+                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>
+                        Key Capabilities:
+                      </div>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        {service.highlights.map((h, i) => (
+                          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: '#CBD5E1' }}>
+                            <CheckCircle2 size={16} color={service.accentColor} style={{ flexShrink: 0, marginTop: '2px' }} />
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => onOpenQuote(service.serviceName)}
+                    style={{
+                      width: '100%',
+                      background: 'rgba(255, 255, 255, 0.04)',
+                      border: `1px solid ${service.accentColor}50`,
+                      color: '#F8FAFC',
+                      borderRadius: '10px',
+                      padding: '11px 16px',
+                      fontSize: '0.88rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = service.accentColor;
+                      e.currentTarget.style.color = '#FFFFFF';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                      e.currentTarget.style.color = '#F8FAFC';
+                    }}
+                  >
+                    <span>Request Proposal for this Service</span>
+                    <ArrowRight size={15} />
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Section 5: Developer & Enterprise API Terminal Playground ── */}
+      <section style={{ padding: '50px 0 60px 0', background: '#091122', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
+        <div className="container">
+          
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 30px auto' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '4px 14px',
+              background: 'rgba(139, 92, 246, 0.15)',
+              border: '1px solid rgba(139, 92, 246, 0.35)',
+              borderRadius: '9999px',
+              color: '#C084FC',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              marginBottom: '10px'
+            }}>
+              <Terminal size={14} />
+              <span>DEVELOPER-FIRST API INTEGRATION</span>
+            </div>
+
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              color: '#F8FAFC',
+              marginBottom: '8px'
+            }}>
+              Integrate in <span style={{ color: '#8B5CF6' }}>Under 3 Minutes</span>
+            </h2>
+            <p style={{ color: '#94A3B8', fontSize: '0.96rem' }}>
+              Connect our private RAG AI endpoints to your mobile app, web dashboard, or backend with standard HTTP webhooks and SDKs.
+            </p>
+          </div>
+
+          <div style={{
+            maxWidth: '860px',
+            margin: '0 auto',
+            background: '#040810',
+            border: '1px solid rgba(255, 255, 255, 0.12)',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            boxShadow: '0 16px 40px rgba(0, 0, 0, 0.5)'
+          }}>
+            {/* Terminal Header */}
+            <div style={{
+              background: '#0B1220',
+              padding: '12px 18px',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444', display: 'inline-block' }} />
+                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B', display: 'inline-block' }} />
+                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
+                <span style={{ fontSize: '0.80rem', color: '#94A3B8', fontFamily: 'monospace', marginLeft: '6px' }}>ms-agent-sdk</span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                {['python', 'node', 'curl'].map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => setSelectedApiLang(lang)}
+                    style={{
+                      background: selectedApiLang === lang ? '#8B5CF6' : 'rgba(255, 255, 255, 0.06)',
+                      color: selectedApiLang === lang ? '#FFFFFF' : '#94A3B8',
+                      border: 'none',
+                      borderRadius: '6px',
+                      padding: '4px 10px',
+                      fontSize: '0.74rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    {lang === 'node' ? 'Node.js' : lang}
+                  </button>
+                ))}
+
+                <button
+                  onClick={handleCopyCode}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    color: '#F8FAFC',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    borderRadius: '6px',
+                    padding: '4px 10px',
+                    fontSize: '0.74rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}
+                >
+                  {copiedCode ? <Check size={12} color="#10B981" /> : <Copy size={12} />}
+                  <span>{copiedCode ? 'Copied!' : 'Copy'}</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Code Display */}
+            <pre style={{
+              padding: '20px',
+              margin: 0,
+              fontSize: '0.84rem',
+              fontFamily: 'Consolas, Monaco, "JetBrains Mono", monospace',
+              color: '#38BDF8',
+              lineHeight: 1.6,
+              overflowX: 'auto',
+              maxHeight: '380px'
+            }}>
+              <code>{codeSnippets[selectedApiLang]}</code>
+            </pre>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Section 6: Featured Software Products Showcase ── */}
+      <section id="products" style={{ padding: '60px 0 65px 0', background: '#070D1B' }}>
+        <div className="container">
+          
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 32px auto' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '4px 12px',
+              background: 'rgba(16, 185, 129, 0.15)',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: '9999px',
+              color: '#34D399',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              marginBottom: '10px'
+            }}>
+              <Rocket size={14} />
+              <span>PROPRIETARY TECH &amp; CLIENT DELIVERABLES</span>
+            </div>
+            
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              color: '#F8FAFC',
+              marginBottom: '8px'
+            }}>
+              Featured <span style={{ color: '#10B981' }}>Software Products</span> &amp; Applications
+            </h2>
+            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
+              Explore our in-house enterprise suites, mobile applications, and retail platforms built for modern performance and scale.
+            </p>
+
+            {/* Filter Pills */}
+            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '18px' }}>
+              {[
+                { id: 'all', label: 'All Products' },
+                { id: 'ai', label: '🤖 AI & Chatbots' },
+                { id: 'ecommerce', label: 'E-Commerce Engines' },
+                { id: 'enterprise', label: 'Enterprise SaaS' },
+                { id: 'mobile', label: 'Android Mobile Apps' },
+                { id: 'industrial', label: 'Industrial Compliance' }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveCategory(tab.id)}
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: '9999px',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    border: '1px solid',
+                    cursor: 'pointer',
+                    background: activeCategory === tab.id ? '#10B981' : 'rgba(255, 255, 255, 0.04)',
+                    color: activeCategory === tab.id ? '#FFFFFF' : '#94A3B8',
+                    borderColor: activeCategory === tab.id ? '#10B981' : 'rgba(255, 255, 255, 0.12)',
+                    transition: 'all 0.2s ease'
+                  }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Product Cards Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gap: '24px'
+          }}>
+            {filteredProducts.map((product) => {
+              const Icon = product.icon;
+              return (
+                <div
+                  key={product.id}
+                  style={{
+                    background: 'rgba(15, 26, 54, 0.70)',
+                    border: '1px solid rgba(255, 255, 255, 0.09)',
+                    borderRadius: '18px',
+                    overflow: 'hidden',
+                    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <div style={{ padding: '26px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+                      <div style={{
+                        width: '46px',
+                        height: '46px',
+                        borderRadius: '12px',
+                        background: `${product.badgeColor}18`,
+                        border: `1px solid ${product.badgeColor}35`,
+                        color: product.badgeColor,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}>
+                        <Icon size={24} />
+                      </div>
+                      <span style={{
+                        fontSize: '0.74rem',
+                        fontWeight: 700,
+                        color: product.badgeColor,
+                        background: `${product.badgeColor}15`,
+                        border: `1px solid ${product.badgeColor}35`,
+                        padding: '4px 10px',
+                        borderRadius: '9999px'
+                      }}>
+                        {product.badge}
+                      </span>
+                    </div>
+
+                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#F8FAFC', marginBottom: '4px' }}>
+                      {product.title}
+                    </h3>
+                    <div style={{ fontSize: '0.84rem', color: '#38BDF8', fontWeight: 700, marginBottom: '12px' }}>
+                      {product.subtitle}
+                    </div>
+
+                    <p style={{ fontSize: '0.90rem', color: '#94A3B8', lineHeight: 1.55, marginBottom: '16px' }}>
+                      {product.description}
+                    </p>
+
+                    {/* Features list */}
+                    <div style={{ marginBottom: '18px' }}>
+                      <div style={{ fontSize: '0.76rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                        Core Features:
+                      </div>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                        {product.features.map((f, i) => (
+                          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#CBD5E1' }}>
+                            <CheckCircle2 size={15} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Tech Stack Badges */}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                      {product.techStack.map((tech, i) => (
+                        <span key={i} style={{
+                          background: 'rgba(255, 255, 255, 0.04)',
+                          border: '1px solid rgba(255, 255, 255, 0.08)',
+                          borderRadius: '6px',
+                          padding: '2px 8px',
+                          fontSize: '0.74rem',
+                          fontWeight: 600,
+                          color: '#CBD5E1'
+                        }}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div style={{
+                    padding: '16px 26px',
+                    background: 'rgba(5, 10, 20, 0.65)',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between'
+                  }}>
+                    <span style={{ fontSize: '0.84rem', color: '#94A3B8', fontWeight: 600 }}>Custom Deployment Ready</span>
+                    <button
+                      onClick={() => onOpenQuote(`Product Demo / Customization: ${product.title}`)}
+                      style={{
+                        background: '#10B981',
+                        color: '#FFFFFF',
+                        border: 'none',
+                        borderRadius: '8px',
+                        padding: '8px 16px',
+                        fontSize: '0.82rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <span>Inquire / Demo</span>
+                      <ArrowRight size={14} />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Section 7: Modern Tech Stack Badges ── */}
       <section style={{
-        background: '#0F172A',
-        color: '#ffffff',
-        padding: '48px 0',
-        borderTop: '1px solid rgba(255,255,255,0.08)',
-        borderBottom: '1px solid rgba(255,255,255,0.08)'
+        background: '#091122',
+        color: '#FFFFFF',
+        padding: '50px 0',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
       }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 30px auto' }}>
@@ -1105,13 +1779,13 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               fontFamily: 'var(--font-heading)',
               fontSize: 'clamp(1.5rem, 3vw, 2rem)',
               fontWeight: 800,
-              color: '#f8fafc',
+              color: '#F8FAFC',
               marginBottom: '6px'
             }}>
-              Engineered with <span style={{ color: '#38bdf8' }}>Modern Production Stacks</span>
+              Engineered with <span style={{ color: '#38BDF8' }}>Modern Production Stacks</span>
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '0.92rem' }}>
-              We write clean, modular, and maintainable code adhering to industry standards and modern architectures.
+            <p style={{ color: '#94A3B8', fontSize: '0.92rem' }}>
+              We write clean, modular, and maintainable code adhering to industry standards and modern microservices architectures.
             </p>
           </div>
 
@@ -1124,7 +1798,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <div 
                 key={i}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.04)',
+                  background: 'rgba(255, 255, 255, 0.03)',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   borderRadius: '12px',
                   padding: '16px 18px',
@@ -1139,7 +1813,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   borderRadius: '8px',
                   background: 'rgba(16, 185, 129, 0.15)',
                   border: '1px solid rgba(16, 185, 129, 0.3)',
-                  color: '#34d399',
+                  color: '#34D399',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -1148,8 +1822,8 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   <Code2 size={18} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.90rem', fontWeight: 700, color: '#f8fafc' }}>{stack.name}</div>
-                  <div style={{ fontSize: '0.74rem', color: '#94a3b8' }}>{stack.desc}</div>
+                  <div style={{ fontSize: '0.90rem', fontWeight: 700, color: '#F8FAFC' }}>{stack.name}</div>
+                  <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>{stack.desc}</div>
                 </div>
               </div>
             ))}
@@ -1158,45 +1832,45 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* ── Ready to Build CTA Card ── */}
-      <section style={{ padding: '50px 0 20px 0' }}>
+      <section style={{ padding: '60px 0 20px 0' }}>
         <div className="container">
           <div style={{
-            maxWidth: '920px',
+            maxWidth: '940px',
             margin: '0 auto',
-            background: 'linear-gradient(135deg, #070e1e 0%, #0f2444 100%)',
-            border: '1px solid rgba(16, 185, 129, 0.3)',
+            background: 'linear-gradient(135deg, #091329 0%, #131E3D 100%)',
+            border: '1.5px solid rgba(139, 92, 246, 0.4)',
             borderRadius: '24px',
-            padding: ' clamp(30px, 4vw, 44px)',
-            color: '#ffffff',
+            padding: ' clamp(32px, 5vw, 48px)',
+            color: '#FFFFFF',
             textAlign: 'center',
-            boxShadow: '0 12px 36px rgba(15, 23, 42, 0.12)'
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)'
           }}>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.6rem, 3.2vw, 2.2rem)',
+              fontSize: 'clamp(1.7rem, 3.4vw, 2.4rem)',
               fontWeight: 800,
-              color: '#f8fafc',
-              marginBottom: '12px'
+              color: '#F8FAFC',
+              marginBottom: '14px'
             }}>
-              Have an Idea for an <span style={{ color: '#10b981' }}>Android App</span>, <br />
-              <span style={{ color: '#38bdf8' }}>Web Platform</span>, or <span style={{ color: '#f59e0b' }}>Custom ERP</span>?
+              Ready to Automate with <span style={{ color: '#8B5CF6' }}>Custom AI Agents</span>, <br />
+              <span style={{ color: '#10B981' }}>Android Apps</span>, or <span style={{ color: '#38BDF8' }}>Cloud Platforms</span>?
             </h2>
             <p style={{
-              fontSize: '0.98rem',
-              color: '#cbd5e1',
-              maxWidth: '650px',
-              margin: '0 auto 26px auto',
+              fontSize: '1rem',
+              color: '#94A3B8',
+              maxWidth: '680px',
+              margin: '0 auto 28px auto',
               lineHeight: 1.6
             }}>
-              Talk directly with our technical engineering team. We provide free initial architecture scoping, wireframe consultation, and competitive fixed-price development estimates.
+              Connect directly with our engineering team. We provide free initial architecture scoping, wireframe consultation, and fixed-milestone development estimates.
             </p>
 
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '14px' }}>
               <button
-                onClick={() => onOpenQuote('Custom Android App Development')}
+                onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
                 style={{
-                  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                  color: '#ffffff',
+                  background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                  color: '#FFFFFF',
                   border: 'none',
                   borderRadius: '12px',
                   padding: '14px 28px',
@@ -1206,21 +1880,21 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  boxShadow: '0 8px 24px rgba(16, 185, 129, 0.4)'
+                  boxShadow: '0 8px 24px rgba(139, 92, 246, 0.45)'
                 }}
               >
-                <span>Request Technical Consultation</span>
+                <span>Request AI Architecture Consultation</span>
                 <ArrowRight size={18} />
               </button>
 
               <a
-                href="https://wa.me/919158658885?text=Hello%20MS%20Group,%20I%20am%20interested%20in%20Software/App%20Development."
+                href="https://wa.me/919158658885?text=Hello%20MS%20Group,%20I%20am%20interested%20in%20AI%20Chatbot%20and%20Software%20Development."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  color: '#f8fafc',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  background: 'rgba(37, 211, 102, 0.15)',
+                  color: '#25D366',
+                  border: '1px solid rgba(37, 211, 102, 0.35)',
                   borderRadius: '12px',
                   padding: '14px 24px',
                   fontSize: '0.95rem',
@@ -1231,7 +1905,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 }}
               >
                 <MessageSquare size={18} color="#25D366" />
-                <span>Chat on WhatsApp</span>
+                <span>Chat with Tech Lead on WhatsApp</span>
               </a>
             </div>
           </div>
