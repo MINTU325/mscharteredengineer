@@ -3214,3 +3214,253 @@ body > .skiptranslate:not(#google_translate_element) {
   }
 }
 
+/* ==============================================================
+   E-WASTE STATUTORY & EPR HOME SECTION (MOBILE RESPONSIVE)
+   ============================================================== */
+.ewaste-home-section {
+  padding: 42px 0;
+  background: #F4F0E8;
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.ewaste-home-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1.5px solid #a7f3d0;
+  border-radius: 20px;
+  padding: 34px 30px;
+  box-shadow: 0 10px 30px rgba(5, 150, 105, 0.08);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.ewaste-left-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+.ewaste-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #065f46;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.ewaste-badge span {
+  word-break: break-word;
+}
+
+.ewaste-title {
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  word-break: break-word;
+}
+
+.ewaste-desc {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.65;
+  margin-bottom: 18px;
+  word-break: break-word;
+}
+
+.ewaste-role-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.ewaste-role-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.ewaste-ctas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+.ewaste-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ewaste-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.45);
+}
+
+.ewaste-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0f172a !important;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1.5px solid #cbd5e1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ewaste-btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+.ewaste-telemetry-card {
+  background: #f8fafc;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+.ewaste-telemetry-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed #cbd5e1;
+  padding-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ewaste-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .ewaste-home-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    padding: 0 14px;
+  }
+
+  .ewaste-home-section {
+    padding: 24px 0;
+  }
+
+  .ewaste-home-card {
+    padding: 18px 14px;
+    border-radius: 14px;
+    gap: 18px;
+  }
+
+  .ewaste-badge {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    line-height: 1.35;
+  }
+
+  .ewaste-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .ewaste-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .ewaste-role-pill {
+    font-size: 0.74rem;
+    padding: 5px 9px;
+  }
+
+  .ewaste-ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .ewaste-btn-primary,
+  .ewaste-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+
+  .ewaste-telemetry-card {
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+
+  .ewaste-metric-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
