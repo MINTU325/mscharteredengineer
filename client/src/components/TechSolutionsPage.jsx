@@ -21,13 +21,79 @@ import {
   ClipboardCheck, 
   PhoneCall, 
   MessageSquare,
-  Home
+  Home,
+  Bot,
+  BrainCircuit,
+  Send,
+  Zap,
+  MessageSquareCode
 } from 'lucide-react';
 
 export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   const [activeCategory, setActiveCategory] = useState('all');
 
+  // Interactive AI Chatbot Simulator State
+  const [chatMessages, setChatMessages] = useState([
+    {
+      sender: 'bot',
+      text: 'Hello! I am MS SmartBot AI, an intelligent conversational agent. I help businesses automate customer support, answer queries from company documents via RAG, and connect directly to WhatsApp Cloud API. Try clicking a quick prompt or ask me anything!'
+    }
+  ]);
+  const [chatInput, setChatInput] = useState('');
+  const [isBotTyping, setIsBotTyping] = useState(false);
+
+  const samplePrompts = [
+    'How can an AI Chatbot automate my business inquiries?',
+    'Can you integrate AI with WhatsApp & our CRM?',
+    'How does RAG keep company documents private & secure?',
+    'What is the typical development timeline & cost?'
+  ];
+
+  const handleSendQuery = (customText) => {
+    const textToSend = typeof customText === 'string' ? customText : chatInput;
+    if (!textToSend.trim()) return;
+
+    setChatMessages(prev => [...prev, { sender: 'user', text: textToSend }]);
+    setChatInput('');
+    setIsBotTyping(true);
+
+    setTimeout(() => {
+      let reply = "We engineer custom AI Chatbots & LLM integrations aligned with your exact business processes. We handle prompt engineering, fine-tuning, RAG semantic search, and multi-channel deployment.";
+      const lower = textToSend.toLowerCase();
+
+      if (lower.includes('whatsapp') || lower.includes('crm') || lower.includes('erp')) {
+        reply = "Yes, absolutely! We connect OpenAI GPT-4o and Anthropic Claude directly to the official Meta WhatsApp Cloud API and your CRM/ERP. Incoming customer leads are automatically qualified, tickets are logged, and sales managers receive instant alerts.";
+      } else if (lower.includes('rag') || lower.includes('private') || lower.includes('secure') || lower.includes('document')) {
+        reply = "Our RAG (Retrieval-Augmented Generation) pipeline indexes your confidential PDFs, technical catalogs, and policies into a private vector database (Pinecone/pgvector). The AI only answers from verified company data with zero hallucinations, and your data is never used to train public models.";
+      } else if (lower.includes('timeline') || lower.includes('cost') || lower.includes('price')) {
+        reply = "A functioning custom AI Chatbot prototype is typically delivered in 7-10 business days. Production deployment with WhatsApp Cloud API, custom guardrails, and CRM integrations takes 2-3 weeks. Click 'Build Your App / AI Bot' to get a customized proposal!";
+      } else if (lower.includes('business') || lower.includes('automate') || lower.includes('benefit')) {
+        reply = "Our AI chatbot solutions typically deflect 80%+ of repetitive customer calls and emails, operate 24/7 with instant sub-second response times, and double lead conversion by engaging site visitors the moment they land.";
+      }
+
+      setChatMessages(prev => [...prev, { sender: 'bot', text: reply }]);
+      setIsBotTyping(false);
+    }, 600);
+  };
+
   const techServices = [
+    {
+      id: 'ai-chatbots',
+      icon: Bot,
+      title: 'Enterprise AI Integration & Intelligent Chatbots',
+      badge: 'OpenAI, Claude & Custom RAG',
+      accentColor: '#8b5cf6',
+      desc: 'Next-generation Conversational AI agents, RAG (Retrieval-Augmented Generation) trained on your private corporate documents, and automated multi-channel messaging (WhatsApp & Web). We connect LLMs to your private business data, ERPs, and APIs with ironclad security and zero hallucinations.',
+      highlights: [
+        'Custom Knowledge-Base Chatbots (RAG over PDFs, Docs & ERPs)',
+        '24/7 Automated WhatsApp Cloud API & Web Chatbot Assistants',
+        'OpenAI GPT-4o, Anthropic Claude & Llama 3 API Integrations',
+        'Automated Customer Lead Capture, FAQ Answering & Ticket Deflection',
+        'Vector Databases (Pinecone / ChromaDB / pgvector) & Embeddings',
+        'AI Workflow Automation & Voice / Conversational IVR Systems'
+      ],
+      serviceName: 'AI Integration & Chatbot Development'
+    },
     {
       id: 'android-apps',
       icon: Smartphone,
@@ -95,6 +161,23 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   ];
 
   const digitalProducts = [
+    {
+      id: 'enterprise-ai-bot',
+      category: 'ai',
+      title: 'SmartBot AI — Enterprise Conversational Agent',
+      subtitle: 'RAG-Powered Multi-Channel Chatbot & WhatsApp AI Assistant',
+      icon: Bot,
+      badge: 'Live AI Engine',
+      badgeColor: '#8b5cf6',
+      description: 'An enterprise conversational AI chatbot trained on internal corporate documents, technical specifications, and product catalogs. Automatically resolves 85%+ of client questions 24/7, captures qualified leads, and integrates with WhatsApp and CRM.',
+      features: [
+        'RAG semantic search with vector embeddings & instant citations',
+        'Dual-channel sync: Floating website widget & WhatsApp Cloud API',
+        'Auto-qualifies customer leads & sends instant email/SMS alerts to sales',
+        'Custom guardrails to eliminate hallucinations & ensure compliance'
+      ],
+      techStack: ['OpenAI GPT-4o', 'LangChain', 'FastAPI (Python)', 'Pinecone Vector DB', 'React', 'WhatsApp Cloud API']
+    },
     {
       id: 'kala-ecom',
       category: 'ecommerce',
@@ -166,11 +249,14 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   ];
 
   const techStackIcons = [
+    { name: 'OpenAI & Claude APIs', category: 'Generative AI', desc: 'LLM agents & prompt engineering' },
+    { name: 'LangChain & LlamaIndex', category: 'AI Orchestration', desc: 'RAG & semantic retrieval' },
+    { name: 'Pinecone & pgvector', category: 'Vector DB', desc: 'Embeddings & fast vector search' },
+    { name: 'Python FastAPI & Ollama', category: 'AI Backend', desc: 'Secure APIs & local LLM inference' },
     { name: 'Android / Kotlin', category: 'Mobile', desc: 'Native high-speed apps' },
     { name: 'Flutter', category: 'Mobile', desc: 'Cross-platform iOS & Android' },
     { name: 'React.js / Next.js', category: 'Frontend', desc: 'Modern responsive web' },
     { name: 'Node.js / Express', category: 'Backend', desc: 'Scalable microservices' },
-    { name: 'Python / FastAPI', category: 'Backend & AI', desc: 'High-speed data APIs' },
     { name: 'PostgreSQL & MongoDB', category: 'Databases', desc: 'Secure reliable storage' },
     { name: 'AWS & Cloudflare', category: 'Infrastructure', desc: 'Global CDN & high availability' },
     { name: 'Docker & CI/CD', category: 'DevOps', desc: 'Automated reliable deployments' }
@@ -253,7 +339,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             color: '#f8fafc'
           }}>
             Engineering Next-Gen <span style={{ color: '#10b981' }}>Mobile Apps</span>, <br />
-            <span style={{ color: '#38bdf8' }}>Web Platforms</span> &amp; Digital Software Products
+            <span style={{ color: '#38bdf8' }}>Web Platforms</span> &amp; <span style={{ color: '#a855f7' }}>Enterprise AI Chatbots</span>
           </h1>
 
           <p style={{
@@ -514,6 +600,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '18px' }}>
               {[
                 { id: 'all', label: 'All Products' },
+                { id: 'ai', label: '🤖 AI & Chatbots' },
                 { id: 'ecommerce', label: 'E-Commerce Engines' },
                 { id: 'enterprise', label: 'Enterprise SaaS' },
                 { id: 'mobile', label: 'Android Mobile Apps' },
@@ -667,6 +754,338 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 </div>
               );
             })}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── Interactive Live AI Chatbot Simulator Section ── */}
+      <section id="ai-demo" style={{
+        background: 'linear-gradient(180deg, #FAF8F5 0%, #F3F0E6 50%, #FAF8F5 100%)',
+        padding: '55px 0 65px 0',
+        borderTop: '1px solid #E8E2D8',
+        borderBottom: '1px solid #E8E2D8'
+      }}>
+        <div className="container">
+          
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 34px auto' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '5px 14px',
+              background: '#F3E8FF',
+              border: '1px solid #D8B4FE',
+              borderRadius: '9999px',
+              color: '#7E22CE',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              marginBottom: '10px'
+            }}>
+              <BrainCircuit size={14} />
+              <span>LIVE INTERACTIVE AI DEMO</span>
+            </div>
+
+            <h2 style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
+              fontWeight: 800,
+              color: '#0F172A',
+              marginBottom: '8px'
+            }}>
+              Test Our <span style={{ color: '#8B5CF6' }}>AI Chatbot &amp; Conversational Agent</span>
+            </h2>
+            <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.6 }}>
+              Interact with our live simulation below. We build custom RAG-powered chatbots trained exclusively on your private company documents, FAQs, and product catalogs with zero hallucinations.
+            </p>
+          </div>
+
+          {/* Interactive Chat Console Window */}
+          <div style={{
+            maxWidth: '820px',
+            margin: '0 auto',
+            background: '#0F172A',
+            border: '1.5px solid rgba(139, 92, 246, 0.4)',
+            borderRadius: '20px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 45px -10px rgba(139, 92, 246, 0.25)'
+          }}>
+            {/* Console Header Bar */}
+            <div style={{
+              background: 'linear-gradient(90deg, #1E1B4B 0%, #0F172A 100%)',
+              padding: '14px 20px',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{
+                  width: '38px',
+                  height: '38px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#FFFFFF'
+                }}>
+                  <Bot size={22} />
+                </div>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#F8FAFC' }}>MS SmartBot AI</span>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
+                  </div>
+                  <div style={{ fontSize: '0.72rem', color: '#94A3B8' }}>Powered by OpenAI GPT-4o &amp; Claude RAG Engine</div>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                <span style={{
+                  fontSize: '0.70rem',
+                  padding: '3px 8px',
+                  borderRadius: '6px',
+                  background: 'rgba(16, 185, 129, 0.15)',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  color: '#34D399',
+                  fontWeight: 700
+                }}>
+                  WhatsApp API Ready
+                </span>
+                <span style={{
+                  fontSize: '0.70rem',
+                  padding: '3px 8px',
+                  borderRadius: '6px',
+                  background: 'rgba(139, 92, 246, 0.15)',
+                  border: '1px solid rgba(139, 92, 246, 0.3)',
+                  color: '#C084FC',
+                  fontWeight: 700
+                }}>
+                  Zero Hallucination
+                </span>
+              </div>
+            </div>
+
+            {/* Chat Thread Messages Box */}
+            <div style={{
+              height: '320px',
+              overflowY: 'auto',
+              padding: '20px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '14px',
+              background: '#0B1120'
+            }}>
+              {chatMessages.map((msg, idx) => {
+                const isBot = msg.sender === 'bot';
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '10px',
+                      alignSelf: isBot ? 'flex-start' : 'flex-end',
+                      maxWidth: '85%'
+                    }}
+                  >
+                    {isBot && (
+                      <div style={{
+                        width: '28px',
+                        height: '28px',
+                        borderRadius: '8px',
+                        background: '#8B5CF6',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#FFFFFF',
+                        flexShrink: 0,
+                        marginTop: '2px'
+                      }}>
+                        <Bot size={16} />
+                      </div>
+                    )}
+                    <div style={{
+                      background: isBot ? '#1E293B' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                      color: '#F8FAFC',
+                      padding: '12px 16px',
+                      borderRadius: isBot ? '4px 16px 16px 16px' : '16px 4px 16px 16px',
+                      fontSize: '0.88rem',
+                      lineHeight: 1.55,
+                      boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                      border: isBot ? '1px solid rgba(255,255,255,0.08)' : 'none'
+                    }}>
+                      {msg.text}
+                    </div>
+                  </div>
+                );
+              })}
+
+              {isBotTyping && (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', alignSelf: 'flex-start' }}>
+                  <div style={{
+                    width: '28px',
+                    height: '28px',
+                    borderRadius: '8px',
+                    background: '#8B5CF6',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#FFFFFF',
+                    flexShrink: 0
+                  }}>
+                    <Bot size={16} />
+                  </div>
+                  <div style={{
+                    background: '#1E293B',
+                    color: '#94A3B8',
+                    padding: '8px 14px',
+                    borderRadius: '4px 14px 14px 14px',
+                    fontSize: '0.82rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}>
+                    <span>Thinking</span>
+                    <span style={{ animation: 'pulse 1s infinite' }}>...</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Quick Suggestion Prompts */}
+            <div style={{
+              background: '#0F172A',
+              padding: '12px 18px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '6px',
+              alignItems: 'center'
+            }}>
+              <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 700, textTransform: 'uppercase', marginRight: '4px' }}>
+                Try Asking:
+              </span>
+              {samplePrompts.map((q, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleSendQuery(q)}
+                  style={{
+                    background: 'rgba(139, 92, 246, 0.12)',
+                    border: '1px solid rgba(139, 92, 246, 0.3)',
+                    color: '#C084FC',
+                    fontSize: '0.74rem',
+                    fontWeight: 600,
+                    padding: '4px 10px',
+                    borderRadius: '9999px',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    textAlign: 'left'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(139, 92, 246, 0.25)';
+                    e.currentTarget.style.borderColor = '#8B5CF6';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(139, 92, 246, 0.12)';
+                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+                  }}
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
+
+            {/* Input Bar */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSendQuery();
+              }}
+              style={{
+                background: '#0B1120',
+                padding: '12px 18px',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px'
+              }}
+            >
+              <input
+                type="text"
+                value={chatInput}
+                onChange={(e) => setChatInput(e.target.value)}
+                placeholder="Type any question about our AI chatbots or enterprise integration..."
+                style={{
+                  flex: 1,
+                  background: '#1E293B',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: '10px',
+                  padding: '10px 14px',
+                  color: '#FFFFFF',
+                  fontSize: '0.88rem',
+                  outline: 'none'
+                }}
+              />
+              <button
+                type="submit"
+                style={{
+                  background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '10px',
+                  padding: '10px 18px',
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                <span>Send</span>
+                <Send size={15} />
+              </button>
+            </form>
+
+            {/* Bottom Callout in Console */}
+            <div style={{
+              background: '#0B0F19',
+              padding: '12px 20px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '10px'
+            }}>
+              <span style={{ fontSize: '0.80rem', color: '#94A3B8' }}>
+                Need a custom AI Chatbot connected to your company database &amp; WhatsApp?
+              </span>
+              <button
+                onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
+                style={{
+                  background: '#8B5CF6',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '8px',
+                  padding: '6px 14px',
+                  fontSize: '0.80rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                <Sparkles size={13} />
+                <span>Build Your Custom AI Bot</span>
+              </button>
+            </div>
           </div>
 
         </div>

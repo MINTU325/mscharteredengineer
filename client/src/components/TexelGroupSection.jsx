@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Smartphone, Globe, Layers, Rocket, Building2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Smartphone, Globe, Layers, Rocket, Building2, Bot } from 'lucide-react';
 
 export default function TexelGroupSection({ onOpenQuote }) {
   const [activeTab, setActiveTab] = useState('engineering'); // 'engineering' or 'tech'
@@ -57,6 +57,13 @@ export default function TexelGroupSection({ onOpenQuote }) {
   ];
 
   const techServices = [
+    {
+      id: 'ai-chatbots',
+      title: 'AI INTEGRATION & CHATBOT SYSTEMS',
+      serviceName: 'AI Integration & Chatbot Development',
+      desc: 'Enterprise conversational AI, RAG over internal company documents & PDFs, 24/7 automated WhatsApp business chatbots, and custom OpenAI/Claude integrations.',
+      icon: <Bot size={24} />
+    },
     {
       id: 'android-development',
       title: 'MOBILE & ANDROID APP DEVELOPMENT',

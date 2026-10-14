@@ -28,6 +28,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
     {
       name: "IT, Apps & Software Development",
       sub: [
+        "AI Integration & Intelligent Chatbots",
         "Custom Android App Development",
         "Cross-Platform Mobile App (Flutter / React Native)",
         "Full-Stack Web Application / SaaS",
