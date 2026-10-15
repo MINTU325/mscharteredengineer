@@ -185,6 +185,48 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
 
   const currentSubs = serviceOptions.find(s => s.name === formData.service)?.sub || [];
 
+  const generateWhatsAppMessage = (inquiryRef) => {
+    if (isValuationFlow && prefillData) {
+      return (
+`🔔 *New Stamped Valuation Report Request - MS Chartered Engineers*
+━━━━━━━━━━━━━━━━━━━━━━
+🆔 *Ref ID:* ${inquiryRef}
+👤 *Client Name:* ${formData.name}
+📞 *Phone Number:* ${formData.phone}
+🏢 *Company / Firm:* ${formData.company || 'Individual / Proprietor'}
+📧 *Email Address:* ${formData.email || 'N/A'}
+📍 *Site Location:* ${formData.location || 'Jaipur, Rajasthan'}
+
+🏭 *Machinery / Asset:* ${prefillData.assetType}
+💰 *Original Purchase Cost:* ₹${Number(prefillData.originalCost || 0).toLocaleString('en-IN')}
+⏳ *Asset Age:* ${prefillData.assetAgeYears} Years (Remaining Life: ${prefillData.estimatedRUL})
+📊 *Estimated Fair Market Value:* ${prefillData.fairMarketValueRange}
+📋 *Purpose of Valuation:* ${formData.purpose || 'Bank Loan & Hypothecation'}
+⏱️ *Required Timeline:* ${formData.urgency || 'Immediate'}
+${formData.notes ? `📝 *Client Notes:* ${formData.notes}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━
+_Directly sent via mscharteredengineer.com_`
+      );
+    }
+
+    return (
+`🔔 *New Consultation Inquiry - MS Chartered Engineers*
+━━━━━━━━━━━━━━━━━━━━━━
+🆔 *Ref ID:* ${inquiryRef}
+👤 *Client Name:* ${formData.name}
+📞 *Phone Number:* ${formData.phone}
+🏢 *Company / Firm:* ${formData.company || 'Individual / Proprietor'}
+📧 *Email Address:* ${formData.email || 'N/A'}
+📍 *Project Location:* ${formData.location || 'Pan India'}
+
+📋 *Service Requested:* ${formData.service}
+📂 *Category / Scope:* ${formData.subCategory || 'General Consultation'}
+💰 *Investment / Asset Scale:* ${formData.estimatedAssetValue || 'Standard'}
+⏱️ *Project Urgency:* ${formData.urgency || 'Standard'}
+${formData.projectScope ? `📝 *Requirement Details:* ${formData.projectScope}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━
+_Directly sent via mscharteredengineer.com_`
+    );
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -225,6 +267,8 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
       projectScope: finalScope || 'Direct consultation inquiry submitted via web portal.'
     };
 
+    let inqId = "INQ-" + Math.floor(100000 + Math.random() * 900000);
+
     try {
       const res = await fetch('/api/inquiries', {
         method: 'POST',
@@ -233,21 +277,30 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
       });
       const data = await res.json();
       if (data.success) {
+        inqId = data.inquiryId || inqId;
         setSubmittedData(data);
         setStep(4); // Success step
       } else {
         setError(data.message || 'Error submitting request. Please try again.');
+        return;
       }
     } catch (err) {
       // Fallback if backend is momentarily unreachable
       setSubmittedData({
-        inquiryId: "INQ-" + Math.floor(100000 + Math.random() * 900000),
+        inquiryId: inqId,
         data: payload
       });
       setStep(4);
     } finally {
       setLoading(false);
     }
+
+    // Direct WhatsApp Auto-Launch with complete details!
+    const waText = encodeURIComponent(generateWhatsAppMessage(inqId));
+    const waUrl = `https://wa.me/919158658885?text=${waText}`;
+    setTimeout(() => {
+      window.open(waUrl, '_blank');
+    }, 250);
   };
 
   return (
@@ -769,36 +822,30 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
               Reference ID: {submittedData?.inquiryId}
             </div>
 
-            <p style={{ color: '#cbd5e1', fontSize: '0.95rem', lineHeight: 1.6, maxWidth: '520px', margin: '0 auto 28px auto' }}>
+            <p style={{ color: '#cbd5e1', fontSize: '0.95rem', lineHeight: 1.6, maxWidth: '520px', margin: '0 auto 20px auto' }}>
               {isValuationFlow ? (
                 <>
-                  Thank you, <strong>{formData.name}</strong>. Our Chartered Engineer, <strong>Mukesh Singh, CEng (India) MIE, IIT Roorkee</strong> has received your assessment details for <strong>{prefillData?.assetType}</strong> and will connect with you within 24 business hours.
+                  Thank you, <strong>{formData.name}</strong>. Your assessment details have been registered. A WhatsApp chat with our Chief Chartered Engineer has opened automatically with your details.
                 </>
               ) : (
                 <>
-                  Thank you, <strong>{formData.name}</strong>. Our Chartered Engineer will review your requirements for <strong>{formData.service}</strong> and reach out within 24 business hours.
+                  Thank you, <strong>{formData.name}</strong>. Your inquiry for <strong>{formData.service}</strong> has been registered. WhatsApp has opened automatically to connect with our engineering desk.
                 </>
               )}
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
               <a
-                href={
-                  isValuationFlow && prefillData
-                    ? `https://wa.me/919158658885?text=${encodeURIComponent(
-                        `Hello MS Chartered Engineers, I have submitted Stamped Valuation Report Request ${submittedData?.inquiryId} for ${prefillData.assetType}. Assessed Value: ${prefillData.fairMarketValueRange}. Client: ${formData.name} (${formData.phone}).`
-                      )}`
-                    : `https://wa.me/919158658885?text=${encodeURIComponent(
-                        `Hello MS Chartered Engineers, I have submitted inquiry ${submittedData?.inquiryId} for ${formData.service}.`
-                      )}`
-                }
+                href={`https://wa.me/919158658885?text=${encodeURIComponent(
+                  generateWhatsAppMessage(submittedData?.inquiryId || 'INQ-REF')
+                )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-whatsapp"
-                style={{ padding: '12px 24px' }}
+                style={{ padding: '12px 24px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
               >
                 <MessageSquare size={18} />
-                <span>Instant WhatsApp Connect</span>
+                <span>Open WhatsApp Chat Again</span>
               </a>
 
               <button
