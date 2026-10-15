@@ -806,23 +806,76 @@ curl -X POST "https://api.msgroup.tech/v1/agent/query" \\
       }}>
         <div className="container" style={{ textAlign: 'center', maxWidth: '920px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
           
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(139, 92, 246, 0.15)',
-            border: '1px solid rgba(139, 92, 246, 0.4)',
-            borderRadius: '9999px',
-            padding: '6px 18px',
-            color: '#C084FC',
-            fontSize: '0.82rem',
-            fontWeight: 800,
-            letterSpacing: '0.04em',
-            marginBottom: '20px',
-            boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)'
-          }}>
-            <BrainCircuit size={15} />
-            <span>MS TECH LABS &bull; AUTONOMOUS AI &amp; NEXT-GEN SOFTWARE</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: 'rgba(139, 92, 246, 0.15)',
+              border: '1px solid rgba(139, 92, 246, 0.4)',
+              borderRadius: '9999px',
+              padding: '6px 18px',
+              color: '#C084FC',
+              fontSize: '0.80rem',
+              fontWeight: 800,
+              letterSpacing: '0.04em',
+              boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)'
+            }}>
+              <BrainCircuit size={15} />
+              <span>MS TECH LABS &bull; AUTONOMOUS AI &amp; NEXT-GEN SOFTWARE</span>
+            </div>
+
+            {/* 🏷️ Limited Enterprise Offer Badge */}
+            <div 
+              onClick={() => onOpenQuote('Full Enterprise ERP & Business Automation')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '8px',
+                background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(245, 158, 11, 0.16) 100%)',
+                border: '1.5px solid #10B981',
+                borderRadius: '9999px',
+                padding: '8px 22px',
+                fontSize: 'clamp(0.78rem, 1.8vw, 0.88rem)',
+                fontWeight: 800,
+                cursor: 'pointer',
+                boxShadow: '0 0 25px rgba(16, 185, 129, 0.35)',
+                transition: 'all 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 0 35px rgba(16, 185, 129, 0.55)';
+                e.currentTarget.style.borderColor = '#34D399';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 0 25px rgba(16, 185, 129, 0.35)';
+                e.currentTarget.style.borderColor = '#10B981';
+              }}
+              title="Click to claim Enterprise ERP Consultation & Labor Audit"
+            >
+              <span style={{ fontSize: '1rem', lineHeight: 1 }}>🏷️</span>
+              <span style={{ color: '#FCD34D', textTransform: 'uppercase', fontWeight: 900, letterSpacing: '0.04em' }}>
+                LIMITED ENTERPRISE OFFER:
+              </span>
+              <span style={{ color: '#FFFFFF', fontWeight: 700 }}>
+                Cut ₹80,000+/Month in Labor Overhead with Custom ERP
+              </span>
+              <span style={{
+                background: '#10B981',
+                color: '#022c22',
+                padding: '3px 10px',
+                borderRadius: '9999px',
+                fontSize: '0.72rem',
+                fontWeight: 900,
+                letterSpacing: '0.03em',
+                boxShadow: '0 2px 8px rgba(16, 185, 129, 0.4)'
+              }}>
+                CLAIM OFFER &rarr;
+              </span>
+            </div>
           </div>
 
           <h1 style={{
