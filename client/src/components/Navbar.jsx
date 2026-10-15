@@ -62,7 +62,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   // Close drawer on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1140) setMobileMenuOpen(false);
+      if (window.innerWidth > 1200) setMobileMenuOpen(false);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -204,7 +204,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   aria-expanded={activeDropdown === 'services'}
                 >
                   <span>Services</span>
-                  <ChevronDown size={12} className={`dropdown-chevron ${activeDropdown === 'services' ? 'rotate' : ''}`} />
+                  <ChevronDown size={10} className={`dropdown-chevron ${activeDropdown === 'services' ? 'rotate' : ''}`} />
                 </button>
                 <div className={`nav-dropdown-menu ${activeDropdown === 'services' ? 'open' : ''}`} style={{ minWidth: '330px' }}>
                   <a href="/property-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
@@ -262,9 +262,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 <a 
                   href="/tech-products" 
                   className={`nav-link ${currentPath === '/tech-products' ? 'active' : ''}`}
-                  style={{ color: '#06b6d4', fontWeight: 700, gap: '4px' }}
+                  style={{ color: '#06b6d4', fontWeight: 700 }}
                 >
-                  <Smartphone size={13} />
                   <span>IT &amp; Products</span>
                   <span className="nav-tag-badge">NEW</span>
                 </a>
@@ -280,11 +279,10 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   className={`nav-link nav-dropdown-trigger ${activeDropdown === 'subsidies' || currentPath.includes('/subsidies') || currentPath.includes('/business-loan') ? 'active' : ''}`}
                   onClick={() => setActiveDropdown(activeDropdown === 'subsidies' ? null : 'subsidies')}
                   aria-expanded={activeDropdown === 'subsidies'}
-                  style={{ color: '#10b981', fontWeight: 700, gap: '4px' }}
+                  style={{ color: '#10b981', fontWeight: 700 }}
                 >
-                  <Coins size={13} />
                   <span>Subsidies</span>
-                  <ChevronDown size={12} className={`dropdown-chevron ${activeDropdown === 'subsidies' ? 'rotate' : ''}`} />
+                  <ChevronDown size={10} className={`dropdown-chevron ${activeDropdown === 'subsidies' ? 'rotate' : ''}`} />
                 </button>
                 <div className={`nav-dropdown-menu ${activeDropdown === 'subsidies' ? 'open' : ''}`} style={{ minWidth: '340px' }}>
                   <a href="/government-subsidies" onClick={handleDropdownItemClick} className="nav-dropdown-item">
@@ -321,7 +319,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   aria-expanded={activeDropdown === 'tools'}
                 >
                   <span>Tools</span>
-                  <ChevronDown size={12} className={`dropdown-chevron ${activeDropdown === 'tools' ? 'rotate' : ''}`} />
+                  <ChevronDown size={10} className={`dropdown-chevron ${activeDropdown === 'tools' ? 'rotate' : ''}`} />
                 </button>
                 <div className={`nav-dropdown-menu ${activeDropdown === 'tools' ? 'open' : ''}`} style={{ minWidth: '310px' }}>
                   <a href="/purpose-selector" onClick={handleDropdownItemClick} className="nav-dropdown-item">
@@ -365,7 +363,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   aria-expanded={activeDropdown === 'about'}
                 >
                   <span>About</span>
-                  <ChevronDown size={12} className={`dropdown-chevron ${activeDropdown === 'about' ? 'rotate' : ''}`} />
+                  <ChevronDown size={10} className={`dropdown-chevron ${activeDropdown === 'about' ? 'rotate' : ''}`} />
                 </button>
                 <div className={`nav-dropdown-menu ${activeDropdown === 'about' ? 'open' : ''}`} style={{ minWidth: '300px' }}>
                   <a href="/who-we-serve" onClick={handleDropdownItemClick} className="nav-dropdown-item">
@@ -411,7 +409,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   aria-expanded={activeDropdown === 'insights'}
                 >
                   <span>Insights</span>
-                  <ChevronDown size={12} className={`dropdown-chevron ${activeDropdown === 'insights' ? 'rotate' : ''}`} />
+                  <ChevronDown size={10} className={`dropdown-chevron ${activeDropdown === 'insights' ? 'rotate' : ''}`} />
                 </button>
                 <div className={`nav-dropdown-menu ${activeDropdown === 'insights' ? 'open' : ''}`} style={{ minWidth: '280px' }}>
                   <a href="/blog" onClick={handleDropdownItemClick} className="nav-dropdown-item">
@@ -457,14 +455,14 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               }}
               title="Toggle Client Inquiries Admin Portal"
             >
-              <LayoutDashboard size={13} />
+              <LayoutDashboard size={12} />
               <span>{isAdminOpen ? 'Website' : 'Portal'}</span>
             </button>
 
             {/* Desktop-only: Request Quote button */}
             <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn desktop-nav-action">
               <span>Request Quote</span>
-              <ArrowRight size={13} />
+              <ArrowRight size={12} />
             </button>
 
             {/* Hamburger Toggle — always visible on mobile */}

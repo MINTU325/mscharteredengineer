@@ -151,22 +151,12 @@ export default function LanguageToggle({ isMobile = false, onToggleCallback }) {
       onClick={toggleLanguage}
       className="nav-lang-toggle"
       style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '4px',
-        padding: '0 8px',
-        height: '28px',
-        borderRadius: '9999px',
         background: currentLang === 'hi'
           ? 'linear-gradient(135deg, rgba(217, 119, 6, 0.25) 0%, rgba(180, 83, 9, 0.2) 100%)'
           : 'rgba(255, 255, 255, 0.07)',
         border: currentLang === 'hi' ? '1.5px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.18)',
         color: currentLang === 'hi' ? '#fbbf24' : '#e2e8f0',
-        fontSize: '0.72rem',
-        fontWeight: 700,
-        cursor: 'pointer',
         boxShadow: currentLang === 'hi' ? '0 0 12px rgba(245, 158, 11, 0.25)' : 'none',
-        transition: 'all 0.25s ease'
       }}
       title={currentLang === 'hi' ? 'Click to switch back to English' : 'पूरी वेबसाइट को हिन्दी में देखने के लिए क्लिक करें'}
       aria-label="Toggle language English / Hindi"
