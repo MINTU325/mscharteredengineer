@@ -316,8 +316,6 @@ export default function App() {
       {/* Top Sticky Navbar */}
       <Navbar 
         onOpenQuote={handleOpenQuote}
-        onToggleAdmin={handleToggleAdmin}
-        isAdminOpen={isAdminOpen}
       />
 
       {/* Main View: Admin Portal OR Services Page OR Tools Page OR Blog Page OR FAQ Page OR City Landing Page OR Main Home Page */}

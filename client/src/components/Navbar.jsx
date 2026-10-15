@@ -11,8 +11,7 @@ import {
   ShieldCheck, 
   Menu, 
   X, 
-  ArrowRight, 
-  LayoutDashboard,
+  ArrowRight,
   ChevronDown,
   Building2,
   Landmark,
@@ -444,21 +443,6 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             {/* 🌐 One-Click English/Hindi Language Switcher */}
             <LanguageToggle />
 
-            {/* Desktop-only: Portal button */}
-            <button
-              onClick={onToggleAdmin}
-              className="btn btn-outline nav-btn desktop-nav-action"
-              style={{
-                borderColor: isAdminOpen ? 'var(--accent-gold)' : 'rgba(255,255,255,0.18)',
-                color: isAdminOpen ? 'var(--accent-gold)' : '#e2e8f0',
-                background: isAdminOpen ? 'rgba(245, 158, 11, 0.12)' : 'rgba(255, 255, 255, 0.04)'
-              }}
-              title="Toggle Client Inquiries Admin Portal"
-            >
-              <LayoutDashboard size={12} />
-              <span>{isAdminOpen ? 'Website' : 'Portal'}</span>
-            </button>
-
             {/* Desktop-only: Request Quote button */}
             <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn desktop-nav-action">
               <span>Request Quote</span>
@@ -535,19 +519,6 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           >
             <ArrowRight size={18} />
             <span>Request Quote / Valuation</span>
-          </button>
-
-          <button
-            onClick={() => { setMobileMenuOpen(false); onToggleAdmin(); }}
-            className="btn btn-outline mobile-cta-btn"
-            style={{
-              borderColor: isAdminOpen ? 'var(--accent-gold)' : 'rgba(255,255,255,0.25)',
-              color:       isAdminOpen ? 'var(--accent-gold)' : '#e2e8f0',
-              background:  isAdminOpen ? 'rgba(245,158,11,0.15)' : 'rgba(255,255,255,0.05)'
-            }}
-          >
-            <LayoutDashboard size={18} color={isAdminOpen ? '#f59e0b' : '#38bdf8'} />
-            <span>{isAdminOpen ? 'Back to Main Website' : 'Client Inquiries Admin Portal'}</span>
           </button>
         </div>
       </div>

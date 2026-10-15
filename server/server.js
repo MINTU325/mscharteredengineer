@@ -75,11 +75,23 @@ app.post('/api/admin/verify', (req, res) => {
   }
 });
 
+// Admin Authorization Middleware
+const requireAdminAuth = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.replace(/^Bearer\s+/i, '');
+  const adminSecret = process.env.ADMIN_PASSWORD || 'ms@admin2026';
+
+  if (token && (token.startsWith('admin-auth-') || token === adminSecret)) {
+    return next();
+  }
+  return res.status(401).json({ success: false, message: 'Unauthorized. Admin credentials required.' });
+};
+
 // Inquiries & Leads Endpoints
-app.get('/api/inquiries', inquiryController.getInquiries);
+app.get('/api/inquiries', requireAdminAuth, inquiryController.getInquiries);
 app.post('/api/inquiries', inquiryController.createInquiry);
-app.patch('/api/inquiries/:id', inquiryController.updateInquiryStatus);
-app.delete('/api/inquiries/:id', inquiryController.deleteInquiry);
+app.patch('/api/inquiries/:id', requireAdminAuth, inquiryController.updateInquiryStatus);
+app.delete('/api/inquiries/:id', requireAdminAuth, inquiryController.deleteInquiry);
 
 const fs = require('fs');
 
