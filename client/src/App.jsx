@@ -76,23 +76,23 @@ const ROUTE_CONFIG = {
   '/departments': { id: 'ms-group', title: 'Our Engineering Departments | MS Group' },
   '/tech-products': { 
     id: 'tech-products', 
-    title: 'MS Tech Labs | Custom AI Chatbots, Mobile Apps & Web Software | MS Group',
-    description: 'Enterprise AI Integration, Custom Chatbots, Android/iOS Mobile Apps, SaaS Platforms, Cloud Architecture & Custom Business ERP/CRM software by MS Tech Labs.'
+    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/tech': { 
     id: 'tech-products', 
-    title: 'MS Tech Labs | Custom AI Chatbots, Mobile Apps & Web Software | MS Group',
-    description: 'Enterprise AI Integration, Custom Chatbots, Android/iOS Mobile Apps, SaaS Platforms, Cloud Architecture & Custom Business ERP/CRM software by MS Tech Labs.'
+    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/software-products': { 
     id: 'tech-products', 
-    title: 'MS Tech Labs | Custom AI Chatbots, Mobile Apps & Web Software | MS Group',
-    description: 'Enterprise AI Integration, Custom Chatbots, Android/iOS Mobile Apps, SaaS Platforms, Cloud Architecture & Custom Business ERP/CRM software by MS Tech Labs.'
+    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/it-solutions': { 
     id: 'tech-products', 
-    title: 'IT, Apps & Digital Software Solutions | MS Group',
-    description: 'Full-stack software engineering, custom mobile apps, SaaS web applications & AI automation for businesses by MS Group.'
+    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/government-subsidies': { 
     id: 'government-subsidies', 

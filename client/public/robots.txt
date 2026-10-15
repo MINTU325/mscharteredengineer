@@ -1,8 +1,74 @@
+# Robots.txt for MS Chartered Engineers & MS Tech Labs
+# Website: https://www.mscharteredengineer.com/
+
+# ── General Search Engine Crawlers ──
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /admin/
 Disallow: /admin
 
+# ── OpenAI / ChatGPT Search Bots ──
+# Dedicated crawler for ChatGPT Search results
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
 
-# XML Sitemap location
+# User-directed browsing crawler for ChatGPT
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+# OpenAI Training / Web Crawler
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+# ── Perplexity AI Search Crawler ──
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+# ── Anthropic Claude Crawler ──
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+# ── Google Search & Googlebot ──
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+# ── Microsoft Bingbot & Copilot ──
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+
+# ── XML Sitemaps ──
 Sitemap: https://www.mscharteredengineer.com/sitemap.xml

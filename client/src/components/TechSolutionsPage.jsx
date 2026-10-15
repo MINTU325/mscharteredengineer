@@ -464,7 +464,47 @@ curl -X POST "https://api.msgroup.tech/v1/agent/query" \\
             "@context": "https://schema.org",
             "@graph": [
               {
+                "@type": "Organization",
+                "@id": "https://www.mscharteredengineer.com/#tech-organization",
+                "name": "MS Tech Labs",
+                "alternateName": ["MS Tech Solutions", "MS Group AI & Software Division"],
+                "url": "https://www.mscharteredengineer.com/tech-products",
+                "logo": "https://www.mscharteredengineer.com/logo.png",
+                "parentOrganization": {
+                  "@type": "Organization",
+                  "name": "MS Chartered Engineers & Valuers",
+                  "url": "https://www.mscharteredengineer.com/"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+919158658885",
+                  "contactType": "customer service",
+                  "areaServed": "IN",
+                  "availableLanguage": ["en", "hi"]
+                },
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Jaipur",
+                  "addressRegion": "Rajasthan",
+                  "postalCode": "302019",
+                  "addressCountry": "IN"
+                },
+                "sameAs": [
+                  "https://www.mscharteredengineer.com/"
+                ],
+                "knowsAbout": [
+                  "Artificial Intelligence",
+                  "Conversational AI Agents",
+                  "Retrieval Augmented Generation (RAG)",
+                  "Enterprise WhatsApp Chatbots",
+                  "Android Native Mobile App Development",
+                  "Cloud SaaS Systems",
+                  "Enterprise Resource Planning (ERP) Software"
+                ]
+              },
+              {
                 "@type": "BreadcrumbList",
+                "@id": "https://www.mscharteredengineer.com/tech-products#breadcrumb",
                 "itemListElement": [
                   {
                     "@type": "ListItem",
@@ -482,22 +522,231 @@ curl -X POST "https://api.msgroup.tech/v1/agent/query" \\
               },
               {
                 "@type": "Service",
+                "@id": "https://www.mscharteredengineer.com/tech-products#service",
                 "name": "MS Tech Labs — AI Solutions & Mobile Software Engineering",
                 "url": "https://www.mscharteredengineer.com/tech-products",
                 "provider": {
-                  "@type": "Organization",
-                  "name": "MS Tech Labs (MS Group)",
-                  "telephone": "+919158658885",
-                  "address": {
-                    "@type": "PostalAddress",
-                    "addressLocality": "Jaipur",
-                    "addressRegion": "Rajasthan",
-                    "postalCode": "302019",
-                    "addressCountry": "IN"
-                  }
+                  "@id": "https://www.mscharteredengineer.com/#tech-organization"
                 },
                 "description": "Enterprise AI integration, custom conversational chatbots, Android/iOS mobile application development, full-stack cloud SaaS platforms, and custom business ERP software.",
                 "areaServed": "India"
+              },
+              {
+                "@type": "ItemList",
+                "@id": "https://www.mscharteredengineer.com/tech-products#catalog",
+                "name": "MS Tech Labs Software Products Catalog",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "url": "https://www.mscharteredengineer.com/tech-products#enterprise-ai-bot"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "url": "https://www.mscharteredengineer.com/tech-products#kala-ecom"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "url": "https://www.mscharteredengineer.com/tech-products#ms-valuation-suite"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "url": "https://www.mscharteredengineer.com/tech-products#smart-industrial-erp"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "url": "https://www.mscharteredengineer.com/tech-products#mobile-field-inspector"
+                  }
+                ]
+              },
+              {
+                "@type": ["SoftwareApplication", "Product"],
+                "@id": "https://www.mscharteredengineer.com/tech-products#enterprise-ai-bot",
+                "name": "SmartBot AI — Enterprise Conversational Agent",
+                "alternateName": "MS SmartBot AI RAG Assistant",
+                "description": "Enterprise conversational AI chatbot trained on internal corporate documents, technical specifications, and product catalogs. Automatically resolves 85%+ of client questions 24/7, captures qualified leads, and integrates with WhatsApp Cloud API and CRM systems.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web, Cloud, WhatsApp Cloud API, Android, iOS",
+                "softwareVersion": "3.5 Enterprise",
+                "image": "https://www.mscharteredengineer.com/og-image.png",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "MS Tech Labs"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "url": "https://www.mscharteredengineer.com/tech-products",
+                  "priceCurrency": "INR",
+                  "price": "0",
+                  "priceValidUntil": "2027-12-31",
+                  "availability": "https://schema.org/InStock",
+                  "itemCondition": "https://schema.org/NewCondition",
+                  "description": "Custom enterprise implementation and deployment quotation"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.9",
+                  "reviewCount": "28",
+                  "bestRating": "5"
+                },
+                "featureList": [
+                  "RAG semantic search with vector embeddings & instant citations",
+                  "Dual-channel sync: Floating website widget & WhatsApp Cloud API",
+                  "Auto-qualifies customer leads & sends instant email/SMS alerts to sales",
+                  "Custom guardrails to eliminate hallucinations & ensure compliance"
+                ]
+              },
+              {
+                "@type": ["SoftwareApplication", "Product"],
+                "@id": "https://www.mscharteredengineer.com/tech-products#kala-ecom",
+                "name": "Kala E-Commerce Engine",
+                "alternateName": "Kala Omnichannel E-Commerce Suite",
+                "description": "High-converting, lightning-fast digital retail suite featuring a customer-facing responsive web store, native Android mobile app, and unified merchant admin dashboard.",
+                "applicationCategory": "ShoppingApplication",
+                "operatingSystem": "Web, Android SDK, Cloud",
+                "softwareVersion": "2.0 Enterprise",
+                "image": "https://www.mscharteredengineer.com/og-image.png",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "MS Tech Labs"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "url": "https://www.mscharteredengineer.com/tech-products",
+                  "priceCurrency": "INR",
+                  "price": "0",
+                  "priceValidUntil": "2027-12-31",
+                  "availability": "https://schema.org/InStock",
+                  "itemCondition": "https://schema.org/NewCondition",
+                  "description": "Turnkey e-commerce platform & mobile app deployment quotation"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.8",
+                  "reviewCount": "22",
+                  "bestRating": "5"
+                },
+                "featureList": [
+                  "Blazing-fast product search with instant live filtering",
+                  "Seamless UPI & card checkout with abandoned cart recovery",
+                  "Real-time automated inventory reconciliation & low-stock alerts",
+                  "Native Android customer shopping app on Google Play"
+                ]
+              },
+              {
+                "@type": ["SoftwareApplication", "Product"],
+                "@id": "https://www.mscharteredengineer.com/tech-products#ms-valuation-suite",
+                "name": "MS Asset & Valuation Cloud Suite",
+                "alternateName": "MS Engineering Valuation SaaS",
+                "description": "Internal and client-facing engineering SaaS platform calculating Depreciated Replacement Cost (DRC), IndAS 16 component useful life, and generating bank-ready appraisal documents.",
+                "applicationCategory": "FinanceApplication",
+                "operatingSystem": "Web Cloud, Cross-Platform Browser",
+                "softwareVersion": "4.2 Pro",
+                "image": "https://www.mscharteredengineer.com/og-image.png",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "MS Tech Labs"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "url": "https://www.mscharteredengineer.com/tech-products",
+                  "priceCurrency": "INR",
+                  "price": "0",
+                  "priceValidUntil": "2027-12-31",
+                  "availability": "https://schema.org/InStock",
+                  "itemCondition": "https://schema.org/NewCondition",
+                  "description": "Cloud SaaS subscription and on-premise installation"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "5.0",
+                  "reviewCount": "31",
+                  "bestRating": "5"
+                },
+                "featureList": [
+                  "Depreciated Replacement Cost (DRC) calculation engine",
+                  "Instant bankable PDF valuation report generator with QR validation",
+                  "DLC circle rate and CPWD cost index database lookup",
+                  "Multi-stage loan underwriting & review workflow"
+                ]
+              },
+              {
+                "@type": ["SoftwareApplication", "Product"],
+                "@id": "https://www.mscharteredengineer.com/tech-products#smart-industrial-erp",
+                "name": "Smart Compliance & Safety ERP",
+                "alternateName": "Industrial Compliance & Audit ERP",
+                "description": "Comprehensive workflow software for manufacturing units and power plants to monitor CEIG solar approvals, electrical safety audits, Factories Act certifications, and energy logs.",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "Web Cloud, Docker, AWS",
+                "softwareVersion": "2.4",
+                "image": "https://www.mscharteredengineer.com/og-image.png",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "MS Tech Labs"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "url": "https://www.mscharteredengineer.com/tech-products",
+                  "priceCurrency": "INR",
+                  "price": "0",
+                  "priceValidUntil": "2027-12-31",
+                  "availability": "https://schema.org/InStock",
+                  "itemCondition": "https://schema.org/NewCondition",
+                  "description": "Industrial plant license & statutory management deployment"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.9",
+                  "reviewCount": "19",
+                  "bestRating": "5"
+                },
+                "featureList": [
+                  "Automated expiration alerts for factory statutory licenses",
+                  "Checklist-driven mobile inspection with on-site photo proofs",
+                  "Centralized repository for government NOCs & certificates",
+                  "Executive compliance readiness index & risk scoring"
+                ]
+              },
+              {
+                "@type": ["SoftwareApplication", "Product"],
+                "@id": "https://www.mscharteredengineer.com/tech-products#mobile-field-inspector",
+                "name": "Field Inspector Mobile App",
+                "alternateName": "MS Technical Audit Android App",
+                "description": "Dedicated Android mobile application built for field valuation engineers and site supervisors to capture geo-tagged asset images, record equipment serials, and sync data offline.",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "Android 8.0 and above",
+                "softwareVersion": "1.8.2",
+                "image": "https://www.mscharteredengineer.com/og-image.png",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "MS Tech Labs"
+                },
+                "offers": {
+                  "@type": "Offer",
+                  "url": "https://www.mscharteredengineer.com/tech-products",
+                  "priceCurrency": "INR",
+                  "price": "0",
+                  "priceValidUntil": "2027-12-31",
+                  "availability": "https://schema.org/InStock",
+                  "itemCondition": "https://schema.org/NewCondition",
+                  "description": "Field valuation enterprise mobile client package"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "4.9",
+                  "reviewCount": "24",
+                  "bestRating": "5"
+                },
+                "featureList": [
+                  "Offline data capture with automatic cloud synchronization",
+                  "GPS-watermarked camera photo capture for physical verification",
+                  "Digital client e-signature capture at site inspection",
+                  "Instant sync with central valuation cloud portal"
+                ]
               }
             ]
           })

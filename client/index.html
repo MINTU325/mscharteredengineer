@@ -185,16 +185,104 @@
           </section>
 
           <section id="tech-products">
-            <h2>MS Tech Labs — AI Solutions, Mobile Apps &amp; Enterprise Software</h2>
+            <h2>MS Tech Labs — AI Solutions, Mobile Apps &amp; Enterprise Software Products</h2>
             <p>
-              High-performance digital engineering division of MS Group specializing in modern scalable technology products:
+              High-performance software and AI engineering division of MS Group (IIT Roorkee alumni), delivering proprietary digital products, enterprise conversational agents, native Android mobile applications, and cloud SaaS platforms:
             </p>
-            <ul>
-              <li><strong>AI Integration &amp; Intelligent Chatbots:</strong> Custom LLM fine-tuning, RAG architecture, automated customer support bots, and WhatsApp/Telegram enterprise conversational AI.</li>
-              <li><strong>Custom Mobile Application Development:</strong> High-performance native Android (Kotlin) and cross-platform (Flutter &amp; React Native) applications.</li>
-              <li><strong>Full-Stack Web SaaS &amp; E-Commerce:</strong> Scalable cloud platforms built with React, Node.js, Next.js, and enterprise-grade security protocols.</li>
-              <li><strong>Custom ERP &amp; Business Software:</strong> Tailored inventory, billing, HR, asset tracking, and manufacturing management platforms.</li>
-            </ul>
+
+            <article id="product-smartbot-ai">
+              <h3>1. SmartBot AI — Enterprise Conversational Agent</h3>
+              <p>
+                <strong>Category:</strong> Business Application / Conversational AI &bull; <strong>Status:</strong> Live Production Ready &bull; <strong>Channels:</strong> Web Chat Widget &amp; WhatsApp Cloud API
+              </p>
+              <p>
+                An enterprise conversational AI chatbot trained on internal corporate documents, technical specifications, balance sheets, and product catalogs using Retrieval-Augmented Generation (RAG). Automatically resolves 85%+ of client questions 24/7, captures qualified leads, and integrates with WhatsApp Cloud API and CRM systems with zero hallucinations.
+              </p>
+              <p><strong>Key Technical Specifications &amp; Features:</strong></p>
+              <ul>
+                <li>RAG semantic search with high-dimensional vector embeddings (Pinecone / ChromaDB / pgvector) &amp; sub-50ms citation retrieval.</li>
+                <li>Dual-channel real-time sync: Floating website widget (SSE/Webhooks) and official WhatsApp Cloud API integration.</li>
+                <li>Built-in PII guardrails &amp; prompt firewalls stripping sensitive PAN/Aadhaar details and rejecting jailbreak attempts.</li>
+                <li>Automated lead qualification and instant SMS/Email notifications dispatched to sales teams.</li>
+                <li><strong>Tech Stack:</strong> OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, LangChain, FastAPI (Python), Pinecone, React, WhatsApp Cloud API.</li>
+              </ul>
+            </article>
+
+            <article id="product-kala-ecom">
+              <h3>2. Kala E-Commerce Engine</h3>
+              <p>
+                <strong>Category:</strong> Shopping Application &bull; <strong>Status:</strong> Production Suite &bull; <strong>Platforms:</strong> Responsive Web &amp; Native Android App
+              </p>
+              <p>
+                A high-converting, lightning-fast digital retail suite featuring a customer-facing responsive web store, native Android mobile app on Google Play, and unified merchant admin dashboard.
+              </p>
+              <p><strong>Key Technical Specifications &amp; Features:</strong></p>
+              <ul>
+                <li>Blazing-fast product search with instant live filtering and variant management.</li>
+                <li>Seamless multi-gateway checkout supporting UPI (Google Pay, PhonePe, Paytm), credit/debit cards, and Net Banking.</li>
+                <li>Real-time automated inventory reconciliation, barcode scanning, and low-stock threshold alerts.</li>
+                <li>Native Android customer shopping app built with Android SDK, Room SQLite, and push notifications.</li>
+                <li><strong>Tech Stack:</strong> React, Node.js, Express, MongoDB, Tailwind CSS, Android Kotlin SDK.</li>
+              </ul>
+            </article>
+
+            <article id="product-ms-valuation-suite">
+              <h3>3. MS Asset &amp; Valuation Cloud Suite</h3>
+              <p>
+                <strong>Category:</strong> Finance Application &bull; <strong>Status:</strong> Proprietary SaaS &bull; <strong>Platform:</strong> Cloud Web Browser
+              </p>
+              <p>
+                An engineering SaaS platform that calculates Depreciated Replacement Cost (DRC), IndAS 16 component useful life, and automatically generates bank-ready appraisal documents with QR-code verification.
+              </p>
+              <p><strong>Key Technical Specifications &amp; Features:</strong></p>
+              <ul>
+                <li>Depreciated Replacement Cost (DRC) calculation engine compliant with Indian Accounting Standard (IndAS 16).</li>
+                <li>Instant bankable PDF valuation report generator with tamper-proof QR validation.</li>
+                <li>Integrated DLC circle rate and CPWD cost inflation index database lookup for major Indian industrial zones.</li>
+                <li>Multi-stage loan underwriting &amp; technical review approval workflow.</li>
+                <li><strong>Tech Stack:</strong> React, Vite, Node.js, PostgreSQL, PDFKit, Docker.</li>
+              </ul>
+            </article>
+
+            <article id="product-smart-compliance-erp">
+              <h3>4. Smart Compliance &amp; Safety ERP</h3>
+              <p>
+                <strong>Category:</strong> Industrial ERP &bull; <strong>Status:</strong> Enterprise System &bull; <strong>Platform:</strong> Cloud SaaS
+              </p>
+              <p>
+                Comprehensive workflow software for manufacturing units and power plants to monitor CEIG solar approvals, electrical safety audits, Factories Act certifications, boiler inspections, and energy logs.
+              </p>
+              <p><strong>Key Technical Specifications &amp; Features:</strong></p>
+              <ul>
+                <li>Automated expiration alerts for factory statutory licenses, PCB consents, and safety permits.</li>
+                <li>Checklist-driven mobile inspection with on-site timestamped photo proofs.</li>
+                <li>Centralized cloud repository for government NOCs, CEIG drawings, and audit certificates.</li>
+                <li>Executive compliance readiness index, risk scoring, and automated compliance calendar.</li>
+                <li><strong>Tech Stack:</strong> TypeScript, React, FastAPI (Python), PostgreSQL, AWS S3.</li>
+              </ul>
+            </article>
+
+            <article id="product-field-inspector-app">
+              <h3>5. Field Inspector Mobile App</h3>
+              <p>
+                <strong>Category:</strong> Utilities / Mobile Field Audit &bull; <strong>Status:</strong> Android App &bull; <strong>OS:</strong> Android 8.0+
+              </p>
+              <p>
+                A dedicated Android mobile application built for field valuation engineers and site supervisors to capture geo-tagged asset images, record equipment serials, and sync data offline.
+              </p>
+              <p><strong>Key Technical Specifications &amp; Features:</strong></p>
+              <ul>
+                <li>Offline-first data capture with automatic background cloud synchronization upon network reconnect.</li>
+                <li>GPS-watermarked camera photo capture for physical verification and tamper resistance.</li>
+                <li>Digital client e-signature capture at site inspection for verified handover.</li>
+                <li>Instant sync with central valuation cloud portal for fast report generation.</li>
+                <li><strong>Tech Stack:</strong> Android Kotlin, Jetpack Compose, Room Database, Firebase, REST APIs.</li>
+              </ul>
+            </article>
+
+            <p>
+              <a href="/tech-products">Explore Live Interactive Demonstrations &amp; Request Custom Architecture Consultation &rarr;</a>
+            </p>
           </section>
 
           <section id="ms-group">
