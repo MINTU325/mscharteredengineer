@@ -74,15 +74,80 @@ const ROUTE_CONFIG = {
   '/ms-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
   '/texel-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
   '/departments': { id: 'ms-group', title: 'Our Engineering Departments | MS Group' },
-  '/tech-products': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
-  '/tech': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
-  '/software-products': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
-  '/it-solutions': { id: 'tech-products', title: 'IT, Apps & Digital Software Solutions | MS Group' },
-  '/government-subsidies': { id: 'government-subsidies', title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group' },
-  '/subsidies': { id: 'government-subsidies', title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group' },
-  '/business-loans': { id: 'business-loans', title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group' },
-  '/business-loan': { id: 'business-loans', title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group' },
-  '/loans': { id: 'business-loans', title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group' },
+  '/tech-products': { 
+    id: 'tech-products', 
+    title: 'MS Tech Labs | Custom AI Chatbots, Mobile Apps & Web Software | MS Group',
+    description: 'Enterprise AI Integration, Custom Chatbots, Android/iOS Mobile Apps, SaaS Platforms, Cloud Architecture & Custom Business ERP/CRM software by MS Tech Labs.'
+  },
+  '/tech': { 
+    id: 'tech-products', 
+    title: 'MS Tech Labs | Custom AI Chatbots, Mobile Apps & Web Software | MS Group',
+    description: 'Enterprise AI Integration, Custom Chatbots, Android/iOS Mobile Apps, SaaS Platforms, Cloud Architecture & Custom Business ERP/CRM software by MS Tech Labs.'
+  },
+  '/software-products': { 
+    id: 'tech-products', 
+    title: 'MS Tech Labs | Custom AI Chatbots, Mobile Apps & Web Software | MS Group',
+    description: 'Enterprise AI Integration, Custom Chatbots, Android/iOS Mobile Apps, SaaS Platforms, Cloud Architecture & Custom Business ERP/CRM software by MS Tech Labs.'
+  },
+  '/it-solutions': { 
+    id: 'tech-products', 
+    title: 'IT, Apps & Digital Software Solutions | MS Group',
+    description: 'Full-stack software engineering, custom mobile apps, SaaS web applications & AI automation for businesses by MS Group.'
+  },
+  '/government-subsidies': { 
+    id: 'government-subsidies', 
+    title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group',
+    description: 'Apply for Central & State Government Subsidies: Rajasthan RIPS 2024, PMEGP, Ambedkar Scheme, PM-FME, Textile GREAT & Solar grants with Chartered Engineer DPR & TEV study.'
+  },
+  '/subsidies': { 
+    id: 'government-subsidies', 
+    title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group',
+    description: 'Apply for Central & State Government Subsidies: Rajasthan RIPS 2024, PMEGP, Ambedkar Scheme, PM-FME, Textile GREAT & Solar grants with Chartered Engineer DPR & TEV study.'
+  },
+  '/business-loans': { 
+    id: 'business-loans', 
+    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group',
+    description: 'Get Business Loans, Machinery Finance, CGTMSE Collateral-Free Loans up to ₹5 Cr & Working Capital with Bankable TEV Study & DPR by IIT Roorkee Engineers.'
+  },
+  '/business-loan': { 
+    id: 'business-loans', 
+    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group',
+    description: 'Get Business Loans, Machinery Finance, CGTMSE Collateral-Free Loans up to ₹5 Cr & Working Capital with Bankable TEV Study & DPR by IIT Roorkee Engineers.'
+  },
+  '/loans': { 
+    id: 'business-loans', 
+    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group',
+    description: 'Get Business Loans, Machinery Finance, CGTMSE Collateral-Free Loans up to ₹5 Cr & Working Capital with Bankable TEV Study & DPR by IIT Roorkee Engineers.'
+  },
+};
+
+const updateSeoMeta = (config, pathname) => {
+  if (!config) return;
+  if (config.title) document.title = config.title;
+
+  if (config.description) {
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', config.description);
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', config.description);
+  }
+
+  let ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle && config.title) ogTitle.setAttribute('content', config.title);
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', `https://www.mscharteredengineer.com${pathname === '/' ? '' : pathname}`);
 };
 
 export default function App() {
@@ -103,7 +168,7 @@ export default function App() {
       setCurrentRoute(pathname);
       const config = ROUTE_CONFIG[pathname];
       if (config) {
-        document.title = config.title;
+        updateSeoMeta(config, pathname);
         if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
@@ -142,7 +207,7 @@ export default function App() {
           window.history.pushState({}, '', href);
           setCurrentRoute(cleanPath);
           if (config) {
-            document.title = config.title;
+            updateSeoMeta(config, cleanPath);
           }
           if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

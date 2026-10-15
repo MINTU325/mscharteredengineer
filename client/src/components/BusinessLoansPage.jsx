@@ -286,6 +286,54 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
   return (
     <div className="business-loans-page" style={{ background: '#FAF8F5', minHeight: '100vh', paddingBottom: '70px', color: '#0F172A' }}>
       
+      {/* ── SEO JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.mscharteredengineer.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Business & Machinery Loans",
+                    "item": "https://www.mscharteredengineer.com/business-loans"
+                  }
+                ]
+              },
+              {
+                "@type": "Service",
+                "name": "Business & Plant Machinery Loans TEV / DPR Consultancy",
+                "url": "https://www.mscharteredengineer.com/business-loans",
+                "provider": {
+                  "@type": "ProfessionalService",
+                  "name": "MS Chartered Engineers",
+                  "telephone": "+919158658885",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Jaipur",
+                    "addressRegion": "Rajasthan",
+                    "postalCode": "302019",
+                    "addressCountry": "IN"
+                  }
+                },
+                "description": "Techno-Economic Viability (TEV) study, Detailed Project Report (DPR), CGTMSE collateral-free MSME loans, and machinery capex appraisal reports by IIT Roorkee engineers.",
+                "areaServed": "India"
+              }
+            ]
+          })
+        }}
+      />
+
       {/* ── Breadcrumb & Top Bar ── */}
       <div style={{ background: '#0F172A', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>

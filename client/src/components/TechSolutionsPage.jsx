@@ -456,6 +456,54 @@ curl -X POST "https://api.msgroup.tech/v1/agent/query" \\
   return (
     <div className="tech-solutions-page" style={{ background: '#070D1B', color: '#F8FAFC', minHeight: '100vh', paddingBottom: '70px', overflowX: 'hidden' }}>
       
+      {/* ── SEO JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.mscharteredengineer.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "MS Tech Labs Software & AI",
+                    "item": "https://www.mscharteredengineer.com/tech-products"
+                  }
+                ]
+              },
+              {
+                "@type": "Service",
+                "name": "MS Tech Labs — AI Solutions & Mobile Software Engineering",
+                "url": "https://www.mscharteredengineer.com/tech-products",
+                "provider": {
+                  "@type": "Organization",
+                  "name": "MS Tech Labs (MS Group)",
+                  "telephone": "+919158658885",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Jaipur",
+                    "addressRegion": "Rajasthan",
+                    "postalCode": "302019",
+                    "addressCountry": "IN"
+                  }
+                },
+                "description": "Enterprise AI integration, custom conversational chatbots, Android/iOS mobile application development, full-stack cloud SaaS platforms, and custom business ERP software.",
+                "areaServed": "India"
+              }
+            ]
+          })
+        }}
+      />
+
       {/* ── Breadcrumb & Top Bar ── */}
       <div style={{ background: 'rgba(11, 20, 38, 0.85)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 0', position: 'sticky', top: 0, zIndex: 900 }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>

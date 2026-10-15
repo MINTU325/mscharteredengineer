@@ -338,6 +338,54 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
   return (
     <div className="government-subsidies-page" style={{ background: '#FAF8F5', minHeight: '100vh', paddingBottom: '70px', color: '#0F172A' }}>
       
+      {/* ── SEO JSON-LD Structured Data ── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.mscharteredengineer.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Government Subsidies & Grants",
+                    "item": "https://www.mscharteredengineer.com/government-subsidies"
+                  }
+                ]
+              },
+              {
+                "@type": "Service",
+                "name": "Government Subsidies & Industrial Grants Advisory",
+                "url": "https://www.mscharteredengineer.com/government-subsidies",
+                "provider": {
+                  "@type": "ProfessionalService",
+                  "name": "MS Chartered Engineers",
+                  "telephone": "+919158658885",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Jaipur",
+                    "addressRegion": "Rajasthan",
+                    "postalCode": "302019",
+                    "addressCountry": "IN"
+                  }
+                },
+                "description": "Chartered Engineer statutory certification, Net Worth certificates, and bankable DPR for RIPS 2024, PMEGP, Ambedkar Scheme, PM-FME, and Central/State industrial capital subsidies.",
+                "areaServed": "India"
+              }
+            ]
+          })
+        }}
+      />
+
       {/* ── Breadcrumb & Top Bar ── */}
       <div style={{ background: '#0F172A', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 0' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
