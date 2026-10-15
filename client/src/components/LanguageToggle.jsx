@@ -153,15 +153,16 @@ export default function LanguageToggle({ isMobile = false, onToggleCallback }) {
       style={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: '6px',
-        padding: '7px 14px',
+        gap: '4px',
+        padding: '0 8px',
+        height: '28px',
         borderRadius: '9999px',
         background: currentLang === 'hi'
           ? 'linear-gradient(135deg, rgba(217, 119, 6, 0.25) 0%, rgba(180, 83, 9, 0.2) 100%)'
           : 'rgba(255, 255, 255, 0.07)',
         border: currentLang === 'hi' ? '1.5px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.18)',
         color: currentLang === 'hi' ? '#fbbf24' : '#e2e8f0',
-        fontSize: '0.84rem',
+        fontSize: '0.72rem',
         fontWeight: 700,
         cursor: 'pointer',
         boxShadow: currentLang === 'hi' ? '0 0 12px rgba(245, 158, 11, 0.25)' : 'none',
@@ -170,7 +171,7 @@ export default function LanguageToggle({ isMobile = false, onToggleCallback }) {
       title={currentLang === 'hi' ? 'Click to switch back to English' : 'पूरी वेबसाइट को हिन्दी में देखने के लिए क्लिक करें'}
       aria-label="Toggle language English / Hindi"
     >
-      <Languages size={15} color={currentLang === 'hi' ? '#fbbf24' : '#38bdf8'} />
+      <Languages size={13} color={currentLang === 'hi' ? '#fbbf24' : '#38bdf8'} />
       <span>{currentLang === 'hi' ? 'English' : 'हिन्दी'}</span>
     </button>
   );

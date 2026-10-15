@@ -792,10 +792,10 @@ button, input, select, textarea {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   list-style: none;
   background: rgba(255, 255, 255, 0.03);
-  padding: 3px 5px;
+  padding: 2px 4px;
   border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
@@ -803,10 +803,10 @@ button, input, select, textarea {
 .nav-link {
   display: inline-flex;
   align-items: center;
-  height: 31px;
-  padding: 0 11px;
+  height: 28px;
+  padding: 0 8px;
   border-radius: var(--radius-full);
-  font-size: 0.80rem;
+  font-size: 0.74rem;
   font-weight: 600;
   color: #cbd5e1;
   transition: var(--transition);
@@ -830,7 +830,7 @@ button, input, select, textarea {
 }
 
 .nav-dropdown-trigger {
-  gap: 4px;
+  gap: 3px;
 }
 
 .dropdown-chevron {
@@ -946,12 +946,12 @@ button, input, select, textarea {
 }
 
 .nav-tag-badge {
-  font-size: 0.58rem;
+  font-size: 0.52rem;
   font-weight: 800;
   background: rgba(6, 182, 212, 0.22);
   border: 1px solid rgba(6, 182, 212, 0.45);
   color: #22d3ee;
-  padding: 1px 5px;
+  padding: 1px 4px;
   border-radius: 4px;
   letter-spacing: 0.04em;
   margin-left: 2px;
@@ -960,41 +960,55 @@ button, input, select, textarea {
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   flex-shrink: 0;
 }
 
 .nav-btn {
-  height: 31px;
-  padding: 0 10px;
-  font-size: 0.74rem;
+  height: 28px;
+  padding: 0 9px;
+  font-size: 0.70rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
   border-radius: var(--radius-full);
   white-space: nowrap;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1366px) {
   .nav-link {
-    padding: 0 4px;
-    font-size: 0.67rem;
-    height: 26px;
+    padding: 0 6px;
+    font-size: 0.70rem;
+    height: 27px;
   }
   .nav-btn {
-    padding: 0 8px;
-    font-size: 0.71rem;
-    height: 29px;
-  }
-  .brand-title {
-    font-size: 0.82rem;
-  }
-  .brand-subtitle {
-    font-size: 0.50rem;
+    padding: 0 7px;
+    font-size: 0.68rem;
+    height: 27px;
   }
   .navbar-inner {
     gap: 6px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .nav-link {
+    padding: 0 4px;
+    font-size: 0.66rem;
+    height: 25px;
+  }
+  .nav-links {
+    gap: 1px;
+    padding: 2px;
+  }
+  .nav-btn {
+    padding: 0 6px;
+    font-size: 0.66rem;
+    height: 25px;
+  }
+  .navbar-actions {
+    gap: 4px;
   }
 }
 
