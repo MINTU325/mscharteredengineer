@@ -26,6 +26,33 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
 
   const serviceOptions = [
     {
+      name: "Government Subsidies & Grants",
+      sub: [
+        "RIPS 2024 (Rajasthan Investment Promotion Scheme)",
+        "PMEGP (Prime Minister Employment Generation Programme)",
+        "Ambedkar Dalit & Tribal Enterprise Scheme",
+        "VYUPY / CM Youth Enterprise Scheme",
+        "PM-FME (Food Processing Units Subsidy)",
+        "Textile GREAT Scheme (Up to ₹50 Lakhs)",
+        "NABARD & National Horticulture Board (NHB) Grants",
+        "PM Kusum & Solar Power Plant Subsidies",
+        "MSME ZED / LEAN & Capital Subsidy",
+        "Other Central / State Industrial Subsidies"
+      ]
+    },
+    {
+      name: "Business & Machinery Loans",
+      sub: [
+        "CGTMSE Collateral-Free MSME Loan (Up to ₹5 Cr)",
+        "Industrial Plant & Machinery Finance",
+        "Industrial Long-Term Project Finance",
+        "PMEGP Bank Loan with Subsidy",
+        "Loan Against Property (Commercial / Industrial LAP)",
+        "Working Capital Limits (Cash Credit / OD)",
+        "TEV Study & Bankable Detailed Project Report (DPR)"
+      ]
+    },
+    {
       name: "IT, Apps & Software Development",
       sub: [
         "AI Integration & Intelligent Chatbots",

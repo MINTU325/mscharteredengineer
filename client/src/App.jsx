@@ -29,6 +29,8 @@ const QuoteWizardModal = lazy(() => import('./components/QuoteWizardModal'));
 const CharteredEngineerPage = lazy(() => import('./components/CharteredEngineerPage'));
 const EWasteCompliancePage = lazy(() => import('./components/EWasteCompliancePage'));
 const TechSolutionsPage = lazy(() => import('./components/TechSolutionsPage'));
+const GovernmentSubsidiesPage = lazy(() => import('./components/GovernmentSubsidiesPage'));
+const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
@@ -76,6 +78,11 @@ const ROUTE_CONFIG = {
   '/tech': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
   '/software-products': { id: 'tech-products', title: 'MS Tech Labs | Mobile Apps, Web Platforms & Software Products | MS Group' },
   '/it-solutions': { id: 'tech-products', title: 'IT, Apps & Digital Software Solutions | MS Group' },
+  '/government-subsidies': { id: 'government-subsidies', title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group' },
+  '/subsidies': { id: 'government-subsidies', title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group' },
+  '/business-loans': { id: 'business-loans', title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group' },
+  '/business-loan': { id: 'business-loans', title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group' },
+  '/loans': { id: 'business-loans', title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group' },
 };
 
 export default function App() {
@@ -97,7 +104,7 @@ export default function App() {
       const config = ROUTE_CONFIG[pathname];
       if (config) {
         document.title = config.title;
-        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products') {
+        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
           const scrollToTarget = () => {
@@ -137,7 +144,7 @@ export default function App() {
           if (config) {
             document.title = config.title;
           }
-          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products')) {
+          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           } else if (config && config.id) {
             const scrollToTarget = () => {
@@ -277,6 +284,26 @@ export default function App() {
           />
         ) : currentRoute === '/tech-products' || currentRoute === '/tech' || currentRoute === '/software-products' || currentRoute === '/it-solutions' ? (
           <TechSolutionsPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : currentRoute === '/government-subsidies' || currentRoute === '/subsidies' ? (
+          <GovernmentSubsidiesPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : currentRoute === '/business-loans' || currentRoute === '/business-loan' || currentRoute === '/loans' ? (
+          <BusinessLoansPage 
             onOpenQuote={handleOpenQuote}
             onNavigateHome={() => {
               window.history.pushState({}, '', '/');

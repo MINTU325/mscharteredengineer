@@ -28,7 +28,8 @@ import {
   CheckCircle2,
   HelpCircle,
   Smartphone,
-  ExternalLink
+  ExternalLink,
+  Coins
 } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 import LanguageToggle from './LanguageToggle';
@@ -269,6 +270,45 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 </a>
               </li>
 
+              {/* 3. Subsidies & Loans Dropdown */}
+              <li 
+                className="nav-item-dropdown" 
+                onMouseEnter={() => setActiveDropdown('subsidies')} 
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button 
+                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'subsidies' || currentPath.includes('/subsidies') || currentPath.includes('/business-loan') ? 'active' : ''}`}
+                  onClick={() => setActiveDropdown(activeDropdown === 'subsidies' ? null : 'subsidies')}
+                  aria-expanded={activeDropdown === 'subsidies'}
+                  style={{ color: '#10b981', fontWeight: 700, gap: '6px' }}
+                >
+                  <Coins size={14} />
+                  <span>Subsidies</span>
+                  <ChevronDown size={14} className={`dropdown-chevron ${activeDropdown === 'subsidies' ? 'rotate' : ''}`} />
+                </button>
+                <div className={`nav-dropdown-menu ${activeDropdown === 'subsidies' ? 'open' : ''}`} style={{ minWidth: '340px' }}>
+                  <a href="/government-subsidies" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Coins size={16} color="#10b981" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#10b981' }}>Government Subsidies</div>
+                      <div className="dropdown-item-desc">RIPS 2024, PMEGP, MSME, Textile &amp; Capital Grants</div>
+                    </div>
+                  </a>
+                  <a href="/business-loans" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Landmark size={16} color="#38bdf8" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#38bdf8' }}>Business Loans</div>
+                      <div className="dropdown-item-desc">CGTMSE Collateral-Free, Term Loans &amp; Machinery Finance</div>
+                    </div>
+                  </a>
+                  <div className="dropdown-divider" />
+                  <a href="/government-subsidies" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
+                    <span>Explore 26+ Subsidies &amp; DPR Services</span>
+                    <ArrowRight size={13} />
+                  </a>
+                </div>
+              </li>
+
               {/* 3. Tools Dropdown */}
               <li 
                 className="nav-item-dropdown" 
@@ -457,6 +497,12 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             Technology &amp; Software
           </div>
           <a href="/tech-products" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#06b6d4', fontWeight: 700 }}>💻 IT, Apps &amp; Software Products</a>
+
+          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            Subsidies &amp; Business Loans
+          </div>
+          <a href="/government-subsidies" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🏛️ Government Subsidies &amp; Grants</a>
+          <a href="/business-loans" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 700 }}>💼 Business &amp; Machinery Loans</a>
 
           <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Interactive Tools
