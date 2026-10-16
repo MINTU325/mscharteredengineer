@@ -163,7 +163,7 @@ const updateSeoMeta = (config, pathname) => {
 
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState('Assets Valuation Services');
+  const [selectedService, setSelectedService] = useState(null);
   const [quotePrefill, setQuotePrefill] = useState(null);
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(() => {
@@ -267,7 +267,7 @@ export default function App() {
     }
   }, [currentRoute]);
 
-  const handleOpenQuote = (serviceName = 'Assets Valuation Services', prefillData = null) => {
+  const handleOpenQuote = (serviceName = null, prefillData = null) => {
     setSelectedService(serviceName);
     setQuotePrefill(prefillData);
     setIsQuoteOpen(true);
@@ -498,6 +498,7 @@ export default function App() {
             }}
             initialService={selectedService}
             prefillData={quotePrefill}
+            currentRoute={currentRoute}
           />
         </Suspense>
       )}

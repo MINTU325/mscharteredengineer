@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, ArrowLeft, Send, Sparkles, Phone, MessageSquare, FileText, CheckCircle, Zap } from 'lucide-react';
+import { 
+  X, CheckCircle2, ArrowRight, ArrowLeft, Send, Sparkles, 
+  Phone, MessageSquare, FileText, CheckCircle, Zap, RefreshCw, 
+  Landmark, Laptop, ShieldCheck, ChevronDown, Check
+} from 'lucide-react';
 
 export const ELECTRICAL_SERVICE_SUB_OPTIONS = [
   "High Voltage Circuit Breaker Testing Services",
@@ -28,186 +32,277 @@ export const ELECTRICAL_SERVICE_SUB_OPTIONS = [
   "Industrial Transformer Rental Services (100 kVA to 5000 kVA)"
 ];
 
-export default function QuoteWizardModal({ isOpen, onClose, initialService, prefillData }) {
+export const DEPARTMENTS = {
+  electrical: {
+    id: 'electrical',
+    name: 'Electrical & Substation Engineering Services',
+    shortName: 'Electrical & Substation',
+    badgeText: '⚡ Electrical & Substation Engineering Division',
+    themeColor: '#f59e0b',
+    accentBg: 'rgba(245, 158, 11, 0.12)',
+    accentBorder: 'rgba(245, 158, 11, 0.3)',
+    icon: Zap,
+    defaultPurpose: 'Site Testing, Installation & Commissioning',
+    scaleLabel: 'Substation Voltage / Project Scale',
+    scaleOptions: [
+      '11 kV Industrial Substation',
+      '33 kV Substation & Overhead Transmission',
+      '66 kV / 132 kV Grid Substation',
+      'LT 415V Panel & Factory Power Distribution',
+      'Transformer AMC / Oil Filtration & Testing',
+      'Turnkey Testing & Commissioning Works'
+    ],
+    scopePlaceholder: 'e.g. 33kV VCB relay testing, 2000 kVA transformer oil filtration, or plant safety audit at Sitapura industrial area.',
+    services: ELECTRICAL_SERVICE_SUB_OPTIONS
+  },
+  subsidies: {
+    id: 'subsidies',
+    name: 'Government Subsidies & Grants',
+    shortName: 'Government Subsidies',
+    badgeText: '🏛️ Central & State Government Subsidies & Grants Division',
+    themeColor: '#10b981',
+    accentBg: 'rgba(16, 185, 129, 0.12)',
+    accentBorder: 'rgba(16, 185, 129, 0.3)',
+    icon: Landmark,
+    defaultPurpose: 'Government Subsidy Claim & DPR Preparation',
+    scaleLabel: 'Proposed Project / Investment Scale',
+    scaleOptions: [
+      'Under ₹25 Lakhs (Micro Enterprise)',
+      '₹25 Lakhs - ₹1 Crore (Small Enterprise)',
+      '₹1 Crore - ₹5 Crores (Medium Enterprise)',
+      '₹5 Crores - ₹25 Crores (Large Scale Project)',
+      'Above ₹25 Crores (Mega / Ultra-Mega Project)'
+    ],
+    scopePlaceholder: 'e.g. Setting up a food processing unit in Jaipur under PM-FME / RIPS 2024, need bankable DPR and subsidy claim support.',
+    services: [
+      'RIPS 2024 (Rajasthan Investment Promotion Scheme - Capital & Interest Subsidy)',
+      'PMEGP (Prime Minister Employment Generation Programme - Up to 35% Subsidy)',
+      'Dr. B.R. Ambedkar Dalit & Tribal Enterprise Scheme (Up to ₹2 Cr Subsidy)',
+      'VYUPY / Mukhyamantri Laghu Udyog Protsahan Yojana (MLUPY)',
+      'PM-FME (Food Processing Units Capital Subsidy - Up to ₹10 Lakhs)',
+      'Ministry of Textiles GREAT Scheme (Up to ₹50 Lakhs Grant)',
+      'NABARD & National Horticulture Board (NHB) Cold Chain / Agri Grants',
+      'PM Kusum & Solar Power Plant State Capital Subsidies',
+      'MSME ZED / LEAN Certification & Technology Upgradation Subsidy',
+      'Central Capital Investment Subsidy (CCIS) & State Industrial Policy',
+      'Custom DPR & TEV Study for Government Subsidy Claim'
+    ]
+  },
+  ewaste: {
+    id: 'ewaste',
+    name: 'CPCB E-Waste & EPR Environmental Compliance',
+    shortName: 'E-Waste & EPR Compliance',
+    badgeText: '♻️ CPCB E-Waste & EPR Environmental Compliance Division',
+    themeColor: '#6db87a',
+    accentBg: 'rgba(109, 184, 122, 0.12)',
+    accentBorder: 'rgba(109, 184, 122, 0.3)',
+    icon: RefreshCw,
+    defaultPurpose: 'Statutory CPCB / SPCB Filing',
+    scaleLabel: 'Business Category / Statutory Scope',
+    scaleOptions: [
+      'Importer of EEE Goods (Customs Bill of Entry)',
+      'Producer / OEM Equipment Manufacturer',
+      'Brand Owner / Assembler',
+      'Bulk Consumer (Corporate / Factory)',
+      'Authorized Recycler / Dismantler',
+      'Refurbisher / Trader'
+    ],
+    scopePlaceholder: 'e.g. Form 3 annual return filing required for 15 import consignments under Schedule I EEE codes for FY 2024-25.',
+    services: [
+      'CPCB E-Waste Annual Return Filing (Form 3)',
+      'CPCB EPR Portal Registration (Producer / Importer / Brand Owner)',
+      'EPR Certificate / Credit Procurement & Trading Support',
+      'Customs Import Bill of Entry (BOE) EEE Reconciliation & Audit',
+      'State Pollution Control Board (SPCB) CTE / CTO Filing & Consent',
+      'E-Waste Dismantler & Recycler Annual Compliance & Audit',
+      'Quarterly Return Maintenance & Sales Data Harmonization',
+      'Pre-Filing Compliance Review & SPCB Query Defense'
+    ]
+  },
+  loans: {
+    id: 'loans',
+    name: 'Business, MSME & Machinery Loans',
+    shortName: 'Business & Machinery Loans',
+    badgeText: '💼 Industrial Finance, Banking & Machinery Loans Division',
+    themeColor: '#0284c7',
+    accentBg: 'rgba(2, 132, 199, 0.12)',
+    accentBorder: 'rgba(2, 132, 199, 0.3)',
+    icon: FileText,
+    defaultPurpose: 'Bank Loan Sanction & TEV Study',
+    scaleLabel: 'Required Loan / Funding Amount',
+    scaleOptions: [
+      '₹10 Lakhs - ₹50 Lakhs (Micro / Small Loan)',
+      '₹50 Lakhs - ₹2 Crores (CGTMSE / Plant Loan)',
+      '₹2 Crores - ₹5 Crores (Collateral-Free / Machinery Loan)',
+      '₹5 Crores - ₹25 Crores (Project Term Finance)',
+      'Above ₹25 Crores (Consortium / Large Industrial Project)'
+    ],
+    scopePlaceholder: 'e.g. Need ₹2.5 Cr machinery term loan + ₹50 Lakhs CC limit for automated manufacturing line with TEV DPR.',
+    services: [
+      'CGTMSE Collateral-Free MSME Loan (Up to ₹5 Cr)',
+      'Industrial Plant & Machinery Finance',
+      'Industrial Long-Term Project Finance',
+      'Bankable TEV Study & Detailed Project Report (DPR)',
+      'Working Capital Limits (Cash Credit / Overdraft)',
+      'Loan Against Property (LAP - Industrial / Commercial)',
+      'PMEGP Bank Loan with Subsidy Linkage',
+      'Greenfield / Brownfield Project Debt Syndication'
+    ]
+  },
+  tech: {
+    id: 'tech',
+    name: 'IT, AI & Software Development',
+    shortName: 'IT & Software Solutions',
+    badgeText: '💻 MS Tech Labs — AI, Enterprise Software & Mobile Apps',
+    themeColor: '#a855f7',
+    accentBg: 'rgba(168, 85, 247, 0.12)',
+    accentBorder: 'rgba(168, 85, 247, 0.3)',
+    icon: Laptop,
+    defaultPurpose: 'Software Engineering & Custom Development',
+    scaleLabel: 'Target Platform / Project Scope',
+    scaleOptions: [
+      'Mobile Application (Native Android & iOS)',
+      'Enterprise ERP / Web Platform',
+      'AI Agent / Chatbot Automation',
+      'Custom SaaS Product Development',
+      'Consultation & MVP Architecture'
+    ],
+    scopePlaceholder: 'e.g. Custom ERP and Android app for industrial inventory, dispatch tracking and field technician reporting.',
+    services: [
+      'AI Integration & Intelligent Chatbots (RAG Agents)',
+      'Custom Business ERP & CRM Software',
+      'Native Android Mobile App Development',
+      'Native iOS Mobile App Development',
+      'Cross-Platform Mobile App (Flutter / React Native)',
+      'Full-Stack Web Application & Cloud SaaS',
+      'E-Commerce Web Portal & Mobile App',
+      'Cloud Infrastructure, DevOps & API Integrations',
+      'UI/UX Design & Product Prototyping'
+    ]
+  },
+  valuation: {
+    id: 'valuation',
+    name: 'Chartered Engineer & Assets Valuation Services',
+    shortName: 'Chartered Engineer & Valuation',
+    badgeText: '📜 Chartered Engineer & Approved Assets Valuation Division',
+    themeColor: '#d4a843',
+    accentBg: 'rgba(212, 168, 67, 0.12)',
+    accentBorder: 'rgba(212, 168, 67, 0.3)',
+    icon: ShieldCheck,
+    defaultPurpose: 'Bank Loan & Hypothecation',
+    scaleLabel: 'Approximate Asset / Plant Valuation Scale',
+    scaleOptions: [
+      'Under ₹25 Lakhs',
+      '₹25 Lakhs - ₹1 Crore',
+      '₹1 Crore - ₹5 Crores',
+      '₹5 Crores - ₹25 Crores',
+      'Above ₹25 Crores (Large Industrial / Plant Scale)'
+    ],
+    scopePlaceholder: 'e.g. Plant and machinery valuation for SBI term loan / Customs CE certificate for imported machine.',
+    services: [
+      'Plant & Machinery Valuation (FMV, FSV, WDV)',
+      'Land & Building / Commercial Property Valuation',
+      'Bank Loan & Mortgage Valuation (Nationalised / Private Banks)',
+      'DGFT Advance Authorisation & EPCG Certification',
+      'Customs Import Used Machinery Valuation & Inspection',
+      'Income Tax 2001 Fair Market Valuation & Capital Gains',
+      'IBC 2016 & NCLT Insolvency Valuation',
+      'Remaining Useful Life (RLA) Assessment of Machinery',
+      'Chartered Electrical Safety Engineer (CESE) & BEE Energy Audit',
+      'AutoCAD 2D Electrical Drafting & Single Line Diagrams (SLD)',
+      'FSSAI Food Safety & Regulatory Compliance',
+      'Technical Advisory & IndAS 16 Asset Componentization'
+    ]
+  }
+};
+
+export function detectDepartment(currentRoute, initialService, prefillData) {
+  // 1. Explicit prefill tags
+  if (prefillData?.department && DEPARTMENTS[prefillData.department]) {
+    return prefillData.department;
+  }
+  if (prefillData?.isElectrical) return 'electrical';
+  if (prefillData?.isSubsidies) return 'subsidies';
+  if (prefillData?.isEWaste) return 'ewaste';
+  if (prefillData?.isLoans) return 'loans';
+  if (prefillData?.isTech) return 'tech';
+
+  // 2. Check route
+  const route = (currentRoute || window.location?.pathname || '').toLowerCase().replace(/\/$/, '');
+  if (route === '/electrical-services' || route === '/substation-services') return 'electrical';
+  if (route === '/government-subsidies' || route === '/subsidies') return 'subsidies';
+  if (route === '/e-waste-annual-return-filing' || route === '/e-waste') return 'ewaste';
+  if (route === '/business-loans' || route === '/business-loan' || route === '/loans') return 'loans';
+  if (route === '/tech-products' || route === '/tech' || route === '/software-products' || route === '/it-solutions') return 'tech';
+  if (route === '/chartered-engineer' || route === '/services' || route === '/valuation' || route === '/property-valuation' || route === '/bank-valuation' || route === '/tax-valuation' || route === '/ibc-valuation' || route === '/machinery-valuation') return 'valuation';
+
+  // 3. Check service name / prefill text keywords
+  const textToSearch = `${initialService || ''} ${prefillData?.title || ''} ${prefillData?.category || ''}`.toLowerCase();
+  
+  if (textToSearch.includes('electrical') || textToSearch.includes('substation') || textToSearch.includes('transformer') || textToSearch.includes('breaker') || textToSearch.includes('relay') || textToSearch.includes('earthing') || textToSearch.includes('switchgear')) {
+    return 'electrical';
+  }
+  if (textToSearch.includes('subsidy') || textToSearch.includes('subsidies') || textToSearch.includes('rips') || textToSearch.includes('pmegp') || textToSearch.includes('ambedkar') || textToSearch.includes('grant') || textToSearch.includes('vyupy') || textToSearch.includes('pm-fme')) {
+    return 'subsidies';
+  }
+  if (textToSearch.includes('e-waste') || textToSearch.includes('ewaste') || textToSearch.includes('epr') || textToSearch.includes('form 3') || textToSearch.includes('cpcb') || textToSearch.includes('return filing')) {
+    return 'ewaste';
+  }
+  if (textToSearch.includes('loan') || textToSearch.includes('cgtmse') || textToSearch.includes('working capital') || textToSearch.includes('finance') || textToSearch.includes('tev study') || textToSearch.includes('dpr')) {
+    return 'loans';
+  }
+  if (textToSearch.includes('app') || textToSearch.includes('software') || textToSearch.includes('ai integration') || textToSearch.includes('erp') || textToSearch.includes('saas') || textToSearch.includes('tech product')) {
+    return 'tech';
+  }
+
+  // Default to valuation
+  return 'valuation';
+}
+
+export default function QuoteWizardModal({ isOpen, onClose, initialService, prefillData, currentRoute }) {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
   const [error, setError] = useState('');
+  const [showDeptDropdown, setShowDeptDropdown] = useState(false);
 
   const isValuationFlow = Boolean(prefillData?.isValuationReport);
 
-  const isElectricalFlow = Boolean(
-    prefillData?.isElectrical ||
-    initialService === 'Electrical & Substation Engineering Services' ||
-    initialService === 'Turnkey Electrical & Substation Inquiry' ||
-    initialService?.toLowerCase().includes('electrical') ||
-    initialService?.toLowerCase().includes('substation') ||
-    ELECTRICAL_SERVICE_SUB_OPTIONS.some(s => {
-      const init = (initialService || '').toLowerCase();
-      const pref = (prefillData?.title || '').toLowerCase();
-      const target = s.toLowerCase();
-      return (init && target.includes(init)) || (pref && target.includes(pref)) || (init && init.includes(target.slice(0, 15)));
-    })
+  const [activeDept, setActiveDept] = useState(() => 
+    detectDepartment(currentRoute, initialService, prefillData)
   );
+
+  const currentDeptConfig = DEPARTMENTS[activeDept] || DEPARTMENTS.valuation;
+  const DeptIcon = currentDeptConfig.icon;
 
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     phone: '',
     email: '',
-    service: initialService || 'Assets Valuation Services',
-    subCategory: 'Banking & Lending Valuation',
+    service: currentDeptConfig.name,
+    subCategory: currentDeptConfig.services[0],
     location: 'Jaipur, Rajasthan',
-    estimatedAssetValue: '₹50 Lakhs - ₹2 Crores',
+    estimatedAssetValue: currentDeptConfig.scaleOptions[1] || currentDeptConfig.scaleOptions[0],
     urgency: 'Immediate (Within 48-72 Hours Express)',
     projectScope: '',
-    purpose: 'Bank Loan & Hypothecation',
+    purpose: currentDeptConfig.defaultPurpose,
     notes: ''
   });
 
-  const serviceOptions = [
-    {
-      name: "Electrical & Substation Engineering Services",
-      sub: ELECTRICAL_SERVICE_SUB_OPTIONS
-    },
-    {
-      name: "Government Subsidies & Grants",
-      sub: [
-        "RIPS 2024 (Rajasthan Investment Promotion Scheme)",
-        "PMEGP (Prime Minister Employment Generation Programme)",
-        "Ambedkar Dalit & Tribal Enterprise Scheme",
-        "VYUPY / CM Youth Enterprise Scheme",
-        "PM-FME (Food Processing Units Subsidy)",
-        "Textile GREAT Scheme (Up to ₹50 Lakhs)",
-        "NABARD & National Horticulture Board (NHB) Grants",
-        "PM Kusum & Solar Power Plant Subsidies",
-        "MSME ZED / LEAN & Capital Subsidy",
-        "Other Central / State Industrial Subsidies"
-      ]
-    },
-    {
-      name: "Business & Machinery Loans",
-      sub: [
-        "CGTMSE Collateral-Free MSME Loan (Up to ₹5 Cr)",
-        "Industrial Plant & Machinery Finance",
-        "Industrial Long-Term Project Finance",
-        "PMEGP Bank Loan with Subsidy",
-        "Loan Against Property (Commercial / Industrial LAP)",
-        "Working Capital Limits (Cash Credit / OD)",
-        "TEV Study & Bankable Detailed Project Report (DPR)"
-      ]
-    },
-    {
-      name: "IT, Apps & Software Development",
-      sub: [
-        "AI Integration & Intelligent Chatbots",
-        "Custom Android App Development",
-        "Cross-Platform Mobile App (Flutter / React Native)",
-        "Full-Stack Web Application / SaaS",
-        "E-Commerce Platform & Mobile App",
-        "Custom Business ERP / CRM Software",
-        "Cloud Architecture & API Integration",
-        "UI/UX Design & Product Prototyping"
-      ]
-    },
-    {
-      name: "Assets Valuation Services",
-      sub: [
-        "Banking & Lending Valuation",
-        "Insurance (Reinstatement) Valuation",
-        "Stamp Duty Valuation",
-        "Financial Reporting / IndAS 16",
-        "Sale / Purchase of Asset",
-        "Leasing / Renting of Assets",
-        "Asset Retirement & Disposal",
-        "Litigation & Dispute Resolution",
-        "Impairment Study (Ind AS, IFRS)",
-        "Insolvency & Bankruptcy Valuation",
-        "Liquidation (Orderly/Forced)",
-        "Balance Useful Life Calculation",
-        "Mergers and Acquisitions",
-        "Taxation and Regulations (CBDT)"
-      ]
-    },
-    {
-      name: "Chartered Engineer Services",
-      sub: [
-        "DGFT Advance Authorisation Certificate",
-        "DGFT EPCG & SION Declarations",
-        "CBIC / Customs Declarations",
-        "MoFPI Declarations / Compliances",
-        "MoEF (e-waste, CDM) Declarations",
-        "GAIL Verification/Credentials",
-        "MSME Grant-in-Aid/Incentives",
-        "MiETY (EHTP/STP/M-SIP) Declarations",
-        "Ministry of Textiles (ITP/NHDP)",
-        "MoCA (Useful Life of Assets)",
-        "MoCI (APEDA/EOU Scheme)",
-        "MoST (Bio Technology Park)",
-        "Remaining Life Assessment (RLA)",
-        "Equipment Efficiency & Tool Life"
-      ]
-    },
-    {
-      name: "FSSAI Compliance Services",
-      sub: [
-        "New Registration / State / Central License",
-        "Renewal of License / Registration",
-        "Modifications in License",
-        "Filing Annual Returns / Declarations",
-        "Appeal for Revocation of Suspension",
-        "FBO Training by FSSAI Trainers",
-        "Hygiene Auditing by FSSAI Auditors",
-        "Mock Surveys of Facility/Unit"
-      ]
-    },
-    {
-      name: "Advisory Services",
-      sub: [
-        "Asset Componentization Analysis",
-        "Equipment Effectiveness Analysis",
-        "Measurement System Analysis (MSA)",
-        "Machine Capability Analysis",
-        "Process Capability Analysis"
-      ]
-    },
-    {
-      name: "Industrial Safety & Energy Audits",
-      sub: [
-        "Chartered Electrical Safety Engineer (CESE) Certification",
-        "Electrical Safety Inspection & Auditing (CEA Regulations)",
-        "Certified Energy Manager (BEE) Energy Audit",
-        "Certificate of Competency (Factories & Boilers Act)",
-        "National Safety Council of India (NSCI / NSAT) Audit",
-        "Thermography & Earth Pit Resistance Audit"
-      ]
-    },
-    {
-      name: "AutoCAD 2D Electrical Drafting",
-      sub: [
-        "Electrical Layout Drawings (Residential / Commercial / Industrial)",
-        "Single Line Diagrams (SLD) for HT/LT Power Distribution",
-        "LT/HT Panel Drawings (GA, Schematics & Wiring)",
-        "Cable Routing & Cable Schedule Preparation",
-        "Lighting & Power Layout Design",
-        "Electrical Equipment Layout (Transformers & DG Sets)",
-        "PDF/JPG to AutoCAD (DWG) Conversion",
-        "Existing Drawing Modification & As-Built Revisions",
-        "BOQ-related Drawing Support & BOM Extraction"
-      ]
-    }
-  ];
-
+  // Re-sync on modal open or context changes
   useEffect(() => {
     if (isOpen) {
       setStep(1);
       setError('');
       setSubmittedData(null);
+      setShowDeptDropdown(false);
 
       if (prefillData?.isValuationReport) {
+        setActiveDept('valuation');
         setFormData(prev => ({
           ...prev,
-          service: 'Assets Valuation Services',
+          service: 'Chartered Engineer & Assets Valuation Services',
           subCategory: 'Official Stamped Machinery Valuation Report',
           estimatedAssetValue: prefillData.fairMarketValueRange || `₹ ${Number(prefillData.originalCost || 0).toLocaleString('en-IN')}`,
           urgency: 'Immediate (Within 48-72 Hours Express)',
@@ -215,41 +310,50 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
           purpose: 'Bank Loan & Hypothecation',
           notes: ''
         }));
-      } else if (isElectricalFlow) {
-        // Pre-select exact matching electrical service from ELECTRICAL_SERVICE_SUB_OPTIONS
-        const matchSub = ELECTRICAL_SERVICE_SUB_OPTIONS.find(s => {
-          const init = (initialService || '').toLowerCase();
-          const prefTitle = (prefillData?.title || '').toLowerCase();
-          const target = s.toLowerCase();
-          return (
-            (prefTitle && target.includes(prefTitle)) ||
-            (prefTitle && prefTitle.includes(target.slice(0, 20))) ||
-            (init && target.includes(init)) ||
-            (init && init.includes(target.slice(0, 20)))
-          );
-        }) || ELECTRICAL_SERVICE_SUB_OPTIONS[0];
+      } else {
+        const resolvedDept = detectDepartment(currentRoute, initialService, prefillData);
+        setActiveDept(resolvedDept);
+        const deptConfig = DEPARTMENTS[resolvedDept] || DEPARTMENTS.valuation;
+
+        // Find best matching service in that department
+        let matchedSub = deptConfig.services[0];
+        const searchTarget = (initialService || prefillData?.title || '').toLowerCase();
+        
+        if (searchTarget) {
+          const found = deptConfig.services.find(s => {
+            const sLower = s.toLowerCase();
+            return sLower.includes(searchTarget) || searchTarget.includes(sLower.slice(0, 15));
+          });
+          if (found) matchedSub = found;
+        }
 
         setFormData(prev => ({
           ...prev,
-          service: 'Electrical & Substation Engineering Services',
-          subCategory: matchSub,
-          projectScope: prefillData?.shortDesc || `Inquiry for ${matchSub}`,
-          purpose: 'Site Testing, Installation & Commissioning'
-        }));
-      } else if (initialService) {
-        const matched = serviceOptions.find(s => s.name === initialService) || serviceOptions[0];
-        setFormData(prev => ({
-          ...prev,
-          service: matched.name,
-          subCategory: matched.sub[0] || 'General Consultation'
+          service: deptConfig.name,
+          subCategory: matchedSub,
+          projectScope: prefillData?.shortDesc || (searchTarget && searchTarget !== matchedSub.toLowerCase() ? `Inquiry regarding ${initialService}` : ''),
+          purpose: deptConfig.defaultPurpose,
+          estimatedAssetValue: deptConfig.scaleOptions[1] || deptConfig.scaleOptions[0]
         }));
       }
     }
-  }, [isOpen, initialService, prefillData, isElectricalFlow]);
+  }, [isOpen, initialService, prefillData, currentRoute]);
+
+  const handleDepartmentChange = (newDeptKey) => {
+    if (!DEPARTMENTS[newDeptKey]) return;
+    setActiveDept(newDeptKey);
+    const newConfig = DEPARTMENTS[newDeptKey];
+    setFormData(prev => ({
+      ...prev,
+      service: newConfig.name,
+      subCategory: newConfig.services[0],
+      purpose: newConfig.defaultPurpose,
+      estimatedAssetValue: newConfig.scaleOptions[1] || newConfig.scaleOptions[0]
+    }));
+    setShowDeptDropdown(false);
+  };
 
   if (!isOpen) return null;
-
-  const currentSubs = serviceOptions.find(s => s.name === formData.service)?.sub || [];
 
   const generateWhatsAppMessage = (inquiryRef) => {
     if (isValuationFlow && prefillData) {
@@ -274,40 +378,23 @@ _Directly sent via mscharteredengineer.com_`
       );
     }
 
-    if (isElectricalFlow) {
-      return (
-`⚡ *New Electrical & Substation Service Booking - MS Chartered Engineers*
+    const deptTag = currentDeptConfig.badgeText.split(' ')[0] || '🔔';
+
+    return (
+`${deptTag} *New ${currentDeptConfig.shortName} Inquiry - MS Chartered Engineers*
 ━━━━━━━━━━━━━━━━━━━━━━
 🆔 *Ref ID:* ${inquiryRef}
 👤 *Client Name:* ${formData.name}
 📞 *Phone Number:* ${formData.phone}
 🏢 *Company / Factory:* ${formData.company || 'Direct Client'}
 📧 *Email Address:* ${formData.email || 'N/A'}
-📍 *Plant / Site Location:* ${formData.location || 'Pan India'}
+📍 *Location / Site:* ${formData.location || 'Pan India'}
 
-⚡ *Electrical Service:* ${formData.subCategory}
-📋 *Scope / Details:* ${formData.projectScope || 'On-site execution & quotation requested'}
-⏱️ *Required Timeline:* ${formData.urgency || 'Standard'}
-━━━━━━━━━━━━━━━━━━━━━━
-_Directly sent via mscharteredengineer.com_`
-      );
-    }
-
-    return (
-`🔔 *New Consultation Inquiry - MS Chartered Engineers*
-━━━━━━━━━━━━━━━━━━━━━━
-🆔 *Ref ID:* ${inquiryRef}
-👤 *Client Name:* ${formData.name}
-📞 *Phone Number:* ${formData.phone}
-🏢 *Company / Firm:* ${formData.company || 'Individual / Proprietor'}
-📧 *Email Address:* ${formData.email || 'N/A'}
-📍 *Project Location:* ${formData.location || 'Pan India'}
-
-📋 *Service Requested:* ${formData.service}
-📂 *Category / Scope:* ${formData.subCategory || 'General Consultation'}
-💰 *Investment / Asset Scale:* ${formData.estimatedAssetValue || 'Standard'}
-⏱️ *Project Urgency:* ${formData.urgency || 'Standard'}
-${formData.projectScope ? `📝 *Requirement Details:* ${formData.projectScope}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━
+📋 *Service Required:* ${formData.subCategory}
+🏛️ *Division:* ${currentDeptConfig.name}
+📊 *${currentDeptConfig.scaleLabel}:* ${formData.estimatedAssetValue}
+⏱️ *Timeline:* ${formData.urgency || 'Standard'}
+${formData.projectScope ? `📝 *Requirement Notes:* ${formData.projectScope}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━
 _Directly sent via mscharteredengineer.com_`
     );
   };
@@ -344,12 +431,12 @@ _Directly sent via mscharteredengineer.com_`
       company: formData.company || 'Individual / Proprietor',
       phone: formData.phone,
       email: formData.email || 'Not specified',
-      service: formData.service || 'Assets Valuation Services',
+      service: currentDeptConfig.name,
       subCategory: finalSubCategory,
       location: formData.location || 'Pan India',
       estimatedAssetValue: finalAssetValue,
       urgency: formData.urgency,
-      projectScope: finalScope || 'Direct consultation inquiry submitted via web portal.'
+      projectScope: finalScope || `Consultation request for ${finalSubCategory} under ${currentDeptConfig.shortName}.`
     };
 
     let inqId = "INQ-" + Math.floor(100000 + Math.random() * 900000);
@@ -364,13 +451,13 @@ _Directly sent via mscharteredengineer.com_`
       if (data.success) {
         inqId = data.inquiryId || inqId;
         setSubmittedData(data);
-        setStep(4); // Success step
+        setStep(4);
       } else {
         setError(data.message || 'Error submitting request. Please try again.');
         return;
       }
     } catch (err) {
-      // Fallback if backend is momentarily unreachable
+      // Offline fallback
       setSubmittedData({
         inquiryId: inqId,
         data: payload
@@ -380,7 +467,7 @@ _Directly sent via mscharteredengineer.com_`
       setLoading(false);
     }
 
-    // Direct WhatsApp Auto-Launch with complete details!
+    // Direct WhatsApp Auto-Launch
     const waText = encodeURIComponent(generateWhatsAppMessage(inqId));
     const waUrl = `https://wa.me/919158658885?text=${waText}`;
     setTimeout(() => {
@@ -390,7 +477,7 @@ _Directly sent via mscharteredengineer.com_`
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px' }}>
         <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <X size={20} />
         </button>
@@ -403,7 +490,7 @@ _Directly sent via mscharteredengineer.com_`
             <div style={{ marginBottom: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <span className="section-badge gold" style={{ marginBottom: 0, padding: '4px 12px', fontSize: '0.75rem' }}>
-                  <Sparkles size={13} />
+                  <ShieldCheck size={13} />
                   Official Stamped Valuation Report
                 </span>
               </div>
@@ -415,7 +502,6 @@ _Directly sent via mscharteredengineer.com_`
               </p>
             </div>
 
-            {/* Live Valuation Summary Card */}
             {prefillData && (
               <div style={{
                 background: 'linear-gradient(135deg, rgba(24, 90, 219, 0.18) 0%, rgba(15, 26, 54, 0.7) 100%)',
@@ -424,16 +510,7 @@ _Directly sent via mscharteredengineer.com_`
                 padding: '16px 20px',
                 marginBottom: '22px'
               }}>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  gap: '10px',
-                  marginBottom: '12px',
-                  borderBottom: '1px solid rgba(255,255,255,0.08)',
-                  paddingBottom: '10px'
-                }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '10px' }}>
                   <div>
                     <span style={{ fontSize: '0.72rem', color: '#93c5fd', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>Assessed Machinery</span>
                     <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>{prefillData.assetType}</div>
@@ -475,7 +552,6 @@ _Directly sent via mscharteredengineer.com_`
               </div>
             )}
 
-            {/* Direct Client Intake Form */}
             <form onSubmit={handleSubmit}>
               <div className="form-row-2col">
                 <div className="form-group">
@@ -610,21 +686,106 @@ _Directly sent via mscharteredengineer.com_`
         )}
 
         {/* ============================================================ */}
-        {/* CASE B: STANDARD 3-STEP CONSULTATION WIZARD                   */}
+        {/* CASE B: DYNAMIC CONTEXTUAL 3-STEP CONSULTATION WIZARD        */}
         {/* ============================================================ */}
         {!isValuationFlow && step < 4 && (
           <div>
-            <div style={{ marginBottom: '28px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                <span className="section-badge gold" style={{ marginBottom: 0, padding: '4px 12px', fontSize: '0.75rem' }}>
-                  {isElectricalFlow ? <Zap size={13} color="#f59e0b" /> : <Sparkles size={13} />}
-                  {isElectricalFlow ? "Electrical & Substation Engineering Division" : "Chartered Engineer Consultation Wizard"}
+            <div style={{ marginBottom: '24px' }}>
+              {/* Dynamic Header & Switcher */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '10px' }}>
+                <span 
+                  className="section-badge" 
+                  style={{ 
+                    marginBottom: 0, 
+                    padding: '5px 14px', 
+                    fontSize: '0.78rem',
+                    background: currentDeptConfig.accentBg,
+                    border: `1px solid ${currentDeptConfig.accentBorder}`,
+                    color: currentDeptConfig.themeColor,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <DeptIcon size={14} color={currentDeptConfig.themeColor} />
+                  <span>{currentDeptConfig.badgeText}</span>
                 </span>
+
+                {/* Minimal Department Switcher for complete flexibility */}
+                <div style={{ position: 'relative' }}>
+                  <button
+                    type="button"
+                    onClick={() => setShowDeptDropdown(!showDeptDropdown)}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      color: '#94a3b8',
+                      fontSize: '0.72rem',
+                      fontWeight: 600,
+                      padding: '4px 10px',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
+                  >
+                    <span>Change Division</span>
+                    <ChevronDown size={12} />
+                  </button>
+
+                  {showDeptDropdown && (
+                    <div style={{
+                      position: 'absolute',
+                      right: 0,
+                      top: '100%',
+                      marginTop: '6px',
+                      background: '#0d1829',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      borderRadius: '8px',
+                      boxShadow: '0 12px 30px rgba(0,0,0,0.6)',
+                      zIndex: 100,
+                      minWidth: '260px',
+                      overflow: 'hidden'
+                    }}>
+                      <div style={{ padding: '8px 12px', fontSize: '0.70rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                        Select Department
+                      </div>
+                      {Object.keys(DEPARTMENTS).map((deptKey) => {
+                        const d = DEPARTMENTS[deptKey];
+                        const isSelected = deptKey === activeDept;
+                        return (
+                          <div
+                            key={deptKey}
+                            onClick={() => handleDepartmentChange(deptKey)}
+                            style={{
+                              padding: '10px 14px',
+                              fontSize: '0.82rem',
+                              color: isSelected ? d.themeColor : '#cbd5e1',
+                              background: isSelected ? 'rgba(255,255,255,0.06)' : 'transparent',
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              borderBottom: '1px solid rgba(255,255,255,0.03)'
+                            }}
+                            onMouseEnter={(e) => { if (!isSelected) e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+                            onMouseLeave={(e) => { if (!isSelected) e.currentTarget.style.background = 'transparent'; }}
+                          >
+                            <span>{d.shortName}</span>
+                            {isSelected && <Check size={14} color={d.themeColor} />}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               </div>
-              <h3 style={{ fontSize: '1.45rem', color: '#ffffff' }}>
-                {step === 1 && (isElectricalFlow ? "Select Electrical Service & Details" : "Select Service & Scope")}
-                {step === 2 && "Project Location & Asset Scale"}
-                {step === 3 && "Contact Details & Submission"}
+
+              <h3 style={{ fontSize: '1.4rem', color: '#ffffff', margin: '4px 0' }}>
+                {step === 1 && `Select ${currentDeptConfig.shortName} Service`}
+                {step === 2 && "Location & Project Scale"}
+                {step === 3 && "Contact Details & Direct Booking"}
               </h3>
 
               {/* Progress bar */}
@@ -633,13 +794,13 @@ _Directly sent via mscharteredengineer.com_`
                 height: '4px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 borderRadius: 'var(--radius-full)',
-                marginTop: '16px',
+                marginTop: '14px',
                 overflow: 'hidden'
               }}>
                 <div style={{
                   width: `${(step / 3) * 100}%`,
                   height: '100%',
-                  background: 'linear-gradient(90deg, #185adb, #f59e0b)',
+                  background: `linear-gradient(90deg, #185adb, ${currentDeptConfig.themeColor})`,
                   transition: 'width 0.3s ease'
                 }} />
               </div>
@@ -659,89 +820,53 @@ _Directly sent via mscharteredengineer.com_`
               </div>
             )}
 
-            {/* Step 1: Service Selection */}
+            {/* Step 1: Dynamic Department Service Selection */}
             {step === 1 && (
               <div>
-                {isElectricalFlow ? (
-                  <>
-                    <div className="form-group">
-                      <label className="form-label">Service Division</label>
-                      <div style={{
-                        padding: '10px 14px',
-                        borderRadius: '8px',
-                        background: 'rgba(2, 132, 199, 0.15)',
-                        border: '1px solid rgba(56, 189, 248, 0.3)',
-                        color: '#38bdf8',
-                        fontWeight: 700,
-                        fontSize: '0.88rem',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px'
-                      }}>
-                        <Zap size={15} color="#38bdf8" />
-                        <span>Electrical &amp; Substation Engineering Services</span>
-                      </div>
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Selected Electrical Service (Choose or Change)</label>
-                      <select
-                        className="form-control"
-                        value={formData.subCategory}
-                        onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
-                      >
-                        {ELECTRICAL_SERVICE_SUB_OPTIONS.map((sub, sIdx) => (
-                          <option key={sIdx} value={sub}>{sub}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className="form-group">
-                      <label className="form-label">Select Core Service Pillar</label>
-                      <select
-                        className="form-control"
-                        value={formData.service}
-                        onChange={(e) => {
-                          const newServ = e.target.value;
-                          const match = serviceOptions.find(s => s.name === newServ);
-                          setFormData({
-                            ...formData,
-                            service: newServ,
-                            subCategory: match?.sub[0] || 'General Consultation'
-                          });
-                        }}
-                      >
-                        {serviceOptions.map((s, idx) => (
-                          <option key={idx} value={s.name}>{s.name}</option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Sub-Category / Scope of Work</label>
-                      <select
-                        className="form-control"
-                        value={formData.subCategory}
-                        onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
-                      >
-                        {currentSubs.map((sub, sIdx) => (
-                          <option key={sIdx} value={sub}>{sub}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </>
-                )}
+                <div className="form-group">
+                  <label className="form-label">Active Division</label>
+                  <div style={{
+                    padding: '10px 14px',
+                    borderRadius: '8px',
+                    background: currentDeptConfig.accentBg,
+                    border: `1px solid ${currentDeptConfig.accentBorder}`,
+                    color: currentDeptConfig.themeColor,
+                    fontWeight: 700,
+                    fontSize: '0.88rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px'
+                  }}>
+                    <DeptIcon size={16} color={currentDeptConfig.themeColor} />
+                    <span>{currentDeptConfig.name}</span>
+                  </div>
+                </div>
 
                 <div className="form-group">
-                  <label className="form-label">Brief Description of Requirement</label>
+                  <label className="form-label">
+                    Specific Service Required ({currentDeptConfig.services.length} Options) *
+                  </label>
+                  <select
+                    className="form-control"
+                    value={formData.subCategory}
+                    onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
+                    style={{ fontSize: '0.90rem', padding: '11px 14px' }}
+                  >
+                    {currentDeptConfig.services.map((sub, sIdx) => (
+                      <option key={sIdx} value={sub}>{sub}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label className="form-label">Requirement Brief / Specific Remarks (Optional)</label>
                   <textarea
                     className="form-control"
                     rows="3"
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
-                    placeholder="e.g. Valuation of CNC machinery for bank term loan / CEIG drawing approval for 200kW solar plant."
+                    placeholder={currentDeptConfig.scopePlaceholder}
+                    style={{ fontSize: '0.88rem' }}
                   />
                 </div>
 
@@ -759,38 +884,36 @@ _Directly sent via mscharteredengineer.com_`
               </div>
             )}
 
-            {/* Step 2: Location & Asset Value */}
+            {/* Step 2: Location & Dynamic Scale Options */}
             {step === 2 && (
               <div>
                 <div className="form-group">
-                  <label className="form-label">Plant / Site Location (City, State)</label>
+                  <label className="form-label">Plant / Site / Office Location (City, State) *</label>
                   <input
                     type="text"
                     className="form-control"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    placeholder="e.g. Jaipur, Rajasthan / Bhiwadi / Ahmedabad"
+                    placeholder="e.g. Jaipur, Rajasthan / Bhiwadi / Neemrana / Delhi NCR"
                     required
                   />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Approximate Asset / Project Investment Scale</label>
+                  <label className="form-label">{currentDeptConfig.scaleLabel}</label>
                   <select
                     className="form-control"
                     value={formData.estimatedAssetValue}
                     onChange={(e) => setFormData({ ...formData, estimatedAssetValue: e.target.value })}
                   >
-                    <option value="Under ₹25 Lakhs">Under ₹25 Lakhs</option>
-                    <option value="₹25 Lakhs - ₹1 Crore">₹25 Lakhs - ₹1 Crore</option>
-                    <option value="₹1 Crore - ₹5 Crores">₹1 Crore - ₹5 Crores</option>
-                    <option value="₹5 Crores - ₹25 Crores">₹5 Crores - ₹25 Crores</option>
-                    <option value="Above ₹25 Crores (Large Industrial / MW Scale)">Above ₹25 Crores (Large Industrial / MW Scale)</option>
+                    {currentDeptConfig.scaleOptions.map((opt, oIdx) => (
+                      <option key={oIdx} value={opt}>{opt}</option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Timeline / Urgency</label>
+                  <label className="form-label">Project Timeline / Urgency</label>
                   <select
                     className="form-control"
                     value={formData.urgency}
@@ -838,11 +961,12 @@ _Directly sent via mscharteredengineer.com_`
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Mukesh Kumar"
                     required
+                    autoFocus
                   />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Company / Firm Name</label>
+                  <label className="form-label">Company / Factory / Proprietorship</label>
                   <input
                     type="text"
                     className="form-control"
@@ -866,7 +990,7 @@ _Directly sent via mscharteredengineer.com_`
                   </div>
 
                   <div className="form-group">
-                    <label className="form-label">Email Address</label>
+                    <label className="form-label">Email Address (Optional)</label>
                     <input
                       type="email"
                       className="form-control"
@@ -897,7 +1021,7 @@ _Directly sent via mscharteredengineer.com_`
                     {loading ? <span>Submitting...</span> : (
                       <>
                         <Send size={16} />
-                        <span>Submit Consultation Request</span>
+                        <span>Submit Booking Request</span>
                       </>
                     )}
                   </button>
@@ -928,7 +1052,7 @@ _Directly sent via mscharteredengineer.com_`
             </div>
 
             <h3 style={{ fontSize: '1.6rem', color: '#ffffff', marginBottom: '8px' }}>
-              {isValuationFlow ? 'Stamped Report Request Received!' : 'Consultation Request Received!'}
+              {isValuationFlow ? 'Stamped Report Request Received!' : 'Booking Request Received!'}
             </h3>
 
             <div style={{
@@ -952,7 +1076,7 @@ _Directly sent via mscharteredengineer.com_`
                 </>
               ) : (
                 <>
-                  Thank you, <strong>{formData.name}</strong>. Your inquiry for <strong>{formData.service}</strong> has been registered. WhatsApp has opened automatically to connect with our engineering desk.
+                  Thank you, <strong>{formData.name}</strong>. Your request for <strong>{formData.subCategory || formData.service}</strong> has been registered under our <strong>{currentDeptConfig.shortName}</strong> division. WhatsApp has opened automatically to connect with our engineering team.
                 </>
               )}
             </p>

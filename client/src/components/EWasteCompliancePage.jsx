@@ -692,8 +692,9 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
 
               {/* Action Buttons in DWMPL Rounded Pill Styles */}
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <a
-                  href="#compliance-console"
+                <button
+                  type="button"
+                  onClick={() => onOpenQuote ? onOpenQuote('CPCB E-Waste Annual Return Filing (Form 3)', { isEWaste: true, department: 'ewaste' }) : document.getElementById('compliance-console')?.scrollIntoView({ behavior: 'smooth' })}
                   style={{
                     background: 'linear-gradient(135deg, #6db87a 0%, #4fa85c 100%)',
                     color: '#0a170b',
@@ -701,7 +702,8 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                     borderRadius: '9999px',
                     fontWeight: 800,
                     fontSize: '0.94rem',
-                    textDecoration: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
@@ -711,7 +713,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                 >
                   <span>Book Compliance Audit</span>
                   <ArrowRight size={16} />
-                </a>
+                </button>
 
                 <a
                   href="tel:+919158658885"
