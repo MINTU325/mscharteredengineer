@@ -33,6 +33,49 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+  const lastScrollY = React.useRef(0);
+
+  // Sync window width for accurate desktop/mobile navbar height offset
+  React.useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Sync with Navbar scroll hide/show state
+  React.useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          const diff = currentScrollY - lastScrollY.current;
+
+          if (currentScrollY <= 60) {
+            setNavVisible(true);
+          } else if (diff > 8) {
+            // Scrolling down -> Navbar is hidden, HUD moves to top: 0
+            setNavVisible(false);
+          } else if (diff < -8) {
+            // Scrolling up -> Navbar is visible, HUD moves below Navbar
+            setNavVisible(true);
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Compute exact sticky top offset
+  const stickyTop = navVisible ? (windowWidth > 768 ? '104px' : '64px') : '0px';
 
   // Close dropdown on outside click
   React.useEffect(() => {
@@ -228,16 +271,19 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
         </div>
       </section>
 
-      {/* ── FUTURISTIC CYBER-HUD CONTROL STRIP (ULTRA-COMPACT & ZERO SPACE) ── */}
+      {/* ── FUTURISTIC CYBER-HUD CONTROL STRIP (SMART AUTO-DOCKING WITH NAVBAR) ── */}
       <section style={{ 
         position: 'sticky', 
-        top: '64px', 
-        zIndex: 35, 
-        padding: '8px 20px', 
-        background: 'rgba(4, 9, 20, 0.88)', 
-        backdropFilter: 'blur(16px)', 
-        borderBottom: '1px solid rgba(56, 189, 248, 0.16)',
-        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
+        top: stickyTop, 
+        zIndex: 990, 
+        padding: '8px 16px', 
+        background: 'rgba(5, 11, 24, 0.94)', 
+        backdropFilter: 'blur(20px)', 
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(56, 189, 248, 0.18)',
+        boxShadow: navVisible ? '0 4px 16px rgba(0, 0, 0, 0.4)' : '0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(2, 132, 199, 0.15)',
+        transition: 'top 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease',
+        willChange: 'top'
       }}>
         <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
           
@@ -246,7 +292,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '12px',
-            flexWrap: 'wrap'
+            flexWrap: 'nowrap'
           }}>
             
             {/* 1. Left: Cyber Search Bar */}
@@ -254,12 +300,11 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               position: 'relative', 
               display: 'flex', 
               alignItems: 'center', 
-              minWidth: '240px', 
-              flex: '1', 
-              maxWidth: '380px' 
+              flex: windowWidth > 860 ? '0 1 320px' : '1', 
+              minWidth: '170px'
             }}>
               <Search 
-                size={15} 
+                size={14} 
                 style={{ 
                   position: 'absolute', 
                   left: '12px', 
@@ -270,20 +315,20 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               />
               <input 
                 type="text"
-                placeholder="Search 24+ services (e.g. breaker, BDV, cable)..."
+                placeholder={windowWidth > 640 ? "Search 24+ services (e.g. breaker, BDV)..." : "Search services..."}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
                   width: '100%',
-                  height: '38px',
-                  padding: '0 32px 0 34px',
-                  borderRadius: '20px',
-                  background: 'rgba(15, 23, 42, 0.9)',
-                  border: searchQuery ? '1px solid #38bdf8' : '1px solid rgba(56, 189, 248, 0.25)',
+                  height: '34px',
+                  padding: '0 28px 0 32px',
+                  borderRadius: '17px',
+                  background: 'rgba(15, 23, 42, 0.95)',
+                  border: searchQuery ? '1px solid #38bdf8' : '1px solid rgba(56, 189, 248, 0.22)',
                   color: '#ffffff',
-                  fontSize: '0.84rem',
+                  fontSize: '0.82rem',
                   outline: 'none',
-                  boxShadow: searchQuery ? '0 0 12px rgba(56, 189, 248, 0.2)' : 'none',
+                  boxShadow: searchQuery ? '0 0 10px rgba(56, 189, 248, 0.25)' : 'none',
                   transition: 'all 0.2s ease'
                 }}
               />
@@ -292,7 +337,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   onClick={() => setSearchQuery('')}
                   style={{
                     position: 'absolute',
-                    right: '10px',
+                    right: '8px',
                     background: 'transparent',
                     border: 'none',
                     color: '#94a3b8',
@@ -304,107 +349,115 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   }}
                   title="Clear search"
                 >
-                  <X size={14} />
+                  <X size={13} />
                 </button>
               )}
             </div>
 
-            {/* 2. Center: Quick Micro HUD Chips (Zero Scrollbar) */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
-              {[
-                { id: 'all', label: 'All' },
-                { id: 'testing', label: '⚡ Testing' },
-                { id: 'installation', label: '🔧 Substation' },
-                { id: 'filtration', label: '🛢️ Oil BDV' },
-                { id: 'safety', label: '🛡️ Safety Audit' }
-              ].map(chip => {
-                const isSelected = selectedCategory === chip.id;
-                return (
-                  <button
-                    key={chip.id}
-                    onClick={() => setSelectedCategory(chip.id)}
-                    style={{
-                      height: '30px',
-                      padding: '0 11px',
-                      borderRadius: '15px',
-                      fontSize: '0.76rem',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                      background: isSelected ? 'rgba(2, 132, 199, 0.35)' : 'rgba(15, 23, 42, 0.6)',
-                      color: isSelected ? '#38bdf8' : '#94a3b8',
-                      boxShadow: isSelected ? '0 0 10px rgba(56, 189, 248, 0.3)' : 'none',
-                      transition: 'all 0.18s ease'
-                    }}
-                  >
-                    {chip.label}
-                  </button>
-                );
-              })}
-            </div>
+            {/* 2. Center: Quick Micro HUD Chips (Visible on desktop/tablet > 860px) */}
+            {windowWidth > 860 && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+                {[
+                  { id: 'all', label: 'All' },
+                  { id: 'testing', label: '⚡ Testing' },
+                  { id: 'installation', label: '🔧 Substation' },
+                  { id: 'filtration', label: '🛢️ Oil BDV' },
+                  { id: 'safety', label: '🛡️ Safety Audit' }
+                ].map(chip => {
+                  const isSelected = selectedCategory === chip.id;
+                  return (
+                    <button
+                      key={chip.id}
+                      onClick={() => setSelectedCategory(chip.id)}
+                      style={{
+                        height: '28px',
+                        padding: '0 10px',
+                        borderRadius: '14px',
+                        fontSize: '0.74rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
+                        background: isSelected ? 'rgba(2, 132, 199, 0.35)' : 'rgba(15, 23, 42, 0.6)',
+                        color: isSelected ? '#38bdf8' : '#94a3b8',
+                        boxShadow: isSelected ? '0 0 8px rgba(56, 189, 248, 0.25)' : 'none',
+                        transition: 'all 0.18s ease',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      {chip.label}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
 
-            {/* 3. Right: Futuristic Category HUD Popover Dropdown */}
-            <div className="category-hud-container" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {/* 3. Right: Futuristic Category HUD Popover Dropdown + Live Count */}
+            <div className="category-hud-container" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
               
               <button
                 onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
                 style={{
-                  height: '36px',
-                  padding: '0 14px',
+                  height: '34px',
+                  padding: '0 12px',
                   borderRadius: '8px',
                   background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(15, 23, 42, 0.9) 100%)',
                   border: '1px solid rgba(56, 189, 248, 0.35)',
                   color: '#ffffff',
-                  fontSize: '0.82rem',
+                  fontSize: '0.80rem',
                   fontWeight: 700,
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+                  gap: '6px',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+                  whiteSpace: 'nowrap'
                 }}
               >
-                <SlidersHorizontal size={13} color="#38bdf8" />
-                <span style={{ color: '#cbd5e1' }}>Category:</span>
+                <SlidersHorizontal size={12} color="#38bdf8" />
+                <span style={{ color: '#cbd5e1' }}>
+                  {windowWidth > 640 ? 'Category:' : ''}
+                </span>
                 <span style={{ color: '#38bdf8' }}>
                   {SERVICE_CATEGORIES.find(c => c.id === selectedCategory)?.name || 'All'}
                 </span>
-                <ChevronDown size={14} color="#38bdf8" style={{ transform: categoryDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
+                <ChevronDown size={13} color="#38bdf8" style={{ transform: categoryDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
               </button>
 
               {/* Glowing Live Results Pill */}
               <div style={{
-                height: '36px',
-                padding: '0 12px',
+                height: '34px',
+                padding: '0 10px',
                 borderRadius: '8px',
                 background: 'rgba(16, 185, 129, 0.08)',
                 border: '1px solid rgba(16, 185, 129, 0.25)',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
-                fontSize: '0.78rem',
+                gap: '5px',
+                fontSize: '0.74rem',
                 color: '#34d399',
                 fontWeight: 600,
-                fontFamily: 'monospace'
+                fontFamily: 'monospace',
+                whiteSpace: 'nowrap'
               }}>
                 <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px #10b981', display: 'inline-block' }} />
                 <span>{filteredServices.length} LIVE</span>
               </div>
 
-              {/* Futuristic Cyber Dropdown Menu */}
+              {/* Futuristic Cyber Dropdown Menu Popover */}
               {categoryDropdownOpen && (
                 <div style={{
                   position: 'absolute',
-                  top: '44px',
+                  top: '40px',
                   right: 0,
                   width: '280px',
-                  background: 'rgba(8, 14, 28, 0.96)',
+                  background: 'rgba(8, 14, 28, 0.98)',
                   backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(56, 189, 248, 0.35)',
                   borderRadius: '12px',
-                  boxShadow: '0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(2, 132, 199, 0.15)',
+                  boxShadow: '0 16px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(2, 132, 199, 0.2)',
                   padding: '8px',
-                  zIndex: 50
+                  zIndex: 1001
                 }}>
                   <div style={{ padding: '6px 10px 8px', fontSize: '0.72rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                     Filter By Discipline ({SERVICE_CATEGORIES.length})
