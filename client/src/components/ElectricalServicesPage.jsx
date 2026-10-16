@@ -23,7 +23,8 @@ import {
   Flame,
   Gauge,
   SlidersHorizontal,
-  Home
+  Home,
+  X
 } from 'lucide-react';
 import { SERVICE_CATEGORIES, ELECTRICAL_SERVICES_LIST } from '../data/electricalServicesData';
 
@@ -31,6 +32,29 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedFaq, setExpandedFaq] = useState(null);
+  const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
+
+  // Close dropdown on outside click
+  React.useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!e.target.closest('.category-hud-container')) {
+        setCategoryDropdownOpen(false);
+      }
+    };
+    if (categoryDropdownOpen) {
+      document.addEventListener('click', handleOutsideClick);
+    }
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, [categoryDropdownOpen]);
+
+  // Pre-calculate item counts per category
+  const categoryCounts = useMemo(() => {
+    const counts = { all: ELECTRICAL_SERVICES_LIST.length };
+    ELECTRICAL_SERVICES_LIST.forEach(s => {
+      counts[s.category] = (counts[s.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
 
   // Filter services by category and search query
   const filteredServices = useMemo(() => {
@@ -204,65 +228,251 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
         </div>
       </section>
 
-      {/* ── FILTER & SEARCH CONTROLS ── */}
-      <section style={{ padding: '32px 20px', background: '#060c1c', borderBottom: '1px solid rgba(255, 255, 255, 0.06)', position: 'sticky', top: '70px', zIndex: 30, backdropFilter: 'blur(12px)' }}>
+      {/* ── FUTURISTIC CYBER-HUD CONTROL STRIP (ULTRA-COMPACT & ZERO SPACE) ── */}
+      <section style={{ 
+        position: 'sticky', 
+        top: '64px', 
+        zIndex: 35, 
+        padding: '8px 20px', 
+        background: 'rgba(4, 9, 20, 0.88)', 
+        backdropFilter: 'blur(16px)', 
+        borderBottom: '1px solid rgba(56, 189, 248, 0.16)',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4)'
+      }}>
         <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
           
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '12px',
+            flexWrap: 'wrap'
+          }}>
             
-            {/* Search Input */}
-            <div style={{ position: 'relative', flex: '1', minWidth: '280px', maxWidth: '420px' }}>
-              <Search size={18} style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)', color: '#64748b' }} />
+            {/* 1. Left: Cyber Search Bar */}
+            <div style={{ 
+              position: 'relative', 
+              display: 'flex', 
+              alignItems: 'center', 
+              minWidth: '240px', 
+              flex: '1', 
+              maxWidth: '380px' 
+            }}>
+              <Search 
+                size={15} 
+                style={{ 
+                  position: 'absolute', 
+                  left: '12px', 
+                  color: searchQuery ? '#38bdf8' : '#64748b', 
+                  pointerEvents: 'none',
+                  transition: 'color 0.2s ease'
+                }} 
+              />
               <input 
                 type="text"
-                placeholder="Search services (e.g. breaker, filtration, cable, relay)..."
+                placeholder="Search 24+ services (e.g. breaker, BDV, cable)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
                   width: '100%',
-                  padding: '11px 16px 11px 40px',
-                  borderRadius: '8px',
-                  background: 'rgba(15, 23, 42, 0.8)',
-                  border: '1px solid rgba(56, 189, 248, 0.25)',
+                  height: '38px',
+                  padding: '0 32px 0 34px',
+                  borderRadius: '20px',
+                  background: 'rgba(15, 23, 42, 0.9)',
+                  border: searchQuery ? '1px solid #38bdf8' : '1px solid rgba(56, 189, 248, 0.25)',
                   color: '#ffffff',
-                  fontSize: '0.9rem',
-                  outline: 'none'
+                  fontSize: '0.84rem',
+                  outline: 'none',
+                  boxShadow: searchQuery ? '0 0 12px rgba(56, 189, 248, 0.2)' : 'none',
+                  transition: 'all 0.2s ease'
                 }}
               />
-            </div>
-
-            {/* Results Counter */}
-            <div style={{ fontSize: '0.86rem', color: '#94a3b8' }}>
-              Showing <strong style={{ color: '#38bdf8' }}>{filteredServices.length}</strong> engineering services
-            </div>
-          </div>
-
-          {/* Category Tabs */}
-          <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', padding: '16px 2px 4px', scrollbarWidth: 'thin' }}>
-            {SERVICE_CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.id;
-              return (
+              {searchQuery && (
                 <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
+                  onClick={() => setSearchQuery('')}
                   style={{
-                    padding: '8px 16px',
-                    borderRadius: '9999px',
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    whiteSpace: 'nowrap',
+                    position: 'absolute',
+                    right: '10px',
+                    background: 'transparent',
+                    border: 'none',
+                    color: '#94a3b8',
                     cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                    background: isActive ? '#0284c7' : 'rgba(15, 23, 42, 0.7)',
-                    color: isActive ? '#ffffff' : '#94a3b8',
-                    border: isActive ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                    boxShadow: isActive ? '0 0 14px rgba(2, 132, 199, 0.4)' : 'none'
+                    fontSize: '0.78rem',
+                    padding: '2px',
+                    display: 'flex',
+                    alignItems: 'center'
                   }}
+                  title="Clear search"
                 >
-                  {cat.name}
+                  <X size={14} />
                 </button>
-              );
-            })}
+              )}
+            </div>
+
+            {/* 2. Center: Quick Micro HUD Chips (Zero Scrollbar) */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
+              {[
+                { id: 'all', label: 'All' },
+                { id: 'testing', label: '⚡ Testing' },
+                { id: 'installation', label: '🔧 Substation' },
+                { id: 'filtration', label: '🛢️ Oil BDV' },
+                { id: 'safety', label: '🛡️ Safety Audit' }
+              ].map(chip => {
+                const isSelected = selectedCategory === chip.id;
+                return (
+                  <button
+                    key={chip.id}
+                    onClick={() => setSelectedCategory(chip.id)}
+                    style={{
+                      height: '30px',
+                      padding: '0 11px',
+                      borderRadius: '15px',
+                      fontSize: '0.76rem',
+                      fontWeight: 600,
+                      cursor: 'pointer',
+                      border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
+                      background: isSelected ? 'rgba(2, 132, 199, 0.35)' : 'rgba(15, 23, 42, 0.6)',
+                      color: isSelected ? '#38bdf8' : '#94a3b8',
+                      boxShadow: isSelected ? '0 0 10px rgba(56, 189, 248, 0.3)' : 'none',
+                      transition: 'all 0.18s ease'
+                    }}
+                  >
+                    {chip.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* 3. Right: Futuristic Category HUD Popover Dropdown */}
+            <div className="category-hud-container" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              
+              <button
+                onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
+                style={{
+                  height: '36px',
+                  padding: '0 14px',
+                  borderRadius: '8px',
+                  background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.2) 0%, rgba(15, 23, 42, 0.9) 100%)',
+                  border: '1px solid rgba(56, 189, 248, 0.35)',
+                  color: '#ffffff',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.3)'
+                }}
+              >
+                <SlidersHorizontal size={13} color="#38bdf8" />
+                <span style={{ color: '#cbd5e1' }}>Category:</span>
+                <span style={{ color: '#38bdf8' }}>
+                  {SERVICE_CATEGORIES.find(c => c.id === selectedCategory)?.name || 'All'}
+                </span>
+                <ChevronDown size={14} color="#38bdf8" style={{ transform: categoryDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
+              </button>
+
+              {/* Glowing Live Results Pill */}
+              <div style={{
+                height: '36px',
+                padding: '0 12px',
+                borderRadius: '8px',
+                background: 'rgba(16, 185, 129, 0.08)',
+                border: '1px solid rgba(16, 185, 129, 0.25)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                fontSize: '0.78rem',
+                color: '#34d399',
+                fontWeight: 600,
+                fontFamily: 'monospace'
+              }}>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 6px #10b981', display: 'inline-block' }} />
+                <span>{filteredServices.length} LIVE</span>
+              </div>
+
+              {/* Futuristic Cyber Dropdown Menu */}
+              {categoryDropdownOpen && (
+                <div style={{
+                  position: 'absolute',
+                  top: '44px',
+                  right: 0,
+                  width: '280px',
+                  background: 'rgba(8, 14, 28, 0.96)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(56, 189, 248, 0.3)',
+                  borderRadius: '12px',
+                  boxShadow: '0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(2, 132, 199, 0.15)',
+                  padding: '8px',
+                  zIndex: 50
+                }}>
+                  <div style={{ padding: '6px 10px 8px', fontSize: '0.72rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                    Filter By Discipline ({SERVICE_CATEGORIES.length})
+                  </div>
+                  
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', marginTop: '6px', maxHeight: '320px', overflowY: 'auto' }}>
+                    {SERVICE_CATEGORIES.map(cat => {
+                      const isSelected = selectedCategory === cat.id;
+                      const count = categoryCounts[cat.id] || 0;
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => {
+                            setSelectedCategory(cat.id);
+                            setCategoryDropdownOpen(false);
+                          }}
+                          style={{
+                            width: '100%',
+                            padding: '8px 10px',
+                            borderRadius: '6px',
+                            background: isSelected ? 'rgba(2, 132, 199, 0.25)' : 'transparent',
+                            border: isSelected ? '1px solid rgba(56, 189, 248, 0.35)' : '1px solid transparent',
+                            color: isSelected ? '#38bdf8' : '#cbd5e1',
+                            fontSize: '0.82rem',
+                            fontWeight: isSelected ? 700 : 500,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            cursor: 'pointer',
+                            textAlign: 'left',
+                            transition: 'all 0.15s ease'
+                          }}
+                          onMouseEnter={(e) => {
+                            if (!isSelected) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                          }}
+                          onMouseLeave={(e) => {
+                            if (!isSelected) e.currentTarget.style.background = 'transparent';
+                          }}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <span style={{ 
+                              width: '6px', 
+                              height: '6px', 
+                              borderRadius: '50%', 
+                              background: isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.2)',
+                              boxShadow: isSelected ? '0 0 6px #38bdf8' : 'none'
+                            }} />
+                            <span>{cat.name}</span>
+                          </div>
+                          <span style={{ 
+                            fontSize: '0.72rem', 
+                            padding: '1px 6px', 
+                            borderRadius: '10px', 
+                            background: isSelected ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.06)',
+                            color: isSelected ? '#38bdf8' : '#94a3b8',
+                            fontFamily: 'monospace'
+                          }}>
+                            {count}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+            </div>
+
           </div>
 
         </div>
