@@ -1,5 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, ArrowLeft, Send, Sparkles, Phone, MessageSquare, FileText, CheckCircle } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, ArrowLeft, Send, Sparkles, Phone, MessageSquare, FileText, CheckCircle, Zap } from 'lucide-react';
+
+export const ELECTRICAL_SERVICE_SUB_OPTIONS = [
+  "High Voltage Circuit Breaker Testing Services",
+  "Transformer Testing Services (Routine & Diagnostic)",
+  "Numerical & Protection Relay Testing & Calibration",
+  "Earth Pit & Soil Resistivity Testing Services",
+  "BDV Test Kits & Electrical Calibration Service",
+  "Power & Distribution Transformer Installation",
+  "HT Panel & Switchgear Installation Services",
+  "Electrical Substation Installation & Erection (11kV to 132kV)",
+  "Chemical Earthing & Lightning Arrester Installation",
+  "Diesel Generator (DG Set) & Synchronizing Panel Erection",
+  "Power & Distribution Transformer Overhauling & Maintenance",
+  "Comprehensive & Non-Comprehensive Electrical AMC Services",
+  "HT & LT Switchgear Servicing & Retrofitting",
+  "Ultra-High Vacuum Transformer Oil Filtration & Dehydration",
+  "On-Load Tap Changer (OLTC) Servicing, Spares & Overhauling",
+  "HT & LT Heavy Duty Cable Laying Services",
+  "HT Cable Heat/Cold Shrink Jointing & Termination Services",
+  "Fire Retardant Cable Coating & Fire Barrier Paint",
+  "Comprehensive Electrical Safety Audit & Compliance",
+  "Infrared Thermography & Thermal Hotspot Inspection",
+  "Third-Party Electrical Inspection & CEIG Approval Liaison",
+  "Turnkey HT/LT Electrical Contracting & Industrial Works",
+  "11kV / 33kV Overhead Transmission Line Erection Services",
+  "Industrial Transformer Rental Services (100 kVA to 5000 kVA)"
+];
 
 export default function QuoteWizardModal({ isOpen, onClose, initialService, prefillData }) {
   const [step, setStep] = useState(1);
@@ -8,6 +35,20 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
   const [error, setError] = useState('');
 
   const isValuationFlow = Boolean(prefillData?.isValuationReport);
+
+  const isElectricalFlow = Boolean(
+    prefillData?.isElectrical ||
+    initialService === 'Electrical & Substation Engineering Services' ||
+    initialService === 'Turnkey Electrical & Substation Inquiry' ||
+    initialService?.toLowerCase().includes('electrical') ||
+    initialService?.toLowerCase().includes('substation') ||
+    ELECTRICAL_SERVICE_SUB_OPTIONS.some(s => {
+      const init = (initialService || '').toLowerCase();
+      const pref = (prefillData?.title || '').toLowerCase();
+      const target = s.toLowerCase();
+      return (init && target.includes(init)) || (pref && target.includes(pref)) || (init && init.includes(target.slice(0, 15)));
+    })
+  );
 
   const [formData, setFormData] = useState({
     name: '',
@@ -25,6 +66,10 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
   });
 
   const serviceOptions = [
+    {
+      name: "Electrical & Substation Engineering Services",
+      sub: ELECTRICAL_SERVICE_SUB_OPTIONS
+    },
     {
       name: "Government Subsidies & Grants",
       sub: [
@@ -170,6 +215,27 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
           purpose: 'Bank Loan & Hypothecation',
           notes: ''
         }));
+      } else if (isElectricalFlow) {
+        // Pre-select exact matching electrical service from ELECTRICAL_SERVICE_SUB_OPTIONS
+        const matchSub = ELECTRICAL_SERVICE_SUB_OPTIONS.find(s => {
+          const init = (initialService || '').toLowerCase();
+          const prefTitle = (prefillData?.title || '').toLowerCase();
+          const target = s.toLowerCase();
+          return (
+            (prefTitle && target.includes(prefTitle)) ||
+            (prefTitle && prefTitle.includes(target.slice(0, 20))) ||
+            (init && target.includes(init)) ||
+            (init && init.includes(target.slice(0, 20)))
+          );
+        }) || ELECTRICAL_SERVICE_SUB_OPTIONS[0];
+
+        setFormData(prev => ({
+          ...prev,
+          service: 'Electrical & Substation Engineering Services',
+          subCategory: matchSub,
+          projectScope: prefillData?.shortDesc || `Inquiry for ${matchSub}`,
+          purpose: 'Site Testing, Installation & Commissioning'
+        }));
       } else if (initialService) {
         const matched = serviceOptions.find(s => s.name === initialService) || serviceOptions[0];
         setFormData(prev => ({
@@ -179,7 +245,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
         }));
       }
     }
-  }, [isOpen, initialService, prefillData]);
+  }, [isOpen, initialService, prefillData, isElectricalFlow]);
 
   if (!isOpen) return null;
 
@@ -204,6 +270,25 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
 📋 *Purpose of Valuation:* ${formData.purpose || 'Bank Loan & Hypothecation'}
 ⏱️ *Required Timeline:* ${formData.urgency || 'Immediate'}
 ${formData.notes ? `📝 *Client Notes:* ${formData.notes}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━
+_Directly sent via mscharteredengineer.com_`
+      );
+    }
+
+    if (isElectricalFlow) {
+      return (
+`⚡ *New Electrical & Substation Service Booking - MS Chartered Engineers*
+━━━━━━━━━━━━━━━━━━━━━━
+🆔 *Ref ID:* ${inquiryRef}
+👤 *Client Name:* ${formData.name}
+📞 *Phone Number:* ${formData.phone}
+🏢 *Company / Factory:* ${formData.company || 'Direct Client'}
+📧 *Email Address:* ${formData.email || 'N/A'}
+📍 *Plant / Site Location:* ${formData.location || 'Pan India'}
+
+⚡ *Electrical Service:* ${formData.subCategory}
+📋 *Scope / Details:* ${formData.projectScope || 'On-site execution & quotation requested'}
+⏱️ *Required Timeline:* ${formData.urgency || 'Standard'}
+━━━━━━━━━━━━━━━━━━━━━━
 _Directly sent via mscharteredengineer.com_`
       );
     }
@@ -532,12 +617,12 @@ _Directly sent via mscharteredengineer.com_`
             <div style={{ marginBottom: '28px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                 <span className="section-badge gold" style={{ marginBottom: 0, padding: '4px 12px', fontSize: '0.75rem' }}>
-                  <Sparkles size={13} />
-                  Chartered Engineer Consultation Wizard
+                  {isElectricalFlow ? <Zap size={13} color="#f59e0b" /> : <Sparkles size={13} />}
+                  {isElectricalFlow ? "Electrical & Substation Engineering Division" : "Chartered Engineer Consultation Wizard"}
                 </span>
               </div>
               <h3 style={{ fontSize: '1.45rem', color: '#ffffff' }}>
-                {step === 1 && "Select Service & Scope"}
+                {step === 1 && (isElectricalFlow ? "Select Electrical Service & Details" : "Select Service & Scope")}
                 {step === 2 && "Project Location & Asset Scale"}
                 {step === 3 && "Contact Details & Submission"}
               </h3>
@@ -577,39 +662,77 @@ _Directly sent via mscharteredengineer.com_`
             {/* Step 1: Service Selection */}
             {step === 1 && (
               <div>
-                <div className="form-group">
-                  <label className="form-label">Select Core Service Pillar</label>
-                  <select
-                    className="form-control"
-                    value={formData.service}
-                    onChange={(e) => {
-                      const newServ = e.target.value;
-                      const match = serviceOptions.find(s => s.name === newServ);
-                      setFormData({
-                        ...formData,
-                        service: newServ,
-                        subCategory: match?.sub[0] || 'General Consultation'
-                      });
-                    }}
-                  >
-                    {serviceOptions.map((s, idx) => (
-                      <option key={idx} value={s.name}>{s.name}</option>
-                    ))}
-                  </select>
-                </div>
+                {isElectricalFlow ? (
+                  <>
+                    <div className="form-group">
+                      <label className="form-label">Service Division</label>
+                      <div style={{
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        background: 'rgba(2, 132, 199, 0.15)',
+                        border: '1px solid rgba(56, 189, 248, 0.3)',
+                        color: '#38bdf8',
+                        fontWeight: 700,
+                        fontSize: '0.88rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px'
+                      }}>
+                        <Zap size={15} color="#38bdf8" />
+                        <span>Electrical &amp; Substation Engineering Services</span>
+                      </div>
+                    </div>
 
-                <div className="form-group">
-                  <label className="form-label">Sub-Category / Scope of Work</label>
-                  <select
-                    className="form-control"
-                    value={formData.subCategory}
-                    onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
-                  >
-                    {currentSubs.map((sub, sIdx) => (
-                      <option key={sIdx} value={sub}>{sub}</option>
-                    ))}
-                  </select>
-                </div>
+                    <div className="form-group">
+                      <label className="form-label">Selected Electrical Service (Choose or Change)</label>
+                      <select
+                        className="form-control"
+                        value={formData.subCategory}
+                        onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
+                      >
+                        {ELECTRICAL_SERVICE_SUB_OPTIONS.map((sub, sIdx) => (
+                          <option key={sIdx} value={sub}>{sub}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="form-group">
+                      <label className="form-label">Select Core Service Pillar</label>
+                      <select
+                        className="form-control"
+                        value={formData.service}
+                        onChange={(e) => {
+                          const newServ = e.target.value;
+                          const match = serviceOptions.find(s => s.name === newServ);
+                          setFormData({
+                            ...formData,
+                            service: newServ,
+                            subCategory: match?.sub[0] || 'General Consultation'
+                          });
+                        }}
+                      >
+                        {serviceOptions.map((s, idx) => (
+                          <option key={idx} value={s.name}>{s.name}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label">Sub-Category / Scope of Work</label>
+                      <select
+                        className="form-control"
+                        value={formData.subCategory}
+                        onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
+                      >
+                        {currentSubs.map((sub, sIdx) => (
+                          <option key={sIdx} value={sub}>{sub}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </>
+                )}
 
                 <div className="form-group">
                   <label className="form-label">Brief Description of Requirement</label>

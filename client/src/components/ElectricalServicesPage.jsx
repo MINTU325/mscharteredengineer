@@ -240,7 +240,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             width: '100%'
           }}>
             <button 
-              onClick={() => onOpenQuote('Electrical & Substation Engineering Services')}
+              onClick={() => onOpenQuote('Electrical & Substation Engineering Services', { isElectrical: true, title: 'Electrical & Substation Engineering Services' })}
               className="btn btn-primary"
               style={{ 
                 padding: isMobile ? '12px 18px' : '13px 28px', 
@@ -733,7 +733,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                     {/* Card CTAs */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '8px', marginTop: 'auto' }}>
                       <button 
-                        onClick={() => onOpenQuote(service.title, service)}
+                        onClick={() => onOpenQuote(service.title, { isElectrical: true, ...service })}
                         className="btn btn-primary"
                         style={{ 
                           padding: '9px 12px', 
@@ -914,7 +914,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
             <div style={{ display: 'flex', gap: '10px', flexDirection: isMobile ? 'column' : 'row', width: isMobile ? '100%' : 'auto' }}>
               <button 
-                onClick={() => onOpenQuote('Turnkey Electrical & Substation Inquiry')}
+                onClick={() => onOpenQuote('Turnkey Electrical & Substation Inquiry', { isElectrical: true, title: 'Turnkey Electrical & Substation Inquiry' })}
                 className="btn btn-primary"
                 style={{ 
                   padding: isMobile ? '11px 18px' : '12px 24px', 
