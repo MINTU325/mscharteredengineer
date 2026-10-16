@@ -248,6 +248,16 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                       <div className="dropdown-item-desc">CPCB annual return &amp; statutory audit</div>
                     </div>
                   </a>
+                  <a href="/electrical-services" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Zap size={16} color="#f59e0b" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#f59e0b', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span>Electrical &amp; Substation Services</span>
+                        <span className="nav-tag-badge" style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>NEW</span>
+                      </div>
+                      <div className="dropdown-item-desc">Testing, Transformers, Panels, HT/LT &amp; AMC</div>
+                    </div>
+                  </a>
                   <div className="dropdown-divider" />
                   <a href="/services" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
                     <span>Explore All 12 Statutory Services</span>
@@ -256,14 +266,14 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 </div>
               </li>
 
-              {/* 2. IT & Products (Direct Highlight Link) */}
+              {/* 2. IT (Direct Highlight Link) */}
               <li>
                 <a 
                   href="/tech-products" 
                   className={`nav-link ${currentPath === '/tech-products' ? 'active' : ''}`}
                   style={{ color: '#06b6d4', fontWeight: 700 }}
                 >
-                  <span>IT &amp; Products</span>
+                  <span>IT</span>
                   <span className="nav-tag-badge">NEW</span>
                 </a>
               </li>
@@ -472,13 +482,14 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             Core Engineering &amp; Valuation
           </div>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 12 Valuation Services</a>
+          <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical, Testing &amp; Substation <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 E-Waste Annual Return &amp; EPR</a>
           <a href="/process" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
 
           <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Technology &amp; Software
           </div>
-          <a href="/tech-products" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#06b6d4', fontWeight: 700 }}>💻 IT, Apps &amp; Software Products</a>
+          <a href="/tech-products" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#06b6d4', fontWeight: 700 }}>💻 IT</a>
 
           <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Subsidies &amp; Business Loans

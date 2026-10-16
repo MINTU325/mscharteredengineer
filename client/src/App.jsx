@@ -31,9 +31,20 @@ const EWasteCompliancePage = lazy(() => import('./components/EWasteCompliancePag
 const TechSolutionsPage = lazy(() => import('./components/TechSolutionsPage'));
 const GovernmentSubsidiesPage = lazy(() => import('./components/GovernmentSubsidiesPage'));
 const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
+const ElectricalServicesPage = lazy(() => import('./components/ElectricalServicesPage'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
+  '/electrical-services': { 
+    id: 'electrical-services', 
+    title: 'High Voltage Testing, Transformer Services & Substation Engineering | MS Chartered Engineers',
+    description: 'Turnkey 11kV to 132kV Substation Erection, High Voltage Breaker Testing, Power Transformer Overhauling, High-Vacuum Oil Filtration, Cable Jointing and CEA Safety Audits by IIT Roorkee alumni Chartered Engineers.'
+  },
+  '/substation-services': { 
+    id: 'electrical-services', 
+    title: 'High Voltage Testing, Transformer Services & Substation Engineering | MS Chartered Engineers',
+    description: 'Turnkey 11kV to 132kV Substation Erection, High Voltage Breaker Testing, Power Transformer Overhauling, High-Vacuum Oil Filtration, Cable Jointing and CEA Safety Audits by IIT Roorkee alumni Chartered Engineers.'
+  },
   '/e-waste-annual-return-filing': { id: 'e-waste-compliance', title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
   '/e-waste-annual-return-filing/': { id: 'e-waste-compliance', title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
   '/tools': { id: 'tools', title: 'Interactive Engineering & Valuation Tools | MS Chartered Engineers' },
@@ -367,6 +378,16 @@ export default function App() {
           />
         ) : currentRoute === '/business-loans' || currentRoute === '/business-loan' || currentRoute === '/loans' ? (
           <BusinessLoansPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : currentRoute === '/electrical-services' || currentRoute === '/substation-services' ? (
+          <ElectricalServicesPage 
             onOpenQuote={handleOpenQuote}
             onNavigateHome={() => {
               window.history.pushState({}, '', '/');

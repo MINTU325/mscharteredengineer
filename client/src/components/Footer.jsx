@@ -144,6 +144,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/safety-energy-audits', label: 'CESE & Energy Audits' },
                 { href: '/fssai', label: 'FSSAI Compliance' },
                 { href: '/e-waste-annual-return-filing', label: 'E-Waste EPR Return' },
+                { href: '/electrical-services', label: 'Electrical & Substation' },
                 { href: '/autocad-drafting', label: 'AutoCAD 2D Drafting' },
                 { href: '/advisory', label: 'IndAS 16 Advisory' },
                 { href: '/calculator', label: 'Valuation Calculator' },
