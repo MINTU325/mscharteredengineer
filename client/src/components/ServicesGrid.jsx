@@ -25,6 +25,7 @@ import {
   FileText,
   FileSpreadsheet,
   Compass,
+  FlaskConical,
 } from 'lucide-react';
 
 const servicesData = [
@@ -345,11 +346,43 @@ const servicesData = [
     highlight:
       'Drafted strictly as per Indian Electricity Rules, CEA regulations, IS/IEC drafting standards, and tender BOQ specifications.',
   },
+  {
+    id: '14',
+    code: 'third-party-audit-inspection',
+    title: 'Third-Party Audit & Inspection Services',
+    category: 'Regulatory & Compliance',
+    icon: FlaskConical,
+    badgeColor: '#1d4ed8',
+    turnaround: '24–48 Hours',
+    acceptedBy: 'Buyers, Importers, Corporates, Retail Chains & Export Houses',
+    description:
+      'Independent third-party inspection (TPI), quality audits, supplier qualification, and statutory compliance verification for manufacturing facilities, factories, export consignments, and procurement supply chains pan-India.',
+    deliverables: [
+      'Pre-Dispatch Inspection (PDI) — Finished product quality, quantity, packaging & specifications verification',
+      'Compliance Verification — Statutory, environmental, factory safety & regulatory standards compliance',
+      'Hygiene & Sanitation Audits — Cleanliness protocols, sanitation systems & food/pharma GMP audits',
+      'Plant Infrastructure Inspection — Physical manufacturing setup, machinery conditions & utility health check',
+      'Documentation & Systems Inspection — Technical SOPs, quality manual, calibration logs & ISO records',
+      'Supplier Survey & Vendor Qualification — Supplier capability assessment, financial & production capacity audit',
+      'Detailed Factory Audit (DFA) — Comprehensive technical, manufacturing process & structural safety evaluation',
+      'During Production Inspection (DUPRO) — In-line production quality check & early-stage defect prevention',
+      'Container Loading Supervision (CLS) — Proper stowage, quantity count, seal verification & container integrity',
+    ],
+    documents: [
+      'Purchase Order (PO) / Proforma Invoice & Technical Specifications',
+      'Inspection Test Plan (ITP) / Quality Assurance Plan (QAP)',
+      'Factory / Plant Site Address & Contact Person Details',
+      'Packaging, Labeling & Container Loading Specifications',
+    ],
+    highlight:
+      'Unbiased, comprehensive engineering inspection reports with high-resolution photographic evidence and statutory engineer seal.',
+  },
 ];
 
 // Quick search suggestion chips
 const QUICK_SUGGESTIONS = [
   { label: 'AutoCAD Drafting', query: 'AutoCAD', icon: '📐' },
+  { label: 'Third-Party Inspection', query: 'Inspection', icon: '⚗️' },
   { label: 'Property Valuation', query: 'Property', icon: '🏢' },
   { label: 'Bank Loan (FMV/FSV)', query: 'Bank', icon: '🏛️' },
   { label: 'Capital Gains (2001 FMV)', query: 'Capital Gains', icon: '⚖️' },
@@ -699,6 +732,13 @@ export default function ServicesGrid({ onOpenQuote }) {
                   <>
                     <span id="autocad-drafting" style={{ position: 'absolute', top: '-85px' }} />
                     <span id="autocad-electrical-drafting" style={{ position: 'absolute', top: '-85px' }} />
+                  </>
+                )}
+                {service.code === 'third-party-audit-inspection' && (
+                  <>
+                    <span id="third-party-inspection" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="inspection-services" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="audit-inspection" style={{ position: 'absolute', top: '-85px' }} />
                   </>
                 )}
 

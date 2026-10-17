@@ -211,7 +211,8 @@ export const DEPARTMENTS = {
       'Chartered Electrical Safety Engineer (CESE) & BEE Energy Audit',
       'AutoCAD 2D Electrical Drafting & Single Line Diagrams (SLD)',
       'FSSAI Food Safety & Regulatory Compliance',
-      'Technical Advisory & IndAS 16 Asset Componentization'
+      'Technical Advisory & IndAS 16 Asset Componentization',
+      'Third-Party Audit & Inspection Services (PDI, CLS, DUPRO)'
     ]
   }
 };

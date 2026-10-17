@@ -26,7 +26,10 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
         '/fssai': 'fssai-compliance-services',
         '/advisory': 'plant-machinery-valuation',
         '/autocad-drafting': 'autocad-electrical-drafting',
-        '/autocad-electrical-drafting': 'autocad-electrical-drafting'
+        '/autocad-electrical-drafting': 'autocad-electrical-drafting',
+        '/inspection-services': 'third-party-audit-inspection',
+        '/third-party-inspection': 'third-party-audit-inspection',
+        '/audit-services': 'third-party-audit-inspection'
       };
 
       const targetId = serviceIdMap[currentRoute];
@@ -154,7 +157,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
               marginBottom: '16px'
             }}>
               <Sparkles size={14} />
-              <span>13 COMPREHENSIVE STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
+              <span>14 COMPREHENSIVE STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
             </div>
 
             <h1 style={{
