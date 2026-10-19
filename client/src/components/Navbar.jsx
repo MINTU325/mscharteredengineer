@@ -13,6 +13,7 @@ import {
   X, 
   ArrowRight,
   ChevronDown,
+  ChevronRight,
   Building2,
   Landmark,
   Scale,
@@ -39,6 +40,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
   const [navVisible, setNavVisible] = useState(true);
   const [currentPath, setCurrentPath] = useState('/');
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [valuationSubmenuOpen, setValuationSubmenuOpen] = useState(false);
+  const [mobileValuationOpen, setMobileValuationOpen] = useState(false);
   const lastScrollY = useRef(0);
 
   // Sync current pathname for active states
@@ -206,42 +209,79 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   <span>Services</span>
                   <ChevronDown size={10} className={`dropdown-chevron ${activeDropdown === 'services' ? 'rotate' : ''}`} />
                 </button>
-                <div className={`nav-dropdown-menu ${activeDropdown === 'services' ? 'open' : ''}`} style={{ minWidth: '330px' }}>
-                  <a href="/property-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Building2 size={16} color="#0284c7" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">Property &amp; Land Valuation</div>
-                      <div className="dropdown-item-desc">Immovable real estate &amp; land appraisals</div>
+                <div className={`nav-dropdown-menu ${activeDropdown === 'services' ? 'open' : ''}`} style={{ minWidth: '340px' }}>
+                  {/* 1. Chartered Engineers & Valuations (Parent Group with Sub-Services) */}
+                  <div 
+                    className="nav-sub-dropdown"
+                    onMouseEnter={() => setValuationSubmenuOpen(true)}
+                    onMouseLeave={() => setValuationSubmenuOpen(false)}
+                  >
+                    <div 
+                      className="nav-dropdown-item parent-item" 
+                      onClick={() => setValuationSubmenuOpen(!valuationSubmenuOpen)}
+                      style={{ cursor: 'pointer', justifyContent: 'space-between', alignItems: 'center' }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '11px' }}>
+                        <FileCheck2 size={16} color="#38bdf8" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title" style={{ color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <span>Chartered Engineers &amp; Valuations</span>
+                            <span style={{ fontSize: '0.62rem', background: 'rgba(56, 189, 248, 0.18)', color: '#38bdf8', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>6 SERVICES</span>
+                          </div>
+                          <div className="dropdown-item-desc">Asset appraisals, bank loans, DGFT &amp; statutory audit</div>
+                        </div>
+                      </div>
+                      <ChevronRight size={14} color="#38bdf8" className={`sub-chevron ${valuationSubmenuOpen ? 'open' : ''}`} style={{ flexShrink: 0, marginLeft: '6px' }} />
                     </div>
-                  </a>
-                  <a href="/bank-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Landmark size={16} color="#d97706" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">Bank &amp; Mortgage Valuation</div>
-                      <div className="dropdown-item-desc">FMV &amp; FSV for home loans &amp; project finance</div>
+
+                    {/* Flyout Sub-Service Menu */}
+                    <div className={`nav-sub-menu ${valuationSubmenuOpen ? 'sub-menu--open' : ''}`}>
+                      <a href="/property-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item">
+                        <Building2 size={15} color="#0284c7" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title">Property &amp; Land Valuation</div>
+                          <div className="dropdown-item-desc">Immovable real estate &amp; land appraisals</div>
+                        </div>
+                      </a>
+                      <a href="/bank-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item">
+                        <Landmark size={15} color="#d97706" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title">Bank &amp; Mortgage Valuation</div>
+                          <div className="dropdown-item-desc">FMV &amp; FSV for home loans &amp; project finance</div>
+                        </div>
+                      </a>
+                      <a href="/tax-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item">
+                        <Scale size={15} color="#059669" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title">Capital Gains Tax &amp; 2001 FMV</div>
+                          <div className="dropdown-item-desc">Section 50C &amp; ITAT dispute defense</div>
+                        </div>
+                      </a>
+                      <a href="/chartered-engineer" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item">
+                        <FileCheck2 size={15} color="#7c3aed" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title">Chartered Engineer &amp; DGFT</div>
+                          <div className="dropdown-item-desc">Advance Authorisation, EPCG &amp; customs</div>
+                        </div>
+                      </a>
+                      <a href="/machinery-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item">
+                        <Cpu size={15} color="#f59e0b" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title">Plant &amp; Machinery Valuation</div>
+                          <div className="dropdown-item-desc">Depreciated Replacement Cost (DRC) audit</div>
+                        </div>
+                      </a>
+                      <a href="/ibc-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item">
+                        <ShieldCheck size={15} color="#a855f7" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title">IBC / NCLT Corporate Valuation</div>
+                          <div className="dropdown-item-desc">CIRP liquidation &amp; solvency reports</div>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                  <a href="/tax-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Scale size={16} color="#059669" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">Capital Gains Tax &amp; 2001 FMV</div>
-                      <div className="dropdown-item-desc">Section 50C &amp; ITAT dispute defense</div>
-                    </div>
-                  </a>
-                  <a href="/chartered-engineer" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <FileCheck2 size={16} color="#7c3aed" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">Chartered Engineer &amp; DGFT</div>
-                      <div className="dropdown-item-desc">Advance Authorisation, EPCG &amp; customs</div>
-                    </div>
-                  </a>
-                  <a href="/machinery-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Cpu size={16} color="#f59e0b" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">Plant &amp; Machinery Valuation</div>
-                      <div className="dropdown-item-desc">Depreciated Replacement Cost (DRC) audit</div>
-                    </div>
-                  </a>
+                  </div>
+
+                  {/* 2. E-Waste Annual Return & EPR */}
                   <a href="/e-waste-annual-return-filing" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Leaf size={16} color="#10b981" className="dropdown-item-icon" />
                     <div>
@@ -249,6 +289,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                       <div className="dropdown-item-desc">CPCB annual return &amp; statutory audit</div>
                     </div>
                   </a>
+
+                  {/* 3. Electrical & Substation Services */}
                   <a href="/electrical-services" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Zap size={16} color="#f59e0b" className="dropdown-item-icon" />
                     <div>
@@ -259,6 +301,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                       <div className="dropdown-item-desc">Testing, Transformers, Panels, HT/LT &amp; AMC</div>
                     </div>
                   </a>
+
+                  {/* 4. Fabrication & Tin Shed Works */}
                   <a href="/fabrication-services" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Wrench size={16} color="#f97316" className="dropdown-item-icon" />
                     <div>
@@ -269,6 +313,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                       <div className="dropdown-item-desc">Industrial Chimneys, Tin Sheds, MS &amp; Glass Railings</div>
                     </div>
                   </a>
+
                   <div className="dropdown-divider" />
                   <a href="/services" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
                     <span>Explore All 15 Engineering Services</span>
@@ -492,10 +537,40 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           <div style={{ padding: '4px 14px', fontSize: '0.72rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Core Engineering &amp; Valuation
           </div>
-          <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>
-          <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication, Tin Shed &amp; Iron Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
-          <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical, Testing &amp; Substation <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
+          {/* Mobile Chartered Engineers & Valuations Accordion */}
+          <button
+            onClick={() => setMobileValuationOpen(!mobileValuationOpen)}
+            className="mobile-drawer-link"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              width: '100%',
+              color: '#38bdf8',
+              fontWeight: 700,
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              textAlign: 'left'
+            }}
+          >
+            <span>📜 Chartered Engineers &amp; Valuations</span>
+            <ChevronDown size={14} style={{ transform: mobileValuationOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
+          </button>
+          {mobileValuationOpen && (
+            <div style={{ paddingLeft: '14px', borderLeft: '2px solid rgba(56, 189, 248, 0.3)', margin: '4px 0 6px 14px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <a href="/property-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🏢 Property &amp; Land Valuation</a>
+              <a href="/bank-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🏛️ Bank &amp; Mortgage Valuation</a>
+              <a href="/tax-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>⚖️ Capital Gains Tax &amp; 2001 FMV</a>
+              <a href="/chartered-engineer" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>📜 Chartered Engineer &amp; DGFT</a>
+              <a href="/machinery-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>⚙️ Plant &amp; Machinery Valuation</a>
+              <a href="/ibc-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🛡️ IBC &amp; NCLT Corporate Valuation</a>
+            </div>
+          )}
           <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 E-Waste Annual Return &amp; EPR</a>
+          <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical &amp; Substation Services <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
+          <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication &amp; Tin Shed Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
+          <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>
           <a href="/process" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
 
           <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>

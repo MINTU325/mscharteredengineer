@@ -5,6 +5,9 @@ import {
   ChevronRight,
   PhoneCall,
   Phone,
+  Mail,
+  Globe,
+  MapPin,
   MessageSquare,
   HelpCircle,
   Wrench,
@@ -13,17 +16,24 @@ import {
   ShieldCheck,
   Building2,
   Factory,
-  Hammer
+  Hammer,
+  Award,
+  Layers,
+  Sparkles,
+  Eye,
+  ExternalLink
 } from 'lucide-react';
 
 export default function FabricationServicesPage({ onOpenQuote, onNavigateHome }) {
   const [openFaq, setOpenFaq] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeFaqCategory, setActiveFaqCategory] = useState('All');
+  const [activeGalleryFilter, setActiveGalleryFilter] = useState('All');
+  const [selectedGalleryImage, setSelectedGalleryImage] = useState(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = 'Industrial Fabrication & Tin Shed FAQs | MS Chartered Engineers';
+    document.title = 'Expert Valuers & Premium Fabrication Services | MS Chartered Engineers';
 
     const updateOrCreateMeta = (name, content, isProperty = false) => {
       const attr = isProperty ? 'property' : 'name';
@@ -36,14 +46,102 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       tag.setAttribute('content', content);
     };
 
-    updateOrCreateMeta('description', 'Frequently asked questions regarding heavy industrial fabrication, factory tin sheds, PEB warehouses, industrial chimneys, iron fabrication, and structural stability certification in Jaipur & Rajasthan.');
-    updateOrCreateMeta('keywords', 'fabrication FAQ, tin shed FAQ, industrial chimney FAQ, PEB warehouse queries, iron fabrication questions, structural stability certificate');
-    updateOrCreateMeta('og:title', 'Industrial Fabrication & Tin Shed FAQs | MS Chartered Engineers', true);
-    updateOrCreateMeta('og:description', 'Frequently asked questions regarding industrial fabrication, factory tin sheds, PEB buildings, and structural engineering certification.', true);
+    updateOrCreateMeta('description', 'Expert Valuers & Premium Fabrication Services by MS Chartered Engineers. Precision-engineered Iron and Tin Shed structures supervised by IIT Roorkee alumni Chartered Engineers.');
+    updateOrCreateMeta('keywords', 'Iron fabrication, tin shed fabrication, industrial sheds, PEB warehouse, valuation technical consultancy, industrial chimneys, structural stability certificate, Jaipur');
+    updateOrCreateMeta('og:title', 'Expert Valuers & Premium Fabrication Services | MS Chartered Engineers', true);
+    updateOrCreateMeta('og:description', 'Precision-engineered Iron and Tin Shed structures supervised by Chartered Engineers. Stamped structural stability certificates.', true);
     updateOrCreateMeta('og:url', 'https://www.mscharteredengineer.com/fabrication-services', true);
   }, []);
 
-  const categories = ['All', 'Tin Sheds & PEB', 'Chimneys & Exhaust', 'Iron Works', 'Certification & Safety'];
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = el.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Gallery items matching user request
+  const galleryItems = [
+    {
+      id: 1,
+      title: 'Factory Tin Shed & PEB Warehouse',
+      category: 'Tin Sheds',
+      subtitle: 'Clear-span industrial warehouse with JSW Galvalume roofing',
+      image: '/fabrication/factory-tin-shed-peb-warehouse.jpg',
+      specs: '28,000 Sq.Ft | Tata Bluescope 0.50mm | IS 2062 Grade Steel'
+    },
+    {
+      id: 2,
+      title: 'Heavy Iron Fabrication & Sliding Gate',
+      category: 'Iron Works',
+      subtitle: 'Automated cantilever sliding gate & structural framing',
+      image: '/fabrication/heavy-iron-fabrication-sliding-gate.jpg',
+      specs: '42 Ft Clear Span | Motorized Cantilever | Anti-Sag Truss'
+    },
+    {
+      id: 3,
+      title: 'Industrial Chimney Stack Fabrication',
+      category: 'Chimneys',
+      subtitle: '30-meter self-supporting steel chimney stack with ladder cage',
+      image: '/fabrication/industrial-chimney-stack-fabrication.jpg',
+      specs: '30m Height | IS 6533 Standard | CPCB Emission Port'
+    },
+    {
+      id: 4,
+      title: 'Structural Steel Tower & Framework',
+      category: 'Valuation & Technical',
+      subtitle: 'Heavy industrial tower framing & load assessment',
+      image: '/fabrication/structural-steel-tower-erection.jpg',
+      specs: '100% UT Tested Welds | Stamped Stability Certificate'
+    },
+    {
+      id: 5,
+      title: 'Architectural Glass & MS Railings',
+      category: 'Iron Works',
+      subtitle: 'Toughened glass & stainless/mild steel architectural railing',
+      image: '/fabrication/architectural-glass-railing-facade.jpg',
+      specs: '12mm Toughened Glass | SS 304 Grade Post Base'
+    },
+    {
+      id: 6,
+      title: 'Heavy Industrial Ducting & Support',
+      category: 'Chimneys',
+      subtitle: 'Large-bore boiler flue gas ducting and trestle supports',
+      image: '/fabrication/heavy-industrial-ducting-support.jpg',
+      specs: '1,800mm Diameter MS Ducting | Thermal Expansion Joints'
+    },
+    {
+      id: 7,
+      title: 'Boiler Stack Foundation & Base',
+      category: 'Valuation & Technical',
+      subtitle: 'Precision anchor bolt cluster and heavy base plate rigging',
+      image: '/fabrication/boiler-stack-foundation-base.jpg',
+      specs: 'M35 Concrete Anchor Embedment | 40mm Base Plate'
+    },
+    {
+      id: 8,
+      title: 'Spiral Inspection Platform & Safety Cage',
+      category: 'Iron Works',
+      subtitle: 'OSHA compliant industrial ladder cage and access walkways',
+      image: '/fabrication/spiral-ladder-inspection-platform.jpg',
+      specs: 'Galvanized Chequered Plate | Fall Arrest Safety Rail'
+    }
+  ];
+
+  const filteredGallery = activeGalleryFilter === 'All'
+    ? galleryItems
+    : galleryItems.filter(item => item.category === activeGalleryFilter);
+
+  // FAQ Categories & List
+  const faqCategories = ['All', 'Tin Sheds & PEB', 'Chimneys & Exhaust', 'Iron Works', 'Certification & Safety'];
 
   const faqs = [
     {
@@ -99,7 +197,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
   ];
 
   const filteredFaqs = faqs.filter((faq) => {
-    const matchesCategory = activeCategory === 'All' || faq.category === activeCategory;
+    const matchesCategory = activeFaqCategory === 'All' || faq.category === activeFaqCategory;
     const matchesSearch =
       faq.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
       faq.a.toLowerCase().includes(searchQuery.toLowerCase());
@@ -107,18 +205,32 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
   });
 
   return (
-    <div style={{ background: '#070d18', color: '#f8fafc', minHeight: '100vh', paddingBottom: '60px' }}>
-      {/* ── Top Header Navigation ── */}
-      <div style={{
-        background: 'rgba(15, 23, 42, 0.95)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        padding: '14px 20px',
-        position: 'sticky',
-        top: 0,
-        zIndex: 40,
-        backdropFilter: 'blur(10px)'
-      }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+    <div style={{ background: '#0a101d', color: '#f8fafc', minHeight: '100vh' }}>
+      
+      {/* ── 1. HEADER (STICKY NAVIGATION) ── */}
+      <header
+        style={{
+          position: 'sticky',
+          top: 0,
+          zIndex: 50,
+          background: 'rgba(10, 22, 44, 0.96)',
+          backdropFilter: 'blur(12px)',
+          borderBottom: '1px solid rgba(56, 189, 248, 0.2)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)'
+        }}
+      >
+        <div
+          className="container"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '12px 20px',
+            gap: '16px',
+            flexWrap: 'wrap'
+          }}
+        >
+          {/* Left: Company Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <button
               onClick={onNavigateHome}
@@ -129,91 +241,1249 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 background: 'rgba(255, 255, 255, 0.08)',
                 border: '1px solid rgba(255, 255, 255, 0.15)',
                 color: '#cbd5e1',
-                padding: '7px 14px',
+                padding: '6px 12px',
                 borderRadius: '6px',
-                fontSize: '0.84rem',
+                fontSize: '0.80rem',
                 cursor: 'pointer'
               }}
+              title="Return to MS Chartered Engineers Homepage"
             >
-              <ArrowLeft size={14} /> Back to Home
+              <ArrowLeft size={13} /> Home
             </button>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.84rem', color: '#94a3b8' }}>
-              <a href="/services" style={{ color: '#38bdf8', textDecoration: 'none' }}>Services</a>
-              <ChevronRight size={12} />
-              <span style={{ color: '#f1f5f9', fontWeight: 600 }}>Fabrication &amp; Tin Shed FAQs</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <img
+                src="/logo.png"
+                alt="MS Chartered Engineers Logo"
+                style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+                onError={(e) => { e.currentTarget.src = '/logo.svg'; }}
+              />
+              <div>
+                <div style={{ fontWeight: 800, fontSize: '1rem', color: '#ffffff', letterSpacing: '0.02em', lineHeight: 1.1 }}>
+                  MS CHARTERED ENGINEERS
+                </div>
+                <div style={{ fontSize: '0.68rem', color: '#f59e0b', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                  Valuers &amp; Technical Consultancy
+                </div>
+              </div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ fontSize: '0.82rem', color: '#94a3b8' }}>
-              Fabrication Desk: <strong style={{ color: '#f59e0b' }}>+91 91586 58885</strong>
-            </span>
+          {/* Center Navigation */}
+          <nav
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '20px',
+              fontSize: '0.86rem',
+              fontWeight: 600
+            }}
+          >
+            <button
+              onClick={onNavigateHome}
+              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
+            >
+              Home
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
+            >
+              About Us
+            </button>
+            <button
+              onClick={() => scrollToSection('services')}
+              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
+            >
+              Services
+            </button>
+            <button
+              onClick={() => scrollToSection('gallery')}
+              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
+            >
+              Gallery
+            </button>
+            <button
+              onClick={() => scrollToSection('faq')}
+              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
+            >
+              FAQs
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
+            >
+              Contact
+            </button>
+          </nav>
+
+          {/* Right: Call Now & Get Quote Buttons */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <a
+              href="tel:+919158658885"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                background: '#0c4483',
+                color: '#ffffff',
+                border: '1px solid rgba(56, 189, 248, 0.4)',
+                padding: '7px 16px',
+                borderRadius: '24px',
+                fontSize: '0.84rem',
+                fontWeight: 700,
+                textDecoration: 'none',
+                boxShadow: '0 2px 10px rgba(12, 68, 131, 0.4)'
+              }}
+            >
+              <PhoneCall size={14} color="#38bdf8" />
+              <span>Call Now</span>
+            </a>
             <button
               onClick={() => onOpenQuote('Fabrication Services Inquiry', { department: 'fabrication' })}
               className="btn btn-gold"
-              style={{ padding: '7px 16px', fontSize: '0.82rem' }}
+              style={{ padding: '7px 16px', fontSize: '0.84rem', borderRadius: '24px' }}
             >
               <Wrench size={13} />
               <span>Get Quote</span>
             </button>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* ── FAQ Hero Header ── */}
-      <section style={{
-        background: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 158, 11, 0.18) 0%, rgba(7, 13, 24, 0.95) 75%)',
-        padding: '54px 20px 42px',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        textAlign: 'center'
-      }}>
-        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <div style={{
-            display: 'inline-flex',
+      {/* ── 2. HERO SECTION (FIRST FOLD) ── */}
+      <section
+        style={{
+          position: 'relative',
+          minHeight: '78vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundImage: 'linear-gradient(180deg, rgba(10, 16, 29, 0.78) 0%, rgba(10, 22, 44, 0.94) 100%), url(/fabrication/factory-tin-shed-peb-warehouse.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          padding: '80px 20px',
+          textAlign: 'center',
+          borderBottom: '1px solid rgba(56, 189, 248, 0.2)'
+        }}
+      >
+        <div style={{ maxWidth: '960px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          {/* Top Pill Badge */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: 'rgba(12, 68, 131, 0.65)',
+              border: '1px solid rgba(56, 189, 248, 0.5)',
+              padding: '6px 18px',
+              borderRadius: '9999px',
+              fontSize: '0.80rem',
+              fontWeight: 800,
+              color: '#38bdf8',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              marginBottom: '22px',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)'
+            }}
+          >
+            <ShieldCheck size={16} color="#38bdf8" />
+            <span>Chartered Engineer Supervised Fabrication &amp; Valuations</span>
+          </div>
+
+          {/* Headline */}
+          <h1
+            style={{
+              fontSize: 'clamp(2.4rem, 5.2vw, 4rem)',
+              fontWeight: 900,
+              lineHeight: 1.15,
+              color: '#ffffff',
+              margin: '0 auto 20px',
+              letterSpacing: '-0.02em',
+              textShadow: '0 2px 20px rgba(0,0,0,0.6)'
+            }}
+          >
+            Expert Valuers &amp; <span style={{ color: '#f59e0b', textShadow: '0 0 30px rgba(245, 158, 11, 0.35)' }}>Premium Fabrication</span> Services
+          </h1>
+
+          {/* Sub-headline */}
+          <p
+            style={{
+              fontSize: 'clamp(1.05rem, 2.2vw, 1.3rem)',
+              color: '#e2e8f0',
+              lineHeight: 1.6,
+              maxWidth: '820px',
+              margin: '0 auto 34px',
+              fontWeight: 400
+            }}
+          >
+            Precision-engineered Iron and Tin Shed structures supervised by Chartered Engineers. We combine certified structural valuation with heavy turnkey metal fabrication across Rajasthan &amp; Pan-India.
+          </p>
+
+          {/* Call-to-Action Buttons */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: '16px',
+              marginBottom: '40px'
+            }}
+          >
+            <button
+              onClick={() => scrollToSection('services')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: '#ffffff',
+                color: '#0c4483',
+                fontWeight: 800,
+                fontSize: '0.96rem',
+                padding: '14px 30px',
+                borderRadius: '30px',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(255, 255, 255, 0.25)',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              <span>Explore Services</span>
+              <ChevronRight size={16} />
+            </button>
+            <button
+              onClick={() => onOpenQuote('Fabrication Services Inquiry', { department: 'fabrication' })}
+              className="btn btn-gold"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '0.96rem',
+                padding: '14px 32px',
+                borderRadius: '30px',
+                boxShadow: '0 4px 25px rgba(245, 158, 11, 0.45)'
+              }}
+            >
+              <Wrench size={16} />
+              <span>Get a Quote</span>
+            </button>
+            <a
+              href="tel:+919158658885"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(15, 23, 42, 0.85)',
+                color: '#f8fafc',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                padding: '14px 26px',
+                borderRadius: '30px',
+                fontSize: '0.94rem',
+                fontWeight: 700,
+                textDecoration: 'none'
+              }}
+            >
+              <Phone size={15} color="#38bdf8" />
+              <span>+91 91586 58885</span>
+            </a>
+          </div>
+
+          {/* Badges / Trust points */}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              gap: '24px',
+              paddingTop: '20px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.12)',
+              fontSize: '0.84rem',
+              color: '#cbd5e1'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={16} color="#10b981" />
+              <span>IIT Roorkee Alumnus Led</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={16} color="#10b981" />
+              <span>IS 2062 Certified Structural Steel</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={16} color="#10b981" />
+              <span>Stamped Structural Stability Certificates</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={16} color="#10b981" />
+              <span>Turnkey On-Site Erection</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. ABOUT US SECTION (SIDE-BY-SIDE LAYOUT) ── */}
+      <section
+        id="about"
+        style={{
+          padding: '80px 20px',
+          background: '#070d18',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '48px',
+              alignItems: 'center'
+            }}
+          >
+            {/* Left Side: Professional Engineer Image & Credentials */}
+            <div style={{ position: 'relative' }}>
+              <div
+                style={{
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)',
+                  border: '1px solid rgba(56, 189, 248, 0.3)',
+                  background: 'linear-gradient(180deg, #0c4483 0%, #070d18 100%)',
+                  textAlign: 'center'
+                }}
+              >
+                <img
+                  src="/mukesh-singh-founder.webp"
+                  alt="Er. Mukesh Singh - IIT Roorkee, Chartered Engineer & Valuer"
+                  style={{
+                    width: '100%',
+                    height: '420px',
+                    objectFit: 'cover',
+                    objectPosition: 'top',
+                    display: 'block'
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.src = '/fabrication/structural-steel-tower-erection.jpg';
+                  }}
+                />
+              </div>
+
+              {/* Floating Highlight Card */}
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '-20px',
+                  right: '20px',
+                  background: 'rgba(12, 68, 131, 0.95)',
+                  border: '1px solid rgba(56, 189, 248, 0.5)',
+                  borderRadius: '12px',
+                  padding: '14px 20px',
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)',
+                  maxWidth: '260px'
+                }}
+              >
+                <div style={{ fontSize: '0.72rem', color: '#f59e0b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                  Lead Technical Director
+                </div>
+                <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.96rem', marginTop: '2px' }}>
+                  Er. Mukesh Singh
+                </div>
+                <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
+                  B.Tech (IIT Roorkee), CE (India)
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side: Company Description & Trust Focus */}
+            <div>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  color: '#38bdf8',
+                  fontSize: '0.78rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  marginBottom: '10px'
+                }}
+              >
+                <Building2 size={15} />
+                <span>About MS Chartered Engineers</span>
+              </div>
+
+              <h2
+                style={{
+                  fontSize: 'clamp(1.9rem, 3.4vw, 2.7rem)',
+                  fontWeight: 800,
+                  color: '#ffffff',
+                  lineHeight: 1.22,
+                  marginBottom: '10px'
+                }}
+              >
+                Engineered for Strength. <span style={{ color: '#38bdf8' }}>Certified for Safety.</span>
+              </h2>
+
+              <div
+                style={{
+                  fontSize: '1rem',
+                  color: '#f59e0b',
+                  fontWeight: 700,
+                  letterSpacing: '0.04em',
+                  marginBottom: '20px'
+                }}
+              >
+                Valuers &amp; Technical Consultancy
+              </div>
+
+              <p
+                style={{
+                  color: '#cbd5e1',
+                  fontSize: '0.98rem',
+                  lineHeight: 1.7,
+                  marginBottom: '18px'
+                }}
+              >
+                At <strong>MS Chartered Engineers</strong>, we bridge the vital gap between heavy structural fabrication and certified statutory engineering. Founded and directed by an IIT Roorkee graduate and registered Chartered Engineer (IEI), we deliver end-to-end solutions — from initial structural calculations and wind analysis to shop fabrication, site erection, and stamped structural stability certification.
+              </p>
+
+              <p
+                style={{
+                  color: '#94a3b8',
+                  fontSize: '0.92rem',
+                  lineHeight: 1.65,
+                  marginBottom: '28px'
+                }}
+              >
+                Whether it is a 50,000 sq.ft industrial tin shed, a 35-meter industrial chimney stack, or heavy motorized iron gates, our clients trust us because every weld, connection, and truss is verified against Bureau of Indian Standards (IS 2062, IS 800, IS 875, IS 6533).
+              </p>
+
+              {/* 4 Quick Stat / Metric Cards */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(2, 1fr)',
+                  gap: '16px',
+                  marginBottom: '32px'
+                }}
+              >
+                <div
+                  style={{
+                    background: 'rgba(15, 23, 42, 0.7)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '10px',
+                    padding: '16px'
+                  }}
+                >
+                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#f59e0b', lineHeight: 1 }}>25+</div>
+                  <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Years Technical Experience</div>
+                </div>
+                <div
+                  style={{
+                    background: 'rgba(15, 23, 42, 0.7)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '10px',
+                    padding: '16px'
+                  }}
+                >
+                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#38bdf8', lineHeight: 1 }}>1,200+</div>
+                  <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Projects &amp; Audits Completed</div>
+                </div>
+                <div
+                  style={{
+                    background: 'rgba(15, 23, 42, 0.7)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '10px',
+                    padding: '16px'
+                  }}
+                >
+                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#10b981', lineHeight: 1 }}>100%</div>
+                  <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Stamped Stability Pass Rate</div>
+                </div>
+                <div
+                  style={{
+                    background: 'rgba(15, 23, 42, 0.7)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '10px',
+                    padding: '16px'
+                  }}
+                >
+                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#a855f7', lineHeight: 1 }}>IIT</div>
+                  <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Roorkee Technical Pedigree</div>
+                </div>
+              </div>
+
+              {/* Consultation Link */}
+              <button
+                onClick={() => onOpenQuote('Consultation Inquiry', { department: 'fabrication' })}
+                className="btn btn-gold"
+                style={{ padding: '12px 28px', fontSize: '0.90rem' }}
+              >
+                <span>Request Engineer Consultation</span>
+                <ChevronRight size={15} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. SERVICES SECTION (GRID LAYOUT) ── */}
+      <section
+        id="services"
+        style={{
+          padding: '84px 20px',
+          background: '#0c1424',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '1220px', margin: '0 auto' }}>
+          {/* Section Heading */}
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 50px' }}>
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(12, 68, 131, 0.4)',
+                border: '1px solid rgba(56, 189, 248, 0.4)',
+                padding: '6px 18px',
+                borderRadius: '9999px',
+                fontSize: '0.78rem',
+                fontWeight: 800,
+                color: '#38bdf8',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                marginBottom: '16px'
+              }}
+            >
+              <Wrench size={15} color="#38bdf8" />
+              <span>Core Services</span>
+            </div>
+            <h2
+              style={{
+                fontSize: 'clamp(2rem, 3.8vw, 3rem)',
+                fontWeight: 900,
+                color: '#ffffff',
+                lineHeight: 1.2,
+                marginBottom: '16px'
+              }}
+            >
+              Comprehensive Engineering &amp; <span style={{ color: '#f59e0b' }}>Fabrication Services</span>
+            </h2>
+            <p style={{ color: '#cbd5e1', fontSize: '1rem', lineHeight: 1.65 }}>
+              Expert metal fabrication supervised by licensed Chartered Engineers. Built strictly according to IS standards with turnkey erection and certified documentation.
+            </p>
+          </div>
+
+          {/* Grid Layout: 3 Primary Requested Services + 1 Specialty */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+              gap: '28px'
+            }}
+          >
+            {/* SERVICE 1: Iron Fabrication Work */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.85)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#f59e0b';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 16px 36px rgba(245, 158, 11, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.3)';
+              }}
+            >
+              <div style={{ height: '230px', overflow: 'hidden', position: 'relative' }}>
+                <img
+                  src="/fabrication/heavy-iron-fabrication-sliding-gate.jpg"
+                  alt="Iron Fabrication Work"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.06)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '14px',
+                    left: '14px',
+                    background: 'rgba(10, 16, 29, 0.85)',
+                    border: '1px solid #f59e0b',
+                    color: '#f59e0b',
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    fontSize: '0.74rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase'
+                  }}
+                >
+                  Heavy Metal Framing
+                </div>
+              </div>
+              <div style={{ padding: '26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+                  Iron Fabrication Work
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                  Heavy structural framing, industrial gates, platforms, crane gantry girders, factory mezzanine decks, and structural steel staircases designed for maximum load capacity.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#f59e0b" />
+                    <span>Heavy Cantilever &amp; Track Sliding Gates (up to 40+ ft)</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#f59e0b" />
+                    <span>Overhead Crane Gantry Girders &amp; Runways (up to 35 MT)</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#f59e0b" />
+                    <span>Industrial Mezzanines &amp; Fire Escape Stairwells</span>
+                  </div>
+                </div>
+                <div style={{ marginTop: 'auto' }}>
+                  <button
+                    onClick={() => onOpenQuote('Iron Fabrication Inquiry', { service: 'Iron Fabrication Work' })}
+                    style={{
+                      width: '100%',
+                      padding: '11px 18px',
+                      background: 'rgba(245, 158, 11, 0.12)',
+                      border: '1px solid #f59e0b',
+                      color: '#f59e0b',
+                      borderRadius: '8px',
+                      fontWeight: 700,
+                      fontSize: '0.88rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <span>Inquire About Iron Fabrication</span>
+                    <ChevronRight size={15} />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* SERVICE 2: Tin Shed Fabrication Work */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.85)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#38bdf8';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 16px 36px rgba(56, 189, 248, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.3)';
+              }}
+            >
+              <div style={{ height: '230px', overflow: 'hidden', position: 'relative' }}>
+                <img
+                  src="/fabrication/factory-tin-shed-peb-warehouse.jpg"
+                  alt="Tin Shed Fabrication Work"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.06)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '14px',
+                    left: '14px',
+                    background: 'rgba(10, 16, 29, 0.85)',
+                    border: '1px solid #38bdf8',
+                    color: '#38bdf8',
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    fontSize: '0.74rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase'
+                  }}
+                >
+                  Industrial Sheds &amp; PEB
+                </div>
+              </div>
+              <div style={{ padding: '26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+                  Tin Shed Fabrication Work
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                  Industrial sheds, warehouse roofing, and Pre-Engineered Building (PEB) structures built with premium Galvalume &amp; Zincalume sheets designed for 47 m/s wind safety.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#38bdf8" />
+                    <span>Clear-Span Factory Sheds &amp; Warehouses (2k–100k+ sq.ft)</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#38bdf8" />
+                    <span>Tata Bluescope / JSW 0.50mm Anti-Corrosion Sheets</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#38bdf8" />
+                    <span>Full Wind Load Calculations (IS 875 Part 3)</span>
+                  </div>
+                </div>
+                <div style={{ marginTop: 'auto' }}>
+                  <button
+                    onClick={() => onOpenQuote('Tin Shed Inquiry', { service: 'Tin Shed Fabrication Work' })}
+                    style={{
+                      width: '100%',
+                      padding: '11px 18px',
+                      background: 'rgba(56, 189, 248, 0.12)',
+                      border: '1px solid #38bdf8',
+                      color: '#38bdf8',
+                      borderRadius: '8px',
+                      fontWeight: 700,
+                      fontSize: '0.88rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <span>Inquire About Tin Sheds</span>
+                    <ChevronRight size={15} />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* SERVICE 3: Valuation & Technical Consultancy */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.85)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '16px',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
+                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#10b981';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.boxShadow = '0 16px 36px rgba(16, 185, 129, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.3)';
+              }}
+            >
+              <div style={{ height: '230px', overflow: 'hidden', position: 'relative' }}>
+                <img
+                  src="/fabrication/structural-steel-tower-erection.jpg"
+                  alt="Valuation & Technical Consultancy"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.06)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '14px',
+                    left: '14px',
+                    background: 'rgba(10, 16, 29, 0.85)',
+                    border: '1px solid #10b981',
+                    color: '#10b981',
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    fontSize: '0.74rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase'
+                  }}
+                >
+                  Chartered Engineering
+                </div>
+              </div>
+              <div style={{ padding: '26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+                  Valuation &amp; Technical Consultancy
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                  Certified engineering audits, structural stability assessments, plant &amp; machinery valuations, and official Chartered Engineer documentation for statutory bodies.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#10b981" />
+                    <span>DISH (Factories Act) Structural Stability Certificates</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#10b981" />
+                    <span>Plant, Machinery &amp; Industrial Asset Valuations</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                    <CheckCircle2 size={15} color="#10b981" />
+                    <span>Non-Destructive Testing (UT, DPT) Weld Inspections</span>
+                  </div>
+                </div>
+                <div style={{ marginTop: 'auto' }}>
+                  <button
+                    onClick={() => onOpenQuote('Valuation Inquiry', { service: 'Valuation & Technical Consultancy' })}
+                    style={{
+                      width: '100%',
+                      padding: '11px 18px',
+                      background: 'rgba(16, 185, 129, 0.12)',
+                      border: '1px solid #10b981',
+                      color: '#10b981',
+                      borderRadius: '8px',
+                      fontWeight: 700,
+                      fontSize: '0.88rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <span>Inquire About Valuation &amp; Audit</span>
+                    <ChevronRight size={15} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. PROJECT GALLERY: "EXPLORE OUR WORK" ── */}
+      <section
+        id="gallery"
+        style={{
+          padding: '84px 20px',
+          background: '#070d18',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '1220px', margin: '0 auto' }}>
+          {/* Header */}
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 40px' }}>
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(12, 68, 131, 0.4)',
+                border: '1px solid rgba(56, 189, 248, 0.4)',
+                padding: '6px 18px',
+                borderRadius: '9999px',
+                fontSize: '0.78rem',
+                fontWeight: 800,
+                color: '#38bdf8',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                marginBottom: '16px'
+              }}
+            >
+              <Layers size={15} color="#38bdf8" />
+              <span>Project Portfolio</span>
+            </div>
+            <h2
+              style={{
+                fontSize: 'clamp(2rem, 3.8vw, 3rem)',
+                fontWeight: 900,
+                color: '#ffffff',
+                lineHeight: 1.2,
+                marginBottom: '14px'
+              }}
+            >
+              Explore Our <span style={{ color: '#38bdf8' }}>Work</span>
+            </h2>
+            <p style={{ color: '#cbd5e1', fontSize: '1rem', lineHeight: 1.65 }}>
+              Showcasing recent turnkey fabrication, PEB warehouse roofing, heavy iron works, and industrial chimneys executed across Rajasthan.
+            </p>
+
+            {/* Filter Pills */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                flexWrap: 'wrap',
+                gap: '10px',
+                marginTop: '26px'
+              }}
+            >
+              {['All', 'Tin Sheds', 'Iron Works', 'Chimneys', 'Valuation & Technical'].map((cat) => {
+                const isActive = activeGalleryFilter === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveGalleryFilter(cat)}
+                    style={{
+                      background: isActive ? '#0c4483' : 'rgba(255, 255, 255, 0.05)',
+                      border: `1px solid ${isActive ? '#38bdf8' : 'rgba(255, 255, 255, 0.12)'}`,
+                      color: isActive ? '#ffffff' : '#94a3b8',
+                      fontWeight: 700,
+                      fontSize: '0.82rem',
+                      padding: '7px 18px',
+                      borderRadius: '20px',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                      boxShadow: isActive ? '0 4px 14px rgba(12, 68, 131, 0.4)' : 'none'
+                    }}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Masonry / Grid Gallery */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '22px'
+            }}
+          >
+            {filteredGallery.map((item) => (
+              <div
+                key={item.id}
+                onClick={() => setSelectedGalleryImage(item)}
+                style={{
+                  position: 'relative',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  background: 'rgba(15, 23, 42, 0.9)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
+                  transition: 'transform 0.3s ease, border-color 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.borderColor = '#38bdf8';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                }}
+              >
+                <div style={{ height: '220px', width: '100%', overflow: 'hidden' }}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                      transition: 'transform 0.5s ease'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
+                  />
+                </div>
+                <div style={{ padding: '16px 18px' }}>
+                  <div
+                    style={{
+                      fontSize: '0.70rem',
+                      color: '#38bdf8',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.06em',
+                      marginBottom: '4px'
+                    }}
+                  >
+                    {item.category}
+                  </div>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', marginBottom: '4px' }}>
+                    {item.title}
+                  </h4>
+                  <p style={{ fontSize: '0.80rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '8px' }}>
+                    {item.subtitle}
+                  </p>
+                  <div style={{ fontSize: '0.74rem', color: '#f59e0b', fontWeight: 600 }}>
+                    {item.specs}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Modal Lightbox */}
+      {selectedGalleryImage && (
+        <div
+          onClick={() => setSelectedGalleryImage(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 100,
+            background: 'rgba(5, 10, 20, 0.9)',
+            backdropFilter: 'blur(8px)',
+            display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(245, 158, 11, 0.12)',
-            border: '1px solid rgba(245, 158, 11, 0.35)',
-            borderRadius: '9999px',
-            padding: '6px 18px',
-            color: '#fbbf24',
-            fontSize: '0.78rem',
-            fontWeight: 800,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            marginBottom: '18px'
-          }}>
+            justifyContent: 'center',
+            padding: '20px'
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: '800px',
+              width: '100%',
+              background: '#0f172a',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              border: '1px solid rgba(56, 189, 248, 0.3)',
+              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8)'
+            }}
+          >
+            <img
+              src={selectedGalleryImage.image}
+              alt={selectedGalleryImage.title}
+              style={{ width: '100%', maxHeight: '460px', objectFit: 'cover' }}
+            />
+            <div style={{ padding: '22px 26px' }}>
+              <div style={{ fontSize: '0.74rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase' }}>
+                {selectedGalleryImage.category}
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 800, margin: '6px 0' }}>
+                {selectedGalleryImage.title}
+              </h3>
+              <p style={{ color: '#cbd5e1', fontSize: '0.90rem', marginBottom: '12px' }}>
+                {selectedGalleryImage.subtitle}
+              </p>
+              <div style={{ color: '#f59e0b', fontSize: '0.82rem', fontWeight: 600, marginBottom: '18px' }}>
+                Specifications: {selectedGalleryImage.specs}
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <button
+                  onClick={() => {
+                    const title = selectedGalleryImage.title;
+                    setSelectedGalleryImage(null);
+                    onOpenQuote(`Inquiry: ${title}`, { service: title });
+                  }}
+                  className="btn btn-gold"
+                  style={{ padding: '8px 20px', fontSize: '0.85rem' }}
+                >
+                  <Wrench size={14} /> Request Quote for Similar Project
+                </button>
+                <button
+                  onClick={() => setSelectedGalleryImage(null)}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.1)',
+                    border: 'none',
+                    color: '#ffffff',
+                    padding: '8px 18px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '0.85rem'
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── 6. CONTACT & CONSULTATION BANNER (DIRECTLY ABOVE FAQ) ── */}
+      <section
+        id="contact"
+        style={{
+          padding: '64px 20px',
+          background: 'linear-gradient(135deg, rgba(12, 68, 131, 0.4) 0%, rgba(7, 13, 24, 0.95) 100%)',
+          borderBottom: '1px solid rgba(56, 189, 248, 0.2)'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '36px',
+              alignItems: 'center'
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontSize: '0.78rem',
+                  color: '#f59e0b',
+                  fontWeight: 800,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '10px'
+                }}
+              >
+                Direct Fabrication Desk
+              </div>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
+                Ready to Start Your Project?
+              </h2>
+              <p style={{ color: '#cbd5e1', fontSize: '0.96rem', lineHeight: 1.65, marginBottom: '22px' }}>
+                Connect directly with our IIT Roorkee structural engineering desk for on-site measurement, structural feasibility analysis, and stamped certifications in Jaipur &amp; across Rajasthan.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#f8fafc' }}>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Phone size={18} color="#38bdf8" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600 }}>Phone / Direct Helpline</div>
+                    <a href="tel:+919158658885" style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none' }}>+91 91586 58885</a>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#f8fafc' }}>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Mail size={18} color="#10b981" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600 }}>Email</div>
+                    <a href="mailto:ms.charteredengineer@gmail.com" style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none' }}>ms.charteredengineer@gmail.com</a>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#f8fafc' }}>
+                  <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Globe size={18} color="#f59e0b" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600 }}>Official Website</div>
+                    <span style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.92rem' }}>www.mscharteredengineer.com</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.95)',
+                border: '1px solid rgba(56, 189, 248, 0.3)',
+                borderRadius: '16px',
+                padding: '32px',
+                boxShadow: '0 12px 36px rgba(0, 0, 0, 0.5)',
+                textAlign: 'center'
+              }}
+            >
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+                Request Turnkey Quotation
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', marginBottom: '22px', lineHeight: 1.6 }}>
+                Submit project specifications for PEB sheds, heavy gates, structural steel framing, or stability audit.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <button
+                  onClick={() => onOpenQuote('Fabrication & Shed Project Inquiry', { department: 'fabrication' })}
+                  className="btn btn-gold"
+                  style={{ width: '100%', padding: '12px', fontSize: '0.94rem' }}
+                >
+                  <Wrench size={15} /> Request Official Quote
+                </button>
+                <a
+                  href="https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20want%20to%20discuss%20an%20industrial%20fabrication%20or%20tin%20shed%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-whatsapp"
+                  style={{ width: '100%', padding: '12px', fontSize: '0.94rem' }}
+                >
+                  <MessageSquare size={15} /> Chat on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. FAQ SECTION (KEPT INTACT AS REQUESTED) ── */}
+      <section
+        id="faq"
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 158, 11, 0.15) 0%, rgba(7, 13, 24, 0.98) 75%)',
+          padding: '64px 20px 42px',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          textAlign: 'center'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              background: 'rgba(245, 158, 11, 0.12)',
+              border: '1px solid rgba(245, 158, 11, 0.35)',
+              borderRadius: '9999px',
+              padding: '6px 18px',
+              color: '#fbbf24',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              marginBottom: '18px'
+            }}
+          >
             <HelpCircle size={15} color="#f59e0b" />
             <span>Industrial Fabrication &amp; Tin Shed Knowledge Base</span>
           </div>
 
-          <h1 style={{
-            fontSize: 'clamp(2.1rem, 4vw, 3.2rem)',
-            fontWeight: 900,
-            lineHeight: 1.2,
-            color: '#ffffff',
-            margin: '0 auto 16px',
-            letterSpacing: '-0.02em'
-          }}>
+          <h2
+            style={{
+              fontSize: 'clamp(2.1rem, 4vw, 3.2rem)',
+              fontWeight: 900,
+              lineHeight: 1.2,
+              color: '#ffffff',
+              margin: '0 auto 16px',
+              letterSpacing: '-0.02em'
+            }}
+          >
             Frequently Asked <span style={{ color: '#f59e0b' }}>Questions</span>
-          </h1>
+          </h2>
 
-          <p style={{
-            fontSize: 'clamp(0.96rem, 1.8vw, 1.12rem)',
-            color: '#cbd5e1',
-            lineHeight: 1.68,
-            maxWidth: '780px',
-            margin: '0 auto 28px'
-          }}>
+          <p
+            style={{
+              fontSize: 'clamp(0.96rem, 1.8vw, 1.12rem)',
+              color: '#cbd5e1',
+              lineHeight: 1.68,
+              maxWidth: '780px',
+              margin: '0 auto 28px'
+            }}
+          >
             Clear engineering answers regarding factory tin sheds, PEB industrial warehouses, heavy iron fabrication, industrial steel chimneys, and official Chartered Engineer structural stability certificates.
           </p>
 
           {/* Search Bar */}
-          <div style={{
-            position: 'relative',
-            maxWidth: '560px',
-            margin: '0 auto 24px'
-          }}>
+          <div
+            style={{
+              position: 'relative',
+              maxWidth: '560px',
+              margin: '0 auto 24px'
+            }}
+          >
             <Search size={18} color="#94a3b8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
             <input
               type="text"
@@ -239,12 +1509,12 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
 
           {/* Category Filter Pills */}
           <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px' }}>
-            {categories.map((cat) => {
-              const isActive = activeCategory === cat;
+            {faqCategories.map((cat) => {
+              const isActive = activeFaqCategory === cat;
               return (
                 <button
                   key={cat}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => setActiveFaqCategory(cat)}
                   style={{
                     background: isActive ? 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)' : 'rgba(255, 255, 255, 0.05)',
                     border: `1px solid ${isActive ? '#f59e0b' : 'rgba(255, 255, 255, 0.12)'}`,
@@ -266,23 +1536,25 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       </section>
 
       {/* ── FAQ Accordion Section ── */}
-      <section style={{ padding: '54px 20px', background: '#0a1220' }}>
+      <section style={{ padding: '44px 20px 70px', background: '#0a1220' }}>
         <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
           {filteredFaqs.length === 0 ? (
-            <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '16px',
-              padding: '40px 24px',
-              textAlign: 'center'
-            }}>
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.8)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '16px',
+                padding: '40px 24px',
+                textAlign: 'center'
+              }}
+            >
               <HelpCircle size={36} color="#f59e0b" style={{ margin: '0 auto 12px' }} />
               <h3 style={{ color: '#ffffff', fontSize: '1.2rem', marginBottom: '8px' }}>No Questions Found</h3>
               <p style={{ color: '#94a3b8', fontSize: '0.90rem', marginBottom: '20px' }}>
                 We couldn't find an FAQ matching "{searchQuery}". Feel free to speak directly with our structural engineering team.
               </p>
               <button
-                onClick={() => { setSearchQuery(''); setActiveCategory('All'); }}
+                onClick={() => { setSearchQuery(''); setActiveFaqCategory('All'); }}
                 className="btn btn-outline"
                 style={{ padding: '8px 20px', fontSize: '0.85rem' }}
               >
@@ -324,15 +1596,17 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <span style={{
-                        fontSize: '0.70rem',
-                        padding: '2px 8px',
-                        borderRadius: '4px',
-                        background: 'rgba(245, 158, 11, 0.12)',
-                        color: '#fbbf24',
-                        fontWeight: 700,
-                        whiteSpace: 'nowrap'
-                      }}>
+                      <span
+                        style={{
+                          fontSize: '0.70rem',
+                          padding: '2px 8px',
+                          borderRadius: '4px',
+                          background: 'rgba(245, 158, 11, 0.12)',
+                          color: '#fbbf24',
+                          fontWeight: 700,
+                          whiteSpace: 'nowrap'
+                        }}
+                      >
                         {faq.category}
                       </span>
                       <span>{faq.q}</span>
@@ -348,14 +1622,16 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     />
                   </button>
                   {openFaq === idx && (
-                    <div style={{
-                      padding: '0 22px 20px',
-                      color: '#cbd5e1',
-                      fontSize: '0.92rem',
-                      lineHeight: 1.7,
-                      borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-                      paddingTop: '14px'
-                    }}>
+                    <div
+                      style={{
+                        padding: '0 22px 20px',
+                        color: '#cbd5e1',
+                        fontSize: '0.92rem',
+                        lineHeight: 1.7,
+                        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                        paddingTop: '14px'
+                      }}
+                    >
                       {faq.a}
                     </div>
                   )}
@@ -366,60 +1642,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         </div>
       </section>
 
-      {/* ── Bottom Call To Action ── */}
-      <section style={{
-        padding: '54px 20px',
-        background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(2, 132, 199, 0.1) 100%)',
-        borderTop: '1px solid rgba(245, 158, 11, 0.25)',
-        textAlign: 'center'
-      }}>
-        <div className="container" style={{ maxWidth: '820px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '1.9rem', fontWeight: 800, color: '#ffffff', marginBottom: '12px' }}>
-            Still Have Questions or Need a Custom Quote?
-          </h2>
-          <p style={{ color: '#cbd5e1', fontSize: '0.98rem', marginBottom: '26px', lineHeight: 1.65 }}>
-            Connect directly with Er. Mukesh Singh (IIT Roorkee, Corporate Member IEI) and our senior engineering team for on-site measurement, design drawings, and stamped structural stability certification.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '14px' }}>
-            <button
-              onClick={() => onOpenQuote('Fabrication Services Inquiry', { department: 'fabrication' })}
-              className="btn btn-gold"
-              style={{ padding: '12px 28px', fontSize: '0.94rem' }}
-            >
-              <Wrench size={16} />
-              <span>Request Turnkey Quote</span>
-            </button>
-            <a
-              href="tel:+919158658885"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: '#ffffff',
-                color: '#0f172a',
-                padding: '12px 24px',
-                borderRadius: '8px',
-                fontSize: '0.94rem',
-                fontWeight: 700,
-                textDecoration: 'none'
-              }}
-            >
-              <PhoneCall size={16} color="#0f172a" />
-              <span>Call +91 91586 58885</span>
-            </a>
-            <a
-              href="https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20have%20a%20question%20regarding%20industrial%20fabrication%20and%20tin%20sheds."
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-whatsapp"
-              style={{ padding: '12px 24px', fontSize: '0.94rem' }}
-            >
-              <MessageSquare size={16} />
-              <span>WhatsApp Consultation</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Note: Per user instruction: "footer add mt krna already hi sb ddetails faq ke upr wala data only"
+          We deliberately do NOT render a duplicate footer here because the global App.jsx renders the universal Footer component! */}
     </div>
   );
 }
