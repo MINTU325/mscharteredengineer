@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   ArrowLeft,
   ChevronDown,
+  ChevronLeft,
   ChevronRight,
   PhoneCall,
   Phone,
@@ -30,6 +31,68 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
   const [activeFaqCategory, setActiveFaqCategory] = useState('All');
   const [activeGalleryFilter, setActiveGalleryFilter] = useState('All');
   const [selectedGalleryImage, setSelectedGalleryImage] = useState(null);
+  const [currentAboutSlide, setCurrentAboutSlide] = useState(0);
+  const [isSliderHovered, setIsSliderHovered] = useState(false);
+
+  const aboutSlides = [
+    {
+      image: '/mukesh-singh-founder.webp',
+      alt: 'Er. Mukesh Singh - IIT Roorkee, Chartered Engineer & Valuer',
+      badge: 'Lead Technical Director',
+      badgeColor: '#f59e0b',
+      title: 'Er. Mukesh Singh',
+      desc: 'B.Tech (IIT Roorkee), CE (India)'
+    },
+    {
+      image: '/fabrication/factory-tin-shed-peb-warehouse.jpg',
+      alt: 'Factory Tin Shed & PEB Warehouse',
+      badge: 'Turnkey Industrial Sheds',
+      badgeColor: '#38bdf8',
+      title: 'PEB Warehouses & Tin Sheds',
+      desc: 'JSW / Tata Bluescope Galvalume Roofing'
+    },
+    {
+      image: '/fabrication/structural-steel-tower-erection.jpg',
+      alt: 'On-site Structural Stability Audit',
+      badge: 'Engineering & Audit',
+      badgeColor: '#10b981',
+      title: 'Structural Stability Certification',
+      desc: '100% DISH & CEIG Regulatory Approvals'
+    },
+    {
+      image: '/fabrication/heavy-iron-fabrication-sliding-gate.jpg',
+      alt: 'Heavy Iron Fabrication & Sliding Gate',
+      badge: 'Heavy Metal Framing',
+      badgeColor: '#f97316',
+      title: 'Heavy Iron Gates & Platforms',
+      desc: 'Precision Sliding & Industrial Gantries'
+    },
+    {
+      image: '/fabrication/industrial-chimney-stack-fabrication.jpg',
+      alt: 'Industrial Steel Chimney Fabrication',
+      badge: 'Industrial Chimneys',
+      badgeColor: '#eab308',
+      title: 'Self-Supporting Steel Chimneys',
+      desc: 'IS 6533 Standard with CPCB Sampling Ports'
+    },
+    {
+      image: '/fabrication/architectural-glass-railing-facade.jpg',
+      alt: 'Architectural Glass & Railing Facade',
+      badge: 'Architectural Railings',
+      badgeColor: '#a855f7',
+      title: 'Toughened Glass & SS Works',
+      desc: 'SS 304/316 Balconies & Commercial Railings'
+    }
+  ];
+
+  // Auto-play slider effect (pauses on hover)
+  useEffect(() => {
+    if (isSliderHovered) return;
+    const interval = setInterval(() => {
+      setCurrentAboutSlide((prev) => (prev + 1) % aboutSlides.length);
+    }, 4200);
+    return () => clearInterval(interval);
+  }, [isSliderHovered, aboutSlides.length]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -540,57 +603,191 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               alignItems: 'center'
             }}
           >
-            {/* Left Side: Professional Engineer Image & Credentials */}
-            <div style={{ position: 'relative' }}>
+            {/* Left Side: Professional Engineer & Project Showcase Slider */}
+            <div
+              style={{ position: 'relative' }}
+              onMouseEnter={() => setIsSliderHovered(true)}
+              onMouseLeave={() => setIsSliderHovered(false)}
+            >
               <div
                 style={{
+                  position: 'relative',
                   borderRadius: '16px',
                   overflow: 'hidden',
+                  height: '440px',
                   boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                  background: 'linear-gradient(180deg, #0c4483 0%, #070d18 100%)',
-                  textAlign: 'center'
+                  border: '1px solid rgba(56, 189, 248, 0.35)',
+                  background: 'linear-gradient(180deg, #0c4483 0%, #070d18 100%)'
                 }}
               >
-                <img
-                  src="/mukesh-singh-founder.webp"
-                  alt="Er. Mukesh Singh - IIT Roorkee, Chartered Engineer & Valuer"
+                {/* Images with smooth fade & scale transitions */}
+                {aboutSlides.map((slide, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      opacity: currentAboutSlide === idx ? 1 : 0,
+                      transform: currentAboutSlide === idx ? 'scale(1)' : 'scale(1.04)',
+                      transition: 'opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s cubic-bezier(0.4, 0, 0.2, 1)',
+                      pointerEvents: currentAboutSlide === idx ? 'auto' : 'none'
+                    }}
+                  >
+                    <img
+                      src={slide.image}
+                      alt={slide.alt}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: idx === 0 ? 'top center' : 'center',
+                        display: 'block'
+                      }}
+                    />
+                    {/* Dark gradient for text legibility */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 40%, rgba(7, 13, 24, 0.8) 100%)'
+                      }}
+                    />
+                  </div>
+                ))}
+
+                {/* Left Arrow Button */}
+                <button
+                  type="button"
+                  onClick={() => setCurrentAboutSlide((prev) => (prev - 1 + aboutSlides.length) % aboutSlides.length)}
+                  aria-label="Previous Slide"
                   style={{
-                    width: '100%',
-                    height: '420px',
-                    objectFit: 'cover',
-                    objectPosition: 'top',
-                    display: 'block'
+                    position: 'absolute',
+                    left: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '50%',
+                    background: 'rgba(15, 23, 42, 0.75)',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    backdropFilter: 'blur(6px)',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.4)'
                   }}
-                  onError={(e) => {
-                    e.currentTarget.src = '/fabrication/structural-steel-tower-erection.jpg';
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#0c4483'; e.currentTarget.style.borderColor = '#38bdf8'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(15, 23, 42, 0.75)'; e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)'; }}
+                >
+                  <ChevronLeft size={20} />
+                </button>
+
+                {/* Right Arrow Button */}
+                <button
+                  type="button"
+                  onClick={() => setCurrentAboutSlide((prev) => (prev + 1) % aboutSlides.length)}
+                  aria-label="Next Slide"
+                  style={{
+                    position: 'absolute',
+                    right: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '50%',
+                    background: 'rgba(15, 23, 42, 0.75)',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    backdropFilter: 'blur(6px)',
+                    transition: 'all 0.2s ease',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.4)'
                   }}
-                />
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#0c4483'; e.currentTarget.style.borderColor = '#38bdf8'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(15, 23, 42, 0.75)'; e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)'; }}
+                >
+                  <ChevronRight size={20} />
+                </button>
+
+                {/* Dots indicator at the bottom center of the image */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '16px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    zIndex: 10,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: 'rgba(10, 16, 29, 0.75)',
+                    padding: '5px 12px',
+                    borderRadius: '20px',
+                    backdropFilter: 'blur(6px)'
+                  }}
+                >
+                  {aboutSlides.map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      type="button"
+                      onClick={() => setCurrentAboutSlide(dotIdx)}
+                      aria-label={`Go to slide ${dotIdx + 1}`}
+                      style={{
+                        width: currentAboutSlide === dotIdx ? '22px' : '7px',
+                        height: '7px',
+                        borderRadius: '4px',
+                        background: currentAboutSlide === dotIdx ? '#38bdf8' : 'rgba(255, 255, 255, 0.4)',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: 0,
+                        transition: 'all 0.3s ease'
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
 
-              {/* Floating Highlight Card */}
+              {/* Dynamic Floating Highlight Card */}
               <div
                 style={{
                   position: 'absolute',
-                  bottom: '-20px',
-                  right: '20px',
+                  bottom: '-22px',
+                  right: '18px',
+                  zIndex: 12,
                   background: 'rgba(12, 68, 131, 0.95)',
                   border: '1px solid rgba(56, 189, 248, 0.5)',
                   borderRadius: '12px',
-                  padding: '14px 20px',
+                  padding: '12px 18px',
                   backdropFilter: 'blur(10px)',
                   boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)',
-                  maxWidth: '260px'
+                  maxWidth: '280px',
+                  transition: 'all 0.3s ease'
                 }}
               >
-                <div style={{ fontSize: '0.72rem', color: '#f59e0b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                  Lead Technical Director
+                <div
+                  style={{
+                    fontSize: '0.70rem',
+                    color: aboutSlides[currentAboutSlide].badgeColor,
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em'
+                  }}
+                >
+                  {aboutSlides[currentAboutSlide].badge}
                 </div>
-                <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.96rem', marginTop: '2px' }}>
-                  Er. Mukesh Singh
+                <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.94rem', marginTop: '2px', lineHeight: 1.25 }}>
+                  {aboutSlides[currentAboutSlide].title}
                 </div>
-                <div style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
-                  B.Tech (IIT Roorkee), CE (India)
+                <div style={{ fontSize: '0.76rem', color: '#cbd5e1', marginTop: '2px' }}>
+                  {aboutSlides[currentAboutSlide].desc}
                 </div>
               </div>
             </div>
