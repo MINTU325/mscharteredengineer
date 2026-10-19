@@ -36,14 +36,6 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
 
   const aboutSlides = [
     {
-      image: '/mukesh-singh-founder.webp',
-      alt: 'Er. Mukesh Singh - IIT Roorkee, Chartered Engineer & Valuer',
-      badge: 'Lead Technical Director',
-      badgeColor: '#f59e0b',
-      title: 'Er. Mukesh Singh',
-      desc: 'B.Tech (IIT Roorkee), CE (India)'
-    },
-    {
       image: '/fabrication/factory-tin-shed-peb-warehouse.jpg',
       alt: 'Factory Tin Shed & PEB Warehouse',
       badge: 'Turnkey Industrial Sheds',
@@ -74,6 +66,14 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       badgeColor: '#eab308',
       title: 'Self-Supporting Steel Chimneys',
       desc: 'IS 6533 Standard with CPCB Sampling Ports'
+    },
+    {
+      image: '/fabrication/heavy-industrial-ducting-support.jpg',
+      alt: 'Heavy Industrial Ducting & Trestles',
+      badge: 'Industrial Ducting & Stacks',
+      badgeColor: '#38bdf8',
+      title: 'Boiler Flue Gas Ducting',
+      desc: 'High-Temperature Expansion Joints & Trestles'
     },
     {
       image: '/fabrication/architectural-glass-railing-facade.jpg',
@@ -640,7 +640,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
-                        objectPosition: idx === 0 ? 'top center' : 'center',
+                        objectPosition: 'center',
                         display: 'block'
                       }}
                     />
