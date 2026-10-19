@@ -274,7 +274,7 @@ export function detectDepartment(currentRoute, initialService, prefillData) {
   // 3. Check service name / prefill text keywords
   const textToSearch = `${initialService || ''} ${prefillData?.title || ''} ${prefillData?.category || ''}`.toLowerCase();
   
-  if (textToSearch.includes('fabrication') || textToSearch.includes('tin shed') || textToSearch.includes('iron') || textToSearch.includes('chimney') || textToSearch.includes('infosys') || textToSearch.includes('exhaust stack') || textToSearch.includes('peb shed') || textToSearch.includes('breeching') || textToSearch.includes('railing')) {
+  if (textToSearch.includes('fabrication') || textToSearch.includes('tin shed') || textToSearch.includes('iron') || textToSearch.includes('chimney') || textToSearch.includes('exhaust stack') || textToSearch.includes('peb shed') || textToSearch.includes('breeching') || textToSearch.includes('railing')) {
     return 'fabrication';
   }
   if (textToSearch.includes('electrical') || textToSearch.includes('substation') || textToSearch.includes('transformer') || textToSearch.includes('breaker') || textToSearch.includes('relay') || textToSearch.includes('earthing') || textToSearch.includes('switchgear')) {
