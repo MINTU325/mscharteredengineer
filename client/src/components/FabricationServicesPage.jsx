@@ -56,52 +56,52 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
     updateOrCreateMeta('og:url', 'https://www.mscharteredengineer.com/fabrication-services', true);
   }, []);
 
-  // Real completed project images uploaded by client
+  // Real completed project images uploaded by client — Chimney Fabrication at Infosys Jaipur
   const realProjects = [
     {
       id: 'proj-1',
-      title: '30m Self-Supporting Industrial Chimney & Exhaust Stack',
-      category: 'Heavy Industrial Fabrication',
-      tag: 'COMPLETED & ERECTED',
+      title: 'Chimney Stack Shell Assembly & Crane Erection — Infosys Jaipur',
+      category: 'Infosys Jaipur • Heavy Chimney Stack',
+      tag: 'INFOSYS JAIPUR • COMPLETED',
       src: '/fabrication/industrial-chimney-stack-fabrication.jpg',
-      specs: 'IS 2062 Grade Steel • 30m Height • Flange Jointed • Heat-Resistant Coating',
-      desc: 'Complete turnkey fabrication and crane erection of a self-supporting heavy steel exhaust chimney with aerodynamic structural scaffolding, foundation anchor cage, and CEIG/Pollution Control Board compliant sampling ports.'
+      specs: '30m Self-Supporting Stack • IS 2062 Steel • Heavy Crane Rigging',
+      desc: 'Complete turnkey fabrication and vertical crane-assisted erection of the 30-meter high self-supporting steel chimney stack at Infosys campus, Mahindra World City, Jaipur. Fabricated from certified IS 2062 heavy mild steel plates with wind oscillation damping.'
     },
     {
       id: 'proj-2',
-      title: 'Structural Steel Tower Framework & Safety Cage Ladder',
-      category: 'Structural Tower & Access',
-      tag: 'ERECTION ON-SITE',
+      title: 'Structural Scaffolding Tower & Rigging Erection — Infosys Jaipur',
+      category: 'Infosys Jaipur • Tower Framework',
+      tag: 'INFOSYS JAIPUR • ON-SITE ERECTION',
       src: '/fabrication/structural-steel-tower-erection.jpg',
-      specs: 'Lattice Structural Frame • Safety Caged Ladder • Rest Platforms • High-Tensile Bolted',
-      desc: 'Heavy-duty structural lattice tower engineered for extreme wind resistance, featuring vertical safety-caged inspection ladders, intermediate rest landings, and rigid tie-backs to plant building.'
+      specs: 'Modular Tubular Scaffolding • Wind-Braced Lattice Tower • Safety Caged Rigging',
+      desc: 'Erection of the multi-tier heavy modular scaffolding tower surrounding the chimney stack at Infosys Jaipur. Provided continuous wind-braced access for high-altitude welding, NDT weld radiography, thermal insulation, and multi-coat protective painting.'
     },
     {
       id: 'proj-3',
-      title: 'Industrial Flue Gas Ducting & Steel Support Gantry',
-      category: 'Industrial Ducting & Piping',
-      tag: 'PLANT INFRASTRUCTURE',
+      title: 'Industrial Flue Gas Ducting & Transition Breeching — Infosys Jaipur',
+      category: 'Infosys Jaipur • Breeching & Ducting',
+      tag: 'INFOSYS JAIPUR • DUCTING INFRASTRUCTURE',
       src: '/fabrication/heavy-industrial-ducting-support.jpg',
-      specs: 'Large-Bore Mild Steel • Expansion Bellows • Heavy Gantry Beams • Damper Housing',
-      desc: 'Fabrication and leak-proof welding of large diameter flue gas breeching ducting connecting factory boilers and emission control units to vertical stack on heavy structural steel trestles.'
+      specs: 'Large-Bore Mild Steel Ducting • Heavy Support Trestles • Flexible Expansion Bellows',
+      desc: 'Fabrication and leak-proof on-site welding of large-bore flue gas transition breeching ducting connecting factory exhaust systems to the vertical chimney stack on heavy structural steel trestle supports at Infosys Jaipur.'
     },
     {
       id: 'proj-4',
-      title: 'Circular Inspection Walkways & Spiral Staircase Gallery',
-      category: 'Platforms & Safety Gallerias',
-      tag: 'TURNKEY SAFETY',
+      title: 'Caged Spiral Ladder & 360° Inspection Gallery — Infosys Jaipur',
+      category: 'Infosys Jaipur • Access & Safety Gallery',
+      tag: 'INFOSYS JAIPUR • TURNKEY SAFETY',
       src: '/fabrication/spiral-ladder-inspection-platform.jpg',
-      specs: '360° Circular Platform • Anti-Skid Chequered Grating • Continuous Handrails',
-      desc: 'Precision curved circular service galleries and access platforms engineered as per OSHA & Indian Factory Rules for maintenance staff, emission sampling, and structural monitoring.'
+      specs: 'Full-Height Caged Ladder • 360° Circular Maintenance Platform • Anti-Skid Grating',
+      desc: 'Precision curved circular inspection gallery and safety-caged spiral ladder fabricated and installed on the Infosys Jaipur chimney stack for mandatory CPCB/RSPCB environmental emission sampling and routine structural monitoring.'
     },
     {
       id: 'proj-5',
-      title: 'Heavy Base Ring Flange, Anchoring & Cleanout Manhole',
-      category: 'Foundation & Breeching',
-      tag: 'HEAVY ENGINEERING',
+      title: 'Heavy Boiler Stack Base Ring & Foundation Anchor Assembly — Infosys Jaipur',
+      category: 'Infosys Jaipur • Foundation & Base Ring',
+      tag: 'INFOSYS JAIPUR • HEAVY ENGINEERING',
       src: '/fabrication/boiler-stack-foundation-base.jpg',
-      specs: '28mm Gusseted Base Flange • High-Tensile Anchor Studs • Bolted Cleanout Door',
-      desc: 'Heavy-gauge reinforced base ring with radial stiffener gussets anchored onto RCC foundation block, featuring industrial access manhole with high-temperature gasket seal.'
+      specs: '28mm Stiffened Base Flange • High-Tensile Anchor Studs • Cleanout Manhole Door',
+      desc: 'Heavy-gauge CNC drilled reinforced base ring with radial stiffener gussets, anchored securely onto the reinforced concrete foundation at Infosys Jaipur, complete with an airtight bolted cleanout manhole door.'
     }
   ];
 
@@ -357,33 +357,513 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               <span>WhatsApp Chief Engineer</span>
             </a>
           </div>
+
+          {/* Quick Category Anchors */}
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '22px' }}>
+            <a href="#iron-fabrication-work" style={{ background: 'rgba(245, 158, 11, 0.12)', border: '1px solid rgba(245, 158, 11, 0.35)', color: '#fbbf24', padding: '6px 16px', borderRadius: '20px', fontSize: '0.80rem', textDecoration: 'none', fontWeight: 700 }}>
+              ⚙️ Iron Fabrication Work
+            </a>
+            <a href="#tin-shed-fabrication-work" style={{ background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.35)', color: '#38bdf8', padding: '6px 16px', borderRadius: '20px', fontSize: '0.80rem', textDecoration: 'none', fontWeight: 700 }}>
+              🏭 Tin Shed Fabrication Work
+            </a>
+            <a href="#infosys-jaipur-chimney" style={{ background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.35)', color: '#34d399', padding: '6px 16px', borderRadius: '20px', fontSize: '0.80rem', textDecoration: 'none', fontWeight: 700 }}>
+              📸 Chimney Fabrication — Infosys Jaipur
+            </a>
+            <a href="#architectural-fabrication" style={{ background: 'rgba(168, 85, 247, 0.12)', border: '1px solid rgba(168, 85, 247, 0.35)', color: '#c084fc', padding: '6px 16px', borderRadius: '20px', fontSize: '0.80rem', textDecoration: 'none', fontWeight: 700 }}>
+              ✨ Glass &amp; Aluminium Railings
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ── Featured On-Site Completed Projects Gallery ── */}
-      <section id="project-gallery" style={{ padding: '64px 20px 50px', background: '#0a1220' }}>
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          TOP SECTION 1: IRON FABRICATION WORK
+          Dedicated Heavy Structural MS & Iron Engineering
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section id="iron-fabrication-work" style={{ padding: '68px 20px', background: '#08101d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '1220px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          
+          <div style={{ textAlign: 'center', marginBottom: '38px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
+              background: 'rgba(245, 158, 11, 0.12)',
+              border: '1px solid rgba(245, 158, 11, 0.35)',
+              borderRadius: '9999px',
+              padding: '5px 16px',
+              color: '#fbbf24',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              marginBottom: '12px'
+            }}>
+              <Wrench size={14} color="#f59e0b" />
+              <span>Heavy Structural MS &amp; Iron Fabrication Division</span>
+            </div>
+            <h2 style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', fontWeight: 800, color: '#ffffff', margin: '0 0 12px' }}>
+              Iron Fabrication Work
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '1rem', maxWidth: '840px', margin: '0 auto', lineHeight: 1.65 }}>
+              Heavy-duty mild steel (MS) and industrial iron fabrication designed for factories, warehouses, commercial complexes, and plant infrastructure across Jaipur and Rajasthan. Built with certified <strong>IS 2062 Grade steel</strong>, deep penetration MIG welding, and high-durability anti-corrosion coating.
+            </p>
+          </div>
+
+          {/* 6 Capabilities Cards Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '20px',
+            marginBottom: '32px'
+          }}>
+            {[
+              {
+                title: 'Motorized Heavy Industrial Sliding & Cantilever Gates',
+                specs: 'Heavy MS Box Sections • Heavy Duty Bearings • Automated Rack & Pinion',
+                desc: 'Custom-built heavy factory boundary gates, cantilever sliding gates without bottom tracks, and telescopic multi-panel sliding gates equipped with remote-controlled heavy gear motors for intense industrial traffic.',
+                points: ['Span capabilities up to 40+ feet', 'High-torque Italian/Indian motor automation', 'Anti-climb spike crests & laser-cut panels']
+              },
+              {
+                title: 'Heavy Duty Industrial Rolling Shutters',
+                specs: '18/20 Gauge Cold-Rolled MS Slats • Heavy Side Guides • Wind Locks',
+                desc: 'Motorized and mechanical gear-operated heavy-gauge industrial rolling shutters designed for factory loading bays, godowns, aircraft hangars, and commercial warehouses subjected to high wind pressures.',
+                points: ['Push-button / wireless remote operation', 'Manual chain override for power cut situations', 'Storm-resistant interlocked slats']
+              },
+              {
+                title: 'Structural Steel Mezzanine Floors & Catwalks',
+                specs: 'IS 2062 Heavy I-Beams • C-Purlins • 3mm–5mm Chequered Plates',
+                desc: 'Turnkey structural steel mezzanine floors engineered to double usable storage and office floor space within existing factory sheds without requiring foundation modifications.',
+                points: ['Load capacities from 500 kg/m² to 2,000 kg/m²', 'Heavy MS boundary railings & kickplates', 'IIT Roorkee structural stability certificate']
+              },
+              {
+                title: 'Emergency Fire Escape & Spiral Steel Staircases',
+                specs: 'Heavy Duty 50mm OD Handrails • Anti-Skid Serrated Treads • Multi-Tier',
+                desc: 'Precision fabricated external fire escape stairwells, circular spiral access staircases, and vertical safety-caged escape ladders complying with National Building Code (NBC) and Rajasthan Factory Safety Rules.',
+                points: ['Full-height safety fall protection cages', 'Laser cut non-slip serrated step treads', 'Zinc-chromate anti-rust primer finish']
+              },
+              {
+                title: 'Overhead Crane Gantry Girders & Monorails',
+                specs: 'Plate Fabricated Built-Up Beams • Column Brackets • Precision Crane Rails',
+                desc: 'Heavy structural gantry girders and runway monorail beams engineered to support Electric Overhead Travelling (EOT) cranes with laser-aligned rails and ultrasonic tested weld joints.',
+                points: ['Load capacities from 3 MT to 35 MT', 'Strict deflection control adhering to IS 800', '100% UT / DPT weld seam testing']
+              },
+              {
+                title: 'Heavy Machine Base Frames & Equipment Skids',
+                specs: 'Heavy Channel / H-Beam Sections • Machined Mounting Pads • Leveling Studs',
+                desc: 'Vibration-isolated structural steel bedplates, equipment skids, and base frames for diesel generators, industrial air compressors, hydraulic power packs, pumps, and heavy stamping presses.',
+                points: ['Stress-relieved weld structures', 'CNC drilled anchor bolt holes', 'Anti-vibration neoprene pad integration']
+              }
+            ].map((card, idx) => (
+              <div
+                key={idx}
+                style={{
+                  background: 'rgba(15, 23, 42, 0.9)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderTop: '3px solid #f59e0b',
+                  borderRadius: '14px',
+                  padding: '24px 22px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+                  transition: 'transform 0.2s ease, border-color 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.borderTopColor = '#f59e0b';
+                }}
+              >
+                <div>
+                  <h3 style={{ fontSize: '1.14rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.35, marginBottom: '8px' }}>
+                    {card.title}
+                  </h3>
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'rgba(245, 158, 11, 0.12)',
+                    color: '#fbbf24',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    padding: '3px 8px',
+                    borderRadius: '4px',
+                    marginBottom: '10px'
+                  }}>
+                    ⚙️ {card.specs}
+                  </div>
+                  <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.6, marginBottom: '14px' }}>
+                    {card.desc}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {card.points.map((pt, pIdx) => (
+                      <div key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.80rem', color: '#cbd5e1' }}>
+                        <CheckCircle2 size={13} color="#10b981" style={{ flexShrink: 0 }} />
+                        <span>{pt}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ marginTop: '18px', paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.74rem', color: '#10b981', fontWeight: 600 }}>
+                    ✓ Custom Shop Fabrication
+                  </span>
+                  <button
+                    onClick={() => onOpenQuote(card.title, { department: 'fabrication', shortDesc: `Inquiry for ${card.title}` })}
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      color: '#f59e0b',
+                      fontWeight: 700,
+                      fontSize: '0.82rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
+                  >
+                    <span>Inquire</span>
+                    <ArrowRight size={13} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Technical Specs Strip + CTA */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(15, 23, 42, 0.95) 100%)',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+            borderRadius: '14px',
+            padding: '20px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '16px'
+          }}>
+            <div>
+              <div style={{ fontSize: '0.76rem', color: '#fbbf24', textTransform: 'uppercase', fontWeight: 800 }}>
+                Fabrication Standards
+              </div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', marginTop: '2px' }}>
+                IS 2062 Grade Steel • AWS D1.1 Welding • Multi-Coat Anti-Corrosive Finish
+              </div>
+              <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>
+                Complete measurement, shop fabrication, and on-site crane erection across Rajasthan.
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => onOpenQuote('Iron Fabrication Work', { department: 'fabrication', shortDesc: 'Inquiry for custom heavy iron & MS fabrication work' })}
+                className="btn btn-gold"
+                style={{ padding: '10px 22px', fontSize: '0.88rem' }}
+              >
+                <Wrench size={14} />
+                <span>Request Iron Fabrication Quote</span>
+              </button>
+              <a
+                href="tel:+919158658885"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: '#ffffff',
+                  padding: '10px 18px',
+                  borderRadius: '6px',
+                  fontSize: '0.88rem',
+                  fontWeight: 600,
+                  textDecoration: 'none'
+                }}
+              >
+                <PhoneCall size={14} color="#10b981" />
+                <span>Call Iron Specialist</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          TOP SECTION 2: TIN SHED FABRICATION WORK
+          Dedicated Industrial Factory Roofing & PEB Warehouses
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section id="tin-shed-fabrication-work" style={{ padding: '68px 20px', background: '#050b14', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '1220px', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', marginBottom: '38px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'rgba(56, 189, 248, 0.12)',
+              border: '1px solid rgba(56, 189, 248, 0.35)',
+              borderRadius: '9999px',
+              padding: '5px 16px',
               color: '#38bdf8',
               fontSize: '0.78rem',
               fontWeight: 800,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
-              marginBottom: '10px'
+              marginBottom: '12px'
             }}>
-              <Award size={14} color="#38bdf8" />
-              <span>Proof of Precision Execution</span>
+              <Building2 size={14} color="#38bdf8" />
+              <span>Factory Roofing &amp; PEB Warehouse Division</span>
             </div>
-            <h2 style={{ fontSize: '2.1rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>
-              Recent Industrial Projects Executed On-Site
+            <h2 style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', fontWeight: 800, color: '#ffffff', margin: '0 0 12px' }}>
+              Tin Shed Fabrication Work
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '0.96rem', maxWidth: '720px', margin: '10px auto 0' }}>
-              Real photographic evidence of industrial chimney fabrication, 30m tower scaffolding erection, boiler breeching ducting, and circular inspection galleries executed by our team.
+            <p style={{ color: '#94a3b8', fontSize: '1rem', maxWidth: '840px', margin: '0 auto', lineHeight: 1.65 }}>
+              Turnkey structural engineering, truss fabrication, and crane erection of industrial factory tin sheds, Pre-Engineered Buildings (PEB), godowns, and warehouse roofing across Jaipur, Sitapura, Vishwakarma, and RIICO industrial corridors.
             </p>
+          </div>
+
+          {/* 6 Capabilities Cards Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '20px',
+            marginBottom: '32px'
+          }}>
+            {[
+              {
+                title: 'Factory Tin Sheds with Tubular & Angle Trusses',
+                specs: 'Circular Hollow Sections (CHS) • SHS/RHS Pipes • Angle Iron Trusses',
+                desc: 'Turnkey factory tin shed fabrication featuring high strength-to-weight tubular pipe trusses, heavy built-up columns, sag rods, and C/Z purlins engineered for quick on-site erection and maximum head clearance.',
+                points: ['Clear spans from 15m to 40m without center pillars', 'Optimum weight optimization reduces steel costs', 'Hot-applied anti-corrosive zinc-chromate primer']
+              },
+              {
+                title: 'PEB (Pre-Engineered Building) Clear-Span Warehouses',
+                specs: 'Tapered H-Columns • Built-Up Rafters • High-Tensile Grade 50 Steel',
+                desc: 'Complete pre-engineered industrial steel buildings engineered with tapered portal frames for maximum internal usable area. Ideal for manufacturing plants, e-commerce fulfillment centers, and cold storages.',
+                points: ['Up to 50m clear span without obstructing columns', '100% bolted field connections for rapid assembly', '30% faster project delivery than conventional sheds']
+              },
+              {
+                title: 'Color-Coated Galvalume & Zincalume Roofing Sheets',
+                specs: 'Tata Bluescope / JSW Steel • 0.45mm–0.50mm TCT • AZ150 Coating',
+                desc: 'High-tensile 550 MPa profiling roofing sheets offering unmatched thermal reflectivity, aesthetic durability, and corrosion resistance. Available in multiple industrial color profiles.',
+                points: ['15–20 years warranty against corrosion perforation', 'Specialized silicon-coated EPDM self-drilling screws', 'High thermal barrier reduces indoor heat buildup']
+              },
+              {
+                title: 'Curved Arch Sheds & Self-Supported Profile Roofing',
+                specs: 'Truss-Less Curved Profile • Zero Intermediate Support • 100% Leak-Proof',
+                desc: 'Aesthetic arch-curved industrial sheds and self-supported corrugated profile roofing systems. Eliminates internal trusses and purlins to create unobstructed vertical clearance for cranes and storage racks.',
+                points: ['Zero bird-perching trusses for hygienic food/grain godowns', 'Continuous mechanically seamed water-tight joints', 'Virtually zero maintenance over decades']
+              },
+              {
+                title: 'Industrial Ventilation, Skylights & Turbo Ventilators',
+                specs: '21"/24" SS 304 Turbo Air Vents • 2mm–3mm Polycarbonate Skylights',
+                desc: 'Natural daylighting and round-the-clock air ventilation engineering using wind-driven stainless steel turbo ventilators and UV-coated multiwall polycarbonate skylight strips.',
+                points: ['Cuts daytime factory lighting electricity costs by 60%+', 'Continuous exhaust of heat, fumes, and humidity without power', 'Bird-proof and rain-proof self-lubricating rotor design']
+              },
+              {
+                title: 'Rainwater Gutters, Flashing & Eave Drainage Systems',
+                specs: 'Seamless Color-Coated / GI Gutters • Heavy Brackets • Heavy Downpipes',
+                desc: 'Engineered heavy-gauge rainwater drainage systems designed to handle torrential desert monsoons without overflowing into factory floors or wetting stored raw materials.',
+                points: ['High-capacity profile prevents water backup and splashing', 'Heavy 1.2mm powder-coated gutter support brackets', 'Custom eaves flashing, ridge capping, and corner trims']
+              }
+            ].map((card, idx) => (
+              <div
+                key={idx}
+                style={{
+                  background: 'rgba(15, 23, 42, 0.9)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderTop: '3px solid #38bdf8',
+                  borderRadius: '14px',
+                  padding: '24px 22px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.35)',
+                  transition: 'transform 0.2s ease, border-color 0.2s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  e.currentTarget.style.borderTopColor = '#38bdf8';
+                }}
+              >
+                <div>
+                  <h3 style={{ fontSize: '1.14rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.35, marginBottom: '8px' }}>
+                    {card.title}
+                  </h3>
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'rgba(56, 189, 248, 0.12)',
+                    color: '#38bdf8',
+                    fontSize: '0.72rem',
+                    fontWeight: 700,
+                    padding: '3px 8px',
+                    borderRadius: '4px',
+                    marginBottom: '10px'
+                  }}>
+                    🏭 {card.specs}
+                  </div>
+                  <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.6, marginBottom: '14px' }}>
+                    {card.desc}
+                  </p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {card.points.map((pt, pIdx) => (
+                      <div key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.80rem', color: '#cbd5e1' }}>
+                        <CheckCircle2 size={13} color="#10b981" style={{ flexShrink: 0 }} />
+                        <span>{pt}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ marginTop: '18px', paddingTop: '12px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.74rem', color: '#10b981', fontWeight: 600 }}>
+                    ✓ 15–25 Days Fast Erection
+                  </span>
+                  <button
+                    onClick={() => onOpenQuote(card.title, { department: 'fabrication', shortDesc: `Inquiry for ${card.title}` })}
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      color: '#38bdf8',
+                      fontWeight: 700,
+                      fontSize: '0.82rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px'
+                    }}
+                  >
+                    <span>Inquire</span>
+                    <ArrowRight size={13} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Technical Specs Strip + CTA */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(15, 23, 42, 0.95) 100%)',
+            border: '1px solid rgba(56, 189, 248, 0.3)',
+            borderRadius: '14px',
+            padding: '20px 24px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '16px'
+          }}>
+            <div>
+              <div style={{ fontSize: '0.76rem', color: '#38bdf8', textTransform: 'uppercase', fontWeight: 800 }}>
+                Structural Stability Assurance
+              </div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', marginTop: '2px' }}>
+                IS 875 Wind Code Compliant • 100% Water-Tight • Stamped Chartered Engineer Stability Certificate
+              </div>
+              <div style={{ fontSize: '0.82rem', color: '#94a3b8' }}>
+                Includes foundation anchor bolt layout, structural 3D CAD modeling, and factory inspectorate documentation.
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => onOpenQuote('Tin Shed Fabrication Work', { department: 'fabrication', shortDesc: 'Inquiry for factory tin shed / PEB warehouse fabrication' })}
+                className="btn btn-gold"
+                style={{ padding: '10px 22px', fontSize: '0.88rem' }}
+              >
+                <Building2 size={14} />
+                <span>Request Tin Shed Estimation</span>
+              </button>
+              <a
+                href="https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20need%20a%20quotation%20for%20Factory%20Tin%20Shed%20Fabrication."
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-whatsapp"
+                style={{ padding: '10px 18px', fontSize: '0.88rem' }}
+              >
+                <MessageSquare size={14} />
+                <span>WhatsApp Shed Specialist</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          PROJECT SHOWCASE: CHIMNEY FABRICATION — INFOSYS JAIPUR
+          Real On-Site Completed Work Gallery
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section id="infosys-jaipur-chimney" style={{ padding: '68px 20px 50px', background: '#0a1220' }}>
+        <div className="container" style={{ maxWidth: '1220px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'rgba(16, 185, 129, 0.12)',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              borderRadius: '9999px',
+              padding: '5px 16px',
+              color: '#34d399',
+              fontSize: '0.78rem',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              marginBottom: '12px'
+            }}>
+              <Award size={14} color="#10b981" />
+              <span>Proof of Precision Execution • On-Site Showcase</span>
+            </div>
+            <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 2.7rem)', fontWeight: 800, color: '#ffffff', margin: '0 0 12px' }}>
+              Chimney Fabrication — Infosys, Jaipur
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '1rem', maxWidth: '840px', margin: '0 auto', lineHeight: 1.65 }}>
+              Real on-site photographic evidence of the heavy industrial chimney fabrication, 30m modular tower scaffolding erection, boiler breeching ducting, 360° inspection galleries, and precision foundation base ring executed for the <strong>Infosys campus, Mahindra World City, Jaipur</strong>.
+            </p>
+          </div>
+
+          {/* Infosys Project Specification Banner */}
+          <div style={{
+            background: 'rgba(15, 23, 42, 0.95)',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+            borderRadius: '16px',
+            padding: '20px 24px',
+            marginBottom: '32px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: '16px',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.4)'
+          }}>
+            <div>
+              <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Client &amp; Site Location</div>
+              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#ffffff', marginTop: '2px' }}>Infosys Limited, Jaipur</div>
+              <div style={{ fontSize: '0.78rem', color: '#fbbf24' }}>Mahindra World City SEZ, Rajasthan</div>
+            </div>
+            <div>
+              <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Structure Type</div>
+              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#38bdf8', marginTop: '2px' }}>30m Industrial Steel Chimney</div>
+              <div style={{ fontSize: '0.78rem', color: '#cbd5e1' }}>Self-Supporting Flanged Stack</div>
+            </div>
+            <div>
+              <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Engineering Standards</div>
+              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#10b981', marginTop: '2px' }}>IS 6533 &amp; AWS D1.1</div>
+              <div style={{ fontSize: '0.78rem', color: '#cbd5e1' }}>CPCB Sampling Compliant</div>
+            </div>
+            <div>
+              <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 700 }}>Execution Scope</div>
+              <div style={{ fontSize: '1rem', fontWeight: 800, color: '#e2e8f0', marginTop: '2px' }}>Turnkey Fabrication &amp; Erection</div>
+              <div style={{ fontSize: '0.78rem', color: '#fbbf24' }}>Supervised by IIT Roorkee Engineers</div>
+            </div>
           </div>
 
           <div style={{
@@ -523,7 +1003,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       </section>
 
       {/* ── 4 Core Fabrication Divisions ── */}
-      <section style={{ padding: '64px 20px', background: '#070d18' }}>
+      <section id="architectural-fabrication" style={{ padding: '64px 20px', background: '#070d18' }}>
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '36px' }}>
             <div style={{
