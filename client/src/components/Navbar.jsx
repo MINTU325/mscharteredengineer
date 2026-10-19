@@ -135,9 +135,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <Phone size={14} color="#10b981" />
               <span>+91 91586 58885</span>
             </a>
-            <a href="mailto:info@mscharteredengineer.com" className="top-bar-item">
+            <a href="mailto:ms.charteredengineer@gmail.com" className="top-bar-item">
               <Mail size={14} color="#38bdf8" />
-              <span>info@mscharteredengineer.com</span>
+              <span>ms.charteredengineer@gmail.com</span>
             </a>
             <a 
               href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" 
