@@ -28,7 +28,8 @@ import {
   HelpCircle,
   Smartphone,
   ExternalLink,
-  Coins
+  Coins,
+  Wrench
 } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 import LanguageToggle from './LanguageToggle';
@@ -258,9 +259,19 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                       <div className="dropdown-item-desc">Testing, Transformers, Panels, HT/LT &amp; AMC</div>
                     </div>
                   </a>
+                  <a href="/fabrication-services" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Wrench size={16} color="#f97316" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#f97316', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span>Fabrication &amp; Tin Shed Works</span>
+                        <span className="nav-tag-badge" style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>NEW</span>
+                      </div>
+                      <div className="dropdown-item-desc">Industrial Chimneys, Tin Sheds, MS &amp; Glass Railings</div>
+                    </div>
+                  </a>
                   <div className="dropdown-divider" />
                   <a href="/services" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
-                    <span>Explore All 12 Statutory Services</span>
+                    <span>Explore All 15 Engineering Services</span>
                     <ArrowRight size={13} />
                   </a>
                 </div>
@@ -481,7 +492,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           <div style={{ padding: '4px 14px', fontSize: '0.72rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Core Engineering &amp; Valuation
           </div>
-          <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 12 Valuation Services</a>
+          <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>
+          <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication, Tin Shed &amp; Iron Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical, Testing &amp; Substation <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 E-Waste Annual Return &amp; EPR</a>
           <a href="/process" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>

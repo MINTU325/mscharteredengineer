@@ -145,6 +145,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/fssai', label: 'FSSAI Compliance' },
                 { href: '/e-waste-annual-return-filing', label: 'E-Waste EPR Return' },
                 { href: '/electrical-services', label: 'Electrical & Substation' },
+                { href: '/fabrication-services', label: 'Fabrication & Tin Shed' },
                 { href: '/autocad-drafting', label: 'AutoCAD 2D Drafting' },
                 { href: '/advisory', label: 'IndAS 16 Advisory' },
                 { href: '/calculator', label: 'Valuation Calculator' },
@@ -164,7 +165,7 @@ export default function Footer({ onOpenQuote }) {
             </div>
             <div style={{ marginTop: '12px', paddingTop: '10px', borderTop: '1px dashed rgba(255,255,255,0.07)', display: 'flex', gap: '16px' }}>
               <a href="/services" style={{ color: '#fbbf24', fontSize: '0.80rem', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                All 13 Services <ArrowRight size={12} />
+                All 15 Practice Areas <ArrowRight size={12} />
               </a>
               <a href="/faq" style={{ color: '#38bdf8', fontSize: '0.80rem', fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                 FAQ <ArrowRight size={12} />

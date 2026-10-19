@@ -26,6 +26,8 @@ import {
   FileSpreadsheet,
   Compass,
   FlaskConical,
+  Hammer,
+  Factory,
 } from 'lucide-react';
 
 const servicesData = [
@@ -377,10 +379,42 @@ const servicesData = [
     highlight:
       'Unbiased, comprehensive engineering inspection reports with high-resolution photographic evidence and statutory engineer seal.',
   },
+  {
+    id: '15',
+    code: 'fabrication-services',
+    title: 'Industrial Fabrication, Tin Shed & Iron Works',
+    category: 'Industrial, Safety & Energy',
+    icon: Hammer,
+    badgeColor: '#f59e0b',
+    turnaround: 'Turnkey Supply & Erection',
+    acceptedBy: 'Factories, Industrial Plants, Warehouses & Commercial Buildings',
+    description:
+      'Certified engineering fabrication, precision welding, and turnkey on-site erection: Self-supporting industrial steel chimneys & boiler exhaust stacks, factory tin sheds, PEB industrial warehouses, heavy iron fabrication, and architectural metal/glass railing solutions.',
+    deliverables: [
+      'Industrial Steel Chimneys & Boiler Exhaust Stacks (Self-Supporting / Guyed, 15m to 45m+)',
+      'Factory Tin Shed & PEB Industrial Warehouse Fabrication (Tata Bluescope / JSW Sheeting)',
+      'Heavy Iron Fabrication Work — Motorized Industrial Sliding Gates, Shutters & Security Grills',
+      'Flue Gas Ducting, Industrial Breeching, Silencers & Heavy Process Piping Networks',
+      'Structural Steel Framework, Overhead Crane Gantry Girders & Mezzanine Floors',
+      'Circular Walkway Platforms, Caged Ladders & Spiral Fire Escape Staircases',
+      'Stainless Steel (SS 304/316) & Toughened Glass Balcony / Staircase Railings',
+      'Aluminium Architectural Glazing, Structural Facades & Soundproof UPVC Partitions',
+      'High-Tensile Invisible Safety Grills & Retractable Insect Screen Solutions',
+    ],
+    documents: [
+      'Architectural Site Layout / Structural General Arrangement (GA) Drawing',
+      'Required Shed Dimensions / Chimney Height & Diameter Specifications',
+      'Site Location, Soil Bearing Condition & Electrical Power Availability',
+      'Material Grade & Coating Preferences (IS 2062 MS, SS 304, Galvanized)',
+    ],
+    highlight:
+      'Designed and supervised by IIT Roorkee structural engineers with full AWS D1.1 certified welding and stamped stability certification.',
+  },
 ];
 
 // Quick search suggestion chips
 const QUICK_SUGGESTIONS = [
+  { label: 'Fabrication & Tin Shed', query: 'Fabrication', icon: '🏗️' },
   { label: 'AutoCAD Drafting', query: 'AutoCAD', icon: '📐' },
   { label: 'Third-Party Inspection', query: 'Inspection', icon: '⚗️' },
   { label: 'Property Valuation', query: 'Property', icon: '🏢' },
@@ -741,6 +775,14 @@ export default function ServicesGrid({ onOpenQuote }) {
                     <span id="audit-inspection" style={{ position: 'absolute', top: '-85px' }} />
                   </>
                 )}
+                {service.code === 'fabrication-services' && (
+                  <>
+                    <span id="fabrication" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="tin-shed" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="iron-fabrication" style={{ position: 'absolute', top: '-85px' }} />
+                    <span id="tin-shed-fabrication" style={{ position: 'absolute', top: '-85px' }} />
+                  </>
+                )}
 
                 <div>
                   {/* Card Header: Icon + Number */}
@@ -934,8 +976,34 @@ export default function ServicesGrid({ onOpenQuote }) {
 
                 {/* Card Footer */}
                 <div style={{ marginTop: '18px' }}>
+                  {service.code === 'fabrication-services' && (
+                    <a
+                      href="/fabrication-services"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '6px',
+                        background: 'rgba(245, 158, 11, 0.12)',
+                        border: '1px solid rgba(245, 158, 11, 0.4)',
+                        color: '#fbbf24',
+                        padding: '9px 14px',
+                        borderRadius: 'var(--radius-md)',
+                        fontSize: '0.84rem',
+                        fontWeight: 700,
+                        textDecoration: 'none',
+                        marginBottom: '10px',
+                        transition: 'all 0.2s ease'
+                      }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(245, 158, 11, 0.22)'; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(245, 158, 11, 0.12)'; }}
+                    >
+                      <Eye size={15} />
+                      <span>View Real Completed Work &amp; Gallery</span>
+                    </a>
+                  )}
                   <button
-                    onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
+                    onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround, department: 'fabrication' })}
                     className="service-request-btn"
                     title={`Request Quote and fill inquiry for ${service.title}`}
                     type="button"

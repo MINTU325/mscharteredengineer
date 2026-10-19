@@ -64,7 +64,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
             marginBottom: '8px'
           }}>
             <Sparkles size={14} />
-            <span>12 STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
+            <span>15 STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
           </div>
 
           <h2 style={{
@@ -198,10 +198,10 @@ export default function ServicesTeaser({ onOpenQuote }) {
         }}>
           <div style={{ textAlign: 'left', maxWidth: '620px' }}>
             <h4 style={{ fontSize: '1.2rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
-              Explore All 13 Statutory &amp; Engineering Practice Areas
+              Explore All 15 Statutory &amp; Engineering Practice Areas
             </h4>
             <p style={{ fontSize: '0.88rem', color: '#cbd5e1', margin: 0 }}>
-              Including AutoCAD 2D Electrical Drafting, Plant &amp; Machinery, IBC/NCLT, Industrial Safety &amp; Boilers, CEIG Solar Approvals, and FSSAI Compliance.
+              Including Industrial Fabrication &amp; Tin Sheds, Electrical Substations, AutoCAD 2D Drafting, Plant &amp; Machinery, IBC/NCLT, Industrial Safety &amp; Boilers, and E-Waste EPR.
             </p>
           </div>
 
@@ -219,7 +219,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
                 textDecoration: 'none'
               }}
             >
-              <span>View All 13 Services &rarr;</span>
+              <span>View All 15 Services &rarr;</span>
             </a>
             <button
               onClick={() => onOpenQuote('General Inquiry')}

@@ -29,7 +29,10 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
         '/autocad-electrical-drafting': 'autocad-electrical-drafting',
         '/inspection-services': 'third-party-audit-inspection',
         '/third-party-inspection': 'third-party-audit-inspection',
-        '/audit-services': 'third-party-audit-inspection'
+        '/audit-services': 'third-party-audit-inspection',
+        '/fabrication': 'fabrication-services',
+        '/tin-shed': 'fabrication-services',
+        '/iron-fabrication': 'fabrication-services'
       };
 
       const targetId = serviceIdMap[currentRoute];
@@ -157,7 +160,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
               marginBottom: '16px'
             }}>
               <Sparkles size={14} />
-              <span>14 COMPREHENSIVE STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
+              <span>15 COMPREHENSIVE STATUTORY &amp; ENGINEERING PRACTICE AREAS</span>
             </div>
 
             <h1 style={{

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   X, CheckCircle2, ArrowRight, ArrowLeft, Send, Sparkles, 
   Phone, MessageSquare, FileText, CheckCircle, Zap, RefreshCw, 
-  Landmark, Laptop, ShieldCheck, ChevronDown, Check
+  Landmark, Laptop, ShieldCheck, ChevronDown, Check, Hammer
 } from 'lucide-react';
 
 export const ELECTRICAL_SERVICE_SUB_OPTIONS = [
@@ -214,6 +214,38 @@ export const DEPARTMENTS = {
       'Technical Advisory & IndAS 16 Asset Componentization',
       'Third-Party Audit & Inspection Services (PDI, CLS, DUPRO)'
     ]
+  },
+  fabrication: {
+    id: 'fabrication',
+    name: 'Heavy Industrial & Architectural Fabrication Works',
+    shortName: 'Industrial Fabrication',
+    badgeText: '🏗️ Industrial Fabrication & Tin Shed Division',
+    themeColor: '#f59e0b',
+    accentBg: 'rgba(245, 158, 11, 0.12)',
+    accentBorder: 'rgba(245, 158, 11, 0.3)',
+    icon: Hammer,
+    defaultPurpose: 'Turnkey Supply, Fabrication & On-Site Erection',
+    scaleLabel: 'Fabrication Tonnage / Shed Area Scale',
+    scaleOptions: [
+      'Under 5 MT / Small Workshop Shed (Under 1,500 sq.ft)',
+      '5 MT - 20 MT / Medium Industrial Shed (1,500 - 5,000 sq.ft)',
+      '20 MT - 50 MT / Large Factory Shed / Chimney Stack',
+      '50 MT - 150 MT / Heavy PEB Warehouse & Structural Framework',
+      'Above 150 MT / Large Turnkey Industrial Plant Project'
+    ],
+    scopePlaceholder: 'e.g. 30m industrial exhaust chimney stack with scaffolding / 5,000 sq.ft factory tin shed at Sitapura industrial area.',
+    services: [
+      'Industrial Steel Chimneys & Boiler Exhaust Stacks (Self-Supporting / Guyed)',
+      'Factory Tin Shed & PEB Industrial Warehouse Fabrication',
+      'Heavy Iron Fabrication Work (Motorized Sliding Gates, Shutters & Grills)',
+      'Industrial Flue Gas Ducting, Breeching & Silencers',
+      'Structural Steel Framework, Overhead Crane Gantry & Mezzanine Floors',
+      'Circular Walkway Platforms, Caged Ladders & Spiral Staircases',
+      'Stainless Steel (SS 304/316) & Toughened Glass Balcony / Stair Railings',
+      'Aluminium Architectural Glazing, Structural Facades & Partitions',
+      'High-Tensile Invisible Safety Grills & Mosquito Mesh Solutions',
+      'Custom Industrial Heavy Equipment Base Frames & Skids'
+    ]
   }
 };
 
@@ -222,6 +254,7 @@ export function detectDepartment(currentRoute, initialService, prefillData) {
   if (prefillData?.department && DEPARTMENTS[prefillData.department]) {
     return prefillData.department;
   }
+  if (prefillData?.isFabrication) return 'fabrication';
   if (prefillData?.isElectrical) return 'electrical';
   if (prefillData?.isSubsidies) return 'subsidies';
   if (prefillData?.isEWaste) return 'ewaste';
@@ -230,6 +263,7 @@ export function detectDepartment(currentRoute, initialService, prefillData) {
 
   // 2. Check route
   const route = (currentRoute || window.location?.pathname || '').toLowerCase().replace(/\/$/, '');
+  if (route === '/fabrication-services' || route === '/fabrication' || route === '/tin-shed' || route === '/iron-fabrication' || route === '/tin-shed-fabrication') return 'fabrication';
   if (route === '/electrical-services' || route === '/substation-services') return 'electrical';
   if (route === '/government-subsidies' || route === '/subsidies') return 'subsidies';
   if (route === '/e-waste-annual-return-filing' || route === '/e-waste') return 'ewaste';
@@ -240,6 +274,9 @@ export function detectDepartment(currentRoute, initialService, prefillData) {
   // 3. Check service name / prefill text keywords
   const textToSearch = `${initialService || ''} ${prefillData?.title || ''} ${prefillData?.category || ''}`.toLowerCase();
   
+  if (textToSearch.includes('fabrication') || textToSearch.includes('tin shed') || textToSearch.includes('iron fabrication') || textToSearch.includes('chimney') || textToSearch.includes('exhaust stack') || textToSearch.includes('peb shed') || textToSearch.includes('breeching') || textToSearch.includes('railing')) {
+    return 'fabrication';
+  }
   if (textToSearch.includes('electrical') || textToSearch.includes('substation') || textToSearch.includes('transformer') || textToSearch.includes('breaker') || textToSearch.includes('relay') || textToSearch.includes('earthing') || textToSearch.includes('switchgear')) {
     return 'electrical';
   }

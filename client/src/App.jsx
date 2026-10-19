@@ -32,9 +32,30 @@ const TechSolutionsPage = lazy(() => import('./components/TechSolutionsPage'));
 const GovernmentSubsidiesPage = lazy(() => import('./components/GovernmentSubsidiesPage'));
 const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
 const ElectricalServicesPage = lazy(() => import('./components/ElectricalServicesPage'));
+const FabricationServicesPage = lazy(() => import('./components/FabricationServicesPage'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
+  '/fabrication-services': { 
+    id: 'fabrication-services', 
+    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | MS Group (IIT Roorkee)',
+    description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory Tin Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
+  },
+  '/fabrication': { 
+    id: 'fabrication-services', 
+    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | MS Group (IIT Roorkee)',
+    description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory Tin Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
+  },
+  '/tin-shed-fabrication': { 
+    id: 'fabrication-services', 
+    title: 'Factory Tin Shed & PEB Industrial Shed Fabrication | MS Group',
+    description: 'Heavy duty factory tin shed fabrication, warehouse roofing, PEB pre-engineered buildings, curved sheets, and turbo ventilator installations with structural engineering certification.'
+  },
+  '/iron-fabrication': { 
+    id: 'fabrication-services', 
+    title: 'Heavy Iron & MS Fabrication Services | MS Group',
+    description: 'Custom heavy iron and mild steel fabrication, structural beams, columns, mezzanine floors, safety spiral staircases, and heavy machinery base frames.'
+  },
   '/electrical-services': { 
     id: 'electrical-services', 
     title: 'High Voltage Testing, Transformer Services & Substation Engineering | MS Chartered Engineers',
@@ -182,7 +203,7 @@ export default function App() {
       const config = ROUTE_CONFIG[pathname];
       if (config) {
         updateSeoMeta(config, pathname);
-        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans') {
+        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans' || config.id === 'electrical-services' || config.id === 'fabrication-services') {
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         } else if (config.id) {
           const scrollToTarget = () => {
@@ -222,7 +243,7 @@ export default function App() {
           if (config) {
             updateSeoMeta(config, cleanPath);
           }
-          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans')) {
+          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans' || config.id === 'electrical-services' || config.id === 'fabrication-services')) {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           } else if (config && config.id) {
             const scrollToTarget = () => {
@@ -392,6 +413,16 @@ export default function App() {
           />
         ) : currentRoute === '/electrical-services' || currentRoute === '/substation-services' ? (
           <ElectricalServicesPage 
+            onOpenQuote={handleOpenQuote}
+            onNavigateHome={() => {
+              window.history.pushState({}, '', '/');
+              setCurrentRoute('/');
+              document.title = ROUTE_CONFIG['/'].title;
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
+        ) : currentRoute === '/fabrication-services' || currentRoute === '/fabrication' || currentRoute === '/tin-shed-fabrication' || currentRoute === '/iron-fabrication' ? (
+          <FabricationServicesPage 
             onOpenQuote={handleOpenQuote}
             onNavigateHome={() => {
               window.history.pushState({}, '', '/');
