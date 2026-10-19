@@ -95,6 +95,55 @@
     </image:image>
   </url>
 
+  <!-- 2.D High Voltage Testing, Transformer Services & Substation Engineering -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/electrical-services</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/og-image.png</image:loc>
+      <image:title>Electrical &amp; Substation Engineering - High Voltage Testing &amp; Transformer Services</image:title>
+      <image:caption>Turnkey 11kV to 132kV Substation Erection, High Voltage Breaker Testing, Power Transformer Overhauling &amp; Oil Filtration</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2.E Industrial Fabrication, Tin Shed & Iron Works -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/fabrication-services</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/fabrication/industrial-chimney-stack-fabrication.jpg</image:loc>
+      <image:title>Industrial Steel Chimney Stack Fabrication - Infosys Jaipur</image:title>
+      <image:caption>30-meter high self-supporting industrial steel chimney stack fabrication and crane erection</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/fabrication/heavy-industrial-ducting-support.jpg</image:loc>
+      <image:title>Flue Gas Ducting &amp; Transition Breeching Fabrication</image:title>
+      <image:caption>Fabrication and leak-proof on-site welding of large-bore flue gas transition breeching ducting</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/fabrication/boiler-stack-foundation-base.jpg</image:loc>
+      <image:title>Boiler Stack Base Ring &amp; Anchor Assembly</image:title>
+      <image:caption>Heavy boiler stack foundation anchor ring assembly and structural engineering certification</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2.F Third-Party Audit & Inspection Services -->
+  <url>
+    <loc>https://www.mscharteredengineer.com/third-party-inspection</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/og-image.png</image:loc>
+      <image:title>Third-Party Audit &amp; Inspection Services - PDI, DUPRO &amp; Container Loading Supervision</image:title>
+      <image:caption>Independent engineering inspection reports with high-resolution photographic evidence and statutory engineer seal</image:caption>
+    </image:image>
+  </url>
+
   <!-- 2.1 Property & Land Valuation -->
   <url>
     <loc>https://www.mscharteredengineer.com/property-valuation</loc>
