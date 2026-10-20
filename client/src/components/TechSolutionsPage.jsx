@@ -748,7 +748,432 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
         </div>
       </section>
 
-      {/* ── 5. FLAGSHIP SOFTWARE PRODUCTS SHOWCASE ── */}
+      {/* ── 5. PRE-BUILT AI SYSTEMS: SIGNATURE AI SOLUTIONS (NINEHERTZ REFERENCE) ── */}
+      <section style={{ padding: '88px 20px', background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(30, 58, 138, 0.22), transparent 70%), #060a13', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          {/* Header */}
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 52px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 14px', borderRadius: '20px', background: 'rgba(59, 130, 246, 0.12)', border: '1px solid rgba(59, 130, 246, 0.3)', marginBottom: '14px' }}>
+              <Sparkles size={14} color="#60a5fa" />
+              <span style={{ fontSize: '0.76rem', color: '#60a5fa', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+                PRE-BUILT AI SYSTEMS
+              </span>
+            </div>
+            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 900, color: '#ffffff', letterSpacing: '-0.02em', marginBottom: '14px' }}>
+              Signature AI Solutions
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
+              Pre-built AI systems we deploy and customise to accelerate transformation across enterprises and engineering workflows.
+            </p>
+          </div>
+
+          {/* Cards Grid: 4 Top Cards (2x2 on tablet, 4x1 on desktop) */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '22px', marginBottom: '24px' }}>
+            {/* Card 01 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(251, 146, 60, 0.28)',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'all 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#fb923c';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(251, 146, 60, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(251, 146, 60, 0.28)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(251, 146, 60, 0.18), transparent 70%)', pointerEvents: 'none' }} />
+              <div>
+                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#fb923c', background: 'rgba(251, 146, 60, 0.12)', border: '1px solid rgba(251, 146, 60, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
+                  01
+                </div>
+                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                  AI Mode Activation
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
+                  Add an AI-powered interface to any product, website, or enterprise platform.
+                </p>
+
+                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
+                  Capabilities:
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#fb923c" /> Conversational interfaces
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#fb923c" /> AI copilots
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#fb923c" /> Intelligent search
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div style={{
+                  padding: '10px 14px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(90deg, rgba(251, 146, 60, 0.15), rgba(234, 88, 12, 0.05))',
+                  border: '1px solid rgba(251, 146, 60, 0.3)',
+                  color: '#fdba74',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  textAlign: 'center',
+                  marginBottom: '14px'
+                }}>
+                  Make every click smarter.
+                </div>
+                <button
+                  onClick={() => onOpenQuote('Signature AI: AI Mode Activation')}
+                  className="btn btn-outline"
+                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
+                >
+                  Activate AI Mode <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
+                </button>
+              </div>
+            </div>
+
+            {/* Card 02 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(50, 189, 101, 0.28)',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'all 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#32bd65';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(50, 189, 101, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(50, 189, 101, 0.28)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(50, 189, 101, 0.18), transparent 70%)', pointerEvents: 'none' }} />
+              <div>
+                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#32bd65', background: 'rgba(50, 189, 101, 0.12)', border: '1px solid rgba(50, 189, 101, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
+                  02
+                </div>
+                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                  Marketing Studio
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
+                  Launch AI-driven campaigns that target, personalize, and convert autonomously.
+                </p>
+
+                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
+                  Capabilities:
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#32bd65" /> AI Spend Sentry
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#32bd65" /> AI Compliance Agent
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#32bd65" /> Omnichannel personalized routing
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div style={{
+                  padding: '10px 14px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(90deg, rgba(50, 189, 101, 0.15), rgba(16, 185, 129, 0.05))',
+                  border: '1px solid rgba(50, 189, 101, 0.3)',
+                  color: '#6ee7b7',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  textAlign: 'center',
+                  marginBottom: '14px'
+                }}>
+                  Marketing on Autopilot.
+                </div>
+                <button
+                  onClick={() => onOpenQuote('Signature AI: Marketing Studio')}
+                  className="btn btn-outline"
+                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
+                >
+                  Explore Marketing Studio <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
+                </button>
+              </div>
+            </div>
+
+            {/* Card 03 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(47, 106, 253, 0.28)',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'all 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#2f6afd';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(47, 106, 253, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(47, 106, 253, 0.28)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(47, 106, 253, 0.18), transparent 70%)', pointerEvents: 'none' }} />
+              <div>
+                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#60a5fa', background: 'rgba(47, 106, 253, 0.12)', border: '1px solid rgba(47, 106, 253, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
+                  03
+                </div>
+                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                  AI Modernization
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
+                  Upgrade existing systems with AI without rebuilding your entire core infrastructure.
+                </p>
+
+                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
+                  Capabilities:
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#2f6afd" /> AI copilots for legacy
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#2f6afd" /> AI data layers
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#2f6afd" /> Automation APIs
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div style={{
+                  padding: '10px 14px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(90deg, rgba(47, 106, 253, 0.15), rgba(37, 99, 235, 0.05))',
+                  border: '1px solid rgba(47, 106, 253, 0.3)',
+                  color: '#93c5fd',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  textAlign: 'center',
+                  marginBottom: '14px'
+                }}>
+                  New intelligence, same systems.
+                </div>
+                <button
+                  onClick={() => onOpenQuote('Signature AI: AI Modernization')}
+                  className="btn btn-outline"
+                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
+                >
+                  Modernize Systems <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
+                </button>
+              </div>
+            </div>
+
+            {/* Card 04 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(139, 92, 246, 0.28)',
+                borderRadius: '18px',
+                padding: '28px 24px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                transition: 'all 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#8b5cf6';
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 92, 246, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.28)';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), transparent 70%)', pointerEvents: 'none' }} />
+              <div>
+                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#c084fc', background: 'rgba(139, 92, 246, 0.12)', border: '1px solid rgba(139, 92, 246, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
+                  04
+                </div>
+                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                  AutonomousOps
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
+                  Self-managing operations that monitor, decide, and act independently.
+                </p>
+
+                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
+                  Capabilities:
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#a855f7" /> Self-Healing System Design
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#a855f7" /> AI-Driven Incident Detection
+                  </li>
+                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Sparkles size={13} color="#a855f7" /> Continuous automated remediation
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <div style={{
+                  padding: '10px 14px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(90deg, rgba(139, 92, 246, 0.15), rgba(124, 58, 237, 0.05))',
+                  border: '1px solid rgba(139, 92, 246, 0.3)',
+                  color: '#d8b4fe',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  textAlign: 'center',
+                  marginBottom: '14px'
+                }}>
+                  Operations without operators.
+                </div>
+                <button
+                  onClick={() => onOpenQuote('Signature AI: AutonomousOps')}
+                  className="btn btn-outline"
+                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
+                >
+                  Configure AutonomousOps <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 05 • PLATFORM NexusAI Wide Card (Direct match to NineHertz 05 • PLATFORM) */}
+          <div
+            style={{
+              background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(8, 47, 73, 0.4))',
+              border: '1px solid rgba(6, 182, 212, 0.35)',
+              borderRadius: '20px',
+              padding: '36px 32px',
+              position: 'relative',
+              overflow: 'hidden',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)'
+            }}
+          >
+            <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '240px', height: '240px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%)', pointerEvents: 'none' }} />
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', alignItems: 'center' }}>
+              <div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.80rem', fontWeight: 900, color: '#38bdf8', background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '8px', padding: '4px 12px', marginBottom: '14px', letterSpacing: '0.06em' }}>
+                  <Cpu size={14} color="#38bdf8" />
+                  05 • PLATFORM
+                </div>
+                <h3 style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 2.5vw, 1.9rem)', fontWeight: 900, marginBottom: '10px' }}>
+                  NexusAI Engine
+                </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '22px', maxWidth: '520px' }}>
+                  The unified enterprise AI system engine behind MS Chartered Engineers tech solutions. Powers real-time agent swarms, tool execution, and dynamic model routing.
+                </p>
+
+                <div style={{
+                  display: 'inline-block',
+                  padding: '8px 18px',
+                  borderRadius: '10px',
+                  background: 'linear-gradient(90deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.15))',
+                  border: '1px solid rgba(6, 182, 212, 0.35)',
+                  color: '#67e8f9',
+                  fontSize: '0.88rem',
+                  fontWeight: 700
+                }}>
+                  One engine powering it all.
+                </div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '0.76rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
+                  Core Platform Capabilities:
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '24px' }}>
+                  {[
+                    { label: 'Agent orchestration', color: '#34d399' },
+                    { label: 'Workflow automation', color: '#38bdf8' },
+                    { label: 'AI infrastructure', color: '#a78bfa' },
+                    { label: 'Prompt pipelines', color: '#f472b6' },
+                    { label: 'Model routing', color: '#fb923c' }
+                  ].map((item, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'rgba(255, 255, 255, 0.04)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '8px',
+                        padding: '9px 12px',
+                        fontSize: '0.84rem',
+                        color: '#f1f5f9'
+                      }}
+                    >
+                      <Sparkles size={13} color={item.color} />
+                      <span>{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => onOpenQuote('NexusAI Engine Platform Inquiry')}
+                    className="btn btn-primary"
+                    style={{ fontSize: '0.86rem', padding: '10px 22px' }}
+                  >
+                    Deploy NexusAI Platform <ArrowRight size={14} style={{ marginLeft: '6px', display: 'inline' }} />
+                  </button>
+                  <button
+                    onClick={() => onOpenQuote('Schedule Architecture Review')}
+                    className="btn btn-outline"
+                    style={{ fontSize: '0.86rem', padding: '10px 20px' }}
+                  >
+                    Architecture Review
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. FLAGSHIP SOFTWARE PRODUCTS SHOWCASE ── */}
       <section style={{ padding: '80px 20px', background: '#070c16', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
