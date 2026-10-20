@@ -748,79 +748,195 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
         </div>
       </section>
 
-      {/* ── 5. PRE-BUILT AI SYSTEMS: SIGNATURE AI SOLUTIONS (EXACT NINEHERTZ DESIGN) ── */}
-      <section style={{ padding: '90px 20px', background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
+      {/* ── 5. PRE-BUILT AI SYSTEMS: SIGNATURE AI SOLUTIONS (ADVANCED LUXE DESIGN) ── */}
+      <section style={{
+        padding: '100px 20px',
+        background: 'radial-gradient(ellipse 90% 60% at 50% -10%, rgba(37, 99, 235, 0.18), transparent 70%), radial-gradient(circle at 15% 45%, rgba(249, 115, 22, 0.07), transparent 45%), radial-gradient(circle at 85% 65%, rgba(168, 85, 247, 0.08), transparent 45%), #060b16',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        {/* Subtle grid pattern overlay */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          pointerEvents: 'none'
+        }} />
+
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           {/* Section Header */}
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 52px' }}>
-            <div style={{ fontSize: '0.82rem', color: '#475569', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
-              PRE-BUILT AI SYSTEMS
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 56px' }}>
+            {/* High-tech Badge */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: '6px 18px',
+              borderRadius: '999px',
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.1))',
+              border: '1px solid rgba(59, 130, 246, 0.35)',
+              boxShadow: '0 0 20px rgba(59, 130, 246, 0.15)',
+              marginBottom: '16px',
+              backdropFilter: 'blur(8px)'
+            }}>
+              <span style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                background: '#38bdf8',
+                boxShadow: '0 0 10px #38bdf8'
+              }} />
+              <span style={{
+                fontSize: '0.80rem',
+                color: '#93c5fd',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif"
+              }}>
+                PRE-BUILT AI SYSTEMS • MS CHARTERED TECH
+              </span>
             </div>
-            <h2 style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '12px' }}>
+
+            <h2 style={{
+              fontSize: 'clamp(2.3rem, 4.2vw, 3.4rem)',
+              fontWeight: 800,
+              fontFamily: "'Outfit', sans-serif",
+              letterSpacing: '-0.03em',
+              lineHeight: 1.15,
+              marginBottom: '16px',
+              background: 'linear-gradient(135deg, #ffffff 40%, #bfdbfe 85%, #60a5fa 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
               Signature AI Solutions
             </h2>
-            <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: 1.6, margin: 0 }}>
-              Pre-built AI systems we deploy and customise to accelerate transformation.
+            <p style={{
+              color: '#94a3b8',
+              fontSize: '1.08rem',
+              lineHeight: 1.65,
+              maxWidth: '680px',
+              margin: '0 auto',
+              fontFamily: "'Plus Jakarta Sans', sans-serif"
+            }}>
+              Production-tested intelligent systems engineered by MS Chartered Engineers to accelerate enterprise operations with zero technical debt.
             </p>
           </div>
 
           {/* Row 1: Cards 01, 02, 03 */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px', marginBottom: '26px' }}>
-            {/* Card 01 - AI Mode Activation */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px', marginBottom: '28px' }}>
+            {/* Card 01 - AI Mode Activation (Amber & Sunset Neon) */}
             <div
               style={{
-                background: '#ffffff',
-                border: '1px solid #e5e7eb',
-                borderRadius: '24px',
-                padding: '34px 30px',
+                background: 'linear-gradient(155deg, rgba(20, 26, 43, 0.88) 0%, rgba(13, 18, 32, 0.96) 100%)',
+                border: '1px solid rgba(251, 146, 60, 0.28)',
+                borderRadius: '26px',
+                padding: '34px 28px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(16px)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.borderColor = 'rgba(251, 146, 60, 0.7)';
+                e.currentTarget.style.boxShadow = '0 20px 45px -10px rgba(251, 146, 60, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
+                e.currentTarget.style.borderColor = 'rgba(251, 146, 60, 0.28)';
+                e.currentTarget.style.boxShadow = '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)';
               }}
             >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '130px', height: '130px', background: 'radial-gradient(circle at top right, rgba(251, 146, 60, 0.18), transparent 70%)', pointerEvents: 'none' }} />
+
               <div>
-                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#ea580c', background: '#fff7ed', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
-                  01
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 800,
+                  color: '#fb923c',
+                  background: 'linear-gradient(135deg, rgba(251, 146, 60, 0.18), rgba(249, 115, 22, 0.08))',
+                  border: '1px solid rgba(251, 146, 60, 0.35)',
+                  borderRadius: '999px',
+                  padding: '4px 14px',
+                  marginBottom: '16px',
+                  letterSpacing: '0.06em',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
+                  01 • AI INTERFACE
                 </div>
-                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
+
+                <h3 style={{
+                  color: '#ffffff',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  fontFamily: "'Outfit', sans-serif",
+                  margin: '0 0 10px',
+                  letterSpacing: '-0.02em'
+                }}>
                   AI Mode Activation
                 </h3>
-                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
-                  Add an AI-powered interface to any product, website, or platform.
+                <p style={{
+                  color: '#94a3b8',
+                  fontSize: '0.92rem',
+                  lineHeight: 1.6,
+                  margin: '0 0 20px',
+                  fontFamily: "'Plus Jakarta Sans', sans-serif"
+                }}>
+                  Add an AI-powered interface to any product, website, or enterprise platform.
                 </p>
 
-                {/* Illustration Image */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                {/* Framed Graphic Viewport */}
+                <div style={{
+                  background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
+                  borderRadius: '16px',
+                  padding: '16px',
+                  minHeight: '180px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '8px 0 22px',
+                  boxShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}>
                   <img
                     src="/images/tech/ask-ai-mode.webp"
                     alt="AI Mode Activation"
-                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                    style={{ maxWidth: '100%', maxHeight: '165px', objectFit: 'contain', display: 'block' }}
                   />
                 </div>
               </div>
 
               <div>
-                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
-                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '0 0 16px 0' }} />
+                <div style={{
+                  fontSize: '0.76rem',
+                  fontWeight: 800,
+                  color: '#e2e8f0',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '12px',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
                   CAPABILITIES:
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {[
                     'Conversational interfaces',
                     'AI copilots',
                     'Intelligent search'
                   ].map((cap, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#cbd5e1', fontSize: '0.88rem', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
                         <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#FB923C"/>
                       </svg>
@@ -830,12 +946,33 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 </ul>
 
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
-                  <div style={{ display: 'inline-block', background: '#fff7ed', color: '#ea580c', fontStyle: 'italic', borderRadius: '8px', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 600 }}>
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'linear-gradient(90deg, rgba(251, 146, 60, 0.18), rgba(234, 88, 12, 0.08))',
+                    border: '1px solid rgba(251, 146, 60, 0.35)',
+                    color: '#fdba74',
+                    fontStyle: 'italic',
+                    borderRadius: '8px',
+                    padding: '8px 16px',
+                    fontSize: '0.84rem',
+                    fontWeight: 600
+                  }}>
                     Make every click smarter.
                   </div>
                   <button
                     onClick={() => onOpenQuote('AI Mode Activation Inquiry')}
-                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                    style={{
+                      background: 'linear-gradient(135deg, #f97316, #ea580c)',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '8px 16px',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      fontFamily: "'Outfit', sans-serif",
+                      boxShadow: '0 4px 14px rgba(234, 88, 12, 0.4)'
+                    }}
                   >
                     Deploy
                   </button>
@@ -843,61 +980,115 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               </div>
             </div>
 
-            {/* Card 02 - Marketing Studio */}
+            {/* Card 02 - Marketing Studio (Emerald & Mint Neon) */}
             <div
               style={{
-                background: '#ffffff',
-                border: '1px solid #e5e7eb',
-                borderRadius: '24px',
-                padding: '34px 30px',
+                background: 'linear-gradient(155deg, rgba(20, 26, 43, 0.88) 0%, rgba(13, 18, 32, 0.96) 100%)',
+                border: '1px solid rgba(52, 211, 153, 0.28)',
+                borderRadius: '26px',
+                padding: '34px 28px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(16px)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.borderColor = 'rgba(52, 211, 153, 0.7)';
+                e.currentTarget.style.boxShadow = '0 20px 45px -10px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
+                e.currentTarget.style.borderColor = 'rgba(52, 211, 153, 0.28)';
+                e.currentTarget.style.boxShadow = '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)';
               }}
             >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '130px', height: '130px', background: 'radial-gradient(circle at top right, rgba(16, 185, 129, 0.18), transparent 70%)', pointerEvents: 'none' }} />
+
               <div>
-                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#16a34a', background: '#f0fdf4', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
-                  02
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 800,
+                  color: '#34d399',
+                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(5, 150, 105, 0.08))',
+                  border: '1px solid rgba(52, 211, 153, 0.35)',
+                  borderRadius: '999px',
+                  padding: '4px 14px',
+                  marginBottom: '16px',
+                  letterSpacing: '0.06em',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
+                  02 • GROWTH ENGINE
                 </div>
-                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
+
+                <h3 style={{
+                  color: '#ffffff',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  fontFamily: "'Outfit', sans-serif",
+                  margin: '0 0 10px',
+                  letterSpacing: '-0.02em'
+                }}>
                   Marketing Studio
                 </h3>
-                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
-                  Launch AI-driven campaigns that target, personalize, and convert.
+                <p style={{
+                  color: '#94a3b8',
+                  fontSize: '0.92rem',
+                  lineHeight: 1.6,
+                  margin: '0 0 20px',
+                  fontFamily: "'Plus Jakarta Sans', sans-serif"
+                }}>
+                  Launch AI-driven campaigns that target, personalize, and convert autonomously.
                 </p>
 
-                {/* Illustration Image */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                {/* Framed Graphic Viewport */}
+                <div style={{
+                  background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
+                  borderRadius: '16px',
+                  padding: '16px',
+                  minHeight: '180px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '8px 0 22px',
+                  boxShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}>
                   <img
                     src="/images/tech/Agent-Workforce.webp"
                     alt="Marketing Studio"
-                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                    style={{ maxWidth: '100%', maxHeight: '165px', objectFit: 'contain', display: 'block' }}
                   />
                 </div>
               </div>
 
               <div>
-                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
-                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '0 0 16px 0' }} />
+                <div style={{
+                  fontSize: '0.76rem',
+                  fontWeight: 800,
+                  color: '#e2e8f0',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '12px',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
                   CAPABILITIES:
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {[
                     'AI Spend Sentry',
                     'AI Compliance Agent',
                     'Omnichannel routing'
                   ].map((cap, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#cbd5e1', fontSize: '0.88rem', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
                         <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#32BD65"/>
                       </svg>
@@ -907,12 +1098,33 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 </ul>
 
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
-                  <div style={{ display: 'inline-block', background: '#f0fdf4', color: '#16a34a', fontStyle: 'italic', borderRadius: '8px', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 600 }}>
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.18), rgba(5, 150, 105, 0.08))',
+                    border: '1px solid rgba(52, 211, 153, 0.35)',
+                    color: '#6ee7b7',
+                    fontStyle: 'italic',
+                    borderRadius: '8px',
+                    padding: '8px 16px',
+                    fontSize: '0.84rem',
+                    fontWeight: 600
+                  }}>
                     Marketing on autopilot.
                   </div>
                   <button
                     onClick={() => onOpenQuote('Marketing Studio Inquiry')}
-                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                    style={{
+                      background: 'linear-gradient(135deg, #10b981, #059669)',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '8px 16px',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      fontFamily: "'Outfit', sans-serif",
+                      boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)'
+                    }}
                   >
                     Deploy
                   </button>
@@ -920,63 +1132,117 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               </div>
             </div>
 
-            {/* Card 03 - AI Modernization */}
+            {/* Card 03 - AI Modernization (Sapphire & Cyan Neon) */}
             <div
               style={{
-                background: '#ffffff',
-                border: '1px solid #e5e7eb',
-                borderRadius: '24px',
-                padding: '34px 30px',
+                background: 'linear-gradient(155deg, rgba(20, 26, 43, 0.88) 0%, rgba(13, 18, 32, 0.96) 100%)',
+                border: '1px solid rgba(56, 189, 248, 0.28)',
+                borderRadius: '26px',
+                padding: '34px 28px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(16px)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.7)';
+                e.currentTarget.style.boxShadow = '0 20px 45px -10px rgba(56, 189, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
+                e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.28)';
+                e.currentTarget.style.boxShadow = '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)';
               }}
             >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '130px', height: '130px', background: 'radial-gradient(circle at top right, rgba(56, 189, 248, 0.18), transparent 70%)', pointerEvents: 'none' }} />
+
               <div>
-                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#2563eb', background: '#eff6ff', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
-                  03
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 800,
+                  color: '#38bdf8',
+                  background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(2, 132, 199, 0.08))',
+                  border: '1px solid rgba(56, 189, 248, 0.35)',
+                  borderRadius: '999px',
+                  padding: '4px 14px',
+                  marginBottom: '16px',
+                  letterSpacing: '0.06em',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
+                  03 • LEGACY CORE
                 </div>
-                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
+
+                <h3 style={{
+                  color: '#ffffff',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  fontFamily: "'Outfit', sans-serif",
+                  margin: '0 0 10px',
+                  letterSpacing: '-0.02em'
+                }}>
                   AI Modernization
                 </h3>
-                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
-                  Upgrade existing systems with AI without rebuilding your entire core.
+                <p style={{
+                  color: '#94a3b8',
+                  fontSize: '0.92rem',
+                  lineHeight: 1.6,
+                  margin: '0 0 20px',
+                  fontFamily: "'Plus Jakarta Sans', sans-serif"
+                }}>
+                  Upgrade existing systems with AI without rebuilding your entire core infrastructure.
                 </p>
 
-                {/* Illustration Image */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                {/* Framed Graphic Viewport */}
+                <div style={{
+                  background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
+                  borderRadius: '16px',
+                  padding: '16px',
+                  minHeight: '180px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '8px 0 22px',
+                  boxShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}>
                   <img
                     src="/images/tech/AI-Modernization.webp"
                     alt="AI Modernization"
-                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                    style={{ maxWidth: '100%', maxHeight: '165px', objectFit: 'contain', display: 'block' }}
                   />
                 </div>
               </div>
 
               <div>
-                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
-                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '0 0 16px 0' }} />
+                <div style={{
+                  fontSize: '0.76rem',
+                  fontWeight: 800,
+                  color: '#e2e8f0',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '12px',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
                   CAPABILITIES:
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {[
                     'AI copilots for legacy',
                     'AI data layers',
                     'Automation APIs'
                   ].map((cap, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#cbd5e1', fontSize: '0.88rem', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
-                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#2F6AFD"/>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#38BDF8"/>
                       </svg>
                       {cap}
                     </li>
@@ -984,12 +1250,33 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 </ul>
 
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
-                  <div style={{ display: 'inline-block', background: '#eff6ff', color: '#2563eb', fontStyle: 'italic', borderRadius: '8px', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 600 }}>
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'linear-gradient(90deg, rgba(56, 189, 248, 0.18), rgba(2, 132, 199, 0.08))',
+                    border: '1px solid rgba(56, 189, 248, 0.35)',
+                    color: '#7dd3fc',
+                    fontStyle: 'italic',
+                    borderRadius: '8px',
+                    padding: '8px 16px',
+                    fontSize: '0.84rem',
+                    fontWeight: 600
+                  }}>
                     New intelligence, same systems.
                   </div>
                   <button
                     onClick={() => onOpenQuote('AI Modernization Inquiry')}
-                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                    style={{
+                      background: 'linear-gradient(135deg, #0284c7, #0369a1)',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '8px 16px',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      fontFamily: "'Outfit', sans-serif",
+                      boxShadow: '0 4px 14px rgba(2, 132, 199, 0.4)'
+                    }}
                   >
                     Deploy
                   </button>
@@ -998,64 +1285,118 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
           </div>
 
-          {/* Row 2: Card 04 (AutonomousOps) + Card 05 (Platform toPromptAI) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
-            {/* Card 04 - AutonomousOps */}
+          {/* Row 2: Card 04 (AutonomousOps) + Card 05 (MS-Nexus AI OS Core Platform) */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+            {/* Card 04 - AutonomousOps (Hyper Violet & Amethyst Glow) */}
             <div
               style={{
-                background: '#ffffff',
-                border: '1px solid #e5e7eb',
-                borderRadius: '24px',
-                padding: '34px 30px',
+                background: 'linear-gradient(155deg, rgba(20, 26, 43, 0.88) 0%, rgba(13, 18, 32, 0.96) 100%)',
+                border: '1px solid rgba(168, 85, 247, 0.32)',
+                borderRadius: '26px',
+                padding: '34px 28px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(16px)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.borderColor = 'rgba(168, 85, 247, 0.75)';
+                e.currentTarget.style.boxShadow = '0 20px 45px -10px rgba(168, 85, 247, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
+                e.currentTarget.style.borderColor = 'rgba(168, 85, 247, 0.32)';
+                e.currentTarget.style.boxShadow = '0 12px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)';
               }}
             >
+              <div style={{ position: 'absolute', top: 0, right: 0, width: '130px', height: '130px', background: 'radial-gradient(circle at top right, rgba(168, 85, 247, 0.2), transparent 70%)', pointerEvents: 'none' }} />
+
               <div>
-                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#2563eb', background: '#eff6ff', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
-                  04
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  fontSize: '0.78rem',
+                  fontWeight: 800,
+                  color: '#c084fc',
+                  background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.18), rgba(126, 34, 206, 0.08))',
+                  border: '1px solid rgba(168, 85, 247, 0.35)',
+                  borderRadius: '999px',
+                  padding: '4px 14px',
+                  marginBottom: '16px',
+                  letterSpacing: '0.06em',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
+                  04 • AUTONOMOUS SRE
                 </div>
-                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
+
+                <h3 style={{
+                  color: '#ffffff',
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  fontFamily: "'Outfit', sans-serif",
+                  margin: '0 0 10px',
+                  letterSpacing: '-0.02em'
+                }}>
                   AutonomousOps
                 </h3>
-                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
+                <p style={{
+                  color: '#94a3b8',
+                  fontSize: '0.92rem',
+                  lineHeight: 1.6,
+                  margin: '0 0 20px',
+                  fontFamily: "'Plus Jakarta Sans', sans-serif"
+                }}>
                   Self-managing operations that monitor, decide, and act independently.
                 </p>
 
-                {/* Illustration Image */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                {/* Framed Graphic Viewport */}
+                <div style={{
+                  background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
+                  borderRadius: '16px',
+                  padding: '16px',
+                  minHeight: '180px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '8px 0 22px',
+                  boxShadow: '0 8px 24px -4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                }}>
                   <img
                     src="/images/tech/AI-Product-Launchpad.webp"
                     alt="AutonomousOps"
-                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                    style={{ maxWidth: '100%', maxHeight: '165px', objectFit: 'contain', display: 'block' }}
                   />
                 </div>
               </div>
 
               <div>
-                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
-                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '0 0 16px 0' }} />
+                <div style={{
+                  fontSize: '0.76rem',
+                  fontWeight: 800,
+                  color: '#e2e8f0',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  marginBottom: '12px',
+                  fontFamily: "'Outfit', sans-serif"
+                }}>
                   CAPABILITIES:
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {[
                     'Self-Healing System Design',
                     'AI-Driven Incident Detection'
                   ].map((cap, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#cbd5e1', fontSize: '0.88rem', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
-                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#2F6AFD"/>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#A855F7"/>
                       </svg>
                       {cap}
                     </li>
@@ -1063,12 +1404,33 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 </ul>
 
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
-                  <div style={{ display: 'inline-block', background: '#dbeafe', color: '#1d4ed8', fontStyle: 'italic', borderRadius: '8px', padding: '8px 18px', fontSize: '0.86rem', fontWeight: 600 }}>
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'linear-gradient(90deg, rgba(168, 85, 247, 0.18), rgba(126, 34, 206, 0.08))',
+                    border: '1px solid rgba(168, 85, 247, 0.35)',
+                    color: '#d8b4fe',
+                    fontStyle: 'italic',
+                    borderRadius: '8px',
+                    padding: '8px 18px',
+                    fontSize: '0.84rem',
+                    fontWeight: 600
+                  }}>
                     Operations without operators.
                   </div>
                   <button
                     onClick={() => onOpenQuote('AutonomousOps Inquiry')}
-                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                    style={{
+                      background: 'linear-gradient(135deg, #9333ea, #7e22ce)',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '8px 16px',
+                      fontSize: '0.82rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      fontFamily: "'Outfit', sans-serif",
+                      boxShadow: '0 4px 14px rgba(147, 51, 234, 0.4)'
+                    }}
                   >
                     Deploy
                   </button>
@@ -1076,81 +1438,221 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               </div>
             </div>
 
-            {/* Card 05 • PLATFORM (Double-width on desktop) */}
+            {/* Card 05 • FLAGSHIP PLATFORM (MS-Nexus AI OS - Brand New Logo & Styling) */}
             <div
               style={{
                 gridColumn: 'span 2',
-                background: '#ffffff',
-                border: '1px solid #e5e7eb',
-                borderRadius: '24px',
-                padding: '34px 34px',
+                background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 16, 30, 0.98) 100%)',
+                border: '1px solid rgba(56, 189, 248, 0.38)',
+                borderRadius: '26px',
+                padding: '36px 36px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
-                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+                position: 'relative',
+                overflow: 'hidden',
+                boxShadow: '0 20px 45px -5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(16px)',
+                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
+                e.currentTarget.style.transform = 'translateY(-6px)';
+                e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.8)';
+                e.currentTarget.style.boxShadow = '0 25px 60px -10px rgba(56, 189, 248, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
+                e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.38)';
+                e.currentTarget.style.boxShadow = '0 20px 45px -5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
               }}
             >
+              <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '280px', height: '280px', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent 70%)', pointerEvents: 'none' }} />
+
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-                  <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#15803d', background: '#dcfce7', borderRadius: '999px', padding: '3px 14px' }}>
-                    05 • PLATFORM
+                {/* Header with Custom MS Tech Logo */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '18px' }}>
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    fontSize: '0.80rem',
+                    fontWeight: 800,
+                    color: '#38bdf8',
+                    background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(59, 130, 246, 0.08))',
+                    border: '1px solid rgba(56, 189, 248, 0.35)',
+                    borderRadius: '999px',
+                    padding: '4px 14px',
+                    letterSpacing: '0.06em',
+                    fontFamily: "'Outfit', sans-serif"
+                  }}>
+                    <Cpu size={13} color="#38bdf8" />
+                    05 • FLAGSHIP PLATFORM
                   </div>
-                  <a
-                    href="#contact"
-                    onClick={(e) => { e.preventDefault(); onOpenQuote('toPromptAI / NexusAI Platform Demo'); }}
-                    style={{ color: '#006cff', fontSize: '0.90rem', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+
+                  <button
+                    onClick={() => onOpenQuote('MS-Nexus AI Core Platform Architecture Demo')}
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      color: '#38bdf8',
+                      fontSize: '0.90rem',
+                      fontWeight: 700,
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontFamily: "'Outfit', sans-serif",
+                      padding: 0
+                    }}
                   >
-                    Visit toPromptAI <span style={{ fontSize: '1.05rem' }}>↗</span>
-                  </a>
+                    <span>Deploy MS-Nexus Platform</span>
+                    <ArrowRight size={15} />
+                  </button>
                 </div>
 
-                <h3 style={{ color: '#0f172a', fontSize: '1.65rem', fontWeight: 700, margin: '14px 0 8px', letterSpacing: '-0.01em' }}>
-                  toPromptAI
-                </h3>
-                <p style={{ color: '#64748b', fontSize: '0.94rem', lineHeight: 1.55, margin: '0 0 22px' }}>
-                  The AI system engine behind NineHertz solutions.
+                {/* Custom Brand Identity / Logo */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', margin: '10px 0 12px' }}>
+                  <div style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '13px',
+                    background: 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    boxShadow: '0 0 24px rgba(6, 182, 212, 0.55)',
+                    flexShrink: 0
+                  }}>
+                    {/* Bespoke MS Neural Core Vector Icon */}
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M12 6L7 9V15L12 18L17 15V9L12 6Z" fill="rgba(255,255,255,0.25)" stroke="#ffffff" strokeWidth="1.5" />
+                      <circle cx="12" cy="12" r="2.5" fill="#38bdf8" />
+                      <circle cx="12" cy="6" r="1.5" fill="#ffffff" />
+                      <circle cx="17" cy="15" r="1.5" fill="#ffffff" />
+                      <circle cx="7" cy="15" r="1.5" fill="#ffffff" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 style={{
+                      color: '#ffffff',
+                      fontSize: '1.75rem',
+                      fontWeight: 800,
+                      fontFamily: "'Outfit', sans-serif",
+                      margin: 0,
+                      letterSpacing: '-0.02em',
+                      lineHeight: 1.2
+                    }}>
+                      MS-Nexus AI Core™
+                    </h3>
+                    <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                      Next-Gen Cognitive Operating Platform
+                    </div>
+                  </div>
+                </div>
+
+                <p style={{
+                  color: '#94a3b8',
+                  fontSize: '0.96rem',
+                  lineHeight: 1.6,
+                  margin: '0 0 22px',
+                  maxWidth: '720px',
+                  fontFamily: "'Plus Jakarta Sans', sans-serif"
+                }}>
+                  The proprietary AI multi-agent orchestration engine powering custom solutions for MS Chartered Engineers tech clients. Turn raw business workflows into autonomous high-speed agents.
                 </p>
 
-                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 20px 0' }} />
+                <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '0 0 20px 0' }} />
 
-                {/* 2-Column Capabilities Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px 30px', marginBottom: '22px' }}>
+                {/* 2-Column High-Tech Capabilities Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '14px 28px', marginBottom: '22px' }}>
                   {[
-                    'Agent orchestration',
-                    'Workflow automation',
-                    'AI infrastructure',
-                    'Prompt pipelines',
-                    'Model routing'
+                    { title: 'Agent orchestration', color: '#34d399' },
+                    { title: 'Workflow automation', color: '#38bdf8' },
+                    { title: 'AI infrastructure', color: '#a78bfa' },
+                    { title: 'Prompt pipelines', color: '#f472b6' },
+                    { title: 'Model routing', color: '#fb923c' }
                   ].map((cap, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#1e293b', fontSize: '0.90rem', fontWeight: 500 }}>
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#e2e8f0', fontSize: '0.90rem', fontWeight: 500, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
-                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#32BD65"/>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill={cap.color} />
                       </svg>
-                      <span>{cap}</span>
+                      <span>{cap.title}</span>
                     </div>
                   ))}
                 </div>
 
-                <div style={{ display: 'inline-block', background: '#dcfce7', color: '#15803d', fontStyle: 'italic', borderRadius: '8px', padding: '8px 18px', fontSize: '0.88rem', fontWeight: 600, marginBottom: '20px' }}>
-                  One engine powering it all.
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '14px', flexWrap: 'wrap', marginBottom: '22px' }}>
+                  <div style={{
+                    display: 'inline-block',
+                    background: 'linear-gradient(90deg, rgba(56, 189, 248, 0.18), rgba(59, 130, 246, 0.08))',
+                    border: '1px solid rgba(56, 189, 248, 0.35)',
+                    color: '#7dd3fc',
+                    fontStyle: 'italic',
+                    borderRadius: '8px',
+                    padding: '8px 18px',
+                    fontSize: '0.86rem',
+                    fontWeight: 600
+                  }}>
+                    One engine powering it all.
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                    <button
+                      onClick={() => onOpenQuote('MS-Nexus Platform Demo')}
+                      style={{
+                        background: 'linear-gradient(135deg, #2563eb, #0284c7)',
+                        color: '#ffffff',
+                        border: 'none',
+                        borderRadius: '8px',
+                        padding: '9px 18px',
+                        fontSize: '0.84rem',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                        fontFamily: "'Outfit', sans-serif",
+                        boxShadow: '0 4px 16px rgba(37, 99, 235, 0.45)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      Request Platform Access <ArrowRight size={13} />
+                    </button>
+                    <button
+                      onClick={() => onOpenQuote('MS-Nexus Architecture Whitepaper')}
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.06)',
+                        color: '#cbd5e1',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        borderRadius: '8px',
+                        padding: '9px 16px',
+                        fontSize: '0.84rem',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        fontFamily: "'Outfit', sans-serif"
+                      }}
+                    >
+                      Architecture Specs
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              {/* Large Platform Banner Preview */}
-              <div style={{ background: '#f8fafc', borderRadius: '18px', padding: '16px', border: '1px solid #f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {/* Framed Graphic Viewport - High-Tech Terminal Window */}
+              <div style={{
+                background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
+                borderRadius: '18px',
+                padding: '16px',
+                boxShadow: '0 12px 32px -6px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.8)',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
                 <img
                   src="/images/tech/toPromptAI.webp"
-                  alt="From Idea to Launch"
-                  style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block' }}
+                  alt="MS-Nexus AI Core Interface"
+                  style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block', objectFit: 'contain' }}
                 />
               </div>
             </div>
