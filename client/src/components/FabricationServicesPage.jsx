@@ -270,150 +270,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
   return (
     <div style={{ background: '#0a101d', color: '#f8fafc', minHeight: '100vh' }}>
       
-      {/* ── 1. HEADER (STICKY NAVIGATION) ── */}
-      <header
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 50,
-          background: 'rgba(10, 22, 44, 0.96)',
-          backdropFilter: 'blur(12px)',
-          borderBottom: '1px solid rgba(56, 189, 248, 0.2)',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)'
-        }}
-      >
-        <div
-          className="container"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '12px 20px',
-            gap: '16px',
-            flexWrap: 'wrap'
-          }}
-        >
-          {/* Left: Company Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <button
-              onClick={onNavigateHome}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: '#cbd5e1',
-                padding: '6px 12px',
-                borderRadius: '6px',
-                fontSize: '0.80rem',
-                cursor: 'pointer'
-              }}
-              title="Return to MS Chartered Engineers Homepage"
-            >
-              <ArrowLeft size={13} /> Home
-            </button>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <img
-                src="/logo.png"
-                alt="MS Chartered Engineers Logo"
-                style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
-                onError={(e) => { e.currentTarget.src = '/logo.svg'; }}
-              />
-              <div>
-                <div style={{ fontWeight: 800, fontSize: '1rem', color: '#ffffff', letterSpacing: '0.02em', lineHeight: 1.1 }}>
-                  MS CHARTERED ENGINEERS
-                </div>
-                <div style={{ fontSize: '0.68rem', color: '#f59e0b', fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-                  Valuers &amp; Technical Consultancy
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Center Navigation */}
-          <nav
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '20px',
-              fontSize: '0.86rem',
-              fontWeight: 600
-            }}
-          >
-            <button
-              onClick={onNavigateHome}
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => scrollToSection('about')}
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
-            >
-              About Us
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection('gallery')}
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
-            >
-              Gallery
-            </button>
-            <button
-              onClick={() => scrollToSection('faq')}
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
-            >
-              FAQs
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              style={{ background: 'none', border: 'none', color: '#cbd5e1', cursor: 'pointer', padding: '6px 4px' }}
-            >
-              Contact
-            </button>
-          </nav>
-
-          {/* Right: Call Now & Get Quote Buttons */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <a
-              href="tel:+919158658885"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                background: '#0c4483',
-                color: '#ffffff',
-                border: '1px solid rgba(56, 189, 248, 0.4)',
-                padding: '7px 16px',
-                borderRadius: '24px',
-                fontSize: '0.84rem',
-                fontWeight: 700,
-                textDecoration: 'none',
-                boxShadow: '0 2px 10px rgba(12, 68, 131, 0.4)'
-              }}
-            >
-              <PhoneCall size={14} color="#38bdf8" />
-              <span>Call Now</span>
-            </a>
-            <button
-              onClick={() => onOpenQuote('Fabrication Services Inquiry', { department: 'fabrication' })}
-              className="btn btn-gold"
-              style={{ padding: '7px 16px', fontSize: '0.84rem', borderRadius: '24px' }}
-            >
-              <Wrench size={13} />
-              <span>Get Quote</span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* ── 2. HERO SECTION (FIRST FOLD) ── */}
+      {/* ── HERO SECTION (FIRST FOLD) ── */}
       <section
         style={{
           position: 'relative',
@@ -431,6 +288,30 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         }}
       >
         <div style={{ maxWidth: '960px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          {/* Breadcrumb Navigation */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '6px',
+              fontSize: '0.82rem',
+              color: '#94a3b8',
+              marginBottom: '20px',
+              flexWrap: 'wrap'
+            }}
+          >
+            <button
+              onClick={onNavigateHome}
+              style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px', padding: 0, fontSize: '0.82rem' }}
+            >
+              <ArrowLeft size={13} /> Home
+            </button>
+            <span>/</span>
+            <a href="/services" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Services</a>
+            <span>/</span>
+            <span style={{ color: '#f59e0b', fontWeight: 600 }}>Fabrication &amp; Tin Shed Works</span>
+          </div>
           {/* Top Pill Badge */}
           <div
             style={{
