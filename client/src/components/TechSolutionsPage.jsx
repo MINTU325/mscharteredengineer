@@ -1,2179 +1,895 @@
-import React, { useState } from 'react';
-import { 
-  Smartphone, 
-  Globe, 
-  Code2, 
-  Layers, 
-  Cpu, 
-  Database, 
-  Cloud, 
-  ShieldCheck, 
-  CheckCircle2, 
-  ArrowRight, 
-  Sparkles, 
-  ExternalLink, 
-  Terminal, 
-  Server, 
-  Rocket, 
-  Layout, 
-  ShoppingBag, 
-  FileSpreadsheet, 
-  ClipboardCheck, 
-  PhoneCall, 
-  MessageSquare,
-  Home,
+import React, { useState, useEffect } from 'react';
+import {
+  ArrowRight,
   Bot,
   BrainCircuit,
-  Send,
-  Zap,
-  MessageSquareCode,
-  Calculator,
-  Copy,
-  Check,
-  Play,
-  Volume2,
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  Cloud,
+  Code2,
+  Cpu,
+  Database,
+  ExternalLink,
+  Globe,
+  HelpCircle,
+  Layers,
   Lock,
-  FileText,
-  Sliders,
+  Mail,
+  MessageSquare,
+  Phone,
+  PhoneCall,
+  Rocket,
+  Search,
+  Server,
+  ShieldCheck,
+  ShoppingBag,
+  Smartphone,
+  Sparkles,
+  Terminal,
   TrendingUp,
-  BarChart3,
+  Wand2,
   Workflow,
-  RefreshCw,
-  Wand2
+  Zap,
+  Home
 } from 'lucide-react';
 
 export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [activeTab, setActiveTab] = useState('build'); // 'build', 'run', 'evolve'
+  const [activeTechFilter, setActiveTechFilter] = useState('all');
+  const [openFaq, setOpenFaq] = useState(0);
+  const [aiPrompt, setAiPrompt] = useState('');
+  const [aiResponse, setAiResponse] = useState(null);
 
-  // ─── 1. Interactive Pipeline Visualizer State ───
-  const [selectedPipelineStep, setSelectedPipelineStep] = useState(2); // default: RAG Retrieval
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.title = 'AI-Native Engineering & Software Solutions | MS Chartered Engineers Tech';
 
-  const pipelineSteps = [
-    {
-      id: 0,
-      title: '01. Ingestion',
-      badge: 'Multi-Channel',
-      subtitle: 'Omni-channel Input',
-      desc: 'Accepts live customer inputs from Web Chat Widgets, WhatsApp Cloud API, Telegram, Android Apps, or raw PDF/Excel document uploads.',
-      metrics: 'Latency: < 15ms • Protocol: Webhooks / SSE',
-      security: 'TLS 1.3 encryption & rate-limiting protection'
-    },
-    {
-      id: 1,
-      title: '02. Guardrails',
-      badge: 'PII & Security',
-      subtitle: 'Intent & Masking',
-      desc: 'Sanitizes input, strips sensitive PII (PAN, Aadhaar, card numbers), classifies intent, and rejects prompt injection or jailbreak attempts.',
-      metrics: 'Latency: ~25ms • Guardrail Pass Rate: 99.9%',
-      security: 'Strict regex filters & prompt firewall'
-    },
-    {
-      id: 2,
-      title: '03. RAG Search',
-      badge: 'Vector DB',
-      subtitle: 'Semantic Retrieval',
-      desc: 'Generates high-dimensional vector embeddings and queries a private Pinecone/pgvector database for exact company document citations.',
-      metrics: 'Latency: ~45ms • Cosine Similarity: > 0.88',
-      security: 'Isolated client namespace, zero public model training'
-    },
-    {
-      id: 3,
-      title: '04. LLM Reasoning',
-      badge: 'Cognitive Brain',
-      subtitle: 'Generative Synthesis',
-      desc: 'Feeds context-injected prompts into OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, or local Llama 3 for accurate, human-like answers.',
-      metrics: 'Latency: ~180ms • Hallucination Rate: 0.0%',
-      security: 'Constrained system prompt with mandatory source citing'
-    },
-    {
-      id: 4,
-      title: '05. Execution',
-      badge: 'Automation',
-      subtitle: 'Action & Dispatch',
-      desc: 'Dispatches instant reply to WhatsApp/Web, triggers ERP webhooks, updates CRM leads, or generates downloadable verified PDF reports.',
-      metrics: 'Latency: < 40ms • Webhook Delivery: 99.99%',
-      security: 'Signed HMAC payloads & automated audit trail'
-    }
-  ];
-
-  // ─── 2. Multi-Persona Live AI Agent Studio State ───
-  const [studioPersona, setStudioPersona] = useState('sales'); // 'sales', 'rag', 'whatsapp'
-  const [copiedCode, setCopiedCode] = useState(false);
-
-  // Chat conversation threads for each persona
-  const [chatThreads, setChatThreads] = useState({
-    sales: [
-      { sender: 'bot', text: 'Hello! I am MS SalesAI Agent. Looking to automate your business inquiries, build a custom mobile app, or deploy an enterprise AI chatbot? What is your primary objective?' }
-    ],
-    rag: [
-      { sender: 'bot', text: 'Document RAG Inspector initialized. I have indexed your corporate policies, technical specifications, and balance sheets into our private vector database. Ask me any precise query!' }
-    ],
-    whatsapp: [
-      { sender: 'bot', text: '👋 Namaste! Welcome to MS Group WhatsApp Concierge. How can our technical & AI engineering desk assist you today?' }
-    ]
-  });
-
-  const [studioInput, setStudioInput] = useState('');
-  const [isBotTyping, setIsBotTyping] = useState(false);
-
-  const personaPrompts = {
-    sales: [
-      'What is the estimated cost & timeline to build an AI chatbot?',
-      'Can you integrate this with our custom ERP and sales team?',
-      'How does your AI automate customer lead capture?'
-    ],
-    rag: [
-      'What is the statutory depreciation rate for industrial solar plants under IndAS 16?',
-      'Show citation for Section 50C capital gains tax valuation guidelines.',
-      'How do you prevent the AI from hallucinating on financial reports?'
-    ],
-    whatsapp: [
-      'I want to connect our business catalog to WhatsApp automated ordering.',
-      'Can this send automated WhatsApp payment receipts and invoice PDFs?',
-      'How many simultaneous chats can the WhatsApp bot handle?'
-    ]
-  };
-
-  const handleSendStudioMessage = (customText) => {
-    const textToSend = typeof customText === 'string' ? customText : studioInput;
-    if (!textToSend.trim()) return;
-
-    setChatThreads(prev => ({
-      ...prev,
-      [studioPersona]: [...prev[studioPersona], { sender: 'user', text: textToSend }]
-    }));
-    setStudioInput('');
-    setIsBotTyping(true);
-
-    setTimeout(() => {
-      let reply = "Our engineering team designs custom AI architectures specifically mapped to your workflow. We handle everything from vector database embeddings to production deployment.";
-      const lower = textToSend.toLowerCase();
-
-      if (studioPersona === 'sales') {
-        if (lower.includes('cost') || lower.includes('timeline') || lower.includes('time')) {
-          reply = "Turnkey AI Chatbot prototypes are ready in 7-10 days. Full enterprise production deployment with WhatsApp Cloud API, CRM webhooks, and custom vector search takes 2-3 weeks with fixed milestone pricing.";
-        } else if (lower.includes('erp') || lower.includes('integrate') || lower.includes('sales')) {
-          reply = "Yes! We connect webhooks to Salesforce, SAP, Zoho, HubSpot, or custom SQL databases. When a high-intent lead chats, the bot qualifies their budget and automatically pushes a lead record into your CRM.";
-        } else if (lower.includes('lead') || lower.includes('automate')) {
-          reply = "The bot actively asks qualifying questions (project type, company size, timeline), captures verified WhatsApp & email contacts, and deflects 80%+ of repetitive tier-1 support queries.";
-        }
-      } else if (studioPersona === 'rag') {
-        if (lower.includes('solar') || lower.includes('depreciation') || lower.includes('indas')) {
-          reply = "[Citation: Technical Audit Manual Doc #42, Page 18] Under IndAS 16 component accounting, industrial solar PV modules follow a 25-year economic life cycle with Straight Line Method (SLM) salvage value fixed at 5%.";
-        } else if (lower.includes('50c') || lower.includes('tax') || lower.includes('capital gains')) {
-          reply = "[Citation: CBDT Circular & ITAT Appraisal Rules, Section 50C] Fair Market Value is determined by comparing DLC circle rates with registered Stamp Duty authority values as of 1st April 2001.";
-        } else {
-          reply = "[Verified Source: Enterprise Knowledge Base] RAG performs cosine similarity searches over your private embeddings. If information is not in the source documents, the AI strictly states 'Information not found in verified documents' rather than hallucinating.";
-        }
-      } else if (studioPersona === 'whatsapp') {
-        if (lower.includes('catalog') || lower.includes('order')) {
-          reply = "✅ Our WhatsApp Cloud API engine renders native product catalogs, interactive multi-select buttons, and automated UPI payment links directly inside the WhatsApp conversation window.";
-        } else if (lower.includes('invoice') || lower.includes('receipt') || lower.includes('pdf')) {
-          reply = "📄 Yes! Our Node.js/Python backend dynamically compiles PDF bills with QR codes and dispatches them via WhatsApp media messages in under 2 seconds.";
-        } else {
-          reply = "⚡ Meta WhatsApp Cloud API handles over 10,000+ concurrent conversations with sub-second latency and zero queuing delay.";
-        }
+    const updateOrCreateMeta = (name, content, isProperty = false) => {
+      const attr = isProperty ? 'property' : 'name';
+      let tag = document.querySelector(`meta[${attr}="${name}"]`);
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute(attr, name);
+        document.head.appendChild(tag);
       }
+      tag.setAttribute('content', content);
+    };
 
-      setChatThreads(prev => ({
-        ...prev,
-        [studioPersona]: [...prev[studioPersona], { sender: 'bot', text: reply }]
-      }));
-      setIsBotTyping(false);
-    }, 650);
+    updateOrCreateMeta('description', 'AI-Native Engineering Partner by MS Chartered Engineers. Build, Run, and Evolve enterprise platforms, custom software, agentic AI, and cloud architectures with 4-7X velocity.');
+    updateOrCreateMeta('keywords', 'AI engineering, software development company, agentic AI, custom software, ERP solutions, cloud migration, Jaipur, India, The NineHertz style tech');
+    updateOrCreateMeta('og:title', 'AI-Native Engineering Partner | MS Chartered Engineers', true);
+    updateOrCreateMeta('og:description', 'Build, Run, and Evolve with AI-Without Losing Control. Turnkey product engineering and enterprise AI workflows.', true);
+    updateOrCreateMeta('og:url', 'https://www.mscharteredengineer.com/tech-products', true);
+  }, []);
+
+  const samplePrompts = [
+    'Build an autonomous valuation & audit AI agent',
+    'Modernize our legacy desktop ERP to Cloud SaaS',
+    'Develop a multi-vendor E-Commerce marketplace',
+    'Automate factory sensor telemetry with IoT & SCADA'
+  ];
+
+  const handleAskAi = (query) => {
+    const textToSearch = query || aiPrompt;
+    if (!textToSearch.trim()) return;
+
+    if (textToSearch.toLowerCase().includes('valuation') || textToSearch.toLowerCase().includes('audit')) {
+      setAiResponse({
+        recommendation: 'MS Valuation & Compliance Cloud Suite',
+        architecture: 'FastAPI + Next.js + Vector DB (Pinecone) for automated statutory IS report generation with 100% DISH/CEIG compliance.',
+        timeline: 'Production ready in 2–4 weeks'
+      });
+    } else if (textToSearch.toLowerCase().includes('ecommerce') || textToSearch.toLowerCase().includes('e-commerce') || textToSearch.toLowerCase().includes('kala')) {
+      setAiResponse({
+        recommendation: 'Kala E-Commerce Platform Architecture',
+        architecture: 'Microservices with Node.js/Go, Redis cache, automated inventory indexing, and seamless multi-channel checkout.',
+        timeline: 'MVP in 3 weeks, full scale in 6 weeks'
+      });
+    } else if (textToSearch.toLowerCase().includes('erp') || textToSearch.toLowerCase().includes('legacy') || textToSearch.toLowerCase().includes('modern')) {
+      setAiResponse({
+        recommendation: 'Enterprise Cloud ERP & AutonomousOps',
+        architecture: 'Incremental migration from desktop/SQL to AWS/PostgreSQL with role-based access, automated audit logs, and zero downtime.',
+        timeline: 'Sprint-by-sprint rollout with guaranteed continuity'
+      });
+    } else {
+      setAiResponse({
+        recommendation: 'Custom AI-Native Engineering Workflow',
+        architecture: 'Agentic AI orchestration using LangChain & Claude/GPT-4o APIs, coupled with custom responsive frontend & enterprise security.',
+        timeline: 'Prototype in 48 hours • Production in 3-5 weeks'
+      });
+    }
   };
 
-  // ─── 3. Interactive AI ROI Calculator State ───
-  const [monthlyTickets, setMonthlyTickets] = useState(2500);
-  const [supportAgents, setSupportAgents] = useState(4);
-  const [agentSalary, setAgentSalary] = useState(25000); // INR per month
+  // Technologies list
+  const techStack = [
+    { name: 'React & Next.js', category: 'frontend', desc: 'Server-side rendering, sub-second loads' },
+    { name: 'TypeScript', category: 'frontend', desc: 'Type-safe enterprise applications' },
+    { name: 'Tailwind & Vanilla CSS', category: 'frontend', desc: 'Ultra-fast, responsive styling' },
+    { name: 'Node.js & Express', category: 'backend', desc: 'High-throughput event-driven APIs' },
+    { name: 'Python & FastAPI', category: 'backend', desc: 'High-performance AI model serving' },
+    { name: 'Go (Golang)', category: 'backend', desc: 'Ultra low-latency microservices' },
+    { name: 'OpenAI & Claude 3.5', category: 'ai', desc: 'State-of-the-art cognitive reasoning' },
+    { name: 'LangChain & LlamaIndex', category: 'ai', desc: 'Agentic orchestration & RAG pipelines' },
+    { name: 'Pinecone & pgvector', category: 'ai', desc: 'High-dimensional semantic memory' },
+    { name: 'AWS & Google Cloud', category: 'cloud', desc: 'Scalable multi-region cloud hosting' },
+    { name: 'Docker & Kubernetes', category: 'cloud', desc: 'Containerized deployment & auto-scaling' },
+    { name: 'PostgreSQL & Redis', category: 'cloud', desc: 'ACID compliant data & microsecond caching' }
+  ];
 
-  const deflectedTickets = Math.round(monthlyTickets * 0.80);
-  const hoursSavedPerMonth = Math.round((deflectedTickets * 12) / 60); // 12 mins per ticket
-  const totalMonthlyPayroll = supportAgents * agentSalary;
-  const estimatedAnnualSavingsLakhs = ((totalMonthlyPayroll * 0.70 * 12) / 100000).toFixed(1);
+  const filteredTech = activeTechFilter === 'all'
+    ? techStack
+    : techStack.filter((t) => t.category === activeTechFilter);
 
-  // ─── 4. Developer Terminal Code State ───
-  const [selectedApiLang, setSelectedApiLang] = useState('python');
-
-  const codeSnippets = {
-    python: `# Install: pip install langchain openai pinecone-client fastapi
-from fastapi import FastAPI
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_community.vectorstores import Pinecone
-
-app = FastAPI(title="MS Enterprise AI Agent API")
-llm = ChatOpenAI(model="gpt-4o", temperature=0.1)
-
-@app.post("/api/v1/chat-rag")
-async def enterprise_query(user_query: str, client_id: str):
-    # Isolated private vector search with RAG
-    vectorstore = Pinecone.from_existing_index("ms-client-knowledge", OpenAIEmbeddings())
-    context_docs = vectorstore.similarity_search(user_query, k=4, filter={"tenant": client_id})
-    
-    # Synthesize verified response with zero hallucinations
-    response = llm.invoke(f"Context: {context_docs}\\n\\nQuestion: {user_query}")
-    return {"reply": response.content, "verified_citations": len(context_docs)}`,
-
-    node: `// Modern TypeScript / Node.js Express Pipeline
-import express from 'express';
-import { OpenAI } from 'openai';
-import { Pinecone } from '@pinecone-database/pinecone';
-
-const app = express();
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-const pinecone = new Pinecone();
-
-app.post('/api/v1/chat-rag', async (req, res) => {
-  const { query, tenantId } = req.body;
-  
-  // 1. Semantic Vector Match
-  const index = pinecone.Index('ms-client-knowledge');
-  const queryEmbedding = await openai.embeddings.create({
-    model: 'text-embedding-3-small',
-    input: query
-  });
-  
-  // 2. Query isolated private namespace
-  const matches = await index.namespace(tenantId).query({
-    vector: queryEmbedding.data[0].embedding,
-    topK: 4,
-    includeMetadata: true
-  });
-  
-  res.json({ status: 'success', matches: matches.matches.length });
-});`,
-
-    curl: `# Direct Enterprise cURL Webhook Invocation
-curl -X POST "https://api.msgroup.tech/v1/agent/query" \\
-  -H "Authorization: Bearer ms_live_sec_9941a0b82f" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "channel": "whatsapp_cloud_api",
-    "customer_phone": "+919876543210",
-    "query": "What is the timeline for asset valuation?",
-    "guardrails": { "strict_rag": true, "max_tokens": 300 }
-  }'`
-  };
-
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(codeSnippets[selectedApiLang]);
-    setCopiedCode(true);
-    setTimeout(() => setCopiedCode(false), 2000);
-  };
-
-  // ─── 5. Core Services Array ───
-  const techServices = [
+  // FAQs
+  const faqs = [
     {
-      id: 'ai-chatbots',
-      icon: Bot,
-      title: 'Enterprise AI Agents & WhatsApp Chatbots',
-      badge: 'OpenAI, Claude & Custom RAG',
-      accentColor: '#8B5CF6',
-      desc: 'Next-generation Conversational AI agents, RAG (Retrieval-Augmented Generation) trained on your private corporate documents, and automated multi-channel messaging (WhatsApp & Web). We connect LLMs to your private business data, ERPs, and APIs with ironclad security and zero hallucinations.',
-      highlights: [
-        'Custom Knowledge-Base Chatbots (RAG over PDFs, Docs & ERPs)',
-        '24/7 Automated WhatsApp Cloud API & Web Chatbot Assistants',
-        'OpenAI GPT-4o, Anthropic Claude & Llama 3 API Integrations',
-        'Automated Customer Lead Capture, FAQ Answering & Ticket Deflection',
-        'Vector Databases (Pinecone / ChromaDB / pgvector) & Embeddings',
-        'AI Workflow Automation & Voice / Conversational IVR Systems'
-      ],
-      serviceName: 'AI Integration & Chatbot Development'
+      q: 'How does AI-Native Engineering differ from traditional software development?',
+      a: 'Traditional development relies on manual boilerplate coding, lengthy sprint reviews, and separate handoffs between design, dev, and QA. In our AI-native workflow, engineers work with autonomous code intelligence (Claude Code, Cursor, automated test synthesis), allowing us to ship production-grade code 4–7X faster while maintaining enterprise-level test coverage and zero technical debt.'
     },
     {
-      id: 'android-apps',
-      icon: Smartphone,
-      title: 'Android & Mobile App Development',
-      badge: 'Native & Cross-Platform',
-      accentColor: '#10B981',
-      desc: 'High-performance Android applications built with Kotlin, Jetpack Compose, and Flutter. From responsive UI/UX to offline SQLite sync, biometric authentication, and Google Play Store deployment.',
-      highlights: [
-        'Custom Native Android Apps (Kotlin / Java)',
-        'Cross-Platform Mobile Apps (Flutter / React Native)',
-        'Offline-First Local Storage & Real-time Cloud Sync',
-        'Secure Payment Gateways (UPI, Razorpay, Stripe)',
-        'Play Store Optimization & Continuous Release Cycles'
-      ],
-      serviceName: 'Custom Android App Development'
+      q: 'Who owns the intellectual property (IP) and source code of the developed systems?',
+      a: 'You do — 100%. Upon milestone completion and settlement, all source code, architecture blueprints, database schemas, and AI prompts belong exclusively to your business. We never reuse your proprietary algorithms or data.'
     },
     {
-      id: 'web-platforms',
-      icon: Globe,
-      title: 'Full-Stack Web & Cloud Platforms',
-      badge: 'Next.js, React & Node',
-      accentColor: '#06B6D4',
-      desc: 'Modern, ultra-fast web applications, business portals, and client dashboards. Built with clean component-driven architecture, high Google PageSpeed scores, and enterprise-grade SEO.',
-      highlights: [
-        'Single Page Applications (SPA) & SSR with Next.js & React',
-        'Robust REST & GraphQL APIs with Node.js & Python FastAPI',
-        'Role-Based Admin Dashboards & Multi-Tenant Systems',
-        'Automated CI/CD Pipelines & Cloud Hosting on AWS/GCP',
-        'Ultra-Low Latency & High Security SSL/OAuth 2.0'
-      ],
-      serviceName: 'Full-Stack Web Application / SaaS'
+      q: 'Can you modernize our existing legacy software or ERP without breaking our operations?',
+      a: 'Yes. We specialize in incremental legacy modernization. Rather than risking a disruptive "big bang" rewrite, we decouple key business logic, build modern cloud APIs around your core database, and gradually transition workflows into an intuitive cloud and mobile interface with zero downtime.'
     },
     {
-      id: 'custom-erp',
-      icon: Layers,
-      title: 'Custom Software & Enterprise ERP',
-      badge: 'Business Automation',
-      accentColor: '#3B82F6',
-      desc: 'Tailored enterprise software designed to replace complex spreadsheets with automated workflows, real-time analytics, inventory management, and digital audit readiness.',
-      highlights: [
-        'End-to-End Business ERP & Billing Automation',
-        'Inventory, Warehouse & Supply Chain Tracking',
-        'Customer Relationship Management (CRM) Portals',
-        'Automated PDF Document & Certificate Generation',
-        'Role-Permission Access & Audit Logs'
-      ],
-      serviceName: 'Custom Business ERP / CRM Software'
+      q: 'How do you safeguard enterprise data privacy when using generative AI and LLMs?',
+      a: 'We adhere to zero-data-retention agreements and enterprise-tier private API endpoints. Your company documents and proprietary data are never used to train public LLM models. Vector search runs in your private encrypted namespace with strict role-based access control (RBAC).'
     },
     {
-      id: 'ecommerce-solutions',
-      icon: ShoppingBag,
-      title: 'E-Commerce Engines & Digital Stores',
-      badge: 'Omnichannel Commerce',
-      accentColor: '#F59E0B',
-      desc: 'Turnkey e-commerce ecosystems including headless web storefronts, Android buyer apps, merchant seller portals, automated order dispatch, and live shipment tracking.',
-      highlights: [
-        'Mobile-First E-Commerce Web & Android Apps',
-        'Real-Time Inventory & Multi-Variant Catalog Management',
-        'Integrated Cart, Coupon Engine & Checkout Optimization',
-        'Order Dispatch, Tracking & Invoice Management',
-        'Analytics Dashboard with Customer Lifetime Insights'
-      ],
-      serviceName: 'E-Commerce Platform & Mobile App'
+      q: 'What is your typical turnaround time for an enterprise MVP vs full product launch?',
+      a: 'A functional, interactive prototype or MVP is delivered in 2 to 3 weeks. A complete enterprise-grade production platform (including cloud setup, CI/CD pipeline, and user testing) is typically deployed in 6 to 10 weeks, backed by weekly deployable builds.'
     }
   ];
-
-  // ─── 6. Digital Products Array ───
-  const digitalProducts = [
-    {
-      id: 'enterprise-ai-bot',
-      category: 'ai',
-      title: 'SmartBot AI — Enterprise Conversational Agent',
-      subtitle: 'RAG-Powered Multi-Channel Chatbot & WhatsApp AI Assistant',
-      icon: Bot,
-      badge: 'Live AI Engine',
-      badgeColor: '#8B5CF6',
-      description: 'An enterprise conversational AI chatbot trained on internal corporate documents, technical specifications, and product catalogs. Automatically resolves 85%+ of client questions 24/7, captures qualified leads, and integrates with WhatsApp and CRM.',
-      features: [
-        'RAG semantic search with vector embeddings & instant citations',
-        'Dual-channel sync: Floating website widget & WhatsApp Cloud API',
-        'Auto-qualifies customer leads & sends instant email/SMS alerts to sales',
-        'Custom guardrails to eliminate hallucinations & ensure compliance'
-      ],
-      techStack: ['OpenAI GPT-4o', 'LangChain', 'FastAPI (Python)', 'Pinecone Vector DB', 'React', 'WhatsApp Cloud API']
-    },
-    {
-      id: 'kala-ecom',
-      category: 'ecommerce',
-      title: 'Kala E-Commerce Engine',
-      subtitle: 'Modern Omnichannel B2C & B2B Retail Platform',
-      icon: ShoppingBag,
-      badge: 'Live Product Suite',
-      badgeColor: '#10B981',
-      description: 'A high-converting, lightning-fast digital retail suite featuring a customer-facing responsive web store, native Android mobile app, and unified merchant admin dashboard.',
-      features: [
-        'Blazing-fast product search with instant live filtering',
-        'Seamless UPI & card checkout with abandoned cart recovery',
-        'Real-time automated inventory reconciliation & low-stock alerts',
-        'Native Android customer shopping app on Google Play'
-      ],
-      techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind', 'Android SDK']
-    },
-    {
-      id: 'ms-valuation-suite',
-      category: 'enterprise',
-      title: 'MS Asset & Valuation Cloud Suite',
-      subtitle: 'Statutory Plant, Machinery & Property Appraisal SaaS',
-      icon: FileSpreadsheet,
-      badge: 'Proprietary Software',
-      badgeColor: '#06B6D4',
-      description: 'An internal and client-facing engineering SaaS platform that calculates Depreciated Replacement Cost (DRC), IndAS 16 component useful life, and generates bank-ready appraisal documents.',
-      features: [
-        'Depreciated Replacement Cost (DRC) calculation engine',
-        'Instant bankable PDF valuation report generator with QR validation',
-        'DLC circle rate and CPWD cost index database lookup',
-        'Multi-stage loan underwriting & review workflow'
-      ],
-      techStack: ['React', 'Vite', 'Node.js', 'PostgreSQL', 'PDFKit', 'Docker']
-    },
-    {
-      id: 'smart-industrial-erp',
-      category: 'industrial',
-      title: 'Smart Compliance & Safety ERP',
-      subtitle: 'Industrial Auditing & Statutory Schedule Management',
-      icon: ClipboardCheck,
-      badge: 'Enterprise Tool',
-      badgeColor: '#F59E0B',
-      description: 'Comprehensive workflow software for manufacturing units and power plants to monitor CEIG solar approvals, electrical safety audits, Factories Act certifications, and energy logs.',
-      features: [
-        'Automated expiration alerts for factory statutory licenses',
-        'Checklist-driven mobile inspection with on-site photo proofs',
-        'Centralized repository for government NOCs & certificates',
-        'Executive compliance readiness index & risk scoring'
-      ],
-      techStack: ['TypeScript', 'React', 'FastAPI', 'PostgreSQL', 'AWS S3']
-    },
-    {
-      id: 'mobile-field-inspector',
-      category: 'mobile',
-      title: 'Field Inspector Mobile App',
-      subtitle: 'GPS-Tagged On-Site Technical Audit Android App',
-      icon: Smartphone,
-      badge: 'Mobile App',
-      badgeColor: '#8B5CF6',
-      description: 'A dedicated Android mobile app built for field valuation engineers and site supervisors to capture geo-tagged asset images, record equipment serials, and sync data offline.',
-      features: [
-        'Offline data capture with automatic cloud synchronization',
-        'GPS-watermarked camera photo capture for physical verification',
-        'Digital client e-signature capture at site inspection',
-        'Instant sync with central valuation cloud portal'
-      ],
-      techStack: ['Android Kotlin', 'Jetpack Compose', 'Room Database', 'Firebase', 'REST API']
-    }
-  ];
-
-  const techStackIcons = [
-    { name: 'OpenAI GPT-4o & Claude 3.5', category: 'Generative AI', desc: 'Reasoning agents & prompt engineering' },
-    { name: 'LangChain & LlamaIndex', category: 'AI Orchestration', desc: 'RAG pipelines & memory management' },
-    { name: 'Pinecone & pgvector', category: 'Vector DB', desc: 'Embeddings & sub-50ms vector search' },
-    { name: 'Python FastAPI & Ollama', category: 'AI Backend', desc: 'Secure APIs & local private LLM inference' },
-    { name: 'Android / Kotlin', category: 'Mobile', desc: 'Native high-speed mobile apps' },
-    { name: 'Flutter', category: 'Mobile', desc: 'Cross-platform iOS & Android applications' },
-    { name: 'React.js & Next.js', category: 'Frontend', desc: 'Ultra-fast server-rendered web portals' },
-    { name: 'Node.js & Express', category: 'Backend', desc: 'High-throughput microservices architecture' },
-    { name: 'PostgreSQL & MongoDB', category: 'Databases', desc: 'ACID compliant & flexible cloud storage' },
-    { name: 'AWS & Cloudflare', category: 'Infrastructure', desc: 'Global edge CDN & 99.99% availability' }
-  ];
-
-  const filteredProducts = activeCategory === 'all' 
-    ? digitalProducts 
-    : digitalProducts.filter(p => p.category === activeCategory);
 
   return (
-    <div className="tech-solutions-page" style={{ background: '#070D1B', color: '#F8FAFC', minHeight: '100vh', paddingBottom: '70px', overflowX: 'hidden' }}>
+    <div style={{ background: '#070b14', color: '#f8fafc', minHeight: '100vh', overflowX: 'hidden' }}>
       
-      {/* ── SEO JSON-LD Structured Data ── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@graph": [
-              {
-                "@type": "Organization",
-                "@id": "https://www.mscharteredengineer.com/#tech-organization",
-                "name": "MS Tech Labs",
-                "alternateName": ["MS Tech Solutions", "MS Group AI & Software Division"],
-                "url": "https://www.mscharteredengineer.com/tech-products",
-                "logo": "https://www.mscharteredengineer.com/logo.png",
-                "parentOrganization": {
-                  "@type": "Organization",
-                  "name": "MS Chartered Engineers & Valuers",
-                  "url": "https://www.mscharteredengineer.com/"
-                },
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "+919158658885",
-                  "contactType": "customer service",
-                  "areaServed": "IN",
-                  "availableLanguage": ["en", "hi"]
-                },
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Jaipur",
-                  "addressRegion": "Rajasthan",
-                  "postalCode": "302019",
-                  "addressCountry": "IN"
-                },
-                "sameAs": [
-                  "https://www.mscharteredengineer.com/"
-                ],
-                "knowsAbout": [
-                  "Artificial Intelligence",
-                  "Conversational AI Agents",
-                  "Retrieval Augmented Generation (RAG)",
-                  "Enterprise WhatsApp Chatbots",
-                  "Android Native Mobile App Development",
-                  "Cloud SaaS Systems",
-                  "Enterprise Resource Planning (ERP) Software"
-                ]
-              },
-              {
-                "@type": "BreadcrumbList",
-                "@id": "https://www.mscharteredengineer.com/tech-products#breadcrumb",
-                "itemListElement": [
-                  {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://www.mscharteredengineer.com/"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "MS Tech Labs Software & AI",
-                    "item": "https://www.mscharteredengineer.com/tech-products"
-                  }
-                ]
-              },
-              {
-                "@type": "Service",
-                "@id": "https://www.mscharteredengineer.com/tech-products#service",
-                "name": "MS Tech Labs — AI Solutions & Mobile Software Engineering",
-                "url": "https://www.mscharteredengineer.com/tech-products",
-                "provider": {
-                  "@id": "https://www.mscharteredengineer.com/#tech-organization"
-                },
-                "description": "Enterprise AI integration, custom conversational chatbots, Android/iOS mobile application development, full-stack cloud SaaS platforms, and custom business ERP software.",
-                "areaServed": "India"
-              },
-              {
-                "@type": "ItemList",
-                "@id": "https://www.mscharteredengineer.com/tech-products#catalog",
-                "name": "MS Tech Labs Software Products Catalog",
-                "itemListElement": [
-                  {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "url": "https://www.mscharteredengineer.com/tech-products#enterprise-ai-bot"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "url": "https://www.mscharteredengineer.com/tech-products#kala-ecom"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "url": "https://www.mscharteredengineer.com/tech-products#ms-valuation-suite"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 4,
-                    "url": "https://www.mscharteredengineer.com/tech-products#smart-industrial-erp"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 5,
-                    "url": "https://www.mscharteredengineer.com/tech-products#mobile-field-inspector"
-                  }
-                ]
-              },
-              {
-                "@type": ["SoftwareApplication", "Product"],
-                "@id": "https://www.mscharteredengineer.com/tech-products#enterprise-ai-bot",
-                "name": "SmartBot AI — Enterprise Conversational Agent",
-                "alternateName": "MS SmartBot AI RAG Assistant",
-                "description": "Enterprise conversational AI chatbot trained on internal corporate documents, technical specifications, and product catalogs. Automatically resolves 85%+ of client questions 24/7, captures qualified leads, and integrates with WhatsApp Cloud API and CRM systems.",
-                "applicationCategory": "BusinessApplication",
-                "operatingSystem": "Web, Cloud, WhatsApp Cloud API, Android, iOS",
-                "softwareVersion": "3.5 Enterprise",
-                "image": "https://www.mscharteredengineer.com/og-image.png",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "MS Tech Labs"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "url": "https://www.mscharteredengineer.com/tech-products",
-                  "priceCurrency": "INR",
-                  "price": "0",
-                  "priceValidUntil": "2027-12-31",
-                  "availability": "https://schema.org/InStock",
-                  "itemCondition": "https://schema.org/NewCondition",
-                  "description": "Custom enterprise implementation and deployment quotation"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.9",
-                  "reviewCount": "28",
-                  "bestRating": "5"
-                },
-                "featureList": [
-                  "RAG semantic search with vector embeddings & instant citations",
-                  "Dual-channel sync: Floating website widget & WhatsApp Cloud API",
-                  "Auto-qualifies customer leads & sends instant email/SMS alerts to sales",
-                  "Custom guardrails to eliminate hallucinations & ensure compliance"
-                ]
-              },
-              {
-                "@type": ["SoftwareApplication", "Product"],
-                "@id": "https://www.mscharteredengineer.com/tech-products#kala-ecom",
-                "name": "Kala E-Commerce Engine",
-                "alternateName": "Kala Omnichannel E-Commerce Suite",
-                "description": "High-converting, lightning-fast digital retail suite featuring a customer-facing responsive web store, native Android mobile app, and unified merchant admin dashboard.",
-                "applicationCategory": "ShoppingApplication",
-                "operatingSystem": "Web, Android SDK, Cloud",
-                "softwareVersion": "2.0 Enterprise",
-                "image": "https://www.mscharteredengineer.com/og-image.png",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "MS Tech Labs"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "url": "https://www.mscharteredengineer.com/tech-products",
-                  "priceCurrency": "INR",
-                  "price": "0",
-                  "priceValidUntil": "2027-12-31",
-                  "availability": "https://schema.org/InStock",
-                  "itemCondition": "https://schema.org/NewCondition",
-                  "description": "Turnkey e-commerce platform & mobile app deployment quotation"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.8",
-                  "reviewCount": "22",
-                  "bestRating": "5"
-                },
-                "featureList": [
-                  "Blazing-fast product search with instant live filtering",
-                  "Seamless UPI & card checkout with abandoned cart recovery",
-                  "Real-time automated inventory reconciliation & low-stock alerts",
-                  "Native Android customer shopping app on Google Play"
-                ]
-              },
-              {
-                "@type": ["SoftwareApplication", "Product"],
-                "@id": "https://www.mscharteredengineer.com/tech-products#ms-valuation-suite",
-                "name": "MS Asset & Valuation Cloud Suite",
-                "alternateName": "MS Engineering Valuation SaaS",
-                "description": "Internal and client-facing engineering SaaS platform calculating Depreciated Replacement Cost (DRC), IndAS 16 component useful life, and generating bank-ready appraisal documents.",
-                "applicationCategory": "FinanceApplication",
-                "operatingSystem": "Web Cloud, Cross-Platform Browser",
-                "softwareVersion": "4.2 Pro",
-                "image": "https://www.mscharteredengineer.com/og-image.png",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "MS Tech Labs"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "url": "https://www.mscharteredengineer.com/tech-products",
-                  "priceCurrency": "INR",
-                  "price": "0",
-                  "priceValidUntil": "2027-12-31",
-                  "availability": "https://schema.org/InStock",
-                  "itemCondition": "https://schema.org/NewCondition",
-                  "description": "Cloud SaaS subscription and on-premise installation"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5.0",
-                  "reviewCount": "31",
-                  "bestRating": "5"
-                },
-                "featureList": [
-                  "Depreciated Replacement Cost (DRC) calculation engine",
-                  "Instant bankable PDF valuation report generator with QR validation",
-                  "DLC circle rate and CPWD cost index database lookup",
-                  "Multi-stage loan underwriting & review workflow"
-                ]
-              },
-              {
-                "@type": ["SoftwareApplication", "Product"],
-                "@id": "https://www.mscharteredengineer.com/tech-products#smart-industrial-erp",
-                "name": "Smart Compliance & Safety ERP",
-                "alternateName": "Industrial Compliance & Audit ERP",
-                "description": "Comprehensive workflow software for manufacturing units and power plants to monitor CEIG solar approvals, electrical safety audits, Factories Act certifications, and energy logs.",
-                "applicationCategory": "UtilitiesApplication",
-                "operatingSystem": "Web Cloud, Docker, AWS",
-                "softwareVersion": "2.4",
-                "image": "https://www.mscharteredengineer.com/og-image.png",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "MS Tech Labs"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "url": "https://www.mscharteredengineer.com/tech-products",
-                  "priceCurrency": "INR",
-                  "price": "0",
-                  "priceValidUntil": "2027-12-31",
-                  "availability": "https://schema.org/InStock",
-                  "itemCondition": "https://schema.org/NewCondition",
-                  "description": "Industrial plant license & statutory management deployment"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.9",
-                  "reviewCount": "19",
-                  "bestRating": "5"
-                },
-                "featureList": [
-                  "Automated expiration alerts for factory statutory licenses",
-                  "Checklist-driven mobile inspection with on-site photo proofs",
-                  "Centralized repository for government NOCs & certificates",
-                  "Executive compliance readiness index & risk scoring"
-                ]
-              },
-              {
-                "@type": ["SoftwareApplication", "Product"],
-                "@id": "https://www.mscharteredengineer.com/tech-products#mobile-field-inspector",
-                "name": "Field Inspector Mobile App",
-                "alternateName": "MS Technical Audit Android App",
-                "description": "Dedicated Android mobile application built for field valuation engineers and site supervisors to capture geo-tagged asset images, record equipment serials, and sync data offline.",
-                "applicationCategory": "UtilitiesApplication",
-                "operatingSystem": "Android 8.0 and above",
-                "softwareVersion": "1.8.2",
-                "image": "https://www.mscharteredengineer.com/og-image.png",
-                "brand": {
-                  "@type": "Brand",
-                  "name": "MS Tech Labs"
-                },
-                "offers": {
-                  "@type": "Offer",
-                  "url": "https://www.mscharteredengineer.com/tech-products",
-                  "priceCurrency": "INR",
-                  "price": "0",
-                  "priceValidUntil": "2027-12-31",
-                  "availability": "https://schema.org/InStock",
-                  "itemCondition": "https://schema.org/NewCondition",
-                  "description": "Field valuation enterprise mobile client package"
-                },
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "4.9",
-                  "reviewCount": "24",
-                  "bestRating": "5"
-                },
-                "featureList": [
-                  "Offline data capture with automatic cloud synchronization",
-                  "GPS-watermarked camera photo capture for physical verification",
-                  "Digital client e-signature capture at site inspection",
-                  "Instant sync with central valuation cloud portal"
-                ]
-              }
-            ]
-          })
-        }}
-      />
-
-      {/* ── Breadcrumb & Top Bar ── */}
-      <div style={{ background: 'rgba(11, 20, 38, 0.85)', backdropFilter: 'blur(16px)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 0', position: 'sticky', top: 0, zIndex: 900 }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#94A3B8' }}>
-            <button 
-              onClick={onNavigateHome}
-              style={{ background: 'none', border: 'none', color: '#38BDF8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
-            >
-              <Home size={14} /> Home
-            </button>
-            <span>/</span>
-            <span style={{ color: '#F8FAFC', fontWeight: 600 }}>MS Tech Labs &bull; AI &amp; Software Products</span>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '4px 10px', borderRadius: '9999px', fontSize: '0.74rem', color: '#34D399', fontWeight: 700 }}>
-              <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 6px #10B981' }} />
-              <span>AI Pipeline: ACTIVE</span>
-            </div>
-
-            <button 
-              onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
-              style={{
-                background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
-                color: '#FFFFFF',
-                border: 'none',
-                borderRadius: '9999px',
-                padding: '6px 16px',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                boxShadow: '0 4px 14px rgba(139, 92, 246, 0.35)'
-              }}
-            >
-              <Sparkles size={14} /> Build Your AI / App
-            </button>
-          </div>
+      {/* ── BREADCRUMB NAVIGATION ── */}
+      <div style={{ background: '#0a101d', borderBottom: '1px solid rgba(255, 255, 255, 0.06)', padding: '12px 20px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#94a3b8' }}>
+          <button
+            onClick={onNavigateHome}
+            style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
+          >
+            <Home size={14} /> Home
+          </button>
+          <span>/</span>
+          <span style={{ color: '#cbd5e1' }}>Technology Division</span>
+          <span>/</span>
+          <span style={{ color: '#3b82f6', fontWeight: 600 }}>AI-Native Engineering &amp; Software</span>
         </div>
       </div>
 
-      {/* ── Hero Section (Ultra-Modern AI Cybernetic Aesthetic) ── */}
-      <section style={{
-        background: 'radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.22) 0%, transparent 50%), radial-gradient(circle at 25% 75%, rgba(16, 185, 129, 0.18) 0%, transparent 50%), linear-gradient(135deg, #050B14 0%, #0A1324 50%, #0F1D38 100%)',
-        color: '#FFFFFF',
-        padding: '65px 0 60px 0',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
-        position: 'relative'
-      }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '920px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-            <div style={{
+      {/* ── 1. HERO BANNER (THE NINEHERTZ STYLE) ── */}
+      <section
+        style={{
+          position: 'relative',
+          padding: '70px 20px 80px',
+          background: 'radial-gradient(ellipse 70% 50% at 50% 10%, rgba(37, 99, 235, 0.22) 0%, rgba(7, 11, 20, 0.98) 75%)',
+          textAlign: 'center',
+          borderBottom: '1px solid rgba(59, 130, 246, 0.2)'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '1080px', margin: '0 auto' }}>
+          {/* Top Pill Kicker */}
+          <div
+            style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: 'rgba(139, 92, 246, 0.15)',
-              border: '1px solid rgba(139, 92, 246, 0.4)',
+              background: 'rgba(37, 99, 235, 0.15)',
+              border: '1px solid rgba(59, 130, 246, 0.4)',
+              padding: '6px 20px',
               borderRadius: '9999px',
-              padding: '6px 18px',
-              color: '#C084FC',
               fontSize: '0.80rem',
               fontWeight: 800,
-              letterSpacing: '0.04em',
-              boxShadow: '0 0 20px rgba(139, 92, 246, 0.2)'
-            }}>
-              <BrainCircuit size={15} />
-              <span>MS TECH LABS &bull; AUTONOMOUS AI &amp; NEXT-GEN SOFTWARE</span>
-            </div>
-
-            {/* 🏷️ Limited Enterprise Offer Badge */}
-            <div 
-              onClick={() => onOpenQuote('Full Enterprise ERP & Business Automation')}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                gap: '8px',
-                background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(245, 158, 11, 0.16) 100%)',
-                border: '1.5px solid #10B981',
-                borderRadius: '9999px',
-                padding: '8px 22px',
-                fontSize: 'clamp(0.78rem, 1.8vw, 0.88rem)',
-                fontWeight: 800,
-                cursor: 'pointer',
-                boxShadow: '0 0 25px rgba(16, 185, 129, 0.35)',
-                transition: 'all 0.25s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 0 35px rgba(16, 185, 129, 0.55)';
-                e.currentTarget.style.borderColor = '#34D399';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 0 25px rgba(16, 185, 129, 0.35)';
-                e.currentTarget.style.borderColor = '#10B981';
-              }}
-              title="Click to claim Enterprise ERP Consultation & Labor Audit"
-            >
-              <span style={{ fontSize: '1rem', lineHeight: 1 }}>🏷️</span>
-              <span style={{ color: '#FCD34D', textTransform: 'uppercase', fontWeight: 900, letterSpacing: '0.04em' }}>
-                LIMITED ENTERPRISE OFFER:
-              </span>
-              <span style={{ color: '#FFFFFF', fontWeight: 700 }}>
-                Cut ₹80,000+/Month in Labor Overhead with Custom ERP
-              </span>
-              <span style={{
-                background: '#10B981',
-                color: '#022c22',
-                padding: '3px 10px',
-                borderRadius: '9999px',
-                fontSize: '0.72rem',
-                fontWeight: 900,
-                letterSpacing: '0.03em',
-                boxShadow: '0 2px 8px rgba(16, 185, 129, 0.4)'
-              }}>
-                CLAIM OFFER &rarr;
-              </span>
-            </div>
+              color: '#60a5fa',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              marginBottom: '20px'
+            }}
+          >
+            <Sparkles size={15} color="#3b82f6" />
+            <span>AI-NATIVE ENGINEERING PARTNER</span>
           </div>
 
-          <h1 style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(2.2rem, 4.8vw, 3.5rem)',
-            fontWeight: 900,
-            lineHeight: 1.18,
-            marginBottom: '20px',
-            color: '#F8FAFC',
-            letterSpacing: '-0.02em'
-          }}>
-            Engineering <span style={{ background: 'linear-gradient(135deg, #C084FC 0%, #8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Autonomous AI Agents</span>, <br />
-            <span style={{ color: '#38BDF8' }}>Intelligent Chatbots</span> &amp; <span style={{ color: '#10B981' }}>Scalable Software</span>
+          {/* Main Headline */}
+          <h1
+            style={{
+              fontSize: 'clamp(2.3rem, 5vw, 4.2rem)',
+              fontWeight: 900,
+              color: '#ffffff',
+              lineHeight: 1.15,
+              margin: '0 auto 20px',
+              letterSpacing: '-0.02em'
+            }}
+          >
+            Build, Run, and Evolve with AI <br />
+            <span style={{ color: '#3b82f6', textShadow: '0 0 40px rgba(59, 130, 246, 0.4)' }}>
+              Without Losing Control
+            </span>
           </h1>
 
-          <p style={{
-            fontSize: 'clamp(1rem, 2vw, 1.15rem)',
-            color: '#94A3B8',
-            lineHeight: 1.65,
-            maxWidth: '780px',
-            margin: '0 auto 30px auto'
-          }}>
-            We fuse <strong>IIT Roorkee analytical engineering fundamentals</strong> with state-of-the-art Generative AI, RAG over enterprise data, native Android apps, and high-throughput cloud microservices.
+          <p
+            style={{
+              fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+              color: '#cbd5e1',
+              maxWidth: '820px',
+              margin: '0 auto 36px',
+              lineHeight: 1.6
+            }}
+          >
+            Eliminate vendor fragmentation. We combine world-class software product engineering, agentic AI workflows, and cloud scalability to deliver systems 4–7X faster with guaranteed business outcomes.
           </p>
 
-          {/* Quick Hero CTAs */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '14px' }}>
-            <button
-              onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
-              style={{
-                background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
-                color: '#FFFFFF',
-                border: 'none',
-                borderRadius: '12px',
-                padding: '14px 28px',
-                fontSize: '0.98rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 8px 24px rgba(139, 92, 246, 0.45)'
-              }}
-            >
-              <span>Deploy Custom AI Agent</span>
-              <ArrowRight size={18} />
-            </button>
-
-            <a
-              href="#ai-studio"
-              style={{
-                background: 'rgba(255, 255, 255, 0.06)',
-                color: '#F8FAFC',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                borderRadius: '12px',
-                padding: '14px 26px',
-                fontSize: '0.98rem',
-                fontWeight: 700,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px'
-              }}
-            >
-              <span>Test Live AI Studio</span>
-              <Bot size={18} color="#8B5CF6" />
-            </a>
-
-            <a
-              href="#roi-calculator"
-              style={{
-                background: 'rgba(16, 185, 129, 0.10)',
-                color: '#34D399',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
-                borderRadius: '12px',
-                padding: '14px 22px',
-                fontSize: '0.98rem',
-                fontWeight: 700,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px'
-              }}
-            >
-              <span>Calculate AI ROI</span>
-              <Calculator size={18} />
-            </a>
-          </div>
-
-          {/* Live System Telemetry Stat Badges */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '16px',
-            marginTop: '45px',
-            paddingTop: '30px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)'
-          }}>
-            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
-              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#C084FC' }}>99.8%</div>
-              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Zero-Hallucination Guardrails</div>
-            </div>
-
-            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
-              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#38BDF8' }}>&lt; 250ms</div>
-              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Sub-Second RAG Latency</div>
-            </div>
-
-            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
-              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#10B981' }}>80%+</div>
-              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Support Ticket Deflection</div>
-            </div>
-
-            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '16px' }}>
-              <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#F59E0B' }}>100% Isolated</div>
-              <div style={{ fontSize: '0.80rem', color: '#94A3B8', fontWeight: 600 }}>Private Enterprise Data Security</div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Section 1: Interactive AI Architecture Pipeline Visualizer ── */}
-      <section style={{ padding: '60px 0 50px 0', background: '#091122', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px auto' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 14px',
-              background: 'rgba(56, 189, 248, 0.12)',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
-              borderRadius: '9999px',
-              color: '#38BDF8',
-              fontSize: '0.78rem',
-              fontWeight: 800,
-              letterSpacing: '0.04em',
-              marginBottom: '10px'
-            }}>
-              <Workflow size={14} />
-              <span>PRODUCTION ARCHITECTURE</span>
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '8px'
-            }}>
-              How Our <span style={{ color: '#38BDF8' }}>Enterprise AI Pipeline</span> Works
-            </h2>
-            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
-              Click on any stage below to inspect how user messages are tokenized, sanitized, enriched with private RAG vector context, and converted into automated actions.
-            </p>
-          </div>
-
-          {/* Interactive Pipeline Bar (Clickable Nodes) */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-            gap: '12px',
-            marginBottom: '24px'
-          }}>
-            {pipelineSteps.map((step) => {
-              const isActive = selectedPipelineStep === step.id;
-              return (
-                <button
-                  key={step.id}
-                  onClick={() => setSelectedPipelineStep(step.id)}
-                  style={{
-                    background: isActive ? 'linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%)' : 'rgba(255, 255, 255, 0.03)',
-                    border: isActive ? '2px solid #8B5CF6' : '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '14px',
-                    padding: '16px 14px',
-                    textAlign: 'left',
-                    cursor: 'pointer',
-                    transition: 'all 0.25s ease',
-                    boxShadow: isActive ? '0 8px 24px rgba(139, 92, 246, 0.3)' : 'none'
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '0.82rem', fontWeight: 800, color: isActive ? '#C084FC' : '#94A3B8' }}>{step.title}</span>
-                    <span style={{
-                      fontSize: '0.65rem',
-                      fontWeight: 700,
-                      padding: '2px 6px',
-                      borderRadius: '4px',
-                      background: isActive ? '#8B5CF6' : 'rgba(255,255,255,0.06)',
-                      color: '#FFFFFF'
-                    }}>
-                      {step.badge}
-                    </span>
-                  </div>
-                  <div style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>{step.subtitle}</div>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Detailed Stage Inspector Card */}
-          <div style={{
-            background: 'linear-gradient(135deg, #0B132B 0%, #0F1A3A 100%)',
-            border: '1.5px solid rgba(139, 92, 246, 0.35)',
-            borderRadius: '16px',
-            padding: '26px 28px',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
-            alignItems: 'center'
-          }}>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
-                <span style={{ fontSize: '0.80rem', fontWeight: 800, color: '#8B5CF6', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                  Stage Deep Dive:
-                </span>
-                <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#F8FAFC' }}>
-                  {pipelineSteps[selectedPipelineStep].title} — {pipelineSteps[selectedPipelineStep].subtitle}
-                </span>
-              </div>
-              <p style={{ color: '#CBD5E1', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '14px' }}>
-                {pipelineSteps[selectedPipelineStep].desc}
-              </p>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#38BDF8' }}>
-                  <Zap size={14} />
-                  <span>{pipelineSteps[selectedPipelineStep].metrics}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.82rem', color: '#34D399' }}>
-                  <ShieldCheck size={14} />
-                  <span>{pipelineSteps[selectedPipelineStep].security}</span>
-                </div>
-              </div>
-            </div>
-
-            <div style={{
-              background: '#060B14',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '16px',
-              fontFamily: 'monospace',
-              fontSize: '0.78rem',
-              color: '#38BDF8',
-              lineHeight: 1.6
-            }}>
-              <div style={{ color: '#64748B', marginBottom: '6px' }}>// Execution Log Trace</div>
-              <div>&gt; [INIT] {pipelineSteps[selectedPipelineStep].subtitle} handshake verified.</div>
-              <div>&gt; [METRIC] {pipelineSteps[selectedPipelineStep].metrics}</div>
-              <div style={{ color: '#34D399' }}>&gt; [STATUS] Zero-Data Leakage Protocol: ENFORCED</div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Section 2: Multi-Persona Live AI Agent Studio (3-in-1 Interactive Simulator) ── */}
-      <section id="ai-studio" style={{ padding: '60px 0 70px 0', background: '#070D1B' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px auto' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '5px 14px',
-              background: 'rgba(139, 92, 246, 0.15)',
-              border: '1px solid rgba(139, 92, 246, 0.4)',
-              borderRadius: '9999px',
-              color: '#C084FC',
-              fontSize: '0.78rem',
-              fontWeight: 800,
-              letterSpacing: '0.04em',
-              marginBottom: '10px'
-            }}>
-              <Wand2 size={14} />
-              <span>LIVE INTERACTIVE AGENT STUDIO</span>
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '8px'
-            }}>
-              Experience Our <span style={{ color: '#8B5CF6' }}>Autonomous AI Agents</span> in Real-Time
-            </h2>
-            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
-              Switch between our 3 live agent personas: test automated sales qualification, inspect corporate document RAG citation, or simulate live WhatsApp Cloud API messaging.
-            </p>
-
-            {/* Persona Switcher Tabs */}
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '20px' }}>
-              {[
-                { id: 'sales', label: '💼 Enterprise Sales Bot', desc: 'Auto-qualifies leads & quotes' },
-                { id: 'rag', label: '📑 Corporate Document RAG', desc: 'Cites manuals with zero-hallucination' },
-                { id: 'whatsapp', label: '📱 WhatsApp Business Bot', desc: 'Meta Cloud API simulator' }
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setStudioPersona(tab.id)}
-                  style={{
-                    padding: '8px 18px',
-                    borderRadius: '9999px',
-                    fontSize: '0.84rem',
-                    fontWeight: 700,
-                    border: '1px solid',
-                    cursor: 'pointer',
-                    background: studioPersona === tab.id ? '#8B5CF6' : 'rgba(255, 255, 255, 0.04)',
-                    color: studioPersona === tab.id ? '#FFFFFF' : '#94A3B8',
-                    borderColor: studioPersona === tab.id ? '#8B5CF6' : 'rgba(255, 255, 255, 0.12)',
-                    transition: 'all 0.2s ease',
-                    boxShadow: studioPersona === tab.id ? '0 4px 14px rgba(139, 92, 246, 0.35)' : 'none'
-                  }}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Interactive Chat Console Window */}
-          <div style={{
-            maxWidth: '860px',
-            margin: '0 auto',
-            background: '#0B1120',
-            border: '1.5px solid rgba(139, 92, 246, 0.4)',
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 20px 50px -10px rgba(139, 92, 246, 0.25)'
-          }}>
-            {/* Console Header Bar */}
-            <div style={{
-              background: studioPersona === 'whatsapp' ? 'linear-gradient(90deg, #064E3B 0%, #0F172A 100%)' : 'linear-gradient(90deg, #1E1B4B 0%, #0F172A 100%)',
-              padding: '14px 20px',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          {/* ── Interactive Ask AI Search Bar (NineHertz Feature) ── */}
+          <div
+            style={{
+              maxWidth: '680px',
+              margin: '0 auto 24px',
+              background: 'rgba(15, 23, 42, 0.95)',
+              border: '1px solid rgba(59, 130, 246, 0.45)',
+              borderRadius: '16px',
+              padding: '8px 12px',
+              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.5)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
               gap: '10px'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '10px',
-                  background: studioPersona === 'whatsapp' ? '#10B981' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF'
-                }}>
-                  {studioPersona === 'whatsapp' ? <MessageSquare size={20} /> : <Bot size={22} />}
-                </div>
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ fontSize: '0.94rem', fontWeight: 800, color: '#F8FAFC' }}>
-                      {studioPersona === 'sales' && 'MS Sales & Lead Qualifier Agent'}
-                      {studioPersona === 'rag' && 'Corporate Document RAG Inspector'}
-                      {studioPersona === 'whatsapp' && 'MS Group WhatsApp Cloud Verified Desk'}
-                    </span>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
-                  </div>
-                  <div style={{ fontSize: '0.72rem', color: '#94A3B8' }}>
-                    {studioPersona === 'sales' && 'GPT-4o Reasoning Core & CRM Webhook Sync'}
-                    {studioPersona === 'rag' && 'Vector Cosine Similarity & Mandatory Source Citations'}
-                    {studioPersona === 'whatsapp' && 'Meta Cloud API v20.0 • E2E Encryption'}
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{
-                  fontSize: '0.70rem',
-                  padding: '3px 8px',
-                  borderRadius: '6px',
-                  background: 'rgba(16, 185, 129, 0.15)',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
-                  color: '#34D399',
-                  fontWeight: 700
-                }}>
-                  Latency: 180ms
-                </span>
-                <span style={{
-                  fontSize: '0.70rem',
-                  padding: '3px 8px',
-                  borderRadius: '6px',
-                  background: 'rgba(139, 92, 246, 0.15)',
-                  border: '1px solid rgba(139, 92, 246, 0.3)',
-                  color: '#C084FC',
-                  fontWeight: 700
-                }}>
-                  Active Persona
-                </span>
-              </div>
-            </div>
-
-            {/* Chat Thread Messages Box */}
-            <div style={{
-              height: '340px',
-              overflowY: 'auto',
-              padding: '20px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '14px',
-              background: studioPersona === 'whatsapp' ? '#071510' : '#070D1A'
-            }}>
-              {chatThreads[studioPersona].map((msg, idx) => {
-                const isBot = msg.sender === 'bot';
-                return (
-                  <div
-                    key={idx}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '10px',
-                      alignSelf: isBot ? 'flex-start' : 'flex-end',
-                      maxWidth: '85%'
-                    }}
-                  >
-                    {isBot && (
-                      <div style={{
-                        width: '28px',
-                        height: '28px',
-                        borderRadius: '8px',
-                        background: studioPersona === 'whatsapp' ? '#059669' : '#8B5CF6',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#FFFFFF',
-                        flexShrink: 0,
-                        marginTop: '2px'
-                      }}>
-                        <Bot size={16} />
-                      </div>
-                    )}
-                    <div style={{
-                      background: isBot 
-                        ? (studioPersona === 'whatsapp' ? '#0D281E' : '#1E293B') 
-                        : (studioPersona === 'whatsapp' ? '#059669' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)'),
-                      color: '#F8FAFC',
-                      padding: '12px 16px',
-                      borderRadius: isBot ? '4px 16px 16px 16px' : '16px 4px 16px 16px',
-                      fontSize: '0.88rem',
-                      lineHeight: 1.55,
-                      boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
-                      border: isBot ? '1px solid rgba(255,255,255,0.08)' : 'none'
-                    }}>
-                      {msg.text}
-                    </div>
-                  </div>
-                );
-              })}
-
-              {isBotTyping && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', alignSelf: 'flex-start' }}>
-                  <div style={{
-                    width: '28px',
-                    height: '28px',
-                    borderRadius: '8px',
-                    background: studioPersona === 'whatsapp' ? '#059669' : '#8B5CF6',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#FFFFFF',
-                    flexShrink: 0
-                  }}>
-                    <Bot size={16} />
-                  </div>
-                  <div style={{
-                    background: '#1E293B',
-                    color: '#94A3B8',
-                    padding: '8px 14px',
-                    borderRadius: '4px 14px 14px 14px',
-                    fontSize: '0.82rem',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px'
-                  }}>
-                    <span>Agent is generating verified response</span>
-                    <span style={{ animation: 'pulse 1s infinite' }}>...</span>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Quick Suggestion Prompts */}
-            <div style={{
-              background: '#0B1120',
-              padding: '12px 18px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '6px',
-              alignItems: 'center'
-            }}>
-              <span style={{ fontSize: '0.72rem', color: '#64748B', fontWeight: 700, textTransform: 'uppercase', marginRight: '4px' }}>
-                Quick Prompts:
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', paddingLeft: '8px' }}>
+              <Bot size={20} color="#3b82f6" />
+              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#3b82f6', textTransform: 'uppercase' }}>
+                Ask AI:
               </span>
-              {personaPrompts[studioPersona].map((q, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleSendStudioMessage(q)}
-                  style={{
-                    background: 'rgba(139, 92, 246, 0.12)',
-                    border: '1px solid rgba(139, 92, 246, 0.3)',
-                    color: '#C084FC',
-                    fontSize: '0.74rem',
-                    fontWeight: 600,
-                    padding: '4px 10px',
-                    borderRadius: '9999px',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                    textAlign: 'left'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = 'rgba(139, 92, 246, 0.25)';
-                    e.currentTarget.style.borderColor = '#8B5CF6';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = 'rgba(139, 92, 246, 0.12)';
-                    e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
-                  }}
-                >
-                  {q}
-                </button>
-              ))}
             </div>
-
-            {/* Input Bar */}
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSendStudioMessage();
-              }}
+            <input
+              type="text"
+              value={aiPrompt}
+              onChange={(e) => setAiPrompt(e.target.value)}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleAskAi(); }}
+              placeholder="e.g. Build an autonomous valuation bot, or migrate our ERP..."
               style={{
-                background: '#070D1A',
-                padding: '12px 18px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                flex: 1,
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                color: '#ffffff',
+                fontSize: '0.94rem'
+              }}
+            />
+            <button
+              onClick={() => handleAskAi()}
+              style={{
+                background: '#2563eb',
+                border: 'none',
+                color: '#ffffff',
+                padding: '9px 18px',
+                borderRadius: '10px',
+                fontWeight: 700,
+                fontSize: '0.86rem',
+                cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '10px'
+                gap: '6px'
               }}
             >
-              <input
-                type="text"
-                value={studioInput}
-                onChange={(e) => setStudioInput(e.target.value)}
-                placeholder={`Ask ${studioPersona === 'sales' ? 'about AI integration & budget...' : studioPersona === 'rag' ? 'from internal documents & specs...' : 'a question as a WhatsApp customer...'}`}
-                style={{
-                  flex: 1,
-                  background: '#1E293B',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  borderRadius: '10px',
-                  padding: '10px 14px',
-                  color: '#FFFFFF',
-                  fontSize: '0.88rem',
-                  outline: 'none'
-                }}
-              />
-              <button
-                type="submit"
-                style={{
-                  background: studioPersona === 'whatsapp' ? 'linear-gradient(135deg, #10B981 0%, #059669 100%)' : 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: '10px',
-                  padding: '10px 18px',
-                  fontSize: '0.86rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px'
-                }}
-              >
-                <span>Send</span>
-                <Send size={15} />
-              </button>
-            </form>
+              <span>Explore Solution</span>
+              <ArrowRight size={14} />
+            </button>
+          </div>
 
-            {/* Bottom Callout in Console */}
-            <div style={{
-              background: '#050912',
-              padding: '12px 20px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+          {/* Quick sample prompt chips */}
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginBottom: '36px' }}>
+            {samplePrompts.map((p, idx) => (
+              <button
+                key={idx}
+                onClick={() => { setAiPrompt(p); handleAskAi(p); }}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '20px',
+                  padding: '4px 12px',
+                  fontSize: '0.74rem',
+                  color: '#94a3b8',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#38bdf8'; e.currentTarget.style.borderColor = '#38bdf8'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#94a3b8'; e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'; }}
+              >
+                {p}
+              </button>
+            ))}
+          </div>
+
+          {/* Dynamic AI Architecture Response Card */}
+          {aiResponse && (
+            <div
+              style={{
+                maxWidth: '740px',
+                margin: '0 auto 36px',
+                background: 'rgba(30, 41, 59, 0.95)',
+                border: '1px solid #3b82f6',
+                borderRadius: '14px',
+                padding: '20px 24px',
+                textAlign: 'left',
+                boxShadow: '0 8px 30px rgba(59, 130, 246, 0.25)',
+                animation: 'fadeIn 0.3s ease'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase' }}>
+                  AI Engineering Recommendation
+                </span>
+                <span style={{ fontSize: '0.72rem', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>
+                  {aiResponse.timeline}
+                </span>
+              </div>
+              <h4 style={{ color: '#ffffff', fontSize: '1.15rem', fontWeight: 800, marginBottom: '6px' }}>
+                {aiResponse.recommendation}
+              </h4>
+              <p style={{ color: '#cbd5e1', fontSize: '0.90rem', lineHeight: 1.55, marginBottom: '14px' }}>
+                {aiResponse.architecture}
+              </p>
+              <button
+                onClick={() => onOpenQuote(`AI Scoping: ${aiResponse.recommendation}`, { query: aiPrompt })}
+                className="btn btn-gold"
+                style={{ padding: '8px 18px', fontSize: '0.84rem' }}
+              >
+                <span>Request Detailed Technical Blueprint</span>
+                <ArrowRight size={14} />
+              </button>
+            </div>
+          )}
+
+          {/* Call to action buttons */}
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '34px' }}>
+            <button
+              onClick={() => onOpenQuote('Strategy Call - AI Native Engineering')}
+              style={{
+                background: '#2563eb',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '30px',
+                padding: '14px 32px',
+                fontWeight: 800,
+                fontSize: '0.96rem',
+                cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(37, 99, 235, 0.45)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              <span>Book a Strategy Call</span>
+              <ArrowRight size={16} />
+            </button>
+            <a
+              href="tel:+919158658885"
+              style={{
+                background: 'rgba(255, 255, 255, 0.08)',
+                color: '#ffffff',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '30px',
+                padding: '14px 26px',
+                fontWeight: 700,
+                fontSize: '0.94rem',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px'
+              }}
+            >
+              <Phone size={15} color="#38bdf8" />
+              <span>Talk to Tech Lead</span>
+            </a>
+          </div>
+
+          {/* Trust points bar */}
+          <div
+            style={{
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              justifyContent: 'center',
               flexWrap: 'wrap',
-              gap: '10px'
-            }}>
-              <span style={{ fontSize: '0.80rem', color: '#94A3B8' }}>
-                Want an autonomous AI agent integrated with your company WhatsApp &amp; ERP?
-              </span>
-              <button
-                onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
-                style={{
-                  background: '#8B5CF6',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: '8px',
-                  padding: '6px 14px',
-                  fontSize: '0.80rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px'
-                }}
-              >
-                <Sparkles size={13} />
-                <span>Build This Agent for Your Business</span>
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Section 3: Interactive AI ROI & Operational Cost-Savings Calculator ── */}
-      <section id="roi-calculator" style={{ padding: '60px 0 65px 0', background: '#091122', borderTop: '1px solid rgba(255, 255, 255, 0.06)', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px auto' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 14px',
-              background: 'rgba(16, 185, 129, 0.12)',
-              border: '1px solid rgba(16, 185, 129, 0.3)',
-              borderRadius: '9999px',
-              color: '#34D399',
-              fontSize: '0.78rem',
-              fontWeight: 800,
-              letterSpacing: '0.04em',
-              marginBottom: '10px'
-            }}>
-              <TrendingUp size={14} />
-              <span>FINANCIAL ROI ENGINE</span>
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '8px'
-            }}>
-              Calculate Your <span style={{ color: '#10B981' }}>Annual Cost Savings</span> with AI Automation
-            </h2>
-            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
-              Adjust the sliders to simulate how much time and operational payroll your company can reclaim by deflecting repetitive support inquiries to an autonomous AI agent.
-            </p>
-          </div>
-
-          <div style={{
-            maxWidth: '920px',
-            margin: '0 auto',
-            background: 'linear-gradient(135deg, #0B132B 0%, #0F1D38 100%)',
-            border: '1.5px solid rgba(16, 185, 129, 0.3)',
-            borderRadius: '20px',
-            padding: ' clamp(24px, 4vw, 36px)',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '32px',
-            alignItems: 'center'
-          }}>
-            {/* Left Sliders Controls */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>Monthly Customer Inquiries / Calls:</span>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#38BDF8' }}>{monthlyTickets.toLocaleString()}</span>
-                </div>
-                <input
-                  type="range"
-                  min="500"
-                  max="25000"
-                  step="500"
-                  value={monthlyTickets}
-                  onChange={(e) => setMonthlyTickets(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: '#38BDF8', cursor: 'pointer' }}
-                />
-              </div>
-
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>Dedicated Support / Operations Reps:</span>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#10B981' }}>{supportAgents} Reps</span>
-                </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="20"
-                  step="1"
-                  value={supportAgents}
-                  onChange={(e) => setSupportAgents(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: '#10B981', cursor: 'pointer' }}
-                />
-              </div>
-
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#F8FAFC' }}>Average Monthly Cost per Rep:</span>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#F59E0B' }}>₹{agentSalary.toLocaleString()}</span>
-                </div>
-                <input
-                  type="range"
-                  min="15000"
-                  max="60000"
-                  step="2500"
-                  value={agentSalary}
-                  onChange={(e) => setAgentSalary(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: '#F59E0B', cursor: 'pointer' }}
-                />
-              </div>
-            </div>
-
-            {/* Right Calculated Results Box */}
-            <div style={{
-              background: 'rgba(5, 11, 20, 0.75)',
-              border: '1px solid rgba(16, 185, 129, 0.35)',
-              borderRadius: '16px',
-              padding: '24px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '16px'
-            }}>
-              <div>
-                <div style={{ fontSize: '0.78rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
-                  Projected Annual Cost Savings:
-                </div>
-                <div style={{ fontSize: 'clamp(2rem, 3.5vw, 2.7rem)', fontWeight: 900, color: '#34D399', lineHeight: 1.1, marginTop: '4px' }}>
-                  ₹{estimatedAnnualSavingsLakhs} Lakhs <span style={{ fontSize: '0.90rem', color: '#94A3B8', fontWeight: 600 }}>/ Year</span>
-                </div>
-              </div>
-
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' }}>
-                <div>
-                  <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>AI Auto-Deflection</div>
-                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#38BDF8' }}>{deflectedTickets.toLocaleString()} / mo</div>
-                </div>
-
-                <div>
-                  <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>Staff Hours Saved</div>
-                  <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#C084FC' }}>{hoursSavedPerMonth.toLocaleString()} hrs / mo</div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
-                style={{
-                  width: '100%',
-                  background: 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: '10px',
-                  padding: '12px 18px',
-                  fontSize: '0.90rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  boxShadow: '0 4px 16px rgba(16, 185, 129, 0.4)'
-                }}
-              >
-                <span>Automate With Custom AI Agent</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Section 4: Core Technology Services Grid ── */}
-      <section style={{ padding: '60px 0 40px 0', background: '#070D1B' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 36px auto' }}>
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '8px'
-            }}>
-              Our Core <span style={{ color: '#10B981' }}>Technology Services</span>
-            </h2>
-            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
-              From initial wireframes and mobile UI/UX to cloud deployment, scalable databases, and enterprise AI integrations.
-            </p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-            gap: '22px'
-          }}>
-            {techServices.map((service) => {
-              const Icon = service.icon;
-              return (
-                <div 
-                  key={service.id}
-                  style={{
-                    background: 'rgba(15, 26, 54, 0.65)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    borderRadius: '16px',
-                    padding: '28px 24px',
-                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.25)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    transition: 'all 0.25s ease'
-                  }}
-                >
-                  <div>
-                    {/* Header */}
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-                      <div style={{
-                        width: '52px',
-                        height: '52px',
-                        borderRadius: '12px',
-                        background: `${service.accentColor}18`,
-                        border: `1px solid ${service.accentColor}40`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: service.accentColor
-                      }}>
-                        <Icon size={26} />
-                      </div>
-                      <span style={{
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                        color: service.accentColor,
-                        background: `${service.accentColor}15`,
-                        padding: '4px 10px',
-                        borderRadius: '9999px',
-                        border: `1px solid ${service.accentColor}30`
-                      }}>
-                        {service.badge}
-                      </span>
-                    </div>
-
-                    <h3 style={{
-                      fontSize: '1.25rem',
-                      fontWeight: 800,
-                      color: '#F8FAFC',
-                      marginBottom: '10px',
-                      lineHeight: 1.3
-                    }}>
-                      {service.title}
-                    </h3>
-
-                    <p style={{ fontSize: '0.90rem', color: '#94A3B8', lineHeight: 1.55, marginBottom: '18px' }}>
-                      {service.desc}
-                    </p>
-
-                    <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px', marginBottom: '18px' }}>
-                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '10px' }}>
-                        Key Capabilities:
-                      </div>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                        {service.highlights.map((h, i) => (
-                          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: '#CBD5E1' }}>
-                            <CheckCircle2 size={16} color={service.accentColor} style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => onOpenQuote(service.serviceName)}
-                    style={{
-                      width: '100%',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: `1px solid ${service.accentColor}50`,
-                      color: '#F8FAFC',
-                      borderRadius: '10px',
-                      padding: '11px 16px',
-                      fontSize: '0.88rem',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      transition: 'all 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = service.accentColor;
-                      e.currentTarget.style.color = '#FFFFFF';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
-                      e.currentTarget.style.color = '#F8FAFC';
-                    }}
-                  >
-                    <span>Request Proposal for this Service</span>
-                    <ArrowRight size={15} />
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── Section 5: Developer & Enterprise API Terminal Playground ── */}
-      <section style={{ padding: '50px 0 60px 0', background: '#091122', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 30px auto' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 14px',
-              background: 'rgba(139, 92, 246, 0.15)',
-              border: '1px solid rgba(139, 92, 246, 0.35)',
-              borderRadius: '9999px',
-              color: '#C084FC',
-              fontSize: '0.78rem',
-              fontWeight: 800,
-              letterSpacing: '0.04em',
-              marginBottom: '10px'
-            }}>
-              <Terminal size={14} />
-              <span>DEVELOPER-FIRST API INTEGRATION</span>
-            </div>
-
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '8px'
-            }}>
-              Integrate in <span style={{ color: '#8B5CF6' }}>Under 3 Minutes</span>
-            </h2>
-            <p style={{ color: '#94A3B8', fontSize: '0.96rem' }}>
-              Connect our private RAG AI endpoints to your mobile app, web dashboard, or backend with standard HTTP webhooks and SDKs.
-            </p>
-          </div>
-
-          <div style={{
-            maxWidth: '860px',
-            margin: '0 auto',
-            background: '#040810',
-            border: '1px solid rgba(255, 255, 255, 0.12)',
-            borderRadius: '16px',
-            overflow: 'hidden',
-            boxShadow: '0 16px 40px rgba(0, 0, 0, 0.5)'
-          }}>
-            {/* Terminal Header */}
-            <div style={{
-              background: '#0B1220',
-              padding: '12px 18px',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '10px'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444', display: 'inline-block' }} />
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B', display: 'inline-block' }} />
-                <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981', display: 'inline-block' }} />
-                <span style={{ fontSize: '0.80rem', color: '#94A3B8', fontFamily: 'monospace', marginLeft: '6px' }}>ms-agent-sdk</span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                {['python', 'node', 'curl'].map((lang) => (
-                  <button
-                    key={lang}
-                    onClick={() => setSelectedApiLang(lang)}
-                    style={{
-                      background: selectedApiLang === lang ? '#8B5CF6' : 'rgba(255, 255, 255, 0.06)',
-                      color: selectedApiLang === lang ? '#FFFFFF' : '#94A3B8',
-                      border: 'none',
-                      borderRadius: '6px',
-                      padding: '4px 10px',
-                      fontSize: '0.74rem',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    {lang === 'node' ? 'Node.js' : lang}
-                  </button>
-                ))}
-
-                <button
-                  onClick={handleCopyCode}
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    color: '#F8FAFC',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '6px',
-                    padding: '4px 10px',
-                    fontSize: '0.74rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px'
-                  }}
-                >
-                  {copiedCode ? <Check size={12} color="#10B981" /> : <Copy size={12} />}
-                  <span>{copiedCode ? 'Copied!' : 'Copy'}</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Code Display */}
-            <pre style={{
-              padding: '20px',
-              margin: 0,
+              gap: '24px',
+              paddingTop: '20px',
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
               fontSize: '0.84rem',
-              fontFamily: 'Consolas, Monaco, "JetBrains Mono", monospace',
-              color: '#38BDF8',
-              lineHeight: 1.6,
-              overflowX: 'auto',
-              maxHeight: '380px'
-            }}>
-              <code>{codeSnippets[selectedApiLang]}</code>
-            </pre>
+              color: '#94a3b8'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={16} color="#3b82f6" />
+              <span>Trusted by 100+ Enterprise &amp; Digital Natives</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={16} color="#3b82f6" />
+              <span>Build → Run → Evolve (AI-Native Framework)</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <CheckCircle2 size={16} color="#3b82f6" />
+              <span>4-7X Velocity • Enterprise Security • Zero Handoffs</span>
+            </div>
           </div>
-
         </div>
       </section>
 
-      {/* ── Section 6: Featured Software Products Showcase ── */}
-      <section id="products" style={{ padding: '60px 0 65px 0', background: '#070D1B' }}>
-        <div className="container">
-          
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 32px auto' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 12px',
-              background: 'rgba(16, 185, 129, 0.15)',
-              border: '1px solid rgba(16, 185, 129, 0.35)',
-              borderRadius: '9999px',
-              color: '#34D399',
-              fontSize: '0.78rem',
-              fontWeight: 700,
-              marginBottom: '10px'
-            }}>
-              <Rocket size={14} />
-              <span>PROPRIETARY TECH &amp; CLIENT DELIVERABLES</span>
+      {/* ── 2. THE AI-NATIVE ENGINEERING DIFFERENCE (4-GRID CARDS) ── */}
+      <section style={{ padding: '80px 20px', background: '#090f1d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
+            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+              OUTBUILD THE MARKET
             </div>
-            
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '8px'
-            }}>
-              Featured <span style={{ color: '#10B981' }}>Software Products</span> &amp; Applications
+            <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
+              AI-Native Engineering Difference
             </h2>
-            <p style={{ color: '#94A3B8', fontSize: '0.96rem', lineHeight: 1.6 }}>
-              Explore our in-house enterprise suites, mobile applications, and retail platforms built for modern performance and scale.
+            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6 }}>
+              Not just faster. Not just cheaper. Fundamentally different engineering architecture from Day One.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+            {/* Card 1 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
+                borderRadius: '16px',
+                padding: '28px',
+                transition: 'transform 0.2s ease, border-color 0.2s ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.25)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              <div style={{ fontSize: '0.72rem', color: '#60a5fa', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                AI-NATIVE FROM DAY ONE
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.35rem', fontWeight: 800, margin: '8px 0 4px' }}>
+                AI-Native Mode
+              </h3>
+              <div style={{ fontSize: '0.80rem', color: '#94a3b8', marginBottom: '16px' }}>AI Mode Activated</div>
+              <hr style={{ border: 'none', height: '1px', background: 'rgba(255, 255, 255, 0.1)', margin: '0 0 16px' }} />
+              <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                AI-augmented engineering is our standard. Using Claude Code, Cursor, and automated synthesis, we achieve 4–7× faster velocity while retaining 100% human verification.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
+                borderRadius: '16px',
+                padding: '28px',
+                transition: 'transform 0.2s ease, border-color 0.2s ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.25)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              <div style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                PROPRIETARY FRAMEWORK
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.35rem', fontWeight: 800, margin: '8px 0 4px' }}>
+                Zero Handoffs
+              </h3>
+              <div style={{ fontSize: '0.80rem', color: '#94a3b8', marginBottom: '16px' }}>One Partner, Entire Journey</div>
+              <hr style={{ border: 'none', height: '1px', background: 'rgba(255, 255, 255, 0.1)', margin: '0 0 16px' }} />
+              <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                We Build, Run, and Evolve your systems with the same senior team. No vendor switching. No knowledge loss. Your software velocity compounds continuously.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
+                borderRadius: '16px',
+                padding: '28px',
+                transition: 'transform 0.2s ease, border-color 0.2s ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.25)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              <div style={{ fontSize: '0.72rem', color: '#f59e0b', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                MEASURABLE OUTCOMES
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.35rem', fontWeight: 800, margin: '8px 0 4px' }}>
+                Outcome-Based
+              </h3>
+              <div style={{ fontSize: '0.80rem', color: '#94a3b8', marginBottom: '16px' }}>Deliver as Promised</div>
+              <hr style={{ border: 'none', height: '1px', background: 'rgba(255, 255, 255, 0.1)', margin: '0 0 16px' }} />
+              <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                Weekly production deployments and clear sprint milestone guarantees. Fixed commitments with zero surprise billing or endless project scope delays.
+              </p>
+            </div>
+
+            {/* Card 4 */}
+            <div
+              style={{
+                background: 'rgba(15, 23, 42, 0.75)',
+                border: '1px solid rgba(59, 130, 246, 0.25)',
+                borderRadius: '16px',
+                padding: '28px',
+                transition: 'transform 0.2s ease, border-color 0.2s ease'
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.25)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              <div style={{ fontSize: '0.72rem', color: '#a855f7', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                REAL-TIME VISIBILITY
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.35rem', fontWeight: 800, margin: '8px 0 4px' }}>
+                Live Transparency
+              </h3>
+              <div style={{ fontSize: '0.80rem', color: '#94a3b8', marginBottom: '16px' }}>See What You Pay For</div>
+              <hr style={{ border: 'none', height: '1px', background: 'rgba(255, 255, 255, 0.1)', margin: '0 0 16px' }} />
+              <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                Live client dashboards tracking pull requests, velocity metrics, test coverage, and cloud infrastructure costs. Total clarity at every stage.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. END-TO-END PARTNERSHIP: BUILD • RUN • EVOLVE (NINEHERTZ ARCHITECTURE) ── */}
+      <section style={{ padding: '84px 20px', background: '#070d18', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 40px' }}>
+            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+              END-TO-END PARTNERSHIP
+            </div>
+            <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
+              <span style={{ color: '#3b82f6' }}>Build. Run. Evolve.</span> — One Partner, Zero Hand-offs
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6 }}>
+              From initial MVP to AI transformation, we manage the entire software lifecycle.
             </p>
 
-            {/* Filter Pills */}
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '18px' }}>
-              {[
-                { id: 'all', label: 'All Products' },
-                { id: 'ai', label: '🤖 AI & Chatbots' },
-                { id: 'ecommerce', label: 'E-Commerce Engines' },
-                { id: 'enterprise', label: 'Enterprise SaaS' },
-                { id: 'mobile', label: 'Android Mobile Apps' },
-                { id: 'industrial', label: 'Industrial Compliance' }
-              ].map((tab) => (
+            {/* Tab Buttons */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '24px' }}>
+              {['build', 'run', 'evolve'].map((tab) => (
                 <button
-                  key={tab.id}
-                  onClick={() => setActiveCategory(tab.id)}
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
                   style={{
-                    padding: '6px 14px',
-                    borderRadius: '9999px',
-                    fontSize: '0.82rem',
+                    background: activeTab === tab ? '#2563eb' : 'rgba(255, 255, 255, 0.06)',
+                    color: activeTab === tab ? '#ffffff' : '#94a3b8',
+                    border: `1px solid ${activeTab === tab ? '#3b82f6' : 'rgba(255, 255, 255, 0.12)'}`,
+                    padding: '8px 24px',
+                    borderRadius: '24px',
                     fontWeight: 700,
-                    border: '1px solid',
+                    fontSize: '0.90rem',
                     cursor: 'pointer',
-                    background: activeCategory === tab.id ? '#10B981' : 'rgba(255, 255, 255, 0.04)',
-                    color: activeCategory === tab.id ? '#FFFFFF' : '#94A3B8',
-                    borderColor: activeCategory === tab.id ? '#10B981' : 'rgba(255, 255, 255, 0.12)',
-                    transition: 'all 0.2s ease'
+                    textTransform: 'capitalize',
+                    boxShadow: activeTab === tab ? '0 4px 14px rgba(37, 99, 235, 0.4)' : 'none'
                   }}
                 >
-                  {tab.label}
+                  {tab === 'build' && '01. Build (Engineering)'}
+                  {tab === 'run' && '02. Run (Cloud & Ops)'}
+                  {tab === 'evolve' && '03. Evolve (AI Growth)'}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* Product Cards Grid */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '24px'
-          }}>
-            {filteredProducts.map((product) => {
-              const Icon = product.icon;
-              return (
-                <div
-                  key={product.id}
-                  style={{
-                    background: 'rgba(15, 26, 54, 0.70)',
-                    border: '1px solid rgba(255, 255, 255, 0.09)',
-                    borderRadius: '18px',
-                    overflow: 'hidden',
-                    boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <div style={{ padding: '26px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                      <div style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '12px',
-                        background: `${product.badgeColor}18`,
-                        border: `1px solid ${product.badgeColor}35`,
-                        color: product.badgeColor,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}>
-                        <Icon size={24} />
-                      </div>
-                      <span style={{
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                        color: product.badgeColor,
-                        background: `${product.badgeColor}15`,
-                        border: `1px solid ${product.badgeColor}35`,
-                        padding: '4px 10px',
-                        borderRadius: '9999px'
-                      }}>
-                        {product.badge}
-                      </span>
-                    </div>
-
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#F8FAFC', marginBottom: '4px' }}>
-                      {product.title}
-                    </h3>
-                    <div style={{ fontSize: '0.84rem', color: '#38BDF8', fontWeight: 700, marginBottom: '12px' }}>
-                      {product.subtitle}
-                    </div>
-
-                    <p style={{ fontSize: '0.90rem', color: '#94A3B8', lineHeight: 1.55, marginBottom: '16px' }}>
-                      {product.description}
-                    </p>
-
-                    {/* Features list */}
-                    <div style={{ marginBottom: '18px' }}>
-                      <div style={{ fontSize: '0.76rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                        Core Features:
-                      </div>
-                      <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        {product.features.map((f, i) => (
-                          <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#CBD5E1' }}>
-                            <CheckCircle2 size={15} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
-                            <span>{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Tech Stack Badges */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                      {product.techStack.map((tech, i) => (
-                        <span key={i} style={{
-                          background: 'rgba(255, 255, 255, 0.04)',
-                          border: '1px solid rgba(255, 255, 255, 0.08)',
-                          borderRadius: '6px',
-                          padding: '2px 8px',
-                          fontSize: '0.74rem',
-                          fontWeight: 600,
-                          color: '#CBD5E1'
-                        }}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div style={{
-                    padding: '16px 26px',
-                    background: 'rgba(5, 10, 20, 0.65)',
-                    borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between'
-                  }}>
-                    <span style={{ fontSize: '0.84rem', color: '#94A3B8', fontWeight: 600 }}>Custom Deployment Ready</span>
-                    <button
-                      onClick={() => onOpenQuote(`Product Demo / Customization: ${product.title}`)}
-                      style={{
-                        background: '#10B981',
-                        color: '#FFFFFF',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '8px 16px',
-                        fontSize: '0.82rem',
-                        fontWeight: 700,
-                        cursor: 'pointer',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px'
-                      }}
-                    >
-                      <span>Inquire / Demo</span>
-                      <ArrowRight size={14} />
-                    </button>
-                  </div>
+          {/* Tab Content Display */}
+          {activeTab === 'build' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#38bdf8', marginBottom: '14px' }}>
+                  <BrainCircuit size={22} />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>AI Engineering</h3>
                 </div>
-              );
-            })}
-          </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', display: 'flex', flexDirection: 'column', gap: '10px', color: '#cbd5e1', fontSize: '0.88rem' }}>
+                  <li>✓ Agentic AI &amp; Autonomous Workflows</li>
+                  <li>✓ Custom Enterprise LLM &amp; Chatbot Development</li>
+                  <li>✓ Retrieval-Augmented Generation (RAG) Pipelines</li>
+                  <li>✓ AI Integration with Existing Enterprise CRMs</li>
+                </ul>
+                <button onClick={() => onOpenQuote('AI Engineering Inquiry')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.82rem' }}>
+                  Inquire AI Engineering
+                </button>
+              </div>
 
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#10b981', marginBottom: '14px' }}>
+                  <Code2 size={22} />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>Product Engineering</h3>
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', display: 'flex', flexDirection: 'column', gap: '10px', color: '#cbd5e1', fontSize: '0.88rem' }}>
+                  <li>✓ Modern Web Applications (Next.js, React, Node.js)</li>
+                  <li>✓ Mobile App Development (React Native, Flutter, Android)</li>
+                  <li>✓ Enterprise SaaS Platforms &amp; Multi-Tenant Systems</li>
+                  <li>✓ High-Performance REST &amp; GraphQL Microservices</li>
+                </ul>
+                <button onClick={() => onOpenQuote('Product Engineering Inquiry')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.82rem' }}>
+                  Inquire Product Engineering
+                </button>
+              </div>
+
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#f59e0b', marginBottom: '14px' }}>
+                  <Cpu size={22} />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>Industrial IoT &amp; Automation</h3>
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', display: 'flex', flexDirection: 'column', gap: '10px', color: '#cbd5e1', fontSize: '0.88rem' }}>
+                  <li>✓ Factory Machine Telemetry &amp; Remote Asset Monitoring</li>
+                  <li>✓ SCADA, PLC &amp; Sensor Data Cloud Ingestion</li>
+                  <li>✓ Automated Predictive Maintenance Alerts</li>
+                  <li>✓ Real-Time Industrial Floor Dashboards</li>
+                </ul>
+                <button onClick={() => onOpenQuote('IoT & Automation Inquiry')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.82rem' }}>
+                  Inquire IoT &amp; Automation
+                </button>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'run' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#38bdf8', marginBottom: '14px' }}>
+                  <Cloud size={22} />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>Cloud Architecture &amp; SRE</h3>
+                </div>
+                <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                  Multi-region AWS &amp; Azure architecture with zero-downtime CI/CD pipelines, Kubernetes container orchestration, and automated disaster recovery.
+                </p>
+                <div style={{ color: '#94a3b8', fontSize: '0.82rem' }}>✓ 99.98% Guaranteed Uptime SLA</div>
+              </div>
+
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#10b981', marginBottom: '14px' }}>
+                  <Workflow size={22} />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>AutonomousOps</h3>
+                </div>
+                <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                  Intelligent agents handling operational workflows, customer query follow-ups, and alert triaging 24/7 with zero bottlenecks.
+                </p>
+                <div style={{ color: '#94a3b8', fontSize: '0.82rem' }}>✓ 24/7 Automated Observability</div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'evolve' && (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#38bdf8', marginBottom: '14px' }}>
+                  <TrendingUp size={22} />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>AI Operating Model</h3>
+                </div>
+                <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                  Transform your internal workforce into an AI-augmented team. We help set up your internal AI Center of Excellence (CoE) and governance policies.
+                </p>
+              </div>
+
+              <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a855f7', marginBottom: '14px' }}>
+                  <Lock size={22} />
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>AI Governance &amp; Security</h3>
+                </div>
+                <p style={{ color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                  Continuous audit against prompt injection, data leaks, and compliance regulations. Comprehensive security reports and access controls.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* ── Section 7: Modern Tech Stack Badges ── */}
-      <section style={{
-        background: '#091122',
-        color: '#FFFFFF',
-        padding: '50px 0',
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
-      }}>
-        <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 30px auto' }}>
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '6px'
-            }}>
-              Engineered with <span style={{ color: '#38BDF8' }}>Modern Production Stacks</span>
+      {/* ── 4. WHAT WE HELP YOU ACHIEVE (BENTO-GRID) ── */}
+      <section style={{ padding: '80px 20px', background: '#090f1e', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
+            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+              FROM VISION TO EXECUTION
+            </div>
+            <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
+              What We Help You Achieve
             </h2>
-            <p style={{ color: '#94A3B8', fontSize: '0.92rem' }}>
-              We write clean, modular, and maintainable code adhering to industry standards and modern microservices architectures.
+            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6 }}>
+              We bridge the gap between ambitious digital goals and real-world execution.
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '14px'
-          }}>
-            {techStackIcons.map((stack, i) => (
-              <div 
-                key={i}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+            <div style={{ background: 'rgba(15, 23, 42, 0.75)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '16px', padding: '28px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
+                <Zap size={22} color="#3b82f6" />
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.2rem', fontWeight: 800, marginBottom: '6px' }}>
+                Enable 'AI Mode' for Your Business
+              </h3>
+              <div style={{ fontSize: '0.80rem', color: '#60a5fa', marginBottom: '12px', fontStyle: 'italic' }}>
+                "Your systems that think, solve, and guide."
+              </div>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                AI Mode transforms static portals into intelligent agents that understand visitor intent, solve queries instantly, and route leads in real-time.
+              </p>
+            </div>
+
+            <div style={{ background: 'rgba(15, 23, 42, 0.75)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '16px', padding: '28px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
+                <Rocket size={22} color="#10b981" />
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.2rem', fontWeight: 800, marginBottom: '6px' }}>
+                From Prototype to Production AI
+              </h3>
+              <div style={{ fontSize: '0.80rem', color: '#34d399', marginBottom: '12px', fontStyle: 'italic' }}>
+                "Bring your concept. We ship the first version rapidly."
+              </div>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                Agentic workflows combined with battle-tested architectures turn requirements into working software without months of waiting.
+              </p>
+            </div>
+
+            <div style={{ background: 'rgba(15, 23, 42, 0.75)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '16px', padding: '28px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(245, 158, 11, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
+                <Server size={22} color="#f59e0b" />
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.2rem', fontWeight: 800, marginBottom: '6px' }}>
+                Turn Legacy into Modern
+              </h3>
+              <div style={{ fontSize: '0.80rem', color: '#fbbf24', marginBottom: '12px', fontStyle: 'italic' }}>
+                "Keep your core data. Re-imagine your workflow."
+              </div>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6 }}>
+                We refactor desktop databases, Excel workflows, and old tools into high-speed modern cloud platforms without disruptive downtime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. FLAGSHIP SOFTWARE PRODUCTS SHOWCASE ── */}
+      <section style={{ padding: '80px 20px', background: '#070c16', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
+            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+              PROVEN PLATFORMS
+            </div>
+            <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
+              Our Shipped Products &amp; Platforms
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6 }}>
+              Production software built and operated by our engineering team for enterprise clients and industrial firms.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+            {/* Product 1 */}
+            <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <span style={{ fontSize: '0.72rem', background: 'rgba(59, 130, 246, 0.15)', color: '#60a5fa', padding: '3px 10px', borderRadius: '4px', fontWeight: 800 }}>
+                  E-COMMERCE SUITE
+                </span>
+                <ShoppingBag size={20} color="#3b82f6" />
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>
+                Kala E-Commerce Platform
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                Multi-vendor retail &amp; wholesale marketplace platform with automated inventory synchronization, lightning-fast search, and multi-gateway checkout.
+              </p>
+              <div style={{ color: '#cbd5e1', fontSize: '0.80rem', marginBottom: '20px' }}>
+                Stack: Node.js, Next.js, Redis, Razorpay, ElasticSearch
+              </div>
+              <button onClick={() => onOpenQuote('Kala E-Commerce Demo')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.84rem' }}>
+                Request Live Demo
+              </button>
+            </div>
+
+            {/* Product 2 */}
+            <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(16, 185, 129, 0.3)', borderRadius: '16px', padding: '28px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <span style={{ fontSize: '0.72rem', background: 'rgba(16, 185, 129, 0.15)', color: '#34d399', padding: '3px 10px', borderRadius: '4px', fontWeight: 800 }}>
+                  VALUATION AUTOMATION
+                </span>
+                <ShieldCheck size={20} color="#10b981" />
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>
+                MS Valuation Cloud Suite
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                Comprehensive cloud system for Chartered Engineers &amp; Valuers. Stamped digital stability certificate generation, depreciated replacement cost audit, and bank mortgage reports.
+              </p>
+              <div style={{ color: '#cbd5e1', fontSize: '0.80rem', marginBottom: '20px' }}>
+                Stack: Python FastAPI, React, PostgreSQL, PDF Engine
+              </div>
+              <button onClick={() => onOpenQuote('MS Valuation Suite Demo')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.84rem' }}>
+                Explore Valuation Suite
+              </button>
+            </div>
+
+            {/* Product 3 */}
+            <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(245, 158, 11, 0.3)', borderRadius: '16px', padding: '28px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                <span style={{ fontSize: '0.72rem', background: 'rgba(245, 158, 11, 0.15)', color: '#fbbf24', padding: '3px 10px', borderRadius: '4px', fontWeight: 800 }}>
+                  AGENTIC BOT
+                </span>
+                <Bot size={20} color="#f59e0b" />
+              </div>
+              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>
+                Enterprise AI Assistant &amp; Bot
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                Omnichannel customer engagement agent connected to WhatsApp Cloud API and Web chat. Handles automated quotations, document scanning, and CRM lead capture.
+              </p>
+              <div style={{ color: '#cbd5e1', fontSize: '0.80rem', marginBottom: '20px' }}>
+                Stack: OpenAI GPT-4o / Claude 3.5, Pinecone, Webhooks
+              </div>
+              <button onClick={() => onOpenQuote('Enterprise AI Bot Demo')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.84rem' }}>
+                Deploy Custom Bot
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. TECHNOLOGY STACK & TOOLING ── */}
+      <section style={{ padding: '80px 20px', background: '#090e1b', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 40px' }}>
+            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+              MODERN TOOLING
+            </div>
+            <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
+              Our Technology Stack
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6 }}>
+              Battle-tested frameworks and high-performance cloud architectures.
+            </p>
+
+            {/* Tech filter tabs */}
+            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '22px' }}>
+              {['all', 'frontend', 'backend', 'ai', 'cloud'].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTechFilter(cat)}
+                  style={{
+                    background: activeTechFilter === cat ? '#2563eb' : 'rgba(255, 255, 255, 0.05)',
+                    border: `1px solid ${activeTechFilter === cat ? '#3b82f6' : 'rgba(255, 255, 255, 0.12)'}`,
+                    color: activeTechFilter === cat ? '#ffffff' : '#94a3b8',
+                    padding: '6px 18px',
+                    borderRadius: '20px',
+                    fontWeight: 700,
+                    fontSize: '0.80rem',
+                    cursor: 'pointer',
+                    textTransform: 'capitalize'
+                  }}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
+            {filteredTech.map((tech, idx) => (
+              <div
+                key={idx}
                 style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
+                  background: 'rgba(15, 23, 42, 0.75)',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   borderRadius: '12px',
-                  padding: '16px 18px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px'
+                  padding: '20px',
+                  transition: 'border-color 0.2s ease'
                 }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'; }}
               >
-                <div style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '8px',
-                  background: 'rgba(16, 185, 129, 0.15)',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
-                  color: '#34D399',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Code2 size={18} />
+                <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.05rem', marginBottom: '4px' }}>
+                  {tech.name}
                 </div>
-                <div>
-                  <div style={{ fontSize: '0.90rem', fontWeight: 700, color: '#F8FAFC' }}>{stack.name}</div>
-                  <div style={{ fontSize: '0.74rem', color: '#94A3B8' }}>{stack.desc}</div>
+                <div style={{ color: '#94a3b8', fontSize: '0.82rem' }}>
+                  {tech.desc}
                 </div>
               </div>
             ))}
@@ -2181,87 +897,125 @@ curl -X POST "https://api.msgroup.tech/v1/agent/query" \\
         </div>
       </section>
 
-      {/* ── Ready to Build CTA Card ── */}
-      <section style={{ padding: '60px 0 20px 0' }}>
-        <div className="container">
-          <div style={{
-            maxWidth: '940px',
-            margin: '0 auto',
-            background: 'linear-gradient(135deg, #091329 0%, #131E3D 100%)',
-            border: '1.5px solid rgba(139, 92, 246, 0.4)',
-            borderRadius: '24px',
-            padding: ' clamp(32px, 5vw, 48px)',
-            color: '#FFFFFF',
-            textAlign: 'center',
-            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)'
-          }}>
-            <h2 style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: 'clamp(1.7rem, 3.4vw, 2.4rem)',
-              fontWeight: 800,
-              color: '#F8FAFC',
-              marginBottom: '14px'
-            }}>
-              Ready to Automate with <span style={{ color: '#8B5CF6' }}>Custom AI Agents</span>, <br />
-              <span style={{ color: '#10B981' }}>Android Apps</span>, or <span style={{ color: '#38BDF8' }}>Cloud Platforms</span>?
-            </h2>
-            <p style={{
-              fontSize: '1rem',
-              color: '#94A3B8',
-              maxWidth: '680px',
-              margin: '0 auto 28px auto',
-              lineHeight: 1.6
-            }}>
-              Connect directly with our engineering team. We provide free initial architecture scoping, wireframe consultation, and fixed-milestone development estimates.
-            </p>
-
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '14px' }}>
-              <button
-                onClick={() => onOpenQuote('AI Integration & Chatbot Development')}
-                style={{
-                  background: 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
-                  color: '#FFFFFF',
-                  border: 'none',
-                  borderRadius: '12px',
-                  padding: '14px 28px',
-                  fontSize: '0.95rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  boxShadow: '0 8px 24px rgba(139, 92, 246, 0.45)'
-                }}
-              >
-                <span>Request AI Architecture Consultation</span>
-                <ArrowRight size={18} />
-              </button>
-
-              <a
-                href="https://wa.me/919158658885?text=Hello%20MS%20Group,%20I%20am%20interested%20in%20AI%20Chatbot%20and%20Software%20Development."
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: 'rgba(37, 211, 102, 0.15)',
-                  color: '#25D366',
-                  border: '1px solid rgba(37, 211, 102, 0.35)',
-                  borderRadius: '12px',
-                  padding: '14px 24px',
-                  fontSize: '0.95rem',
-                  fontWeight: 700,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}
-              >
-                <MessageSquare size={18} color="#25D366" />
-                <span>Chat with Tech Lead on WhatsApp</span>
-              </a>
+      {/* ── 7. FAQ ACCORDION SECTION ── */}
+      <section style={{ padding: '80px 20px', background: '#070b14', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '44px' }}>
+            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
+              QUESTIONS &amp; CLARIFICATIONS
             </div>
+            <h2 style={{ fontSize: 'clamp(2rem, 3.6vw, 2.8rem)', fontWeight: 900, color: '#ffffff', marginBottom: '12px' }}>
+              Frequently Asked <span style={{ color: '#3b82f6' }}>Questions</span>
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '0.96rem' }}>
+              Clear answers regarding IP rights, timelines, data privacy, and engineering process.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {faqs.map((faq, idx) => (
+              <div
+                key={idx}
+                style={{
+                  background: 'rgba(15, 23, 42, 0.85)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderLeft: openFaq === idx ? '4px solid #3b82f6' : '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  overflow: 'hidden'
+                }}
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
+                  style={{
+                    width: '100%',
+                    padding: '18px 22px',
+                    textAlign: 'left',
+                    background: 'transparent',
+                    border: 'none',
+                    color: '#ffffff',
+                    fontSize: '1rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '14px'
+                  }}
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown
+                    size={18}
+                    color="#3b82f6"
+                    style={{
+                      transform: openFaq === idx ? 'rotate(180deg)' : 'rotate(0deg)',
+                      transition: 'transform 0.2s ease',
+                      flexShrink: 0
+                    }}
+                  />
+                </button>
+                {openFaq === idx && (
+                  <div style={{ padding: '0 22px 20px', color: '#cbd5e1', fontSize: '0.90rem', lineHeight: 1.65, borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '12px' }}>
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* ── 8. STRATEGIC DISCOVERY CONSULTATION BANNER ── */}
+      <section
+        style={{
+          padding: '70px 20px',
+          background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(7, 11, 20, 0.98) 100%)',
+          textAlign: 'center'
+        }}
+      >
+        <div className="container" style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 2.9rem)', fontWeight: 900, color: '#ffffff', marginBottom: '16px' }}>
+            Ready to Build Your AI-Native Advantage?
+          </h2>
+          <p style={{ color: '#cbd5e1', fontSize: '1rem', lineHeight: 1.65, marginBottom: '32px' }}>
+            Book a complimentary 30-minute architecture scoping session with our senior engineering team. We'll outline feasibility, tech stack, and deliver a fixed-timeline development plan.
+          </p>
+
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '14px' }}>
+            <button
+              onClick={() => onOpenQuote('Technical Architecture Scoping Session')}
+              style={{
+                background: '#2563eb',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '30px',
+                padding: '14px 32px',
+                fontWeight: 800,
+                fontSize: '0.96rem',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 4px 20px rgba(37, 99, 235, 0.5)'
+              }}
+            >
+              <span>Schedule Architecture Review</span>
+              <ArrowRight size={16} />
+            </button>
+            <a
+              href="https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20want%20to%20discuss%20an%20AI%20or%20Software%20development%20project."
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-whatsapp"
+              style={{ padding: '14px 26px', fontSize: '0.94rem' }}
+            >
+              <MessageSquare size={16} />
+              <span>WhatsApp Direct Desk</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Note: Global Navbar and Footer are rendered by App.jsx as standard; no extra header/footer added per user instruction. */}
     </div>
   );
 }
