@@ -748,425 +748,410 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
         </div>
       </section>
 
-      {/* ── 5. PRE-BUILT AI SYSTEMS: SIGNATURE AI SOLUTIONS (NINEHERTZ REFERENCE) ── */}
-      <section style={{ padding: '88px 20px', background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(30, 58, 138, 0.22), transparent 70%), #060a13', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
-        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          {/* Header */}
-          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 52px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '5px 14px', borderRadius: '20px', background: 'rgba(59, 130, 246, 0.12)', border: '1px solid rgba(59, 130, 246, 0.3)', marginBottom: '14px' }}>
-              <Sparkles size={14} color="#60a5fa" />
-              <span style={{ fontSize: '0.76rem', color: '#60a5fa', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-                PRE-BUILT AI SYSTEMS
-              </span>
+      {/* ── 5. PRE-BUILT AI SYSTEMS: SIGNATURE AI SOLUTIONS (EXACT NINEHERTZ DESIGN) ── */}
+      <section style={{ padding: '90px 20px', background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          {/* Section Header */}
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 52px' }}>
+            <div style={{ fontSize: '0.82rem', color: '#475569', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
+              PRE-BUILT AI SYSTEMS
             </div>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 900, color: '#ffffff', letterSpacing: '-0.02em', marginBottom: '14px' }}>
+            <h2 style={{ fontSize: 'clamp(2.1rem, 3.8vw, 3rem)', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: '12px' }}>
               Signature AI Solutions
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
-              Pre-built AI systems we deploy and customise to accelerate transformation across enterprises and engineering workflows.
+            <p style={{ color: '#64748b', fontSize: '1.05rem', lineHeight: 1.6, margin: 0 }}>
+              Pre-built AI systems we deploy and customise to accelerate transformation.
             </p>
           </div>
 
-          {/* Cards Grid: 4 Top Cards (2x2 on tablet, 4x1 on desktop) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '22px', marginBottom: '24px' }}>
-            {/* Card 01 */}
+          {/* Row 1: Cards 01, 02, 03 */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px', marginBottom: '26px' }}>
+            {/* Card 01 - AI Mode Activation */}
             <div
               style={{
-                background: 'rgba(15, 23, 42, 0.75)',
-                border: '1px solid rgba(251, 146, 60, 0.28)',
-                borderRadius: '18px',
-                padding: '28px 24px',
+                background: '#ffffff',
+                border: '1px solid #e5e7eb',
+                borderRadius: '24px',
+                padding: '34px 30px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.25s ease'
+                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#fb923c';
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(251, 146, 60, 0.15)';
+                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(251, 146, 60, 0.28)';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
               }}
             >
-              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(251, 146, 60, 0.18), transparent 70%)', pointerEvents: 'none' }} />
               <div>
-                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#fb923c', background: 'rgba(251, 146, 60, 0.12)', border: '1px solid rgba(251, 146, 60, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
+                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#ea580c', background: '#fff7ed', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
                   01
                 </div>
-                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
                   AI Mode Activation
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
-                  Add an AI-powered interface to any product, website, or enterprise platform.
+                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
+                  Add an AI-powered interface to any product, website, or platform.
                 </p>
 
-                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-                  Capabilities:
+                {/* Illustration Image */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                  <img
+                    src="/images/tech/ask-ai-mode.webp"
+                    alt="AI Mode Activation"
+                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                  />
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#fb923c" /> Conversational interfaces
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#fb923c" /> AI copilots
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#fb923c" /> Intelligent search
-                  </li>
-                </ul>
               </div>
 
               <div>
-                <div style={{
-                  padding: '10px 14px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(90deg, rgba(251, 146, 60, 0.15), rgba(234, 88, 12, 0.05))',
-                  border: '1px solid rgba(251, 146, 60, 0.3)',
-                  color: '#fdba74',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  textAlign: 'center',
-                  marginBottom: '14px'
-                }}>
-                  Make every click smarter.
+                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
+                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                  CAPABILITIES:
                 </div>
-                <button
-                  onClick={() => onOpenQuote('Signature AI: AI Mode Activation')}
-                  className="btn btn-outline"
-                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
-                >
-                  Activate AI Mode <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
-                </button>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {[
+                    'Conversational interfaces',
+                    'AI copilots',
+                    'Intelligent search'
+                  ].map((cap, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#FB923C"/>
+                      </svg>
+                      {cap}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'inline-block', background: '#fff7ed', color: '#ea580c', fontStyle: 'italic', borderRadius: '8px', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 600 }}>
+                    Make every click smarter.
+                  </div>
+                  <button
+                    onClick={() => onOpenQuote('AI Mode Activation Inquiry')}
+                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    Deploy
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Card 02 */}
+            {/* Card 02 - Marketing Studio */}
             <div
               style={{
-                background: 'rgba(15, 23, 42, 0.75)',
-                border: '1px solid rgba(50, 189, 101, 0.28)',
-                borderRadius: '18px',
-                padding: '28px 24px',
+                background: '#ffffff',
+                border: '1px solid #e5e7eb',
+                borderRadius: '24px',
+                padding: '34px 30px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.25s ease'
+                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#32bd65';
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(50, 189, 101, 0.15)';
+                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(50, 189, 101, 0.28)';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
               }}
             >
-              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(50, 189, 101, 0.18), transparent 70%)', pointerEvents: 'none' }} />
               <div>
-                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#32bd65', background: 'rgba(50, 189, 101, 0.12)', border: '1px solid rgba(50, 189, 101, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
+                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#16a34a', background: '#f0fdf4', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
                   02
                 </div>
-                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
                   Marketing Studio
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
-                  Launch AI-driven campaigns that target, personalize, and convert autonomously.
+                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
+                  Launch AI-driven campaigns that target, personalize, and convert.
                 </p>
 
-                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-                  Capabilities:
+                {/* Illustration Image */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                  <img
+                    src="/images/tech/Agent-Workforce.webp"
+                    alt="Marketing Studio"
+                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                  />
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#32bd65" /> AI Spend Sentry
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#32bd65" /> AI Compliance Agent
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#32bd65" /> Omnichannel personalized routing
-                  </li>
-                </ul>
               </div>
 
               <div>
-                <div style={{
-                  padding: '10px 14px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(90deg, rgba(50, 189, 101, 0.15), rgba(16, 185, 129, 0.05))',
-                  border: '1px solid rgba(50, 189, 101, 0.3)',
-                  color: '#6ee7b7',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  textAlign: 'center',
-                  marginBottom: '14px'
-                }}>
-                  Marketing on Autopilot.
+                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
+                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                  CAPABILITIES:
                 </div>
-                <button
-                  onClick={() => onOpenQuote('Signature AI: Marketing Studio')}
-                  className="btn btn-outline"
-                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
-                >
-                  Explore Marketing Studio <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
-                </button>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {[
+                    'AI Spend Sentry',
+                    'AI Compliance Agent',
+                    'Omnichannel routing'
+                  ].map((cap, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#32BD65"/>
+                      </svg>
+                      {cap}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'inline-block', background: '#f0fdf4', color: '#16a34a', fontStyle: 'italic', borderRadius: '8px', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 600 }}>
+                    Marketing on autopilot.
+                  </div>
+                  <button
+                    onClick={() => onOpenQuote('Marketing Studio Inquiry')}
+                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    Deploy
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Card 03 */}
+            {/* Card 03 - AI Modernization */}
             <div
               style={{
-                background: 'rgba(15, 23, 42, 0.75)',
-                border: '1px solid rgba(47, 106, 253, 0.28)',
-                borderRadius: '18px',
-                padding: '28px 24px',
+                background: '#ffffff',
+                border: '1px solid #e5e7eb',
+                borderRadius: '24px',
+                padding: '34px 30px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.25s ease'
+                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#2f6afd';
                 e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(47, 106, 253, 0.15)';
+                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(47, 106, 253, 0.28)';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
               }}
             >
-              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(47, 106, 253, 0.18), transparent 70%)', pointerEvents: 'none' }} />
               <div>
-                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#60a5fa', background: 'rgba(47, 106, 253, 0.12)', border: '1px solid rgba(47, 106, 253, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
+                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#2563eb', background: '#eff6ff', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
                   03
                 </div>
-                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
+                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
                   AI Modernization
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
-                  Upgrade existing systems with AI without rebuilding your entire core infrastructure.
+                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
+                  Upgrade existing systems with AI without rebuilding your entire core.
                 </p>
 
-                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-                  Capabilities:
+                {/* Illustration Image */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                  <img
+                    src="/images/tech/AI-Modernization.webp"
+                    alt="AI Modernization"
+                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                  />
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#2f6afd" /> AI copilots for legacy
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#2f6afd" /> AI data layers
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#2f6afd" /> Automation APIs
-                  </li>
+              </div>
+
+              <div>
+                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
+                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                  CAPABILITIES:
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {[
+                    'AI copilots for legacy',
+                    'AI data layers',
+                    'Automation APIs'
+                  ].map((cap, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#2F6AFD"/>
+                      </svg>
+                      {cap}
+                    </li>
+                  ))}
                 </ul>
-              </div>
 
-              <div>
-                <div style={{
-                  padding: '10px 14px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(90deg, rgba(47, 106, 253, 0.15), rgba(37, 99, 235, 0.05))',
-                  border: '1px solid rgba(47, 106, 253, 0.3)',
-                  color: '#93c5fd',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  textAlign: 'center',
-                  marginBottom: '14px'
-                }}>
-                  New intelligence, same systems.
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'inline-block', background: '#eff6ff', color: '#2563eb', fontStyle: 'italic', borderRadius: '8px', padding: '8px 16px', fontSize: '0.85rem', fontWeight: 600 }}>
+                    New intelligence, same systems.
+                  </div>
+                  <button
+                    onClick={() => onOpenQuote('AI Modernization Inquiry')}
+                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    Deploy
+                  </button>
                 </div>
-                <button
-                  onClick={() => onOpenQuote('Signature AI: AI Modernization')}
-                  className="btn btn-outline"
-                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
-                >
-                  Modernize Systems <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
-                </button>
-              </div>
-            </div>
-
-            {/* Card 04 */}
-            <div
-              style={{
-                background: 'rgba(15, 23, 42, 0.75)',
-                border: '1px solid rgba(139, 92, 246, 0.28)',
-                borderRadius: '18px',
-                padding: '28px 24px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.25s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#8b5cf6';
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 12px 30px rgba(139, 92, 246, 0.15)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.28)';
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-            >
-              <div style={{ position: 'absolute', top: 0, right: 0, width: '90px', height: '90px', background: 'radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), transparent 70%)', pointerEvents: 'none' }} />
-              <div>
-                <div style={{ display: 'inline-block', fontSize: '0.85rem', fontWeight: 900, color: '#c084fc', background: 'rgba(139, 92, 246, 0.12)', border: '1px solid rgba(139, 92, 246, 0.25)', borderRadius: '8px', padding: '3px 10px', marginBottom: '14px', letterSpacing: '0.04em' }}>
-                  04
-                </div>
-                <h3 style={{ color: '#ffffff', fontSize: '1.25rem', fontWeight: 800, marginBottom: '8px', lineHeight: 1.3 }}>
-                  AutonomousOps
-                </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.86rem', lineHeight: 1.55, marginBottom: '20px' }}>
-                  Self-managing operations that monitor, decide, and act independently.
-                </p>
-
-                <div style={{ fontSize: '0.74rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-                  Capabilities:
-                </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '9px', fontSize: '0.84rem', color: '#e2e8f0' }}>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#a855f7" /> Self-Healing System Design
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#a855f7" /> AI-Driven Incident Detection
-                  </li>
-                  <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Sparkles size={13} color="#a855f7" /> Continuous automated remediation
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <div style={{
-                  padding: '10px 14px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(90deg, rgba(139, 92, 246, 0.15), rgba(124, 58, 237, 0.05))',
-                  border: '1px solid rgba(139, 92, 246, 0.3)',
-                  color: '#d8b4fe',
-                  fontSize: '0.82rem',
-                  fontWeight: 700,
-                  textAlign: 'center',
-                  marginBottom: '14px'
-                }}>
-                  Operations without operators.
-                </div>
-                <button
-                  onClick={() => onOpenQuote('Signature AI: AutonomousOps')}
-                  className="btn btn-outline"
-                  style={{ width: '100%', fontSize: '0.80rem', padding: '9px 12px' }}
-                >
-                  Configure AutonomousOps <ArrowRight size={13} style={{ marginLeft: '4px', display: 'inline' }} />
-                </button>
               </div>
             </div>
           </div>
 
-          {/* 05 • PLATFORM NexusAI Wide Card (Direct match to NineHertz 05 • PLATFORM) */}
-          <div
-            style={{
-              background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(8, 47, 73, 0.4))',
-              border: '1px solid rgba(6, 182, 212, 0.35)',
-              borderRadius: '20px',
-              padding: '36px 32px',
-              position: 'relative',
-              overflow: 'hidden',
-              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)'
-            }}
-          >
-            <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '240px', height: '240px', background: 'radial-gradient(circle, rgba(6, 182, 212, 0.25), transparent 70%)', pointerEvents: 'none' }} />
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px', alignItems: 'center' }}>
+          {/* Row 2: Card 04 (AutonomousOps) + Card 05 (Platform toPromptAI) */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+            {/* Card 04 - AutonomousOps */}
+            <div
+              style={{
+                background: '#ffffff',
+                border: '1px solid #e5e7eb',
+                borderRadius: '24px',
+                padding: '34px 30px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
+              }}
+            >
               <div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.80rem', fontWeight: 900, color: '#38bdf8', background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.3)', borderRadius: '8px', padding: '4px 12px', marginBottom: '14px', letterSpacing: '0.06em' }}>
-                  <Cpu size={14} color="#38bdf8" />
-                  05 • PLATFORM
+                <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#2563eb', background: '#eff6ff', borderRadius: '999px', padding: '3px 14px', marginBottom: '14px' }}>
+                  04
                 </div>
-                <h3 style={{ color: '#ffffff', fontSize: 'clamp(1.5rem, 2.5vw, 1.9rem)', fontWeight: 900, marginBottom: '10px' }}>
-                  NexusAI Engine
+                <h3 style={{ color: '#0f172a', fontSize: '1.45rem', fontWeight: 700, margin: '0 0 10px', letterSpacing: '-0.01em' }}>
+                  AutonomousOps
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '22px', maxWidth: '520px' }}>
-                  The unified enterprise AI system engine behind MS Chartered Engineers tech solutions. Powers real-time agent swarms, tool execution, and dynamic model routing.
+                <p style={{ color: '#64748b', fontSize: '0.92rem', lineHeight: 1.55, margin: '0 0 20px' }}>
+                  Self-managing operations that monitor, decide, and act independently.
                 </p>
 
-                <div style={{
-                  display: 'inline-block',
-                  padding: '8px 18px',
-                  borderRadius: '10px',
-                  background: 'linear-gradient(90deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.15))',
-                  border: '1px solid rgba(6, 182, 212, 0.35)',
-                  color: '#67e8f9',
-                  fontSize: '0.88rem',
-                  fontWeight: 700
-                }}>
-                  One engine powering it all.
+                {/* Illustration Image */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '180px', margin: '10px 0 20px' }}>
+                  <img
+                    src="/images/tech/AI-Product-Launchpad.webp"
+                    alt="AutonomousOps"
+                    style={{ maxWidth: '100%', maxHeight: '170px', objectFit: 'contain', display: 'block' }}
+                  />
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '0.76rem', color: '#cbd5e1', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '14px' }}>
-                  Core Platform Capabilities:
+                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 18px 0' }} />
+                <div style={{ fontSize: '0.80rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
+                  CAPABILITIES:
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', marginBottom: '24px' }}>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   {[
-                    { label: 'Agent orchestration', color: '#34d399' },
-                    { label: 'Workflow automation', color: '#38bdf8' },
-                    { label: 'AI infrastructure', color: '#a78bfa' },
-                    { label: 'Prompt pipelines', color: '#f472b6' },
-                    { label: 'Model routing', color: '#fb923c' }
-                  ].map((item, idx) => (
-                    <div
-                      key={idx}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        background: 'rgba(255, 255, 255, 0.04)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
-                        borderRadius: '8px',
-                        padding: '9px 12px',
-                        fontSize: '0.84rem',
-                        color: '#f1f5f9'
-                      }}
-                    >
-                      <Sparkles size={13} color={item.color} />
-                      <span>{item.label}</span>
+                    'Self-Healing System Design',
+                    'AI-Driven Incident Detection'
+                  ].map((cap, i) => (
+                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#1e293b', fontSize: '0.88rem', fontWeight: 500 }}>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#2F6AFD"/>
+                      </svg>
+                      {cap}
+                    </li>
+                  ))}
+                </ul>
+
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'inline-block', background: '#dbeafe', color: '#1d4ed8', fontStyle: 'italic', borderRadius: '8px', padding: '8px 18px', fontSize: '0.86rem', fontWeight: 600 }}>
+                    Operations without operators.
+                  </div>
+                  <button
+                    onClick={() => onOpenQuote('AutonomousOps Inquiry')}
+                    style={{ background: '#0f172a', color: '#ffffff', border: 'none', borderRadius: '8px', padding: '8px 14px', fontSize: '0.80rem', fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    Deploy
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 05 • PLATFORM (Double-width on desktop) */}
+            <div
+              style={{
+                gridColumn: 'span 2',
+                background: '#ffffff',
+                border: '1px solid #e5e7eb',
+                borderRadius: '24px',
+                padding: '34px 34px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 16px 36px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02)';
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+                  <div style={{ display: 'inline-block', fontSize: '0.82rem', fontWeight: 700, color: '#15803d', background: '#dcfce7', borderRadius: '999px', padding: '3px 14px' }}>
+                    05 • PLATFORM
+                  </div>
+                  <a
+                    href="#contact"
+                    onClick={(e) => { e.preventDefault(); onOpenQuote('toPromptAI / NexusAI Platform Demo'); }}
+                    style={{ color: '#006cff', fontSize: '0.90rem', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                  >
+                    Visit toPromptAI <span style={{ fontSize: '1.05rem' }}>↗</span>
+                  </a>
+                </div>
+
+                <h3 style={{ color: '#0f172a', fontSize: '1.65rem', fontWeight: 700, margin: '14px 0 8px', letterSpacing: '-0.01em' }}>
+                  toPromptAI
+                </h3>
+                <p style={{ color: '#64748b', fontSize: '0.94rem', lineHeight: 1.55, margin: '0 0 22px' }}>
+                  The AI system engine behind NineHertz solutions.
+                </p>
+
+                <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', margin: '0 0 20px 0' }} />
+
+                {/* 2-Column Capabilities Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px 30px', marginBottom: '22px' }}>
+                  {[
+                    'Agent orchestration',
+                    'Workflow automation',
+                    'AI infrastructure',
+                    'Prompt pipelines',
+                    'Model routing'
+                  ].map((cap, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#1e293b', fontSize: '0.90rem', fontWeight: 500 }}>
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+                        <path d="M11.6776 6.57931C11.7762 6.5191 11.8578 6.43455 11.9143 6.33375C11.9709 6.23296 12.0006 6.11932 12.0006 6.00374C12.0006 5.88815 11.9709 5.77451 11.9143 5.67372C11.8578 5.57293 11.7762 5.48837 11.6776 5.42816C10.6374 4.79766 9.67699 4.04415 8.81708 3.1839C7.95771 2.32411 7.20502 1.36395 6.57527 0.324149C6.51525 0.22537 6.43085 0.143678 6.33017 0.0869149C6.22948 0.0301515 6.1159 0.000222565 6.00031 1.23655e-06C5.88473 -0.000220092 5.77103 0.0292736 5.67013 0.085651C5.56923 0.142028 5.48452 0.223397 5.42412 0.321944C4.79047 1.35892 4.03614 2.31715 3.17692 3.17656C2.31736 4.03595 1.35898 4.79044 0.321823 5.42424C0.223287 5.48466 0.141937 5.56939 0.0855811 5.6703C0.0292251 5.77122 -0.000244394 5.88492 1.5266e-06 6.0005C0.000247447 6.11609 0.0302006 6.22967 0.0869855 6.33034C0.14377 6.43101 0.22548 6.5154 0.324272 6.57539C1.36126 7.20321 2.31902 7.95341 3.17692 8.80985C4.03971 9.67137 4.79516 10.6341 5.42681 11.677C5.48702 11.7756 5.57158 11.8571 5.67237 11.9137C5.77317 11.9703 5.88681 12 6.00239 12C6.11797 12 6.23161 11.9703 6.33241 11.9137C6.4332 11.8571 6.51776 11.7756 6.57797 11.677C7.8447 9.59358 9.59371 7.84525 11.6776 6.57931Z" fill="#32BD65"/>
+                      </svg>
+                      <span>{cap}</span>
                     </div>
                   ))}
                 </div>
 
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  <button
-                    onClick={() => onOpenQuote('NexusAI Engine Platform Inquiry')}
-                    className="btn btn-primary"
-                    style={{ fontSize: '0.86rem', padding: '10px 22px' }}
-                  >
-                    Deploy NexusAI Platform <ArrowRight size={14} style={{ marginLeft: '6px', display: 'inline' }} />
-                  </button>
-                  <button
-                    onClick={() => onOpenQuote('Schedule Architecture Review')}
-                    className="btn btn-outline"
-                    style={{ fontSize: '0.86rem', padding: '10px 20px' }}
-                  >
-                    Architecture Review
-                  </button>
+                <div style={{ display: 'inline-block', background: '#dcfce7', color: '#15803d', fontStyle: 'italic', borderRadius: '8px', padding: '8px 18px', fontSize: '0.88rem', fontWeight: 600, marginBottom: '20px' }}>
+                  One engine powering it all.
                 </div>
+              </div>
+
+              {/* Large Platform Banner Preview */}
+              <div style={{ background: '#f8fafc', borderRadius: '18px', padding: '16px', border: '1px solid #f1f5f9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <img
+                  src="/images/tech/toPromptAI.webp"
+                  alt="From Idea to Launch"
+                  style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block' }}
+                />
               </div>
             </div>
           </div>
