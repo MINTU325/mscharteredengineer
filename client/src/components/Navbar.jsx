@@ -71,17 +71,18 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // LinkedIn-style scroll listener:
-  // - Swiping up to read down (diff > 8): nav bar hides
-  // - Swiping down to go up (diff < -8): nav bar appears
+  // LinkedIn-style scroll listener with accumulated delta:
+  // - Scrolling down (accumulated diff > 10, scrollY > 80): nav bar hides
+  // - Scrolling up (accumulated diff < -8): nav bar appears
   // - Near top (scrollY <= 60): nav bar always visible
   useEffect(() => {
     let ticking = false;
+    lastScrollY.current = Math.max(0, window.pageYOffset || document.documentElement?.scrollTop || window.scrollY || 0);
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
+          const currentScrollY = Math.max(0, window.pageYOffset || document.documentElement?.scrollTop || window.scrollY || 0);
           const diff = currentScrollY - lastScrollY.current;
 
           // If mobile drawer is open, keep navbar visible
@@ -92,17 +93,20 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             return;
           }
 
+          // Near top of page: always visible
           if (currentScrollY <= 60) {
             setNavVisible(true);
-          } else if (diff > 8) {
-            // Scrolling down into content -> hide navbar
+            lastScrollY.current = currentScrollY;
+          } else if (diff > 10 && currentScrollY > 80) {
+            // Accumulated downward scroll > 10px -> hide navbar
             setNavVisible(false);
+            lastScrollY.current = currentScrollY;
           } else if (diff < -8) {
-            // Scrolling up towards top -> show navbar
+            // Accumulated upward scroll > 8px -> show navbar
             setNavVisible(true);
+            lastScrollY.current = currentScrollY;
           }
 
-          lastScrollY.current = currentScrollY;
           ticking = false;
         });
         ticking = true;

@@ -190,19 +190,12 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   ];
 
   return (
-    <div style={{ background: '#070b14', color: '#f8fafc', minHeight: '100vh', overflowX: 'hidden' }}>
+    <div className="tech-page-container" style={{ background: '#070b14', color: '#f8fafc', minHeight: '100vh', overflowX: 'hidden', width: '100%' }}>
       
       {/* ── SPECIAL LAUNCH OFFER TOP PROMO BANNER ── */}
-      <div style={{
-        background: 'linear-gradient(90deg, #052e16 0%, #14532d 35%, #15803d 70%, #052e16 100%)',
-        borderBottom: '1px solid rgba(74, 222, 128, 0.4)',
-        padding: '10px 20px',
-        color: '#ffffff',
-        fontSize: '0.86rem',
-        boxShadow: '0 4px 20px rgba(22, 163, 74, 0.25)'
-      }}>
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+      <div className="tech-promo-banner">
+        <div className="container tech-promo-inner">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
             <span style={{
               background: '#22c55e',
               color: '#052e16',
@@ -219,14 +212,14 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <Flame size={12} color="#052e16" />
               LAUNCH OFFER • 50% OFF
             </span>
-            <span style={{ fontWeight: 600 }}>
+            <span style={{ fontWeight: 600, fontSize: '0.86rem' }}>
               <strong>MS Bulk WhatsApp Messenger™</strong> — Zero API Cost, Dynamic Excel Tags &amp; Anti-Ban Throttling.
             </span>
             <span style={{ color: '#86efac', fontSize: '0.82rem' }}>
               Only ₹1,999 <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>₹4,999</span> with coupon <code style={{ background: 'rgba(0,0,0,0.3)', padding: '2px 6px', borderRadius: '4px', color: '#fef08a' }}>MSTECH50</code>
             </span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div className="tech-promo-actions">
             <button
               onClick={() => {
                 const el = document.getElementById('bulk-messenger');
@@ -236,7 +229,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 background: '#ffffff',
                 color: '#15803d',
                 border: 'none',
-                padding: '5px 14px',
+                padding: '6px 14px',
                 borderRadius: '6px',
                 fontWeight: 800,
                 fontSize: '0.78rem',
@@ -257,7 +250,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 background: '#25D366',
                 color: '#ffffff',
                 border: 'none',
-                padding: '5px 12px',
+                padding: '6px 14px',
                 borderRadius: '6px',
                 fontWeight: 700,
                 fontSize: '0.78rem',
@@ -292,6 +285,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
       {/* ── 1. HERO BANNER (THE NINEHERTZ STYLE) ── */}
       <section
+        className="tech-hero-section"
         style={{
           position: 'relative',
           padding: '70px 20px 80px',
@@ -326,7 +320,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
           {/* Main Headline */}
           <h1
             style={{
-              fontSize: 'clamp(2.3rem, 5vw, 4.2rem)',
+              fontSize: 'clamp(2rem, 5vw, 4.2rem)',
               fontWeight: 900,
               color: '#ffffff',
               lineHeight: 1.15,
@@ -342,7 +336,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
           <p
             style={{
-              fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+              fontSize: 'clamp(0.98rem, 2vw, 1.25rem)',
               color: '#cbd5e1',
               maxWidth: '820px',
               margin: '0 auto 36px',
@@ -353,21 +347,8 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
           </p>
 
           {/* ── Interactive Ask AI Search Bar (NineHertz Feature) ── */}
-          <div
-            style={{
-              maxWidth: '680px',
-              margin: '0 auto 24px',
-              background: 'rgba(15, 23, 42, 0.95)',
-              border: '1px solid rgba(59, 130, 246, 0.45)',
-              borderRadius: '16px',
-              padding: '8px 12px',
-              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.5)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', paddingLeft: '8px' }}>
+          <div className="tech-ai-search-bar">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '4px', paddingLeft: '4px' }}>
               <Bot size={20} color="#3b82f6" />
               <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#3b82f6', textTransform: 'uppercase' }}>
                 Ask AI:
@@ -378,7 +359,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               value={aiPrompt}
               onChange={(e) => setAiPrompt(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter') handleAskAi(); }}
-              placeholder="e.g. Build an autonomous valuation bot, or migrate our ERP..."
+              placeholder="e.g. MS Bulk WhatsApp Messenger, or migrate ERP..."
               style={{
                 flex: 1,
                 background: 'transparent',
@@ -546,7 +527,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* ── 2. THE AI-NATIVE ENGINEERING DIFFERENCE (4-GRID CARDS) ── */}
-      <section style={{ padding: '80px 20px', background: '#090f1d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+      <section className="tech-section" style={{ background: '#090f1d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
             <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
@@ -560,7 +541,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
+          <div className="tech-cards-grid">
             {/* Card 1 */}
             <div
               style={{
@@ -665,7 +646,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* ── 3. END-TO-END PARTNERSHIP: BUILD • RUN • EVOLVE (NINEHERTZ ARCHITECTURE) ── */}
-      <section style={{ padding: '84px 20px', background: '#070d18', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+      <section className="tech-section" style={{ background: '#070d18', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 40px' }}>
             <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
@@ -679,7 +660,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </p>
 
             {/* Tab Buttons */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '24px' }}>
+            <div className="tech-tabs-row">
               {['build', 'run', 'evolve'].map((tab) => (
                 <button
                   key={tab}
@@ -707,7 +688,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
           {/* Tab Content Display */}
           {activeTab === 'build' && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+            <div className="tech-cards-grid">
               <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#38bdf8', marginBottom: '14px' }}>
                   <BrainCircuit size={22} />
@@ -759,7 +740,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
           )}
 
           {activeTab === 'run' && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+            <div className="tech-cards-grid">
               <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#38bdf8', marginBottom: '14px' }}>
                   <Cloud size={22} />
@@ -785,7 +766,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
           )}
 
           {activeTab === 'evolve' && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+            <div className="tech-cards-grid">
               <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#38bdf8', marginBottom: '14px' }}>
                   <TrendingUp size={22} />
@@ -811,7 +792,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* ── 4. WHAT WE HELP YOU ACHIEVE (BENTO-GRID) ── */}
-      <section style={{ padding: '80px 20px', background: '#090f1e', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+      <section className="tech-section" style={{ background: '#090f1e', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
             <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
@@ -825,7 +806,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+          <div className="tech-cards-grid">
             <div style={{ background: 'rgba(15, 23, 42, 0.75)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '16px', padding: '28px' }}>
               <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: 'rgba(59, 130, 246, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                 <Zap size={22} color="#3b82f6" />
@@ -953,7 +934,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
           </div>
 
           {/* Row 1: Cards 01, 02, 03 */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px', marginBottom: '28px' }}>
+          <div className="tech-cards-grid" style={{ marginBottom: '28px' }}>
             {/* Card 01 - AI Mode Activation (Amber & Sunset Neon) */}
             <div
               style={{
@@ -1412,7 +1393,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
           </div>
 
           {/* Row 2: Card 04 (AutonomousOps) + Card 05 (MS-Nexus AI OS Core Platform) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+          <div className="tech-cards-grid">
             {/* Card 04 - AutonomousOps (Hyper Violet & Amethyst Glow) */}
             <div
               style={{
@@ -1566,12 +1547,11 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
             {/* Card 05 • FLAGSHIP PLATFORM (MS-Nexus AI OS - Brand New Logo & Styling) */}
             <div
+              className="tech-card-span-2 tech-card-responsive"
               style={{
-                gridColumn: 'span 2',
                 background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 16, 30, 0.98) 100%)',
                 border: '1px solid rgba(56, 189, 248, 0.38)',
                 borderRadius: '26px',
-                padding: '36px 36px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
@@ -1787,7 +1767,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* ── 6. FLAGSHIP SOFTWARE PRODUCTS SHOWCASE ── */}
-      <section style={{ padding: '80px 20px', background: '#070c16', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+      <section className="tech-section" style={{ background: '#070c16', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
             <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
@@ -1801,7 +1781,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+          <div className="tech-cards-grid">
             {/* Product 1 */}
             <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '16px', padding: '28px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
@@ -1909,8 +1889,8 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       {/* ── 6.5. MS BULK WHATSAPP MESSENGER — 50% LAUNCH OFFER & PLATFORM OVERVIEW ── */}
       <section
         id="bulk-messenger"
+        className="tech-section"
         style={{
-          padding: '90px 20px',
           background: 'radial-gradient(ellipse 80% 50% at 50% 10%, rgba(22, 101, 52, 0.25) 0%, rgba(7, 13, 24, 0.98) 75%)',
           borderBottom: '1px solid rgba(34, 197, 94, 0.25)',
           position: 'relative'
@@ -1943,7 +1923,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
             <h2
               style={{
-                fontSize: 'clamp(2.2rem, 4vw, 3.4rem)',
+                fontSize: 'clamp(2rem, 4vw, 3.4rem)',
                 fontWeight: 900,
                 color: '#ffffff',
                 marginBottom: '16px',
@@ -1964,20 +1944,18 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
           {/* ── HIGH-CONVERTING LAUNCH OFFER BANNER BOX (OFFER LGA DIYA) ── */}
           <div
+            className="tech-launch-offer-box"
             style={{
               background: 'linear-gradient(135deg, rgba(20, 83, 45, 0.4) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(6, 78, 59, 0.45) 100%)',
               border: '2px solid rgba(74, 222, 128, 0.6)',
               borderRadius: '24px',
-              padding: '32px 36px',
-              marginBottom: '50px',
-              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 197, 94, 0.2)',
               position: 'relative',
               overflow: 'hidden'
             }}
           >
             <div style={{ position: 'absolute', top: 0, right: 0, width: '250px', height: '250px', background: 'radial-gradient(circle at top right, rgba(74, 222, 128, 0.2), transparent 70%)', pointerEvents: 'none' }} />
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '28px', alignItems: 'center' }}>
+            <div className="tech-offer-grid">
               <div>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#22c55e', color: '#052e16', padding: '4px 12px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '14px' }}>
                   <Gift size={14} />
@@ -1991,7 +1969,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 </p>
 
                 {/* Offer features bullet grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '10px', marginBottom: '20px' }}>
+                <div className="tech-feature-bullets">
                   {[
                     'Zero recurring per-message cost (100% Free)',
                     'Smart Anti-Ban Humanizer (15-35s jitter)',
@@ -2139,21 +2117,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 alt="MS Bulk WhatsApp Messenger Dashboard"
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '480px', objectFit: 'cover' }}
               />
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(to top, rgba(7, 11, 20, 0.95) 0%, rgba(7, 11, 20, 0.7) 60%, transparent 100%)',
-                  padding: '24px 30px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-end',
-                  flexWrap: 'wrap',
-                  gap: '14px'
-                }}
-              >
+              <div className="tech-banner-overlay">
                 <div>
                   <div style={{ fontSize: '0.74rem', fontWeight: 800, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>
                     DESKTOP AUTOMATION PLATFORM
@@ -2212,7 +2176,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* 4 Feature Cards Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
+            <div className="tech-cards-grid">
               <div style={{ background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(34, 197, 94, 0.25)', borderRadius: '16px', padding: '24px' }}>
                 <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(34, 197, 94, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
                   <ShieldCheck size={22} color="#22c55e" />
@@ -2306,7 +2270,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Comparison Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', maxWidth: '780px', margin: '0 auto 24px' }}>
+            <div className="tech-cards-grid" style={{ maxWidth: '780px', margin: '0 auto 24px' }}>
               <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '12px', padding: '16px' }}>
                 <div style={{ fontSize: '0.74rem', color: '#f87171', fontWeight: 700, textTransform: 'uppercase' }}>Meta Cloud API Cost</div>
                 <div style={{ fontSize: '1.4rem', color: '#ef4444', fontWeight: 900, margin: '6px 0' }}>
@@ -2357,7 +2321,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* ── 6. TECHNOLOGY STACK & TOOLING ── */}
-      <section style={{ padding: '80px 20px', background: '#090e1b', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+      <section className="tech-section" style={{ background: '#090e1b', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 40px' }}>
             <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
@@ -2421,7 +2385,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* ── 7. FAQ ACCORDION SECTION ── */}
-      <section style={{ padding: '80px 20px', background: '#070b14', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+      <section className="tech-section" style={{ background: '#070b14', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
         <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '44px' }}>
             <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
@@ -2489,8 +2453,8 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
       {/* ── 8. STRATEGIC DISCOVERY CONSULTATION BANNER ── */}
       <section
+        className="tech-section"
         style={{
-          padding: '70px 20px',
           background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(7, 11, 20, 0.98) 100%)',
           textAlign: 'center'
         }}

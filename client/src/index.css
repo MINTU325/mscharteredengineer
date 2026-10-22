@@ -594,21 +594,26 @@ button, input, select, textarea {
 .header-wrapper {
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
   background: rgba(7, 14, 30, 0.88);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
 .header-wrapper--hidden {
   transform: translateY(-100%);
+  pointer-events: none;
 }
 
 .header-wrapper--visible {
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* LinkedIn-Style Mobile Bottom Navigation */
@@ -3555,6 +3560,213 @@ body > .skiptranslate:not(#google_translate_element) {
   .ewaste-metric-grid {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+}
+
+/* ==========================================================================
+   Tech Solutions Page - Mobile First Responsive Styles
+   ========================================================================== */
+.tech-page-container {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.tech-section {
+  padding: 80px 20px;
+}
+
+.tech-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+.tech-card-span-2 {
+  grid-column: span 2;
+}
+
+.tech-card-responsive {
+  padding: 32px 28px;
+}
+
+.tech-ai-search-bar {
+  max-width: 680px;
+  margin: 0 auto 24px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  border-radius: 16px;
+  padding: 8px 12px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tech-promo-banner {
+  background: linear-gradient(90deg, #052e16 0%, #14532d 35%, #15803d 70%, #052e16 100%);
+  border-bottom: 1px solid rgba(74, 222, 128, 0.4);
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 0.86rem;
+  box-shadow: 0 4px 20px rgba(22, 163, 74, 0.25);
+}
+
+.tech-promo-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-promo-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tech-launch-offer-box {
+  background: linear-gradient(135deg, rgba(20, 83, 45, 0.4) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(6, 78, 59, 0.45) 100%);
+  border: 2px solid rgba(74, 222, 128, 0.6);
+  border-radius: 24px;
+  padding: 32px 36px;
+  margin-bottom: 50px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 197, 94, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  align-items: center;
+}
+
+.tech-feature-bullets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tech-banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(7, 11, 20, 0.95) 0%, rgba(7, 11, 20, 0.7) 60%, transparent 100%);
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.tech-tabs-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .tech-card-span-2 {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-section {
+    padding: 48px 16px !important;
+  }
+
+  .tech-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .tech-offer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .tech-launch-offer-box {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .tech-banner-overlay {
+    position: relative !important;
+    background: #0a0f1d !important;
+    padding: 18px 16px !important;
+    align-items: flex-start !important;
+  }
+
+  .tech-card-responsive {
+    padding: 22px 18px !important;
+    border-radius: 18px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .tech-promo-banner {
+    padding: 10px 14px !important;
+  }
+
+  .tech-promo-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .tech-promo-actions {
+    width: 100% !important;
+    display: flex !important;
+    gap: 8px !important;
+  }
+
+  .tech-promo-actions button,
+  .tech-promo-actions a {
+    flex: 1 !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 8px 10px !important;
+  }
+
+  .tech-ai-search-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 12px !important;
+    gap: 10px !important;
+  }
+
+  .tech-ai-search-bar input {
+    width: 100% !important;
+    padding: 8px 4px !important;
+  }
+
+  .tech-ai-search-bar button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .tech-feature-bullets {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tech-hero-section {
+    padding: 50px 14px 60px !important;
+  }
+
+  .tech-tabs-row button {
+    flex: 1 1 100% !important;
+    text-align: center !important;
+    padding: 10px 16px !important;
   }
 }
 
