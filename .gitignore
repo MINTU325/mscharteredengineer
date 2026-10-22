@@ -19,3 +19,17 @@ Thumbs.db
 
 # Temporary scratch
 scratch/
+
+# WhatsApp Web Session Cache & Local Bulk Messenger Tool
+.wwebjs_auth/
+.wwebjs_cache/
+qr.html
+scripts/sendBulkWhatsApp.js
+server/data/clients.xlsx
+server/data/sample_clients.xlsx
+server/data/message.txt
+server/data/visiting_card.png
+client/public/data/sample_contacts.csv
+client/dist/data/sample_contacts.csv
+
+

@@ -128,6 +128,16 @@ const ROUTE_CONFIG = {
     title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
     description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
+  '/bulk-messenger': { 
+    id: 'tech-products', 
+    title: 'MS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | MS Tech Labs',
+    description: 'Test MS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
+  },
+  '/whatsapp-bulk-messenger': { 
+    id: 'tech-products', 
+    title: 'MS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | MS Tech Labs',
+    description: 'Test MS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
+  },
   '/government-subsidies': { 
     id: 'government-subsidies', 
     title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group',
@@ -381,7 +391,7 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           />
-        ) : currentRoute === '/tech-products' || currentRoute === '/tech' || currentRoute === '/software-products' || currentRoute === '/it-solutions' ? (
+        ) : currentRoute === '/tech-products' || currentRoute === '/tech' || currentRoute === '/software-products' || currentRoute === '/it-solutions' || currentRoute === '/bulk-messenger' || currentRoute === '/whatsapp-bulk-messenger' ? (
           <TechSolutionsPage 
             onOpenQuote={handleOpenQuote}
             onNavigateHome={() => {
