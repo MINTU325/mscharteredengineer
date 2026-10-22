@@ -94,15 +94,15 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           }
 
           // Near top of page: always visible
-          if (currentScrollY <= 60) {
+          if (currentScrollY <= 50) {
             setNavVisible(true);
             lastScrollY.current = currentScrollY;
-          } else if (diff > 10 && currentScrollY > 80) {
-            // Accumulated downward scroll > 10px -> hide navbar
+          } else if (diff > 8 && currentScrollY > 70) {
+            // Downward scroll -> auto-hide navbar
             setNavVisible(false);
             lastScrollY.current = currentScrollY;
-          } else if (diff < -8) {
-            // Accumulated upward scroll > 8px -> show navbar
+          } else if (diff < -5) {
+            // Upward scroll -> immediately show navbar and stick
             setNavVisible(true);
             lastScrollY.current = currentScrollY;
           }
@@ -629,6 +629,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
         </div>
       </div>
     </header>
+    <div className="header-spacer" aria-hidden="true" />
     </>
   );
 }

@@ -592,18 +592,17 @@ button, input, select, textarea {
 
 /* Header & Navigation */
 .header-wrapper {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(7, 14, 30, 0.88);
+  background: rgba(7, 14, 30, 0.92);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
@@ -615,6 +614,18 @@ button, input, select, textarea {
 .header-wrapper--visible {
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.header-spacer {
+  height: 98px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .header-spacer {
+    height: 56px;
+  }
 }
 
 /* Top Navbar Sticky Auto-Hide & Mobile Navigation */
@@ -1229,7 +1240,9 @@ select option {
 }
 
 .mobile-drawer--open {
-  max-height: 600px;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   opacity: 1;
 }
 
