@@ -622,6 +622,10 @@ button, input, select, textarea {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-bottom: 64px;
+  }
+
   .mobile-bottom-nav {
     display: flex;
     position: fixed;

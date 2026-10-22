@@ -625,6 +625,50 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
         </div>
       </div>
     </header>
+
+    {/* LinkedIn-Style Mobile Bottom Navigation Bar (Auto-hides on scroll down, reappears on scroll up) */}
+    <nav 
+      className={`mobile-bottom-nav ${navVisible ? 'mobile-bottom-nav--visible' : 'mobile-bottom-nav--hidden'}`}
+      aria-label="Mobile Bottom Navigation"
+    >
+      <a 
+        href="/" 
+        className={`bottom-nav-item ${currentPath === '/' ? 'active' : ''}`}
+      >
+        <Home size={20} />
+        <span>Home</span>
+      </a>
+      <a 
+        href="/services" 
+        className={`bottom-nav-item ${currentPath.startsWith('/services') ? 'active' : ''}`}
+      >
+        <Briefcase size={20} />
+        <span>Services</span>
+      </a>
+      <a 
+        href="/tech-products" 
+        className={`bottom-nav-item ${currentPath.startsWith('/tech') || currentPath.includes('messenger') ? 'active' : ''}`}
+        style={currentPath.startsWith('/tech') || currentPath.includes('messenger') ? { color: '#06b6d4', fontWeight: 700 } : {}}
+      >
+        <Cpu size={20} />
+        <span>Tech</span>
+      </a>
+      <a 
+        href="/calculator" 
+        className={`bottom-nav-item ${currentPath.startsWith('/calculator') || currentPath.startsWith('/tools') ? 'active' : ''}`}
+      >
+        <Calculator size={20} />
+        <span>Calc</span>
+      </a>
+      <button 
+        onClick={onOpenQuote} 
+        className="bottom-nav-item bottom-nav-quote-btn"
+        type="button"
+      >
+        <Send size={20} />
+        <span>Quote</span>
+      </button>
+    </nav>
     </>
   );
 }
