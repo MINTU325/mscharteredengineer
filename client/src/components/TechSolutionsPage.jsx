@@ -58,7 +58,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = 'AI-Native Engineering & Software Solutions | MS Chartered Engineers Tech';
+    document.title = 'AI-Native Engineering & Software Solutions | KS Chartered Engineers Tech';
 
     const updateOrCreateMeta = (name, content, isProperty = false) => {
       const attr = isProperty ? 'property' : 'name';
@@ -71,10 +71,10 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       tag.setAttribute('content', content);
     };
 
-    updateOrCreateMeta('description', 'AI-Native Engineering Partner & MS Bulk WhatsApp Messenger by MS Chartered Engineers. Build, Run, and Evolve enterprise platforms, custom software, agentic AI, and zero-cost WhatsApp automation.');
-    updateOrCreateMeta('keywords', 'AI engineering, MS Bulk Messenger, bulk WhatsApp software, zero API cost WhatsApp, custom software, ERP solutions, Jaipur, India');
-    updateOrCreateMeta('og:title', 'AI-Native Engineering & MS Bulk Messenger | MS Chartered Engineers', true);
-    updateOrCreateMeta('og:description', 'Deploy MS Bulk WhatsApp Messenger with 50% Launch Offer. Unlimited WhatsApp reach with Excel import and anti-ban protection.', true);
+    updateOrCreateMeta('description', 'AI-Native Engineering Partner & KS Bulk WhatsApp Messenger by KS Chartered Engineers. Build, Run, and Evolve enterprise platforms, custom software, agentic AI, and zero-cost WhatsApp automation.');
+    updateOrCreateMeta('keywords', 'AI engineering, KS Bulk Messenger, bulk WhatsApp software, zero API cost WhatsApp, custom software, ERP solutions, Jaipur, India');
+    updateOrCreateMeta('og:title', 'AI-Native Engineering & KS Bulk Messenger | KS Chartered Engineers', true);
+    updateOrCreateMeta('og:description', 'Deploy KS Bulk WhatsApp Messenger with 50% Launch Offer. Unlimited WhatsApp reach with Excel import and anti-ban protection.', true);
     updateOrCreateMeta('og:url', 'https://www.mscharteredengineer.com/tech-products', true);
 
     // Auto-scroll if hash or route is bulk-messenger
@@ -904,7 +904,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 letterSpacing: '0.12em',
                 fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif"
               }}>
-                PRE-BUILT AI SYSTEMS • MS CHARTERED TECH
+                PRE-BUILT AI SYSTEMS • KS CHARTERED TECH
               </span>
             </div>
 
@@ -929,7 +929,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               margin: '0 auto',
               fontFamily: "'Plus Jakarta Sans', sans-serif"
             }}>
-              Production-tested intelligent systems engineered by MS Chartered Engineers to accelerate enterprise operations with zero technical debt.
+              Production-tested intelligent systems engineered by KS Chartered Engineers to accelerate enterprise operations with zero technical debt.
             </p>
           </div>
 
@@ -1665,7 +1665,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   maxWidth: '720px',
                   fontFamily: "'Plus Jakarta Sans', sans-serif"
                 }}>
-                  The proprietary AI multi-agent orchestration engine powering custom solutions for MS Chartered Engineers tech clients. Turn raw business workflows into autonomous high-speed agents.
+                  The proprietary AI multi-agent orchestration engine powering custom solutions for KS Chartered Engineers tech clients. Turn raw business workflows into autonomous high-speed agents.
                 </p>
 
                 <hr style={{ border: 'none', borderTop: '1px solid rgba(255, 255, 255, 0.08)', margin: '0 0 20px 0' }} />

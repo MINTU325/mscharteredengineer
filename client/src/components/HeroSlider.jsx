@@ -9,7 +9,7 @@ const SLIDES = [
     title: 'Government Certified',
     titleHighlight: 'Chartered Engineer in India',
     subtitle:
-      'Looking for a Chartered Engineer in India? MS Chartered Engineers (IIT Roorkee) provides statutory DGFT certifications, plant & machinery valuation, bank appraisals, and capital gains 50C reports across Jaipur & Pan-India.',
+      'Looking for a Chartered Engineer in India? KS Chartered Engineers (IIT Roorkee) provides statutory DGFT certifications, plant & machinery valuation, bank appraisals, and capital gains 50C reports across Jaipur & Pan-India.',
     tag: 'CHARTERED ENGINEER IN INDIA | VALUERS',
     accent: 'gold',
     cta: 'Request Valuation / Quote',
@@ -216,7 +216,7 @@ export default function HeroSlider({ onOpenQuote }) {
         <img
           key={s.id}
           src={s.image}
-          alt={`MS Chartered Engineers Service ${i + 1}`}
+          alt={`KS Chartered Engineers Service ${i + 1}`}
           loading={i === 0 ? "eager" : "lazy"}
           fetchPriority={i === 0 ? "high" : "auto"}
           decoding={i === 0 ? "sync" : "async"}

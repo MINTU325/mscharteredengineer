@@ -247,7 +247,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello MS Chartered Engineers, I need a valuation/certificate for: "${activePurpose.title}". I would like to discuss documents and inspection in Jaipur/Rajasthan.`
+      `Hello KS Chartered Engineers, I need a valuation/certificate for: "${activePurpose.title}". I would like to discuss documents and inspection in Jaipur/Rajasthan.`
     );
     window.open(`https://wa.me/919158658885?text=${text}`, '_blank');
   };

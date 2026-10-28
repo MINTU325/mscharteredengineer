@@ -143,7 +143,7 @@ exports.checkCeigReadiness = (req, res) => {
         requiredCertificates,
         processingTimeline,
         feesEstimate,
-        consultantRole: 'MS Chartered Engineers provides end-to-end electrical drawing preparation, Chartered Engineer stamping, CEIG liaison, and physical testing certification.'
+        consultantRole: 'KS Chartered Engineers provides end-to-end electrical drawing preparation, Chartered Engineer stamping, CEIG liaison, and physical testing certification.'
       }
     });
   } catch (error) {

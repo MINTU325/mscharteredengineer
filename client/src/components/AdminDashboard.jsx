@@ -123,7 +123,7 @@ export default function AdminDashboard({ onClose, onLogout }) {
               Inquiry & <span className="gold-gradient-text">Lead Control Center</span>
             </h1>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-              MS Chartered Engineers, Valuers & Technical Consultancy Services — Jaipur HQ
+              KS Chartered Engineers, Valuers & Technical Services — Jaipur HQ
             </p>
           </div>
 

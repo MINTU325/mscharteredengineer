@@ -121,7 +121,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
   // WhatsApp click handler
   const handleWhatsAppInquiry = (serviceName) => {
-    const message = encodeURIComponent(`Hello MS Chartered Engineers, I am interested in your "${serviceName}". Please share details and quotation.`);
+    const message = encodeURIComponent(`Hello KS Chartered Engineers, I am interested in your "${serviceName}". Please share details and quotation.`);
     window.open(`https://wa.me/919158658885?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 

@@ -74,14 +74,14 @@ export default function Footer({ onOpenQuote }) {
                   <circle cx="50" cy="50" r="35" fill="none" stroke="url(#blueGearFoot)" strokeWidth="3" opacity="0.9" />
                 </g>
                 <circle cx="50" cy="50" r="26" fill="#040914" stroke="#ffffff" strokeWidth="3" />
-                <text x="50" y="60.5" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="28" fill="#ffffff" textAnchor="middle" letterSpacing="1">MS</text>
+                <text x="50" y="60.5" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="28" fill="#ffffff" textAnchor="middle" letterSpacing="1">KS</text>
               </svg>
               <div>
                 <div style={{ fontSize: '1rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.2 }}>
-                  MS CHARTERED <span style={{ color: '#38bdf8' }}>ENGINEERS</span>
+                  KS CHARTERED <span style={{ color: '#38bdf8' }}>ENGINEERS</span>
                 </div>
                 <div style={{ fontSize: '0.65rem', color: 'var(--accent-gold)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                  Valuers & Technical Consultancy
+                  Valuers &amp; Technical Services
                 </div>
               </div>
             </div>
@@ -213,12 +213,12 @@ export default function Footer({ onOpenQuote }) {
               itemType="https://schema.org/LocalBusiness"
               style={{ fontStyle: 'normal', display: 'flex', flexDirection: 'column', gap: '11px', fontSize: '0.84rem' }}
             >
-              <meta itemProp="name" content="MS Chartered Engineers (IIT Roorkee)" />
+              <meta itemProp="name" content="KS Chartered Engineers (IIT Roorkee)" />
               <meta itemProp="url" content="https://www.mscharteredengineer.com/" />
 
               <div>
                 <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.88rem' }}>
-                  MS Chartered Engineers
+                  KS Chartered Engineers
                   <span style={{ color: '#f59e0b', fontSize: '0.78rem', fontWeight: 600, marginLeft: '5px' }}>(IIT Roorkee)</span>
                 </div>
                 <div style={{ color: '#64748b', fontSize: '0.75rem', marginTop: '2px' }}>Expert in Plant & Asset Valuation</div>
@@ -397,7 +397,7 @@ export default function Footer({ onOpenQuote }) {
           flexWrap: 'wrap', gap: '12px', fontSize: '0.76rem', color: '#334155'
         }}>
           <div>
-            © {new Date().getFullYear()} <strong style={{ color: '#475569' }}>MS Chartered Engineers, Valuers & Technical Consultancy</strong>. All Rights Reserved.
+            © {new Date().getFullYear()} <strong style={{ color: '#475569' }}>KS Chartered Engineers, Valuers &amp; Technical Services</strong>. All Rights Reserved.
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span>Pan-India Practice · 15+ Years Excellence</span>

@@ -68,7 +68,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
             Engineered for <span className="gold-gradient-text">Trust &amp; Precision</span>
           </h2>
           <p className="section-description">
-            Discover why India's leading industrial enterprises, commercial banks, and international importers trust MS Chartered Engineers.
+            Discover why India's leading industrial enterprises, commercial banks, and international importers trust KS Chartered Engineers.
           </p>
         </div>
 

@@ -59,16 +59,16 @@ export default function FounderProfile({ onOpenQuote }) {
                     {/* CORE SEAL & MONOGRAM */}
                     <circle cx="50" cy="50" r="26" fill="#070e1e" stroke="#ffffff" strokeWidth="2.5" />
                     <circle cx="50" cy="50" r="21" fill="none" stroke="#38bdf8" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
-                    <text x="50" y="60.5" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="26" fill="#ffffff" textAnchor="middle" letterSpacing="1">MS</text>
+                    <text x="50" y="60.5" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="26" fill="#ffffff" textAnchor="middle" letterSpacing="1">KS</text>
                   </svg>
                 </div>
 
                 <div className="founder-logo-badge">
                   <div style={{ fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#ffffff' }}>
-                    MS CHARTERED ENGINEERS
+                    KS CHARTERED ENGINEERS
                   </div>
                   <div style={{ fontSize: '0.68rem', color: '#fbbf24', fontWeight: 700, letterSpacing: '0.04em', marginTop: '2px' }}>
-                    Valuers &amp; Technical Consultancy
+                    Valuers &amp; Technical Services
                   </div>
                 </div>
               </div>

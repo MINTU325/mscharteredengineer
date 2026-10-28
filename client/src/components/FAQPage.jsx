@@ -80,8 +80,8 @@ Statutory authorities including the **[Directorate General of Foreign Trade (DGF
   {
     id: 'ce-03',
     category: 'chartered-engineer',
-    question: 'How fast can MS Chartered Engineers issue a Chartered Engineer Certificate in Jaipur?',
-    answer: `At **[MS Chartered Engineers in Jaipur](/)**, we provide expedited turnaround within **24 to 48 hours** for standard **[DGFT Appendix 4K Certificates](/chartered-engineer)**, customs machinery valuations, and EPCG certifications upon receiving the complete technical documentation and bill of materials (BOM). Emergency customs clearance services are also supported across Jaipur, Rajasthan, and nationwide.`
+    question: 'How fast can KS Chartered Engineers issue a Chartered Engineer Certificate in Jaipur?',
+    answer: `At **[KS Chartered Engineers in Jaipur](/)**, we provide expedited turnaround within **24 to 48 hours** for standard **[DGFT Appendix 4K Certificates](/chartered-engineer)**, customs machinery valuations, and EPCG certifications upon receiving the complete technical documentation and bill of materials (BOM). Emergency customs clearance services are also supported across Jaipur, Rajasthan, and nationwide.`
   },
   {
     id: 'ce-04',
@@ -106,7 +106,7 @@ Led by **[Mukesh Singh, IIT Roorkee Alumni](/founder)**, our valuation reports a
     id: 'val-prop-01',
     category: 'valuation',
     question: 'How is Property & Land Valuation conducted in Jaipur for Residential, Commercial & Industrial Assets?',
-    answer: `At **[MS Chartered Engineers in Jaipur](/property-valuation)**, property valuation is conducted through physical site inspection and dual assessment:
+    answer: `At **[KS Chartered Engineers in Jaipur](/property-valuation)**, property valuation is conducted through physical site inspection and dual assessment:
 1. **DLC / Circle Rate Benchmark:** Verified against the latest Rajasthan Sub-Registrar / IGRS portal rates.
 2. **Fair Market Value (FMV):** Evaluated using the Sales Comparison (Direct Market) Approach, CPWD Plinth Area construction rates, and local registry transaction history across Jaipur (Mansarovar, Vaishali Nagar, Jagatpura, Sitapura, Malviya Nagar, RIICO zones).
 3. **Statutory Acceptance:** Our reports adhere to IBBI valuation standards and are accepted by commercial banks, tax authorities, and civil courts across Rajasthan.`
@@ -117,7 +117,7 @@ Led by **[Mukesh Singh, IIT Roorkee Alumni](/founder)**, our valuation reports a
     question: 'What is Capital Gains Tax Valuation under Section 50C and Fair Market Value as on 01-04-2001?',
     answer: `When selling property acquired before April 1, 2001, taxpayers can substitute the original purchase cost with the **[Fair Market Value as on 01-04-2001](/tax-valuation)** (capped at stamp duty / circle rate) for indexation benefit under Section 55(2)(b).
 
-Additionally, under **Section 50C / 43CA / 56(2)(x)** of the Income Tax Act 1961, if the registered consideration is lower than the circle rate, a Government Registered Valuer report provides admissible technical evidence before the Assessing Officer (AO), CIT(Appeals), or ITAT. Contact **[MS Chartered Engineers](/tax-valuation)** for Section 50C defense reports.`
+Additionally, under **Section 50C / 43CA / 56(2)(x)** of the Income Tax Act 1961, if the registered consideration is lower than the circle rate, a Government Registered Valuer report provides admissible technical evidence before the Assessing Officer (AO), CIT(Appeals), or ITAT. Contact **[KS Chartered Engineers](/tax-valuation)** for Section 50C defense reports.`
   },
   {
     id: 'val-bank-01',
@@ -132,7 +132,7 @@ Banks and NBFCs require both FMV and FSV for loan-to-value (LTV) underwriting, L
   {
     id: 'ce-proc-01',
     category: 'chartered-engineer',
-    question: 'What is the 8-Step Valuation and Chartered Engineer certification process at MS Chartered Engineers?',
+    question: 'What is the 8-Step Valuation and Chartered Engineer certification process at KS Chartered Engineers?',
     answer: `Our transparent **[8-Step Valuation Process](/process)** ensures complete auditability and quick delivery:
 1. **Purpose Assessment & Scrutiny** (15 mins)
 2. **Document Completeness Review** (Title deed, sanctioned map, BOM, purchase invoice)
@@ -189,13 +189,13 @@ Our dedicated **[FSSAI Compliance Services](/fssai)** team handles new applicati
     id: 'fssai-02',
     category: 'fssai',
     question: 'Can you handle FSSAI license suspension revocation and annual return filings?',
-    answer: `Yes, our regulatory team at **[MS Chartered Engineers](/fssai)** assists food businesses in preparing statutory responses, corrective action reports (CAPA), hygiene audits, and filing appeals before the Designated Officer (DO) / Central Licensing Authority to revoke suspended FSSAI licenses.`
+    answer: `Yes, our regulatory team at **[KS Chartered Engineers](/fssai)** assists food businesses in preparing statutory responses, corrective action reports (CAPA), hygiene audits, and filing appeals before the Designated Officer (DO) / Central Licensing Authority to revoke suspended FSSAI licenses.`
   },
   {
     id: 'gen-01',
     category: 'chartered-engineer',
-    question: 'Can MS Chartered Engineers serve clients located outside Jaipur, Rajasthan?',
-    answer: `Yes, absolutely. **[MS Chartered Engineers](/)** has an established **[Pan-India Practice](/credentials)** with 15+ years of operational experience. We regularly serve corporate, banking, industrial, and exporter clients across Delhi-NCR, Mumbai, Ahmedabad, Bengaluru, Chennai, Hyderabad, and Kolkata for **[Chartered Engineer Certification](/chartered-engineer)** and **[Machinery Valuation](/valuation)**.`
+    question: 'Can KS Chartered Engineers serve clients located outside Jaipur, Rajasthan?',
+    answer: `Yes, absolutely. **[KS Chartered Engineers](/)** has an established **[Pan-India Practice](/credentials)** with 15+ years of operational experience. We regularly serve corporate, banking, industrial, and exporter clients across Delhi-NCR, Mumbai, Ahmedabad, Bengaluru, Chennai, Hyderabad, and Kolkata for **[Chartered Engineer Certification](/chartered-engineer)** and **[Machinery Valuation](/valuation)**.`
   }
 ];
 

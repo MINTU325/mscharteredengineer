@@ -56,7 +56,7 @@ However, to prevent misuse of customs duty exemptions, the DGFT mandates technic
 * Purchase invoices of raw materials and export shipping bills/invoices.
 * Proposed consumption norm sheet with justification for scrap percentage.
 
-> **Need Rapid Assistance?** [MS Chartered Engineers in Jaipur](/) provides certified DGFT Appendix 4K, EPCG certificates, and Customs valuations with 24–48 hour turnaround across Jaipur, Rajasthan, and Pan-India. Explore our full suite of [Chartered Engineer Services](/chartered-engineer) or [Consult our Experts](/contact).
+> **Need Rapid Assistance?** [KS Chartered Engineers in Jaipur](/) provides certified DGFT Appendix 4K, EPCG certificates, and Customs valuations with 24–48 hour turnaround across Jaipur, Rajasthan, and Pan-India. Explore our full suite of [Chartered Engineer Services](/chartered-engineer) or [Consult our Experts](/contact).
     `
   },
   {
@@ -106,7 +106,7 @@ Under Indian Accounting Standard 16 (**IndAS 16**), companies must split complex
 * Physical verification proof with serial number plates and timestamped photos by an authorized **[Chartered Engineer & Registered Valuer](/founder)**.
 * Technological obsolescence assessment and availability of OEM spare parts.
 * Balance Economic Useful Life calculation adhering to Companies Act 2013 Schedule II.
-* Distressed Sale Value (Liquidation Value) alongside Fair Market Value (FMV). For complete valuation guidelines, visit our **[Frequently Asked Questions (FAQ)](/faq)** or consult **[MS Chartered Engineers in Jaipur](/)**.
+* Distressed Sale Value (Liquidation Value) alongside Fair Market Value (FMV). For complete valuation guidelines, visit our **[Frequently Asked Questions (FAQ)](/faq)** or consult **[KS Chartered Engineers in Jaipur](/)**.
     `
   },
   {
@@ -176,7 +176,7 @@ Conducted by accredited Bureau of Energy Efficiency (BEE) Energy Managers under 
 ### 1. Statutory Framework: The Factories Act, 1948
 To safeguard human life in factories and industrial manufacturing plants, the **Factories Act, 1948** and respective State Factory Rules mandate periodic technical examination of high-hazard mechanical machinery by an authorized **[Competent Person (Factories & Boilers)](/safety-energy-audits)**.
 
-Operating plant machinery without valid statutory fitness certificates can lead to immediate factory closure notices and severe legal liability for factory managers. Consult **[MS Chartered Engineers in Jaipur](/)** for comprehensive plant inspection and safety certification.
+Operating plant machinery without valid statutory fitness certificates can lead to immediate factory closure notices and severe legal liability for factory managers. Consult **[KS Chartered Engineers in Jaipur](/)** for comprehensive plant inspection and safety certification.
 
 ---
 
@@ -238,7 +238,7 @@ Check your system parameters instantly with our free **[Solar CEIG Compliance Ch
 ---
 
 ### 3. Typical Approval Timeline & Pitfalls to Avoid
-Securing CEIG clearance typically takes 10 to 20 days. Common rejection reasons include inadequate distance between inverter transformer yards, missing dual-earth rings, and improperly calculated fault level capacities. For detailed technical answers, visit our **[Solar FAQs](/faq)** or consult **[MS Chartered Engineers Head Office](/)**.
+Securing CEIG clearance typically takes 10 to 20 days. Common rejection reasons include inadequate distance between inverter transformer yards, missing dual-earth rings, and improperly calculated fault level capacities. For detailed technical answers, visit our **[Solar FAQs](/faq)** or consult **[KS Chartered Engineers Head Office](/)**.
     `
   }
 ];
@@ -417,12 +417,12 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
   useEffect(() => {
     const canonicalLink = document.querySelector('link[rel="canonical"]');
     if (activeArticle) {
-      document.title = `${activeArticle.title} | MS Chartered Engineers`;
+      document.title = `${activeArticle.title} | KS Chartered Engineers`;
       if (canonicalLink) {
         canonicalLink.setAttribute('href', `https://www.mscharteredengineer.com/blog/${activeArticle.slug}`);
       }
     } else {
-      document.title = 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers';
+      document.title = 'Technical Insights, Regulatory Guides & Blog | KS Chartered Engineers';
       if (canonicalLink) {
         canonicalLink.setAttribute('href', 'https://www.mscharteredengineer.com/blog');
       }
@@ -488,7 +488,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             },
             "publisher": {
               "@type": "Organization",
-              "name": "MS Chartered Engineers, Valuers & Technical Consultancy",
+              "name": "KS Chartered Engineers, Valuers & Technical Services",
               "url": "https://www.mscharteredengineer.com/",
               "logo": {
                 "@type": "ImageObject",
@@ -504,7 +504,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             "@context": "https://schema.org",
             "@type": "Blog",
             "@id": "https://www.mscharteredengineer.com/blog#hub",
-            "name": "MS Chartered Engineers Technical Knowledge Hub",
+            "name": "KS Chartered Engineers Technical Knowledge Hub",
             "url": "https://www.mscharteredengineer.com/blog",
             "description": "Authoritative engineering insights, statutory compliance procedures, DGFT Advance Authorisation guides, Plant & Machinery Valuation methodologies.",
             "blogPost": BLOG_POSTS.map(p => ({

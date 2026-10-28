@@ -69,7 +69,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers';
+    document.title = 'E-Waste Annual Return Filing & EPR Compliance | KS Chartered Engineers';
 
     const updateOrCreateMeta = (name, content, isProperty = false) => {
       const attr = isProperty ? 'property' : 'name';
@@ -84,10 +84,10 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
 
     updateOrCreateMeta('description', 'CPCB E-Waste Annual Return Filing (Form 3) & EPR Compliance Services by senior Chartered Engineers (IIT Roorkee alumni). 100% auditable annual filings, Schedule I EEE codes, customs BOE reconciliation & Pan-India support. Call +91 91586 58885.');
     updateOrCreateMeta('keywords', 'E-Waste Annual Return Filing, e waste annual return filing, E-Waste EPR compliance, E-Waste compliance consultant, E-Waste return filing consultant, CPCB E-Waste EPR registration, CPCB E-Waste annual return, E-Waste EPR consultant, EPR compliance consultant, E-Waste compliance services');
-    updateOrCreateMeta('og:title', 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers', true);
+    updateOrCreateMeta('og:title', 'E-Waste Annual Return Filing & EPR Compliance | KS Chartered Engineers', true);
     updateOrCreateMeta('og:description', 'CPCB E-Waste Annual Return Filing (Form 3) & EPR Compliance Services by senior Chartered Engineers (IIT Roorkee). Auditable sales ledgers, import BOE verification & Pan-India practice.', true);
     updateOrCreateMeta('og:url', 'https://www.mscharteredengineer.com/e-waste-annual-return-filing', true);
-    updateOrCreateMeta('twitter:title', 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers');
+    updateOrCreateMeta('twitter:title', 'E-Waste Annual Return Filing & EPR Compliance | KS Chartered Engineers');
     updateOrCreateMeta('twitter:description', 'CPCB E-Waste Annual Return Filing (Form 3) & EPR Compliance Services by senior Chartered Engineers (IIT Roorkee). Auditable filings, BOE reconciliation & Pan-India practice.');
 
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -337,7 +337,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
       a: 'Defaulting entities face show-cause notices from CPCB/SPCB, potential blocking of their EPR portal account (halting ongoing import clearances), and the levying of Environmental Compensation (EC) under the polluter-pays principle as codified in CPCB guidelines.'
     },
     {
-      q: 'Can MS CHARTERED ENGINEERS guarantee approval or zero penalty?',
+      q: 'Can KS CHARTERED ENGINEERS guarantee approval or zero penalty?',
       a: 'No ethical consultancy can promise "guaranteed government approval" or "100% penalty immunity." Statutory approval is solely at the discretion of the Central Pollution Control Board. As an independent Chartered Engineering and Technical Consultancy firm, our role is to ensure your calculations are mathematically rigorous, fully documented, and strictly aligned with official rules.'
     },
     {
@@ -373,11 +373,11 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
       a: 'Yes. Recyclers must file annual returns on the CPCB portal demonstrating quantities of e-waste received, materials recovered, and the exact EPR certificates generated and transferred to producers.'
     },
     {
-      q: 'Can MS CHARTERED ENGINEERS assist clients outside Rajasthan?',
+      q: 'Can KS CHARTERED ENGINEERS assist clients outside Rajasthan?',
       a: 'Yes. We are headquartered in Jaipur with an established Pan-India practice. We handle CPCB E-Waste consultancy for clients across Delhi-NCR, Mumbai, Bengaluru, Chennai, Ahmedabad, Hyderabad, and all Indian industrial clusters.'
     },
     {
-      q: 'How do we get started with MS CHARTERED ENGINEERS?',
+      q: 'How do we get started with KS CHARTERED ENGINEERS?',
       a: 'Simply call our direct office line at +91 91586 58885, reach out via WhatsApp, or submit the consultation form below. A senior technical consultant will review your business role within 2 hours.'
     }
   ];
@@ -402,7 +402,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
     "name": "E-Waste Annual Return Filing & EPR Compliance Services",
     "provider": {
       "@type": ["ProfessionalService", "LocalBusiness"],
-      "name": "MS Chartered Engineers",
+      "name": "KS Chartered Engineers",
       "url": "https://www.mscharteredengineer.com/",
       "telephone": "+919158658885"
     },
@@ -2128,7 +2128,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                 color: '#0f172a'
               }}
             >
-              Why Work With MS CHARTERED ENGINEERS?
+              Why Work With KS CHARTERED ENGINEERS?
             </h2>
             <p style={{ fontSize: '0.95rem', color: '#475569', marginTop: '6px' }}>
               We are not brokers or telemarketing agencies; we are statutory engineering consultants:
@@ -2702,7 +2702,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                       style={{ marginTop: '2px' }}
                     />
                     <span>
-                      I authorize MS CHARTERED ENGINEERS to review my compliance details and connect via phone or WhatsApp.
+                      I authorize KS CHARTERED ENGINEERS to review my compliance details and connect via phone or WhatsApp.
                     </span>
                   </label>
                 </div>
@@ -2757,7 +2757,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
               borderRadius: '9999px'
             }}
           >
-            <ShieldCheck size={18} color="#006235" /> MS CHARTERED ENGINEERS · VALUERS &amp; TECHNICAL CONSULTANCY
+            <ShieldCheck size={18} color="#006235" /> KS CHARTERED ENGINEERS · VALUERS &amp; TECHNICAL SERVICES
           </div>
           <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#162916', marginBottom: '10px' }}>
             Auditable Precision for Indian &amp; Global Industry

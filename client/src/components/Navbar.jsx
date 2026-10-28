@@ -169,7 +169,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
       <div className="container navbar-container">
         <div className="navbar-inner">
           {/* Brand Identity */}
-          <a href="/" className="brand-logo" aria-label="MS Chartered Engineers – Homepage">
+          <a href="/" className="brand-logo" aria-label="KS Chartered Engineers – Homepage">
             <div className="gear-icon-wrapper" style={{ background: 'transparent', border: 'none' }}>
               <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -190,12 +190,12 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 {/* STATIC INNER ELEMENTS */}
                 <circle cx="50" cy="50" r="26" fill="#040914" stroke="#ffffff" strokeWidth="3" />
                 <circle cx="50" cy="50" r="20" fill="none" stroke="#38bdf8" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
-                <text x="50" y="60.5" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="28" fill="#ffffff" textAnchor="middle" letterSpacing="1">MS</text>
+                <text x="50" y="60.5" fontFamily="system-ui, sans-serif" fontWeight="900" fontSize="28" fill="#ffffff" textAnchor="middle" letterSpacing="1">KS</text>
               </svg>
             </div>
             <div>
-              <div className="brand-title">MS CHARTERED <span>ENGINEERS</span></div>
-              <div className="brand-subtitle">Valuers &amp; Technical Consultancy</div>
+              <div className="brand-title">KS CHARTERED <span>ENGINEERS</span></div>
+              <div className="brand-subtitle">Valuers &amp; Technical Services</div>
             </div>
           </a>
 

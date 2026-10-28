@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'online',
-    service: 'MS Chartered Engineers & Technical Consultancy API',
+    service: 'KS Chartered Engineers, Valuers & Technical Services API',
     headquarters: 'Jaipur, Rajasthan',
     founder: 'Mukesh Singh, CEng (India) MIE, IIT Roorkee',
     contact: '+91 91586 58885',
@@ -102,35 +102,35 @@ app.post('/api/tools/ceig-readiness', toolsController.checkCeigReadiness);
 // Route Meta for Dynamic SEO & Social Sharing Crawlers
 const ROUTE_META = {
   '/tech-products': {
-    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
+    title: 'KS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | KS Group',
     description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.',
     keywords: 'AI agent development, RAG chatbot, WhatsApp AI chatbot, enterprise software products, Android app development Jaipur India, custom ERP software, IT software company, MS Tech Labs, SaaS development, software development company Jaipur',
     canonical: 'https://www.mscharteredengineer.com/tech-products',
     ogImage: 'https://www.mscharteredengineer.com/og-image.png'
   },
   '/government-subsidies': {
-    title: 'Government Subsidies & Grants 2024-25 | RIPS, PMEGP & MSME | MS Chartered Engineers',
+    title: 'Government Subsidies & Grants 2024-25 | RIPS, PMEGP & MSME | KS Chartered Engineers',
     description: 'Statutory Chartered Engineer Attestation, Net Worth Verification & Bankable DPR for 26+ Government Subsidies including RIPS 2024, PMEGP, MoFPI, Solar & MSME schemes. Call +91 91586 58885.',
     keywords: 'government subsidies India, RIPS 2024 subsidy, PMEGP subsidy, MSME subsidies Rajasthan, capital investment subsidy, textile subsidy, food processing subsidy, chartered engineer certificate for subsidy',
     canonical: 'https://www.mscharteredengineer.com/government-subsidies',
     ogImage: 'https://www.mscharteredengineer.com/og-image.png'
   },
   '/business-loans': {
-    title: 'Business & Machinery Project Loans | CGTMSE & Term Finance | MS Chartered Engineers',
+    title: 'Business & Machinery Project Loans | CGTMSE & Term Finance | KS Chartered Engineers',
     description: 'Fast-track your bank loan approvals with Chartered Engineer Techno-Economic Viability (TEV) studies, machinery valuations, and bankable Detailed Project Reports (DPR). Call +91 91586 58885.',
     keywords: 'business loans India, machinery loans, CGTMSE loan, TEV study chartered engineer, detailed project report DPR, industrial term loan, bank collateral valuation',
     canonical: 'https://www.mscharteredengineer.com/business-loans',
     ogImage: 'https://www.mscharteredengineer.com/og-image.png'
   },
   '/e-waste-annual-return-filing': {
-    title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers',
+    title: 'E-Waste Annual Return Filing & EPR Compliance | KS Chartered Engineers',
     description: 'CPCB E-Waste Annual Return Filing (Form 3) & EPR Compliance Services by senior Chartered Engineers (IIT Roorkee alumni). 100% auditable annual filings, Schedule I EEE codes, customs BOE reconciliation & Pan-India support. Call +91 91586 58885.',
     keywords: 'E-Waste Annual Return Filing, e waste annual return filing, E-Waste EPR compliance, E-Waste compliance consultant, E-Waste return filing consultant, CPCB E-Waste EPR registration, CPCB E-Waste annual return, E-Waste EPR consultant, EPR compliance consultant, E-Waste compliance services',
     canonical: 'https://www.mscharteredengineer.com/e-waste-annual-return-filing',
     ogImage: 'https://www.mscharteredengineer.com/slides/slide3.webp'
   },
   '/autocad-drafting': {
-    title: 'AutoCAD 2D Electrical Drafting Services | SLD & Panel Drawings | MS Chartered Engineers',
+    title: 'AutoCAD 2D Electrical Drafting Services | SLD & Panel Drawings | KS Chartered Engineers',
     description: 'Professional AutoCAD 2D electrical drafting services for industrial plants, MEP consultants, and EPC contractors. Preparation and revision of Single Line Diagrams (SLD), LT/HT panel layouts, cable schedules, and DWG conversions.',
     keywords: 'AutoCAD 2D Electrical Drafting Services, electrical drafting services, AutoCAD electrical drafting, single line diagram AutoCAD, SLD drawing services, LT HT panel drafting, cable routing AutoCAD, electrical layout drawing services',
     canonical: 'https://www.mscharteredengineer.com/autocad-drafting',
@@ -205,7 +205,7 @@ app.use((err, req, res, next) => {
 // Start Server
 app.listen(PORT, () => {
   console.log(`====================================================`);
-  console.log(`MS Chartered Engineers API Server running on port ${PORT}`);
+  console.log(`KS Chartered Engineers API Server running on port ${PORT}`);
   console.log(`Jaipur, Rajasthan | Pan India Engineering Valuation`);
   console.log(`====================================================`);
 });

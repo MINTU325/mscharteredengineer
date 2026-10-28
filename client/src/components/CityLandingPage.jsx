@@ -46,7 +46,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
   const jsonLdSchema = {
     "@context": "https://schema.org",
     "@type": ["ProfessionalService", "LocalBusiness"],
-    "name": `MS Chartered Engineers - ${cityData.cityName}`,
+    "name": `KS Chartered Engineers - ${cityData.cityName}`,
     "url": `https://www.mscharteredengineer.com/${cityData.slug}`,
     "image": cityData.heroImage ? `https://www.mscharteredengineer.com${cityData.heroImage}` : undefined,
     "description": cityData.seoMeta,

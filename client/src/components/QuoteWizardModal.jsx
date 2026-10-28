@@ -396,7 +396,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
   const generateWhatsAppMessage = (inquiryRef) => {
     if (isValuationFlow && prefillData) {
       return (
-`🔔 *New Stamped Valuation Report Request - MS Chartered Engineers*
+`🔔 *New Stamped Valuation Report Request - KS Chartered Engineers*
 ━━━━━━━━━━━━━━━━━━━━━━
 🆔 *Ref ID:* ${inquiryRef}
 👤 *Client Name:* ${formData.name}
@@ -419,7 +419,7 @@ _Directly sent via mscharteredengineer.com_`
     const deptTag = currentDeptConfig.badgeText.split(' ')[0] || '🔔';
 
     return (
-`${deptTag} *New ${currentDeptConfig.shortName} Inquiry - MS Chartered Engineers*
+`${deptTag} *New ${currentDeptConfig.shortName} Inquiry - KS Chartered Engineers*
 ━━━━━━━━━━━━━━━━━━━━━━
 🆔 *Ref ID:* ${inquiryRef}
 👤 *Client Name:* ${formData.name}

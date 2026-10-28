@@ -96,7 +96,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = 'Expert Valuers & Premium Fabrication Services | MS Chartered Engineers';
+    document.title = 'Expert Valuers & Premium Fabrication Services | KS Chartered Engineers';
 
     const updateOrCreateMeta = (name, content, isProperty = false) => {
       const attr = isProperty ? 'property' : 'name';
@@ -109,9 +109,9 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       tag.setAttribute('content', content);
     };
 
-    updateOrCreateMeta('description', 'Expert Valuers & Premium Fabrication Services by MS Chartered Engineers. Precision-engineered Iron and Tin Shed structures supervised by IIT Roorkee alumni Chartered Engineers.');
+    updateOrCreateMeta('description', 'Expert Valuers & Premium Fabrication Services by KS Chartered Engineers. Precision-engineered Iron and Tin Shed structures supervised by IIT Roorkee alumni Chartered Engineers.');
     updateOrCreateMeta('keywords', 'Iron fabrication, tin shed fabrication, industrial sheds, PEB warehouse, valuation technical consultancy, industrial chimneys, structural stability certificate, Jaipur');
-    updateOrCreateMeta('og:title', 'Expert Valuers & Premium Fabrication Services | MS Chartered Engineers', true);
+    updateOrCreateMeta('og:title', 'Expert Valuers & Premium Fabrication Services | KS Chartered Engineers', true);
     updateOrCreateMeta('og:description', 'Precision-engineered Iron and Tin Shed structures supervised by Chartered Engineers. Stamped structural stability certificates.', true);
     updateOrCreateMeta('og:url', 'https://www.mscharteredengineer.com/fabrication-services', true);
   }, []);
@@ -689,7 +689,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 }}
               >
                 <Building2 size={15} />
-                <span>About MS Chartered Engineers</span>
+                <span>About KS Chartered Engineers</span>
               </div>
 
               <h2
@@ -713,7 +713,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   marginBottom: '20px'
                 }}
               >
-                Valuers &amp; Technical Consultancy
+                Valuers &amp; Technical Services
               </div>
 
               <p
@@ -724,7 +724,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   marginBottom: '18px'
                 }}
               >
-                At <strong>MS Chartered Engineers</strong>, we bridge the vital gap between heavy structural fabrication and certified statutory engineering. Founded and directed by an IIT Roorkee graduate and registered Chartered Engineer (IEI), we deliver end-to-end solutions — from initial structural calculations and wind analysis to shop fabrication, site erection, and stamped structural stability certification.
+                At <strong>KS Chartered Engineers</strong>, we bridge the vital gap between heavy structural fabrication and certified statutory engineering. Founded and directed by an IIT Roorkee graduate and registered Chartered Engineer (IEI), we deliver end-to-end solutions — from initial structural calculations and wind analysis to shop fabrication, site erection, and stamped structural stability certification.
               </p>
 
               <p

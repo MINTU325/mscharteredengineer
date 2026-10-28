@@ -157,7 +157,7 @@ export default function WhoWeServe({ onOpenQuote }) {
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello MS Chartered Engineers, I represent: "${activePersona.name}". I would like to consult regarding ${activePersona.headline} in Jaipur/Pan-India.`
+      `Hello KS Chartered Engineers, I represent: "${activePersona.name}". I would like to consult regarding ${activePersona.headline} in Jaipur/Pan-India.`
     );
     window.open(`https://wa.me/919158658885?text=${text}`, '_blank');
   };

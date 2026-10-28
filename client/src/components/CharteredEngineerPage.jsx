@@ -4,7 +4,7 @@ import { ArrowLeft, CheckCircle2, FileText, PhoneCall, ChevronRight, ShieldCheck
 export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = 'Chartered Engineer in India | DGFT, Customs & CEIG | MS Chartered Engineers';
+    document.title = 'Chartered Engineer in India | DGFT, Customs & CEIG | KS Chartered Engineers';
   }, []);
 
   return (
@@ -42,7 +42,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
             Government Certified <span style={{ color: '#fbbf24' }}>Chartered Engineer in India</span>
           </h1>
           <p style={{ fontSize: '1.1rem', color: '#cbd5e1', lineHeight: 1.7, maxWidth: '800px', marginBottom: '30px' }}>
-            MS Chartered Engineers (IIT Roorkee) provides statutory engineering certifications accepted by DGFT, Customs, Central Excise, Banks, and Government Authorities across Pan-India. Led by Er. Mukesh Singh, Corporate Member (MIE) of The Institution of Engineers (India).
+            KS Chartered Engineers (IIT Roorkee) provides statutory engineering certifications accepted by DGFT, Customs, Central Excise, Banks, and Government Authorities across Pan-India. Led by Er. Mukesh Singh, Corporate Member (MIE) of The Institution of Engineers (India).
           </p>
           
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
@@ -109,9 +109,9 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
           </div>
         </section>
 
-        {/* Section 3: Why choose MS Chartered Engineers? */}
+        {/* Section 3: Why choose KS Chartered Engineers? */}
         <section style={{ background: '#ffffff', padding: '32px', borderRadius: '24px', border: '1px solid #e2e8f0' }}>
-          <h2 style={{ fontSize: '1.75rem', color: '#0f172a', fontWeight: 800, marginBottom: '20px' }}>Why Choose MS Chartered Engineers?</h2>
+          <h2 style={{ fontSize: '1.75rem', color: '#0f172a', fontWeight: 800, marginBottom: '20px' }}>Why Choose KS Chartered Engineers?</h2>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <li style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
               <CheckCircle2 color="#16a34a" style={{ marginTop: '2px', flexShrink: 0 }} />

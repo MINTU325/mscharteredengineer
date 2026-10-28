@@ -35,30 +35,30 @@ const ElectricalServicesPage = lazy(() => import('./components/ElectricalService
 const FabricationServicesPage = lazy(() => import('./components/FabricationServicesPage'));
 
 const ROUTE_CONFIG = {
-  '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | MS Chartered Engineers (IIT Roorkee)' },
+  '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | KS Chartered Engineers (IIT Roorkee)' },
   '/fabrication-services': { 
     id: 'fabrication-services', 
-    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | MS Group (IIT Roorkee)',
+    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | KS Group (IIT Roorkee)',
     description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory Tin Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
   },
   '/fabrication': { 
     id: 'fabrication-services', 
-    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | MS Group (IIT Roorkee)',
+    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | KS Group (IIT Roorkee)',
     description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory Tin Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
   },
   '/tin-shed-fabrication': { 
     id: 'fabrication-services', 
-    title: 'Factory Tin Shed & PEB Industrial Shed Fabrication | MS Group',
+    title: 'Factory Tin Shed & PEB Industrial Shed Fabrication | KS Group',
     description: 'Heavy duty factory tin shed fabrication, warehouse roofing, PEB pre-engineered buildings, curved sheets, and turbo ventilator installations with structural engineering certification.'
   },
   '/iron-fabrication': { 
     id: 'fabrication-services', 
-    title: 'Heavy Iron & MS Fabrication Services | MS Group',
+    title: 'Heavy Iron & MS Fabrication Services | KS Group',
     description: 'Custom heavy iron and mild steel fabrication, structural beams, columns, mezzanine floors, safety spiral staircases, and heavy machinery base frames.'
   },
   '/electrical-services': { 
     id: 'electrical-services', 
-    title: 'High Voltage Testing, Transformer Services & Substation Engineering | MS Chartered Engineers',
+    title: 'High Voltage Testing, Transformer Services & Substation Engineering | KS Chartered Engineers',
     description: 'Turnkey 11kV to 132kV Substation Erection, High Voltage Breaker Testing, Power Transformer Overhauling, High-Vacuum Oil Filtration, Cable Jointing and CEA Safety Audits by IIT Roorkee alumni Chartered Engineers.'
   },
   '/substation-services': { 
@@ -97,70 +97,71 @@ const ROUTE_CONFIG = {
   '/blog': { id: 'blog', title: 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers' },
   '/insights': { id: 'blog', title: 'Technical Insights, Regulatory Guides & Blog | MS Chartered Engineers' },
   '/faq': { id: 'faq', title: 'Frequently Asked Questions (FAQ) | Chartered Engineer & Valuers | MS Chartered Engineers' },
-  '/faqs': { id: 'faq', title: 'Frequently Asked Questions (FAQ) | Chartered Engineer & Valuers | MS Chartered Engineers' },
-  '/pan-india': { id: 'city-hub', title: 'Chartered Engineer Pan-India Corridors & Industrial Practice Hubs | MS Chartered Engineers' },
+  '/faqs': { id: 'faq', title: 'Frequently Asked Questions (FAQ) | Chartered Engineer & Valuers | KS Chartered Engineers' },
+  '/pan-india': { id: 'city-hub', title: 'Chartered Engineer Pan-India Corridors & Industrial Practice Hubs | KS Chartered Engineers' },
   '/chartered-engineer-delhi': { id: 'city-hub', title: 'Chartered Engineer Delhi NCR, Gurgaon & Noida | DGFT & Customs Valuer' },
   '/chartered-engineer-mumbai': { id: 'city-hub', title: 'Chartered Engineer Mumbai & Pune | JNPT Customs, EPCG & Plant Valuation' },
   '/chartered-engineer-ahmedabad': { id: 'city-hub', title: 'Chartered Engineer Ahmedabad, Gujarat & Surat | GIDC Industrial Valuer' },
   '/chartered-engineer-jaipur': { id: 'city-hub', title: 'Chartered Engineer Jaipur & Rajasthan | IIT Roorkee HQ | RIICO Approved' },
   '/chartered-engineer-bangalore': { id: 'city-hub', title: 'Chartered Engineer Bangalore, Chennai & Hyderabad | Tech & Industrial SEZ Valuer' },
   '/chartered-engineer-indore': { id: 'city-hub', title: 'Chartered Engineer Indore, Pithampur & Central India | Industrial Valuer' },
-  '/ms-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
-  '/texel-group': { id: 'ms-group', title: 'MS Group | Integrated Engineering Consultancy & Departments' },
-  '/departments': { id: 'ms-group', title: 'Our Engineering Departments | MS Group' },
+  '/ks-group': { id: 'ms-group', title: 'KS Group | Integrated Engineering Consultancy & Departments' },
+  '/ms-group': { id: 'ms-group', title: 'KS Group | Integrated Engineering Consultancy & Departments' },
+  '/texel-group': { id: 'ms-group', title: 'KS Group | Integrated Engineering Consultancy & Departments' },
+  '/departments': { id: 'ms-group', title: 'Our Engineering Departments | KS Group' },
   '/tech-products': { 
     id: 'tech-products', 
-    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
-    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
+    title: 'KS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | KS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by KS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/tech': { 
     id: 'tech-products', 
-    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
-    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
+    title: 'KS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | KS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by KS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/software-products': { 
     id: 'tech-products', 
-    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
-    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
+    title: 'KS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | KS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by KS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/it-solutions': { 
     id: 'tech-products', 
-    title: 'MS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | MS Group',
-    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
+    title: 'KS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | KS Group',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by KS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.'
   },
   '/bulk-messenger': { 
     id: 'tech-products', 
-    title: 'MS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | MS Tech Labs',
-    description: 'Test MS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
+    title: 'KS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | KS Tech Labs',
+    description: 'Test KS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
   },
   '/whatsapp-bulk-messenger': { 
     id: 'tech-products', 
-    title: 'MS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | MS Tech Labs',
-    description: 'Test MS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
+    title: 'KS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | KS Tech Labs',
+    description: 'Test KS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
   },
   '/government-subsidies': { 
     id: 'government-subsidies', 
-    title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group',
+    title: 'Central & State Government Subsidies & Grants 2024-25 | KS Group',
     description: 'Apply for Central & State Government Subsidies: Rajasthan RIPS 2024, PMEGP, Ambedkar Scheme, PM-FME, Textile GREAT & Solar grants with Chartered Engineer DPR & TEV study.'
   },
   '/subsidies': { 
     id: 'government-subsidies', 
-    title: 'Central & State Government Subsidies & Grants 2024-25 | MS Group',
+    title: 'Central & State Government Subsidies & Grants 2024-25 | KS Group',
     description: 'Apply for Central & State Government Subsidies: Rajasthan RIPS 2024, PMEGP, Ambedkar Scheme, PM-FME, Textile GREAT & Solar grants with Chartered Engineer DPR & TEV study.'
   },
   '/business-loans': { 
     id: 'business-loans', 
-    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group',
+    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | KS Group',
     description: 'Get Business Loans, Machinery Finance, CGTMSE Collateral-Free Loans up to ₹5 Cr & Working Capital with Bankable TEV Study & DPR by IIT Roorkee Engineers.'
   },
   '/business-loan': { 
     id: 'business-loans', 
-    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group',
+    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | KS Group',
     description: 'Get Business Loans, Machinery Finance, CGTMSE Collateral-Free Loans up to ₹5 Cr & Working Capital with Bankable TEV Study & DPR by IIT Roorkee Engineers.'
   },
   '/loans': { 
     id: 'business-loans', 
-    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | MS Group',
+    title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | KS Group',
     description: 'Get Business Loans, Machinery Finance, CGTMSE Collateral-Free Loans up to ₹5 Cr & Working Capital with Bankable TEV Study & DPR by IIT Roorkee Engineers.'
   },
 };

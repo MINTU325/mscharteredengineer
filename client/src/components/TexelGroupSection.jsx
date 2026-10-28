@@ -104,16 +104,16 @@ export default function TexelGroupSection({ onOpenQuote }) {
 
   return (
     <section 
-      id="ms-group" 
+      id="ks-group" 
       className="texel-section"
-      aria-label="Welcome to MS Group - Our Services & Technology"
+      aria-label="Welcome to KS Group - Our Services & Technology"
     >
       <div className="texel-container">
         
         {/* Top Header & Intro Block */}
         <div className="texel-header">
           <h2 className="texel-main-title">
-            Welcome to MS Group
+            Welcome to KS Group
           </h2>
 
           {/* Green Divider Bar */}

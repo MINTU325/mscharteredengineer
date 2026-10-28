@@ -68,14 +68,14 @@ def render_master_icon(size=2048):
         width=stroke_accent
     )
 
-    # 6. Text "MS" centered in bold
+    # 6. Text "KS" centered in bold
     font_size = int(size * 0.28)
     font_path = "C:/Windows/Fonts/segoeuib.ttf"
     if not os.path.exists(font_path):
         font_path = "C:/Windows/Fonts/arialbd.ttf"
     
     font = ImageFont.truetype(font_path, font_size)
-    text = "MS"
+    text = "KS"
     
     # Measure text bounding box
     bbox = draw.textbbox((0, 0), text, font=font)
@@ -93,10 +93,11 @@ def main():
     print("Rendering master 2048x2048 brand emblem...")
     master = render_master_icon(2048)
 
-    # Save to client/public and client/dist
+    # Save to client/public, client/dist, and whatsapp-crm-frontend/public
     base_dirs = [
         os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "client", "public")),
         os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "client", "dist")),
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "whatsapp-crm-frontend", "public")),
     ]
 
     sizes = {
@@ -106,6 +107,8 @@ def main():
         "apple-touch-icon.png": 180,
         "favicon-96x96.png": 96,
         "favicon-48x48.png": 48,
+        "favicon.png": 192,
+        "logo_transparent.png": 512
     }
 
     # SVG content
@@ -121,7 +124,7 @@ def main():
   <circle cx="50" cy="50" r="35" fill="none" stroke="url(#blueGear)" stroke-width="3" opacity="0.9" />
   <circle cx="50" cy="50" r="26" fill="#040914" stroke="#ffffff" stroke-width="3" />
   <circle cx="50" cy="50" r="20" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" opacity="0.5" />
-  <text x="50" y="60.5" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle" letter-spacing="1">MS</text>
+  <text x="50" y="60.5" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle" letter-spacing="1">KS</text>
 </svg>"""
 
     for bdir in base_dirs:
@@ -135,7 +138,6 @@ def main():
             f.write(svg_content)
 
         # Write PNGs
-        ico_images = []
         for filename, sz in sizes.items():
             resized = master.resize((sz, sz), Image.Resampling.LANCZOS)
             outpath = os.path.join(bdir, filename)
@@ -148,6 +150,7 @@ def main():
         ico_16 = master.resize((16, 16), Image.Resampling.LANCZOS)
         ico_path = os.path.join(bdir, "favicon.ico")
         ico_48.save(ico_path, format="ICO", sizes=[(48, 48), (32, 32), (16, 16)])
+        print(f"Saved multi-resolution favicon.ico to {bdir}")
         print(f"Saved multi-resolution favicon.ico to {bdir}")
 
     print("Brand icons generation complete!")

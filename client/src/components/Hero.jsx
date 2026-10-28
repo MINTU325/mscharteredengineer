@@ -20,7 +20,7 @@ export default function Hero({ onOpenQuote }) {
   ];
 
   return (
-    <section id="home" className="section" style={{ paddingTop: '50px', paddingBottom: '70px', overflow: 'hidden' }} aria-label="MS Chartered Engineers Homepage">
+    <section id="home" className="section" style={{ paddingTop: '50px', paddingBottom: '70px', overflow: 'hidden' }} aria-label="KS Chartered Engineers Homepage">
       <div className="container">
         <div className="hero-grid">
           {/* Left Column: Heading & Authority */}
@@ -151,7 +151,7 @@ export default function Hero({ onOpenQuote }) {
                   background: 'rgba(37, 211, 102, 0.1)',
                   textDecoration: 'none'
                 }}
-                aria-label="Chat on WhatsApp with MS Chartered Engineers"
+                aria-label="Chat on WhatsApp with KS Chartered Engineers"
               >
                 <MessageCircle size={18} color="#25D366" />
                 <span style={{ color: '#ffffff' }}>WhatsApp Us</span>
@@ -178,7 +178,7 @@ export default function Hero({ onOpenQuote }) {
                     Statutory Credential Profile
                   </div>
                   <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff' }}>
-                    MS Chartered Engineers
+                    KS Chartered Engineers
                   </div>
                 </div>
                 <div style={{

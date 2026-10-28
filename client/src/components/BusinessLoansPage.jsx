@@ -316,7 +316,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                 "url": "https://www.mscharteredengineer.com/business-loans",
                 "provider": {
                   "@type": "ProfessionalService",
-                  "name": "MS Chartered Engineers",
+                  "name": "KS Chartered Engineers",
                   "telephone": "+919158658885",
                   "address": {
                     "@type": "PostalAddress",
