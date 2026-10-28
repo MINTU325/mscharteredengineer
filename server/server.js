@@ -59,7 +59,7 @@ app.get('/api/stats', (req, res) => {
 // Admin Authentication Endpoint
 app.post('/api/admin/verify', (req, res) => {
   const { password } = req.body;
-  const adminSecret = process.env.ADMIN_PASSWORD || 'ms@admin2026';
+  const adminSecret = process.env.ADMIN_PASSWORD || 'psrlms0707';
 
   if (password === adminSecret) {
     return res.status(200).json({
@@ -79,7 +79,7 @@ app.post('/api/admin/verify', (req, res) => {
 const requireAdminAuth = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.replace(/^Bearer\s+/i, '');
-  const adminSecret = process.env.ADMIN_PASSWORD || 'ms@admin2026';
+  const adminSecret = process.env.ADMIN_PASSWORD || 'psrlms0707';
 
   if (token && (token.startsWith('admin-auth-') || token === adminSecret)) {
     return next();

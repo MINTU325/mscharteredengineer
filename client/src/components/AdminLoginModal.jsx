@@ -37,7 +37,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
       }
     } catch (err) {
       // Fallback local check if backend network error
-      if (password.trim() === 'ms@admin2026' || password.trim() === 'admin123') {
+      if (password.trim() === 'psrlms0707') {
         sessionStorage.setItem('ms_admin_auth', 'true');
         setPassword('');
         onLoginSuccess();
