@@ -6,10 +6,10 @@ export default function TexelGroupSection({ onOpenQuote }) {
 
   const engineeringServices = [
     {
-      id: 'structural-design',
-      title: 'STRUCTURAL DESIGN ENGINEERING',
-      serviceName: 'Structural Design Engineering',
-      desc: 'Advanced structural analysis, RCC & steel design, seismic resistance modeling, and peer review for industrial, commercial & residential structures.',
+      id: 'structural-design-rehabilitation',
+      title: 'STRUCTURAL DESIGN, ENGINEERING & REHABILITATION',
+      serviceName: 'Structural Design, Engineering & Rehabilitation',
+      desc: 'Advanced structural analysis, RCC & steel design, seismic resistance modeling, Non-Destructive Testing (NDT), structural integrity evaluations, distress investigation, seismic retrofitting, and conditional health assessments.',
       icon: (
         // Interlocking dual gears matching the screenshot
         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
@@ -18,39 +18,15 @@ export default function TexelGroupSection({ onOpenQuote }) {
       )
     },
     {
-      id: 'bim-design',
-      title: 'INTEGRATED DESIGN & BIM',
-      serviceName: 'Integrated Design & BIM',
-      desc: '3D/4D Building Information Modeling (BIM), AutoCAD 2D drafting, MEP spatial coordination, digital twins, and Clash Detection for turnkey execution.',
-      icon: (
-        // Organic leaf matching the screenshot
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C5.79 12.87 9 9.5 17 8z"/>
-        </svg>
-      )
-    },
-    {
       id: 'project-management',
-      title: 'CONSTRUCTION AND PROJECT MANAGEMENT',
-      serviceName: 'Construction & Project Management',
+      title: 'PROJECT MANAGEMENT',
+      serviceName: 'Project Management',
       desc: 'End-to-end Project Management Consultancy (PMC), techno-commercial audits, contractor supervision, timeline governance, and statutory bill vetting.',
       icon: (
         // Lifebuoy / Helm steering wheel matching the screenshot
         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.01 8.01 0 0 1-8 8zm0-13a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"/>
           <path d="M11 4h2v3h-2zm0 13h2v3h-2zM4 11h3v2H4zm13 0h3v2h-3z"/>
-        </svg>
-      )
-    },
-    {
-      id: 'structural-rehab',
-      title: 'STRUCTURAL REHABILITATION & CONDITIONAL ASSESSMENT',
-      serviceName: 'Structural Rehabilitation & Condition Assessment',
-      desc: 'Non-Destructive Testing (NDT), structural integrity evaluations, distress investigation, seismic retrofitting, and aging infrastructure health assessments.',
-      icon: (
-        // Lightbulb matching the screenshot
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-1.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/>
         </svg>
       )
     }

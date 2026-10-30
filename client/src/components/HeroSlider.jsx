@@ -100,7 +100,7 @@ const SLIDES = [
     id: 6,
     image: '/slides/slide3.webp',
     badge: '🌿 CPCB E-Waste EPR Compliance | MoEFCC Gazette G.S.R. 814(E)',
-    title: 'E-Waste Annual Return Filing &',
+    title: 'Annual Return Filing &',
     titleHighlight: 'CPCB EPR Compliance Services',
     subtitle:
       'Mandatory annual returns (Form 3), Schedule I EEE code mapping, and EPR recycling credit reconciliation for Importers, Brand Owners, Domestic Manufacturers & Recyclers across India.',

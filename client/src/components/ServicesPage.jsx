@@ -6,6 +6,13 @@ import {
 } from 'lucide-react';
 import ServicesGrid from './ServicesGrid';
 
+const SERVICE_HIGHLIGHT_STATS = [
+  { color: '#fbbf24', value: '⚡ 24–48 Hours', label: 'Fast-track Delivery' },
+  { color: '#38bdf8', value: '🏛️ 100% Acceptance', label: 'Banks, Tax & Courts' },
+  { color: '#34d399', value: '⚖️ Dual Methodology', label: 'FMV + Forced Sale Value' },
+  { color: '#fbbf24', value: '📍 Jaipur HQ', label: 'Pan-India Jurisdiction' },
+];
+
 export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute = '/services' }) {
   // Ensure the page scrolls to top on navigation, or to the specific service card if applicable
   useEffect(() => {
@@ -191,69 +198,23 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
               gap: '12px',
               marginBottom: '28px'
             }}>
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                borderRadius: '10px',
-                padding: '8px 14px',
-                fontSize: '0.84rem',
-                color: '#e2e8f0'
-              }}>
-                <span style={{ color: '#fbbf24', fontWeight: 800 }}>⚡ 24–48 Hours</span>
-                <span>Fast-track Delivery</span>
-              </div>
-
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                borderRadius: '10px',
-                padding: '8px 14px',
-                fontSize: '0.84rem',
-                color: '#e2e8f0'
-              }}>
-                <span style={{ color: '#38bdf8', fontWeight: 800 }}>🏛️ 100% Acceptance</span>
-                <span>Banks, Tax &amp; Courts</span>
-              </div>
-
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                borderRadius: '10px',
-                padding: '8px 14px',
-                fontSize: '0.84rem',
-                color: '#e2e8f0'
-              }}>
-                <span style={{ color: '#34d399', fontWeight: 800 }}>⚖️ Dual Methodology</span>
-                <span>FMV + Forced Sale Value</span>
-              </div>
-
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                borderRadius: '10px',
-                padding: '8px 14px',
-                fontSize: '0.84rem',
-                color: '#e2e8f0'
-              }}>
-                <span style={{ color: '#fbbf24', fontWeight: 800 }}>📍 Jaipur HQ</span>
-                <span>Pan-India Jurisdiction</span>
-              </div>
+              {SERVICE_HIGHLIGHT_STATS.map((stat, i) => (
+                <div key={i} style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'rgba(255, 255, 255, 0.08)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  borderRadius: '10px',
+                  padding: '8px 14px',
+                  fontSize: '0.84rem',
+                  color: '#e2e8f0'
+                }}>
+                  <span style={{ color: stat.color, fontWeight: 800 }}>{stat.value}</span>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
             </div>
 
             {/* Direct CTAs */}

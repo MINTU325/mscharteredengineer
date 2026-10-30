@@ -15,7 +15,7 @@ export default function EWasteHomeSection() {
             </div>
 
             <h2 className="ewaste-title">
-              E-Waste Annual Return Filing &amp;{' '}
+              Annual Return Filing &amp;{' '}
               <span style={{ color: '#059669' }}>EPR Compliance</span>
             </h2>
 

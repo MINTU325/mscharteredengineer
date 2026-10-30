@@ -4,8 +4,9 @@ import HeroSlider from './components/HeroSlider';
 import LazySection from './components/LazySection';
 // Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
 import { getCityBySlug, PAN_INDIA_CITIES } from './data/cityHubData';
-import { MessageSquare, PhoneCall } from 'lucide-react';
+import { MessageSquare, PhoneCall, Lock } from 'lucide-react';
 const Credentials = lazy(() => import('./components/Credentials'));
+const ArchitecturalProjects = lazy(() => import('./components/ArchitecturalProjects'));
 const TexelGroupSection = lazy(() => import('./components/TexelGroupSection'));
 const ServicesTeaser = lazy(() => import('./components/ServicesTeaser'));
 const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
@@ -164,6 +165,21 @@ const ROUTE_CONFIG = {
     title: 'Business, MSME & Machinery Loans | CGTMSE & Term Finance | KS Group',
     description: 'Get Business Loans, Machinery Finance, CGTMSE Collateral-Free Loans up to ₹5 Cr & Working Capital with Bankable TEV Study & DPR by IIT Roorkee Engineers.'
   },
+  '/admin': { 
+    id: 'admin', 
+    title: 'Admin Control Center & Lead Management | KS Group',
+    description: 'Internal Administrative Console & Lead Management Engine.'
+  },
+  '/projects': { 
+    id: 'projects', 
+    title: 'Architectural Projects Gallery | KS Chartered Engineers',
+    description: 'Explore our portfolio of architectural, structural and industrial engineering projects.'
+  },
+  '/architectural-projects': { 
+    id: 'projects', 
+    title: 'Architectural Projects Gallery | KS Chartered Engineers',
+    description: 'Explore our portfolio of architectural, structural and industrial engineering projects.'
+  },
 };
 
 const updateSeoMeta = (config, pathname) => {
@@ -195,6 +211,47 @@ const updateSeoMeta = (config, pathname) => {
   canonical.setAttribute('href', `https://www.mscharteredengineer.com${pathname === '/' ? '' : pathname}`);
 };
 
+const FULL_PAGE_IDS = new Set([
+  'home', 'admin', 'projects', 'faq', 'blog', 'services', 'tools', 'city-hub',
+  'e-waste-compliance', 'chartered-engineer', 'tech-products',
+  'government-subsidies', 'business-loans', 'electrical-services', 'fabrication-services'
+]);
+
+const SERVICES_ROUTES = new Set([
+  '/services', '/property-valuation', '/bank-valuation', '/tax-valuation',
+  '/ibc-valuation', '/machinery-valuation', '/valuation', '/assets-valuation',
+  '/safety-energy-audits', '/fssai', '/advisory', '/autocad-drafting',
+  '/autocad-electrical-drafting', '/third-party-inspection', '/inspection-services'
+]);
+
+const TOOLS_ROUTES = new Set([
+  '/tools', '/calculator', '/valuation-calculator', '/solar-checker'
+]);
+
+const ALIAS_CANONICAL_MAP = {
+  '/assets-valuation': '/valuation',
+  '/autocad-electrical-drafting': '/autocad-drafting',
+  '/faqs': '/faq',
+  '/insights': '/blog',
+  '/valuation-calculator': '/calculator',
+};
+
+const scrollToRouteTarget = (config) => {
+  if (!config) return;
+  if (!config.id || FULL_PAGE_IDS.has(config.id)) {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    return;
+  }
+  const el = document.getElementById(config.id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    setTimeout(() => {
+      document.getElementById(config.id)?.scrollIntoView({ behavior: 'smooth' });
+    }, 150);
+  }
+};
+
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
@@ -212,25 +269,16 @@ export default function App() {
       const pathname = window.location.pathname.replace(/\/$/, '') || '/';
       setCurrentRoute(pathname);
       const config = ROUTE_CONFIG[pathname];
+      if (pathname === '/admin') {
+        if (sessionStorage.getItem('ms_admin_auth') === 'true') {
+          setIsAdminOpen(true);
+        } else {
+          setIsLoginModalOpen(true);
+        }
+      }
       if (config) {
         updateSeoMeta(config, pathname);
-        if (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans' || config.id === 'electrical-services' || config.id === 'fabrication-services') {
-          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-        } else if (config.id) {
-          const scrollToTarget = () => {
-            const el = document.getElementById(config.id);
-            if (el) {
-              el.scrollIntoView({ behavior: 'smooth' });
-              return true;
-            }
-            return false;
-          };
-          if (!scrollToTarget()) {
-            setTimeout(scrollToTarget, 100);
-            setTimeout(scrollToTarget, 300);
-            setTimeout(scrollToTarget, 600);
-          }
-        }
+        scrollToRouteTarget(config);
       } else if (pathname.startsWith('/blog/') || pathname.startsWith('/chartered-engineer-')) {
         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
@@ -247,29 +295,20 @@ export default function App() {
       if (href && href.startsWith('/') && !href.startsWith('//') && !anchor.getAttribute('target')) {
         const cleanPath = href.replace(/\/$/, '') || '/';
         const config = ROUTE_CONFIG[cleanPath];
-        if (config || cleanPath.startsWith('/blog') || cleanPath.startsWith('/insights') || cleanPath.startsWith('/chartered-engineer-') || cleanPath === '/pan-india') {
+        if (config || cleanPath === '/admin' || cleanPath.startsWith('/blog') || cleanPath.startsWith('/insights') || cleanPath.startsWith('/chartered-engineer-') || cleanPath === '/pan-india') {
           e.preventDefault();
           window.history.pushState({}, '', href);
           setCurrentRoute(cleanPath);
+          if (cleanPath === '/admin') {
+            if (sessionStorage.getItem('ms_admin_auth') === 'true') {
+              setIsAdminOpen(true);
+            } else {
+              setIsLoginModalOpen(true);
+            }
+          }
           if (config) {
             updateSeoMeta(config, cleanPath);
-          }
-          if (config && (config.id === 'faq' || config.id === 'home' || config.id === 'blog' || config.id === 'services' || config.id === 'tools' || config.id === 'city-hub' || config.id === 'e-waste-compliance' || config.id === 'chartered-engineer' || config.id === 'tech-products' || config.id === 'government-subsidies' || config.id === 'business-loans' || config.id === 'electrical-services' || config.id === 'fabrication-services')) {
-            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-          } else if (config && config.id) {
-            const scrollToTarget = () => {
-              const el = document.getElementById(config.id);
-              if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-                return true;
-              }
-              return false;
-            };
-            if (!scrollToTarget()) {
-              setTimeout(scrollToTarget, 100);
-              setTimeout(scrollToTarget, 300);
-              setTimeout(scrollToTarget, 600);
-            }
+            scrollToRouteTarget(config);
           } else {
             window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           }
@@ -327,36 +366,147 @@ export default function App() {
 
   const handleLogout = () => {
     sessionStorage.removeItem('ms_admin_auth');
+    sessionStorage.removeItem('ms_admin_token');
     setIsAdminAuthenticated(false);
     setIsAdminOpen(false);
+    if (currentRoute === '/admin') {
+      window.history.pushState({}, '', '/');
+      setCurrentRoute('/');
+      document.title = ROUTE_CONFIG['/'].title;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
-  const isServicesRoute = 
-    currentRoute === '/services' || 
-    currentRoute === '/property-valuation' || 
-    currentRoute === '/bank-valuation' || 
-    currentRoute === '/tax-valuation' || 
-    currentRoute === '/ibc-valuation' || 
-    currentRoute === '/machinery-valuation' || 
-    currentRoute === '/valuation' || 
-    currentRoute === '/assets-valuation' || 
-    currentRoute === '/safety-energy-audits' || 
-    currentRoute === '/fssai' || 
-    currentRoute === '/advisory' ||
-    currentRoute === '/autocad-drafting' ||
-    currentRoute === '/autocad-electrical-drafting' ||
-    currentRoute === '/third-party-inspection' ||
-    currentRoute === '/inspection-services';
-
-  const isToolsRoute =
-    currentRoute === '/tools' ||
-    currentRoute === '/calculator' ||
-    currentRoute === '/valuation-calculator' ||
-    currentRoute === '/solar-checker';
+  const isServicesRoute = SERVICES_ROUTES.has(currentRoute);
+  const isToolsRoute = TOOLS_ROUTES.has(currentRoute);
 
   const isCityRoute = currentRoute.startsWith('/chartered-engineer-') || currentRoute === '/pan-india';
   const citySlug = currentRoute === '/pan-india' ? 'chartered-engineer-jaipur' : currentRoute.replace(/^\//, '');
   const activeCityData = getCityBySlug(citySlug);
+
+  const handleNavigateHome = () => {
+    window.history.pushState({}, '', '/');
+    setCurrentRoute('/');
+    document.title = ROUTE_CONFIG['/']?.title || 'KS Chartered Engineers';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const currentConfig = ROUTE_CONFIG[currentRoute];
+  const routeId = currentConfig?.id;
+
+  // Dynamic route page renderer - replaces fragile 180-line nested ternaries
+  const renderCurrentPage = () => {
+    if (isAdminOpen || (currentRoute === '/admin' && isAdminAuthenticated)) {
+      return (
+        <AdminDashboard 
+          onClose={() => {
+            setIsAdminOpen(false);
+            if (currentRoute === '/admin') {
+              handleNavigateHome();
+            }
+          }} 
+          onLogout={handleLogout}
+        />
+      );
+    }
+    if (currentRoute === '/admin' && !isAdminAuthenticated) {
+      return (
+        <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-dark)', padding: '60px 20px' }}>
+          <div className="glass-card" style={{ maxWidth: '440px', width: '100%', padding: '40px 30px', textAlign: 'center', borderRadius: '16px', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
+            <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(245, 158, 11, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', color: '#f59e0b' }}>
+              <Lock size={32} />
+            </div>
+            <h2 style={{ fontSize: '1.6rem', color: '#ffffff', marginBottom: '10px' }}>Admin Control Center</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', marginBottom: '28px', lineHeight: '1.6' }}>
+              Please enter your administrator passkey to access client consultation requests and website inquiries.
+            </p>
+            <button 
+              onClick={() => setIsLoginModalOpen(true)}
+              className="btn btn-primary"
+              style={{ width: '100%', padding: '14px', fontSize: '1rem', fontWeight: '600' }}
+            >
+              Enter Admin Passkey
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    if (routeId === 'chartered-engineer') {
+      return <CharteredEngineerPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'e-waste-compliance' || currentRoute.startsWith('/e-waste-annual-return-filing')) {
+      return <EWasteCompliancePage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'tech-products') {
+      return <TechSolutionsPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'government-subsidies') {
+      return <GovernmentSubsidiesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'business-loans') {
+      return <BusinessLoansPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'electrical-services') {
+      return <ElectricalServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'fabrication-services') {
+      return <FabricationServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'projects') {
+      return <ArchitecturalProjects onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (isServicesRoute) {
+      return <ServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} currentRoute={currentRoute} />;
+    }
+    if (isToolsRoute) {
+      return <ToolsPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} currentRoute={currentRoute} />;
+    }
+    if (isCityRoute) {
+      return (
+        <CityLandingPage 
+          cityData={activeCityData}
+          onOpenQuote={handleOpenQuote}
+          onNavigateHome={handleNavigateHome}
+          onSelectCity={(slug) => {
+            const nextPath = '/' + slug;
+            window.history.pushState({}, '', nextPath);
+            setCurrentRoute(nextPath);
+            const cfg = ROUTE_CONFIG[nextPath];
+            if (cfg) document.title = cfg.title;
+            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          }}
+        />
+      );
+    }
+    if (routeId === 'faq') {
+      return <FAQPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'blog' || currentRoute.startsWith('/blog') || currentRoute.startsWith('/insights')) {
+      const initialSlug = currentRoute.startsWith('/blog/') 
+        ? currentRoute.replace('/blog/', '') 
+        : currentRoute.startsWith('/insights/') 
+          ? currentRoute.replace('/insights/', '') 
+          : null;
+      return <BlogPage initialSlug={initialSlug} onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+
+    return (
+      <main>
+        <HeroSlider onOpenQuote={handleOpenQuote} />
+        <LazySection minHeight="420px"><TexelGroupSection onOpenQuote={handleOpenQuote} /></LazySection>
+        <LazySection minHeight="400px"><Credentials /></LazySection>
+        <LazySection minHeight="300px"><EWasteHomeSection /></LazySection>
+        <LazySection minHeight="500px"><ValuationPurposeWizard onOpenQuote={handleOpenQuote} /></LazySection>
+        <LazySection minHeight="500px"><WhoWeServe onOpenQuote={handleOpenQuote} /></LazySection>
+        <LazySection minHeight="500px"><ServicesTeaser onOpenQuote={handleOpenQuote} /></LazySection>
+        <LazySection minHeight="500px"><OurProcess onOpenQuote={handleOpenQuote} /></LazySection>
+        <LazySection minHeight="500px"><WhyChooseUs onOpenQuote={handleOpenQuote} /></LazySection>
+        <LazySection minHeight="400px"><FounderProfile onOpenQuote={handleOpenQuote} /></LazySection>
+        <LazySection minHeight="400px"><PanIndiaPresence onOpenQuote={handleOpenQuote} /></LazySection>
+      </main>
+    );
+  };
 
   return (
     <div className="app-container">
@@ -367,167 +517,7 @@ export default function App() {
 
       {/* Main View: Admin Portal OR Services Page OR Tools Page OR Blog Page OR FAQ Page OR City Landing Page OR Main Home Page */}
       <Suspense fallback={<div style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />}>
-        {isAdminOpen ? (
-          <AdminDashboard 
-            onClose={() => setIsAdminOpen(false)} 
-            onLogout={handleLogout}
-          />
-        ) : currentRoute === '/chartered-engineer' ? (
-          <CharteredEngineerPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : currentRoute === '/e-waste-annual-return-filing' || currentRoute === '/e-waste-annual-return-filing/' ? (
-          <EWasteCompliancePage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : currentRoute === '/tech-products' || currentRoute === '/tech' || currentRoute === '/software-products' || currentRoute === '/it-solutions' || currentRoute === '/bulk-messenger' || currentRoute === '/whatsapp-bulk-messenger' ? (
-          <TechSolutionsPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : currentRoute === '/government-subsidies' || currentRoute === '/subsidies' ? (
-          <GovernmentSubsidiesPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : currentRoute === '/business-loans' || currentRoute === '/business-loan' || currentRoute === '/loans' ? (
-          <BusinessLoansPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : currentRoute === '/electrical-services' || currentRoute === '/substation-services' ? (
-          <ElectricalServicesPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : currentRoute === '/fabrication-services' || currentRoute === '/fabrication' || currentRoute === '/tin-shed-fabrication' || currentRoute === '/iron-fabrication' ? (
-          <FabricationServicesPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : isServicesRoute ? (
-          <ServicesPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            currentRoute={currentRoute}
-          />
-        ) : isToolsRoute ? (
-          <ToolsPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            currentRoute={currentRoute}
-          />
-        ) : isCityRoute ? (
-          <CityLandingPage 
-            cityData={activeCityData}
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            onSelectCity={(slug) => {
-              const nextPath = `/${slug}`;
-              window.history.pushState({}, '', nextPath);
-              setCurrentRoute(nextPath);
-              const config = ROUTE_CONFIG[nextPath];
-              if (config) {
-                document.title = config.title;
-              }
-              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-            }}
-          />
-        ) : currentRoute === '/faq' || currentRoute === '/faqs' ? (
-          <FAQPage 
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : currentRoute === '/blog' || currentRoute === '/insights' || currentRoute.startsWith('/blog/') || currentRoute.startsWith('/insights/') ? (
-          <BlogPage 
-            initialSlug={
-              currentRoute.startsWith('/blog/') 
-                ? currentRoute.replace('/blog/', '') 
-                : currentRoute.startsWith('/insights/') 
-                  ? currentRoute.replace('/insights/', '') 
-                  : null
-            }
-            onOpenQuote={handleOpenQuote}
-            onNavigateHome={() => {
-              window.history.pushState({}, '', '/');
-              setCurrentRoute('/');
-              document.title = ROUTE_CONFIG['/'].title;
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-          />
-        ) : (
-          <main>
-            {/* ── Advanced Hero Slider (full-width, top of page) ── */}
-            <HeroSlider onOpenQuote={handleOpenQuote} />
-            <LazySection minHeight="420px"><TexelGroupSection onOpenQuote={handleOpenQuote} /></LazySection>
-            <LazySection minHeight="400px"><Credentials /></LazySection>
-            <LazySection minHeight="300px"><EWasteHomeSection /></LazySection>
-            <LazySection minHeight="500px"><ValuationPurposeWizard onOpenQuote={handleOpenQuote} /></LazySection>
-            <LazySection minHeight="500px"><WhoWeServe onOpenQuote={handleOpenQuote} /></LazySection>
-            <LazySection minHeight="500px"><ServicesTeaser onOpenQuote={handleOpenQuote} /></LazySection>
-            <LazySection minHeight="500px"><OurProcess onOpenQuote={handleOpenQuote} /></LazySection>
-            <LazySection minHeight="500px"><WhyChooseUs onOpenQuote={handleOpenQuote} /></LazySection>
-            <LazySection minHeight="400px"><FounderProfile onOpenQuote={handleOpenQuote} /></LazySection>
-            <LazySection minHeight="400px"><PanIndiaPresence onOpenQuote={handleOpenQuote} /></LazySection>
-          </main>
-        )}
+        {renderCurrentPage()}
       </Suspense>
 
       {/* Footer */}

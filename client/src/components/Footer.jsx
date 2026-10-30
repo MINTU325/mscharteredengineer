@@ -151,6 +151,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/calculator', label: 'Valuation Calculator' },
                 { href: '/solar-checker', label: 'Solar CEIG Checker' },
                 { href: '/tools', label: 'All Tools' },
+                { href: '/projects', label: 'Architectural Projects' }
               ].map(({ href, label }) => (
                 <a
                   key={href}

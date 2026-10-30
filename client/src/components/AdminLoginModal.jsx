@@ -30,6 +30,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
       if (data.success) {
         // Save session in sessionStorage
         sessionStorage.setItem('ms_admin_auth', 'true');
+        sessionStorage.setItem('ms_admin_token', data.token || 'admin-auth-valid');
         setPassword('');
         onLoginSuccess();
       } else {
@@ -39,6 +40,7 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
       // Fallback local check if backend network error
       if (password.trim() === 'psrlms0707') {
         sessionStorage.setItem('ms_admin_auth', 'true');
+        sessionStorage.setItem('ms_admin_token', 'psrlms0707');
         setPassword('');
         onLoginSuccess();
       } else {

@@ -604,7 +604,7 @@ export default function EWasteCompliancePage({ onNavigateHome, onOpenQuote }) {
                   color: '#ffffff'
                 }}
               >
-                E-Waste Annual Return Filing &amp;{' '}
+                Annual Return Filing &amp;{' '}
                 <span
                   style={{
                     color: '#6db87a',
