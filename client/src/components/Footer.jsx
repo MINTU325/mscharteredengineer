@@ -150,8 +150,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/advisory', label: 'IndAS 16 Advisory' },
                 { href: '/calculator', label: 'Valuation Calculator' },
                 { href: '/solar-checker', label: 'Solar CEIG Checker' },
-                { href: '/tools', label: 'All Tools' },
-                { href: '/projects', label: 'Architectural Projects' }
+                { href: '/tools', label: 'All Tools' }
               ].map(({ href, label }) => (
                 <a
                   key={href}
