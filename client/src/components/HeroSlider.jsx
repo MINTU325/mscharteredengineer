@@ -96,26 +96,6 @@ const SLIDES = [
       { value: 'BEE', label: 'Energy Manager' },
     ],
   },
-  {
-    id: 6,
-    image: '/slides/slide3.webp',
-    badge: '🌿 CPCB E-Waste EPR Compliance | MoEFCC Gazette G.S.R. 814(E)',
-    title: 'Annual Return Filing &',
-    titleHighlight: 'CPCB EPR Compliance Services',
-    subtitle:
-      'Mandatory annual returns (Form 3), Schedule I EEE code mapping, and EPR recycling credit reconciliation for Importers, Brand Owners, Domestic Manufacturers & Recyclers across India.',
-    tag: 'CPCB EPR COMPLIANCE & ANNUAL RETURN FILING',
-    accent: 'emerald',
-    cta: 'View E-Waste Compliance Page',
-    ctaService: 'E-Waste Annual Return Filing & EPR Compliance',
-    link: '/e-waste-annual-return-filing',
-    stats: [
-      { value: 'RULES 2022', label: 'E-Waste Framework' },
-      { value: '106+ CODES', label: 'Schedule I EEE' },
-      { value: 'PAN-INDIA', label: 'Filing Practice' },
-    ],
-    gradient: 'linear-gradient(105deg, rgba(4,18,12,0.92) 0%, rgba(6,46,28,0.78) 55%, rgba(4,18,12,0.38) 100%)',
-  },
 ];
 
 

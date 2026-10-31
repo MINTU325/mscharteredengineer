@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   X, CheckCircle2, ArrowRight, ArrowLeft, Send, Sparkles, 
-  Phone, MessageSquare, FileText, CheckCircle, Zap, RefreshCw, 
+  Phone, MessageSquare, FileText, CheckCircle, Zap, 
   Landmark, Laptop, ShieldCheck, ChevronDown, Check, Hammer
 } from 'lucide-react';
 
@@ -86,37 +86,6 @@ export const DEPARTMENTS = {
       'MSME ZED / LEAN Certification & Technology Upgradation Subsidy',
       'Central Capital Investment Subsidy (CCIS) & State Industrial Policy',
       'Custom DPR & TEV Study for Government Subsidy Claim'
-    ]
-  },
-  ewaste: {
-    id: 'ewaste',
-    name: 'CPCB E-Waste & EPR Environmental Compliance',
-    shortName: 'E-Waste & EPR Compliance',
-    badgeText: '♻️ CPCB E-Waste & EPR Environmental Compliance Division',
-    themeColor: '#6db87a',
-    accentBg: 'rgba(109, 184, 122, 0.12)',
-    accentBorder: 'rgba(109, 184, 122, 0.3)',
-    icon: RefreshCw,
-    defaultPurpose: 'Statutory CPCB / SPCB Filing',
-    scaleLabel: 'Business Category / Statutory Scope',
-    scaleOptions: [
-      'Importer of EEE Goods (Customs Bill of Entry)',
-      'Producer / OEM Equipment Manufacturer',
-      'Brand Owner / Assembler',
-      'Bulk Consumer (Corporate / Factory)',
-      'Authorized Recycler / Dismantler',
-      'Refurbisher / Trader'
-    ],
-    scopePlaceholder: 'e.g. Form 3 annual return filing required for 15 import consignments under Schedule I EEE codes for FY 2024-25.',
-    services: [
-      'CPCB E-Waste Annual Return Filing (Form 3)',
-      'CPCB EPR Portal Registration (Producer / Importer / Brand Owner)',
-      'EPR Certificate / Credit Procurement & Trading Support',
-      'Customs Import Bill of Entry (BOE) EEE Reconciliation & Audit',
-      'State Pollution Control Board (SPCB) CTE / CTO Filing & Consent',
-      'E-Waste Dismantler & Recycler Annual Compliance & Audit',
-      'Quarterly Return Maintenance & Sales Data Harmonization',
-      'Pre-Filing Compliance Review & SPCB Query Defense'
     ]
   },
   loans: {
@@ -257,7 +226,6 @@ export function detectDepartment(currentRoute, initialService, prefillData) {
   if (prefillData?.isFabrication) return 'fabrication';
   if (prefillData?.isElectrical) return 'electrical';
   if (prefillData?.isSubsidies) return 'subsidies';
-  if (prefillData?.isEWaste) return 'ewaste';
   if (prefillData?.isLoans) return 'loans';
   if (prefillData?.isTech) return 'tech';
 
@@ -266,7 +234,6 @@ export function detectDepartment(currentRoute, initialService, prefillData) {
   if (route === '/fabrication-services' || route === '/fabrication' || route === '/tin-shed' || route === '/iron-fabrication' || route === '/tin-shed-fabrication') return 'fabrication';
   if (route === '/electrical-services' || route === '/substation-services') return 'electrical';
   if (route === '/government-subsidies' || route === '/subsidies') return 'subsidies';
-  if (route === '/e-waste-annual-return-filing' || route === '/e-waste') return 'ewaste';
   if (route === '/business-loans' || route === '/business-loan' || route === '/loans') return 'loans';
   if (route === '/tech-products' || route === '/tech' || route === '/software-products' || route === '/it-solutions') return 'tech';
   if (route === '/chartered-engineer' || route === '/services' || route === '/valuation' || route === '/property-valuation' || route === '/bank-valuation' || route === '/tax-valuation' || route === '/ibc-valuation' || route === '/machinery-valuation') return 'valuation';
@@ -282,9 +249,6 @@ export function detectDepartment(currentRoute, initialService, prefillData) {
   }
   if (textToSearch.includes('subsidy') || textToSearch.includes('subsidies') || textToSearch.includes('rips') || textToSearch.includes('pmegp') || textToSearch.includes('ambedkar') || textToSearch.includes('grant') || textToSearch.includes('vyupy') || textToSearch.includes('pm-fme')) {
     return 'subsidies';
-  }
-  if (textToSearch.includes('e-waste') || textToSearch.includes('ewaste') || textToSearch.includes('epr') || textToSearch.includes('form 3') || textToSearch.includes('cpcb') || textToSearch.includes('return filing')) {
-    return 'ewaste';
   }
   if (textToSearch.includes('loan') || textToSearch.includes('cgtmse') || textToSearch.includes('working capital') || textToSearch.includes('finance') || textToSearch.includes('tev study') || textToSearch.includes('dpr')) {
     return 'loans';

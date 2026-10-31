@@ -19,7 +19,6 @@ import {
   Scale,
   FileCheck2,
   Cpu,
-  Leaf,
   Compass,
   Zap,
   Users,
@@ -289,16 +288,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                     </div>
                   </div>
 
-                  {/* 2. E-Waste Annual Return & EPR */}
-                  <a href="/e-waste-annual-return-filing" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Leaf size={16} color="#10b981" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title" style={{ color: '#10b981' }}>Annual Return &amp; EPR</div>
-                      <div className="dropdown-item-desc">CPCB annual return &amp; statutory audit</div>
-                    </div>
-                  </a>
-
-                  {/* 3. Electrical & Substation Services */}
+                  {/* 2. Electrical & Substation Services */}
                   <a href="/electrical-services" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Zap size={16} color="#f59e0b" className="dropdown-item-icon" />
                     <div>
@@ -575,7 +565,6 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <a href="/ibc-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🛡️ IBC &amp; NCLT Corporate Valuation</a>
             </div>
           )}
-          <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 Annual Return &amp; EPR</a>
           <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical &amp; Substation Services <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication &amp; PEB Shed Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>

@@ -229,29 +229,6 @@
     <priority>0.90</priority>
   </url>
 
-  <!-- 6.2 E-Waste Annual Return Filing & EPR Compliance Services -->
-  <url>
-    <loc>https://www.mscharteredengineer.com/e-waste-annual-return-filing</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://www.mscharteredengineer.com/seo/ewaste-recycling-facility.webp</image:loc>
-      <image:title>CPCB E-Waste Recycling and Inspection Facility - MS Chartered Engineers</image:title>
-      <image:caption>CPCB Authorized E-Waste Recycling and Dismantling Inspection by Chartered Engineers</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.mscharteredengineer.com/seo/ewaste-circuit-recycling.webp</image:loc>
-      <image:title>Printed Circuit Board PCB E-Waste Processing and Precious Metal Recovery</image:title>
-      <image:caption>Audited electronic waste recycling streams and Schedule I EEE code verification</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.mscharteredengineer.com/seo/ewaste-audit-engineer.webp</image:loc>
-      <image:title>Chartered Engineer Auditing E-Waste EPR Compliance and Port Records</image:title>
-      <image:caption>Senior Chartered Engineers auditing Customs Bill of Entry and sales ledger records for Form 3 annual filing</image:caption>
-    </image:image>
-  </url>
-
   <!-- 7. Technical Advisory & Componentization -->
   <url>
     <loc>https://www.mscharteredengineer.com/advisory</loc>

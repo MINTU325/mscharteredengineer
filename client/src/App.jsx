@@ -16,7 +16,6 @@ const Footer = lazy(() => import('./components/Footer'));
 const ValuationPurposeWizard = lazy(() => import('./components/ValuationPurposeWizard'));
 const WhoWeServe = lazy(() => import('./components/WhoWeServe'));
 const OurProcess = lazy(() => import('./components/OurProcess'));
-const EWasteHomeSection = lazy(() => import('./components/EWasteHomeSection'));
 
 // Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
@@ -28,7 +27,6 @@ const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 const AdminLoginModal = lazy(() => import('./components/AdminLoginModal'));
 const QuoteWizardModal = lazy(() => import('./components/QuoteWizardModal'));
 const CharteredEngineerPage = lazy(() => import('./components/CharteredEngineerPage'));
-const EWasteCompliancePage = lazy(() => import('./components/EWasteCompliancePage'));
 const TechSolutionsPage = lazy(() => import('./components/TechSolutionsPage'));
 const GovernmentSubsidiesPage = lazy(() => import('./components/GovernmentSubsidiesPage'));
 const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
@@ -67,8 +65,6 @@ const ROUTE_CONFIG = {
     title: 'High Voltage Testing, Transformer Services & Substation Engineering | MS Chartered Engineers',
     description: 'Turnkey 11kV to 132kV Substation Erection, High Voltage Breaker Testing, Power Transformer Overhauling, High-Vacuum Oil Filtration, Cable Jointing and CEA Safety Audits by IIT Roorkee alumni Chartered Engineers.'
   },
-  '/e-waste-annual-return-filing': { id: 'e-waste-compliance', title: 'Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
-  '/e-waste-annual-return-filing/': { id: 'e-waste-compliance', title: 'Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
   '/tools': { id: 'tools', title: 'Interactive Engineering & Valuation Tools | MS Chartered Engineers' },
   '/purpose-selector': { id: 'purpose-selector', title: 'Valuation Purpose Selector | MS Chartered Engineers' },
   '/who-we-serve': { id: 'who-we-serve', title: 'Who We Serve | Banks, CAs, Advocates, Builders & MSMEs | MS Chartered Engineers' },
@@ -213,7 +209,7 @@ const updateSeoMeta = (config, pathname) => {
 
 const FULL_PAGE_IDS = new Set([
   'home', 'admin', 'projects', 'faq', 'blog', 'services', 'tools', 'city-hub',
-  'e-waste-compliance', 'chartered-engineer', 'tech-products',
+  'chartered-engineer', 'tech-products',
   'government-subsidies', 'business-loans', 'electrical-services', 'fabrication-services'
 ]);
 
@@ -435,9 +431,6 @@ export default function App() {
     if (routeId === 'chartered-engineer') {
       return <CharteredEngineerPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
-    if (routeId === 'e-waste-compliance' || currentRoute.startsWith('/e-waste-annual-return-filing')) {
-      return <EWasteCompliancePage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
-    }
     if (routeId === 'tech-products') {
       return <TechSolutionsPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
@@ -496,7 +489,6 @@ export default function App() {
         <HeroSlider onOpenQuote={handleOpenQuote} />
         <LazySection minHeight="420px"><TexelGroupSection onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="400px"><Credentials /></LazySection>
-        <LazySection minHeight="300px"><EWasteHomeSection /></LazySection>
         <LazySection minHeight="500px"><ValuationPurposeWizard onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="500px"><WhoWeServe onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="500px"><ServicesTeaser onOpenQuote={handleOpenQuote} /></LazySection>
