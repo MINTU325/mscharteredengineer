@@ -39,18 +39,18 @@ const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | KS Chartered Engineers (IIT Roorkee)' },
   '/fabrication-services': { 
     id: 'fabrication-services', 
-    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | KS Group (IIT Roorkee)',
-    description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory Tin Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
+    title: 'Industrial Fabrication, PEB Shed & Iron Work Services | KS Group (IIT Roorkee)',
+    description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory PEB Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
   },
   '/fabrication': { 
     id: 'fabrication-services', 
-    title: 'Industrial Fabrication, Tin Shed & Iron Work Services | KS Group (IIT Roorkee)',
-    description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory Tin Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
+    title: 'Industrial Fabrication, PEB Shed & Iron Work Services | KS Group (IIT Roorkee)',
+    description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory PEB Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
   },
   '/tin-shed-fabrication': { 
     id: 'fabrication-services', 
-    title: 'Factory Tin Shed & PEB Industrial Shed Fabrication | KS Group',
-    description: 'Heavy duty factory tin shed fabrication, warehouse roofing, PEB pre-engineered buildings, curved sheets, and turbo ventilator installations with structural engineering certification.'
+    title: 'Factory PEB Industrial Shed & Warehouse Fabrication | KS Group',
+    description: 'Heavy duty factory PEB shed fabrication, warehouse roofing, PEB pre-engineered buildings, curved sheets, and turbo ventilator installations with structural engineering certification.'
   },
   '/iron-fabrication': { 
     id: 'fabrication-services', 
@@ -67,8 +67,8 @@ const ROUTE_CONFIG = {
     title: 'High Voltage Testing, Transformer Services & Substation Engineering | MS Chartered Engineers',
     description: 'Turnkey 11kV to 132kV Substation Erection, High Voltage Breaker Testing, Power Transformer Overhauling, High-Vacuum Oil Filtration, Cable Jointing and CEA Safety Audits by IIT Roorkee alumni Chartered Engineers.'
   },
-  '/e-waste-annual-return-filing': { id: 'e-waste-compliance', title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
-  '/e-waste-annual-return-filing/': { id: 'e-waste-compliance', title: 'E-Waste Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
+  '/e-waste-annual-return-filing': { id: 'e-waste-compliance', title: 'Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
+  '/e-waste-annual-return-filing/': { id: 'e-waste-compliance', title: 'Annual Return Filing & EPR Compliance | MS Chartered Engineers' },
   '/tools': { id: 'tools', title: 'Interactive Engineering & Valuation Tools | MS Chartered Engineers' },
   '/purpose-selector': { id: 'purpose-selector', title: 'Valuation Purpose Selector | MS Chartered Engineers' },
   '/who-we-serve': { id: 'who-we-serve', title: 'Who We Serve | Banks, CAs, Advocates, Builders & MSMEs | MS Chartered Engineers' },

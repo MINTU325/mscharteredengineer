@@ -293,7 +293,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   <a href="/e-waste-annual-return-filing" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Leaf size={16} color="#10b981" className="dropdown-item-icon" />
                     <div>
-                      <div className="dropdown-item-title" style={{ color: '#10b981' }}>E-Waste Annual Return &amp; EPR</div>
+                      <div className="dropdown-item-title" style={{ color: '#10b981' }}>Annual Return &amp; EPR</div>
                       <div className="dropdown-item-desc">CPCB annual return &amp; statutory audit</div>
                     </div>
                   </a>
@@ -315,10 +315,10 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                     <Wrench size={16} color="#f97316" className="dropdown-item-icon" />
                     <div>
                       <div className="dropdown-item-title" style={{ color: '#f97316', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <span>Fabrication &amp; Tin Shed Works</span>
+                        <span>Fabrication &amp; PEB Shed Works</span>
                         <span className="nav-tag-badge" style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>NEW</span>
                       </div>
-                      <div className="dropdown-item-desc">Industrial Chimneys, Tin Sheds, MS &amp; Glass Railings</div>
+                      <div className="dropdown-item-desc">Industrial Chimneys, PEB Sheds, MS &amp; Glass Railings</div>
                     </div>
                   </a>
 
@@ -575,9 +575,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               <a href="/ibc-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🛡️ IBC &amp; NCLT Corporate Valuation</a>
             </div>
           )}
-          <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 E-Waste Annual Return &amp; EPR</a>
+          <a href="/e-waste-annual-return-filing" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🌿 Annual Return &amp; EPR</a>
           <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical &amp; Substation Services <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
-          <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication &amp; Tin Shed Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
+          <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication &amp; PEB Shed Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>
           <a href="/process" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
 

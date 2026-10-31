@@ -201,7 +201,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
               Explore All 15 Statutory &amp; Engineering Practice Areas
             </h4>
             <p style={{ fontSize: '0.88rem', color: '#cbd5e1', margin: 0 }}>
-              Including Industrial Fabrication &amp; Tin Sheds, Electrical Substations, AutoCAD 2D Drafting, Plant &amp; Machinery, IBC/NCLT, Industrial Safety &amp; Boilers, and E-Waste EPR.
+              Including Industrial Fabrication &amp; PEB Sheds, Electrical Substations, AutoCAD 2D Drafting, Plant &amp; Machinery, IBC/NCLT, Industrial Safety &amp; Boilers, and Annual Return &amp; EPR.
             </p>
           </div>
 

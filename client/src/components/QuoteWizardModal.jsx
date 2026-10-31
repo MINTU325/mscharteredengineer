@@ -219,7 +219,7 @@ export const DEPARTMENTS = {
     id: 'fabrication',
     name: 'Heavy Industrial & Architectural Fabrication Works',
     shortName: 'Industrial Fabrication',
-    badgeText: '🏗️ Industrial Fabrication & Tin Shed Division',
+    badgeText: '🏗️ Industrial Fabrication & PEB Shed Division',
     themeColor: '#f59e0b',
     accentBg: 'rgba(245, 158, 11, 0.12)',
     accentBorder: 'rgba(245, 158, 11, 0.3)',
@@ -233,10 +233,10 @@ export const DEPARTMENTS = {
       '50 MT - 150 MT / Heavy PEB Warehouse & Structural Framework',
       'Above 150 MT / Large Turnkey Industrial Plant Project'
     ],
-    scopePlaceholder: 'e.g. 30m industrial exhaust chimney stack with scaffolding / 5,000 sq.ft factory tin shed at Sitapura industrial area.',
+    scopePlaceholder: 'e.g. 30m industrial exhaust chimney stack with scaffolding / 5,000 sq.ft factory PEB shed at Sitapura industrial area.',
     services: [
       'Industrial Steel Chimneys & Boiler Exhaust Stacks (Self-Supporting / Guyed)',
-      'Factory Tin Shed & PEB Industrial Warehouse Fabrication',
+      'Factory PEB Shed & Industrial Warehouse Fabrication',
       'Heavy Iron Fabrication Work (Motorized Sliding Gates, Shutters & Grills)',
       'Industrial Flue Gas Ducting, Breeching & Silencers',
       'Structural Steel Framework, Overhead Crane Gantry & Mezzanine Floors',

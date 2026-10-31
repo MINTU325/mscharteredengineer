@@ -382,7 +382,7 @@ const servicesData = [
   {
     id: '15',
     code: 'fabrication-services',
-    title: 'Industrial Fabrication, Tin Shed & Iron Works',
+    title: 'Industrial Fabrication, PEB Shed & Iron Works',
     category: 'Industrial, Safety & Energy',
     icon: Hammer,
     badgeColor: '#f59e0b',
@@ -392,7 +392,7 @@ const servicesData = [
       'Certified engineering fabrication, precision welding, and turnkey on-site erection: Self-supporting industrial steel chimneys & boiler exhaust stacks, factory tin sheds, PEB industrial warehouses, heavy iron fabrication, and architectural metal/glass railing solutions.',
     deliverables: [
       'Industrial Steel Chimneys & Boiler Exhaust Stacks (Self-Supporting / Guyed, 15m to 45m+)',
-      'Factory Tin Shed & PEB Industrial Warehouse Fabrication (Tata Bluescope / JSW Sheeting)',
+      'Factory PEB Shed & Industrial Warehouse Fabrication (Tata Bluescope / JSW Sheeting)',
       'Heavy Iron Fabrication Work — Motorized Industrial Sliding Gates, Shutters & Security Grills',
       'Flue Gas Ducting, Industrial Breeching, Silencers & Heavy Process Piping Networks',
       'Structural Steel Framework, Overhead Crane Gantry Girders & Mezzanine Floors',
@@ -414,7 +414,7 @@ const servicesData = [
 
 // Quick search suggestion chips
 const QUICK_SUGGESTIONS = [
-  { label: 'Fabrication & Tin Shed', query: 'Fabrication', icon: '🏗️' },
+  { label: 'Fabrication & PEB Shed', query: 'Fabrication', icon: '🏗️' },
   { label: 'AutoCAD Drafting', query: 'AutoCAD', icon: '📐' },
   { label: 'Third-Party Inspection', query: 'Inspection', icon: '⚗️' },
   { label: 'Property Valuation', query: 'Property', icon: '🏢' },
