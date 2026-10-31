@@ -6,6 +6,7 @@ import LazySection from './components/LazySection';
 import { getCityBySlug, PAN_INDIA_CITIES } from './data/cityHubData';
 import { MessageSquare, PhoneCall, Lock } from 'lucide-react';
 const Credentials = lazy(() => import('./components/Credentials'));
+const ArchitecturalProjects = lazy(() => import('./components/ArchitecturalProjects'));
 const TexelGroupSection = lazy(() => import('./components/TexelGroupSection'));
 const ServicesTeaser = lazy(() => import('./components/ServicesTeaser'));
 const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
@@ -169,6 +170,16 @@ const ROUTE_CONFIG = {
     title: 'Admin Control Center & Lead Management | KS Group',
     description: 'Internal Administrative Console & Lead Management Engine.'
   },
+  '/projects': { 
+    id: 'projects', 
+    title: 'Projects & Engineering Gallery | KS Chartered Engineers',
+    description: 'Explore verified engineering audits, machinery certification, and architectural structural project gallery by IIT Roorkee Chartered Engineers.'
+  },
+  '/architectural-projects': { 
+    id: 'projects', 
+    title: 'Projects & Engineering Gallery | KS Chartered Engineers',
+    description: 'Explore verified engineering audits, machinery certification, and architectural structural project gallery by IIT Roorkee Chartered Engineers.'
+  },
 };
 
 const updateSeoMeta = (config, pathname) => {
@@ -201,7 +212,7 @@ const updateSeoMeta = (config, pathname) => {
 };
 
 const FULL_PAGE_IDS = new Set([
-  'home', 'admin', 'faq', 'blog', 'services', 'tools', 'city-hub',
+  'home', 'admin', 'projects', 'faq', 'blog', 'services', 'tools', 'city-hub',
   'e-waste-compliance', 'chartered-engineer', 'tech-products',
   'government-subsidies', 'business-loans', 'electrical-services', 'fabrication-services'
 ]);
@@ -441,6 +452,9 @@ export default function App() {
     }
     if (routeId === 'fabrication-services') {
       return <FabricationServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'projects') {
+      return <ArchitecturalProjects onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
     if (isServicesRoute) {
       return <ServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} currentRoute={currentRoute} />;
