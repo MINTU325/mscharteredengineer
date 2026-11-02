@@ -34,3 +34,5 @@ client/dist/data/sample_contacts.csv
 # WhatsApp CRM (Local Only - Never Push without explicit permission)
 whatsapp-crm-backend/
 whatsapp-crm-frontend/
+
+whatsapp-crm-app/
