@@ -52,7 +52,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   const [aiPrompt, setAiPrompt] = useState('');
   const [aiResponse, setAiResponse] = useState(null);
 
-  // ── MS Bulk WhatsApp Messenger Offer State ──
+  // ── KS Bulk WhatsApp Messenger Offer State ──
   const [copiedCoupon, setCopiedCoupon] = useState(false);
   const [monthlyMsgs, setMonthlyMsgs] = useState(2000);
 
@@ -87,7 +87,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   }, []);
 
   const samplePrompts = [
-    '🔥 MS Bulk WhatsApp Messenger (50% Launch Offer)',
+    '🔥 KS Bulk WhatsApp Messenger (50% Launch Offer)',
     'Build an autonomous valuation & audit AI agent',
     'Modernize our legacy desktop ERP to Cloud SaaS',
     'Develop a multi-vendor E-Commerce marketplace'
@@ -99,9 +99,9 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
     if (textToSearch.toLowerCase().includes('bulk') || textToSearch.toLowerCase().includes('whatsapp') || textToSearch.toLowerCase().includes('messenger') || textToSearch.toLowerCase().includes('offer')) {
       setAiResponse({
-        recommendation: 'MS Bulk WhatsApp Messenger™ (Launch Offer: 50% OFF)',
+        recommendation: 'KS Bulk WhatsApp Messenger™ (Launch Offer: 50% OFF)',
         architecture: 'Local Node.js/Puppeteer desktop automation engine with 0% Meta per-message fees, dynamic Excel tag interpolation, automated visiting card attachment, and humanized anti-ban jitter algorithm.',
-        timeline: 'Special Launch Offer available below • Only ₹1,999 (Code: MSTECH50)'
+        timeline: 'Special Launch Offer available below • Only ₹1,999 (Code: KSTECH50)'
       });
       setTimeout(() => {
         const el = document.getElementById('bulk-messenger');
@@ -109,7 +109,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       }, 200);
     } else if (textToSearch.toLowerCase().includes('valuation') || textToSearch.toLowerCase().includes('audit')) {
       setAiResponse({
-        recommendation: 'MS Valuation & Compliance Cloud Suite',
+        recommendation: 'KS Valuation & Compliance Cloud Suite',
         architecture: 'FastAPI + Next.js + Vector DB (Pinecone) for automated statutory IS report generation with 100% DISH/CEIG compliance.',
         timeline: 'Production ready in 2–4 weeks'
       });
@@ -136,7 +136,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
   const handleCopyCoupon = () => {
     try {
-      navigator.clipboard?.writeText('MSTECH50');
+      navigator.clipboard?.writeText('KSTECH50');
       setCopiedCoupon(true);
       setTimeout(() => setCopiedCoupon(false), 2500);
     } catch {
@@ -213,10 +213,10 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               LAUNCH OFFER • 50% OFF
             </span>
             <span style={{ fontWeight: 600, fontSize: '0.86rem' }}>
-              <strong>MS Bulk WhatsApp Messenger™</strong> — Zero API Cost, Dynamic Excel Tags &amp; Anti-Ban Throttling.
+              <strong>KS Bulk WhatsApp Messenger™</strong> — Zero API Cost, Dynamic Excel Tags &amp; Anti-Ban Throttling.
             </span>
             <span style={{ color: '#86efac', fontSize: '0.82rem' }}>
-              Only ₹1,999 <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>₹4,999</span> with coupon <code style={{ background: 'rgba(0,0,0,0.3)', padding: '2px 6px', borderRadius: '4px', color: '#fef08a' }}>MSTECH50</code>
+              Only ₹1,999 <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>₹4,999</span> with coupon <code style={{ background: 'rgba(0,0,0,0.3)', padding: '2px 6px', borderRadius: '4px', color: '#fef08a' }}>KSTECH50</code>
             </span>
           </div>
           <div className="tech-promo-actions">
@@ -243,7 +243,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <ArrowRight size={13} />
             </button>
             <a
-              href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20(₹1%2C999)%20for%20MS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20MSTECH50)."
+              href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20(₹1%2C999)%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -359,7 +359,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               value={aiPrompt}
               onChange={(e) => setAiPrompt(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter') handleAskAi(); }}
-              placeholder="e.g. MS Bulk WhatsApp Messenger, or migrate ERP..."
+              placeholder="e.g. KS Bulk WhatsApp Messenger, or migrate ERP..."
               style={{
                 flex: 1,
                 background: 'transparent',
@@ -1392,7 +1392,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
           </div>
 
-          {/* Row 2: Card 04 (AutonomousOps) + Card 05 (MS-Nexus AI OS Core Platform) */}
+          {/* Row 2: Card 04 (AutonomousOps) + Card 05 (KS-Nexus AI OS Core Platform) */}
           <div className="tech-cards-grid">
             {/* Card 04 - AutonomousOps (Hyper Violet & Amethyst Glow) */}
             <div
@@ -1545,7 +1545,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               </div>
             </div>
 
-            {/* Card 05 • FLAGSHIP PLATFORM (MS-Nexus AI OS - Brand New Logo & Styling) */}
+            {/* Card 05 • FLAGSHIP PLATFORM (KS-Nexus AI OS - Brand New Logo & Styling) */}
             <div
               className="tech-card-span-2 tech-card-responsive"
               style={{
@@ -1575,7 +1575,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '280px', height: '280px', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent 70%)', pointerEvents: 'none' }} />
 
               <div>
-                {/* Header with Custom MS Tech Logo */}
+                {/* Header with Custom KS Tech Logo */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginBottom: '18px' }}>
                   <div style={{
                     display: 'inline-flex',
@@ -1596,7 +1596,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   </div>
 
                   <button
-                    onClick={() => onOpenQuote('MS-Nexus AI Core Platform Architecture Demo')}
+                    onClick={() => onOpenQuote('KS-Nexus AI Core Platform Architecture Demo')}
                     style={{
                       background: 'transparent',
                       border: 'none',
@@ -1611,7 +1611,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                       padding: 0
                     }}
                   >
-                    <span>Deploy MS-Nexus Platform</span>
+                    <span>Deploy KS-Nexus Platform</span>
                     <ArrowRight size={15} />
                   </button>
                 </div>
@@ -1629,7 +1629,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                     boxShadow: '0 0 24px rgba(6, 182, 212, 0.55)',
                     flexShrink: 0
                   }}>
-                    {/* Bespoke MS Neural Core Vector Icon */}
+                    {/* Bespoke KS Neural Core Vector Icon */}
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
                       <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       <path d="M12 6L7 9V15L12 18L17 15V9L12 6Z" fill="rgba(255,255,255,0.25)" stroke="#ffffff" strokeWidth="1.5" />
@@ -1649,7 +1649,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                       letterSpacing: '-0.02em',
                       lineHeight: 1.2
                     }}>
-                      MS-Nexus AI Core™
+                      KS-Nexus AI Core™
                     </h3>
                     <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                       Next-Gen Cognitive Operating Platform
@@ -1705,7 +1705,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
                   <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     <button
-                      onClick={() => onOpenQuote('MS-Nexus Platform Demo')}
+                      onClick={() => onOpenQuote('KS-Nexus Platform Demo')}
                       style={{
                         background: 'linear-gradient(135deg, #2563eb, #0284c7)',
                         color: '#ffffff',
@@ -1725,7 +1725,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                       Request Platform Access <ArrowRight size={13} />
                     </button>
                     <button
-                      onClick={() => onOpenQuote('MS-Nexus Architecture Whitepaper')}
+                      onClick={() => onOpenQuote('KS-Nexus Architecture Whitepaper')}
                       style={{
                         background: 'rgba(255, 255, 255, 0.06)',
                         color: '#cbd5e1',
@@ -1757,7 +1757,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               }}>
                 <img
                   src="/images/tech/toPromptAI.webp"
-                  alt="MS-Nexus AI Core Interface"
+                  alt="KS-Nexus AI Core Interface"
                   style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block', objectFit: 'contain' }}
                 />
               </div>
@@ -1813,7 +1813,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 <ShieldCheck size={20} color="#10b981" />
               </div>
               <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>
-                MS Valuation Cloud Suite
+                KS Valuation Cloud Suite
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
                 Comprehensive cloud system for Chartered Engineers &amp; Valuers. Stamped digital stability certificate generation, depreciated replacement cost audit, and bank mortgage reports.
@@ -1821,7 +1821,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <div style={{ color: '#cbd5e1', fontSize: '0.80rem', marginBottom: '20px' }}>
                 Stack: Python FastAPI, React, PostgreSQL, PDF Engine
               </div>
-              <button onClick={() => onOpenQuote('MS Valuation Suite Demo')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.84rem' }}>
+              <button onClick={() => onOpenQuote('KS Valuation Suite Demo')} className="btn btn-outline" style={{ width: '100%', fontSize: '0.84rem' }}>
                 Explore Valuation Suite
               </button>
             </div>
@@ -1848,7 +1848,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               </button>
             </div>
 
-            {/* Product 4 - MS Bulk WhatsApp Messenger */}
+            {/* Product 4 - KS Bulk WhatsApp Messenger */}
             <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(34, 197, 94, 0.45)', borderRadius: '16px', padding: '28px', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, right: 0, background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#052e16', padding: '4px 14px', fontSize: '0.70rem', fontWeight: 900, borderBottomLeftRadius: '10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 🔥 50% OFF OFFER
@@ -1860,7 +1860,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 <MessageSquare size={20} color="#22c55e" />
               </div>
               <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px' }}>
-                MS Bulk WhatsApp Messenger™
+                KS Bulk WhatsApp Messenger™
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '18px' }}>
                 Automated 1-on-1 personalized WhatsApp outreach engine. Direct Excel database import, dynamic tags, auto-visiting card attachment, and humanized anti-ban protection with 0% Meta per-message fees.
@@ -1886,7 +1886,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
         </div>
       </section>
 
-      {/* ── 6.5. MS BULK WHATSAPP MESSENGER — 50% LAUNCH OFFER & PLATFORM OVERVIEW ── */}
+      {/* ── 6.5. KS BULK WHATSAPP MESSENGER — 50% LAUNCH OFFER & PLATFORM OVERVIEW ── */}
       <section
         id="bulk-messenger"
         className="tech-section"
@@ -1931,7 +1931,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 lineHeight: 1.2
               }}
             >
-              MS Bulk WhatsApp Messenger™ <br />
+              KS Bulk WhatsApp Messenger™ <br />
               <span style={{ color: '#22c55e', textShadow: '0 0 35px rgba(34, 197, 94, 0.45)' }}>
                 High-Velocity WhatsApp Outreach &amp; Special Offer
               </span>
@@ -2027,7 +2027,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 >
                   <div style={{ textAlign: 'left' }}>
                     <div style={{ fontSize: '0.68rem', color: '#94a3b8', textTransform: 'uppercase' }}>Coupon Code:</div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#fef08a', letterSpacing: '0.08em' }}>MSTECH50</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#fef08a', letterSpacing: '0.08em' }}>KSTECH50</div>
                   </div>
                   <button
                     onClick={handleCopyCoupon}
@@ -2053,7 +2053,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 {/* Claim Offer WhatsApp Button */}
                 <a
                   href={`https://api.whatsapp.com/send?phone=919158658885&text=${encodeURIComponent(
-                    'Hello Mukesh Sir, I tested the MS Bulk WhatsApp Messenger on your Tech page. I want to claim the Launch Offer (₹1,999 with Coupon MSTECH50) for my business. Please share details and setup instructions!'
+                    'Hello Mukesh Sir, I tested the KS Bulk WhatsApp Messenger on your Tech page. I want to claim the Launch Offer (₹1,999 with Coupon KSTECH50) for my business. Please share details and setup instructions!'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -2079,7 +2079,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 </a>
 
                 <button
-                  onClick={() => onOpenQuote('MS Bulk Messenger - Launch Offer Special', { coupon: 'MSTECH50', price: '₹1,999' })}
+                  onClick={() => onOpenQuote('KS Bulk Messenger - Launch Offer Special', { coupon: 'KSTECH50', price: '₹1,999' })}
                   style={{
                     background: 'transparent',
                     border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -2114,7 +2114,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             >
               <img
                 src="/images/tech/ms-bulk-messenger.jpg"
-                alt="MS Bulk WhatsApp Messenger Dashboard"
+                alt="KS Bulk WhatsApp Messenger Dashboard"
                 style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '480px', objectFit: 'cover' }}
               />
               <div className="tech-banner-overlay">
@@ -2123,7 +2123,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                     DESKTOP AUTOMATION PLATFORM
                   </div>
                   <h3 style={{ color: '#ffffff', fontSize: '1.4rem', fontWeight: 800, margin: 0 }}>
-                    MS Bulk WhatsApp Outreach &amp; Campaign Management Engine
+                    KS Bulk WhatsApp Outreach &amp; Campaign Management Engine
                   </h3>
                 </div>
 
@@ -2151,7 +2151,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   </a>
 
                   <a
-                    href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20for%20MS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20MSTECH50)."
+                    href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -2227,7 +2227,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
           </div>
 
-          {/* ── ROI & COST SAVINGS CALCULATOR (META API VS MS BULK MESSENGER) ── */}
+          {/* ── ROI & COST SAVINGS CALCULATOR (META API VS KS BULK MESSENGER) ── */}
           <div
             style={{
               background: 'rgba(15, 23, 42, 0.7)',
@@ -2244,7 +2244,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               How Much Money Will You Save Every Month?
             </h3>
             <p style={{ color: '#94a3b8', fontSize: '0.90rem', maxWidth: '620px', margin: '0 auto 24px' }}>
-              Meta WhatsApp Business Cloud API charges ₹0.85 per conversation plus recurring monthly portal subscriptions. With MS Bulk Messenger, you pay ₹0 per message.
+              Meta WhatsApp Business Cloud API charges ₹0.85 per conversation plus recurring monthly portal subscriptions. With KS Bulk Messenger, you pay ₹0 per message.
             </p>
 
             {/* Slider */}
@@ -2280,7 +2280,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               </div>
 
               <div style={{ background: 'rgba(34, 197, 94, 0.15)', border: '2px solid #22c55e', borderRadius: '12px', padding: '16px' }}>
-                <div style={{ fontSize: '0.74rem', color: '#4ade80', fontWeight: 700, textTransform: 'uppercase' }}>MS Bulk Messenger</div>
+                <div style={{ fontSize: '0.74rem', color: '#4ade80', fontWeight: 700, textTransform: 'uppercase' }}>KS Bulk Messenger</div>
                 <div style={{ fontSize: '1.4rem', color: '#22c55e', fontWeight: 900, margin: '6px 0' }}>
                   ₹0/mo forever
                 </div>
@@ -2298,7 +2298,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
               <a
-                href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20order%20MS%20Bulk%20WhatsApp%20Messenger%20with%2050%25%20Launch%20Offer%20(Code%3A%20MSTECH50)."
+                href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20order%20MS%20Bulk%20WhatsApp%20Messenger%20with%2050%25%20Launch%20Offer%20(Code%3A%20KSTECH50)."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-gold"
@@ -2308,7 +2308,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 <span>Claim Offer at ₹1,999 Today</span>
               </a>
               <button
-                onClick={() => onOpenQuote('MS Bulk Messenger Deployment Assistance')}
+                onClick={() => onOpenQuote('KS Bulk Messenger Deployment Assistance')}
                 className="btn btn-outline"
                 style={{ padding: '12px 22px', fontSize: '0.90rem' }}
               >

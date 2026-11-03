@@ -103,8 +103,8 @@ app.post('/api/tools/ceig-readiness', toolsController.checkCeigReadiness);
 const ROUTE_META = {
   '/tech-products': {
     title: 'KS Tech Labs — AI Solutions, Mobile Apps & Enterprise Software Products | KS Group',
-    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by MS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.',
-    keywords: 'AI agent development, RAG chatbot, WhatsApp AI chatbot, enterprise software products, Android app development Jaipur India, custom ERP software, IT software company, MS Tech Labs, SaaS development, software development company Jaipur',
+    description: 'Explore proprietary AI agents, RAG chatbots, native Android & iOS mobile applications, custom ERP software, and cloud SaaS products developed by KS Tech Labs (IIT Roorkee alumni). Call +91 91586 58885.',
+    keywords: 'AI agent development, RAG chatbot, WhatsApp AI chatbot, enterprise software products, Android app development Jaipur India, custom ERP software, IT software company, KS Tech Labs, SaaS development, software development company Jaipur',
     canonical: 'https://www.mscharteredengineer.com/tech-products',
     ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
   },

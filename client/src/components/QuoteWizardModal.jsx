@@ -122,7 +122,7 @@ export const DEPARTMENTS = {
     id: 'tech',
     name: 'IT, AI & Software Development',
     shortName: 'IT & Software Solutions',
-    badgeText: '💻 MS Tech Labs — AI, Enterprise Software & Mobile Apps',
+    badgeText: '💻 KS Tech Labs — AI, Enterprise Software & Mobile Apps',
     themeColor: '#a855f7',
     accentBg: 'rgba(168, 85, 247, 0.12)',
     accentBorder: 'rgba(168, 85, 247, 0.3)',
