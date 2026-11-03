@@ -126,6 +126,28 @@ export default function Footer({ onOpenQuote }) {
               <BookOpen size={13} />
               <span>Knowledge Hub &amp; Blog</span>
             </a>
+
+            <a
+              href="/whatsapp-crm"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                marginTop: '8px',
+                padding: '6px 12px',
+                background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(245, 158, 11, 0.15))',
+                border: '1px solid rgba(16, 185, 129, 0.35)',
+                borderRadius: '6px',
+                color: '#34d399',
+                fontSize: '0.78rem',
+                fontWeight: 700,
+                textDecoration: 'none',
+              }}
+              aria-label="WhatsApp CRM Bulk Marketing Suite Diwali Offer"
+            >
+              <span>🔥 WhatsApp CRM ₹100 Offer</span>
+              <ArrowRight size={12} />
+            </a>
           </div>
 
           {/* ── Col 2: Practice Areas (2-column sub-grid) ── */}
@@ -145,6 +167,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/fssai', label: 'FSSAI Compliance' },
                 { href: '/electrical-services', label: 'Electrical & Substation' },
                 { href: '/fabrication-services', label: 'Fabrication & PEB Shed' },
+                { href: '/whatsapp-crm', label: '🔥 WhatsApp CRM (Diwali ₹100)' },
                 { href: '/autocad-drafting', label: 'AutoCAD 2D Drafting' },
                 { href: '/advisory', label: 'IndAS 16 Advisory' },
                 { href: '/calculator', label: 'Valuation Calculator' },
@@ -375,6 +398,7 @@ export default function Footer({ onOpenQuote }) {
             { href: '/founder', label: 'Core Team' },
             { href: '/blog', label: 'Blog' },
             { href: '/faq', label: 'FAQ', highlight: 'gold' },
+            { href: '/whatsapp-crm', label: '🔥 WhatsApp CRM (Diwali ₹100)', highlight: 'gold' },
             { href: '/contact', label: 'Contact' },
           ].map(({ href, label, highlight }, i, arr) => (
             <React.Fragment key={href}>
