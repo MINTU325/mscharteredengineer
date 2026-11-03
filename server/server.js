@@ -135,6 +135,13 @@ const ROUTE_META = {
     keywords: 'AutoCAD 2D Electrical Drafting Services, electrical drafting services, AutoCAD electrical drafting, single line diagram AutoCAD, SLD drawing services, LT HT panel drafting, cable routing AutoCAD, electrical layout drawing services',
     canonical: 'https://www.mscharteredengineer.com/autocad-drafting',
     ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/whatsapp-crm': {
+    title: 'SumanTech WhatsApp Marketing CRM & Bulk Sender | Lifetime Access ₹100',
+    description: 'Send bulk WhatsApp broadcasts from PC with anti-ban safe timing, Excel contacts import, automated PDF quotation generator. 100% localhost privacy. Single payment of ₹100.',
+    keywords: 'WhatsApp CRM, WhatsApp bulk sender PC, WhatsApp marketing software India, Excel to WhatsApp sender, WhatsApp quotation maker',
+    canonical: 'https://www.mscharteredengineer.com/whatsapp-crm',
+    ogImage: 'https://www.mscharteredengineer.com/images/whatsapp-crm-upi-qr.jpg'
   }
 };
 
