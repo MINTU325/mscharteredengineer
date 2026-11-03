@@ -7,34 +7,28 @@ import {
   Share2,
   Copy,
   Check,
-  Gift,
   Clock,
-  Sparkles,
   Users,
   FileSpreadsheet,
   FileText,
-  Bot,
   MessageSquare,
   Lock,
-  ChevronDown,
   ArrowRight,
   CheckCircle2,
-  AlertCircle,
   HelpCircle,
   Phone,
-  Flame,
-  Award,
-  ExternalLink,
   Laptop,
   CheckCheck,
-  Eye
+  Building2,
+  Award,
+  AlertTriangle
 } from 'lucide-react';
 
 export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
   // Active screenshot tab: 'broadcast' | 'contacts' | 'inbox' | 'device'
   const [activeTab, setActiveTab] = useState('broadcast');
 
-  // Shares tracking
+  // Shares tracking (saved in localStorage)
   const [sharesCount, setSharesCount] = useState(() => {
     return parseInt(localStorage.getItem('wa_crm_shares') || '0', 10);
   });
@@ -48,24 +42,9 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
   const [copiedPasskey, setCopiedPasskey] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
-  // Countdown timer: 18h 42m 15s remaining
-  const [timeLeft, setTimeLeft] = useState({ hours: 18, minutes: 42, seconds: 15 });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        return { hours: 24, minutes: 0, seconds: 0 };
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   const upiId = '6377595128@ibl';
   const payeeName = 'loki';
-  const contactPhone = '+91 93515 39420';
+  const supportPhone = '+91 93515 39420';
   const cleanPhone = '9351539420';
   const offerPrice = '100';
   const originalPrice = '4,999';
@@ -81,7 +60,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
     const shareUrl = 'https://www.mscharteredengineer.com/whatsapp-crm';
     const promoMessage = encodeURIComponent(
-      `💥 *Diwali Maha-Dhamaka Offer!* 🪔\n\nMaine abhi sirf ₹100 me *Lifetime SumanTech WhatsApp Marketing CRM & Bulk Sender* unlock kiya hai!\n\n✅ Unlimited Bulk WhatsApp Broadcasts from PC\n✅ Anti-Ban 15-25s Safe Humanized Delay\n✅ 1-Click Excel Upload & Contacts Directory\n✅ Branded PDF Quotation Generator\n✅ 24/7 AI Sales Bot & Auto-Reply Rules\n\n👉 Aap bhi Diwali Offer me sirf ₹100 me download karo:\n${shareUrl}\n\n📞 For More Info: +91 93515 39420`
+      `Namaste! Agar aapko PC se WhatsApp par bulk messages bhejne hain, Excel se contacts import karne hain aur automatic PDF quotation banana hai, to SumanTech ka WhatsApp CRM software check kijiye.\n\nDiwali offer me sirf ₹100 me Lifetime access mil raha hai (koi monthly subscription nahi):\n👉 ${shareUrl}\n\nHelp & Info: +91 93515 39420`
     );
 
     window.open(`https://api.whatsapp.com/send?text=${promoMessage}`, '_blank');
@@ -91,7 +70,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
   const handleUtrSubmit = (e) => {
     e.preventDefault();
     if (!utrNumber.trim() || utrNumber.trim().length < 6) {
-      alert('Please enter a valid 12-digit UPI UTR / Transaction ID');
+      alert('Kripya apna 12-digit UPI UTR / Transaction ID daaliye');
       return;
     }
     setIsUtrSubmitted(true);
@@ -117,279 +96,256 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
     setTimeout(() => setCopiedLink(false), 2000);
   };
 
-  const scrollToCheckout = () => {
-    const el = document.getElementById('checkout-section');
+  const scrollToPayment = () => {
+    const el = document.getElementById('payment-section');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Screenshots data
+  // Real Screenshots data
   const screenshots = {
     broadcast: {
-      title: 'Broadcast Campaign Hub',
-      subtitle: 'Anti-Ban humanized pacing, instant message composer, variable tags, and live sending logs.',
+      title: 'Broadcast Campaign Dashboard',
+      subtitle: 'Safe humanized timing, message editor, live progress bar aur activity log.',
       img: '/images/crm-screenshots/crm-broadcast-dashboard.png',
-      highlights: [
-        'Safe 12-25s randomized humanized delay between messages',
-        'Direct rich-text messaging with line breaks and custom tags',
-        'Real-time live sending progress bar and terminal logs',
-        'Batch pause & emergency stop controls'
+      features: [
+        'Har message ke beech 15-25 seconds ka random gap (Anti-Ban Safe Timing)',
+        'Excel contacts me se dynamic name aur company name auto-fill',
+        'Real-time live progress: Kitne message sent hue aur kitne pending hain',
+        'Emergency Pause aur Stop button kisi bhi waqt rokne ke liye'
       ]
     },
     contacts: {
-      title: 'Enterprise Contacts Directory',
-      subtitle: '1-Click Excel/CSV import, duplicate remover, tags manager, and DND blacklist.',
+      title: 'Client Contacts Directory & Excel Upload',
+      subtitle: 'Apni Excel (.xlsx, .csv) sheet seedhe upload karein aur contacts manage karein.',
       img: '/images/crm-screenshots/crm-contacts.png',
-      highlights: [
-        'Upload 10,000+ numbers from any Excel (.xlsx, .csv) spreadsheet',
-        'Automatic DND blacklist filtering for opt-outs',
-        'Multi-tag organization (e.g. CA, Builder, Client, Hot Lead)',
-        '1-Click Export to clean CSV format'
+      features: [
+        '1-Click Excel upload — 5,000 se 10,000 numbers ek sath import',
+        'Duplicate aur invalid mobile numbers automatically hat jaate hain',
+        'Tags lagane ki suvidha (e.g. CA, Builder, Client, Hot Lead)',
+        'DND Blacklist: Jin clients ne mana kiya unko message nahi jayega'
       ]
     },
     inbox: {
-      title: 'Live 1-on-1 Chat Inbox',
-      subtitle: 'Reply directly to incoming customer messages from PC with quick templates.',
+      title: 'Live 1-on-1 Chat Inbox on PC',
+      subtitle: 'Mobile uthaye bina apne laptop se client ke replies dekhein aur chat karein.',
       img: '/images/crm-screenshots/crm-live-inbox.png',
-      highlights: [
-        'Full desktop live chat without touching your mobile phone',
-        'Instant quick reply templates for fastest client response',
-        'Seamless human takeover (auto-mutes bot during human conversation)',
-        'Full chat history sync and unread counter'
+      features: [
+        'Poori chat history aapke laptop screen par live dikhti hai',
+        'Quick reply templates taaki common sawalo ke jawab 1 second me de sakein',
+        'Human takeover: Jab aap manual chat karenge, to bot automatically pause ho jayega',
+        'Unread badge aur client search bar'
       ]
     },
     device: {
-      title: 'Device & Session Manager',
-      subtitle: 'Permanent LocalAuth connection, live session uptime, and instant test ping.',
+      title: 'WhatsApp Device Manager & Connection',
+      subtitle: 'Official WhatsApp Multi-Device session — ek baar scan karein, hamesha connected rahein.',
       img: '/images/crm-screenshots/crm-device-manager.png',
-      highlights: [
-        'Linked as +91 93515 39420 (Verified Session)',
-        'Zero cloud leakage — runs 100% locally on your computer',
-        'No re-scan required on PC restarts',
-        'Built-in latency ping and one-click session re-sync'
+      features: [
+        'PhonePe aur SBI verified session (+91 93515 39420)',
+        'Session aapke laptop me permanently save rehta hai — baar-baar scan nahi karna padta',
+        '100% Localhost security: Sara data aapke computer me rehta hai, kisi third-party cloud par nahi',
+        'Live connection status aur latency ping'
       ]
     }
   };
 
   return (
-    <div style={{ background: '#040914', color: '#e2e8f0', minHeight: '100vh', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+    <div style={{ background: '#070d18', color: '#f1f5f9', minHeight: '100vh', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif', lineHeight: '1.6' }}>
 
-      {/* ─── STANDALONE TOP NAVIGATION BAR ─── */}
+      {/* ─── HUMANIZED CLEAN TOPBAR ─── */}
       <header style={{
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: 'rgba(4, 9, 20, 0.92)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        padding: '14px 20px'
+        background: '#0a1222',
+        borderBottom: '1px solid #1e293b',
+        padding: '12px 20px'
       }}>
-        <div style={{ maxWidth: '1180px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-          {/* Brand */}
+        <div style={{ maxWidth: '1140px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <div style={{
-              width: '38px',
-              height: '38px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, #10b981, #059669)',
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              background: '#10b981',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: '#ffffff',
-              boxShadow: '0 0 15px rgba(16, 185, 129, 0.4)'
+              fontWeight: '900',
+              fontSize: '18px'
             }}>
-              <Smartphone size={22} />
+              S
             </div>
             <div>
-              <div style={{ fontSize: '16px', fontWeight: '800', color: '#ffffff', lineHeight: 1.1 }}>
+              <div style={{ fontSize: '15px', fontWeight: '700', color: '#ffffff', letterSpacing: '-0.2px' }}>
                 SumanTech <span style={{ color: '#10b981' }}>WhatsApp CRM</span>
               </div>
-              <div style={{ fontSize: '11px', color: '#fbbf24', fontWeight: '700', letterSpacing: '0.5px' }}>
-                DIWALI LIFETIME OFFER • ₹100 ONLY
+              <div style={{ fontSize: '11px', color: '#94a3b8' }}>
+                Windows Desktop Edition • By KS Chartered Engineers
               </div>
             </div>
           </div>
 
-          {/* Quick Actions */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
             <a
-              href="https://wa.me/919351539420?text=Namaste%20Sir%2C%20I%20have%20a%20query%20about%20SumanTech%20WhatsApp%20CRM."
+              href={`https://wa.me/${cleanPhone}`}
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#38bdf8',
+                color: '#e2e8f0',
                 fontSize: '13px',
-                fontWeight: '700',
+                fontWeight: '600',
                 textDecoration: 'none'
               }}
             >
               <Phone size={14} color="#10b981" />
-              <span>+91 93515 39420</span>
+              <span>Helpline: {supportPhone}</span>
             </a>
 
             <button
-              onClick={scrollToCheckout}
+              onClick={scrollToPayment}
               style={{
-                background: 'linear-gradient(135deg, #f59e0b, #d97706)',
-                color: '#040914',
+                background: '#10b981',
+                color: '#ffffff',
                 border: 'none',
-                borderRadius: '8px',
-                padding: '8px 18px',
+                borderRadius: '6px',
+                padding: '8px 16px',
                 fontSize: '13px',
-                fontWeight: '800',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                boxShadow: '0 4px 15px rgba(245, 158, 11, 0.35)'
+                fontWeight: '700',
+                cursor: 'pointer'
               }}
             >
-              <Flame size={15} />
-              <span>Claim ₹100 Offer</span>
+              Get License for ₹100
             </button>
           </div>
+
         </div>
       </header>
 
-      {/* ─── MAIN STANDALONE CONTENT CONTAINER ─── */}
-      <main style={{ maxWidth: '1140px', margin: '0 auto', padding: '40px 20px 80px 20px' }}>
+      {/* ─── MAIN CONTENT ─── */}
+      <main style={{ maxWidth: '1100px', margin: '0 auto', padding: '40px 20px 80px 20px' }}>
 
-        {/* ─── Hero Section ─── */}
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+        {/* ─── HERO SECTION ─── */}
+        <div style={{ textAlign: 'center', maxWidth: '880px', margin: '0 auto 44px auto' }}>
+
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(245, 158, 11, 0.2))',
-            border: '1px solid rgba(245, 158, 11, 0.35)',
-            padding: '6px 18px',
-            borderRadius: '30px',
-            color: '#fef08a',
-            fontSize: '13px',
-            fontWeight: '700',
-            marginBottom: '20px'
+            background: 'rgba(16, 185, 129, 0.1)',
+            border: '1px solid rgba(16, 185, 129, 0.3)',
+            padding: '5px 14px',
+            borderRadius: '20px',
+            color: '#34d399',
+            fontSize: '12px',
+            fontWeight: '600',
+            marginBottom: '18px'
           }}>
-            <Sparkles size={16} color="#f59e0b" />
-            <span>SPECIAL DIWALI MAHA-DHAMAKA • 98% DISCOUNT • LIFETIME ACCESS</span>
+            <span>Diwali Special One-Time Offer • ₹100 Lifetime Access</span>
           </div>
 
           <h1 style={{
-            fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
-            fontWeight: '900',
-            lineHeight: 1.15,
+            fontSize: 'clamp(1.9rem, 4vw, 2.8rem)',
+            fontWeight: '800',
+            lineHeight: 1.25,
             color: '#ffffff',
-            margin: '0 auto 18px auto',
-            maxWidth: '960px'
+            margin: '0 0 16px 0',
+            letterSpacing: '-0.5px'
           }}>
-            Stop Paying Monthly Fees. Get <span style={{ color: '#10b981' }}>Lifetime WhatsApp CRM</span> &amp; Bulk Sender for <span style={{ color: '#fbbf24' }}>₹100</span>
+            Apne Windows PC se WhatsApp Marketing karein — <span style={{ color: '#10b981' }}>Bina kisi Monthly Fee ke</span>
           </h1>
 
           <p style={{
-            fontSize: '1.1rem',
+            fontSize: '16px',
             color: '#94a3b8',
-            maxWidth: '820px',
-            margin: '0 auto 30px auto',
-            lineHeight: 1.6
+            lineHeight: '1.7',
+            margin: '0 0 24px 0'
           }}>
-            Send unlimited WhatsApp broadcasts with smart anti-ban pacing, import 10,000+ Excel contacts, generate instant branded PDF quotations, and run a 24/7 AI auto-reply bot. Runs 100% locally on your Windows PC.
+            Excel sheet upload kijiye, safe humanized timing ke sath clients ko message bhejiye, official PDF quotation banaiye aur 24/7 client inquiries manage kijiye. Software aapke apne laptop par chalta hai — koi cloud subscription nahi, pura customer data 100% private.
           </p>
 
-          {/* Pricing Box & Urgency Timer */}
+          {/* Clean Humanized Pricing Pill */}
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '24px',
-            background: 'rgba(15, 23, 42, 0.8)',
-            border: '1px solid rgba(245, 158, 11, 0.35)',
-            borderRadius: '18px',
-            padding: '18px 32px',
+            gap: '16px',
+            background: '#0f172a',
+            border: '1px solid #1e293b',
+            borderRadius: '12px',
+            padding: '12px 24px',
             flexWrap: 'wrap',
-            justifyContent: 'center',
-            boxShadow: '0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(245, 158, 11, 0.15)',
-            marginBottom: '24px'
+            justifyContent: 'center'
           }}>
             <div style={{ textAlign: 'left' }}>
-              <span style={{ fontSize: '12px', color: '#94a3b8', display: 'block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                Diwali Special Price
-              </span>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-                <span style={{ fontSize: '2.6rem', fontWeight: '900', color: '#10b981' }}>₹{offerPrice}</span>
-                <span style={{ fontSize: '1.3rem', color: '#64748b', textDecoration: 'line-through' }}>₹{originalPrice}</span>
-                <span style={{ fontSize: '12px', color: '#fbbf24', background: 'rgba(245, 158, 11, 0.15)', padding: '2px 8px', borderRadius: '4px', fontWeight: '700' }}>
-                  ONE-TIME • LIFETIME
-                </span>
+              <span style={{ fontSize: '11px', color: '#64748b', textTransform: 'uppercase', fontWeight: '700' }}>Lifetime Single License</span>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+                <span style={{ fontSize: '28px', fontWeight: '900', color: '#10b981' }}>₹{offerPrice}</span>
+                <span style={{ fontSize: '14px', color: '#64748b', textDecoration: 'line-through' }}>₹{originalPrice}</span>
+                <span style={{ fontSize: '11px', color: '#38bdf8', fontWeight: '600' }}>(Ek baar pay karein, hamesha use karein)</span>
               </div>
             </div>
 
-            <div style={{ height: '44px', width: '1px', background: 'rgba(255, 255, 255, 0.1)' }} />
+            <div style={{ height: '32px', width: '1px', background: '#334155' }} />
 
-            <div style={{ textAlign: 'left' }}>
-              <span style={{ fontSize: '12px', color: '#f87171', display: 'flex', alignItems: 'center', gap: '5px', fontWeight: '700' }}>
-                <Clock size={13} />
-                <span>OFFER CLOSING SOON:</span>
-              </span>
-              <div style={{ fontSize: '1.4rem', fontWeight: '800', color: '#fef08a', letterSpacing: '1px' }}>
-                {String(timeLeft.hours).padStart(2, '0')}h : {String(timeLeft.minutes).padStart(2, '0')}m : {String(timeLeft.seconds).padStart(2, '0')}s
-              </div>
+            <div style={{ textAlign: 'left', fontSize: '12px', color: '#cbd5e1' }}>
+              <div>✅ 15 Free Trial Messages Test ke liye</div>
+              <div>✅ Lifetime Unlimited Key ₹100 me</div>
             </div>
           </div>
+
         </div>
 
-        {/* ─── INTERACTIVE SOFTWARE SCREENSHOT TOUR (GALLERY) ─── */}
-        <div style={{ marginBottom: '60px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <span style={{
-              background: 'rgba(56, 189, 248, 0.12)',
-              color: '#38bdf8',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
-              padding: '4px 14px',
-              borderRadius: '20px',
-              fontSize: '12px',
-              fontWeight: '700'
-            }}>
-              ✨ LIVE SOFTWARE PREVIEW
-            </span>
-            <h2 style={{ fontSize: '2rem', fontWeight: '800', color: '#ffffff', margin: '10px 0 6px 0' }}>
-              Explore the Actual Software Interface
+        {/* ─── ACTUAL SCREENSHOTS SHOWCASE (REAL SOFTWARE PREVIEW) ─── */}
+        <div style={{
+          background: '#0b1329',
+          border: '1px solid #1e293b',
+          borderRadius: '16px',
+          padding: '24px',
+          marginBottom: '50px'
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0' }}>
+              Software ka Actual Interface Dekhiye
             </h2>
-            <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0 }}>
-              Dekhiye software andar se kaisa dikhta hai aur kaise kaam karta hai:
+            <p style={{ fontSize: '13px', color: '#94a3b8', margin: 0 }}>
+              Neeche diye gaye tabs par click karke dekhein software andar se kaisa dikhta hai:
             </p>
           </div>
 
-          {/* Screenshot Navigation Tabs */}
+          {/* Screenshot Switcher Tabs */}
           <div style={{
             display: 'flex',
             justifyContent: 'center',
             gap: '8px',
             flexWrap: 'wrap',
-            marginBottom: '20px'
+            marginBottom: '18px'
           }}>
             {[
-              { id: 'broadcast', label: '1. Broadcast Dashboard', icon: <Zap size={15} /> },
-              { id: 'contacts', label: '2. Contacts & Excel Upload', icon: <Users size={15} /> },
-              { id: 'inbox', label: '3. Live Chat Inbox', icon: <MessageSquare size={15} /> },
-              { id: 'device', label: '4. Device Manager', icon: <Smartphone size={15} /> }
+              { id: 'broadcast', label: '1. Broadcast Dashboard', icon: <Zap size={14} /> },
+              { id: 'contacts', label: '2. Excel Contacts Directory', icon: <Users size={14} /> },
+              { id: 'inbox', label: '3. Live Chat Inbox on PC', icon: <MessageSquare size={14} /> },
+              { id: 'device', label: '4. WhatsApp Device Manager', icon: <Smartphone size={14} /> }
             ].map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 style={{
-                  background: activeTab === tab.id ? '#10b981' : 'rgba(255, 255, 255, 0.04)',
-                  color: activeTab === tab.id ? '#040914' : '#94a3b8',
-                  border: activeTab === tab.id ? 'none' : '1px solid rgba(255, 255, 255, 0.1)',
-                  padding: '9px 18px',
-                  borderRadius: '10px',
-                  fontWeight: '700',
-                  fontSize: '13px',
+                  background: activeTab === tab.id ? '#10b981' : '#1e293b',
+                  color: activeTab === tab.id ? '#ffffff' : '#94a3b8',
+                  border: 'none',
+                  borderRadius: '6px',
+                  padding: '8px 14px',
+                  fontSize: '12px',
+                  fontWeight: '600',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '7px',
-                  transition: 'all 0.2s ease',
-                  boxShadow: activeTab === tab.id ? '0 4px 15px rgba(16, 185, 129, 0.35)' : 'none'
+                  gap: '6px'
                 }}
               >
                 {tab.icon}
@@ -398,74 +354,54 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
             ))}
           </div>
 
-          {/* Laptop Mockup Display Container */}
+          {/* Screenshot Display Card */}
           <div style={{
-            background: 'linear-gradient(145deg, #0f172a, #1e293b)',
-            border: '2px solid rgba(16, 185, 129, 0.4)',
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(16, 185, 129, 0.2)'
+            background: '#020617',
+            border: '1px solid #1e293b',
+            borderRadius: '12px',
+            overflow: 'hidden'
           }}>
-            {/* Mockup Window Titlebar */}
+            {/* Topbar of the frame */}
             <div style={{
-              background: '#090d16',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: '12px 18px',
+              background: '#0f172a',
+              borderBottom: '1px solid #1e293b',
+              padding: '10px 16px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ef4444' }} />
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f59e0b' }} />
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#10b981' }} />
-                <span style={{ fontSize: '12px', color: '#64748b', marginLeft: '12px' }}>
-                  http://localhost:5001 — SumanTech WhatsApp CRM (Windows Edition)
-                </span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '11px', color: '#10b981', fontWeight: '700', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
-                  Live System Running
-                </span>
-              </div>
+              <span style={{ fontSize: '12px', color: '#94a3b8', fontWeight: '600' }}>
+                {screenshots[activeTab].title}
+              </span>
+              <span style={{ fontSize: '11px', color: '#10b981' }}>
+                ● Actual Running Software
+              </span>
             </div>
 
-            {/* Mockup Main Image */}
-            <div style={{ position: 'relative', background: '#020617' }}>
+            {/* High Resolution Image */}
+            <div style={{ padding: '8px', background: '#020617' }}>
               <img
                 src={screenshots[activeTab].img}
                 alt={screenshots[activeTab].title}
-                style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '640px', objectFit: 'contain' }}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  borderRadius: '6px'
+                }}
               />
             </div>
 
-            {/* Mockup Feature Callout Footer */}
-            <div style={{
-              background: '#090d16',
-              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: '20px 24px'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '8px' }}>
-                <h4 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: 0 }}>
-                  {screenshots[activeTab].title}
-                </h4>
-                <span style={{ fontSize: '13px', color: '#94a3b8' }}>
-                  — {screenshots[activeTab].subtitle}
-                </span>
+            {/* Feature List under image */}
+            <div style={{ background: '#0f172a', padding: '16px 20px', borderTop: '1px solid #1e293b' }}>
+              <div style={{ fontSize: '13px', color: '#cbd5e1', fontWeight: '600', marginBottom: '8px' }}>
+                {screenshots[activeTab].subtitle}
               </div>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                gap: '10px',
-                marginTop: '12px'
-              }}>
-                {screenshots[activeTab].highlights.map((h, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '12px', color: '#cbd5e1' }}>
-                    <CheckCircle2 size={15} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <span>{h}</span>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '8px' }}>
+                {screenshots[activeTab].features.map((f, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '6px', fontSize: '12px', color: '#94a3b8' }}>
+                    <CheckCircle2 size={14} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span>{f}</span>
                   </div>
                 ))}
               </div>
@@ -473,546 +409,379 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
           </div>
         </div>
 
-        {/* ─── 2-COLUMN CHECKOUT: UPI QR & 3-SHARE UNLOCKER ─── */}
-        <div id="checkout-section" style={{
+        {/* ─── HOW IT WORKS (SIMPLE 4 STEPS) ─── */}
+        <div style={{ marginBottom: '50px' }}>
+          <h3 style={{ fontSize: '20px', fontWeight: '800', textAlign: 'center', color: '#ffffff', marginBottom: '24px' }}>
+            Software Kaise Install Karein aur Unlimited Kaise Banayein?
+          </h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+              <div style={{ color: '#38bdf8', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 1: Download &amp; Test</div>
+              <div style={{ fontSize: '13px', color: '#94a3b8' }}>
+                Neeche diye gaye link se ZIP file download karein aur apne computer me unzip karein.
+              </div>
+            </div>
+
+            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+              <div style={{ color: '#10b981', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 2: 15 Free Trial Msgs</div>
+              <div style={{ fontSize: '13px', color: '#94a3b8' }}>
+                <code>START-APP.bat</code> chala kar pehle 15 messages free me test karke dekh lijiye ki software perfectly chal raha hai.
+              </div>
+            </div>
+
+            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+              <div style={{ color: '#f59e0b', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 3: ₹100 Pay Karein</div>
+              <div style={{ fontSize: '13px', color: '#94a3b8' }}>
+                Neeche diye gaye PhonePe/SBI QR code ko scan karke ₹100 pay kijiye.
+              </div>
+            </div>
+
+            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+              <div style={{ color: '#c084fc', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 4: Screenshot Bhejein</div>
+              <div style={{ fontSize: '13px', color: '#94a3b8' }}>
+                Payment ka screenshot WhatsApp (+91 93515 39420) par bhejein — aapko turant Lifetime Unlimited Activation Key mil jayegi.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── PAYMENT & DOWNLOAD SECTION ─── */}
+        <div id="payment-section" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '24px',
           marginBottom: '50px'
         }}>
 
-          {/* STEP 1: SCAN & PAY ₹100 */}
+          {/* LEFT: PHONEPE SBI BARCODE (CLEAN, WHITE CARD, 100% READABLE) */}
           <div style={{
-            background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8))',
-            border: '2px solid rgba(16, 185, 129, 0.4)',
-            borderRadius: '20px',
-            padding: '28px',
-            position: 'relative',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.6)'
+            background: '#0f172a',
+            border: '2px solid #10b981',
+            borderRadius: '16px',
+            padding: '24px',
+            textAlign: 'center'
           }}>
             <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
+              display: 'inline-block',
               background: '#10b981',
               color: '#040914',
-              padding: '4px 12px',
-              borderRadius: '20px',
+              padding: '3px 10px',
+              borderRadius: '4px',
               fontSize: '11px',
               fontWeight: '800',
-              marginBottom: '16px'
+              marginBottom: '14px'
             }}>
-              STEP 1: SCAN &amp; PAY ₹{offerPrice}
+              OFFICIAL PAYMENT QR
             </div>
 
-            <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#ffffff', margin: '0 0 8px 0' }}>
-              Scan QR via PhonePe / GPay / Paytm
+            <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0' }}>
+              Scan QR to Pay ₹{offerPrice}
             </h3>
-            <p style={{ fontSize: '13px', color: '#94a3b8', margin: '0 0 16px 0', lineHeight: '1.5' }}>
-              Scan the official PhonePe SBI QR code below to pay ₹{offerPrice} for lifetime software access.
+            <p style={{ fontSize: '12px', color: '#94a3b8', margin: '0 0 16px 0' }}>
+              PhonePe, Google Pay, Paytm ya BHIM se scan karke ₹100 pay karein:
             </p>
 
-            {/* QR Card with Real PhonePe Screenshot */}
-            <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-              <div style={{
-                display: 'inline-block',
-                background: '#090d16',
-                border: '2px solid rgba(16, 185, 129, 0.4)',
-                borderRadius: '16px',
-                padding: '12px',
-                boxShadow: '0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.25)',
-                maxWidth: '280px'
-              }}>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  marginBottom: '10px',
-                  padding: '4px 10px',
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  borderRadius: '20px'
-                }}>
-                  <div style={{
-                    width: '18px',
-                    height: '18px',
-                    borderRadius: '50%',
-                    background: '#0054a6',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#fff',
-                    fontSize: '10px',
-                    fontWeight: '900'
-                  }}>
-                    ●
-                  </div>
-                  <span style={{ fontSize: '13px', fontWeight: '800', color: '#ffffff' }}>loki</span>
-                  <span style={{ fontSize: '10px', color: '#10b981', fontWeight: '600' }}>(SBI • PhonePe)</span>
-                </div>
-
-                <div style={{
-                  background: '#000000',
-                  padding: '8px',
-                  borderRadius: '12px',
-                  marginBottom: '10px'
-                }}>
-                  <img
-                    src="/images/whatsapp-crm-upi-qr.jpg"
-                    alt="Official PhonePe SBI UPI QR Code for loki - 6377595128@ibl"
-                    style={{ width: '100%', maxHeight: '250px', objectFit: 'contain', display: 'block', borderRadius: '8px' }}
-                  />
-                </div>
-
-                <div style={{ fontSize: '11px', color: '#94a3b8' }}>
-                  Supported on: <b>PhonePe • GPay • Paytm • BHIM</b>
-                </div>
-              </div>
+            {/* Crisp QR Code Container */}
+            <div style={{
+              display: 'inline-block',
+              background: '#000000',
+              padding: '10px',
+              borderRadius: '16px',
+              border: '1px solid #334155',
+              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.6)',
+              marginBottom: '16px',
+              maxWidth: '280px',
+              width: '100%'
+            }}>
+              <img
+                src="/images/whatsapp-crm-upi-qr.jpg"
+                alt="PhonePe SBI UPI QR Code - loki - 6377595128@ibl"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  borderRadius: '10px'
+                }}
+              />
             </div>
 
             {/* UPI ID Details */}
             <div style={{
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '10px',
-              padding: '12px 16px',
+              background: '#070d18',
+              border: '1px solid #1e293b',
+              borderRadius: '8px',
+              padding: '10px 14px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
               marginBottom: '10px'
             }}>
-              <div>
-                <span style={{ fontSize: '11px', color: '#64748b', display: 'block' }}>Official UPI VPA:</span>
-                <code style={{ fontSize: '15px', color: '#38bdf8', fontWeight: '800', letterSpacing: '0.5px' }}>{upiId}</code>
-                <span style={{ fontSize: '11px', color: '#10b981', display: 'block', marginTop: '2px' }}>Name: loki (SBI Primary)</span>
+              <div style={{ textAlign: 'left' }}>
+                <span style={{ fontSize: '10px', color: '#64748b', display: 'block' }}>UPI ID:</span>
+                <code style={{ fontSize: '14px', color: '#38bdf8', fontWeight: '700' }}>{upiId}</code>
+                <span style={{ fontSize: '11px', color: '#94a3b8', display: 'block' }}>Name: {payeeName} (SBI Primary Account)</span>
               </div>
               <button
                 onClick={copyUpiId}
                 style={{
-                  background: 'rgba(56, 189, 248, 0.15)',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                  color: '#38bdf8',
-                  padding: '7px 14px',
+                  background: '#1e293b',
+                  color: '#e2e8f0',
+                  border: '1px solid #334155',
+                  padding: '6px 12px',
                   borderRadius: '6px',
-                  fontSize: '12px',
-                  fontWeight: '700',
+                  fontSize: '11px',
                   cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px'
+                  fontWeight: '600'
                 }}
               >
-                {copiedUpi ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
-                <span>{copiedUpi ? 'Copied' : 'Copy'}</span>
+                {copiedUpi ? 'Copied ✓' : 'Copy'}
               </button>
             </div>
 
-            {/* Direct WhatsApp Screenshot Share Button */}
+            <div style={{ fontSize: '11px', color: '#64748b', marginBottom: '14px' }}>
+              Supported on PhonePe • Google Pay • Paytm • BHIM • UPI
+            </div>
+
+            {/* WHATSAPP SCREENSHOT BUTTON */}
             <a
               href={`https://wa.me/${cleanPhone}?text=${encodeURIComponent('Namaste Sir, maine SumanTech WhatsApp CRM ke liye Rs 100 pay kar diya hai. Ye raha mera payment screenshot. Kripya mera Lifetime Unlimited Activation Key provide karein.')}`}
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 width: '100%',
-                background: 'linear-gradient(135deg, #25d366, #128c7e)',
+                background: '#25d366',
                 color: '#ffffff',
                 border: 'none',
-                borderRadius: '10px',
-                padding: '13px 16px',
-                fontSize: '14px',
-                fontWeight: '800',
+                borderRadius: '8px',
+                padding: '12px',
+                fontSize: '13px',
+                fontWeight: '700',
                 textDecoration: 'none',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '8px',
-                boxShadow: '0 6px 20px rgba(37, 211, 102, 0.4)',
-                marginBottom: '16px'
+                marginBottom: '10px'
               }}
             >
-              <Smartphone size={18} />
-              <span>📸 Send Payment Screenshot on WhatsApp</span>
+              <Smartphone size={16} />
+              <span>📸 Payment Screenshot WhatsApp par Bhejein</span>
             </a>
 
-            {/* Helpline Callout */}
-            <div style={{
-              background: 'rgba(16, 185, 129, 0.08)',
-              border: '1px solid rgba(16, 185, 129, 0.25)',
-              borderRadius: '10px',
-              padding: '10px 14px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              marginBottom: '16px'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Phone size={15} color="#10b981" />
-                <span style={{ fontSize: '12px', color: '#ffffff', fontWeight: '600' }}>
-                  For More Info &amp; Key: <b style={{ color: '#10b981' }}>{contactPhone}</b>
-                </span>
-              </div>
-              <span style={{ fontSize: '11px', color: '#fbbf24', fontWeight: '700' }}>
-                Instant Key on WA
-              </span>
+            <div style={{ fontSize: '11px', color: '#94a3b8' }}>
+              Screenshot bhejte hi aapko WhatsApp par instant key mil jayegi.
             </div>
-
-            {/* UTR Submission Form */}
-            <form onSubmit={handleUtrSubmit} style={{ marginTop: '12px' }}>
-              <label style={{ fontSize: '12px', color: '#94a3b8', display: 'block', marginBottom: '6px', fontWeight: '600' }}>
-                Enter UPI Reference / UTR Number (12 Digits):
-              </label>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <input
-                  type="text"
-                  placeholder="e.g. 430192837465"
-                  value={utrNumber}
-                  onChange={(e) => setUtrNumber(e.target.value)}
-                  style={{
-                    flex: 1,
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#ffffff',
-                    padding: '10px 14px',
-                    borderRadius: '8px',
-                    fontSize: '13px',
-                    outline: 'none'
-                  }}
-                />
-                <button
-                  type="submit"
-                  style={{
-                    background: isUtrSubmitted ? '#10b981' : '#f59e0b',
-                    color: '#040914',
-                    border: 'none',
-                    borderRadius: '8px',
-                    padding: '10px 16px',
-                    fontWeight: '700',
-                    fontSize: '13px',
-                    cursor: 'pointer'
-                  }}
-                >
-                  {isUtrSubmitted ? 'Verified ✓' : 'Verify'}
-                </button>
-              </div>
-            </form>
           </div>
 
-          {/* STEP 2: VIRAL 3-SHARE UNLOCKER & DOWNLOAD */}
+          {/* RIGHT: DOWNLOAD & 3-SHARE UNLOCK */}
           <div style={{
-            background: 'linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8))',
-            border: isUnlocked ? '2px solid #10b981' : '1px solid rgba(245, 158, 11, 0.35)',
-            borderRadius: '20px',
-            padding: '28px',
+            background: '#0f172a',
+            border: '1px solid #1e293b',
+            borderRadius: '16px',
+            padding: '24px',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between',
-            boxShadow: isUnlocked ? '0 0 30px rgba(16, 185, 129, 0.25)' : 'none'
+            justifyContent: 'space-between'
           }}>
             <div>
               <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                background: isUnlocked ? '#10b981' : '#f59e0b',
+                display: 'inline-block',
+                background: '#38bdf8',
                 color: '#040914',
-                padding: '4px 12px',
-                borderRadius: '20px',
+                padding: '3px 10px',
+                borderRadius: '4px',
                 fontSize: '11px',
                 fontWeight: '800',
-                marginBottom: '16px'
+                marginBottom: '14px'
               }}>
-                {isUnlocked ? '🎉 SOFTWARE UNLOCKED!' : 'STEP 2: SHARE TO UNLOCK'}
+                STEP: DOWNLOAD SOFTWARE
               </div>
 
-              <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#ffffff', margin: '0 0 8px 0' }}>
-                Share with 3 Friends to Unlock Unlimited Feature
+              <h3 style={{ fontSize: '18px', fontWeight: '800', color: '#ffffff', margin: '0 0 6px 0' }}>
+                Download SumanTech WhatsApp CRM
               </h3>
-              <p style={{ fontSize: '13px', color: '#94a3b8', margin: '0 0 20px 0', lineHeight: '1.5' }}>
-                Share this Diwali deal with 3 business friends or WhatsApp groups. Once shared, your unlimited bulk sender unlocks instantly!
+              <p style={{ fontSize: '13px', color: '#94a3b8', margin: '0 0 16px 0' }}>
+                Neeche diye gaye button se Windows ZIP download karein (15 messages free trial included hai):
               </p>
 
-              {/* Progress Bar */}
-              <div style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                borderRadius: '12px',
-                padding: '16px',
-                marginBottom: '20px'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', fontWeight: '700', marginBottom: '8px' }}>
-                  <span style={{ color: '#ffffff' }}>Sharing Progress:</span>
-                  <span style={{ color: sharesCount >= shareTarget ? '#10b981' : '#fbbf24' }}>
-                    {sharesCount} / {shareTarget} Completed
-                  </span>
-                </div>
-                <div style={{ height: '10px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '5px', overflow: 'hidden' }}>
-                  <div style={{
-                    height: '100%',
-                    width: `${Math.min((sharesCount / shareTarget) * 100, 100)}%`,
-                    background: 'linear-gradient(90deg, #f59e0b, #10b981)',
-                    transition: 'width 0.3s ease'
-                  }} />
-                </div>
-              </div>
-
-              {/* Share Button */}
-              <button
-                onClick={handleShareOnWhatsApp}
+              {/* DIRECT DOWNLOAD BUTTON */}
+              <a
+                href="/Sumantech-WhatsApp-CRM-Windows.zip"
+                download="Sumantech-WhatsApp-CRM-Windows.zip"
                 style={{
-                  width: '100%',
-                  background: '#25d366',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '10px',
-                  padding: '14px',
-                  fontSize: '15px',
-                  fontWeight: '700',
-                  cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '8px',
-                  boxShadow: '0 6px 16px rgba(37, 211, 102, 0.3)',
-                  marginBottom: '16px'
-                }}
-              >
-                <Share2 size={18} />
-                <span>Share on WhatsApp ({shareTarget - sharesCount > 0 ? `${shareTarget - sharesCount} more needed` : 'Completed!'})</span>
-              </button>
-
-              <button
-                onClick={copyOfferLink}
-                style={{
-                  width: '100%',
-                  background: 'transparent',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  color: '#94a3b8',
+                  background: '#10b981',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  padding: '14px',
                   borderRadius: '8px',
-                  padding: '8px',
-                  fontSize: '12px',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '6px'
+                  fontWeight: '700',
+                  fontSize: '14px',
+                  marginBottom: '14px'
                 }}
               >
-                {copiedLink ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
-                <span>{copiedLink ? 'Link Copied to Clipboard!' : 'Copy Direct Share Link'}</span>
-              </button>
-            </div>
+                <Download size={18} />
+                <span>Download Windows Package (63 MB)</span>
+              </a>
 
-            {/* UNLOCKED DOWNLOAD CONTAINER */}
-            <div style={{
-              marginTop: '24px',
-              paddingTop: '20px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)'
-            }}>
-              {isUnlocked ? (
-                <div style={{
-                  background: 'rgba(16, 185, 129, 0.1)',
-                  border: '1px solid rgba(16, 185, 129, 0.35)',
-                  borderRadius: '12px',
-                  padding: '16px',
-                  textAlign: 'center'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', color: '#10b981', fontWeight: '800', fontSize: '15px', marginBottom: '8px' }}>
-                    <CheckCircle2 size={18} />
-                    <span>Download Ready!</span>
-                  </div>
+              {/* Admin Passkey Info */}
+              <div style={{
+                background: '#070d18',
+                border: '1px solid #1e293b',
+                padding: '10px 14px',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                marginBottom: '18px',
+                fontSize: '12px'
+              }}>
+                <span style={{ color: '#94a3b8' }}>Login Admin Passkey: <b style={{ color: '#10b981' }}>psrlms0707</b></span>
+                <button
+                  onClick={copyPasskey}
+                  style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', fontSize: '11px', fontWeight: '700' }}
+                >
+                  {copiedPasskey ? 'Copied ✓' : 'Copy Key'}
+                </button>
+              </div>
 
-                  <a
-                    href="/Sumantech-WhatsApp-CRM-Windows.zip"
-                    download="Sumantech-WhatsApp-CRM-Windows.zip"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      background: 'linear-gradient(135deg, #10b981, #059669)',
-                      color: '#ffffff',
-                      textDecoration: 'none',
-                      padding: '12px 24px',
-                      borderRadius: '8px',
-                      fontWeight: '800',
-                      fontSize: '14px',
-                      width: '100%',
-                      boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
-                      marginBottom: '12px'
-                    }}
-                  >
-                    <Download size={18} />
-                    <span>Download Windows CRM ZIP (63 MB)</span>
-                  </a>
+              {/* 3-Share Referral Box */}
+              <div style={{
+                borderTop: '1px solid #1e293b',
+                paddingTop: '16px'
+              }}>
+                <div style={{ fontSize: '12px', fontWeight: '700', color: '#ffffff', marginBottom: '6px' }}>
+                  Aapke dosto ke sath share karein:
+                </div>
+                <p style={{ fontSize: '11px', color: '#94a3b8', margin: '0 0 12px 0' }}>
+                  WhatsApp par 3 logo ko share karke unhe bhi is ₹100 offer ke baare me batayein:
+                </p>
 
-                  <div style={{
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', fontWeight: '600', marginBottom: '6px', color: '#94a3b8' }}>
+                  <span>Shares Progress:</span>
+                  <span style={{ color: sharesCount >= shareTarget ? '#10b981' : '#f59e0b' }}>{sharesCount} / {shareTarget} Shared</span>
+                </div>
+
+                <div style={{ height: '6px', background: '#1e293b', borderRadius: '3px', overflow: 'hidden', marginBottom: '12px' }}>
+                  <div style={{ height: '100%', width: `${Math.min((sharesCount / shareTarget) * 100, 100)}%`, background: '#10b981' }} />
+                </div>
+
+                <button
+                  onClick={handleShareOnWhatsApp}
+                  style={{
+                    width: '100%',
+                    background: '#1e293b',
+                    color: '#e2e8f0',
+                    border: '1px solid #334155',
+                    borderRadius: '6px',
+                    padding: '8px',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
-                    background: 'rgba(0, 0, 0, 0.3)',
-                    padding: '8px 12px',
-                    borderRadius: '6px',
-                    fontSize: '12px'
-                  }}>
-                    <span style={{ color: '#94a3b8' }}>Admin Passkey: <b style={{ color: '#10b981' }}>psrlms0707</b></span>
-                    <button
-                      onClick={copyPasskey}
-                      style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', fontSize: '11px', fontWeight: '700' }}
-                    >
-                      {copiedPasskey ? 'Copied ✓' : 'Copy Key'}
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div style={{
-                  background: 'rgba(0, 0, 0, 0.25)',
-                  borderRadius: '10px',
-                  padding: '14px',
-                  textAlign: 'center',
-                  color: '#64748b',
-                  fontSize: '12px'
-                }}>
-                  <Lock size={16} style={{ margin: '0 auto 6px auto', display: 'block' }} />
-                  Complete payment or 3 WhatsApp shares above to unlock the direct Windows download.
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        {/* ─── 3-STEP SETUP INSTRUCTIONS ─── */}
-        <div style={{
-          background: 'rgba(15, 23, 42, 0.8)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          borderRadius: '16px',
-          padding: '32px',
-          marginBottom: '50px'
-        }}>
-          <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#ffffff', textAlign: 'center', marginBottom: '24px' }}>
-            Quick 3-Minute Setup on Any Windows PC
-          </h3>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: '#3b82f6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', margin: '0 auto 12px auto' }}>1</div>
-              <h5 style={{ fontSize: '15px', fontWeight: '700', color: '#ffffff', margin: '0 0 6px 0' }}>Download &amp; Unzip</h5>
-              <p style={{ fontSize: '12px', color: '#94a3b8', margin: 0 }}>
-                Download the ZIP file and extract it to your Desktop or C: drive.
-              </p>
-            </div>
-
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: '#10b981', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', margin: '0 auto 12px auto' }}>2</div>
-              <h5 style={{ fontSize: '15px', fontWeight: '700', color: '#ffffff', margin: '0 0 6px 0' }}>Run START-APP.bat</h5>
-              <p style={{ fontSize: '12px', color: '#94a3b8', margin: 0 }}>
-                Double click the shortcut. The dashboard opens automatically in your browser.
-              </p>
-            </div>
-
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '50%', background: '#8b5cf6', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '800', margin: '0 auto 12px auto' }}>3</div>
-              <h5 style={{ fontSize: '15px', fontWeight: '700', color: '#ffffff', margin: '0 0 6px 0' }}>Scan WhatsApp QR</h5>
-              <p style={{ fontSize: '12px', color: '#94a3b8', margin: 0 }}>
-                Scan once from your phone. Session persists permanently and you're ready to broadcast!
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* ─── FREQUENTLY ASKED QUESTIONS ─── */}
-        <div style={{ maxWidth: '780px', margin: '0 auto 40px auto' }}>
-          <h3 style={{ fontSize: '22px', fontWeight: '800', color: '#ffffff', textAlign: 'center', marginBottom: '24px' }}>
-            Frequently Asked Questions
-          </h3>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-            {[
-              {
-                q: 'Kya isme koi monthly ya renewal charge hai?',
-                a: 'Nahi! Diwali Special Offer me aapko Lifetime Access milta hai sirf ₹100 me bina kisi monthly subscription ke.'
-              },
-              {
-                q: 'Kya mera WhatsApp number ban ho sakta hai?',
-                a: 'Humne isme Anti-Ban Smart Humanized Pacing (15-25 seconds delay) daali hai jo WhatsApp ke multi-device standards ke mutabik kaam karti hai taaki number safe rahe.'
-              },
-              {
-                q: 'Aapka customer support aur more information kahan se milegi?',
-                a: 'Installation, setup ya kisi bhi jankari ke liye aap direct +91 93515 39420 par WhatsApp message ya direct call kar sakte hain.'
-              }
-            ].map((faq, i) => (
-              <div
-                key={i}
-                style={{
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: '10px',
-                  padding: '16px 20px'
-                }}
-              >
-                <div style={{ fontWeight: '700', fontSize: '14px', color: '#fbbf24', marginBottom: '6px' }}>
-                  {faq.q}
-                </div>
-                <div style={{ fontSize: '13px', color: '#94a3b8', lineHeight: '1.6' }}>
-                  {faq.a}
-                </div>
+                    justifyContent: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <Share2 size={14} />
+                  <span>Share on WhatsApp</span>
+                </button>
               </div>
-            ))}
+
+            </div>
+          </div>
+
+        </div>
+
+        {/* ─── REAL HUMAN COMPANY BACKING & CONTACT INFO ─── */}
+        <div style={{
+          background: '#0f172a',
+          border: '1px solid #1e293b',
+          borderRadius: '12px',
+          padding: '24px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '16px'
+        }}>
+          <div>
+            <div style={{ fontSize: '14px', fontWeight: '700', color: '#ffffff' }}>
+              Developed &amp; Supported by SumanTech Solutions
+            </div>
+            <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '2px' }}>
+              In technical collaboration with KS Chartered Engineers &amp; Valuers (IIT Roorkee alumni led practice).
+            </div>
+            <div style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
+              Head Office: Jaipur, Rajasthan · Serving Clients Pan-India
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            <a
+              href={`https://wa.me/${cleanPhone}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: '#10b981',
+                color: '#ffffff',
+                padding: '8px 16px',
+                borderRadius: '6px',
+                fontSize: '12px',
+                fontWeight: '700',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+            >
+              <Phone size={14} />
+              <span>Contact: {supportPhone}</span>
+            </a>
           </div>
         </div>
 
       </main>
 
-      {/* ─── STANDALONE COMPACT FOOTER ─── */}
+      {/* ─── CLEAN FOOTER ─── */}
       <footer style={{
-        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        background: '#020617',
-        padding: '30px 20px',
+        borderTop: '1px solid #1e293b',
+        background: '#040914',
+        padding: '24px 20px',
         textAlign: 'center',
-        fontSize: '13px',
+        fontSize: '12px',
         color: '#64748b'
       }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '14px' }}>
-            <span style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <ShieldCheck size={16} color="#10b981" />
-              <span>100% Localhost &amp; End-to-End Encrypted</span>
-            </span>
-            <span>•</span>
-            <span style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Lock size={15} color="#38bdf8" />
-              <span>No Cloud Database • Complete Privacy</span>
-            </span>
-            <span>•</span>
-            <a
-              href={`https://wa.me/${cleanPhone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#10b981', fontWeight: '700', textDecoration: 'none' }}
-            >
-              Support: {contactPhone}
-            </a>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <div style={{ marginBottom: '8px', color: '#94a3b8' }}>
+            100% Localhost Execution · Complete Client Data Privacy · No Third-party Cloud Leakage
           </div>
-
-          <p style={{ margin: '0 0 10px 0', fontSize: '12px' }}>
-            © {new Date().getFullYear()} SumanTech Automation &amp; Marketing Suite. All Rights Reserved.
-          </p>
-
-          <button
-            onClick={() => {
-              if (typeof onNavigateHome === 'function') onNavigateHome();
-              else window.location.href = '/';
-            }}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#475569',
-              cursor: 'pointer',
-              fontSize: '12px',
-              textDecoration: 'underline'
-            }}
-          >
-            Return to KS Chartered Engineers Main Website →
-          </button>
+          <div>
+            © {new Date().getFullYear()} SumanTech Automation Suite. All Rights Reserved.
+          </div>
+          <div style={{ marginTop: '10px' }}>
+            <button
+              onClick={() => {
+                if (typeof onNavigateHome === 'function') onNavigateHome();
+                else window.location.href = '/';
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#38bdf8',
+                cursor: 'pointer',
+                fontSize: '11px',
+                textDecoration: 'underline'
+              }}
+            >
+              ← Return to Main Website (mscharteredengineer.com)
+            </button>
+          </div>
         </div>
       </footer>
 
