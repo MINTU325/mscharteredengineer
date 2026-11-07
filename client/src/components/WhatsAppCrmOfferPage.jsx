@@ -39,7 +39,6 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
     return localStorage.getItem('wa_crm_paid') === 'true';
   });
   const [copiedUpi, setCopiedUpi] = useState(false);
-  const [copiedPasskey, setCopiedPasskey] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
   const upiId = '6377595128@ibl';
@@ -82,12 +81,6 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
     navigator.clipboard.writeText(upiId);
     setCopiedUpi(true);
     setTimeout(() => setCopiedUpi(false), 2000);
-  };
-
-  const copyPasskey = () => {
-    navigator.clipboard.writeText('psrlms0707');
-    setCopiedPasskey(true);
-    setTimeout(() => setCopiedPasskey(false), 2000);
   };
 
   const copyOfferLink = () => {
@@ -621,33 +614,12 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
                   borderRadius: '8px',
                   fontWeight: '700',
                   fontSize: '14px',
-                  marginBottom: '14px'
+                  marginBottom: '18px'
                 }}
               >
                 <Download size={18} />
                 <span>Download Windows Package (63 MB)</span>
               </a>
-
-              {/* Admin Passkey Info */}
-              <div style={{
-                background: '#070d18',
-                border: '1px solid #1e293b',
-                padding: '10px 14px',
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginBottom: '18px',
-                fontSize: '12px'
-              }}>
-                <span style={{ color: '#94a3b8' }}>Login Admin Passkey: <b style={{ color: '#10b981' }}>psrlms0707</b></span>
-                <button
-                  onClick={copyPasskey}
-                  style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', fontSize: '11px', fontWeight: '700' }}
-                >
-                  {copiedPasskey ? 'Copied ✓' : 'Copy Key'}
-                </button>
-              </div>
 
               {/* 3-Share Referral Box */}
               <div style={{
