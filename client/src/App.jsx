@@ -15,7 +15,6 @@ const PanIndiaPresence = lazy(() => import('./components/PanIndiaPresence'));
 const Footer = lazy(() => import('./components/Footer'));
 const ValuationPurposeWizard = lazy(() => import('./components/ValuationPurposeWizard'));
 const WhoWeServe = lazy(() => import('./components/WhoWeServe'));
-const OurProcess = lazy(() => import('./components/OurProcess'));
 
 // Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
@@ -80,7 +79,6 @@ const ROUTE_CONFIG = {
   '/purpose-selector': { id: 'purpose-selector', title: 'Valuation Purpose Selector | KS Chartered Engineers' },
   '/who-we-serve': { id: 'who-we-serve', title: 'Who We Serve | Banks, CAs, Advocates, Builders & MSMEs | KS Chartered Engineers' },
   '/services': { id: 'services', title: 'Services We Offer | KS Chartered Engineers' },
-  '/process': { id: 'process', title: '8-Step Valuation & Certification Process | KS Chartered Engineers' },
   '/property-valuation': { id: 'property-land-valuation', title: 'Property & Land Valuation Services | KS Chartered Engineers' },
   '/bank-valuation': { id: 'bank-mortgage-valuation', title: 'Bank Loan & Mortgage Valuation (FMV & FSV) | KS Chartered Engineers' },
   '/tax-valuation': { id: 'statutory-tax-valuation', title: 'Capital Gains & 2001 Fair Market Valuation | KS Chartered Engineers' },
@@ -507,7 +505,6 @@ export default function App() {
         <LazySection minHeight="500px"><ValuationPurposeWizard onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="500px"><WhoWeServe onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="500px"><ServicesTeaser onOpenQuote={handleOpenQuote} /></LazySection>
-        <LazySection minHeight="500px"><OurProcess onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="500px"><WhyChooseUs onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="400px"><FounderProfile onOpenQuote={handleOpenQuote} /></LazySection>
         <LazySection minHeight="400px"><PanIndiaPresence onOpenQuote={handleOpenQuote} /></LazySection>

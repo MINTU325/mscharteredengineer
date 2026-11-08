@@ -317,13 +317,6 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
             >
               Open Purpose Selector &rarr;
             </a>
-            <a
-              href="/process"
-              className="btn btn-outline"
-              style={{ padding: '12px 22px', fontSize: '0.92rem', color: '#0f172a', borderColor: '#E8E2D8' }}
-            >
-              View 8-Step Process
-            </a>
           </div>
         </div>
       </div>

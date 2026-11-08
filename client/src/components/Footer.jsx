@@ -378,7 +378,6 @@ export default function Footer({ onOpenQuote }) {
             { href: '/services', label: '13 Services', highlight: 'gold' },
             { href: '/purpose-selector', label: 'Purpose Selector', highlight: 'gold' },
             { href: '/who-we-serve', label: 'Who We Serve', highlight: 'blue' },
-            { href: '/process', label: '8-Step Process' },
             { href: '/property-valuation', label: 'Property Valuation' },
             { href: '/bank-valuation', label: 'Bank Valuation' },
             { href: '/tax-valuation', label: 'Capital Gains 50C' },

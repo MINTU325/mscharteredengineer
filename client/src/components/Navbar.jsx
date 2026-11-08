@@ -375,7 +375,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button 
-                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'about' || currentPath === '/who-we-serve' || currentPath === '/credentials' || currentPath === '/founder' || currentPath === '/process' ? 'active' : ''}`}
+                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'about' || currentPath === '/who-we-serve' || currentPath === '/credentials' || currentPath === '/founder' ? 'active' : ''}`}
                   onClick={() => setActiveDropdown(activeDropdown === 'about' ? null : 'about')}
                   aria-expanded={activeDropdown === 'about'}
                 >
@@ -402,13 +402,6 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                     <div>
                       <div className="dropdown-item-title">Core Team &amp; Leadership</div>
                       <div className="dropdown-item-desc">IIT Roorkee mechanical engineering alumni</div>
-                    </div>
-                  </a>
-                  <a href="/process" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <CheckCircle2 size={16} color="#06b6d4" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">8-Step Valuation Process</div>
-                      <div className="dropdown-item-desc">Unassailable regulatory documentation</div>
                     </div>
                   </a>
                 </div>
@@ -522,7 +515,6 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical &amp; Substation Services <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication &amp; PEB Shed Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>
-          <a href="/process" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔄 8-Step Valuation Process</a>
 
           <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Technology &amp; Software
