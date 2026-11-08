@@ -136,6 +136,13 @@ const ROUTE_META = {
     canonical: 'https://www.mscharteredengineer.com/autocad-drafting',
     ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
   },
+  '/solar-structural-analysis': {
+    title: 'Solar Structural Analysis | KS Chartered Engineers (IIT Roorkee)',
+    description: 'Statutory structural stability certifications, wind load analysis (IS 875 Part 3), MMS design and rooftop solar load safety audits by IIT Roorkee alumni Chartered Engineers.',
+    keywords: 'Solar Structural Analysis, solar wind load analysis IS 875, solar MMS structural stability certificate, rooftop solar structural audit, solar chartered engineer stability report Jaipur India',
+    canonical: 'https://www.mscharteredengineer.com/solar-structural-analysis',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
   '/whatsapp-crm': {
     title: 'SumanTech WhatsApp Marketing CRM & Bulk Sender | Lifetime Access ₹100',
     description: 'Send bulk WhatsApp broadcasts from PC with anti-ban safe timing, Excel contacts import, automated PDF quotation generator. 100% localhost privacy. Single payment of ₹100.',

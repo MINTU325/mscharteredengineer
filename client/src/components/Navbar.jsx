@@ -27,7 +27,8 @@ import {
   Smartphone,
   ExternalLink,
   Coins,
-  Wrench
+  Wrench,
+  Sun
 } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 import LanguageToggle from './LanguageToggle';
@@ -310,6 +311,18 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                     </div>
                   </a>
 
+                  {/* 5. Solar Structural Analysis */}
+                  <a href="/solar-structural-analysis" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Sun size={16} color="#fbbf24" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#fbbf24', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span>Solar Structural Analysis</span>
+                        <span className="nav-tag-badge" style={{ background: '#fbbf24', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>NEW</span>
+                      </div>
+                      <div className="dropdown-item-desc">MMS Foundation, Wind Load IS 875 &amp; Rooftop Safety Audit</div>
+                    </div>
+                  </a>
+
                   <div className="dropdown-divider" />
                   <a href="/services" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
                     <span>Explore All 15 Engineering Services</span>
@@ -318,7 +331,19 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 </div>
               </li>
 
-              {/* 2. IT (Direct Highlight Link) */}
+              {/* 2. Solar Structural Analysis (Direct Highlight Link) */}
+              <li>
+                <a 
+                  href="/solar-structural-analysis" 
+                  className={`nav-link ${currentPath === '/solar-structural-analysis' ? 'active' : ''}`}
+                  style={{ color: '#fbbf24', fontWeight: 700 }}
+                >
+                  <span>Solar Structural Analysis</span>
+                  <span className="nav-tag-badge" style={{ background: '#fbbf24', color: '#000' }}>NEW</span>
+                </a>
+              </li>
+
+              {/* 3. IT (Direct Highlight Link) */}
               <li>
                 <a 
                   href="/tech-products" 
@@ -514,6 +539,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           )}
           <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical &amp; Substation Services <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication &amp; PEB Shed Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
+          <a href="/solar-structural-analysis" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 700 }}>☀️ Solar Structural Analysis <span style={{ background: '#fbbf24', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>
 
           <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>

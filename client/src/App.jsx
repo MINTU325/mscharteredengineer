@@ -32,6 +32,7 @@ const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
 const ElectricalServicesPage = lazy(() => import('./components/ElectricalServicesPage'));
 const FabricationServicesPage = lazy(() => import('./components/FabricationServicesPage'));
 const WhatsAppCrmOfferPage = lazy(() => import('./components/WhatsAppCrmOfferPage'));
+const SolarStructuralAnalysisPage = lazy(() => import('./components/SolarStructuralAnalysisPage'));
 
 const ROUTE_CONFIG = {
   '/whatsapp-crm': {
@@ -54,6 +55,11 @@ const ROUTE_CONFIG = {
     id: 'fabrication-services', 
     title: 'Industrial Fabrication, PEB Shed & Iron Work Services | KS Group (IIT Roorkee)',
     description: 'Turnkey Industrial Chimney Fabrication, Flue Gas Ducting, Heavy Iron & MS Structural Works, Factory PEB Sheds, PEB Buildings, and Architectural Glass & Aluminium Works by IIT Roorkee Engineers. Call +91 91586 58885.'
+  },
+  '/solar-structural-analysis': { 
+    id: 'solar-structural-analysis', 
+    title: 'Solar Structural Analysis | KS Chartered Engineers (IIT Roorkee)',
+    description: 'Statutory structural stability certifications, wind load analysis (IS 875 Part 3), MMS design and rooftop solar load safety audits by IIT Roorkee alumni Chartered Engineers.'
   },
   '/tin-shed-fabrication': { 
     id: 'fabrication-services', 
@@ -220,7 +226,7 @@ const FULL_PAGE_IDS = new Set([
   'home', 'admin', 'projects', 'faq', 'blog', 'services', 'tools', 'city-hub',
   'chartered-engineer', 'tech-products',
   'government-subsidies', 'business-loans', 'electrical-services', 'fabrication-services',
-  'whatsapp-crm'
+  'whatsapp-crm', 'solar-structural-analysis'
 ]);
 
 const SERVICES_ROUTES = new Set([
@@ -458,6 +464,9 @@ export default function App() {
     }
     if (routeId === 'fabrication-services') {
       return <FabricationServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'solar-structural-analysis') {
+      return <SolarStructuralAnalysisPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
     if (routeId === 'projects') {
       return <ArchitecturalProjects onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
