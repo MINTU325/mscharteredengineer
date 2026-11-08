@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   Home, 
   Briefcase, 
-  Calculator, 
   BookOpen, 
   Send, 
   Phone, 
@@ -19,7 +18,6 @@ import {
   Scale,
   FileCheck2,
   Cpu,
-  Compass,
   Zap,
   Users,
   Award,
@@ -370,51 +368,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 </div>
               </li>
 
-              {/* 3. Tools Dropdown */}
-              <li 
-                className="nav-item-dropdown" 
-                onMouseEnter={() => setActiveDropdown('tools')} 
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <button 
-                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'tools' || currentPath.includes('/tools') || currentPath.includes('/calculator') ? 'active' : ''}`}
-                  onClick={() => setActiveDropdown(activeDropdown === 'tools' ? null : 'tools')}
-                  aria-expanded={activeDropdown === 'tools'}
-                >
-                  <span>Tools</span>
-                  <ChevronDown size={10} className={`dropdown-chevron ${activeDropdown === 'tools' ? 'rotate' : ''}`} />
-                </button>
-                <div className={`nav-dropdown-menu ${activeDropdown === 'tools' ? 'open' : ''}`} style={{ minWidth: '310px' }}>
-                  <a href="/purpose-selector" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Compass size={16} color="#fbbf24" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title" style={{ color: '#fbbf24' }}>Purpose Selector</div>
-                      <div className="dropdown-item-desc">Find exact statutory valuation &amp; certificate rules</div>
-                    </div>
-                  </a>
-                  <a href="/calculator" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Calculator size={16} color="#38bdf8" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">Machinery Valuation Calculator</div>
-                      <div className="dropdown-item-desc">Instant DRC asset valuation estimator</div>
-                    </div>
-                  </a>
-                  <a href="/solar-checker" onClick={handleDropdownItemClick} className="nav-dropdown-item">
-                    <Zap size={16} color="#f59e0b" className="dropdown-item-icon" />
-                    <div>
-                      <div className="dropdown-item-title">Solar CEIG Compliance Checker</div>
-                      <div className="dropdown-item-desc">Verify statutory drawings &amp; CEA rules</div>
-                    </div>
-                  </a>
-                  <div className="dropdown-divider" />
-                  <a href="/tools" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
-                    <span>View All Engineering Tools</span>
-                    <ArrowRight size={13} />
-                  </a>
-                </div>
-              </li>
-
-              {/* 4. About Dropdown */}
+              {/* 3. About Dropdown */}
               <li 
                 className="nav-item-dropdown" 
                 onMouseEnter={() => setActiveDropdown('about')} 
@@ -580,12 +534,6 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           </div>
           <a href="/government-subsidies" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🏛️ Government Subsidies &amp; Grants</a>
           <a href="/business-loans" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 700 }}>💼 Business &amp; Machinery Loans</a>
-
-          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#fbbf24', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-            Interactive Tools
-          </div>
-          <a href="/purpose-selector" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 700 }}>🎯 Valuation Purpose Selector</a>
-          <a href="/tools" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8' }}>🛠️ Tools (Calculator &amp; Solar)</a>
 
           <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             About Company &amp; Credentials
