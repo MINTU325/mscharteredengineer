@@ -279,8 +279,79 @@ _Inquiry sent via KS Fabrication Official Website_`;
   };
 
   return (
-    <div style={{ background: '#0a1829', color: '#f1f5f9', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', minHeight: '100vh', paddingBottom: '70px' }}>
+    <div style={{ background: '#0a1829', color: '#f1f5f9', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', minHeight: '100vh', paddingBottom: '70px', overflowX: 'hidden' }}>
       
+      {/* ── Scoped Mobile Responsive CSS Rules ── */}
+      <style>{`
+        @media (max-width: 900px) {
+          .ks-nav-arrow {
+            display: none !important;
+          }
+          .ks-hero-content {
+            padding: 48px 16px 60px !important;
+          }
+          .ks-hero-title {
+            font-size: 2.1rem !important;
+            line-height: 1.2 !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .ks-hero-title {
+            font-size: 1.72rem !important;
+            margin-bottom: 14px !important;
+          }
+          .ks-hero-subtitle {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 20px !important;
+          }
+          .ks-hero-ctas {
+            flex-direction: column !important;
+            width: 100% !important;
+            gap: 10px !important;
+          }
+          .ks-hero-ctas > * {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
+          .ks-hero-stats {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
+            margin-top: 24px !important;
+            padding-top: 18px !important;
+          }
+          .ks-hero-stats > div > div:first-child {
+            font-size: 1.4rem !important;
+          }
+          .ks-product-actions {
+            flex-direction: column !important;
+            gap: 8px !important;
+          }
+          .ks-product-actions > * {
+            width: 100% !important;
+          }
+          .ks-gallery-filter {
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+          }
+          .ks-gallery-filter button {
+            padding: 6px 12px !important;
+            font-size: 0.78rem !important;
+          }
+          .ks-padded-card {
+            padding: 24px 16px !important;
+          }
+          .ks-floating-pill {
+            display: none !important;
+          }
+          .ks-floating-wrap {
+            bottom: 16px !important;
+            right: 16px !important;
+          }
+        }
+      `}</style>
+
       {/* ── 1. HERO SECTION WITH DYNAMIC SLIDER ── */}
       <section id="hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '560px', background: '#071220' }}>
         {heroSlides.map((slide, index) => {
@@ -310,7 +381,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                 display: 'flex',
                 alignItems: 'center'
               }}>
-                <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '70px 20px', width: '100%' }}>
+                <div className="ks-hero-content" style={{ maxWidth: '1240px', margin: '0 auto', padding: '70px 20px', width: '100%' }}>
                   <div style={{ maxWidth: '780px' }}>
                     
                     {/* Badge */}
@@ -319,11 +390,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       <span>{slide.tagline}</span>
                     </div>
 
-                    <h1 style={{ fontSize: 'clamp(2.2rem, 4.4vw, 3.6rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 18px 0', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+                    <h1 className="ks-hero-title" style={{ fontSize: 'clamp(1.9rem, 4.4vw, 3.6rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 18px 0', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
                       {slide.title}
                     </h1>
 
-                    <p style={{ fontSize: '1.15rem', color: '#cbd5e1', lineHeight: 1.7, margin: '0 0 28px 0', maxWidth: '700px' }}>
+                    <p className="ks-hero-subtitle" style={{ fontSize: '1.15rem', color: '#cbd5e1', lineHeight: 1.7, margin: '0 0 28px 0', maxWidth: '700px' }}>
                       {slide.subtitle}
                     </p>
 
@@ -334,7 +405,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     </div>
 
                     {/* CTA Buttons */}
-                    <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div className="ks-hero-ctas" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
                       <button
                         onClick={() => scrollToSection('products')}
                         style={{
@@ -397,7 +468,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     </div>
 
                     {/* Trust Statistics / Micro-Metrics Strip inside Hero */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '16px', marginTop: '35px', paddingTop: '25px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+                    <div className="ks-hero-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 130px), 1fr))', gap: '16px', marginTop: '35px', paddingTop: '25px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
                       <div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#F58220', lineHeight: 1 }}>500+</div>
                         <div style={{ fontSize: '0.80rem', color: '#cbd5e1', marginTop: '4px' }}>Mould Sets Delivered</div>
@@ -425,6 +496,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
         {/* Slider Controls (Prev / Next & Dots) */}
         <button
+          className="ks-nav-arrow"
           onClick={prevSlide}
           aria-label="Previous Slide"
           style={{
@@ -449,6 +521,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </button>
 
         <button
+          className="ks-nav-arrow"
           onClick={nextSlide}
           aria-label="Next Slide"
           style={{
@@ -495,7 +568,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
       {/* ── BRAND VALUE PROPOSITION / TRUST STRIP ── */}
       <section style={{ background: '#10243A', borderBottom: '1px solid #1e3a5a', padding: '18px 20px' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px', alignItems: 'center' }}>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <ShieldCheck size={28} color="#F58220" />
@@ -545,7 +618,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             position: 'relative',
             overflow: 'hidden'
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '32px', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '32px', alignItems: 'center' }}>
               
               {/* Leader Credentials */}
               <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
@@ -633,7 +706,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
         {/* ── 2. ABOUT COMPANY SECTION ── */}
         <section id="about" style={{ padding: '75px 0 60px', borderBottom: '1px solid #1e3a5a' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '40px', alignItems: 'center' }}>
             
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
@@ -653,7 +726,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                 Engineered for solar EPC companies, infrastructure contractors, and commercial precast plants, our moulds are crafted using heavy-gauge mild steel (MS) and aircraft-grade aluminium. With laser-guided dimensional accuracy and reinforced stiffening ribs, our moulds deliver mirror-finish concrete panels, rapid demoulding, and extreme structural durability under thousands of repeat casting cycles.
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px', marginBottom: '28px' }}>
+              <div className="ks-two-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '14px', marginBottom: '28px' }}>
                 <div style={{ background: '#10243A', padding: '14px', borderRadius: '10px', borderLeft: '4px solid #F58220' }}>
                   <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '0.95rem' }}>Precision CNC Sizing</div>
                   <div style={{ color: '#94a3b8', fontSize: '0.82rem' }}>Zero slurry leakage &amp; clean joints</div>
@@ -732,7 +805,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '26px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '26px' }}>
             {products.map((prod) => (
               <div
                 key={prod.id}
@@ -794,7 +867,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                   </div>
 
                   {/* Actions */}
-                  <div style={{ display: 'flex', gap: '10px' }}>
+                  <div className="ks-product-actions" style={{ display: 'flex', gap: '10px' }}>
                     <button
                       onClick={() => handleQuickProductWhatsApp(prod.name, prod.whatsappMsg)}
                       style={{
@@ -860,7 +933,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '22px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '22px' }}>
             
             <div style={{ background: '#10243A', border: '1px solid #1e3a5a', borderRadius: '12px', padding: '26px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
@@ -941,7 +1014,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', position: 'relative' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '20px', position: 'relative' }}>
             
             <div style={{ background: '#10243A', border: '1px solid #1e3a5a', borderRadius: '12px', padding: '24px', position: 'relative' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '1rem', marginBottom: '14px' }}>
@@ -995,9 +1068,9 @@ _Inquiry sent via KS Fabrication Official Website_`;
             overflow: 'hidden',
             boxShadow: '0 12px 40px rgba(0,0,0,0.5)'
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', alignItems: 'center' }}>
               
-              <div style={{ padding: '45px 35px' }}>
+              <div className="ks-padded-card" style={{ padding: '45px 35px' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
                   <Sun size={16} />
                   <span>Solar EPC &amp; Power Plant Solutions</span>
@@ -1097,7 +1170,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             </p>
 
             {/* Gallery Category Filter Buttons */}
-            <div style={{ display: 'inline-flex', background: '#10243A', padding: '4px', borderRadius: '10px', border: '1px solid #1e3a5a' }}>
+            <div className="ks-gallery-filter" style={{ display: 'inline-flex', background: '#10243A', padding: '4px', borderRadius: '10px', border: '1px solid #1e3a5a', maxWidth: '100%', overflowX: 'auto' }}>
               {[
                 { id: 'all', label: 'All Photos' },
                 { id: 'moulds', label: 'Concrete Moulds' },
@@ -1125,7 +1198,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 250px), 1fr))', gap: '20px' }}>
             {filteredGallery.map((item, idx) => (
               <div
                 key={idx}
@@ -1234,11 +1307,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '30px' }}>
             
             {/* Left Column: Direct Contact Info & Google Maps */}
             <div>
-              <div style={{ background: '#10243A', border: '1px solid #1e3a5a', borderRadius: '16px', padding: '30px', marginBottom: '24px' }}>
+              <div className="ks-padded-card" style={{ background: '#10243A', border: '1px solid #1e3a5a', borderRadius: '16px', padding: '30px', marginBottom: '24px' }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: '0 0 20px 0' }}>
                   Factory &amp; Head Office Details
                 </h3>
@@ -1309,7 +1382,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
             {/* Right Column: Direct Fill Product Enquiry Form */}
             <div id="enquiry-form">
-              <div style={{
+              <div className="ks-padded-card" style={{
                 background: '#10243A',
                 border: '2px solid rgba(245, 130, 32, 0.4)',
                 borderRadius: '16px',
@@ -1371,7 +1444,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       </div>
                     )}
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
                       <div>
                         <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '6px' }}>
                           Your Name / Company <span style={{ color: '#F58220' }}>*</span>
@@ -1421,7 +1494,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
                       <div>
                         <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#cbd5e1', marginBottom: '6px' }}>
                           Select Product Category
@@ -1566,7 +1639,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
       {/* ── 10. FOOTER ── */}
       <footer style={{ background: '#10243A', borderTop: '2px solid #F58220', marginTop: '60px', padding: '45px 20px 25px' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '30px', marginBottom: '35px' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '30px', marginBottom: '35px' }}>
           
           <div>
             <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#ffffff', marginBottom: '10px' }}>
@@ -1622,10 +1695,10 @@ _Inquiry sent via KS Fabrication Official Website_`;
       </footer>
 
       {/* ── FLOATING WHATSAPP BUTTON WITH HUMAN LIVE STATUS ── */}
-      <div style={{ position: 'fixed', bottom: '25px', right: '25px', zIndex: 999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
+      <div className="ks-floating-wrap" style={{ position: 'fixed', bottom: '25px', right: '25px', zIndex: 999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
         
         {/* Floating Human Status Badge */}
-        <div style={{
+        <div className="ks-floating-pill" style={{
           background: 'rgba(16, 36, 58, 0.95)',
           border: '1px solid rgba(16, 185, 129, 0.4)',
           borderRadius: '20px',
