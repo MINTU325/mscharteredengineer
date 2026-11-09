@@ -1150,7 +1150,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     </div>
                     <div>
                       <div style={{ fontSize: '0.80rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>Business Email</div>
-                      <a href="mailto:info@mscharteredengineer.com" style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none' }}>info@mscharteredengineer.com</a>
+                      <a href="mailto:ms.charteredengineer@gmail.com" style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none' }}>ms.charteredengineer@gmail.com</a>
                     </div>
                   </div>
 
