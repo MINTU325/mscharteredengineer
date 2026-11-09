@@ -30,7 +30,7 @@ import {
 export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuote }) {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = 'Precast Concrete Moulds & Solar Fencing Moulds | Soharvadi Fabrication';
+    document.title = 'Precast Concrete Moulds & Solar Fencing Moulds | KS Fabrication';
   }, []);
 
   // ── Top Hero Slider State ──
@@ -39,7 +39,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
     {
       title: "Precision Engineered Concrete Moulds for Stronger Infrastructure",
       subtitle: "Reliable, Durable and Easy-to-Use Moulds for Solar Fencing, Precast Concrete and Industrial Construction.",
-      tagline: "Soharvadi Fabrication • Industrial Manufacturing",
+      tagline: "KS Fabrication • Industrial Manufacturing",
       image: "/corridors/auto_welding_robots.jpg",
       badge: "Heavy Duty Mild Steel & Aluminium"
     },
@@ -84,7 +84,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
         "High-finish smooth surface with quick wedge locking",
         "Rigid outer stiffeners preventing mould bulging"
       ],
-      whatsappMsg: "Hello Soharvadi Fabrication, I am interested in Boundary Wall Moulds. Please share price, sizes, and transport details."
+      whatsappMsg: "Hello KS Fabrication, I am interested in Boundary Wall Moulds. Please share price, sizes, and transport details."
     },
     {
       id: "aluminium-mould",
@@ -98,7 +98,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
         "2,000+ repeat casting cycle life",
         "Sharp corner edges with zero slurry leakage"
       ],
-      whatsappMsg: "Hello Soharvadi Fabrication, I want to inquire about Aluminium Precast Concrete Moulds. Please share technical specs and pricing."
+      whatsappMsg: "Hello KS Fabrication, I want to inquire about Aluminium Precast Concrete Moulds. Please share technical specs and pricing."
     },
     {
       id: "fencing-pole-mould",
@@ -112,7 +112,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
         "Pre-engineered wire hole spacers for perfect alignment",
         "Tapered profile for rapid, damage-free demoulding"
       ],
-      whatsappMsg: "Hello Soharvadi Fabrication, I need quotation for RCC Fencing Pole Moulds for a solar farm / boundary project."
+      whatsappMsg: "Hello KS Fabrication, I need quotation for RCC Fencing Pole Moulds for a solar farm / boundary project."
     },
     {
       id: "h-pole-mould",
@@ -126,7 +126,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
         "Reinforced base plate anchor & heavy outer gussets",
         "High structural rigidity under heavy table vibration"
       ],
-      whatsappMsg: "Hello Soharvadi Fabrication, I need quotation for H-Pole Moulds (Slotted Columns) for boundary wall manufacturing."
+      whatsappMsg: "Hello KS Fabrication, I need quotation for H-Pole Moulds (Slotted Columns) for boundary wall manufacturing."
     },
     {
       id: "vibrator-machine",
@@ -140,7 +140,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
         "Adjustable centrifugal force for optimal compaction",
         "Operates smoothly with high daily mould turnaround"
       ],
-      whatsappMsg: "Hello Soharvadi Fabrication, I want details and price for Concrete Vibrator Table / Machine."
+      whatsappMsg: "Hello KS Fabrication, I want details and price for Concrete Vibrator Table / Machine."
     },
     {
       id: "custom-moulds",
@@ -154,7 +154,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
         "3D structural design preview before fabrication starts",
         "All-India secure transport & dispatch support"
       ],
-      whatsappMsg: "Hello Soharvadi Fabrication, I have custom concrete mould requirements as per my drawings. Please connect with me."
+      whatsappMsg: "Hello KS Fabrication, I have custom concrete mould requirements as per my drawings. Please connect with me."
     }
   ];
 
@@ -239,7 +239,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
     setFormSubmitting(true);
 
     const waText = 
-`🏗️ *NEW PRODUCT ENQUIRY • SOHARVADI FABRICATION*
+`🏗️ *NEW PRODUCT ENQUIRY • KS FABRICATION*
 ━━━━━━━━━━━━━━━━━━━━━━━━
 👤 *Client Name:* ${enquiryForm.name.trim()}
 📱 *WhatsApp Number:* ${cleanPhone}
@@ -247,7 +247,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
 📦 *Product Required:* ${enquiryForm.product}
 🔢 *Quantity / Scale:* ${enquiryForm.quantity}
 ${enquiryForm.email.trim() ? `✉️ *Email:* ${enquiryForm.email.trim()}\n` : ''}${enquiryForm.message.trim() ? `📝 *Requirements:* ${enquiryForm.message.trim()}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━━━
-_Inquiry sent via Soharvadi Fabrication Official Website_`;
+_Inquiry sent via KS Fabrication Official Website_`;
 
     const generatedUrl = `https://wa.me/919158658885?text=${encodeURIComponent(waText)}`;
     setWhatsAppUrl(generatedUrl);
@@ -274,7 +274,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
   };
 
   const handleQuickProductWhatsApp = (prodName, customMsg) => {
-    const waText = customMsg || `Hello Soharvadi Fabrication, I am interested in ${prodName}. Please share catalogue, price, and delivery timeline.`;
+    const waText = customMsg || `Hello KS Fabrication, I am interested in ${prodName}. Please share catalogue, price, and delivery timeline.`;
     window.open(`https://wa.me/919158658885?text=${encodeURIComponent(waText)}`, '_blank');
   };
 
@@ -367,7 +367,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
                       </button>
 
                       <a
-                        href="https://wa.me/919158658885?text=Hello%20Soharvadi%20Fabrication,%20I%20want%20to%20inquire%20about%20Concrete%20Boundary%20Wall%20and%20Solar%20Fencing%20Moulds."
+                        href="https://wa.me/919158658885?text=Hello%20KS%20Fabrication,%20I%20want%20to%20inquire%20about%20Concrete%20Boundary%20Wall%20and%20Solar%20Fencing%20Moulds."
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
@@ -515,7 +515,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
             <div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
                 <Factory size={15} />
-                <span>About Soharvadi Fabrication</span>
+                <span>About KS Fabrication</span>
               </div>
               
               <h2 style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 18px 0', lineHeight: 1.25 }}>
@@ -523,7 +523,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
               </h2>
 
               <p style={{ color: '#cbd5e1', fontSize: '1.02rem', lineHeight: 1.75, marginBottom: '16px' }}>
-                <strong>Soharvadi Fabrication</strong> is a premier Indian engineering and fabrication firm specializing in the precision manufacture of <strong>Precast Concrete Moulds, RCC Fencing Pole Moulds, Boundary Wall Moulds, and Concrete Vibration Equipment</strong>.
+                <strong>KS Fabrication</strong> is a premier Indian engineering and fabrication firm specializing in the precision manufacture of <strong>Precast Concrete Moulds, RCC Fencing Pole Moulds, Boundary Wall Moulds, and Concrete Vibration Equipment</strong>.
               </p>
 
               <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '24px' }}>
@@ -573,7 +573,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
               }}>
                 <img
                   src="/fabrication/factory-tin-shed-peb-warehouse.jpg"
-                  alt="Soharvadi Fabrication Mould Manufacturing Factory"
+                  alt="KS Fabrication Mould Manufacturing Factory"
                   style={{ width: '100%', height: '380px', objectFit: 'cover', display: 'block' }}
                 />
                 <div style={{
@@ -730,7 +730,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
               <span>Competitive Advantage</span>
             </div>
             <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 12px 0' }}>
-              Why Choose Soharvadi Fabrication?
+              Why Choose KS Fabrication?
             </h2>
             <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>
               Over 10+ years of dedicated structural steel &amp; precision precast mould fabrication experience serving clients nationwide.
@@ -1104,7 +1104,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
               <span>Get in Touch</span>
             </div>
             <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 12px 0' }}>
-              Contact Soharvadi Fabrication
+              Contact KS Fabrication
             </h2>
             <p style={{ color: '#94a3b8', fontSize: '1rem', margin: 0 }}>
               Speak directly with our mould fabrication specialists or submit the enquiry form below for an instant quotation.
@@ -1172,7 +1172,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
               {/* Embedded Google Maps Location */}
               <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid #1e3a5a', height: '240px' }}>
                 <iframe
-                  title="Soharvadi Fabrication Location"
+                  title="KS Fabrication Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113911.2384974786!2d75.71981882488828!3d26.88514168067425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
@@ -1428,7 +1428,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
 
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', color: '#64748b', fontSize: '0.78rem' }}>
                       <ShieldCheck size={13} color="#F58220" />
-                      <span>Direct connection with Soharvadi Fabrication sales team • Fast response</span>
+                      <span>Direct connection with KS Fabrication sales team • Fast response</span>
                     </div>
 
                   </form>
@@ -1447,7 +1447,7 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
           
           <div>
             <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#ffffff', marginBottom: '10px' }}>
-              SOHARVADI <span style={{ color: '#F58220' }}>FABRICATION</span>
+              KS <span style={{ color: '#F58220' }}>FABRICATION</span>
             </div>
             <p style={{ color: '#94a3b8', fontSize: '0.85rem', lineHeight: 1.65, margin: '0 0 14px 0' }}>
               Specialized Indian industrial manufacturer of Precast Concrete Moulds, Aluminium Moulds, RCC Fencing Pole Moulds, and Concrete Vibration Equipment.
@@ -1493,14 +1493,14 @@ _Inquiry sent via Soharvadi Fabrication Official Website_`;
         </div>
 
         <div style={{ maxWidth: '1240px', margin: '0 auto', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '0.78rem', color: '#64748b' }}>
-          <div>© {new Date().getFullYear()} Soharvadi Fabrication. All Rights Reserved.</div>
+          <div>© {new Date().getFullYear()} KS Fabrication. All Rights Reserved.</div>
           <div>Precast Concrete Moulds &amp; Solar Fencing Solutions</div>
         </div>
       </footer>
 
       {/* ── FLOATING WHATSAPP BUTTON ── */}
       <a
-        href="https://wa.me/919158658885?text=Hello%20Soharvadi%20Fabrication,%20I%20am%20interested%20in%20Precast%20Concrete%20and%20Solar%20Fencing%20Moulds."
+        href="https://wa.me/919158658885?text=Hello%20KS%20Fabrication,%20I%20am%20interested%20in%20Precast%20Concrete%20and%20Solar%20Fencing%20Moulds."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
