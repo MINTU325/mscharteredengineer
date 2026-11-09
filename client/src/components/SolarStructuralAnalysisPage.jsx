@@ -24,12 +24,7 @@ import {
   Layers, 
   Box, 
   FileText,
-  Check,
-  UserCheck,
-  ThumbsUp,
-  Calculator,
-  Sliders,
-  CheckCircle
+  Check
 } from 'lucide-react';
 
 export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuote }) {
@@ -208,37 +203,6 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       a: "Yes, we manufacture high-frequency vibrating tables (2 HP / 3 HP) engineered specifically for precast boundary panels, fencing poles, and pavers to eliminate all air voids and deliver high compressive strength concrete."
     }
   ];
-
-  // ── Interactive Mould Configurator State ──
-  const [cfgApp, setCfgApp] = useState('solar');
-  const [cfgMould, setCfgMould] = useState('boundary-wall');
-  const [cfgQty, setCfgQty] = useState('10-25');
-
-  const handleConfigWhatsAppSubmit = () => {
-    const mouldNames = {
-      'boundary-wall': 'Boundary Wall Panel Moulds',
-      'fencing-pole': 'RCC Fencing Pole Moulds (Y-Arm / Straight)',
-      'h-pole': 'H-Pole Slotted Column Moulds',
-      'vibrator': 'Industrial Concrete Vibrator Table (2-3 HP)',
-      'custom': 'Custom Concrete Mould (As per CAD Drawing)'
-    };
-    const appNames = {
-      'solar': 'Solar Power Park Perimeter Fencing',
-      'commercial': 'Industrial Real Estate & Boundary Wall',
-      'precast': 'Commercial Precast Manufacturing Plant',
-      'custom': 'Custom Infrastructure / Drain Channel'
-    };
-    const text = `Hello Er. Mukesh / KS Fabrication Team,
-
-I used the Online Mould Configurator on your website and require an official quotation:
-• Application: ${appNames[cfgApp] || cfgApp}
-• Mould Category: ${mouldNames[cfgMould] || cfgMould}
-• Quantity Target: ${cfgQty} Sets
-• Transport: Pan-India Dispatch Required
-
-Please share factory-direct price list, steel specifications, and delivery timeline.`;
-    window.open(`https://wa.me/919158658885?text=${encodeURIComponent(text)}`, '_blank');
-  };
 
   // ── Direct Enquiry Form State ──
   const [enquiryForm, setEnquiryForm] = useState({
@@ -583,36 +547,20 @@ _Inquiry sent via KS Fabrication Official Website_`;
           }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '32px', alignItems: 'center' }}>
               
-              {/* Leader Photo & Credentials */}
-              <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
-                <div style={{ position: 'relative', flexShrink: 0 }}>
-                  <img
-                    src="/mukesh-singh-founder.webp"
-                    alt="Er. Mukesh Singh - Principal Technical Director"
-                    style={{
-                      width: '108px',
-                      height: '108px',
-                      borderRadius: '50%',
-                      objectFit: 'cover',
-                      border: '3px solid #F58220',
-                      boxShadow: '0 6px 20px rgba(245, 130, 32, 0.3)'
-                    }}
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '-2px',
-                    right: '-2px',
-                    background: '#10b981',
-                    borderRadius: '50%',
-                    width: '24px',
-                    height: '24px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '2px solid #071220'
-                  }} title="Direct Technical Head Available">
-                    <CheckCircle2 size={15} color="#ffffff" />
-                  </div>
+              {/* Leader Credentials */}
+              <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+                <div style={{
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '12px',
+                  background: 'rgba(245, 130, 32, 0.15)',
+                  border: '1px solid rgba(245, 130, 32, 0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  <Award size={28} color="#F58220" />
                 </div>
 
                 <div>
@@ -765,145 +713,6 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </div>
             </div>
 
-          </div>
-        </section>
-
-        {/* ── INTERACTIVE MOULD CONFIGURATOR & INSTANT ESTIMATOR ── */}
-        <section id="configurator" style={{ padding: '60px 0', borderBottom: '1px solid #1e3a5a' }}>
-          <div style={{
-            background: 'linear-gradient(135deg, #10243A 0%, #0c1a2b 100%)',
-            border: '2px solid rgba(245, 130, 32, 0.4)',
-            borderRadius: '20px',
-            padding: '36px 30px',
-            boxShadow: '0 16px 40px rgba(0,0,0,0.4)'
-          }}>
-            <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 30px' }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-                <Calculator size={16} />
-                <span>Instant Requirement Estimator</span>
-              </div>
-              <h2 style={{ fontSize: 'clamp(1.7rem, 2.8vw, 2.3rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 10px 0' }}>
-                Interactive Precast Mould Configurator
-              </h2>
-              <p style={{ color: '#94a3b8', fontSize: '0.94rem', margin: 0 }}>
-                Select your intended application and product category to get instant recommended steel specifications, casting speed, and factory-direct quotation.
-              </p>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '26px' }}>
-              
-              {/* Step 1: Application */}
-              <div>
-                <label style={{ display: 'block', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '10px' }}>
-                  1. Project Application:
-                </label>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {[
-                    { id: 'solar', label: '☀️ Solar Power Plant Perimeter Fencing' },
-                    { id: 'commercial', label: '🏗️ Industrial Boundary & Real Estate' },
-                    { id: 'precast', label: '🏭 Commercial Precast Casting Yard' },
-                    { id: 'custom', label: '🌾 Agricultural & Farmhouse Enclosure' }
-                  ].map(app => (
-                    <button
-                      key={app.id}
-                      onClick={() => setCfgApp(app.id)}
-                      style={{
-                        textAlign: 'left',
-                        padding: '12px 14px',
-                        background: cfgApp === app.id ? 'rgba(245, 130, 32, 0.18)' : '#071220',
-                        border: cfgApp === app.id ? '2px solid #F58220' : '1px solid #1e3a5a',
-                        color: cfgApp === app.id ? '#ffffff' : '#cbd5e1',
-                        borderRadius: '8px',
-                        fontSize: '0.88rem',
-                        fontWeight: cfgApp === app.id ? 800 : 500,
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
-                      {app.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Step 2: Mould Category */}
-              <div>
-                <label style={{ display: 'block', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '10px' }}>
-                  2. Mould Category Required:
-                </label>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {[
-                    { id: 'boundary-wall', label: '🧱 Boundary Wall Panel Mould (MS / Alum)' },
-                    { id: 'fencing-pole', label: '🛡️ RCC Fencing Pole Mould (Straight / Y-Arm)' },
-                    { id: 'h-pole', label: '🏛️ H-Pole Slotted Column Mould' },
-                    { id: 'vibrator', label: '⚡ Concrete Vibrator Table (2 HP / 3 HP)' },
-                    { id: 'custom', label: '📐 Custom Precast Mould (As per Drawing)' }
-                  ].map(m => (
-                    <button
-                      key={m.id}
-                      onClick={() => setCfgMould(m.id)}
-                      style={{
-                        textAlign: 'left',
-                        padding: '12px 14px',
-                        background: cfgMould === m.id ? 'rgba(56, 189, 248, 0.18)' : '#071220',
-                        border: cfgMould === m.id ? '2px solid #38bdf8' : '1px solid #1e3a5a',
-                        color: cfgMould === m.id ? '#ffffff' : '#cbd5e1',
-                        borderRadius: '8px',
-                        fontSize: '0.88rem',
-                        fontWeight: cfgMould === m.id ? 800 : 500,
-                        cursor: 'pointer',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
-                      {m.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Step 3: Estimated Output & 1-Click WhatsApp Result Box */}
-              <div style={{ background: '#071220', border: '1px solid #1e3a5a', borderRadius: '14px', padding: '22px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                <div>
-                  <div style={{ color: '#10b981', fontSize: '0.80rem', fontWeight: 800, textTransform: 'uppercase', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <CheckCircle2 size={16} />
-                    <span>Recommended Technical Specification</span>
-                  </div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', marginBottom: '14px' }}>
-                    Heavy Duty IS 2062 Prime Steel
-                  </div>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: '#cbd5e1', marginBottom: '20px' }}>
-                    <div>• <strong>Plate Thickness:</strong> 3.15mm, 4mm or 5mm MS (Customizable)</div>
-                    <div>• <strong>Surface Finish:</strong> Mirror smooth with zero honeycombing</div>
-                    <div>• <strong>Mould Life:</strong> 2,000+ Repeat Castings</div>
-                    <div>• <strong>Dispatch:</strong> Safe transport to your plant site in 7-10 days</div>
-                  </div>
-                </div>
-
-                <button
-                  onClick={handleConfigWhatsAppSubmit}
-                  style={{
-                    background: '#10b981',
-                    color: '#ffffff',
-                    border: 'none',
-                    borderRadius: '10px',
-                    padding: '14px 18px',
-                    fontSize: '0.94rem',
-                    fontWeight: 800,
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    boxShadow: '0 4px 18px rgba(16, 185, 129, 0.35)'
-                  }}
-                >
-                  <MessageSquare size={18} />
-                  <span>Send Config to WhatsApp for Instant Price</span>
-                </button>
-              </div>
-
-            </div>
           </div>
         </section>
 
@@ -1269,92 +1078,6 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </div>
 
             </div>
-          </div>
-        </section>
-
-        {/* ── VERIFIED CUSTOMER REVIEWS & HUMAN SOCIAL PROOF ── */}
-        <section style={{ padding: '75px 0 60px', borderBottom: '1px solid #1e3a5a' }}>
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 40px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-              <ThumbsUp size={15} />
-              <span>Real Customer Feedback</span>
-            </div>
-            <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 12px 0' }}>
-              Trusted by Solar EPCs &amp; Precast Plants Nationwide
-            </h2>
-            <p style={{ color: '#94a3b8', fontSize: '1rem', margin: 0 }}>
-              Read direct project feedback from contractors and factory owners who rely on KS Fabrication moulds for daily production.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '24px' }}>
-            
-            {/* Review 1 */}
-            <div style={{ background: '#10243A', border: '1px solid #1e3a5a', borderRadius: '16px', padding: '28px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 10px 30px rgba(0,0,0,0.35)' }}>
-              <div>
-                <div style={{ display: 'flex', gap: '4px', color: '#fbbf24', marginBottom: '14px' }}>
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#fbbf24" color="#fbbf24" />)}
-                </div>
-                <p style={{ color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.65, fontStyle: 'italic', margin: '0 0 20px 0' }}>
-                  "We procured 80 sets of RCC Y-Pole fencing moulds for our 75 MW solar plant project in Bhadla. The pre-machined wire pinholes were 100% aligned, allowing our civil team to cast 300+ poles every single day with zero distortion. Delivered to our site within 4 days."
-                </p>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'linear-gradient(135deg, #F58220, #b45309)', color: '#ffffff', fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem' }}>
-                  AV
-                </div>
-                <div>
-                  <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '0.95rem' }}>Amit Verma</div>
-                  <div style={{ color: '#F58220', fontSize: '0.80rem' }}>VP Project Procurement, 75 MW Solar Park</div>
-                  <div style={{ color: '#94a3b8', fontSize: '0.74rem' }}>Jodhpur, Rajasthan</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Review 2 */}
-            <div style={{ background: '#10243A', border: '1px solid #1e3a5a', borderRadius: '16px', padding: '28px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 10px 30px rgba(0,0,0,0.35)' }}>
-              <div>
-                <div style={{ display: 'flex', gap: '4px', color: '#fbbf24', marginBottom: '14px' }}>
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#fbbf24" color="#fbbf24" />)}
-                </div>
-                <p style={{ color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.65, fontStyle: 'italic', margin: '0 0 20px 0' }}>
-                  "We have been running KS boundary wall moulds and their 3HP vibration table for 14 months now. Over 1,800+ castings done so far, and the side channels have not bulged a single millimeter. The smooth release wedge lock saves our labourers over 1.5 hours daily."
-                </p>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'linear-gradient(135deg, #38bdf8, #0369a1)', color: '#ffffff', fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem' }}>
-                  KP
-                </div>
-                <div>
-                  <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '0.95rem' }}>Kailash Patel</div>
-                  <div style={{ color: '#38bdf8', fontSize: '0.80rem' }}>Owner, Kutch Precast Solutions</div>
-                  <div style={{ color: '#94a3b8', fontSize: '0.74rem' }}>Mundra, Gujarat</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Review 3 */}
-            <div style={{ background: '#10243A', border: '1px solid #1e3a5a', borderRadius: '16px', padding: '28px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 10px 30px rgba(0,0,0,0.35)' }}>
-              <div>
-                <div style={{ display: 'flex', gap: '4px', color: '#fbbf24', marginBottom: '14px' }}>
-                  {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#fbbf24" color="#fbbf24" />)}
-                </div>
-                <p style={{ color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.65, fontStyle: 'italic', margin: '0 0 20px 0' }}>
-                  "Very honest and transparent fabrication firm. They sent live fabrication photos of the welding and CNC laser shearing directly to my WhatsApp. Clear 50% advance and 50% post-completion terms. Best rates for solar boundary moulds in North India."
-                </p>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'linear-gradient(135deg, #10b981, #047857)', color: '#ffffff', fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem' }}>
-                  DS
-                </div>
-                <div>
-                  <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '0.95rem' }}>Dharmendra Singh</div>
-                  <div style={{ color: '#10b981', fontSize: '0.80rem' }}>Lead EPC Contractor, Highway Infrastructure</div>
-                  <div style={{ color: '#94a3b8', fontSize: '0.74rem' }}>Indore, Madhya Pradesh</div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </section>
 
