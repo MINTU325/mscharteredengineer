@@ -458,7 +458,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>Wind Uplift &amp; Suction (IS 875 Pt 3)</h3>
               </div>
               <p style={{ color: '#94a3b8', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-                Site-specific wind pressure evaluation considering basic wind velocity ($V_b$), terrain category ($k_1, k_2, k_3, k_4$), roof slope tilt, and corner aerodynamic vortex suction coefficients ($C_{pe} - C_{pi}$).
+                Site-specific wind pressure evaluation considering basic wind velocity (Vb), terrain category factors (k1, k2, k3, k4), roof slope tilt, and corner aerodynamic vortex suction coefficients (Cpe - Cpi).
               </p>
             </div>
 
