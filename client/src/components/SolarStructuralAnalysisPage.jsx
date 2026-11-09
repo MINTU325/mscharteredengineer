@@ -40,21 +40,21 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       title: "Precision Engineered Concrete Moulds for Stronger Infrastructure",
       subtitle: "Reliable, Durable and Easy-to-Use Moulds for Solar Fencing, Precast Concrete and Industrial Construction.",
       tagline: "KS Fabrication • Industrial Manufacturing",
-      image: "/corridors/auto_welding_robots.jpg",
+      image: "/corridors/auto_welding_robots.webp",
       badge: "Heavy Duty Mild Steel & Aluminium"
     },
     {
       title: "Engineered Precast Moulds for Mega Solar Power Plants",
       subtitle: "Heavy-Duty RCC Fencing Pole Moulds & Boundary Wall Systems protecting 500+ MW solar installations across India.",
       tagline: "Solar Farm Boundary Fencing Solutions",
-      image: "/corridors/solar_pv_plant.jpg",
+      image: "/corridors/solar_pv_plant.webp",
       badge: "Zero-Maintenance Security Fencing"
     },
     {
       title: "High-Compaction Vibration Tables & Custom Precast Moulds",
       subtitle: "Mirror-smooth concrete finish, zero honeycombing, high daily casting output with 2000+ repeat mould life.",
       tagline: "Turnkey Precast Machinery & Equipment",
-      image: "/corridors/machinery_cnc_center.jpg",
+      image: "/corridors/machinery_cnc_center.webp",
       badge: "Direct Factory Pricing • All-India Transport"
     }
   ];
@@ -76,7 +76,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       id: "boundary-wall-mould",
       name: "Boundary Wall Mould",
       badge: "Bestseller for Precast Plants",
-      image: "/fabrication/heavy-iron-fabrication-sliding-gate.jpg",
+      image: "/fabrication/heavy-iron-fabrication-sliding-gate.webp",
       shortDesc: "Heavy-gauge 3mm to 5mm MS sheet boundary wall panel mould with interlocking channels and reinforcement rib design for high daily casting output.",
       features: [
         "Modular lengths: 6ft, 7ft & 8ft panels (1ft / 1.5ft height)",
@@ -90,7 +90,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       id: "aluminium-mould",
       name: "Aluminium Mould",
       badge: "Ultra Lightweight & Smooth",
-      image: "/corridors/machinery_cnc_center.jpg",
+      image: "/corridors/machinery_cnc_center.webp",
       shortDesc: "High-grade extruded aluminium alloy mould ensuring zero rust, mirror-smooth concrete face finish, and effortless manual demoulding.",
       features: [
         "60% lighter than steel — easy manual shifting",
@@ -104,7 +104,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       id: "fencing-pole-mould",
       name: "RCC Fencing Pole Mould",
       badge: "Solar Boundary Essential",
-      image: "/fabrication/structural-steel-tower-erection.jpg",
+      image: "/fabrication/structural-steel-tower-erection.webp",
       shortDesc: "Precision-fabricated fencing pole mould with pre-machined pin holes for barbed wire, razor wire, and chain link fencing fasteners.",
       features: [
         "Straight pole & Y-Arm / L-Arm curved security designs",
@@ -118,7 +118,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       id: "h-pole-mould",
       name: "H-Pole Mould (Slotted Column)",
       badge: "Heavy Structural Load",
-      image: "/fabrication/boiler-stack-foundation-base.jpg",
+      image: "/fabrication/boiler-stack-foundation-base.webp",
       shortDesc: "Precision slotted H-shape column mould engineered for seamless sliding and interlocking of precast concrete boundary wall slabs.",
       features: [
         "Double-sided precision grooves for slab insertion",
@@ -132,7 +132,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       id: "vibrator-machine",
       name: "Concrete Vibrator Machine",
       badge: "High Density Compaction",
-      image: "/corridors/hydraulic_forging_press.jpg",
+      image: "/corridors/hydraulic_forging_press.webp",
       shortDesc: "Industrial concrete vibration table and heavy-duty plate vibrator equipment ensuring zero air voids, honeycombing prevention, and maximum concrete strength.",
       features: [
         "2 HP & 3 HP 100% copper-wound continuous rating motor",
@@ -146,7 +146,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
       id: "custom-moulds",
       name: "All Types of Custom Concrete Moulds",
       badge: "Bespoke Engineering",
-      image: "/fabrication/heavy-industrial-ducting-support.jpg",
+      image: "/fabrication/heavy-industrial-ducting-support.webp",
       shortDesc: "Custom-tailored concrete moulds engineered as per your exact CAD drawings for U-drains, box culverts, tree guards, flower pots, and architectural precast.",
       features: [
         "100% custom sizing as per client CAD / architectural drawings",
@@ -161,14 +161,14 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
   // ── Gallery Data & Filters ──
   const [galleryFilter, setGalleryFilter] = useState('all');
   const galleryItems = [
-    { title: "Boundary Wall Mould Batch", category: "moulds", image: "/fabrication/heavy-iron-fabrication-sliding-gate.jpg", desc: "Heavy MS boundary wall mould ready for dispatch" },
-    { title: "Solar Power Plant Fencing", category: "solar", image: "/corridors/solar_pv_plant.jpg", desc: "Completed RCC pole & boundary wall solar farm perimeter" },
-    { title: "Precision CNC Machine Shop", category: "factory", image: "/corridors/machinery_cnc_center.jpg", desc: "Automated milling & drilling of aluminium mould dies" },
-    { title: "Automated Welding & Assembly", category: "factory", image: "/corridors/auto_welding_robots.jpg", desc: "Robotic & MIG welding of structural H-pole moulds" },
-    { title: "H-Column Slotted Precast Mould", category: "moulds", image: "/fabrication/boiler-stack-foundation-base.jpg", desc: "Heavy-duty slotted column mould for sliding concrete panels" },
-    { title: "Industrial Precast Shed Works", category: "solar", image: "/fabrication/factory-tin-shed-peb-warehouse.jpg", desc: "Turnkey precast boundary enclosure for industrial substation" },
-    { title: "Heavy Hydraulic Bending", category: "factory", image: "/corridors/hydraulic_forging_press.jpg", desc: "CNC press brake bending of 4mm & 5mm mould steel plates" },
-    { title: "Custom Heavy Ducting Mould", category: "moulds", image: "/fabrication/heavy-industrial-ducting-support.jpg", desc: "Specialized precast box culvert and drain channel mould" }
+    { title: "Boundary Wall Mould Batch", category: "moulds", image: "/fabrication/heavy-iron-fabrication-sliding-gate.webp", desc: "Heavy MS boundary wall mould ready for dispatch" },
+    { title: "Solar Power Plant Fencing", category: "solar", image: "/corridors/solar_pv_plant.webp", desc: "Completed RCC pole & boundary wall solar farm perimeter" },
+    { title: "Precision CNC Machine Shop", category: "factory", image: "/corridors/machinery_cnc_center.webp", desc: "Automated milling & drilling of aluminium mould dies" },
+    { title: "Automated Welding & Assembly", category: "factory", image: "/corridors/auto_welding_robots.webp", desc: "Robotic & MIG welding of structural H-pole moulds" },
+    { title: "H-Column Slotted Precast Mould", category: "moulds", image: "/fabrication/boiler-stack-foundation-base.webp", desc: "Heavy-duty slotted column mould for sliding concrete panels" },
+    { title: "Industrial Precast Shed Works", category: "solar", image: "/fabrication/factory-tin-shed-peb-warehouse.webp", desc: "Turnkey precast boundary enclosure for industrial substation" },
+    { title: "Heavy Hydraulic Bending", category: "factory", image: "/corridors/hydraulic_forging_press.webp", desc: "CNC press brake bending of 4mm & 5mm mould steel plates" },
+    { title: "Custom Heavy Ducting Mould", category: "moulds", image: "/fabrication/heavy-industrial-ducting-support.webp", desc: "Specialized precast box culvert and drain channel mould" }
   ];
 
   const filteredGallery = galleryFilter === 'all' 
@@ -768,7 +768,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                 position: 'relative'
               }}>
                 <img
-                  src="/fabrication/factory-tin-shed-peb-warehouse.jpg"
+                  src="/fabrication/factory-tin-shed-peb-warehouse.webp"
                   alt="KS Fabrication Mould Manufacturing Factory"
                   style={{ width: '100%', height: '380px', objectFit: 'cover', display: 'block' }}
                 />
@@ -1130,7 +1130,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               {/* Solar Plant Image */}
               <div style={{ height: '100%', minHeight: '360px', position: 'relative' }}>
                 <img
-                  src="/corridors/solar_pv_plant.jpg"
+                  src="/corridors/solar_pv_plant.webp"
                   alt="Solar Power Plant Boundary Fencing with RCC Poles"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: '380px' }}
                 />
