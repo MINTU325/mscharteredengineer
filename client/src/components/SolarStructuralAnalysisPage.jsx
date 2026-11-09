@@ -17,7 +17,12 @@ import {
   ArrowRight,
   FileText,
   Compass,
-  Check
+  Check,
+  Send,
+  MessageSquare,
+  User,
+  MapPin,
+  Sparkles
 } from 'lucide-react';
 
 export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuote }) {
@@ -28,6 +33,77 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
 
   const [activeFaq, setActiveFaq] = useState(null);
   const [activeTab, setActiveTab] = useState('commercial');
+
+  // Solar-specific request form state
+  const [solarForm, setSolarForm] = useState({
+    name: '',
+    phone: '',
+    city: '',
+    capacity: '100 kW - 500 kW (Industrial PEB Shed)',
+    installationType: 'Factory PEB Metal Sheet Shed',
+    serviceScope: 'Structural Stability & Wind Load Certificate (IS 875 Pt 3)',
+    notes: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formError, setFormError] = useState('');
+  const [whatsAppUrl, setWhatsAppUrl] = useState('');
+
+  const scrollToForm = () => {
+    const el = document.getElementById('solar-request-form');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleSolarFormSubmit = (e) => {
+    e.preventDefault();
+    if (!solarForm.name.trim()) {
+      setFormError('Please enter your name or company name.');
+      return;
+    }
+    const cleanPhone = solarForm.phone.replace(/[^0-9]/g, '');
+    if (cleanPhone.length < 10) {
+      setFormError('Please enter a valid 10-digit mobile / WhatsApp number.');
+      return;
+    }
+    setFormError('');
+    setIsSubmitting(true);
+
+    const waText = 
+`☀️ *SOLAR STRUCTURAL STABILITY INQUIRY*
+━━━━━━━━━━━━━━━━━━━━━━━━
+👤 *Client Name:* ${solarForm.name.trim()}
+📱 *WhatsApp Number:* ${cleanPhone}
+📍 *City / Location:* ${solarForm.city.trim() || 'Not specified'}
+⚡ *Plant Capacity:* ${solarForm.capacity}
+🏢 *Structure Type:* ${solarForm.installationType}
+📜 *Required Scope:* ${solarForm.serviceScope}
+${solarForm.notes.trim() ? `📝 *Project Remarks:* ${solarForm.notes.trim()}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━━━
+_Requesting Chartered Engineer Stamped Report & Feasibility Review from KS Chartered Engineers (IIT Roorkee)_`;
+
+    const generatedUrl = `https://wa.me/919158658885?text=${encodeURIComponent(waText)}`;
+    setWhatsAppUrl(generatedUrl);
+
+    // Record inquiry to backend
+    fetch('/api/inquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: solarForm.name.trim(),
+        phone: cleanPhone,
+        service: `Solar Structural Stability Report (${solarForm.capacity})`,
+        location: solarForm.city.trim() || 'India',
+        projectScope: `${solarForm.serviceScope} on ${solarForm.installationType}. ${solarForm.notes.trim()}`
+      })
+    }).catch(() => {});
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormSubmitted(true);
+      window.open(generatedUrl, '_blank');
+    }, 350);
+  };
 
   const faqs = [
     {
@@ -125,13 +201,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
           {/* Action CTAs */}
           <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
             <button
-              onClick={() => {
-                if (typeof onOpenQuote === 'function') {
-                  onOpenQuote('Solar Structural Stability & Wind Load Certification');
-                } else {
-                  window.location.href = '/contact';
-                }
-              }}
+              onClick={scrollToForm}
               style={{
                 background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
                 color: '#040914',
@@ -147,7 +217,8 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
                 boxShadow: '0 4px 20px rgba(245, 158, 11, 0.3)'
               }}
             >
-              <span>Request Stamped Structural Report</span>
+              <Send size={17} />
+              <span>Request Stamped Solar Report (WhatsApp)</span>
               <ArrowRight size={17} />
             </button>
             <a
@@ -167,7 +238,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
               }}
             >
               <PhoneCall size={17} color="#fbbf24" />
-              <span>Talk to Senior Structural Engineer</span>
+              <span>Call Senior Engineer: +91 91586 58885</span>
             </a>
           </div>
 
@@ -640,13 +711,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
                   </div>
                 </div>
                 <button
-                  onClick={() => {
-                    if (typeof onOpenQuote === 'function') {
-                      onOpenQuote('Solar Structural Stability & Wind Load Certification');
-                    } else {
-                      window.location.href = '/contact';
-                    }
-                  }}
+                  onClick={scrollToForm}
                   style={{
                     background: '#fbbf24',
                     color: '#040914',
@@ -661,7 +726,8 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
                     gap: '6px'
                   }}
                 >
-                  <span>Inquire for Similar Project</span>
+                  <Send size={15} />
+                  <span>Request Solar Audit for Your Project</span>
                   <ArrowRight size={15} />
                 </button>
               </div>
@@ -739,72 +805,334 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
           </div>
         </section>
 
-        {/* ── Section 8: Final CTA Card ── */}
-        <section style={{
-          background: 'radial-gradient(ellipse at 50% 50%, rgba(251, 191, 36, 0.12) 0%, rgba(10, 18, 36, 0.9) 70%, #040914 100%)',
-          border: '1px solid #334155',
-          borderRadius: '18px',
-          padding: '45px 25px',
-          textAlign: 'center'
-        }}>
-          <div style={{ maxWidth: '700px', margin: '0 auto' }}>
-            <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'rgba(251, 191, 36, 0.15)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-              <Sun size={28} color="#fbbf24" />
+        {/* ── Section 8: Dedicated Solar Request Form (Sends to WhatsApp) ── */}
+        <section 
+          id="solar-request-form"
+          style={{
+            background: 'linear-gradient(145deg, #0a1226 0%, #060c1d 100%)',
+            border: '2px solid rgba(251, 191, 36, 0.4)',
+            borderRadius: '20px',
+            padding: '40px 25px 45px',
+            boxShadow: '0 12px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(251, 191, 36, 0.1)'
+          }}
+        >
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            
+            <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(251, 191, 36, 0.15)', border: '1px solid rgba(251, 191, 36, 0.35)', padding: '5px 16px', borderRadius: '20px', color: '#fbbf24', fontSize: '0.82rem', fontWeight: 700, marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                <Sun size={16} />
+                <span>Solar Specific Intake Form</span>
+              </div>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.4rem)', fontWeight: 800, color: '#ffffff', margin: '0 0 10px 0' }}>
+                Request Solar Structural Report &amp; Feasibility
+              </h2>
+              <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6, maxWidth: '640px', margin: '0 auto' }}>
+                Fill your solar plant details below. On submission, the specifications will be formatted directly and delivered to our Senior Structural Engineer on <strong>WhatsApp (+91 91586 58885)</strong> for fast quote &amp; feasibility review.
+              </p>
             </div>
-            <h2 style={{ fontSize: 'clamp(1.7rem, 2.8vw, 2.3rem)', fontWeight: 800, color: '#ffffff', margin: '0 0 12px 0' }}>
-              Get Your Solar Structural Stability Report Today
-            </h2>
-            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.65, margin: '0 0 28px 0' }}>
-              Fast-track your DISCOM net-metering, CEIG safety certificates, and project approvals with certified structural calculations by IIT Roorkee alumni Chartered Engineers.
-            </p>
-            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button
-                onClick={() => {
-                  if (typeof onOpenQuote === 'function') {
-                    onOpenQuote('Solar Structural Stability & Wind Load Certification');
-                  } else {
-                    window.location.href = '/contact';
-                  }
-                }}
-                style={{
-                  background: '#fbbf24',
-                  color: '#040914',
-                  border: 'none',
-                  borderRadius: '10px',
-                  padding: '13px 28px',
-                  fontSize: '0.95rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  boxShadow: '0 4px 18px rgba(245, 158, 11, 0.3)'
-                }}
-              >
-                <span>Request Quotation &amp; Feasibility Review</span>
-                <ArrowRight size={17} />
-              </button>
-              <a
-                href="https://wa.me/919158658885?text=Hello%20KS%20Chartered%20Engineers,%20I%20need%20a%20Solar%20Structural%20Engineer%20Report%20and%20Stability%20Certificate."
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  background: 'rgba(16, 185, 129, 0.12)',
-                  color: '#10b981',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
-                  borderRadius: '10px',
-                  padding: '13px 24px',
-                  fontSize: '0.95rem',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px'
-                }}
-              >
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
+
+            {formSubmitted ? (
+              <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '16px', padding: '36px 24px', textAlign: 'center' }}>
+                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.2)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
+                  <Check size={32} color="#10b981" />
+                </div>
+                <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', margin: '0 0 10px 0' }}>
+                  Solar Request Generated Successfully!
+                </h3>
+                <p style={{ color: '#cbd5e1', fontSize: '0.98rem', lineHeight: 1.6, maxWidth: '560px', margin: '0 auto 24px' }}>
+                  Your solar structural project details have been prepared for WhatsApp delivery. If WhatsApp did not open automatically, click the button below to send:
+                </p>
+                <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                  <a
+                    href={whatsAppUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: '#10b981',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '10px',
+                      padding: '14px 28px',
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      boxShadow: '0 4px 18px rgba(16, 185, 129, 0.4)'
+                    }}
+                  >
+                    <MessageSquare size={18} />
+                    <span>Open WhatsApp Chat with Engineer</span>
+                  </a>
+                  <button
+                    onClick={() => setFormSubmitted(false)}
+                    style={{
+                      background: 'transparent',
+                      color: '#94a3b8',
+                      border: '1px solid #334155',
+                      borderRadius: '10px',
+                      padding: '14px 22px',
+                      fontSize: '0.92rem',
+                      fontWeight: 600,
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Edit / Submit Another Project
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSolarFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                
+                {formError && (
+                  <div style={{ background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.35)', color: '#fca5a5', padding: '12px 18px', borderRadius: '10px', fontSize: '0.90rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <AlertTriangle size={18} color="#ef4444" />
+                    <span>{formError}</span>
+                  </div>
+                )}
+
+                {/* Row 1: Name & Phone */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '8px' }}>
+                      Client / Company Name <span style={{ color: '#fbbf24' }}>*</span>
+                    </label>
+                    <div style={{ position: 'relative' }}>
+                      <User size={17} color="#64748b" style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Ramesh Sharma / SunPower EPC Ltd."
+                        value={solarForm.name}
+                        onChange={(e) => setSolarForm({ ...solarForm, name: e.target.value })}
+                        style={{
+                          width: '100%',
+                          background: '#040914',
+                          border: '1px solid #334155',
+                          borderRadius: '10px',
+                          padding: '12px 14px 12px 42px',
+                          color: '#ffffff',
+                          fontSize: '0.95rem',
+                          outline: 'none',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '8px' }}>
+                      WhatsApp / Mobile Number <span style={{ color: '#fbbf24' }}>*</span>
+                    </label>
+                    <div style={{ position: 'relative' }}>
+                      <PhoneCall size={17} color="#64748b" style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <input
+                        type="tel"
+                        required
+                        placeholder="e.g. 98290 12345"
+                        value={solarForm.phone}
+                        onChange={(e) => setSolarForm({ ...solarForm, phone: e.target.value })}
+                        style={{
+                          width: '100%',
+                          background: '#040914',
+                          border: '1px solid #334155',
+                          borderRadius: '10px',
+                          padding: '12px 14px 12px 42px',
+                          color: '#ffffff',
+                          fontSize: '0.95rem',
+                          outline: 'none',
+                          boxSizing: 'border-box'
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Row 2: City / Location */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '8px' }}>
+                    Project City &amp; State Location
+                  </label>
+                  <div style={{ position: 'relative' }}>
+                    <MapPin size={17} color="#64748b" style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }} />
+                    <input
+                      type="text"
+                      placeholder="e.g. Sitapura Industrial Area, Jaipur (Rajasthan)"
+                      value={solarForm.city}
+                      onChange={(e) => setSolarForm({ ...solarForm, city: e.target.value })}
+                      style={{
+                        width: '100%',
+                        background: '#040914',
+                        border: '1px solid #334155',
+                        borderRadius: '10px',
+                        padding: '12px 14px 12px 42px',
+                        color: '#ffffff',
+                        fontSize: '0.95rem',
+                        outline: 'none',
+                        boxSizing: 'border-box'
+                      }}
+                    />
+                  </div>
+                </div>
+
+                {/* Row 3: Solar Plant Capacity */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '8px' }}>
+                    Solar Plant Capacity Scale
+                  </label>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
+                    {[
+                      '10 kW - 50 kW (Rooftop)',
+                      '50 kW - 100 kW (Commercial)',
+                      '100 kW - 500 kW (Industrial PEB Shed)',
+                      '500 kW - 1 MW+ (High Capacity)',
+                      'Above 1 MW (Utility / Solar Park)'
+                    ].map((cap, i) => {
+                      const isSelected = solarForm.capacity === cap;
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setSolarForm({ ...solarForm, capacity: cap })}
+                          style={{
+                            background: isSelected ? 'rgba(251, 191, 36, 0.15)' : '#040914',
+                            border: isSelected ? '2px solid #fbbf24' : '1px solid #334155',
+                            color: isSelected ? '#fbbf24' : '#94a3b8',
+                            borderRadius: '8px',
+                            padding: '10px 12px',
+                            fontSize: '0.82rem',
+                            fontWeight: isSelected ? 700 : 500,
+                            cursor: 'pointer',
+                            textAlign: 'center',
+                            transition: 'all 0.15s ease'
+                          }}
+                        >
+                          {cap}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Row 4: Roof / Structure Type */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '8px' }}>
+                      Installation / Roof Type
+                    </label>
+                    <select
+                      value={solarForm.installationType}
+                      onChange={(e) => setSolarForm({ ...solarForm, installationType: e.target.value })}
+                      style={{
+                        width: '100%',
+                        background: '#040914',
+                        border: '1px solid #334155',
+                        borderRadius: '10px',
+                        padding: '12px 14px',
+                        color: '#ffffff',
+                        fontSize: '0.92rem',
+                        outline: 'none',
+                        boxSizing: 'border-box'
+                      }}
+                    >
+                      <option value="Factory PEB Metal Sheet Shed">Factory PEB Metal Sheet Shed</option>
+                      <option value="RCC Concrete Flat / Sloped Roof">RCC Concrete Flat / Sloped Roof</option>
+                      <option value="Ground-Mount Solar Structure">Ground-Mount Solar Structure</option>
+                      <option value="Elevated Solar Carport / Canopy">Elevated Solar Carport / Canopy</option>
+                      <option value="Curved Metal Sheet Roof">Curved Metal Sheet Roof</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '8px' }}>
+                      Required Scope / Certificate
+                    </label>
+                    <select
+                      value={solarForm.serviceScope}
+                      onChange={(e) => setSolarForm({ ...solarForm, serviceScope: e.target.value })}
+                      style={{
+                        width: '100%',
+                        background: '#040914',
+                        border: '1px solid #334155',
+                        borderRadius: '10px',
+                        padding: '12px 14px',
+                        color: '#ffffff',
+                        fontSize: '0.92rem',
+                        outline: 'none',
+                        boxSizing: 'border-box'
+                      }}
+                    >
+                      <option value="Structural Stability & Wind Load Certificate (IS 875 Pt 3)">Structural Stability &amp; Wind Load Certificate (IS 875 Pt 3)</option>
+                      <option value="DISCOM Net-Metering & CEIG Clearance">DISCOM Net-Metering &amp; CEIG Clearance</option>
+                      <option value="Racking / MMS Foundation Design & STAAD.Pro FEA">Racking / MMS Foundation Design &amp; STAAD.Pro FEA</option>
+                      <option value="Weak Roof Strengthening & Retrofit Audit">Weak Roof Strengthening &amp; Retrofit Audit</option>
+                      <option value="Complete Turnkey Chartered Engineer Stability Dossier">Complete Turnkey Chartered Engineer Stability Dossier</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Row 5: Notes / Remarks */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.86rem', fontWeight: 700, color: '#e2e8f0', marginBottom: '8px' }}>
+                    Project Notes / Special Requirements (Optional)
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="e.g. Existing PEB shed built in 2018 with Z-purlins, need wind stability report for 150 kW net-metering approval by JVVNL."
+                    value={solarForm.notes}
+                    onChange={(e) => setSolarForm({ ...solarForm, notes: e.target.value })}
+                    style={{
+                      width: '100%',
+                      background: '#040914',
+                      border: '1px solid #334155',
+                      borderRadius: '10px',
+                      padding: '12px 14px',
+                      color: '#ffffff',
+                      fontSize: '0.92rem',
+                      outline: 'none',
+                      resize: 'vertical',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <div style={{ marginTop: '8px' }}>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    style={{
+                      width: '100%',
+                      background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                      color: '#ffffff',
+                      border: 'none',
+                      borderRadius: '12px',
+                      padding: '16px 24px',
+                      fontSize: '1.05rem',
+                      fontWeight: 800,
+                      cursor: isSubmitting ? 'wait' : 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '10px',
+                      boxShadow: '0 6px 24px rgba(16, 185, 129, 0.35)',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <MessageSquare size={20} />
+                    <span>{isSubmitting ? 'Preparing WhatsApp Message...' : 'Send Solar Details to WhatsApp (+91 91586 58885)'}</span>
+                    <ArrowRight size={18} />
+                  </button>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '12px', color: '#64748b', fontSize: '0.80rem' }}>
+                    <ShieldCheck size={14} color="#10b981" />
+                    <span>100% Privacy • Direct response from IIT Roorkee alumni Chartered Engineers within 30 minutes</span>
+                  </div>
+                </div>
+
+              </form>
+            )}
+
           </div>
         </section>
 
