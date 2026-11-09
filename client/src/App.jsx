@@ -58,8 +58,8 @@ const ROUTE_CONFIG = {
   },
   '/solar-structural-analysis': { 
     id: 'solar-structural-analysis', 
-    title: 'Solar Structural Analysis | KS Chartered Engineers (IIT Roorkee)',
-    description: 'Statutory structural stability certifications, wind load analysis (IS 875 Part 3), MMS design and rooftop solar load safety audits by IIT Roorkee alumni Chartered Engineers.'
+    title: 'Precast Concrete Moulds & Solar Fencing Moulds | Soharvadi Fabrication',
+    description: 'Specialized manufacturer of Precast Boundary Wall Moulds, Aluminium Moulds, RCC Fencing Pole Moulds, H-Pole Slotted Columns, and Concrete Vibrator Machines. Strong, durable & all-India transport.'
   },
   '/tin-shed-fabrication': { 
     id: 'fabrication-services', 
