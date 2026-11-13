@@ -65,7 +65,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
             <span>Why Choose Us</span>
           </div>
           <h2 className="section-title">
-            Engineered for <span className="gold-gradient-text">Trust &amp; Precision</span>
+            Engineered for <span style={{ color: "#b45309" }}>Trust &amp; Precision</span>
           </h2>
           <p className="section-description">
             Discover why India's leading industrial enterprises, commercial banks, and international importers trust KS Chartered Engineers.
@@ -106,7 +106,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
                   <h3 className="pillar-title" style={{ fontSize: '1.2rem', marginBottom: '4px' }}>
                     {pillar.title}
                   </h3>
-                  <div style={{ fontSize: '0.78rem', color: pillar.color, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '10px' }}>
+                  <div style={{ fontSize: '0.78rem', color: pillar.color, fontWeight: 600, marginBottom: '10px' }}>
                     {pillar.subtitle}
                   </div>
                   <p className="pillar-desc" style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>
@@ -120,8 +120,8 @@ export default function WhyChooseUs({ onOpenQuote }) {
 
         {/* Banner Callout */}
         <div style={{
-          background: 'linear-gradient(135deg, #eff6ff 0%, #fef3c7 100%)',
-          border: '1px solid #bfdbfe',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: 'var(--radius-xl)',
           padding: '28px 32px',
           display: 'flex',

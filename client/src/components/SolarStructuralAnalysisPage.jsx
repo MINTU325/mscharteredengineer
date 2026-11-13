@@ -384,59 +384,58 @@ _Inquiry sent via KS Fabrication Official Website_`;
                 <div className="ks-hero-content" style={{ maxWidth: '1240px', margin: '0 auto', padding: '70px 20px', width: '100%' }}>
                   <div style={{ maxWidth: '780px' }}>
                     
-                    {/* Badge */}
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245, 130, 32, 0.15)', border: '1px solid rgba(245, 130, 32, 0.4)', padding: '6px 14px', borderRadius: '30px', color: '#F58220', fontSize: '0.82rem', fontWeight: 800, marginBottom: '18px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                      <Sparkles size={14} />
+                    {/* Clean Industry Badge */}
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245, 130, 32, 0.1)', border: '1px solid rgba(245, 130, 32, 0.3)', padding: '5px 12px', borderRadius: '6px', color: '#F58220', fontSize: '0.80rem', fontWeight: 600, marginBottom: '18px' }}>
+                      <Factory size={14} />
                       <span>{slide.tagline}</span>
                     </div>
 
-                    <h1 className="ks-hero-title" style={{ fontSize: 'clamp(1.9rem, 4.4vw, 3.6rem)', fontWeight: 900, color: '#ffffff', margin: '0 0 18px 0', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
+                    <h1 className="ks-hero-title" style={{ fontSize: 'clamp(1.9rem, 4.4vw, 3.4rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 16px 0', lineHeight: 1.18, letterSpacing: '-0.01em' }}>
                       {slide.title}
                     </h1>
 
-                    <p className="ks-hero-subtitle" style={{ fontSize: '1.15rem', color: '#cbd5e1', lineHeight: 1.7, margin: '0 0 28px 0', maxWidth: '700px' }}>
+                    <p className="ks-hero-subtitle" style={{ fontSize: '1.08rem', color: '#cbd5e1', lineHeight: 1.65, margin: '0 0 24px 0', maxWidth: '700px' }}>
                       {slide.subtitle}
                     </p>
 
-                    {/* Live Workshop Availability Pill */}
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', padding: '6px 12px', borderRadius: '8px', color: '#34d399', fontSize: '0.82rem', fontWeight: 700, marginBottom: '28px' }}>
-                      <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 8px #10b981' }}></span>
-                      <span>Jaipur Workshop Floor Active: Fast Dispatches &amp; Custom CAD Fabrication Open</span>
+                    {/* Live Workshop Availability Marker */}
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.25)', padding: '6px 12px', borderRadius: '6px', color: '#34d399', fontSize: '0.82rem', fontWeight: 600, marginBottom: '28px' }}>
+                      <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
+                      <span>Jaipur Workshop Floor Active: Dispatch &amp; Custom CAD Fabrication Open</span>
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="ks-hero-ctas" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <div className="ks-hero-ctas" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
                       <button
                         onClick={() => scrollToSection('products')}
                         style={{
                           background: '#F58220',
                           color: '#ffffff',
                           border: 'none',
-                          borderRadius: '10px',
-                          padding: '14px 28px',
-                          fontSize: '1rem',
-                          fontWeight: 800,
+                          borderRadius: '8px',
+                          padding: '12px 24px',
+                          fontSize: '0.95rem',
+                          fontWeight: 600,
                           cursor: 'pointer',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '8px',
-                          boxShadow: '0 4px 20px rgba(245, 130, 32, 0.4)'
+                          gap: '8px'
                         }}
                       >
                         <span>Explore Products</span>
-                        <ArrowRight size={17} />
+                        <ArrowRight size={16} />
                       </button>
 
                       <button
                         onClick={() => scrollToSection('enquiry-form')}
                         style={{
-                          background: 'rgba(255, 255, 255, 0.08)',
+                          background: 'rgba(255, 255, 255, 0.06)',
                           color: '#ffffff',
-                          border: '1px solid rgba(255, 255, 255, 0.25)',
-                          borderRadius: '10px',
-                          padding: '14px 24px',
-                          fontSize: '1rem',
-                          fontWeight: 700,
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          borderRadius: '8px',
+                          padding: '12px 22px',
+                          fontSize: '0.95rem',
+                          fontWeight: 600,
                           cursor: 'pointer'
                         }}
                       >
@@ -1602,23 +1601,22 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       disabled={formSubmitting}
                       style={{
                         width: '100%',
-                        background: 'linear-gradient(135deg, #F58220 0%, #ea580c 100%)',
+                        background: '#F58220',
                         color: '#ffffff',
                         border: 'none',
-                        borderRadius: '10px',
-                        padding: '14px',
-                        fontSize: '1rem',
-                        fontWeight: 800,
+                        borderRadius: '8px',
+                        padding: '12px',
+                        fontSize: '0.96rem',
+                        fontWeight: 600,
                         cursor: formSubmitting ? 'wait' : 'pointer',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         gap: '8px',
-                        boxShadow: '0 4px 18px rgba(245, 130, 32, 0.4)',
                         marginTop: '6px'
                       }}
                     >
-                      <Send size={18} />
+                      <Send size={16} />
                       <span>{formSubmitting ? 'Preparing WhatsApp Message...' : 'Submit & Connect on WhatsApp'}</span>
                     </button>
 
@@ -1695,24 +1693,22 @@ _Inquiry sent via KS Fabrication Official Website_`;
       </footer>
 
       {/* ── FLOATING WHATSAPP BUTTON WITH HUMAN LIVE STATUS ── */}
-      <div className="ks-floating-wrap" style={{ position: 'fixed', bottom: '25px', right: '25px', zIndex: 999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
+      <div className="ks-floating-wrap" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
         
-        {/* Floating Human Status Badge */}
+        {/* Floating Workshop Desk Status */}
         <div className="ks-floating-pill" style={{
-          background: 'rgba(16, 36, 58, 0.95)',
-          border: '1px solid rgba(16, 185, 129, 0.4)',
-          borderRadius: '20px',
-          padding: '6px 14px',
-          fontSize: '0.78rem',
-          color: '#ffffff',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
-          backdropFilter: 'blur(10px)',
+          background: '#10243A',
+          border: '1px solid rgba(16, 185, 129, 0.3)',
+          borderRadius: '6px',
+          padding: '5px 10px',
+          fontSize: '0.76rem',
+          color: '#cbd5e1',
           display: 'flex',
           alignItems: 'center',
-          gap: '8px'
+          gap: '6px'
         }}>
-          <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', display: 'inline-block', boxShadow: '0 0 8px #10b981' }}></span>
-          <span><strong>Workshop Floor Desk</strong> Online</span>
+          <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
+          <span>Workshop Desk Online</span>
         </div>
 
         <a
@@ -1721,21 +1717,21 @@ _Inquiry sent via KS Fabrication Official Website_`;
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
           style={{
-            width: '58px',
-            height: '58px',
+            width: '52px',
+            height: '52px',
             borderRadius: '50%',
             background: '#25D366',
             color: '#ffffff',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 20px rgba(37, 211, 102, 0.45)',
             cursor: 'pointer',
             textDecoration: 'none',
-            transition: 'transform 0.2s ease'
+            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+            transition: 'background-color 0.15s ease'
           }}
         >
-          <MessageSquare size={28} />
+          <MessageSquare size={24} />
         </a>
       </div>
 

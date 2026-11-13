@@ -291,9 +291,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   <a href="/electrical-services" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Zap size={16} color="#f59e0b" className="dropdown-item-icon" />
                     <div>
-                      <div className="dropdown-item-title" style={{ color: '#f59e0b', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div className="dropdown-item-title" style={{ color: '#f59e0b', fontWeight: 600 }}>
                         <span>Electrical &amp; Substation Services</span>
-                        <span className="nav-tag-badge" style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>NEW</span>
                       </div>
                       <div className="dropdown-item-desc">Testing, Transformers, Panels, HT/LT &amp; AMC</div>
                     </div>
@@ -303,9 +302,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   <a href="/fabrication-services" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Wrench size={16} color="#f97316" className="dropdown-item-icon" />
                     <div>
-                      <div className="dropdown-item-title" style={{ color: '#f97316', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div className="dropdown-item-title" style={{ color: '#f97316', fontWeight: 600 }}>
                         <span>Fabrication &amp; PEB Shed Works</span>
-                        <span className="nav-tag-badge" style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>NEW</span>
                       </div>
                       <div className="dropdown-item-desc">Industrial Chimneys, PEB Sheds, MS &amp; Glass Railings</div>
                     </div>
@@ -315,9 +313,8 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                   <a href="/solar-structural-analysis" onClick={handleDropdownItemClick} className="nav-dropdown-item">
                     <Sun size={16} color="#fbbf24" className="dropdown-item-icon" />
                     <div>
-                      <div className="dropdown-item-title" style={{ color: '#fbbf24', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div className="dropdown-item-title" style={{ color: '#fbbf24', fontWeight: 600 }}>
                         <span>Solar Structural Analysis</span>
-                        <span className="nav-tag-badge" style={{ background: '#fbbf24', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>NEW</span>
                       </div>
                       <div className="dropdown-item-desc">MMS Foundation, Wind Load IS 875 &amp; Rooftop Safety Audit</div>
                     </div>
@@ -336,10 +333,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 <a 
                   href="/solar-structural-analysis" 
                   className={`nav-link ${currentPath === '/solar-structural-analysis' ? 'active' : ''}`}
-                  style={{ color: '#fbbf24', fontWeight: 700 }}
+                  style={{ color: '#fbbf24', fontWeight: 600 }}
                 >
                   <span>Solar Structural Analysis</span>
-                  <span className="nav-tag-badge" style={{ background: '#fbbf24', color: '#000' }}>NEW</span>
                 </a>
               </li>
 
@@ -348,10 +344,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 <a 
                   href="/tech-products" 
                   className={`nav-link ${currentPath === '/tech-products' ? 'active' : ''}`}
-                  style={{ color: '#06b6d4', fontWeight: 700 }}
+                  style={{ color: '#06b6d4', fontWeight: 600 }}
                 >
                   <span>IT</span>
-                  <span className="nav-tag-badge">NEW</span>
                 </a>
               </li>
 

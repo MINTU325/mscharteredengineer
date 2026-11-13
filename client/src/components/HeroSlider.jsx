@@ -5,7 +5,7 @@ const SLIDES = [
   {
     id: 1,
     image: '/slides/slide1.webp',
-    badge: '🏆 IEI Corporate Member (MIE) | Government Approved Valuers',
+    badge: 'IEI Corporate Member (MIE) | Government Approved Valuers',
     title: 'Government Certified',
     titleHighlight: 'Chartered Engineer in India',
     subtitle:
@@ -24,7 +24,7 @@ const SLIDES = [
   {
     id: 2,
     image: '/slides/slide2.webp',
-    badge: '⚖️ Statutory CBDT & Direct Tax Valuers | Section 50C & 54',
+    badge: 'Statutory CBDT & Direct Tax Valuers | Section 50C & 54',
     title: 'Statutory & Capital Gains',
     titleHighlight: 'Tax Valuation & 2001 Indexation',
     subtitle:
@@ -43,7 +43,7 @@ const SLIDES = [
   {
     id: 3,
     image: '/slides/slide3.webp',
-    badge: '🏛️ Scheduled Commercial Banks & NBFCs Empanelled Standards',
+    badge: 'Scheduled Commercial Banks & NBFCs Empanelled Standards',
     title: 'Bank & Mortgage Valuation',
     titleHighlight: 'Home Loan, LAP & Project Finance',
     subtitle:
@@ -62,7 +62,7 @@ const SLIDES = [
   {
     id: 4,
     image: '/slides/slide4.webp',
-    badge: '📋 Institution of Engineers (India) — Corporate Member CEng MIE',
+    badge: 'Institution of Engineers (India) — Corporate Member CEng MIE',
     title: 'Chartered Engineer',
     titleHighlight: 'Certification & DGFT EPCG Clearances',
     subtitle:
@@ -81,7 +81,7 @@ const SLIDES = [
   {
     id: 5,
     image: '/slides/slide2.webp',
-    badge: '⚙️ Plant & Machinery Appraisals & CESE Electrical Safety Audits',
+    badge: 'Plant & Machinery Appraisals & CESE Electrical Safety Audits',
     title: 'Plant & Machinery Valuation &',
     titleHighlight: 'Statutory Industrial Safety Audits',
     subtitle:
@@ -227,14 +227,14 @@ export default function HeroSlider({ onOpenQuote }) {
             >
               <span
                 className="hs-badge-dot"
-                style={{ background: color.primary, boxShadow: `0 0 8px ${color.glow}` }}
+                style={{ background: color.primary }}
               />
               {slide.badge}
             </div>
 
             <div
               className={`hs-tag ${animating ? 'hs-anim--out' : 'hs-anim--in'}`}
-              style={{ '--delay': '0.06s', background: `${color.primary}25`, borderColor: color.primary, color: color.light }}
+              style={{ '--delay': '0.06s', background: `${color.primary}18`, borderColor: color.primary, color: color.light }}
             >
               {slide.tag}
             </div>
@@ -245,14 +245,14 @@ export default function HeroSlider({ onOpenQuote }) {
             {slide.link ? (
               <a href={slide.link} style={{ color: 'inherit', textDecoration: 'none' }}>
                 {slide.title}{' '}
-                <span className="hs-title-hl" style={{ color: color.light, textShadow: `0 0 40px ${color.glow}` }}>
+                <span className="hs-title-hl" style={{ color: color.light }}>
                   {slide.titleHighlight}
                 </span>
               </a>
             ) : (
               <>
                 {slide.title}{' '}
-                <span className="hs-title-hl" style={{ color: color.light, textShadow: `0 0 40px ${color.glow}` }}>
+                <span className="hs-title-hl" style={{ color: color.light }}>
                   {slide.titleHighlight}
                 </span>
               </>
@@ -281,8 +281,7 @@ export default function HeroSlider({ onOpenQuote }) {
                 href={slide.link}
                 className="hs-cta-primary"
                 style={{
-                  background: `linear-gradient(135deg, ${color.primary}, ${color.light})`,
-                  boxShadow: `0 6px 24px ${color.glow}`,
+                  background: color.primary,
                   textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -296,8 +295,7 @@ export default function HeroSlider({ onOpenQuote }) {
               <button
                 className="hs-cta-primary"
                 style={{
-                  background: `linear-gradient(135deg, ${color.primary}, ${color.light})`,
-                  boxShadow: `0 6px 24px ${color.glow}`,
+                  background: color.primary,
                 }}
                 onClick={() => onOpenQuote(slide.ctaService)}
               >

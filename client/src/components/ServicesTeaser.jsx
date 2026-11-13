@@ -53,24 +53,23 @@ export default function ServicesTeaser({ onOpenQuote }) {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '4px 12px',
+            padding: '4px 10px',
             background: '#eff6ff',
             border: '1px solid #bfdbfe',
-            borderRadius: '9999px',
+            borderRadius: '6px',
             color: '#1d4ed8',
             fontSize: '0.78rem',
-            fontWeight: 700,
-            letterSpacing: '0.04em',
+            fontWeight: 600,
             marginBottom: '8px'
           }}>
-            <Sparkles size={14} />
-            <span>15 STATUTORY &amp; COMMERCIAL PRACTICE AREAS</span>
+            <ShieldCheck size={14} />
+            <span>15 Statutory &amp; Commercial Practice Areas</span>
           </div>
 
           <h2 style={{
             fontSize: 'clamp(1.7rem, 3vw, 2.3rem)',
             color: '#0f172a',
-            fontWeight: 800,
+            fontWeight: 700,
             lineHeight: 1.25,
             marginBottom: '8px'
           }}>
