@@ -35,6 +35,41 @@ const SolarStructuralAnalysisPage = lazy(() => import('./components/SolarStructu
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | KS Chartered Engineers (IIT Roorkee)' },
+  '/ceig-approval': {
+    id: 'services',
+    title: 'CEIG Approval & Statutory Electrical Inspection | KS Chartered Engineers',
+    description: 'Chief Electrical Inspector to Government (CEIG) drawing approval, safety inspection, energization permission under CEA 2023 for substations, transformers, and solar plants in Rajasthan & India.'
+  },
+  '/electrical-contractor-license': {
+    id: 'services',
+    title: 'Electrical Contractor License Consultancy (Class A, B, C, D) | Rajasthan CEIG',
+    description: 'Expert consultancy for obtaining and renewing Class A, B, C, D Electrical Contractor License, supervisor competency permit, wireman permit, and testing equipment verification.'
+  },
+  '/ht-consumer-grievance': {
+    id: 'services',
+    title: 'HT Consumer Grievance & Regulatory Consultancy (RERC / Ombudsman) | KS Group',
+    description: 'Techno-legal defense for industrial & HT electricity consumers against DISCOM wrongful billing, MDI excess penalty, and fuel surcharge disputes before CGRF, RERC & Electricity Ombudsman.'
+  },
+  '/fire-safety-audit': {
+    id: 'services',
+    title: 'Fire Safety Audit & Fire NOC Consultancy (NBC 2016) | KS Chartered Engineers',
+    description: 'Statutory Fire Safety Audits, IS 14489 compliance, fire hydrant & sprinkler testing, and turnkey Fire Department NOC clearance for industrial plants and commercial high-rises.'
+  },
+  '/power-quality-analysis': {
+    id: 'services',
+    title: 'Power Quality Analysis, Harmonics (IEEE 519) & APFC Optimization | KS Group',
+    description: 'On-site power quality logging, Total Harmonic Distortion (THD) testing, active harmonic filters, and APFC design to eliminate DISCOM kVAh penalties and earn power factor rebates.'
+  },
+  '/plant-capacity-certificate': {
+    id: 'services',
+    title: 'Plant Production Capacity Certification (RSPCB / DIC / MSME) | Chartered Engineer',
+    description: 'Statutory production capacity computation, machine throughput audit, and Chartered Engineer certificate for RSPCB CTE/CTO, DIC subsidies, and customs duty remission.'
+  },
+  '/solar-consultancy': {
+    id: 'services',
+    title: 'PM Surya Ghar & Solar Rooftop Net-Metering Consultancy | KS Chartered Engineers',
+    description: 'PM Surya Ghar vendor portal empanelment, DISCOM net-metering feasibility, bi-directional meter coordination, and solar rooftop subsidy documentation across Rajasthan.'
+  },
   '/fabrication-services': { 
     id: 'fabrication-services', 
     title: 'Industrial Fabrication, PEB Shed & Iron Work Services | KS Group (IIT Roorkee)',
@@ -222,7 +257,12 @@ const SERVICES_ROUTES = new Set([
   '/services', '/property-valuation', '/bank-valuation', '/tax-valuation',
   '/ibc-valuation', '/machinery-valuation', '/valuation', '/assets-valuation',
   '/safety-energy-audits', '/fssai', '/advisory', '/autocad-drafting',
-  '/autocad-electrical-drafting', '/third-party-inspection', '/inspection-services'
+  '/autocad-electrical-drafting', '/third-party-inspection', '/inspection-services',
+  '/ceig-approval', '/ceig-approval-consultancy', '/ceig',
+  '/electrical-contractor-license', '/contractor-license',
+  '/ht-consumer-grievance', '/fire-safety-audit',
+  '/power-quality-analysis', '/plant-capacity-certificate',
+  '/solar-consultancy', '/pm-surya-ghar'
 ]);
 
 const TOOLS_ROUTES = new Set([

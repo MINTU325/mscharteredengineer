@@ -322,7 +322,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
 
                   <div className="dropdown-divider" />
                   <a href="/services" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
-                    <span>Explore All 15 Engineering Services</span>
+                    <span>Explore All 22 Engineering Services</span>
                     <ArrowRight size={13} />
                   </a>
                 </div>
@@ -570,7 +570,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           </a>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <ArrowRight size={15} color="#94a3b8" />
-            <span>All 15 Practice Areas</span>
+            <span>All 22 Practice Areas</span>
           </a>
 
           <div style={{ padding: '12px 14px 4px', fontSize: '0.72rem', fontWeight: 700, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>

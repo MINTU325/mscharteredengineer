@@ -143,6 +143,55 @@ const ROUTE_META = {
     canonical: 'https://www.mscharteredengineer.com/solar-structural-analysis',
     ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
   },
+  '/ceig-approval': {
+    title: 'CEIG Approval & Statutory Electrical Inspection | KS Chartered Engineers',
+    description: 'Statutory Chief Electrical Inspector to Government (CEIG) drawing approvals, substation safety inspection, and energization permissions under CEA Regulations 2023.',
+    keywords: 'CEIG Approval Rajasthan, CEIG consultant Jaipur, CEIG electrical inspection, substation energization certificate, solar CEIG approval',
+    canonical: 'https://www.mscharteredengineer.com/ceig-approval',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/electrical-contractor-license': {
+    title: 'Electrical Contractor License Consultancy (Class A, B, C, D) | Rajasthan CEIG',
+    description: 'Expert advisory for Class A, B, C, D Electrical Contractor License, supervisor competency certificates, and wireman permits from Rajasthan Electrical Inspectorate.',
+    keywords: 'Electrical Contractor License Rajasthan, Class A electrical license Jaipur, electrical supervisor certificate, wireman license Rajasthan',
+    canonical: 'https://www.mscharteredengineer.com/electrical-contractor-license',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/ht-consumer-grievance': {
+    title: 'HT Consumer Grievance & Regulatory Consultancy (RERC / Ombudsman) | KS Group',
+    description: 'Techno-legal dispute representation for industrial and HT electricity consumers against DISCOM wrongful billing, excess MDI penalty, and fuel surcharge recoveries before CGRF, RERC & Ombudsman.',
+    keywords: 'HT Consumer Grievance, RERC electricity dispute, Electricity Ombudsman Rajasthan, DISCOM bill penalty refund, JVVNL tariff dispute',
+    canonical: 'https://www.mscharteredengineer.com/ht-consumer-grievance',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/fire-safety-audit': {
+    title: 'Fire Safety Audit & Fire NOC Consultancy (NBC 2016) | KS Chartered Engineers',
+    description: 'Statutory Fire Safety Audits, IS 14489 compliance, fire hydrant and sprinkler hydraulic testing, and turnkey Fire Department NOC clearance for factories and commercial high-rises.',
+    keywords: 'Fire Safety Audit Jaipur, Fire NOC Rajasthan, NBC 2016 fire audit, factory fire safety inspection, industrial fire NOC consultant',
+    canonical: 'https://www.mscharteredengineer.com/fire-safety-audit',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/power-quality-analysis': {
+    title: 'Power Quality Analysis, Harmonics (IEEE 519) & APFC Optimization | KS Group',
+    description: 'Class A power quality logging, IEEE 519 harmonics audit, and APFC optimization to eliminate DISCOM kVAh penalties and gain power factor rebate discounts.',
+    keywords: 'Power Quality Analysis, Harmonics audit IEEE 519, APFC panel sizing, kVAh penalty reduction, DISCOM power factor incentive Jaipur',
+    canonical: 'https://www.mscharteredengineer.com/power-quality-analysis',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/plant-capacity-certificate': {
+    title: 'Plant Production Capacity Certification (RSPCB / DIC / MSME) | Chartered Engineer',
+    description: 'Statutory production capacity computation, machine throughput audit, and Chartered Engineer certificate for RSPCB CTE/CTO, DIC subsidies, and customs duty remission.',
+    keywords: 'Plant Capacity Certificate, Chartered Engineer production capacity, RSPCB CTE CTO capacity certificate, DIC machinery capacity valuation',
+    canonical: 'https://www.mscharteredengineer.com/plant-capacity-certificate',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/solar-consultancy': {
+    title: 'PM Surya Ghar & Solar Rooftop Net-Metering Consultancy | KS Chartered Engineers',
+    description: 'PM Surya Ghar vendor portal empanelment, DISCOM net-metering feasibility, bi-directional meter coordination, and solar rooftop subsidy documentation across Rajasthan.',
+    keywords: 'PM Surya Ghar vendor registration, rooftop solar consultancy, net metering liaisoning Jaipur, DISCOM solar feasibility Rajasthan',
+    canonical: 'https://www.mscharteredengineer.com/solar-consultancy',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  }
 };
 
 // Serve static client build in production if built

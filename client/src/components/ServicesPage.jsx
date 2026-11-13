@@ -39,7 +39,18 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
         '/audit-services': 'third-party-audit-inspection',
         '/fabrication': 'fabrication-services',
         '/tin-shed': 'fabrication-services',
-        '/iron-fabrication': 'fabrication-services'
+        '/iron-fabrication': 'fabrication-services',
+        '/ceig-approval': 'ceig-approval-consultancy',
+        '/ceig-approval-consultancy': 'ceig-approval-consultancy',
+        '/ceig': 'ceig-approval-consultancy',
+        '/electrical-contractor-license': 'electrical-contractor-license',
+        '/contractor-license': 'electrical-contractor-license',
+        '/ht-consumer-grievance': 'ht-consumer-grievance',
+        '/fire-safety-audit': 'fire-safety-audit',
+        '/power-quality-analysis': 'power-quality-analysis',
+        '/plant-capacity-certificate': 'plant-capacity-certificate',
+        '/pm-surya-ghar': 'solar-consultancy-net-metering',
+        '/solar-consultancy': 'solar-consultancy-net-metering'
       };
 
       const targetId = serviceIdMap[currentRoute];

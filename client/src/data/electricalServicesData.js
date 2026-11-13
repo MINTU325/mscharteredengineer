@@ -430,5 +430,73 @@ export const ELECTRICAL_SERVICES_LIST = [
     ],
     standards: 'IS 2026 / Pre-Tested Ready Units',
     suitableFor: 'Breakdown emergencies, seasonal factories, shutdown overhauls, and projects.'
+  },
+  {
+    id: 'ceig-statutory-approval-consultancy',
+    category: 'safety',
+    title: 'CEIG Approval & Statutory Electrical Inspection Services',
+    badge: 'Statutory Authority Approval',
+    badgeColor: '#38bdf8',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
+    shortDesc: 'Complete liaisoning for Chief Electrical Inspector to Government (CEIG) drawing approvals, physical safety inspections, and energization permissions for 11kV/33kV substations, transformers, DG sets, and mega solar plants.',
+    features: [
+      'Single Line Diagram (SLD) & General Arrangement (GA) Drawing Approval',
+      'On-site Inspectorate Safety Audit Coordination & Verification',
+      'Statutory Energization / Charging Permission under CEA Regulations 2023',
+      'Solar Rooftop & Ground-Mounted MW Plant Pre-Commissioning Approval'
+    ],
+    standards: 'CEA Regulations 2023 / Indian Electricity Rules',
+    suitableFor: 'New industrial connections, rooftop solar plants, DG installations, and substation upgrades.'
+  },
+  {
+    id: 'electrical-contractor-licensing-service',
+    category: 'safety',
+    title: 'Electrical Contractor License Consultancy (Class A, B, C, D)',
+    badge: 'Energy Dept Rajasthan',
+    badgeColor: '#f59e0b',
+    image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80',
+    shortDesc: 'Full advisory and processing for obtaining new electrical contractor licenses (Class A to D), supervisor competency certificates, wireman permits, and instrument calibration compliance.',
+    features: [
+      'Class A (EHV/HT/LT) Contractor License Application & Documentation',
+      'Supervisor Competency & Wireman Permit Filing & Verification',
+      'Testing Equipment Kit (Megger, Earth Tester, Tong Tester) Sizing & Calibration',
+      'Timely License Renewal & Staff Addition/Replacement Processing'
+    ],
+    standards: 'Electrical Inspectorate Rules / Energy Department Rajasthan',
+    suitableFor: 'Electrical engineers, contracting firms, MEP vendors, and aspiring electrical contractors.'
+  },
+  {
+    id: 'power-quality-harmonics-analysis-service',
+    category: 'safety',
+    title: 'Power Quality Analysis & Harmonics Audit (IEEE 519 / APFC)',
+    badge: 'kVAh Penalty Elimination',
+    badgeColor: '#10b981',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
+    shortDesc: 'Comprehensive power quality logging, Total Harmonic Distortion (THD) profiling as per IEEE 519, and APFC design to eliminate DISCOM kVAh penalties and gain 1% to 2% monthly power factor discounts.',
+    features: [
+      'Class A On-site Power Quality & Harmonics Measurement (THDv / THDi)',
+      'Active & Passive Harmonic Filter Design, Sizing & Tuning',
+      'APFC Panel Sizing to consistently achieve 0.99 Power Factor',
+      'Discom kVAh billing penalty prevention and rebate optimization'
+    ],
+    standards: 'IEEE 519-2022 / CEA Grid Standards',
+    suitableFor: 'Steel induction furnaces, plastic moulding, continuous process plants, and automated factories.'
+  },
+  {
+    id: 'ht-consumer-grievance-discom-consultancy',
+    category: 'safety',
+    title: 'HT Consumer Grievance & DISCOM Regulatory Consultancy',
+    badge: 'RERC & Ombudsman',
+    badgeColor: '#8b5cf6',
+    image: 'https://images.unsplash.com/photo-1509390874185-004554b79c3f?auto=format&fit=crop&w=800&q=80',
+    shortDesc: 'Techno-legal defense and representation for industrial HT power consumers before CGRF, Electricity Ombudsman, and RERC for wrongful billing, MDI penalties, and fuel surcharge recoveries.',
+    features: [
+      'Electricity Bill Forensic Audit & Wrong Tariff Classification Defense',
+      'Excess Contract Demand (MDI) Penalty Waiver Petitions',
+      'Representation before Consumer Grievance Redressal Forum (CGRF)',
+      'Petitions before Rajasthan Electricity Ombudsman & RERC'
+    ],
+    standards: 'Electricity Act 2003 / RERC Supply Code',
+    suitableFor: 'HT commercial & industrial consumers, textile mills, cement plants, and cold storages.'
   }
 ];
