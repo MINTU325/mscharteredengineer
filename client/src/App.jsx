@@ -503,9 +503,17 @@ export default function App() {
     let serviceDetailSlug = null;
     if (currentRoute.startsWith('/services/') && currentRoute.length > 10) {
       serviceDetailSlug = currentRoute.replace('/services/', '').replace(/\/$/, '');
-    } else if (currentRoute.startsWith('/service-details')) {
+    } else if (window.location.search && window.location.search.includes('slug=')) {
       const params = new URLSearchParams(window.location.search);
       serviceDetailSlug = params.get('slug');
+    } else if (currentRoute.includes('service-details')) {
+      const params = new URLSearchParams(window.location.search);
+      serviceDetailSlug = params.get('slug');
+    } else if (currentRoute !== '/' && currentRoute !== '/services' && !isToolsRoute && !isCityRoute) {
+      const cleanSlug = currentRoute.replace(/^\//, '').replace(/\/$/, '');
+      if (getServiceDetails(cleanSlug)) {
+        serviceDetailSlug = cleanSlug;
+      }
     }
 
     if (serviceDetailSlug) {

@@ -1,54 +1,111 @@
 import React, { useState, useEffect } from 'react';
 import {
-  ArrowLeft,
-  ArrowRight,
+  Zap,
+  Boxes,
+  Wrench,
+  Warehouse,
+  HeartPulse,
+  Users,
+  AlertTriangle,
+  Server,
+  ShieldAlert,
+  Flame,
+  Unlink,
+  Cpu,
+  Wind,
   ShieldCheck,
-  Clock,
+  Droplet,
+  CloudRain,
+  Gauge,
+  Bell,
+  Eye,
+  Lightbulb,
+  DoorOpen,
+  Link,
+  Scale,
+  Layers,
+  Cog,
+  Volume2,
+  Lock,
+  CheckCircle,
+  Calendar,
+  Building,
   Building2,
   Landmark,
-  Scale,
+  TrendingUp,
+  HardHat,
+  FileText,
+  FileCheck2,
+  FileSpreadsheet,
+  Compass,
+  Sun,
   Award,
+  ArrowRight,
+  ArrowLeft,
   PhoneCall,
   MessageSquare,
-  FileText,
-  CheckCircle2,
-  ChevronDown,
-  ChevronUp,
-  FileCheck2,
-  Cpu,
-  Zap,
-  HardHat,
-  Eye,
-  Layers,
-  HelpCircle,
-  FolderCheck,
-  Compass,
-  Hammer,
-  Factory,
-  Sun,
   Share2,
-  Check
+  Camera,
+  Laptop,
+  GraduationCap,
+  Factory,
+  ChevronUp,
+  ChevronDown
 } from 'lucide-react';
 import { getServiceDetails, SERVICES_DETAILS_DATA } from '../data/servicesDetailsData';
 
-// Map icon names from data to actual Lucide components
 const ICON_MAP = {
+  Zap,
+  Boxes,
+  Wrench,
+  Warehouse,
+  HeartPulse,
+  Users,
+  AlertTriangle,
+  Server,
+  ShieldAlert,
+  Flame,
+  Unlink,
+  Cpu,
+  Wind,
+  ShieldCheck,
+  Droplet,
+  CloudRain,
+  Gauge,
+  Bell,
+  Eye,
+  Lightbulb,
+  DoorOpen,
+  Link,
+  Scale,
+  Layers,
+  Cog,
+  Volume2,
+  Lock,
+  CheckCircle,
+  Calendar,
+  Building,
   Building2,
   Landmark,
-  Scale,
-  Briefcase: Landmark,
-  Award,
-  Cpu,
+  TrendingUp,
   HardHat,
-  Eye,
-  ShieldCheck,
-  FlaskConical: Scale,
+  FileText,
+  FileCheck2,
+  FileSpreadsheet,
   Compass,
-  Hammer,
-  Zap,
-  Factory,
   Sun,
-  FileCheck2
+  Award,
+  ArrowRight,
+  ArrowLeft,
+  PhoneCall,
+  MessageSquare,
+  Share2,
+  Camera,
+  Laptop,
+  GraduationCap,
+  Factory,
+  ChevronUp,
+  ChevronDown
 };
 
 export default function ServiceDetailPage({
@@ -57,20 +114,23 @@ export default function ServiceDetailPage({
   onNavigateHome,
   onNavigateService
 }) {
-  const [activeFaq, setActiveFaq] = useState(null);
   const [copiedLink, setCopiedLink] = useState(false);
+  const [openFaqs, setOpenFaqs] = useState({});
 
   const service = getServiceDetails(slug);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (service) {
-      document.title = `${service.title} | KS Chartered Engineers`;
+      document.title = `${service.fullTitle || service.heroTitle} | KS Chartered Engineers`;
     }
   }, [slug, service]);
 
   const toggleFaq = (idx) => {
-    setActiveFaq(prev => prev === idx ? null : idx);
+    setOpenFaqs(prev => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
   };
 
   const handleShare = () => {
@@ -81,7 +141,11 @@ export default function ServiceDetailPage({
     }
   };
 
-  const navigateTo = (path) => {
+  const navigateTo = (path, e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     window.history.pushState({}, '', path);
     if (onNavigateService) {
       onNavigateService(path);
@@ -89,6 +153,12 @@ export default function ServiceDetailPage({
       window.dispatchEvent(new PopStateEvent('popstate'));
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
+  const renderIcon = (name, size = 24, color = '#f5b81b') => {
+    if (!name) return <CheckCircle size={size} color={color} />;
+    const Component = ICON_MAP[name] || Award;
+    return <Component size={size} color={color} />;
   };
 
   if (!service) {
@@ -104,7 +174,7 @@ export default function ServiceDetailPage({
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
             <button
-              onClick={() => navigateTo('/services')}
+              onClick={(e) => navigateTo('/services', e)}
               className="btn btn-primary"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '10px 20px', borderRadius: '8px' }}
             >
@@ -123,39 +193,406 @@ export default function ServiceDetailPage({
     );
   }
 
-  const IconComponent = ICON_MAP[service.iconName] || Award;
-  const accentColor = service.badgeColor || '#38bdf8';
+  // Get related services
+  const relatedServices = (service.relatedSlugs || [])
+    .map(s => SERVICES_DETAILS_DATA[s])
+    .filter(Boolean);
 
-  // Get 4 other related services for the sidebar
-  const otherServices = Object.values(SERVICES_DETAILS_DATA)
+  const fallbackRelated = Object.values(SERVICES_DETAILS_DATA)
     .filter(s => s.code !== service.code)
-    .slice(0, 5);
+    .slice(0, 4);
+
+  const displayRelated = relatedServices.length > 0 ? relatedServices : fallbackRelated;
 
   return (
-    <div style={{ background: '#07080d', color: '#f1f5f9', minHeight: '100vh', paddingBottom: '80px' }}>
+    <div className="ske-service-detail-page" style={{ background: '#07080d', color: '#eef0f5', minHeight: '100vh', fontFamily: "'Inter', sans-serif" }}>
       
-      {/* Top Breadcrumb & Actions Bar */}
-      <div style={{ background: '#0d1017', borderBottom: '1px solid rgba(255, 255, 255, 0.07)', padding: '14px 20px' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#94a3b8' }}>
-            <button
-              onClick={onNavigateHome}
-              style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0, fontSize: '0.84rem', textDecoration: 'underline' }}
-            >
-              Home
-            </button>
+      {/* Scoped CSS Styles matching Shree Kalyan Layout & responsive grid */}
+      <style>{`
+        .ske-top-breadcrumb {
+          background: #0d1017;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 12px 20px;
+          font-size: 13px;
+          color: #94a3b8;
+        }
+        .ske-service-hero {
+          background: linear-gradient(180deg, #0d121c 0%, #07080d 100%);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 48px 20px 42px;
+        }
+        .ske-category-tag {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #f5b81b;
+          background: rgba(245, 184, 27, 0.12);
+          border: 1px solid rgba(245, 184, 27, 0.3);
+          padding: 4px 12px;
+          border-radius: 999px;
+          margin-bottom: 14px;
+        }
+        .ske-hero-title {
+          font-size: clamp(2rem, 4.5vw, 2.9rem);
+          font-weight: 800;
+          color: #ffffff;
+          margin-bottom: 14px;
+          line-height: 1.22;
+        }
+        .ske-hero-subtitle {
+          font-size: 1.05rem;
+          line-height: 1.65;
+          color: #94a3b8;
+          max-width: 880px;
+          margin: 0;
+        }
+        .ske-content-container {
+          max-width: 1040px;
+          margin: 0 auto;
+          padding: 45px 20px 70px;
+        }
+        .ske-main-h1 {
+          font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+          font-weight: 800;
+          color: #ffffff;
+          margin-bottom: 20px;
+          text-align: left;
+          border-bottom: 3px solid #f5b81b;
+          padding-bottom: 14px;
+          line-height: 1.3;
+        }
+        .ske-lead-p {
+          font-size: 1.05rem;
+          line-height: 1.8;
+          color: #cbd5e1;
+          margin-bottom: 36px;
+        }
+        .ske-section-h2 {
+          font-size: 1.45rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-top: 45px;
+          margin-bottom: 20px;
+          text-align: left;
+          border-left: 5px solid #f5b81b;
+          padding-left: 16px;
+          line-height: 1.35;
+        }
+        .ske-body-p {
+          font-size: 0.98rem;
+          line-height: 1.8;
+          color: #cbd5e1;
+          margin-bottom: 22px;
+        }
+        .ske-grid-3 {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+          margin: 24px 0 35px;
+        }
+        .ske-grid-4 {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          margin: 24px 0 35px;
+        }
+        .ske-card {
+          background: #11141c;
+          padding: 22px 18px;
+          border-radius: 12px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          transition: all 0.25s ease;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justifyContent: center;
+        }
+        .ske-card:hover {
+          transform: translateY(-4px);
+          border-color: #f5b81b;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        .ske-card-icon {
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+          justifyContent: center;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: rgba(245, 184, 27, 0.1);
+        }
+        .ske-card h6 {
+          font-size: 0.94rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin: 0 0 6px;
+          line-height: 1.35;
+        }
+        .ske-card p {
+          font-size: 0.82rem;
+          color: #94a3b8;
+          margin: 0;
+          line-height: 1.48;
+          text-align: center;
+        }
+        .ske-deliverable-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px 28px;
+          background: #11141c;
+          padding: 28px 32px;
+          border-radius: 14px;
+          margin: 24px 0 35px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          list-style: none;
+        }
+        .ske-deliverable-grid li {
+          position: relative;
+          padding-left: 28px;
+          font-size: 0.94rem;
+          color: #e2e8f0;
+          line-height: 1.5;
+        }
+        .ske-deliverable-grid li::before {
+          content: "✓";
+          color: #f5b81b;
+          font-weight: 800;
+          font-size: 1.1rem;
+          position: absolute;
+          left: 0;
+          top: -1px;
+        }
+        .ske-stats-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          margin: 24px 0 35px;
+        }
+        .ske-stat-card {
+          background: #11141c;
+          padding: 24px 16px;
+          border-radius: 12px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          transition: all 0.25s ease;
+        }
+        .ske-stat-card:hover {
+          transform: translateY(-3px);
+          border-color: #f5b81b;
+        }
+        .ske-stat-card .number {
+          font-size: 1.9rem;
+          font-weight: 800;
+          color: #38bdf8;
+          line-height: 1.2;
+          margin: 6px 0 4px;
+        }
+        .ske-stat-card .label {
+          font-size: 0.84rem;
+          color: #94a3b8;
+          font-weight: 600;
+        }
+        .ske-faq-item {
+          background: #11141c;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: 10px;
+          padding: 18px 22px;
+          margin-bottom: 12px;
+          transition: all 0.2s ease;
+          cursor: pointer;
+        }
+        .ske-faq-item:hover {
+          border-color: #f5b81b;
+        }
+        .ske-faq-q {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 1.02rem;
+          font-weight: 700;
+          color: #ffffff;
+        }
+        .ske-faq-a {
+          margin-top: 10px;
+          font-size: 0.92rem;
+          line-height: 1.65;
+          color: #94a3b8;
+        }
+        .ske-cta-section {
+          background: linear-gradient(135deg, #0b172a 0%, #111c33 100%);
+          border: 1px solid rgba(245, 184, 27, 0.3);
+          padding: 44px 36px;
+          border-radius: 16px;
+          text-align: center;
+          margin: 45px 0 35px;
+          box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+        }
+        .ske-cta-section h2 {
+          font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+          font-weight: 800;
+          color: #ffffff;
+          margin-bottom: 12px;
+        }
+        .ske-cta-section p {
+          font-size: 1.02rem;
+          color: #cbd5e1;
+          max-width: 750px;
+          margin: 0 auto 24px;
+          line-height: 1.65;
+        }
+        .ske-cta-buttons {
+          display: flex;
+          gap: 14px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .ske-btn-primary {
+          background: #f5b81b;
+          color: #07080d;
+          border: 2px solid #f5b81b;
+          border-radius: 999px;
+          padding: 12px 32px;
+          font-weight: 700;
+          font-size: 0.95rem;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.2s ease;
+          text-decoration: none;
+        }
+        .ske-btn-primary:hover {
+          background: #e0a50b;
+          border-color: #e0a50b;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(245, 184, 27, 0.35);
+        }
+        .ske-btn-whatsapp {
+          background: #25D366;
+          color: #ffffff;
+          border: 2px solid #25D366;
+          border-radius: 999px;
+          padding: 12px 30px;
+          font-weight: 700;
+          font-size: 0.95rem;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.2s ease;
+          text-decoration: none;
+        }
+        .ske-btn-whatsapp:hover {
+          background: #1da851;
+          border-color: #1da851;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+        }
+        .ske-regulatory-box {
+          background: #11141c;
+          border-left: 5px solid #38bdf8;
+          padding: 22px 28px;
+          margin: 35px 0;
+          border-radius: 0 10px 10px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          border-right: 1px solid rgba(255, 255, 255, 0.06);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .ske-regulatory-box h4 {
+          font-size: 1.05rem;
+          font-weight: 700;
+          color: #ffffff;
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .ske-regulatory-box ul {
+          margin: 0;
+          padding-left: 20px;
+          font-size: 0.92rem;
+          line-height: 1.8;
+          color: #cbd5e1;
+        }
+        .ske-regulatory-box li strong {
+          color: #38bdf8;
+        }
+        .ske-related-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 16px;
+          margin: 24px 0;
+        }
+        .ske-rel-card {
+          background: #11141c;
+          padding: 20px 16px;
+          border-radius: 12px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          transition: all 0.25s ease;
+          text-decoration: none;
+          color: inherit;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .ske-rel-card:hover {
+          transform: translateY(-4px);
+          border-color: #f5b81b;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+        }
+        .ske-rel-card h6 {
+          font-weight: 700;
+          color: #ffffff;
+          font-size: 0.92rem;
+          margin: 8px 0 6px;
+          min-height: 2.6em;
+          display: flex;
+          align-items: center;
+          justifyContent: center;
+        }
+        .ske-rel-card .learn-more {
+          font-size: 0.84rem;
+          color: #38bdf8;
+          font-weight: 600;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+        }
+        @media (max-width: 992px) {
+          .ske-grid-3, .ske-grid-4, .ske-stats-grid, .ske-related-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 600px) {
+          .ske-grid-3, .ske-grid-4, .ske-stats-grid, .ske-related-grid, .ske-deliverable-grid {
+            grid-template-columns: 1fr;
+          }
+          .ske-content-container {
+            padding: 30px 16px 50px;
+          }
+          .ske-cta-section {
+            padding: 30px 20px;
+          }
+        }
+      `}</style>
+
+      {/* Top Breadcrumb & Share Navigation */}
+      <div className="ske-top-breadcrumb">
+        <div style={{ maxWidth: '1040px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#94a3b8', textDecoration: 'none' }}>Home</a>
             <span>/</span>
-            <button
-              onClick={() => navigateTo('/services')}
-              style={{ background: 'none', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 0, fontSize: '0.84rem', textDecoration: 'underline' }}
-            >
-              Services
-            </button>
+            <a href="/services" onClick={(e) => navigateTo('/services', e)} style={{ color: '#94a3b8', textDecoration: 'none' }}>Services</a>
             <span>/</span>
-            <span style={{ color: '#e2e8f0', fontWeight: 600 }}>{service.title}</span>
+            <span style={{ color: '#f5b81b', fontWeight: 600 }}>{service.heroTitle}</span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <button
               onClick={handleShare}
               style={{
@@ -165,18 +602,19 @@ export default function ServiceDetailPage({
                 background: 'rgba(255, 255, 255, 0.05)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
                 color: '#cbd5e1',
-                padding: '6px 12px',
+                padding: '5px 12px',
                 borderRadius: '6px',
-                fontSize: '0.8rem',
+                fontSize: '12px',
                 cursor: 'pointer'
               }}
             >
-              <Share2 size={13} />
-              <span>{copiedLink ? 'Link Copied!' : 'Share'}</span>
+              <Share2 size={12} />
+              <span>{copiedLink ? 'Link Copied!' : 'Share Page'}</span>
             </button>
 
-            <button
-              onClick={() => navigateTo('/services')}
+            <a
+              href="/services"
+              onClick={(e) => navigateTo('/services', e)}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -184,792 +622,259 @@ export default function ServiceDetailPage({
                 background: 'none',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 color: '#cbd5e1',
-                padding: '6px 12px',
+                padding: '5px 12px',
                 borderRadius: '6px',
-                fontSize: '0.8rem',
-                cursor: 'pointer'
+                fontSize: '12px',
+                textDecoration: 'none'
               }}
             >
-              <ArrowLeft size={13} /> All Services
-            </button>
+              <ArrowLeft size={12} /> Back to Services
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Hero Header Section */}
-      <section style={{
-        background: 'linear-gradient(180deg, #0d1017 0%, #07080d 100%)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-        padding: '48px 20px 40px'
-      }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
-          
-          {/* Top Pill Tags */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', marginBottom: '18px' }}>
-            <span style={{
-              fontSize: '0.74rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              color: accentColor,
-              background: `${accentColor}18`,
-              border: `1px solid ${accentColor}40`,
-              padding: '4px 10px',
-              borderRadius: '6px'
-            }}>
-              {service.categoryBadge || service.category}
-            </span>
-
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '5px',
-              fontSize: '0.74rem',
-              fontWeight: 600,
-              color: '#f59e0b',
-              background: 'rgba(245, 158, 11, 0.12)',
-              border: '1px solid rgba(245, 158, 11, 0.3)',
-              padding: '4px 10px',
-              borderRadius: '6px'
-            }}>
-              <Clock size={12} />
-              <span>Turnaround: {service.turnaround}</span>
-            </span>
-
-            <span style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '5px',
-              fontSize: '0.74rem',
-              fontWeight: 600,
-              color: '#10b981',
-              background: 'rgba(16, 185, 129, 0.12)',
-              border: '1px solid rgba(16, 185, 129, 0.3)',
-              padding: '4px 10px',
-              borderRadius: '6px'
-            }}>
-              <ShieldCheck size={12} />
-              <span>100% Statutory Acceptance</span>
-            </span>
-          </div>
-
-          {/* Service Title */}
-          <h1 style={{
-            fontSize: 'clamp(1.9rem, 4vw, 2.7rem)',
-            fontWeight: 800,
-            lineHeight: 1.25,
-            color: '#ffffff',
-            marginBottom: '16px',
-            maxWidth: '980px'
-          }}>
-            {service.title}
-          </h1>
-
-          {/* Summary */}
-          <p style={{
-            fontSize: '1.05rem',
-            lineHeight: 1.65,
-            color: '#94a3b8',
-            maxWidth: '920px',
-            marginBottom: '24px'
-          }}>
-            {service.summary}
-          </p>
-
-          {/* Statutory Mandate Callout Pill */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(255, 255, 255, 0.04)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            padding: '8px 14px',
-            borderRadius: '8px',
-            fontSize: '0.85rem',
-            color: '#cbd5e1',
-            marginBottom: '28px'
-          }}>
-            <Scale size={16} color={accentColor} />
-            <span><strong>Governing Framework:</strong> {service.statutoryAct}</span>
-          </div>
-
-          {/* Quick CTA Actions */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-            <button
-              onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
-              className="btn btn-primary"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '12px 24px',
-                fontSize: '0.94rem',
-                fontWeight: 700,
-                borderRadius: '8px'
-              }}
-            >
-              <span>Request Valuation / Quote</span>
-              <ArrowRight size={16} />
-            </button>
-
-            <a
-              href="https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20need%20assistance%20regarding%20"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(34, 197, 94, 0.12)',
-                border: '1px solid rgba(34, 197, 94, 0.35)',
-                color: '#22c55e',
-                padding: '12px 20px',
-                borderRadius: '8px',
-                fontSize: '0.94rem',
-                fontWeight: 700,
-                textDecoration: 'none',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              <MessageSquare size={16} />
-              <span>WhatsApp Chief Engineer</span>
-            </a>
-
-            <a
-              href="tel:+919158658885"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                color: '#e2e8f0',
-                padding: '12px 20px',
-                borderRadius: '8px',
-                fontSize: '0.94rem',
-                fontWeight: 600,
-                textDecoration: 'none'
-              }}
-            >
-              <PhoneCall size={16} />
-              <span>+91 91586 58885</span>
-            </a>
-          </div>
-
+      {/* Top Hero Header */}
+      <section className="ske-service-hero">
+        <div style={{ maxWidth: '1040px', margin: '0 auto' }}>
+          <span className="ske-category-tag">{service.categoryTag}</span>
+          <h1 className="ske-hero-title">{service.heroTitle}</h1>
+          <p className="ske-hero-subtitle">{service.heroSubtitle}</p>
         </div>
       </section>
 
-      {/* Main Content Layout (2 Columns: Main 8 cols + Sticky Sidebar 4 cols) */}
-      <div style={{ maxWidth: '1240px', margin: '40px auto 0', padding: '0 20px' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) 360px',
-          gap: '36px',
-          alignItems: 'start'
-        }}>
+      {/* Main Content Body */}
+      <main className="ske-content-container">
+        
+        {/* Full Service Title */}
+        <h1 className="ske-main-h1">{service.fullTitle}</h1>
+        <p className="ske-lead-p">{service.lead}</p>
 
-          {/* LEFT COLUMN: Deep Documentation & Specifications */}
-          <div>
+        {/* Section 1: What is a [Service Title]? */}
+        <h2 className="ske-section-h2">{service.whatIsHeading}</h2>
+        <p className="ske-body-p">{service.whatIs}</p>
 
-            {/* SECTION 1: Why This Matters & Strategic Importance */}
-            <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '28px',
-              marginBottom: '28px'
-            }}>
-              <h2 style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#ffffff',
-                marginBottom: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px'
-              }}>
-                <ShieldCheck size={20} color={accentColor} />
-                Overview &amp; Regulatory Importance
-              </h2>
-              <p style={{ fontSize: '0.95rem', lineHeight: 1.65, color: '#cbd5e1', marginBottom: '20px' }}>
-                {service.whyMatters}
-              </p>
-
-              {/* 3 Pillar Highlights from User's Ref */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: '12px',
-                background: '#0a0c12',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
-                borderRadius: '8px',
-                padding: '16px'
-              }}>
-                {service.keyHighlights.map((hl, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <div style={{
-                      width: '20px',
-                      height: '20px',
-                      borderRadius: '50%',
-                      background: 'rgba(16, 185, 129, 0.2)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#10b981',
-                      flexShrink: 0
-                    }}>
-                      <Check size={12} strokeWidth={3} />
-                    </div>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: '#e2e8f0' }}>{hl}</span>
+        {/* Section 2: Core Assessment Pillars (6 Cards - grid-3) */}
+        {service.grid3Cards && service.grid3Cards.length > 0 && (
+          <>
+            <h2 className="ske-section-h2">{service.grid3Heading}</h2>
+            <div className="ske-grid-3">
+              {service.grid3Cards.map((c, i) => (
+                <div key={i} className="ske-card">
+                  <div className="ske-card-icon">
+                    {renderIcon(c.icon, 24, '#f5b81b')}
                   </div>
-                ))}
-              </div>
+                  <h6>{c.title}</h6>
+                  <p>{c.desc}</p>
+                </div>
+              ))}
             </div>
+          </>
+        )}
 
-            {/* SECTION 2: Detailed Scope of Deliverables */}
-            <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '28px',
-              marginBottom: '28px'
-            }}>
-              <h2 style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#ffffff',
-                marginBottom: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px'
-              }}>
-                <FileCheck2 size={20} color={accentColor} />
-                Scope of Work &amp; Technical Deliverables
-              </h2>
-              <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '20px' }}>
-                Every report and certificate is prepared strictly as per prescribed statutory guidelines and accepted across all relevant authorities.
-              </p>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr',
-                gap: '10px'
-              }}>
-                {service.deliverables.map((item, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '12px',
-                      padding: '12px 14px',
-                      borderRadius: '8px',
-                      background: 'rgba(255, 255, 255, 0.02)',
-                      border: '1px solid rgba(255, 255, 255, 0.05)'
-                    }}
-                  >
-                    <div style={{
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '50%',
-                      background: `${accentColor}18`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: accentColor,
-                      flexShrink: 0,
-                      marginTop: '1px'
-                    }}>
-                      <Check size={13} strokeWidth={3} />
-                    </div>
-                    <span style={{ fontSize: '0.9rem', color: '#e2e8f0', lineHeight: 1.5 }}>
-                      {item}
-                    </span>
+        {/* Section 3: Technical Hazards / Checks (8 Cards - grid-4) */}
+        {service.grid4ACards && service.grid4ACards.length > 0 && (
+          <>
+            <h2 className="ske-section-h2">{service.grid4AHeading}</h2>
+            <div className="ske-grid-4">
+              {service.grid4ACards.map((c, i) => (
+                <div key={i} className="ske-card">
+                  <div className="ske-card-icon" style={{ background: 'rgba(56, 189, 248, 0.1)' }}>
+                    {renderIcon(c.icon, 22, '#38bdf8')}
                   </div>
-                ))}
-              </div>
+                  <h6>{c.title}</h6>
+                  <p>{c.desc}</p>
+                </div>
+              ))}
             </div>
+          </>
+        )}
 
-            {/* SECTION 3: 5-Step Execution Methodology */}
-            <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '28px',
-              marginBottom: '28px'
-            }}>
-              <h2 style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#ffffff',
-                marginBottom: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px'
-              }}>
-                <Layers size={20} color={accentColor} />
-                5-Step Execution &amp; Certification Methodology
-              </h2>
-              <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '22px' }}>
-                Systematic engineering procedure guaranteeing auditable, zero-rejection submissions.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                {service.methodology.map((m, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'flex',
-                      gap: '16px',
-                      alignItems: 'flex-start',
-                      padding: '16px',
-                      borderRadius: '8px',
-                      background: '#0a0c12',
-                      border: '1px solid rgba(255, 255, 255, 0.05)',
-                      position: 'relative'
-                    }}
-                  >
-                    <div style={{
-                      fontFamily: 'monospace',
-                      fontSize: '1.1rem',
-                      fontWeight: 800,
-                      color: accentColor,
-                      background: `${accentColor}18`,
-                      border: `1px solid ${accentColor}30`,
-                      width: '38px',
-                      height: '38px',
-                      borderRadius: '8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0
-                    }}>
-                      {m.step}
-                    </div>
-                    <div>
-                      <h3 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#f1f5f9', marginBottom: '4px' }}>
-                        {m.title}
-                      </h3>
-                      <p style={{ fontSize: '0.86rem', color: '#94a3b8', lineHeight: 1.5, margin: 0 }}>
-                        {m.desc}
-                      </p>
-                    </div>
+        {/* Section 4: Equipment / Systems Evaluated (8 Cards - grid-4) */}
+        {service.grid4BCards && service.grid4BCards.length > 0 && (
+          <>
+            <h2 className="ske-section-h2">{service.grid4BHeading}</h2>
+            <div className="ske-grid-4">
+              {service.grid4BCards.map((c, i) => (
+                <div key={i} className="ske-card">
+                  <div className="ske-card-icon" style={{ background: 'rgba(16, 185, 129, 0.1)' }}>
+                    {renderIcon(c.icon, 22, '#10b981')}
                   </div>
-                ))}
-              </div>
+                  <h6>{c.title}</h6>
+                  <p>{c.desc}</p>
+                </div>
+              ))}
             </div>
+          </>
+        )}
 
-            {/* SECTION 4: Mandatory Documents Required Checklist */}
-            <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '28px',
-              marginBottom: '28px'
-            }}>
-              <h2 style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#ffffff',
-                marginBottom: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px'
-              }}>
-                <FolderCheck size={20} color="#f59e0b" />
-                Mandatory Client Documents Required
-              </h2>
-              <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '18px' }}>
-                Keep these documents accessible to fast-track your valuation or certification report within 24–48 hours:
-              </p>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                gap: '10px'
-              }}>
-                {service.documentsRequired.map((doc, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                      padding: '12px 14px',
-                      borderRadius: '8px',
-                      background: 'rgba(245, 158, 11, 0.06)',
-                      border: '1px solid rgba(245, 158, 11, 0.18)'
-                    }}
-                  >
-                    <FileText size={16} color="#f59e0b" style={{ flexShrink: 0 }} />
-                    <span style={{ fontSize: '0.86rem', color: '#e2e8f0', fontWeight: 500 }}>
-                      {doc}
-                    </span>
+        {/* Section 5: Diagnostic / Testing Methods (8 Cards - grid-4) */}
+        {service.grid4CCards && service.grid4CCards.length > 0 && (
+          <>
+            <h2 className="ske-section-h2">{service.grid4CHeading}</h2>
+            {service.grid4CSubtitle && <p className="ske-body-p">{service.grid4CSubtitle}</p>}
+            <div className="ske-grid-4">
+              {service.grid4CCards.map((c, i) => (
+                <div key={i} className="ske-card">
+                  <div className="ske-card-icon" style={{ background: 'rgba(236, 72, 153, 0.1)' }}>
+                    {renderIcon(c.icon, 22, '#ec4899')}
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* SECTION 5: Industries & Client Sectors Served */}
-            <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '28px',
-              marginBottom: '28px'
-            }}>
-              <h2 style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#ffffff',
-                marginBottom: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px'
-              }}>
-                <Factory size={20} color={accentColor} />
-                Industries &amp; Client Segments Served
-              </h2>
-
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                {service.industriesServed.map((ind, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      color: '#cbd5e1',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      padding: '6px 12px',
-                      borderRadius: '6px'
-                    }}
-                  >
-                    {ind}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* SECTION 6: Frequently Asked Questions (Accordion) */}
-            <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '28px'
-            }}>
-              <h2 style={{
-                fontSize: '1.25rem',
-                fontWeight: 800,
-                color: '#ffffff',
-                marginBottom: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px'
-              }}>
-                <HelpCircle size={20} color={accentColor} />
-                Frequently Asked Technical &amp; Legal Questions
-              </h2>
-              <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '20px' }}>
-                Common clarifications regarding statutory requirements, turnarounds, and authority approvals:
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {service.faqs.map((faq, idx) => {
-                  const isOpen = activeFaq === idx;
-                  return (
-                    <div
-                      key={idx}
-                      style={{
-                        borderRadius: '8px',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
-                        background: isOpen ? '#0a0c12' : 'rgba(255, 255, 255, 0.02)',
-                        overflow: 'hidden',
-                        transition: 'all 0.2s ease'
-                      }}
-                    >
-                      <button
-                        onClick={() => toggleFaq(idx)}
-                        style={{
-                          width: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '12px',
-                          padding: '16px 18px',
-                          background: 'none',
-                          border: 'none',
-                          color: '#ffffff',
-                          fontSize: '0.92rem',
-                          fontWeight: 700,
-                          textAlign: 'left',
-                          cursor: 'pointer'
-                        }}
-                      >
-                        <span>{faq.q}</span>
-                        {isOpen ? <ChevronUp size={18} color={accentColor} /> : <ChevronDown size={18} color="#94a3b8" />}
-                      </button>
-
-                      {isOpen && (
-                        <div style={{ padding: '0 18px 18px', fontSize: '0.88rem', lineHeight: 1.6, color: '#94a3b8' }}>
-                          {faq.a}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-          </div>
-
-          {/* RIGHT COLUMN: Sticky Lead Card & Signatory Info */}
-          <div style={{ position: 'sticky', top: '90px' }}>
-
-            {/* Request Consultation Card */}
-            <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderTop: `3px solid ${accentColor}`,
-              borderRadius: '12px',
-              padding: '24px',
-              marginBottom: '20px',
-              boxShadow: '0 8px 30px rgba(0, 0, 0, 0.4)'
-            }}>
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontSize: '0.74rem',
-                fontWeight: 700,
-                color: '#10b981',
-                textTransform: 'uppercase',
-                letterSpacing: '0.06em',
-                marginBottom: '10px'
-              }}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981' }} />
-                Direct Lead Engineer Desk
-              </div>
-
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
-                Consult Er. Mukesh Singh
-              </h3>
-              <p style={{ fontSize: '0.84rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '20px' }}>
-                Need statutory clearance, bankable valuation, or technical stability certificate? Get instant guidance.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <button
-                  onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
-                  className="btn btn-primary"
-                  style={{
-                    width: '100%',
-                    padding: '12px',
-                    fontSize: '0.9rem',
-                    fontWeight: 700,
-                    borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px'
-                  }}
-                >
-                  <FileText size={16} /> Request Official Proposal
-                </button>
-
-                <a
-                  href={`https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20need%20inquiry%20regarding%20${encodeURIComponent(service.title)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    background: '#22c55e18',
-                    border: '1px solid #22c55e40',
-                    color: '#22c55e',
-                    padding: '11px',
-                    borderRadius: '8px',
-                    fontSize: '0.88rem',
-                    fontWeight: 700,
-                    textDecoration: 'none'
-                  }}
-                >
-                  <MessageSquare size={16} /> WhatsApp Inquiry
-                </a>
-
-                <a
-                  href="tel:+919158658885"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    color: '#e2e8f0',
-                    padding: '11px',
-                    borderRadius: '8px',
-                    fontSize: '0.88rem',
-                    fontWeight: 600,
-                    textDecoration: 'none'
-                  }}
-                >
-                  <PhoneCall size={15} /> +91 91586 58885
-                </a>
-              </div>
-            </div>
-
-            {/* Lead Signatory Credentials Card */}
-            <div style={{
-              background: '#0d1017',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '20px',
-              marginBottom: '20px'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-                <div style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '50%',
-                  background: 'rgba(56, 189, 248, 0.15)',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#38bdf8',
-                  fontWeight: 800,
-                  fontSize: '1rem'
-                }}>
-                  MS
+                  <h6>{c.title}</h6>
+                  <p>{c.desc}</p>
                 </div>
-                <div>
-                  <h4 style={{ fontSize: '0.98rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>
-                    Er. Mukesh Singh
-                  </h4>
-                  <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 600 }}>
-                    B.Tech Mechanical (IIT Roorkee)
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Section 6: Deliverables (2-Column Checkmark Grid) */}
+        {service.deliverables && service.deliverables.length > 0 && (
+          <>
+            <h2 className="ske-section-h2">{service.heroTitle} Deliverables</h2>
+            <ul className="ske-deliverable-grid">
+              {service.deliverables.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {/* Section 7: Industries We Serve (8 Cards - grid-4) */}
+        {service.industries && service.industries.length > 0 && (
+          <>
+            <h2 className="ske-section-h2">Industries We Serve</h2>
+            <div className="ske-grid-4">
+              {service.industries.map((ind, i) => (
+                <div key={i} className="ske-card" style={{ padding: '16px 12px' }}>
+                  <div className="ske-card-icon" style={{ width: '42px', height: '42px', marginBottom: '8px' }}>
+                    {renderIcon(ind.icon, 20, '#f5b81b')}
                   </div>
+                  <h6 style={{ fontSize: '0.88rem', margin: 0 }}>{ind.name}</h6>
                 </div>
-              </div>
-
-              <div style={{ fontSize: '0.82rem', color: '#94a3b8', lineHeight: 1.5, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Award size={13} color="#f59e0b" />
-                  <span>Chartered Engineer (CEng) &amp; MIE</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <ShieldCheck size={13} color="#10b981" />
-                  <span>Government Approved Registered Valuer</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Landmark size={13} color="#38bdf8" />
-                  <span>Empaneled with Leading Commercial Banks</span>
-                </div>
-              </div>
+              ))}
             </div>
+          </>
+        )}
 
-            {/* Related Services Links */}
-            <div style={{
-              background: '#0d1017',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '12px',
-              padding: '20px'
-            }}>
-              <h4 style={{ fontSize: '0.88rem', fontWeight: 800, color: '#ffffff', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                Related Engineering Services
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {otherServices.map((rel) => (
-                  <button
-                    key={rel.code}
-                    onClick={() => navigateTo(`/services/${rel.code}`)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      background: 'none',
-                      border: 'none',
-                      padding: '8px 6px',
-                      color: '#cbd5e1',
-                      fontSize: '0.84rem',
-                      textAlign: 'left',
-                      cursor: 'pointer',
-                      borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
-                      transition: 'color 0.15s ease'
-                    }}
-                    onMouseEnter={e => { e.currentTarget.style.color = '#38bdf8'; }}
-                    onMouseLeave={e => { e.currentTarget.style.color = '#cbd5e1'; }}
-                  >
-                    <span>{rel.title}</span>
-                    <ArrowRight size={13} color="#64748b" />
-                  </button>
-                ))}
-              </div>
+        {/* Section 8: Why Choose KS Chartered Engineers (Stats Grid) */}
+        <h2 className="ske-section-h2">Why Choose KS Chartered Engineers</h2>
+        <div className="ske-stats-grid">
+          {(service.stats || []).map((s, i) => (
+            <div key={i} className="ske-stat-card">
+              <div>{renderIcon(s.icon, 22, '#f5b81b')}</div>
+              <div className="number">{s.number}</div>
+              <div className="label">{s.label}</div>
             </div>
-
-          </div>
-
+          ))}
         </div>
-      </div>
 
-      {/* Bottom Full-Width CTA Banner */}
-      <div style={{
-        maxWidth: '1240px',
-        margin: '60px auto 0',
-        padding: '0 20px'
-      }}>
-        <div style={{
-          background: 'linear-gradient(135deg, #11141c 0%, #1a202c 100%)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          borderRadius: '16px',
-          padding: '36px 30px',
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '24px'
-        }}>
-          <div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
-              Need Official Statutory Clearance or Valuation in Rajasthan / NCR?
-            </h3>
-            <p style={{ fontSize: '0.92rem', color: '#94a3b8', margin: 0, maxWidth: '650px' }}>
-              Direct consultation with IIT Roorkee qualified Chartered Engineers. Bankable, legally admissible reports guaranteed within 24–48 hours.
-            </p>
-          </div>
+        {/* Section 9: Frequently Asked Questions */}
+        {service.faqs && service.faqs.length > 0 && (
+          <>
+            <h2 className="ske-section-h2">Frequently Asked Questions</h2>
+            <div>
+              {service.faqs.map((faq, idx) => {
+                const isOpen = openFaqs[idx] !== false; // open by default or toggleable
+                return (
+                  <div key={idx} className="ske-faq-item" onClick={() => toggleFaq(idx)}>
+                    <div className="ske-faq-q">
+                      <span>{faq.q}</span>
+                      {isOpen ? <ChevronUp size={18} color="#f5b81b" /> : <ChevronDown size={18} color="#94a3b8" />}
+                    </div>
+                    {isOpen && (
+                      <div className="ske-faq-a">
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
 
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+        {/* Section 10: High-Impact Call-to-Action Section */}
+        <div className="ske-cta-section">
+          <h2>{service.ctaTitle}</h2>
+          <p>{service.ctaDesc}</p>
+          <div className="ske-cta-buttons">
             <button
-              onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
-              className="btn btn-primary"
-              style={{ padding: '12px 24px', fontSize: '0.92rem', fontWeight: 700, borderRadius: '8px' }}
+              onClick={() => onOpenQuote(service.heroTitle, { category: service.categoryTag })}
+              className="ske-btn-primary"
             >
-              Get Free Quote
+              <FileText size={16} /> Request {service.heroTitle}
             </button>
+
+            <a
+              href={`https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20am%20interested%20in%20${encodeURIComponent(service.heroTitle)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ske-btn-whatsapp"
+            >
+              <MessageSquare size={16} /> WhatsApp an Expert
+            </a>
+
             <a
               href="tel:+919158658885"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'rgba(255, 255, 255, 0.08)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
                 color: '#ffffff',
-                padding: '12px 20px',
-                borderRadius: '8px',
-                fontSize: '0.92rem',
+                border: '2px solid rgba(255, 255, 255, 0.25)',
+                borderRadius: '999px',
+                padding: '12px 28px',
                 fontWeight: 600,
-                textDecoration: 'none'
+                fontSize: '0.95rem',
+                textDecoration: 'none',
+                background: 'rgba(255, 255, 255, 0.05)'
               }}
             >
-              <PhoneCall size={16} /> Call Now
+              <PhoneCall size={16} /> +91 91586 58885
             </a>
           </div>
         </div>
-      </div>
+
+        {/* Section 11: Current Regulatory Framework Box */}
+        {service.regulatoryActs && service.regulatoryActs.length > 0 && (
+          <div className="ske-regulatory-box">
+            <h4>
+              <Scale size={20} color="#38bdf8" />
+              <span>{service.regulatoryHeading || 'Current Regulatory Framework'}</span>
+            </h4>
+            <ul>
+              {service.regulatoryActs.map((act, i) => (
+                <li key={i}>
+                  <strong>{act.title}</strong> {act.desc}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Section 12: Related Services Grid (Clickable to switch page) */}
+        <h2 className="ske-section-h2">Related Services</h2>
+        <div className="ske-related-grid">
+          {displayRelated.map((rel) => (
+            <a
+              key={rel.code}
+              href={`/services/${rel.code}`}
+              onClick={(e) => navigateTo(`/services/${rel.code}`, e)}
+              className="ske-rel-card"
+            >
+              <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '8px' }}>
+                <ShieldCheck size={22} color="#38bdf8" />
+              </div>
+              <h6>{rel.heroTitle || rel.title}</h6>
+              <span className="learn-more">
+                <span>Learn More</span>
+                <ArrowRight size={13} />
+              </span>
+            </a>
+          ))}
+        </div>
+
+      </main>
 
     </div>
   );
