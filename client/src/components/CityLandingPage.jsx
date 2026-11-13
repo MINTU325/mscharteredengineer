@@ -46,7 +46,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
   const jsonLdSchema = {
     "@context": "https://schema.org",
     "@type": ["ProfessionalService", "LocalBusiness"],
-    "name": `KS Chartered Engineers - ${cityData.cityName}`,
+    "name": `MS Chartered Engineers - ${cityData.cityName}`,
     "url": `https://www.mscharteredengineer.com/${cityData.slug}`,
     "image": cityData.heroImage ? `https://www.mscharteredengineer.com${cityData.heroImage}` : undefined,
     "description": cityData.seoMeta,
@@ -75,11 +75,11 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
     <div
       className="city-landing-page"
       style={{
-        background: 'radial-gradient(circle at 10% 8%, rgba(217, 119, 6, 0.05) 0%, transparent 40%), linear-gradient(180deg, #F4F0E8 0%, #FAF8F5 45%, #F4F0E8 100%)',
+        background: '#0b0d14',
         minHeight: '100vh',
         paddingTop: '24px',
         paddingBottom: '44px',
-        color: '#0f172a'
+        color: '#eef0f5'
       }}
     >
       {/* Inject localized JSON-LD schema into head */}
@@ -96,7 +96,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
             gap: '12px',
             padding: '12px 0',
             marginBottom: '18px',
-            borderBottom: '1px solid #E8E2D8'
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
           }}
         >
           <button
@@ -105,40 +105,41 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#ffffff',
-              border: '1px solid #E8E2D8',
-              borderRadius: '9999px',
+              background: '#11141c',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '8px',
               padding: '6px 16px',
-              color: '#0f172a',
+              color: '#38bdf8',
               fontSize: '0.84rem',
               fontWeight: 600,
               cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
               transition: 'all 0.2s ease'
             }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)'; e.currentTarget.style.background = '#1a1e28'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'; e.currentTarget.style.background = '#11141c'; }}
           >
             <ArrowLeft size={15} />
             <span>&larr; Back to Home</span>
           </button>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#64748b' }}>
-            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#64748b', textDecoration: 'none' }}>Home</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#7a8296' }}>
+            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#7a8296', textDecoration: 'none' }}>Home</a>
             <ChevronRight size={14} />
-            <span style={{ color: '#64748b' }}>Pan-India Corridors</span>
+            <span style={{ color: '#7a8296' }}>Pan-India Corridors</span>
             <ChevronRight size={14} />
-            <span style={{ color: '#0f172a', fontWeight: 600 }}>{cityData.cityName}</span>
+            <span style={{ color: '#eef0f5', fontWeight: 600 }}>{cityData.cityName}</span>
           </div>
         </div>
 
         {/* ── High-Impact Hero Banner with Real Photo Showcase ── */}
         <div
           style={{
-            background: 'linear-gradient(135deg, #07172c 0%, #0c2340 55%, #183354 100%)',
-            borderRadius: '24px',
-            padding: 'clamp(24px, 3.8vw, 42px) clamp(20px, 3.2vw, 38px)',
+            background: '#0e121b',
+            border: '1px solid rgba(56, 189, 248, 0.25)',
+            borderRadius: '12px',
+            padding: 'clamp(24px, 3.8vw, 40px) clamp(20px, 3.2vw, 36px)',
             color: '#ffffff',
             marginBottom: '28px',
-            boxShadow: '0 20px 40px -12px rgba(7, 23, 44, 0.35)',
             position: 'relative',
             overflow: 'hidden'
           }}
@@ -160,11 +161,11 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '5px 14px',
-                  background: 'rgba(245, 158, 11, 0.15)',
-                  border: '1px solid rgba(245, 158, 11, 0.35)',
-                  borderRadius: '9999px',
-                  color: '#fbbf24',
+                  padding: '5px 12px',
+                  background: 'rgba(56, 189, 248, 0.08)',
+                  border: '1px solid rgba(56, 189, 248, 0.25)',
+                  borderRadius: '6px',
+                  color: '#38bdf8',
                   fontSize: '0.78rem',
                   fontWeight: 700,
                   letterSpacing: '0.04em',
@@ -184,7 +185,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   color: '#ffffff'
                 }}
               >
-                Chartered Engineer in <span style={{ color: '#fbbf24' }}>{cityData.cityName}</span>
+                Chartered Engineer in <span style={{ color: '#38bdf8' }}>{cityData.cityName}</span>
               </h1>
 
               <p
@@ -215,10 +216,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     background: 'rgba(255, 255, 255, 0.08)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '10px',
-                    padding: '7px 14px',
-                    fontSize: '0.82rem',
-                    color: '#e2e8f0'
+                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#eef0f5'
                   }}
                 >
                   <Clock size={15} color="#fbbf24" />
@@ -233,10 +231,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     background: 'rgba(255, 255, 255, 0.08)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '10px',
-                    padding: '7px 14px',
-                    fontSize: '0.82rem',
-                    color: '#e2e8f0'
+                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#eef0f5'
                   }}
                 >
                   <Award size={15} color="#38bdf8" />
@@ -251,10 +246,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     background: 'rgba(255, 255, 255, 0.08)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '10px',
-                    padding: '7px 14px',
-                    fontSize: '0.82rem',
-                    color: '#e2e8f0'
+                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#eef0f5'
                   }}
                 >
                   <MapPin size={15} color="#34d399" />
@@ -266,26 +258,40 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
                 <button
                   onClick={() => onOpenQuote('Assets Valuation Services', { city: cityData.cityName })}
-                  className="btn btn-gold"
-                  style={{ padding: '11px 24px', fontSize: '0.92rem', fontWeight: 700 }}
+                  style={{
+                    padding: '11px 22px',
+                    fontSize: '0.92rem',
+                    fontWeight: 600,
+                    background: '#F58220',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    transition: 'background 0.2s'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#e07316'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = '#F58220'; }}
                 >
                   Request Quotation for {cityData.cityName}
                 </button>
 
                 <a
                   href="tel:+919158658885"
-                  className="btn btn-outline"
                   style={{
-                    padding: '10px 20px',
+                    padding: '10px 18px',
                     fontSize: '0.90rem',
-                    borderColor: 'rgba(255, 255, 255, 0.35)',
-                    color: '#ffffff',
+                    background: '#1a1e28',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '8px',
+                    color: '#eef0f5',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '8px'
+                    gap: '8px',
+                    textDecoration: 'none',
+                    fontWeight: 600
                   }}
                 >
-                  <PhoneCall size={15} color="#34d399" />
+                  <PhoneCall size={15} color="#38bdf8" />
                   <span>Call: +91 91586 58885</span>
                 </a>
 
@@ -298,16 +304,16 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     alignItems: 'center',
                     gap: '8px',
                     padding: '10px 18px',
-                    borderRadius: 'var(--radius-sm)',
-                    background: 'rgba(37, 211, 102, 0.15)',
-                    border: '1px solid rgba(37, 211, 102, 0.4)',
+                    borderRadius: '8px',
+                    background: '#25D366',
+                    border: 'none',
                     color: '#ffffff',
                     fontSize: '0.90rem',
                     fontWeight: 600,
                     textDecoration: 'none'
                   }}
                 >
-                  <MessageSquare size={15} color="#25D366" />
+                  <MessageSquare size={15} color="#ffffff" />
                   <span>WhatsApp Consultation</span>
                 </a>
               </div>
@@ -319,7 +325,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 style={{
                   background: 'rgba(10, 25, 47, 0.75)',
                   border: '1px solid rgba(255, 255, 255, 0.16)',
-                  borderRadius: '20px',
+                  borderRadius: '12px',
                   overflow: 'hidden',
                   boxShadow: '0 16px 36px rgba(0, 0, 0, 0.35)',
                   backdropFilter: 'blur(10px)',
@@ -428,7 +434,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
           style={{
             background: 'linear-gradient(135deg, #ffffff 0%, #FAF8F5 100%)',
             border: '1px solid #E8E2D8',
-            borderRadius: '20px',
+            borderRadius: '12px',
             padding: '18px 24px',
             marginBottom: '28px',
             display: 'flex',
@@ -500,10 +506,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   alignItems: 'center',
                   gap: '6px',
                   padding: '4px 12px',
-                  background: '#fef3c7',
-                  border: '1px solid #fde68a',
-                  borderRadius: '9999px',
-                  color: '#b45309',
+                  background: 'rgba(56, 189, 248, 0.08)',
+                  border: '1px solid rgba(56, 189, 248, 0.25)',
+                  borderRadius: '6px',
+                  color: '#38bdf8',
                   fontSize: '0.78rem',
                   fontWeight: 700,
                   letterSpacing: '0.04em',
@@ -513,10 +519,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 <Camera size={14} />
                 <span>VERIFIED ON-SITE FIELD INSPECTIONS</span>
               </div>
-              <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#0f172a', fontWeight: 800, margin: '0 0 6px 0' }}>
-                Plant, Machinery &amp; Infrastructure Inspected in <span style={{ color: '#b45309' }}>{cityData.cityName}</span>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#ffffff', fontWeight: 700, margin: '0 0 6px 0' }}>
+                Plant, Machinery &amp; Infrastructure Inspected in <span style={{ color: '#38bdf8' }}>{cityData.cityName}</span>
               </h2>
-              <p style={{ color: '#475569', fontSize: '0.94rem', margin: 0 }}>
+              <p style={{ color: '#a3a9b8', fontSize: '0.94rem', margin: 0 }}>
                 Authentic photographic records of statutory engineering appraisals, customs clearance &amp; industrial assets across the {cityData.state} corridor.
               </p>
             </div>
@@ -534,7 +540,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   style={{
                     background: '#FFFFFF',
                     border: '1px solid #E8E2D8',
-                    borderRadius: '20px',
+                    borderRadius: '12px',
                     overflow: 'hidden',
                     boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
                     display: 'flex',
@@ -624,7 +630,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
             style={{
               background: '#FFFFFF',
               border: '1px solid #E8E2D8',
-              borderRadius: '20px',
+              borderRadius: '12px',
               padding: '24px 28px',
               boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)'
             }}
@@ -664,7 +670,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
             style={{
               background: '#FFFFFF',
               border: '1px solid #E8E2D8',
-              borderRadius: '20px',
+              borderRadius: '12px',
               padding: '24px 28px',
               boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)'
             }}
@@ -709,10 +715,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 alignItems: 'center',
                 gap: '6px',
                 padding: '4px 12px',
-                background: '#eff6ff',
-                border: '1px solid #bfdbfe',
-                borderRadius: '9999px',
-                color: '#1d4ed8',
+                background: 'rgba(56, 189, 248, 0.08)',
+                border: '1px solid rgba(56, 189, 248, 0.25)',
+                borderRadius: '6px',
+                color: '#38bdf8',
                 fontSize: '0.78rem',
                 fontWeight: 700,
                 letterSpacing: '0.04em',
@@ -722,10 +728,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               <Cpu size={14} />
               <span>CORE STATUTORY &amp; ENGINEERING SERVICES</span>
             </div>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#0f172a', fontWeight: 800, margin: '0 0 6px 0' }}>
-              Services Provided in <span style={{ color: '#b45309' }}>{cityData.cityName}</span>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#ffffff', fontWeight: 700, margin: '0 0 6px 0' }}>
+              Services Provided in <span style={{ color: '#38bdf8' }}>{cityData.cityName}</span>
             </h2>
-            <p style={{ color: '#475569', fontSize: '0.94rem', margin: 0 }}>
+            <p style={{ color: '#a3a9b8', fontSize: '0.94rem', margin: 0 }}>
               Tailored specifically to the regulatory, banking, and industrial profile of the {cityData.state} corridor.
             </p>
           </div>
@@ -741,11 +747,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               <div
                 key={idx}
                 style={{
-                  background: '#FFFFFF',
-                  border: '1px solid #E8E2D8',
-                  borderRadius: '18px',
+                  background: '#11141c',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '12px',
                   padding: '22px',
-                  boxShadow: '0 2px 10px rgba(15, 23, 42, 0.03)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between'
@@ -754,26 +759,26 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 <div>
                   <div
                     style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '10px',
-                      background: '#EFF6FF',
-                      border: '1px solid #BFDBFE',
-                      color: '#1E40AF',
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '6px',
+                      background: '#1a1e28',
+                      border: '1px solid rgba(56, 189, 248, 0.25)',
+                      color: '#38bdf8',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '12px',
-                      fontWeight: 800,
-                      fontSize: '0.88rem'
+                      fontWeight: 700,
+                      fontSize: '0.84rem'
                     }}
                   >
                     0{idx + 1}
                   </div>
-                  <h4 style={{ fontSize: '1.05rem', color: '#0F172A', fontWeight: 800, marginBottom: '8px' }}>
+                  <h4 style={{ fontSize: '1.02rem', color: '#ffffff', fontWeight: 600, marginBottom: '8px' }}>
                     {pa.title}
                   </h4>
-                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
+                  <p style={{ fontSize: '0.86rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
                     {pa.desc}
                   </p>
                 </div>
@@ -787,9 +792,9 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     marginTop: '16px',
                     background: 'transparent',
                     border: 'none',
-                    color: '#B45309',
+                    color: '#38bdf8',
                     fontSize: '0.84rem',
-                    fontWeight: 700,
+                    fontWeight: 600,
                     cursor: 'pointer',
                     padding: 0
                   }}
@@ -807,7 +812,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
           style={{
             background: '#FFFFFF',
             border: '1px solid #E8E2D8',
-            borderRadius: '20px',
+            borderRadius: '12px',
             padding: '24px 28px',
             marginBottom: '32px',
             boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)'
@@ -845,7 +850,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
           style={{
             background: '#FFFFFF',
             border: '1px solid #E8E2D8',
-            borderRadius: '20px',
+            borderRadius: '12px',
             padding: '24px 28px',
             textAlign: 'center',
             boxShadow: '0 4px 16px rgba(15, 23, 42, 0.03)'
