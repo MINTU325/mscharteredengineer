@@ -600,7 +600,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
           {filteredServices.length === 0 ? (
             <div style={{ textAlign: 'center', padding: isMobile ? '40px 14px' : '60px 20px', background: 'rgba(15, 23, 42, 0.4)', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.15)' }}>
               <AlertTriangle size={32} color="#f59e0b" style={{ margin: '0 auto 12px' }} />
-              <h3 style={{ color: '#ffffff', marginBottom: '8px', fontSize: '1.1rem' }}>No matching engineering services found</h3>
+              <h3 style={{ color: '#0f172a', marginBottom: '8px', fontSize: '1.1rem' }}>No matching engineering services found</h3>
               <p style={{ color: '#475569', marginBottom: '16px', fontSize: '0.85rem' }}>Try searching for another keyword or select "All Services".</p>
               <button 
                 onClick={() => { setSelectedCategory('all'); setSearchQuery(''); }}
@@ -697,22 +697,22 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
                   {/* Card Content */}
                   <div style={{ padding: isMobile ? '16px' : '20px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                    <h3 style={{ fontSize: isMobile ? '1.10rem' : '1.20rem', fontWeight: 700, color: '#ffffff', lineHeight: 1.35, marginBottom: '8px' }}>
+                    <h3 style={{ fontSize: isMobile ? '1.10rem' : '1.20rem', fontWeight: 700, color: '#0f172a', lineHeight: 1.35, marginBottom: '8px' }}>
                       {service.title}
                     </h3>
 
-                    <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.5, marginBottom: '16px' }}>
+                    <p style={{ fontSize: '0.84rem', color: '#334155', lineHeight: 1.5, marginBottom: '16px' }}>
                       {service.shortDesc}
                     </p>
 
                     {/* Feature bullets */}
                     <div style={{ marginBottom: '16px', flex: 1 }}>
-                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#cbd5e1', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
                         Scope &amp; Deliverables:
                       </div>
                       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '5px' }}>
                         {service.features.map((feat, idx) => (
-                          <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', fontSize: '0.80rem', color: '#e2e8f0', lineHeight: 1.35 }}>
+                          <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '7px', fontSize: '0.80rem', color: '#334155', lineHeight: 1.35 }}>
                             <CheckCircle2 size={14} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
                             <span>{feat}</span>
                           </li>
@@ -782,7 +782,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               <Gauge size={13} />
               Testing Infrastructure
             </div>
-            <h2 style={{ fontSize: isMobile ? '1.45rem' : 'clamp(1.6rem, 3vw, 2.3rem)', fontWeight: 600, color: '#ffffff', marginBottom: '10px' }}>
+            <h2 style={{ fontSize: isMobile ? '1.45rem' : 'clamp(1.6rem, 3vw, 2.3rem)', fontWeight: 600, color: '#0f172a', marginBottom: '10px' }}>
               Advanced Testing Instruments &amp; Quality Rigor
             </h2>
             <p style={{ color: '#475569', fontSize: isMobile ? '0.86rem' : '0.96rem', lineHeight: 1.55 }}>
@@ -797,25 +797,25 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
           }}>
             <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Cpu size={22} color="#38bdf8" style={{ marginBottom: '10px' }} />
-              <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>High-Speed Breaker Analyzers</h4>
+              <h4 style={{ color: '#0f172a', fontSize: '1.0rem', fontWeight: 700, marginBottom: '6px' }}>High-Speed Breaker Analyzers</h4>
               <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>Multi-channel digital timing and contact resistance meters measuring contact bounce and millisecond operating sequences.</p>
             </div>
 
             <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Flame size={22} color="#ea580c" style={{ marginBottom: '10px' }} />
-              <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>FLIR Infrared Thermography</h4>
+              <h4 style={{ color: '#0f172a', fontSize: '1.0rem', fontWeight: 700, marginBottom: '6px' }}>FLIR Infrared Thermography</h4>
               <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>High-resolution radiometric thermal cameras detecting hot joints, unbalanced load, and loose terminations under live operation.</p>
             </div>
 
             <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Activity size={22} color="#10b981" style={{ marginBottom: '10px' }} />
-              <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>100kV Automatic BDV Kits</h4>
+              <h4 style={{ color: '#0f172a', fontSize: '1.0rem', fontWeight: 700, marginBottom: '6px' }}>100kV Automatic BDV Kits</h4>
               <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>Microprocessor controlled transformer oil breakdown voltage test sets adhering to IS 6792 / IEC 60156 standards.</p>
             </div>
 
             <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <ShieldCheck size={22} color="#a78bfa" style={{ marginBottom: '10px' }} />
-              <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>CEIG &amp; DISCOM Liasioning</h4>
+              <h4 style={{ color: '#0f172a', fontSize: '1.0rem', fontWeight: 700, marginBottom: '6px' }}>CEIG &amp; DISCOM Liasioning</h4>
               <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>Chartered Engineer certification and complete statutory clearance handling for Chief Electrical Inspector approval.</p>
             </div>
           </div>
@@ -828,7 +828,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
         <div className="container" style={{ maxWidth: '900px', margin: '0 auto', padding: 0 }}>
           
           <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-            <h2 style={{ fontSize: isMobile ? '1.45rem' : 'clamp(1.5rem, 2.8vw, 2.1rem)', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
+            <h2 style={{ fontSize: isMobile ? '1.45rem' : 'clamp(1.5rem, 2.8vw, 2.1rem)', fontWeight: 700, color: '#0f172a', marginBottom: '8px' }}>
               Frequently Asked Questions
             </h2>
             <p style={{ color: '#475569', fontSize: isMobile ? '0.84rem' : '0.94rem' }}>
@@ -859,7 +859,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                       justifyContent: 'space-between',
                       background: 'transparent',
                       border: 'none',
-                      color: '#ffffff',
+                      color: '#0f172a',
                       fontSize: isMobile ? '0.88rem' : '0.98rem',
                       fontWeight: 600,
                       textAlign: 'left',
@@ -872,7 +872,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   </button>
 
                   {isOpen && (
-                    <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 18px', color: '#475569', fontSize: '0.84rem', lineHeight: 1.55, borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '10px' }}>
+                    <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 18px', color: '#334155', fontSize: '0.86rem', lineHeight: 1.6, borderTop: '1px solid #e2e8f0', paddingTop: '10px' }}>
                       {faq.a}
                     </div>
                   )}
@@ -899,7 +899,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             gap: '18px'
           }}>
             <div>
-              <h3 style={{ fontSize: isMobile ? '1.25rem' : 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 600, color: '#ffffff', marginBottom: '6px' }}>
+              <h3 style={{ fontSize: isMobile ? '1.25rem' : 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 600, color: '#0f172a', marginBottom: '6px' }}>
                 Need Substation Testing, Overhauling or Contracting?
               </h3>
               <p style={{ color: '#475569', fontSize: isMobile ? '0.84rem' : '0.95rem', maxWidth: '650px', lineHeight: 1.45 }}>

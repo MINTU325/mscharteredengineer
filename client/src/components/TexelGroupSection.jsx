@@ -120,8 +120,9 @@ export default function TexelGroupSection({ onOpenQuote }) {
           {/* Dual Category Tabs */}
           <div style={{
             display: 'inline-flex',
-            background: '#f8fafc',
-            border: '1px solid #e2e8f0',
+            background: '#ffffff',
+            border: '1px solid #cbd5e1',
+            boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
             borderRadius: '8px',
             padding: '4px',
             marginTop: '12px'
@@ -136,7 +137,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
                 borderRadius: '6px',
                 border: activeTab === 'engineering' ? '1px solid #0f2e5a' : '1px solid transparent',
                 background: activeTab === 'engineering' ? '#0f2e5a' : 'transparent',
-                color: activeTab === 'engineering' ? '#ffffff' : '#475569',
+                color: activeTab === 'engineering' ? '#ffffff' : '#334155',
                 fontWeight: 700,
                 fontSize: '0.84rem',
                 cursor: 'pointer',
@@ -157,7 +158,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
                 borderRadius: '6px',
                 border: activeTab === 'tech' ? '1px solid #0f2e5a' : '1px solid transparent',
                 background: activeTab === 'tech' ? '#0f2e5a' : 'transparent',
-                color: activeTab === 'tech' ? '#ffffff' : '#475569',
+                color: activeTab === 'tech' ? '#ffffff' : '#334155',
                 fontWeight: 700,
                 fontSize: '0.84rem',
                 cursor: 'pointer',
@@ -224,8 +225,9 @@ export default function TexelGroupSection({ onOpenQuote }) {
               alignItems: 'center',
               gap: '8px',
               padding: '10px 22px',
-              background: '#f8fafc',
+              background: '#ffffff',
               border: '1px solid #cbd5e1',
+              boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
               borderRadius: '8px',
               color: '#0284c7',
               fontSize: '0.88rem',
@@ -237,8 +239,8 @@ export default function TexelGroupSection({ onOpenQuote }) {
               e.currentTarget.style.borderColor = '#0284c7';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#f8fafc';
-              e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+              e.currentTarget.style.background = '#ffffff';
+              e.currentTarget.style.borderColor = '#cbd5e1';
             }}
           >
             <span>Explore Our Full IT, Android Apps &amp; Products Division</span>

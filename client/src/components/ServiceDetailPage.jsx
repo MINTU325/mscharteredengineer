@@ -205,7 +205,7 @@ export default function ServiceDetailPage({
   const displayRelated = relatedServices.length > 0 ? relatedServices : fallbackRelated;
 
   return (
-    <div className="ske-service-detail-page" style={{ background: '#f8fafc', color: '#1e293b', minHeight: '100vh', fontFamily: "'Inter', sans-serif" }}>
+    <div className="ske-service-detail-page" style={{ background: '#edf2f7', color: '#0f172a', minHeight: '100vh', fontFamily: "'Inter', sans-serif" }}>
       
       {/* Scoped CSS Styles matching Shree Kalyan Layout & responsive grid */}
       <style>{`
@@ -602,9 +602,9 @@ export default function ServiceDetailPage({
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                color: '#cbd5e1',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
+                color: '#0f172a',
                 padding: '5px 12px',
                 borderRadius: '6px',
                 fontSize: '12px',
@@ -622,9 +622,9 @@ export default function ServiceDetailPage({
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                background: 'none',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                color: '#cbd5e1',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
+                color: '#0f172a',
                 padding: '5px 12px',
                 borderRadius: '6px',
                 fontSize: '12px',

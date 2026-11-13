@@ -75,7 +75,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
     <div
       className="city-landing-page"
       style={{
-        background: '#f8fafc',
+        background: '#edf2f7',
         minHeight: '100vh',
         paddingTop: '24px',
         paddingBottom: '44px',
@@ -115,8 +115,8 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               cursor: 'pointer',
               transition: 'all 0.2s ease'
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)'; e.currentTarget.style.background = '#1a1e28'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'; e.currentTarget.style.background = '#11141c'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#0284c7'; e.currentTarget.style.background = '#f1f5f9'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#ffffff'; }}
           >
             <ArrowLeft size={15} />
             <span>&larr; Back to Home</span>
@@ -519,10 +519,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 <Camera size={14} />
                 <span>VERIFIED ON-SITE FIELD INSPECTIONS</span>
               </div>
-              <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#ffffff', fontWeight: 700, margin: '0 0 6px 0' }}>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#0f172a', fontWeight: 700, margin: '0 0 6px 0' }}>
                 Plant, Machinery &amp; Infrastructure Inspected in <span style={{ color: '#0284c7' }}>{cityData.cityName}</span>
               </h2>
-              <p style={{ color: '#475569', fontSize: '0.94rem', margin: 0 }}>
+              <p style={{ color: '#334155', fontSize: '0.94rem', margin: 0 }}>
                 Authentic photographic records of statutory engineering appraisals, customs clearance &amp; industrial assets across the {cityData.state} corridor.
               </p>
             </div>
@@ -585,7 +585,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                       <h4 style={{ fontSize: '1.05rem', color: '#0F172A', fontWeight: 800, marginBottom: '8px' }}>
                         {item.title}
                       </h4>
-                      <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
+                      <p style={{ fontSize: '0.86rem', color: '#334155', lineHeight: 1.55, margin: 0 }}>
                         {item.description}
                       </p>
                     </div>
@@ -728,10 +728,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               <Cpu size={14} />
               <span>CORE STATUTORY &amp; ENGINEERING SERVICES</span>
             </div>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#ffffff', fontWeight: 700, margin: '0 0 6px 0' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#0f172a', fontWeight: 700, margin: '0 0 6px 0' }}>
               Services Provided in <span style={{ color: '#0284c7' }}>{cityData.cityName}</span>
             </h2>
-            <p style={{ color: '#475569', fontSize: '0.94rem', margin: 0 }}>
+            <p style={{ color: '#334155', fontSize: '0.94rem', margin: 0 }}>
               Tailored specifically to the regulatory, banking, and industrial profile of the {cityData.state} corridor.
             </p>
           </div>
@@ -775,10 +775,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   >
                     0{idx + 1}
                   </div>
-                  <h4 style={{ fontSize: '1.02rem', color: '#ffffff', fontWeight: 600, marginBottom: '8px' }}>
+                  <h4 style={{ fontSize: '1.02rem', color: '#0f172a', fontWeight: 700, marginBottom: '8px' }}>
                     {pa.title}
                   </h4>
-                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
+                  <p style={{ fontSize: '0.86rem', color: '#334155', lineHeight: 1.55, margin: 0 }}>
                     {pa.desc}
                   </p>
                 </div>

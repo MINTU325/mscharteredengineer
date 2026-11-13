@@ -236,7 +236,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div id="faq" style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
+    <div id="faq" style={{ background: '#edf2f7', color: '#0f172a', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
       {/* Schema.org FAQPage structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
@@ -307,11 +307,11 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             <span>Statutory Knowledge &amp; Regulatory Help Desk</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#ffffff', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px' }}>
+          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#0f172a', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px' }}>
             Frequently Asked <span style={{ color: '#0284c7' }}>Questions</span>
           </h1>
 
-          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#475569', marginBottom: '28px' }}>
+          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#334155', marginBottom: '28px' }}>
             Authoritative answers on <strong>Chartered Engineer certification</strong>, <strong>DGFT Advance Authorisation</strong>, <strong>Bank Plant &amp; Machinery Valuation</strong>, <strong>CEIG Solar approvals</strong>, and <strong>FSSAI statutory compliance</strong> in Jaipur &amp; Pan-India.
           </p>
 
@@ -410,7 +410,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           fontSize: '0.86rem',
           color: '#7a8296'
         }}>
-          <span>Showing <strong style={{ color: '#ffffff' }}>{filteredFaqs.length}</strong> statutory questions</span>
+          <span>Showing <strong style={{ color: '#0f172a' }}>{filteredFaqs.length}</strong> statutory questions</span>
           <div style={{ display: 'flex', gap: '12px' }}>
             <button
               onClick={expandAll}
@@ -433,7 +433,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           {filteredFaqs.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px 20px', background: '#ffffff', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.12)' }}>
               <HelpCircle size={40} color="#f59e0b" style={{ margin: '0 auto 16px auto' }} />
-              <h3 style={{ color: '#ffffff', marginBottom: '8px' }}>No exact matching questions found</h3>
+              <h3 style={{ color: '#0f172a', marginBottom: '8px' }}>No exact matching questions found</h3>
               <p style={{ color: '#475569', fontSize: '0.9rem', marginBottom: '20px' }}>
                 Need specific guidance on your compliance case? Speak directly with our Chartered Engineer team.
               </p>
@@ -460,7 +460,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   key={faq.id}
                   style={{
                     background: '#ffffff',
-                    border: `1px solid ${isOpen ? 'rgba(56, 189, 248, 0.35)' : 'rgba(255, 255, 255, 0.08)'}`,
+                    border: `1px solid ${isOpen ? '#0284c7' : '#cbd5e1'}`, boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)',
                     borderRadius: '8px',
                     overflow: 'hidden',
                     transition: 'border-color 0.2s ease'
@@ -476,12 +476,12 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       gap: '16px',
-                      background: isOpen ? '#141824' : '#11141c',
+                      background: isOpen ? '#f8fafc' : '#ffffff',
                       border: 'none',
-                      color: isOpen ? '#38bdf8' : '#eef0f5',
+                      color: isOpen ? '#0284c7' : '#0f172a',
                       textAlign: 'left',
                       fontSize: '0.98rem',
-                      fontWeight: 600,
+                      fontWeight: 700,
                       cursor: 'pointer',
                       transition: 'background 0.2s ease, color 0.2s ease'
                     }}
@@ -494,15 +494,15 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                         width: '26px',
                         height: '26px',
                         borderRadius: '4px',
-                        background: isOpen ? 'rgba(56, 189, 248, 0.15)' : '#1a1e28',
-                        color: isOpen ? '#38bdf8' : '#7a8296',
+                        background: isOpen ? '#e0f2fe' : '#f1f5f9',
+                        color: isOpen ? '#0284c7' : '#475569',
                         fontSize: '0.78rem',
                         fontWeight: 700,
                         flexShrink: 0
                       }}>
                         {index + 1}
                       </span>
-                      <span style={{ color: isOpen ? '#38bdf8' : '#eef0f5' }}>{faq.question}</span>
+                      <span style={{ color: isOpen ? '#0284c7' : '#0f172a' }}>{faq.question}</span>
                     </span>
 
                     <span style={{
@@ -512,8 +512,8 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                       width: '28px',
                       height: '28px',
                       borderRadius: '6px',
-                      background: isOpen ? 'rgba(56, 189, 248, 0.12)' : '#1a1e28',
-                      color: isOpen ? '#38bdf8' : '#7a8296',
+                      background: isOpen ? '#e0f2fe' : '#f1f5f9',
+                      color: isOpen ? '#0284c7' : '#64748b',
                       flexShrink: 0
                     }}>
                       {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -522,12 +522,12 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
 
                   {isOpen && (
                     <div style={{
-                      padding: '16px 22px 22px 58px',
+                      padding: '18px 22px 24px 58px',
                       fontSize: '0.94rem',
                       lineHeight: 1.75,
-                      color: '#cbd5e1',
-                      borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-                      background: '#0c0f17'
+                      color: '#334155',
+                      borderTop: '1px solid #e2e8f0',
+                      background: '#ffffff'
                     }}>
                       {faq.answer.split('\n\n').map((paragraph, pIdx) => (
                         <p key={pIdx} style={{ marginBottom: pIdx === faq.answer.split('\n\n').length - 1 ? 0 : '12px' }}>
@@ -568,7 +568,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           <h3 style={{ fontSize: '1.45rem', color: '#ffffff', fontWeight: 700, marginBottom: '10px' }}>
             Still Have a Statutory or Technical Question?
           </h3>
-          <p style={{ color: '#475569', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
+          <p style={{ color: '#cbd5e1', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
             Our corporate team led by <strong style={{ color: '#ffffff' }}>Mukesh Singh, Chartered Engineer (India) MIE</strong>, is available for direct consultation regarding DGFT, Customs, Banking Valuation, and CEIG approvals.
           </p>
 

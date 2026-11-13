@@ -732,7 +732,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       <span style={{ fontSize: '0.72rem', color: '#b45309', fontWeight: 700, textTransform: 'uppercase' }}>
                         {post.category}
                       </span>
-                      <h4 style={{ fontSize: '0.98rem', color: '#ffffff', marginTop: '4px', lineHeight: 1.35, minHeight: '42px', fontWeight: 600 }}>
+                      <h4 style={{ fontSize: '0.98rem', color: '#0f172a', marginTop: '4px', lineHeight: 1.35, minHeight: '42px', fontWeight: 700 }}>
                         {post.title}
                       </h4>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px', fontSize: '0.76rem', color: '#64748b' }}>
@@ -920,7 +920,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       padding: '10px 12px',
                       marginBottom: '16px',
                       fontSize: '0.8rem',
-                      color: '#cbd5e1',
+                      color: '#1e293b',
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '8px'
@@ -950,12 +950,12 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Bottom Lead Consultation Strip */}
-            <div style={{ background: '#f8fafc', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '12px', padding: '32px 28px' }}>
-              <h3 className="blog-bottom-title" style={{ color: '#ffffff' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '12px', padding: '32px 28px', boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)' }}>
+              <h3 className="blog-bottom-title" style={{ color: '#0f172a', fontWeight: 800 }}>
                 Need Certified Chartered Engineer or Plant &amp; Machinery Valuation?
               </h3>
-              <p className="blog-bottom-desc" style={{ color: '#cbd5e1' }}>
-                Led by <strong style={{ color: '#ffffff' }}>Mukesh Singh (B.Tech Mechanical Engineering, IIT Roorkee)</strong>. Providing approved reports for Banks, DGFT, Customs, State CEIG, and Industries across India.
+              <p className="blog-bottom-desc" style={{ color: '#334155' }}>
+                Led by <strong style={{ color: '#0f172a' }}>Mukesh Singh (B.Tech Mechanical Engineering, IIT Roorkee)</strong>. Providing approved reports for Banks, DGFT, Customs, State CEIG, and Industries across India.
               </p>
 
               <div className="blog-bottom-actions">
@@ -969,7 +969,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 <a
                   href="tel:+919158658885"
                   className="btn btn-outline blog-bottom-btn"
-                  style={{ background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.25)', color: '#ffffff' }}
+                  style={{ background: '#f1f5f9', borderColor: '#cbd5e1', color: '#0f172a' }}
                 >
                   <Phone size={16} color="#10b981" />
                   <span>Direct Call +91 91586 58885</span>

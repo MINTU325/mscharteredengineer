@@ -33,7 +33,7 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
     <div 
       className="tools-page" 
       style={{ 
-        background: '#f8fafc', 
+        background: '#edf2f7', 
         minHeight: '100vh', 
         paddingTop: '20px', 
         paddingBottom: '60px', 
@@ -60,7 +60,7 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               alignItems: 'center',
               gap: '8px',
               background: '#ffffff',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              border: '1px solid #cbd5e1',
               borderRadius: '8px',
               padding: '6px 14px',
               color: '#475569',
@@ -92,7 +92,7 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
 
         {/* Dedicated Hero Header Banner */}
         <div style={{
-          background: '#f8fafc',
+          background: '#edf2f7',
           border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '36px 32px',
@@ -305,7 +305,7 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
 
         {/* ── Bottom Purpose Selector Prompt ── */}
         <div style={{
-          background: '#f8fafc',
+          background: '#edf2f7',
           border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '32px 28px',

@@ -268,7 +268,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
   });
 
   return (
-    <div style={{ background: '#f8fafc', color: '#f8fafc', minHeight: '100vh' }}>
+    <div style={{ background: '#edf2f7', color: '#0f172a', minHeight: '100vh' }}>
       
       {/* ── HERO SECTION (FIRST FOLD) ── */}
       <section
@@ -920,15 +920,15 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   Heavy structural framing, industrial gates, platforms, crane gantry girders, factory mezzanine decks, and structural steel staircases designed for maximum load capacity.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#f59e0b" />
                     <span>Heavy Cantilever &amp; Track Sliding Gates (up to 40+ ft)</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#f59e0b" />
                     <span>Overhead Crane Gantry Girders &amp; Runways (up to 35 MT)</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#f59e0b" />
                     <span>Industrial Mezzanines &amp; Fire Escape Stairwells</span>
                   </div>
@@ -1016,15 +1016,15 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   Industrial sheds, warehouse roofing, and Pre-Engineered Building (PEB) structures built with premium Galvalume &amp; Zincalume sheets designed for 47 m/s wind safety.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#38bdf8" />
                     <span>Clear-Span Factory Sheds &amp; Warehouses (2k–100k+ sq.ft)</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#38bdf8" />
                     <span>Tata Bluescope / JSW 0.50mm Anti-Corrosion Sheets</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#38bdf8" />
                     <span>Full Wind Load Calculations (IS 875 Part 3)</span>
                   </div>
@@ -1112,15 +1112,15 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   Certified engineering audits, structural stability assessments, plant &amp; machinery valuations, and official Chartered Engineer documentation for statutory bodies.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#10b981" />
                     <span>DISH (Factories Act) Structural Stability Certificates</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#10b981" />
                     <span>Plant, Machinery &amp; Industrial Asset Valuations</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#334155' }}>
                     <CheckCircle2 size={15} color="#10b981" />
                     <span>Non-Destructive Testing (UT, DPT) Weld Inspections</span>
                   </div>
@@ -1296,7 +1296,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   >
                     {item.category}
                   </div>
-                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', marginBottom: '4px' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', marginBottom: '4px' }}>
                     {item.title}
                   </h4>
                   <p style={{ fontSize: '0.80rem', color: '#475569', lineHeight: 1.5, marginBottom: '8px' }}>
@@ -1349,10 +1349,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               <div style={{ fontSize: '0.74rem', color: '#0284c7', fontWeight: 600, textTransform: 'uppercase' }}>
                 {selectedGalleryImage.category}
               </div>
-              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 600, margin: '6px 0' }}>
+              <h3 style={{ color: '#0f172a', fontSize: '1.3rem', fontWeight: 700, margin: '6px 0' }}>
                 {selectedGalleryImage.title}
               </h3>
-              <p style={{ color: '#cbd5e1', fontSize: '0.90rem', marginBottom: '12px' }}>
+              <p style={{ color: '#334155', fontSize: '0.90rem', marginBottom: '12px' }}>
                 {selectedGalleryImage.subtitle}
               </p>
               <div style={{ color: '#f59e0b', fontSize: '0.82rem', fontWeight: 600, marginBottom: '18px' }}>
@@ -1663,7 +1663,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                       textAlign: 'left',
                       background: 'transparent',
                       border: 'none',
-                      color: '#ffffff',
+                      color: '#0f172a',
                       fontSize: '1rem',
                       fontWeight: 700,
                       cursor: 'pointer',
@@ -1703,7 +1703,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     <div
                       style={{
                         padding: '0 22px 20px',
-                        color: '#cbd5e1',
+                        color: '#334155',
                         fontSize: '0.92rem',
                         lineHeight: 1.7,
                         borderTop: '1px solid rgba(255, 255, 255, 0.06)',
