@@ -56,7 +56,14 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
       <div 
         className="modal-content" 
         onClick={(e) => e.stopPropagation()}
-        style={{ maxWidth: '440px', padding: '36px 30px' }}
+        style={{
+          maxWidth: '440px',
+          padding: '32px 28px',
+          background: '#0e121b',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
+          borderRadius: '12px',
+          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
+        }}
       >
         <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <X size={20} />
@@ -65,17 +72,16 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
         {/* Security Shield Icon */}
         <div style={{ textAlign: 'center', marginBottom: '24px' }}>
           <div style={{
-            width: '64px',
-            height: '64px',
-            borderRadius: '20px',
-            background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(24, 90, 219, 0.2) 100%)',
-            border: '2px solid rgba(245, 158, 11, 0.4)',
+            width: '56px',
+            height: '56px',
+            borderRadius: '8px',
+            background: '#1a1e28',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             margin: '0 auto 16px auto',
-            color: '#f59e0b',
-            boxShadow: '0 0 25px rgba(245, 158, 11, 0.25)'
+            color: '#f59e0b'
           }}>
             <Lock size={30} />
           </div>
@@ -152,8 +158,21 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
           <button
             type="submit"
             disabled={loading}
-            className="btn btn-gold"
-            style={{ width: '100%', height: '46px', fontSize: '0.95rem' }}
+            style={{
+              width: '100%',
+              height: '46px',
+              fontSize: '0.95rem',
+              fontWeight: 600,
+              background: '#F58220',
+              color: '#ffffff',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px'
+            }}
           >
             {loading ? (
               <span>Verifying...</span>

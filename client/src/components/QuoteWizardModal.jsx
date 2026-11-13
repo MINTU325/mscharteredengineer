@@ -824,7 +824,7 @@ _Directly sent via mscharteredengineer.com_`
 
             {/* Step 1: Dynamic Department Service Selection */}
             {step === 1 && (
-              <div>
+              <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '22px' }}>
                 <div className="form-group">
                   <label className="form-label">Active Division</label>
                   <div style={{
@@ -876,8 +876,7 @@ _Directly sent via mscharteredengineer.com_`
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="btn btn-primary"
-                    style={{ padding: '12px 28px' }}
+                    style={{ padding: '12px 24px', background: '#38bdf8', color: '#07080d', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <span>Continue to Project Scale</span>
                     <ArrowRight size={16} />
@@ -888,7 +887,7 @@ _Directly sent via mscharteredengineer.com_`
 
             {/* Step 2: Location & Dynamic Scale Options */}
             {step === 2 && (
-              <div>
+              <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '22px' }}>
                 <div className="form-group">
                   <label className="form-label">Plant / Site / Office Location (City, State) *</label>
                   <input
@@ -931,8 +930,7 @@ _Directly sent via mscharteredengineer.com_`
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="btn btn-outline"
-                    style={{ padding: '12px 22px' }}
+                    style={{ padding: '12px 20px', background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#eef0f5', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <ArrowLeft size={16} />
                     <span>Back</span>
@@ -941,8 +939,7 @@ _Directly sent via mscharteredengineer.com_`
                   <button
                     type="button"
                     onClick={() => setStep(3)}
-                    className="btn btn-primary"
-                    style={{ padding: '12px 28px' }}
+                    style={{ padding: '12px 24px', background: '#38bdf8', color: '#07080d', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <span>Next: Contact Details</span>
                     <ArrowRight size={16} />
@@ -953,7 +950,7 @@ _Directly sent via mscharteredengineer.com_`
 
             {/* Step 3: Contact Details & Submit */}
             {step === 3 && (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '22px' }}>
                 <div className="form-group">
                   <label className="form-label">Full Name *</label>
                   <input
@@ -1007,8 +1004,7 @@ _Directly sent via mscharteredengineer.com_`
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="btn btn-outline"
-                    style={{ padding: '12px 22px' }}
+                    style={{ padding: '12px 20px', background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#eef0f5', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <ArrowLeft size={16} />
                     <span>Back</span>
@@ -1017,8 +1013,7 @@ _Directly sent via mscharteredengineer.com_`
                   <button
                     type="submit"
                     disabled={loading}
-                    className="btn btn-gold"
-                    style={{ padding: '12px 32px' }}
+                    style={{ padding: '12px 28px', background: '#F58220', color: '#ffffff', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     {loading ? <span>Submitting...</span> : (
                       <>

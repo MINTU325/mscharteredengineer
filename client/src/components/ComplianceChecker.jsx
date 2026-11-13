@@ -255,8 +255,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
                 min="1"
                 required
                 style={{
-                  background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                  border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                  background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                   color: lightMode ? '#0f172a' : '#ffffff'
                 }}
               />
@@ -271,8 +270,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
                 value={plantType}
                 onChange={(e) => setPlantType(e.target.value)}
                 style={{
-                  background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                  border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                  background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                   color: lightMode ? '#0f172a' : '#ffffff'
                 }}
               >
@@ -292,8 +290,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
                 value={voltageLevel}
                 onChange={(e) => setVoltageLevel(e.target.value)}
                 style={{
-                  background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                  border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                  background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                   color: lightMode ? '#0f172a' : '#ffffff'
                 }}
               >
@@ -307,9 +304,22 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
             <div>
               <button 
                 type="submit" 
-                className="btn btn-primary ceig-submit-btn" 
                 disabled={loading}
-                style={{ width: '100%', height: '48px', justifyContent: 'center', fontWeight: 700 }}
+                style={{
+                  width: '100%',
+                  height: '46px',
+                  background: '#38bdf8',
+                  color: '#07080d',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontWeight: 700,
+                  fontSize: '0.90rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px'
+                }}
               >
                 {loading ? <Sparkles size={18} className="spin-slow" /> : <Zap size={18} />}
                 <span>Calculate Mandatory Clearances</span>
@@ -320,11 +330,10 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
           {/* Result Card */}
           {result && (
             <div style={{
-              background: lightMode ? '#f8fafc' : 'linear-gradient(135deg, rgba(16, 33, 74, 0.75) 0%, rgba(7, 14, 30, 0.9) 100%)',
-              border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(59, 130, 246, 0.35)'}`,
-              borderRadius: '16px',
-              padding: 'clamp(20px, 3vw, 28px)',
-              boxShadow: lightMode ? '0 6px 20px rgba(37, 99, 235, 0.06)' : 'none'
+              background: '#0c0f17',
+              border: '1px solid rgba(56, 189, 248, 0.25)',
+              borderRadius: '12px',
+              padding: 'clamp(20px, 3vw, 28px)'
             }}>
               {/* Header Info */}
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '22px' }}>

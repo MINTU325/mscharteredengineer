@@ -235,12 +235,13 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
         <div className="calculator-grid" style={{ alignItems: 'start' }}>
           {/* Input Form Card */}
           <div 
+            className="form-card"
             style={{
-              background: lightMode ? '#ffffff' : 'rgba(15, 26, 54, 0.75)',
-              border: `1px solid ${lightMode ? '#e2e8f0' : 'rgba(255, 255, 255, 0.1)'}`,
-              borderRadius: '20px',
-              padding: 'clamp(20px, 3.2vw, 32px)',
-              boxShadow: lightMode ? '0 10px 30px rgba(15, 23, 42, 0.05)' : '0 10px 30px rgba(0, 0, 0, 0.35)',
+              background: '#11141c',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '12px',
+              padding: 'clamp(20px, 3.2vw, 28px)',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
               boxSizing: 'border-box'
             }}
           >
@@ -263,8 +264,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                   value={formData.assetType}
                   onChange={(e) => setFormData({...formData, assetType: e.target.value})}
                   style={{
-                    background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                    border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                    background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                     color: lightMode ? '#0f172a' : '#ffffff'
                   }}
                 >
@@ -291,8 +291,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     placeholder="e.g. 2500000"
                     required
                     style={{
-                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                       color: lightMode ? '#0f172a' : '#ffffff'
                     }}
                   />
@@ -311,8 +310,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     placeholder="e.g. 4"
                     required
                     style={{
-                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                       color: lightMode ? '#0f172a' : '#ffffff'
                     }}
                   />
@@ -331,8 +329,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     onChange={(e) => setFormData({...formData, expectedTotalLifeYears: e.target.value})}
                     placeholder="Default: 15"
                     style={{
-                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                       color: lightMode ? '#0f172a' : '#ffffff'
                     }}
                   />
@@ -347,8 +344,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     value={formData.maintenanceCondition}
                     onChange={(e) => setFormData({...formData, maintenanceCondition: e.target.value})}
                     style={{
-                      background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                      border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                       color: lightMode ? '#0f172a' : '#ffffff'
                     }}
                   >
@@ -369,8 +365,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                   value={formData.usageIntensity}
                   onChange={(e) => setFormData({...formData, usageIntensity: e.target.value})}
                   style={{
-                    background: lightMode ? '#f8fafc' : 'rgba(255, 255, 255, 0.06)',
-                    border: `1px solid ${lightMode ? '#cbd5e1' : 'rgba(255, 255, 255, 0.15)'}`,
+                    background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
                     color: lightMode ? '#0f172a' : '#ffffff'
                   }}
                 >
@@ -382,9 +377,22 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
 
               <button 
                 type="submit" 
-                className="btn btn-primary"
                 disabled={loading}
-                style={{ width: '100%', padding: '13px', fontSize: '0.94rem', fontWeight: 700 }}
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                  background: '#F58220',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px'
+                }}
               >
                 {loading ? <RefreshCw size={18} className="spin-slow" /> : <Calculator size={18} />}
                 <span>Recalculate Valuation Benchmark</span>

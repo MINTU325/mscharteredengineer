@@ -1118,41 +1118,55 @@ button, input, select, textarea {
   animation: spinSlow 28s linear infinite;
 }
 
-/* Form Styles */
+/* Form Styles - Unslop Structured Card Architecture */
+.form-card {
+  background: #11141c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .form-label {
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  margin-bottom: 8px;
-  color: #e2e8f0;
+  margin-bottom: 6px;
+  color: #cbd5e1;
+  letter-spacing: 0.01em;
 }
 
 .form-control {
   width: 100%;
-  padding: 12px 16px;
-  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 14px;
+  background: #1a1e28;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-md);
-  color: #ffffff;
-  font-size: 0.95rem;
-  transition: var(--transition);
+  border-radius: 8px;
+  color: #eef0f5;
+  font-size: 0.90rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
+  box-sizing: border-box;
+}
+
+.form-control::placeholder {
+  color: #64748b;
 }
 
 select.form-control option,
 select option {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
+  background-color: #11141c !important;
+  color: #eef0f5 !important;
 }
 
 .form-control:focus {
-  border-color: var(--primary-light);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  border-color: #38bdf8;
+  background: #1e2430;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.18);
 }
 
 /* Responsive Grid Classes */

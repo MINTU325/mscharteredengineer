@@ -1381,21 +1381,35 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
             {/* Right Column: Direct Fill Product Enquiry Form */}
             <div id="enquiry-form">
-              <div className="ks-padded-card" style={{
+              <div className="form-card" style={{
                 background: '#11141c',
-                border: '1px solid rgba(245, 130, 32, 0.3)',
-                borderRadius: '16px',
-                padding: '34px 28px',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '12px',
+                padding: '28px 24px',
+                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)'
               }}>
                 <div style={{ marginBottom: '20px' }}>
-                  <div style={{ color: '#F58220', fontSize: '0.80rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                  <div style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '4px 10px',
+                    background: 'rgba(56, 189, 248, 0.08)',
+                    border: '1px solid rgba(56, 189, 248, 0.25)',
+                    borderRadius: '6px',
+                    color: '#38bdf8',
+                    fontSize: '0.74rem',
+                    fontWeight: 700,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.04em',
+                    marginBottom: '8px'
+                  }}>
                     Quick Price Quotation Form
                   </div>
-                  <h3 style={{ fontSize: '1.45rem', fontWeight: 600, color: '#ffffff', margin: '4px 0 6px 0' }}>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
                     Request Mould Price &amp; Transport Estimate
                   </h3>
-                  <p style={{ color: '#7a8296', fontSize: '0.88rem', margin: 0 }}>
+                  <p style={{ color: '#a3a9b8', fontSize: '0.86rem', margin: 0, lineHeight: 1.5 }}>
                     Fill out the form below. On submission, details will automatically be delivered to our WhatsApp team for fast response.
                   </p>
                 </div>
@@ -1456,8 +1470,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, name: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#07080d',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            background: '#1a1e28',
+                            border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
                             color: '#ffffff',
@@ -1480,8 +1494,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, phone: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#07080d',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            background: '#1a1e28',
+                            border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
                             color: '#ffffff',
@@ -1503,8 +1517,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, product: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#07080d',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            background: '#1a1e28',
+                            border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
                             color: '#ffffff',
@@ -1531,8 +1545,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, quantity: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#07080d',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            background: '#1a1e28',
+                            border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
                             color: '#ffffff',
