@@ -1631,8 +1631,8 @@ select option {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
-  border-radius: 999px;
+  padding: 6px 14px;
+  border-radius: 6px;
   border: 1px solid;
   font-size: 0.78rem;
   font-weight: 600;
@@ -1652,8 +1652,8 @@ select option {
 /* ── Tag ribbon ── */
 .hs-tag {
   display: inline-flex;
-  padding: 5px 12px;
-  border-radius: 999px;
+  padding: 4px 10px;
+  border-radius: 4px;
   border: 1px solid;
   font-size: 0.70rem;
   font-weight: 700;
@@ -1705,7 +1705,7 @@ select option {
   font-size: 1.35rem;
   font-weight: 800;
   line-height: 1;
-  text-shadow: 0 0 20px currentColor;
+  
 }
 .hs-stat-label {
   font-size: 0.70rem;
@@ -1728,11 +1728,11 @@ select option {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 26px;
-  border-radius: 999px;
-  font-size: 0.94rem;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 0.92rem;
   font-weight: 700;
-  color: #0b1736;
+  color: #07080d;
   border: none;
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s ease;
@@ -1745,9 +1745,9 @@ select option {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
-  border-radius: 999px;
-  border: 1.5px solid rgba(255,255,255,0.3);
+  padding: 11px 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
   font-size: 0.88rem;
   font-weight: 600;
   color: #ffffff;

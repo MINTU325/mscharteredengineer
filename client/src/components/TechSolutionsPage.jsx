@@ -87,7 +87,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   }, []);
 
   const samplePrompts = [
-    '🔥 KS Bulk WhatsApp Messenger (50% Launch Offer)',
+    'KS Bulk WhatsApp Messenger (50% Launch Offer)',
     'Build an autonomous valuation & audit AI agent',
     'Modernize our legacy desktop ERP to Cloud SaaS',
     'Develop a multi-vendor E-Commerce marketplace'
@@ -304,7 +304,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               background: 'rgba(37, 99, 235, 0.15)',
               border: '1px solid rgba(59, 130, 246, 0.4)',
               padding: '6px 20px',
-              borderRadius: '9999px',
+              borderRadius: '6px',
               fontSize: '0.80rem',
               fontWeight: 800,
               color: '#60a5fa',
@@ -1851,7 +1851,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             {/* Product 4 - KS Bulk WhatsApp Messenger */}
             <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(34, 197, 94, 0.45)', borderRadius: '16px', padding: '28px', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: 0, right: 0, background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#052e16', padding: '4px 14px', fontSize: '0.70rem', fontWeight: 900, borderBottomLeftRadius: '10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                🔥 50% OFF OFFER
+                50% OFF OFFER
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                 <span style={{ fontSize: '0.72rem', background: 'rgba(34, 197, 94, 0.15)', color: '#4ade80', padding: '3px 10px', borderRadius: '4px', fontWeight: 800 }}>
@@ -1908,7 +1908,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 background: 'rgba(34, 197, 94, 0.15)',
                 border: '1px solid rgba(74, 222, 128, 0.4)',
                 padding: '6px 18px',
-                borderRadius: '9999px',
+                borderRadius: '6px',
                 fontSize: '0.78rem',
                 fontWeight: 800,
                 color: '#4ade80',

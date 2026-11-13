@@ -6,8 +6,7 @@ import {
   Globe2, 
   Lightbulb, 
   Target, 
-  ShieldCheck,
-  CheckCircle
+  ShieldCheck
 } from 'lucide-react';
 
 export default function WhyChooseUs({ onOpenQuote }) {
@@ -57,59 +56,102 @@ export default function WhyChooseUs({ onOpenQuote }) {
   ];
 
   return (
-    <section id="why-us" className="section section-white">
+    <section id="why-us" style={{ padding: '48px 0', background: '#07080d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
       <div className="container">
-        <div className="section-header" style={{ marginBottom: '28px' }}>
-          <div className="section-badge gold">
-            <ShieldCheck size={15} />
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '4px 12px',
+            background: 'rgba(245, 130, 32, 0.12)',
+            border: '1px solid rgba(245, 130, 32, 0.25)',
+            borderRadius: '6px',
+            color: '#f58220',
+            fontSize: '0.78rem',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            marginBottom: '12px'
+          }}>
+            <ShieldCheck size={14} />
             <span>Why Choose Us</span>
           </div>
-          <h2 className="section-title">
-            Engineered for <span style={{ color: "#b45309" }}>Trust &amp; Precision</span>
+          <h2 style={{
+            fontSize: 'clamp(1.7rem, 3vw, 2.3rem)',
+            color: '#ffffff',
+            fontWeight: 800,
+            lineHeight: 1.25,
+            marginBottom: '10px'
+          }}>
+            Engineered for <span style={{ color: "#F58220" }}>Trust &amp; Precision</span>
           </h2>
-          <p className="section-description">
+          <p style={{ color: '#a3a9b8', fontSize: '0.94rem', lineHeight: 1.6 }}>
             Discover why India's leading industrial enterprises, commercial banks, and international importers trust KS Chartered Engineers.
           </p>
         </div>
 
-        <div className="why-us-grid" style={{ marginBottom: '36px' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '16px',
+          marginBottom: '28px'
+        }}>
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div 
                 key={idx} 
-                className="glass-card pillar-card"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  borderTop: `3px solid ${pillar.color}`
+                  padding: '24px 22px',
+                  background: '#11141c',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '8px',
+                  borderTop: `3px solid ${pillar.color}`,
+                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.background = '#1a1e28';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+                  e.currentTarget.style.borderTopColor = pillar.color;
+                  e.currentTarget.style.boxShadow = '0 12px 26px rgba(0, 0, 0, 0.45)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.background = '#11141c';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.borderTopColor = pillar.color;
+                  e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.25)';
                 }}
               >
                 <div>
                   <div style={{
-                    width: '52px',
-                    height: '52px',
-                    borderRadius: '14px',
-                    background: '#ffffff',
-                    border: `1px solid ${pillar.color}40`,
-                    boxShadow: `0 4px 12px ${pillar.color}20`,
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '6px',
+                    background: `${pillar.color}18`,
+                    border: `1px solid ${pillar.color}33`,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     color: pillar.color,
-                    marginBottom: '18px'
+                    marginBottom: '16px'
                   }}>
-                    <Icon size={24} />
+                    <Icon size={22} />
                   </div>
 
-                  <h3 className="pillar-title" style={{ fontSize: '1.2rem', marginBottom: '4px' }}>
+                  <h3 style={{ fontSize: '1.14rem', color: '#ffffff', fontWeight: 700, marginBottom: '4px' }}>
                     {pillar.title}
                   </h3>
-                  <div style={{ fontSize: '0.78rem', color: pillar.color, fontWeight: 600, marginBottom: '10px' }}>
+                  <div style={{ fontSize: '0.76rem', color: pillar.color, fontWeight: 600, marginBottom: '10px' }}>
                     {pillar.subtitle}
                   </div>
-                  <p className="pillar-desc" style={{ fontSize: '0.88rem', lineHeight: 1.6 }}>
+                  <p style={{ fontSize: '0.86rem', color: '#a3a9b8', lineHeight: 1.6, margin: 0 }}>
                     {pillar.description}
                   </p>
                 </div>
@@ -120,25 +162,37 @@ export default function WhyChooseUs({ onOpenQuote }) {
 
         {/* Banner Callout */}
         <div style={{
-          background: '#f8fafc',
-          border: '1px solid #e2e8f0',
-          borderRadius: 'var(--radius-xl)',
-          padding: '28px 32px',
+          background: '#11141c',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '8px',
+          padding: '24px 28px',
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '20px'
         }}>
-          <div>
-            <h3 style={{ fontSize: '1.3rem', color: '#0f172a', fontWeight: 800, marginBottom: '6px' }}>
+          <div style={{ maxWidth: '640px' }}>
+            <h3 style={{ fontSize: '1.18rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
               Have a custom industrial or banking requirement?
             </h3>
-            <p style={{ color: '#334155', fontSize: '0.92rem', margin: 0, lineHeight: 1.5 }}>
+            <p style={{ color: '#a3a9b8', fontSize: '0.88rem', margin: 0, lineHeight: 1.5 }}>
               Speak directly with our principal Chartered Engineer for confidential project advisory.
             </p>
           </div>
-          <button onClick={() => onOpenQuote()} className="btn btn-gold" style={{ padding: '12px 28px', fontSize: '0.90rem' }}>
+          <button 
+            onClick={() => onOpenQuote()} 
+            className="btn btn-primary" 
+            style={{ 
+              padding: '10px 24px', 
+              fontSize: '0.88rem',
+              fontWeight: 600,
+              background: '#F58220',
+              borderColor: '#F58220',
+              borderRadius: '6px',
+              color: '#ffffff'
+            }}
+          >
             Book Direct Consultation
           </button>
         </div>

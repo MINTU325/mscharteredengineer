@@ -1,13 +1,13 @@
 import React from 'react';
 import { 
   Building2, Landmark, Scale, FileCheck2, 
-  ArrowRight, Sparkles, CheckCircle2, ShieldCheck 
+  ArrowRight, ShieldCheck 
 } from 'lucide-react';
 
 const HIGHLIGHT_SERVICES = [
   {
     icon: Building2,
-    color: '#0284c7',
+    color: '#38bdf8',
     title: 'Property & Land Valuation',
     tag: 'Real Estate & Land',
     accepted: 'All Banks, Registrars & Courts',
@@ -16,7 +16,7 @@ const HIGHLIGHT_SERVICES = [
   },
   {
     icon: Landmark,
-    color: '#d97706',
+    color: '#f59e0b',
     title: 'Bank & Mortgage Valuation',
     tag: 'Banking & Finance',
     accepted: 'Scheduled Commercial Banks & NBFCs',
@@ -25,7 +25,7 @@ const HIGHLIGHT_SERVICES = [
   },
   {
     icon: Scale,
-    color: '#059669',
+    color: '#10b981',
     title: 'Capital Gains Tax Valuation',
     tag: 'Income Tax & CBDT',
     accepted: 'Income Tax Dept, ITAT & CBDT',
@@ -34,7 +34,7 @@ const HIGHLIGHT_SERVICES = [
   },
   {
     icon: FileCheck2,
-    color: '#7c3aed',
+    color: '#a78bfa',
     title: 'Chartered Engineer & DGFT',
     tag: 'Foreign Trade & Customs',
     accepted: 'DGFT, CBIC Customs & Central Ministries',
@@ -45,22 +45,24 @@ const HIGHLIGHT_SERVICES = [
 
 export default function ServicesTeaser({ onOpenQuote }) {
   return (
-    <section id="services-preview" style={{ padding: '30px 0', background: '#F4F0E8', borderBottom: '1px solid #E8E2D8' }}>
+    <section id="services-preview" style={{ padding: '48px 0', background: '#07080d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 18px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            padding: '4px 10px',
-            background: '#eff6ff',
-            border: '1px solid #bfdbfe',
+            padding: '4px 12px',
+            background: 'rgba(56, 189, 248, 0.12)',
+            border: '1px solid rgba(56, 189, 248, 0.25)',
             borderRadius: '6px',
-            color: '#1d4ed8',
+            color: '#38bdf8',
             fontSize: '0.78rem',
-            fontWeight: 600,
-            marginBottom: '8px'
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em',
+            marginBottom: '12px'
           }}>
             <ShieldCheck size={14} />
             <span>15 Statutory &amp; Commercial Practice Areas</span>
@@ -68,15 +70,15 @@ export default function ServicesTeaser({ onOpenQuote }) {
 
           <h2 style={{
             fontSize: 'clamp(1.7rem, 3vw, 2.3rem)',
-            color: '#0f172a',
-            fontWeight: 700,
+            color: '#ffffff',
+            fontWeight: 800,
             lineHeight: 1.25,
-            marginBottom: '8px'
+            marginBottom: '10px'
           }}>
-            Our Specialized <span style={{ color: '#b45309' }}>Engineering &amp; Valuation Services</span>
+            Our Specialized <span style={{ color: '#38bdf8' }}>Engineering &amp; Valuation Services</span>
           </h2>
 
-          <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: 1.55 }}>
+          <p style={{ color: '#a3a9b8', fontSize: '0.94rem', lineHeight: 1.6 }}>
             Bankable valuations, statutory government certifications, and technical engineering audits delivered with 24–48 hour turnaround across Jaipur and Pan-India.
           </p>
         </div>
@@ -85,56 +87,61 @@ export default function ServicesTeaser({ onOpenQuote }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '18px',
-          marginBottom: '20px'
+          gap: '16px',
+          marginBottom: '28px'
         }}>
           {HIGHLIGHT_SERVICES.map((item, idx) => {
             const Icon = item.icon;
             return (
               <a
                 key={idx}
-                href="/services"
+                href={item.route}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  padding: '24px 20px',
-                  background: '#ffffff',
-                  border: '1px solid #E8E2D8',
-                  borderRadius: '16px',
+                  padding: '22px 20px',
+                  background: '#11141c',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '8px',
                   textDecoration: 'none',
                   color: 'inherit',
-                  transition: 'all 0.25s ease',
-                  borderTop: `4px solid ${item.color}`,
-                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)'
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  borderTop: `3px solid ${item.color}`,
+                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(0,0,0,0.08)';
-                  e.currentTarget.style.borderColor = item.color;
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.background = '#1a1e28';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+                  e.currentTarget.style.borderTopColor = item.color;
+                  e.currentTarget.style.boxShadow = '0 12px 26px rgba(0, 0, 0, 0.45)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(15, 23, 42, 0.03)';
-                  e.currentTarget.style.borderColor = '#E8E2D8';
+                  e.currentTarget.style.background = '#11141c';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.borderTopColor = item.color;
+                  e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.25)';
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                     <div style={{
-                      width: '44px',
-                      height: '44px',
-                      borderRadius: '10px',
-                      background: `${item.color}15`,
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '6px',
+                      background: `${item.color}18`,
+                      border: `1px solid ${item.color}33`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: item.color
                     }}>
-                      <Icon size={22} />
+                      <Icon size={20} />
                     </div>
                     <span style={{
-                      fontSize: '0.72rem',
+                      fontSize: '0.70rem',
                       fontWeight: 700,
                       color: item.color,
                       textTransform: 'uppercase',
@@ -144,23 +151,24 @@ export default function ServicesTeaser({ onOpenQuote }) {
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.14rem', color: '#0f172a', fontWeight: 700, marginBottom: '8px', lineHeight: 1.35 }}>
+                  <h3 style={{ fontSize: '1.12rem', color: '#ffffff', fontWeight: 700, marginBottom: '8px', lineHeight: 1.35 }}>
                     {item.title}
                   </h3>
 
                   <div style={{
                     fontSize: '0.74rem',
-                    color: '#64748b',
+                    color: '#94a3b8',
                     fontWeight: 600,
                     marginBottom: '10px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '4px'
+                    gap: '6px'
                   }}>
-                    <span>🏛️ {item.accepted}</span>
+                    <Landmark size={13} color={item.color} style={{ flexShrink: 0 }} />
+                    <span>{item.accepted}</span>
                   </div>
 
-                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.55 }}>
+                  <p style={{ fontSize: '0.85rem', color: '#a3a9b8', lineHeight: 1.55 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -170,12 +178,12 @@ export default function ServicesTeaser({ onOpenQuote }) {
                   alignItems: 'center',
                   gap: '6px',
                   marginTop: '18px',
-                  fontSize: '0.84rem',
-                  fontWeight: 700,
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
                   color: item.color
                 }}>
                   <span>View Details &amp; Deliverables</span>
-                  <ArrowRight size={14} />
+                  <ArrowRight size={13} />
                 </div>
               </a>
             );
@@ -185,9 +193,10 @@ export default function ServicesTeaser({ onOpenQuote }) {
         {/* Central Master CTA to Open New Dedicated Services Page */}
         <div style={{
           textAlign: 'center',
-          background: 'linear-gradient(135deg, #0a192f 0%, #1e3a5f 100%)',
-          borderRadius: '18px',
-          padding: '28px 24px',
+          background: '#11141c',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '8px',
+          padding: '24px 28px',
           color: '#ffffff',
           display: 'flex',
           flexWrap: 'wrap',
@@ -195,27 +204,30 @@ export default function ServicesTeaser({ onOpenQuote }) {
           justifyContent: 'space-between',
           gap: '20px'
         }}>
-          <div style={{ textAlign: 'left', maxWidth: '620px' }}>
-            <h4 style={{ fontSize: '1.2rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
+          <div style={{ textAlign: 'left', maxWidth: '640px' }}>
+            <h4 style={{ fontSize: '1.18rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
               Explore All 15 Statutory &amp; Engineering Practice Areas
             </h4>
-            <p style={{ fontSize: '0.88rem', color: '#cbd5e1', margin: 0 }}>
+            <p style={{ fontSize: '0.86rem', color: '#a3a9b8', margin: 0, lineHeight: 1.5 }}>
               Including Industrial Fabrication &amp; PEB Sheds, Electrical Substations, AutoCAD 2D Drafting, Plant &amp; Machinery, IBC/NCLT, and Industrial Safety &amp; Boilers.
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <a
               href="/services"
-              className="btn btn-gold"
+              className="btn btn-primary"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '11px 24px',
-                fontSize: '0.90rem',
-                fontWeight: 700,
-                textDecoration: 'none'
+                padding: '10px 22px',
+                fontSize: '0.86rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                background: '#F58220',
+                borderColor: '#F58220',
+                borderRadius: '6px'
               }}
             >
               <span>View All 15 Services &rarr;</span>
@@ -224,10 +236,11 @@ export default function ServicesTeaser({ onOpenQuote }) {
               onClick={() => onOpenQuote('General Inquiry')}
               className="btn btn-outline"
               style={{
-                borderColor: 'rgba(255,255,255,0.3)',
+                borderColor: 'rgba(255,255,255,0.18)',
                 color: '#ffffff',
-                padding: '11px 20px',
-                fontSize: '0.90rem'
+                padding: '10px 20px',
+                fontSize: '0.86rem',
+                borderRadius: '6px'
               }}
             >
               Request Quote
