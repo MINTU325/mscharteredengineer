@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { 
-  ArrowLeft, ShieldCheck, Sparkles, PhoneCall, 
+  ArrowLeft, ShieldCheck, PhoneCall, 
   MessageSquare, FileText, CheckCircle2, ChevronRight,
   Building2, Landmark, Scale, FileCheck2, Cpu
 } from 'lucide-react';
 import ServicesGrid from './ServicesGrid';
 
 const SERVICE_HIGHLIGHT_STATS = [
-  { color: '#fbbf24', value: '⚡ 24–48 Hours', label: 'Fast-track Delivery' },
-  { color: '#38bdf8', value: '🏛️ 100% Acceptance', label: 'Banks, Tax & Courts' },
-  { color: '#34d399', value: '⚖️ Dual Methodology', label: 'FMV + Forced Sale Value' },
-  { color: '#fbbf24', value: '📍 Jaipur HQ', label: 'Pan-India Jurisdiction' },
+  { color: '#38bdf8', value: '24–48 Hours', label: 'Fast-track Delivery' },
+  { color: '#10b981', value: '100% Acceptance', label: 'Banks, Tax & Courts' },
+  { color: '#f59e0b', value: 'Dual Methodology', label: 'FMV + Forced Sale Value' },
+  { color: '#38bdf8', value: 'Jaipur HQ', label: 'Pan-India Jurisdiction' },
 ];
 
 export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute = '/services' }) {
@@ -48,11 +48,10 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
           const el = document.getElementById(targetId);
           if (el) {
             el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            el.style.transition = 'box-shadow 0.4s ease, border-color 0.4s ease';
-            el.style.borderColor = '#f59e0b';
-            el.style.boxShadow = '0 0 35px rgba(245, 158, 11, 0.4)';
+            el.style.transition = 'border-color 0.4s ease';
+            el.style.borderColor = '#38bdf8';
             setTimeout(() => {
-              el.style.boxShadow = '';
+              el.style.borderColor = 'rgba(255, 255, 255, 0.08)';
             }, 3000);
             return true;
           }
@@ -71,12 +70,14 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
 
   return (
     <div className="services-page" style={{
-      background: 'radial-gradient(circle at 10% 8%, rgba(217, 119, 6, 0.05) 0%, transparent 40%), linear-gradient(180deg, #F4F0E8 0%, #FAF8F5 45%, #F4F0E8 100%)',
+      background: '#0b0d14',
+      color: '#eef0f5',
       minHeight: '100vh',
-      paddingTop: '24px',
-      paddingBottom: '36px'
+      paddingTop: '20px',
+      paddingBottom: '60px'
     }}>
-      <div className="container">
+      <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
+        
         {/* Top Breadcrumb & Navigation Bar */}
         <div style={{
           display: 'flex',
@@ -84,9 +85,9 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '12px',
-          padding: '16px 0',
+          padding: '12px 0 20px',
           marginBottom: '20px',
-          borderBottom: '1px solid #E8E2D8'
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}>
           <button
             onClick={onNavigateHome}
@@ -94,153 +95,153 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#ffffff',
-              border: '1px solid #E8E2D8',
-              borderRadius: '9999px',
-              padding: '8px 18px',
-              color: '#0f172a',
-              fontSize: '0.88rem',
-              fontWeight: 600,
+              background: '#11141c',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              borderRadius: '8px',
+              padding: '6px 14px',
+              color: '#a3a9b8',
+              fontSize: '0.85rem',
+              fontWeight: 500,
               cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-              transition: 'all 0.2s ease'
+              transition: 'all 0.15s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#1d4ed8';
-              e.currentTarget.style.color = '#1d4ed8';
-              e.currentTarget.style.transform = 'translateX(-3px)';
+              e.currentTarget.style.color = '#eef0f5';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#E8E2D8';
-              e.currentTarget.style.color = '#0f172a';
-              e.currentTarget.style.transform = 'translateX(0)';
+              e.currentTarget.style.color = '#a3a9b8';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
             }}
           >
-            <ArrowLeft size={16} />
-            <span>&larr; Back to Home</span>
+            <ArrowLeft size={14} />
+            <span>Back to Home</span>
           </button>
 
           {/* Breadcrumb */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#64748b' }}>
-            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#64748b', textDecoration: 'none' }}>Home</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
+            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#a3a9b8', textDecoration: 'none' }}>Home</a>
             <ChevronRight size={14} />
-            <span style={{ color: '#0f172a', fontWeight: 600 }}>Services We Offer</span>
+            <span style={{ color: '#eef0f5', fontWeight: 500 }}>Services We Offer</span>
           </div>
         </div>
 
         {/* Dedicated Services Header Banner */}
         <div style={{
-          background: 'linear-gradient(135deg, #0a192f 0%, #0d2847 60%, #1e3a5f 100%)',
-          borderRadius: '24px',
-          padding: 'clamp(32px, 5vw, 56px) clamp(24px, 4vw, 48px)',
-          color: '#ffffff',
-          marginBottom: '24px',
-          boxShadow: '0 20px 40px -15px rgba(10, 25, 47, 0.3)',
-          position: 'relative',
-          overflow: 'hidden'
+          background: '#07080d',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
+          padding: '36px 32px',
+          marginBottom: '32px',
+          position: 'relative'
         }}>
-          {/* Subtle background glow */}
-          <div style={{
-            position: 'absolute',
-            top: '-50px',
-            right: '-50px',
-            width: '260px',
-            height: '260px',
-            background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%)',
-            borderRadius: '50%',
-            pointerEvents: 'none'
-          }} />
-
-          <div style={{ maxWidth: '880px', position: 'relative', zIndex: 2 }}>
+          <div style={{ maxWidth: '880px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
-              padding: '6px 14px',
-              background: 'rgba(245, 158, 11, 0.15)',
-              border: '1px solid rgba(245, 158, 11, 0.35)',
-              borderRadius: '9999px',
-              color: '#fbbf24',
-              fontSize: '0.80rem',
-              fontWeight: 700,
-              letterSpacing: '0.04em',
+              gap: '6px',
+              padding: '4px 10px',
+              background: 'rgba(56, 189, 248, 0.1)',
+              border: '1px solid rgba(56, 189, 248, 0.25)',
+              borderRadius: '6px',
+              color: '#38bdf8',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
               marginBottom: '16px'
             }}>
-              <Sparkles size={14} />
+              <ShieldCheck size={13} />
               <span>15 COMPREHENSIVE STATUTORY &amp; ENGINEERING PRACTICE AREAS</span>
             </div>
 
             <h1 style={{
-              fontSize: 'clamp(1.9rem, 3.8vw, 3rem)',
-              fontWeight: 800,
-              lineHeight: 1.2,
-              marginBottom: '16px',
-              color: '#ffffff',
+              fontSize: 'clamp(1.9rem, 3.5vw, 2.75rem)',
+              fontWeight: 600,
+              lineHeight: 1.15,
+              marginBottom: '14px',
+              color: '#eef0f5',
               letterSpacing: '-0.02em'
             }}>
-              Engineering, Valuation &amp; <span style={{ color: '#fbbf24' }}>Statutory Audit Services</span>
+              Engineering, Valuation &amp; <span style={{ color: '#38bdf8' }}>Statutory Audit Services</span>
             </h1>
 
             <p style={{
-              fontSize: 'clamp(0.96rem, 1.8vw, 1.12rem)',
-              color: '#cbd5e1',
+              fontSize: '1.02rem',
+              color: '#a3a9b8',
               lineHeight: 1.65,
-              marginBottom: '28px',
+              marginBottom: '24px',
               maxWidth: '820px'
             }}>
               Certified Chartered Engineer &amp; Government Approved Registered Valuer practice led by <strong>Er. Mukesh Singh (B.Tech IIT Roorkee, Corporate Member IEI)</strong>. Accepted across Scheduled Commercial Banks, Income Tax Department (CBDT), NCLT Benches, DGFT, and Central Ministries Pan-India.
             </p>
 
-            {/* Quick Stat Pill Highlights */}
+            {/* Quick Stat Highlights */}
             <div style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '12px',
-              marginBottom: '28px'
+              gap: '10px',
+              marginBottom: '24px'
             }}>
               {SERVICE_HIGHLIGHT_STATS.map((stat, i) => (
                 <div key={i} style={{
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: 'rgba(255, 255, 255, 0.08)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  borderRadius: '10px',
-                  padding: '8px 14px',
-                  fontSize: '0.84rem',
-                  color: '#e2e8f0'
+                  background: '#11141c',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '8px',
+                  padding: '6px 14px',
+                  fontSize: '0.82rem',
+                  color: '#cbd5e1'
                 }}>
-                  <span style={{ color: stat.color, fontWeight: 800 }}>{stat.value}</span>
+                  <span style={{ color: stat.color, fontWeight: 600 }}>{stat.value}</span>
+                  <span style={{ color: '#7a8296' }}>·</span>
                   <span>{stat.label}</span>
                 </div>
               ))}
             </div>
 
             {/* Direct CTAs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
               <button
                 onClick={() => onOpenQuote('General Valuation Inquiry')}
-                className="btn btn-gold"
-                style={{ padding: '12px 26px', fontSize: '0.94rem', fontWeight: 700 }}
+                style={{
+                  background: '#F58220',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  padding: '10px 20px',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  transition: 'opacity 0.15s ease'
+                }}
+                onMouseEnter={e => e.currentTarget.style.opacity = '0.92'}
+                onMouseLeave={e => e.currentTarget.style.opacity = '1'}
               >
                 Request Custom Quotation
               </button>
 
               <a
                 href="tel:+919158658885"
-                className="btn btn-outline"
                 style={{
-                  padding: '11px 22px',
+                  background: '#11141c',
+                  color: '#eef0f5',
+                  border: '1px solid rgba(255, 255, 255, 0.16)',
+                  borderRadius: '8px',
+                  padding: '10px 18px',
                   fontSize: '0.92rem',
-                  borderColor: 'rgba(255, 255, 255, 0.35)',
-                  color: '#ffffff',
+                  fontWeight: 500,
+                  textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px'
+                  gap: '8px',
+                  transition: 'background 0.15s ease'
                 }}
+                onMouseEnter={e => e.currentTarget.style.background = '#1a1e28'}
+                onMouseLeave={e => e.currentTarget.style.background = '#11141c'}
               >
-                <PhoneCall size={16} color="#34d399" />
+                <PhoneCall size={15} style={{ color: '#38bdf8' }} />
                 <span>Call: +91 91586 58885</span>
               </a>
 
@@ -249,62 +250,64 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
+                  background: '#11141c',
+                  color: '#eef0f5',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  borderRadius: '8px',
+                  padding: '10px 18px',
+                  fontSize: '0.92rem',
+                  fontWeight: 500,
+                  textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '11px 20px',
-                  borderRadius: 'var(--radius-sm)',
-                  background: 'rgba(37, 211, 102, 0.15)',
-                  border: '1px solid rgba(37, 211, 102, 0.4)',
-                  color: '#ffffff',
-                  fontSize: '0.92rem',
-                  fontWeight: 600,
-                  textDecoration: 'none'
+                  transition: 'background 0.15s ease'
                 }}
+                onMouseEnter={e => e.currentTarget.style.background = '#1a1e28'}
+                onMouseLeave={e => e.currentTarget.style.background = '#11141c'}
               >
-                <MessageSquare size={16} color="#25D366" />
+                <MessageSquare size={15} style={{ color: '#10b981' }} />
                 <span>WhatsApp Consultation</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* ── Main Services Grid (All 13 Practice Areas) ── */}
+        {/* ── Main Services Grid (All 15 Practice Areas) ── */}
         <ServicesGrid onOpenQuote={onOpenQuote} />
 
         {/* ── Bottom Purpose Helper Banner ── */}
         <div style={{
-          marginTop: '24px',
-          background: '#ffffff',
-          border: '1px solid #E8E2D8',
-          borderRadius: '20px',
-          padding: '24px 28px',
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+          marginTop: '40px',
+          background: '#07080d',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
+          padding: '28px 32px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '24px'
+          gap: '20px'
         }}>
           <div style={{ maxWidth: '640px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              color: '#b45309',
+              color: '#38bdf8',
               fontSize: '0.78rem',
-              fontWeight: 700,
+              fontWeight: 600,
               textTransform: 'uppercase',
-              letterSpacing: '0.06em',
+              letterSpacing: '0.04em',
               marginBottom: '8px'
             }}>
-              <FileText size={15} />
+              <FileText size={14} />
               <span>Interactive Discovery</span>
             </div>
-            <h3 style={{ fontSize: '1.4rem', color: '#0f172a', fontWeight: 800, marginBottom: '8px' }}>
+            <h3 style={{ fontSize: '1.3rem', color: '#eef0f5', fontWeight: 600, marginBottom: '6px' }}>
               Unsure which valuation report fits your legal or financial requirement?
             </h3>
-            <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6 }}>
+            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
               Use our 1-minute <strong>Valuation Purpose Selector</strong> to discover your exact document checklist, turnaround time, and statutory report format.
             </p>
           </div>
@@ -312,13 +315,25 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <a
               href="/purpose-selector"
-              className="btn btn-primary"
-              style={{ padding: '12px 24px', fontSize: '0.92rem' }}
+              style={{
+                background: '#1a1e28',
+                color: '#eef0f5',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
+                borderRadius: '8px',
+                padding: '10px 20px',
+                fontSize: '0.9rem',
+                fontWeight: 500,
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
             >
               Open Purpose Selector &rarr;
             </a>
           </div>
         </div>
+
       </div>
     </div>
   );

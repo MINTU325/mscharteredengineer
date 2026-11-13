@@ -414,17 +414,17 @@ const servicesData = [
 
 // Quick search suggestion chips
 const QUICK_SUGGESTIONS = [
-  { label: 'Fabrication & PEB Shed', query: 'Fabrication', icon: '🏗️' },
-  { label: 'AutoCAD Drafting', query: 'AutoCAD', icon: '📐' },
-  { label: 'Third-Party Inspection', query: 'Inspection', icon: '⚗️' },
-  { label: 'Property Valuation', query: 'Property', icon: '🏢' },
-  { label: 'Bank Loan (FMV/FSV)', query: 'Bank', icon: '🏛️' },
-  { label: 'Capital Gains (2001 FMV)', query: 'Capital Gains', icon: '⚖️' },
-  { label: 'DGFT Advance Auth', query: 'Advance Authorisation', icon: '⚡' },
-  { label: 'Plant & Machinery', query: 'Machinery', icon: '⚙️' },
-  { label: 'IBC / NCLT CIRP', query: 'IBC', icon: '💼' },
-  { label: 'CEIG Solar & CESE', query: 'CESE', icon: '☀️' },
-  { label: 'JDA Completion', query: 'JDA', icon: '📐' },
+  { label: 'Fabrication & PEB Shed', query: 'Fabrication' },
+  { label: 'AutoCAD Drafting', query: 'AutoCAD' },
+  { label: 'Third-Party Inspection', query: 'Inspection' },
+  { label: 'Property Valuation', query: 'Property' },
+  { label: 'Bank Loan (FMV/FSV)', query: 'Bank' },
+  { label: 'Capital Gains (2001 FMV)', query: 'Capital Gains' },
+  { label: 'DGFT Advance Auth', query: 'Advance Authorisation' },
+  { label: 'Plant & Machinery', query: 'Machinery' },
+  { label: 'IBC / NCLT CIRP', query: 'IBC' },
+  { label: 'CEIG Solar & CESE', query: 'CESE' },
+  { label: 'JDA Completion', query: 'JDA' },
 ];
 
 // Sector categories for clean filtering
@@ -510,17 +510,30 @@ export default function ServicesGrid({ onOpenQuote }) {
   };
 
   return (
-    <section id="services" className="section section-light" style={{ position: 'relative' }}>
-      <div className="container">
-        <div className="section-header" style={{ marginBottom: '28px' }}>
-          <div className="section-badge">
-            <Sparkles size={15} />
-            <span>12 Comprehensive Engineering &amp; Valuation Verticals</span>
+    <section id="services" style={{ position: 'relative', background: '#0b0d14', color: '#eef0f5', padding: '16px 0 32px' }}>
+      <div className="container" style={{ maxWidth: '1120px', margin: '0 auto' }}>
+        <div className="section-header" style={{ marginBottom: '28px', textAlign: 'center' }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '4px 10px',
+            background: 'rgba(56, 189, 248, 0.1)',
+            border: '1px solid rgba(56, 189, 248, 0.25)',
+            borderRadius: '6px',
+            color: '#38bdf8',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            letterSpacing: '0.03em',
+            marginBottom: '12px'
+          }}>
+            <ShieldCheck size={14} />
+            <span>15 STATUTORY &amp; VALUATION VERTICALS</span>
           </div>
-          <h2 className="section-title">
-            Services <span className="gradient-text">We Offer</span>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 600, color: '#eef0f5', margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            Services <span style={{ color: '#38bdf8' }}>We Offer</span>
           </h2>
-          <p className="section-description">
+          <p style={{ color: '#a3a9b8', fontSize: '0.98rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
             From statutory asset valuation, bank mortgage appraisals, and capital gains tax reports to DGFT Chartered Engineer certification, CESE electrical safety, and industrial plant valuation.
           </p>
 
@@ -534,30 +547,30 @@ export default function ServicesGrid({ onOpenQuote }) {
             }}
           >
             <div
-              className="services-search-bar"
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                borderRadius: 'var(--radius-full)',
-                padding: '6px 12px 6px 18px',
-                transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
+                borderRadius: '8px',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                padding: '6px 14px',
               }}
             >
-              <Search size={20} color="#1d4ed8" style={{ flexShrink: 0, marginRight: '10px' }} />
+              <Search size={18} color="#38bdf8" style={{ flexShrink: 0, marginRight: '10px' }} />
               <input
                 type="text"
-                className="services-search-input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 13 services (e.g. AutoCAD Drafting, Property, Bank Loan, Capital Gains 50C, DGFT, Machinery)..."
+                placeholder="Search 15 services (e.g. AutoCAD Drafting, Property, Bank Loan, Capital Gains 50C, DGFT, Machinery)..."
                 style={{
                   width: '100%',
                   background: 'transparent',
                   border: 'none',
                   outline: 'none',
-                  fontSize: '0.94rem',
+                  fontSize: '0.92rem',
                   fontFamily: 'inherit',
-                  padding: '8px 0',
+                  color: '#eef0f5',
+                  padding: '6px 0',
                 }}
                 aria-label="Search services and statutory compliances"
               />
@@ -591,7 +604,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                     textTransform: 'uppercase',
                     letterSpacing: '0.05em',
                     padding: '4px 10px',
-                    borderRadius: 'var(--radius-full)',
+                    borderRadius: '6px',
                     background: filteredServices.length > 0 ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)',
                     color: filteredServices.length > 0 ? '#34d399' : '#f87171',
                     border: `1px solid ${filteredServices.length > 0 ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`,
@@ -623,22 +636,19 @@ export default function ServicesGrid({ onOpenQuote }) {
                     key={idx}
                     onClick={() => handleChipClick(chip.query)}
                     style={{
-                      background: isSelected ? '#1e40af' : '#ffffff',
-                      border: `1px solid ${isSelected ? '#1e40af' : '#cbd5e1'}`,
-                      borderRadius: 'var(--radius-full)',
+                      background: isSelected ? '#38bdf8' : '#11141c',
+                      border: `1px solid ${isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
+                      borderRadius: '6px',
                       padding: '4px 11px',
                       fontSize: '0.74rem',
-                      fontWeight: 500,
-                      color: isSelected ? '#ffffff' : '#475569',
-                      boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+                      fontWeight: isSelected ? 600 : 500,
+                      color: isSelected ? '#07080d' : '#a3a9b8',
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '5px',
-                      transition: 'all 0.2s ease',
+                      transition: 'all 0.15s ease',
                     }}
                   >
-                    <span>{chip.icon}</span>
                     <span>{chip.label}</span>
                   </button>
                 );
@@ -662,14 +672,16 @@ export default function ServicesGrid({ onOpenQuote }) {
                 onClick={() => {
                   setActiveFilter(cat);
                 }}
-                className={`service-filter-chip ${activeFilter === cat ? 'active' : ''}`}
                 style={{
-                  padding: '7px 16px',
-                  borderRadius: 'var(--radius-full)',
+                  padding: '6px 14px',
+                  borderRadius: '6px',
                   fontSize: '0.82rem',
-                  fontWeight: 600,
+                  fontWeight: activeFilter === cat ? 600 : 500,
                   cursor: 'pointer',
-                  transition: 'var(--transition)',
+                  background: activeFilter === cat ? '#38bdf8' : '#11141c',
+                  border: activeFilter === cat ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
+                  color: activeFilter === cat ? '#07080d' : '#a3a9b8',
+                  transition: 'all 0.15s ease',
                 }}
               >
                 {cat}
@@ -739,17 +751,17 @@ export default function ServicesGrid({ onOpenQuote }) {
               <div
                 key={service.id}
                 id={service.code}
-                className="glass-card service-card"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  borderTop: `3px solid ${service.badgeColor}`,
-                  boxShadow: hasActiveSearch ? `0 10px 30px ${service.badgeColor}22` : undefined,
-                  transition: 'all 0.3s ease',
-                  padding: '24px 22px',
-                  borderRadius: 'var(--radius-lg)',
+                  background: '#11141c',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderTop: `2px solid ${service.badgeColor}`,
+                  padding: '24px 20px',
+                  borderRadius: '12px',
                   position: 'relative',
+                  transition: 'border-color 0.15s ease',
                 }}
               >
                 {/* Route alias anchors for seamless deep-linking */}
@@ -851,7 +863,7 @@ export default function ServicesGrid({ onOpenQuote }) {
                         fontSize: '0.7rem',
                         fontWeight: 600,
                         padding: '2px 8px',
-                        borderRadius: 'var(--radius-full)',
+                        borderRadius: '6px',
                         background: 'rgba(255, 255, 255, 0.05)',
                         border: '1px solid rgba(255, 255, 255, 0.08)',
                         color: '#e2e8f0',
@@ -868,13 +880,13 @@ export default function ServicesGrid({ onOpenQuote }) {
                         fontSize: '0.7rem',
                         fontWeight: 600,
                         padding: '2px 8px',
-                        borderRadius: 'var(--radius-full)',
+                        borderRadius: '6px',
                         background: `${service.badgeColor}12`,
                         border: `1px solid ${service.badgeColor}30`,
                         color: service.badgeColor,
                       }}
                     >
-                      <span>🏛️ {service.acceptedBy}</span>
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}><Building2 size={11} color={service.badgeColor} /> {service.acceptedBy}</span>
                     </span>
                   </div>
 
@@ -1004,12 +1016,34 @@ export default function ServicesGrid({ onOpenQuote }) {
                   )}
                   <button
                     onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround, department: 'fabrication' })}
-                    className="service-request-btn"
+                    style={{
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '10px 16px',
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      borderRadius: '8px',
+                      background: '#1a1e28',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      color: '#eef0f5',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease'
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = '#232938';
+                      e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = '#1a1e28';
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+                    }}
                     title={`Request Quote and fill inquiry for ${service.title}`}
                     type="button"
                   >
-                    <span className="service-request-btn-content">
-                      <FileCheck2 size={15} className="service-request-btn-icon" />
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                      <FileCheck2 size={15} style={{ color: '#38bdf8' }} />
                       <span>Request Quote / Inquiry</span>
                     </span>
                     <ArrowRight size={15} />
