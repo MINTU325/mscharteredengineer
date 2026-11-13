@@ -12,7 +12,8 @@ import {
   ShieldCheck,
   FileCheck2,
   PhoneCall,
-  Sparkles
+  Check,
+  Users
 } from 'lucide-react';
 
 export const CLIENT_PERSONAS = [
@@ -21,7 +22,7 @@ export const CLIENT_PERSONAS = [
     name: 'Banks & NBFCs',
     badge: 'Institutional Lending',
     icon: Landmark,
-    accentColor: '#1e40af',
+    accentColor: '#38bdf8',
     headline: 'Bankable Collateral Security & Mortgage Valuation',
     description: 'We deliver objective, unassailable valuation reports adhering to IBBI Standards, SARFAESI Act, and lending risk parameters for retail, MSME, and consortium loans.',
     servicesList: [
@@ -38,7 +39,7 @@ export const CLIENT_PERSONAS = [
     name: 'Chartered Accountants',
     badge: 'Taxation & Audit',
     icon: Calculator,
-    accentColor: '#b45309',
+    accentColor: '#f59e0b',
     headline: 'Capital Gains, 2001 FMV & IndAS 16 Advisory',
     description: 'Partnering with CAs and tax advisors to provide technically documented valuations defensible before Assessing Officers, CIT (Appeals), and statutory balance sheet auditors.',
     servicesList: [
@@ -55,7 +56,7 @@ export const CLIENT_PERSONAS = [
     name: 'Advocates & Law Firms',
     badge: 'Litigation & Court',
     icon: Scale,
-    accentColor: '#7c2d12',
+    accentColor: '#f97316',
     headline: 'Evidentiary Court Valuation & Dispute Settlement',
     description: 'Independent, court-acceptable valuation reports providing authoritative expert testimony in partition suits, succession probate, and property disputes.',
     servicesList: [
@@ -72,7 +73,7 @@ export const CLIENT_PERSONAS = [
     name: 'Builders & Developers',
     badge: 'Real Estate & Infrastructure',
     icon: Building2,
-    accentColor: '#0f766e',
+    accentColor: '#38bdf8',
     headline: 'Construction Progress & Project Cost Certificates',
     description: 'Supporting real estate developers and infrastructure contractors with independent Chartered Engineer certifications for project financing and local authority clearances.',
     servicesList: [
@@ -90,7 +91,7 @@ export const CLIENT_PERSONAS = [
     name: 'Industries & MSMEs',
     badge: 'Manufacturing & Export',
     icon: Factory,
-    accentColor: '#047857',
+    accentColor: '#10b981',
     headline: 'Plant & Machinery, DGFT EPCG & Customs Clearance',
     description: 'Empowering manufacturing plants, factories, and export units with statutory certifications to claim duty exemptions, customs clearances, and government grants.',
     servicesList: [
@@ -108,7 +109,7 @@ export const CLIENT_PERSONAS = [
     name: 'Insolvency Professionals',
     badge: 'IBC 2016 & NCLT',
     icon: ShieldCheck,
-    accentColor: '#4338ca',
+    accentColor: '#a855f7',
     headline: 'Statutory CIRP & Liquidation Asset Valuations',
     description: 'Providing Resolution Professionals (RPs) and Liquidators with rigorous Fair Value and Liquidation Value appraisals compliant with IBBI regulations.',
     servicesList: [
@@ -125,7 +126,7 @@ export const CLIENT_PERSONAS = [
     name: 'Property Owners & Buyers',
     badge: 'Individual Clients',
     icon: UserCheck,
-    accentColor: '#0284c7',
+    accentColor: '#38bdf8',
     headline: 'Independent Market Price & Visa Net Worth Reports',
     description: 'Protecting individual property owners, buyers, and immigration applicants with objective valuation reports free from commercial bias.',
     servicesList: [
@@ -163,32 +164,33 @@ export default function WhoWeServe({ onOpenQuote }) {
   };
 
   return (
-    <section id="who-we-serve" style={{ padding: '30px 0', background: '#FAF8F5', borderBottom: '1px solid #E8E2D8' }}>
-      <div className="container">
+    <section id="who-we-serve" style={{ padding: '36px 0', background: '#0b0d14', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+      <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
+        
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 18px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 24px auto' }}>
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
-            padding: '4px 12px',
-            background: '#eff6ff',
-            border: '1px solid #bfdbfe',
-            borderRadius: '9999px',
-            color: '#1d4ed8',
-            fontSize: '0.78rem',
-            fontWeight: 700,
-            letterSpacing: '0.04em',
-            marginBottom: '8px'
+            gap: '6px',
+            padding: '4px 10px',
+            background: 'rgba(56, 189, 248, 0.1)',
+            border: '1px solid rgba(56, 189, 248, 0.25)',
+            borderRadius: '6px',
+            color: '#38bdf8',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            letterSpacing: '0.03em',
+            marginBottom: '10px'
           }}>
-            <Sparkles size={14} />
-            <span>CLIENT-CENTERED ARCHITECTURE</span>
+            <Users size={13} />
+            <span>CLIENT-CENTERED PRACTICE</span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', color: '#0f172a', fontWeight: 800, lineHeight: 1.25, marginBottom: '8px' }}>
-            Who We <span style={{ color: '#b45309' }}>Serve</span>
+          <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: '#eef0f5', fontWeight: 600, lineHeight: 1.25, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            Who We <span style={{ color: '#38bdf8' }}>Serve</span>
           </h2>
-          <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: 1.55 }}>
+          <p style={{ color: '#a3a9b8', fontSize: '0.96rem', lineHeight: 1.6, margin: 0 }}>
             Purpose-engineered valuation, technical audits, and statutory certifications tailored specifically for institutional, corporate, and individual clients.
           </p>
         </div>
@@ -198,8 +200,8 @@ export default function WhoWeServe({ onOpenQuote }) {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          gap: '10px',
-          marginBottom: '18px'
+          gap: '8px',
+          marginBottom: '24px'
         }}>
           {CLIENT_PERSONAS.map((persona) => {
             const isSelected = persona.id === activePersonaId;
@@ -211,20 +213,31 @@ export default function WhoWeServe({ onOpenQuote }) {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '9px 18px',
-                  borderRadius: '9999px',
-                  fontSize: '0.86rem',
-                  fontWeight: isSelected ? 700 : 600,
-                  border: isSelected ? '1px solid #0f172a' : '1px solid #E8E2D8',
-                  background: isSelected ? '#0f172a' : '#ffffff',
-                  color: isSelected ? '#fbbf24' : '#334155',
+                  gap: '6px',
+                  padding: '7px 14px',
+                  borderRadius: '6px',
+                  fontSize: '0.84rem',
+                  fontWeight: isSelected ? 600 : 500,
+                  border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
+                  background: isSelected ? '#38bdf8' : '#11141c',
+                  color: isSelected ? '#07080d' : '#a3a9b8',
                   cursor: 'pointer',
-                  boxShadow: isSelected ? '0 4px 12px rgba(15, 23, 42, 0.12)' : 'none',
-                  transition: 'all 0.2s ease'
+                  transition: 'all 0.15s ease'
+                }}
+                onMouseEnter={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.color = '#eef0f5';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  }
+                }}
+                onMouseLeave={e => {
+                  if (!isSelected) {
+                    e.currentTarget.style.color = '#a3a9b8';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  }
                 }}
               >
-                <Icon size={16} />
+                <Icon size={14} />
                 <span>{persona.name}</span>
               </button>
             );
@@ -232,111 +245,144 @@ export default function WhoWeServe({ onOpenQuote }) {
         </div>
 
         {/* Dedicated Persona Deep-Dive Display Card */}
-        <div className="who-we-serve-card">
-          <div className="who-we-serve-grid">
+        <div style={{
+          background: '#11141c',
+          borderRadius: '12px',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          padding: '32px 28px',
+          maxWidth: '1080px',
+          margin: '0 auto',
+          boxSizing: 'border-box'
+        }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gap: '32px',
+            alignItems: 'start'
+          }}>
             {/* Left Column: Context & Deliverables */}
-            <div className="who-we-serve-col">
+            <div>
               <div style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
                 padding: '4px 10px',
-                background: '#ffffff',
-                border: '1px solid #cbd5e1',
-                borderRadius: '6px',
-                fontSize: '0.74rem',
-                fontWeight: 700,
+                background: 'rgba(255, 255, 255, 0.04)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '4px',
+                fontSize: '0.72rem',
+                fontWeight: 600,
                 color: activePersona.accentColor,
                 textTransform: 'uppercase',
                 letterSpacing: '0.04em',
-                marginBottom: '10px'
+                marginBottom: '12px'
               }}>
-                <PersonaIcon size={14} />
+                <PersonaIcon size={13} />
                 <span>{activePersona.badge}</span>
               </div>
 
-              <h3 className="who-we-serve-headline">
+              <h3 style={{
+                fontSize: '1.35rem',
+                color: '#eef0f5',
+                fontWeight: 600,
+                lineHeight: 1.3,
+                margin: '0 0 12px 0'
+              }}>
                 {activePersona.headline}
               </h3>
 
-              <p className="who-we-serve-desc">
+              <p style={{
+                color: '#a3a9b8',
+                fontSize: '0.92rem',
+                lineHeight: 1.6,
+                margin: '0 0 20px 0'
+              }}>
                 {activePersona.description}
               </p>
 
-              <div 
-                className="who-we-serve-quote-box"
-                style={{ borderLeft: `4px solid ${activePersona.accentColor}` }}
-              >
-                <strong>Why Institutional Clients Rely on Us:</strong> {activePersona.highlightQuote}
+              <div style={{
+                background: '#1a1e28',
+                padding: '14px 16px',
+                borderRadius: '8px',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
+                borderLeft: `3px solid ${activePersona.accentColor}`,
+                fontSize: '0.84rem',
+                color: '#cbd5e1',
+                lineHeight: 1.55
+              }}>
+                <strong style={{ color: '#eef0f5' }}>Why Institutional Clients Rely on Us:</strong> {activePersona.highlightQuote}
               </div>
             </div>
 
             {/* Right Column: Key Deliverables List & CTAs */}
-            <div className="who-we-serve-col">
-              <div className="who-we-serve-deliverables-card">
-                <div style={{ fontSize: '0.86rem', fontWeight: 800, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '14px' }}>
-                  Specialized Services for {activePersona.name}:
-                </div>
+            <div style={{
+              background: '#07080d',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '10px',
+              padding: '24px'
+            }}>
+              <div style={{ fontSize: '0.78rem', fontWeight: 600, color: '#7a8296', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '14px' }}>
+                Specialized Services for {activePersona.name}:
+              </div>
 
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  {activePersona.servicesList.map((service, sIdx) => (
-                    <li key={sIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontSize: '0.86rem', color: '#334155', lineHeight: 1.45 }}>
-                      <CheckCircle2 size={16} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
-                      <span style={{ wordBreak: 'break-word' }}>{service}</span>
-                    </li>
-                  ))}
-                </ul>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {activePersona.servicesList.map((service, sIdx) => (
+                  <li key={sIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1', lineHeight: 1.45 }}>
+                    <Check size={14} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
+                    <span>{service}</span>
+                  </li>
+                ))}
+              </ul>
 
-                {/* CTAs */}
-                <div className="who-we-serve-cta-grid">
-                  <button
-                    onClick={handleLaunchEnquiry}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      padding: '11px 16px',
-                      background: '#0f172a',
-                      color: '#ffffff',
-                      borderRadius: '10px',
-                      fontWeight: 700,
-                      fontSize: '0.86rem',
-                      border: 'none',
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 12px rgba(15, 23, 42, 0.15)',
-                      width: '100%',
-                      boxSizing: 'border-box'
-                    }}
-                  >
-                    <span>Request Engagement</span>
-                    <ArrowRight size={14} />
-                  </button>
+              {/* CTAs */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
+                <button
+                  onClick={handleLaunchEnquiry}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    padding: '10px 14px',
+                    background: '#F58220',
+                    color: '#ffffff',
+                    borderRadius: '8px',
+                    fontWeight: 600,
+                    fontSize: '0.85rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'opacity 0.15s ease'
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.opacity = '0.92'}
+                  onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+                >
+                  <span>Request Engagement</span>
+                  <ArrowRight size={14} />
+                </button>
 
-                  <button
-                    onClick={handleWhatsApp}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: '8px',
-                      padding: '11px 16px',
-                      background: '#25D366',
-                      color: '#ffffff',
-                      borderRadius: '10px',
-                      fontWeight: 700,
-                      fontSize: '0.86rem',
-                      border: 'none',
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 12px rgba(37, 211, 102, 0.2)',
-                      width: '100%',
-                      boxSizing: 'border-box'
-                    }}
-                  >
-                    <PhoneCall size={14} />
-                    <span>Direct WhatsApp</span>
-                  </button>
-                </div>
+                <button
+                  onClick={handleWhatsApp}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    padding: '10px 14px',
+                    background: '#1a1e28',
+                    color: '#eef0f5',
+                    borderRadius: '8px',
+                    fontWeight: 500,
+                    fontSize: '0.85rem',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    cursor: 'pointer',
+                    transition: 'background 0.15s ease'
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = '#232938'}
+                  onMouseLeave={e => e.currentTarget.style.background = '#1a1e28'}
+                >
+                  <PhoneCall size={14} style={{ color: '#10b981' }} />
+                  <span>Direct WhatsApp</span>
+                </button>
               </div>
             </div>
           </div>
