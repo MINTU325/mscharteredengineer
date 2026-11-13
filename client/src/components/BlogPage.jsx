@@ -299,9 +299,9 @@ function renderArticleBody(content) {
     if (currentList.length > 0) {
       const ListTag = listType === 'ol' ? 'ol' : 'ul';
       elements.push(
-        <ListTag key={`list-${elements.length}`} style={{ paddingLeft: '22px', margin: '14px 0', display: 'flex', flexDirection: 'column', gap: '8px', color: '#334155' }}>
+        <ListTag key={`list-${elements.length}`} style={{ paddingLeft: '22px', margin: '14px 0', display: 'flex', flexDirection: 'column', gap: '8px', color: '#cbd5e1' }}>
           {currentList.map((item, i) => (
-            <li key={i} style={{ lineHeight: 1.7, color: '#334155' }}>{parseFormattedText(item)}</li>
+            <li key={i} style={{ lineHeight: 1.7, color: '#cbd5e1' }}>{parseFormattedText(item)}</li>
           ))}
         </ListTag>
       );
@@ -347,12 +347,12 @@ function renderArticleBody(content) {
       flushList();
       elements.push(
         <blockquote key={`quote-${idx}`} style={{
-          background: '#fffbeb',
-          borderLeft: '4px solid #f59e0b',
+          background: '#1a1e28',
+          borderLeft: '3px solid #38bdf8',
           padding: '14px 18px',
           borderRadius: '0 8px 8px 0',
           margin: '20px 0',
-          color: '#92400e',
+          color: '#cbd5e1',
           fontSize: '0.94rem',
           lineHeight: 1.6
         }}>
@@ -377,7 +377,7 @@ function renderArticleBody(content) {
 
     flushList();
     elements.push(
-      <p key={`p-${idx}`} style={{ margin: '14px 0', lineHeight: 1.75, color: '#334155' }}>
+      <p key={`p-${idx}`} style={{ margin: '14px 0', lineHeight: 1.75, color: '#cbd5e1' }}>
         {parseFormattedText(line)}
       </p>
     );
@@ -464,7 +464,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
   };
 
   return (
-    <div className="blog-page-container" style={{ minHeight: '85vh', background: '#f8fafc', color: '#334155', paddingTop: '32px', paddingBottom: '80px' }}>
+    <div className="blog-page-container" style={{ minHeight: '85vh', background: '#0b0d14', color: '#cbd5e1', paddingTop: '32px', paddingBottom: '80px' }}>
       {/* Schema.org Blog / BlogPosting structured data */}
       {activeArticle ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{
@@ -535,7 +535,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
               }
             }} 
             className="blog-breadcrumb-link"
-            style={{ color: '#1d4ed8', fontWeight: 600 }}
+            style={{ color: '#38bdf8', fontWeight: 500 }}
           >
             Home
           </a>
@@ -547,17 +547,17 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
               <button 
                 onClick={handleBackToHub} 
                 className="blog-breadcrumb-btn"
-                style={{ color: '#1d4ed8', fontWeight: 600 }}
+                style={{ color: '#38bdf8', fontWeight: 500 }}
               >
                 Technical Knowledge Hub
               </button>
               <ChevronRight size={13} color="#94a3b8" style={{ flexShrink: 0 }} />
-              <span className="blog-breadcrumb-current" style={{ color: '#0f172a', fontWeight: 700 }} title={activeArticle.title}>
+              <span className="blog-breadcrumb-current" style={{ color: '#eef0f5', fontWeight: 600 }} title={activeArticle.title}>
                 {activeArticle.title}
               </span>
             </>
           ) : (
-            <span className="blog-breadcrumb-current" style={{ color: '#0f172a', fontWeight: 700 }}>
+            <span className="blog-breadcrumb-current" style={{ color: '#eef0f5', fontWeight: 600 }}>
               Technical Knowledge Hub &amp; Blog
             </span>
           )}
@@ -573,7 +573,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
               <button
                 onClick={handleBackToHub}
                 className="btn btn-outline article-top-btn"
-                style={{ background: '#ffffff', borderColor: '#cbd5e1', color: '#0f172a', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}
+                style={{ background: '#11141c', borderColor: 'rgba(255,255,255,0.12)', color: '#eef0f5', borderRadius: '8px' }}
               >
                 <ArrowLeft size={16} />
                 <span>&larr; Back to All Guides</span>
@@ -582,7 +582,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
               <button
                 onClick={handleShare}
                 className="btn btn-outline article-top-btn"
-                style={{ background: '#ffffff', borderColor: '#cbd5e1', color: copied ? '#10b981' : '#1d4ed8', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}
+                style={{ background: '#11141c', borderColor: 'rgba(255,255,255,0.12)', color: copied ? '#10b981' : '#38bdf8', borderRadius: '8px' }}
               >
                 {copied ? <Check size={16} color="#10b981" /> : <Share2 size={16} />}
                 <span>{copied ? 'Citation Link Copied!' : 'Share / Copy Citation'}</span>
@@ -590,7 +590,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Article Main Card */}
-            <article className="glass-card article-main-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 8px 30px rgba(15,23,42,0.06)' }}>
+            <article className="glass-card article-main-card" style={{ background: '#11141c', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px' }}>
               
               {/* Humanized Hero Cover Image */}
               <div className="article-cover-wrapper">
@@ -634,15 +634,15 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
               </div>
 
               {/* Article Body Content */}
-              <div className="article-body-container" style={{ background: '#ffffff' }}>
+              <div className="article-body-container" style={{ background: '#11141c' }}>
                 {/* Key Takeaways Box */}
-                <div className="article-takeaways-box" style={{ background: '#f0fdf4', border: '1px solid #bbf7d0' }}>
-                  <div className="article-takeaways-heading" style={{ color: '#15803d' }}>
+                <div className="article-takeaways-box" style={{ background: '#07080d', border: '1px solid rgba(16, 185, 129, 0.25)', borderRadius: '8px' }}>
+                  <div className="article-takeaways-heading" style={{ color: '#10b981' }}>
                     Executive Takeaways &amp; Regulatory Essentials
                   </div>
                   <ul className="article-takeaways-list">
                     {activeArticle.keyTakeaways.map((point, idx) => (
-                      <li key={idx} className="article-takeaways-item" style={{ color: '#166534' }}>
+                      <li key={idx} className="article-takeaways-item" style={{ color: '#cbd5e1' }}>
                         <CheckCircle2 size={16} color="#16a34a" style={{ flexShrink: 0, marginTop: '2px' }} />
                         <span>{point}</span>
                       </li>
@@ -651,7 +651,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 </div>
 
                 {/* Markdown text body */}
-                <div className="article-markdown-body" style={{ color: '#334155', borderBottom: '1px solid #e2e8f0' }}>
+                <div className="article-markdown-body" style={{ color: '#cbd5e1', borderBottom: '1px solid #e2e8f0' }}>
                   {renderArticleBody(activeArticle.content)}
                 </div>
 
@@ -716,9 +716,9 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                     key={post.id}
                     className="glass-card"
                     onClick={() => handleOpenArticle(post)}
-                    style={{ padding: '0', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.2s ease', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', boxShadow: '0 2px 8px rgba(15,23,42,0.04)' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.borderColor = '#93c5fd'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = '#e2e8f0'; }}
+                    style={{ padding: '0', overflow: 'hidden', cursor: 'pointer', transition: 'all 0.2s ease', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.35)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'; }}
                   >
                     <div style={{ width: '100%', height: '140px', overflow: 'hidden' }}>
                       <img 
@@ -732,12 +732,12 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       <span style={{ fontSize: '0.72rem', color: '#b45309', fontWeight: 700, textTransform: 'uppercase' }}>
                         {post.category}
                       </span>
-                      <h4 style={{ fontSize: '0.98rem', color: '#0f172a', marginTop: '4px', lineHeight: 1.35, minHeight: '42px', fontWeight: 700 }}>
+                      <h4 style={{ fontSize: '0.98rem', color: '#ffffff', marginTop: '4px', lineHeight: 1.35, minHeight: '42px', fontWeight: 600 }}>
                         {post.title}
                       </h4>
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '12px', fontSize: '0.76rem', color: '#64748b' }}>
                         <span>{post.readTime}</span>
-                        <span style={{ color: '#1d4ed8', fontWeight: 600 }}>Read Article &rarr;</span>
+                        <span style={{ color: '#38bdf8', fontWeight: 500 }}>Read Article &rarr;</span>
                       </div>
                     </div>
                   </div>
@@ -751,7 +751,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
               ────────────────────────────────────────────────────────── */
           <div className="blog-hub-grid-view">
             {/* Hero Banner Header */}
-            <div className="glass-card blog-hub-hero" style={{ background: '#ffffff', border: '1px solid #e2e8f0', boxShadow: '0 4px 20px rgba(15,23,42,0.05)' }}>
+            <div className="blog-hub-hero" style={{ background: '#07080d', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '36px 32px' }}>
               <div style={{
                 position: 'absolute',
                 top: '-50px',
@@ -763,17 +763,17 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 pointerEvents: 'none'
               }} />
 
-              <div className="section-badge gold" style={{ marginBottom: '14px', background: '#fffbeb', border: '1px solid #fde68a', color: '#b45309' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '4px 10px', background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.25)', borderRadius: '6px', color: '#38bdf8', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.03em', marginBottom: '16px' }}>
                 <BookOpen size={14} />
                 <span>Official Engineering &amp; Regulatory Insights</span>
               </div>
 
-              <h1 className="blog-hub-title" style={{ color: '#0f172a' }}>
-                Chartered Engineering, Valuation &amp; <span style={{ background: 'linear-gradient(135deg, #b45309, #d97706 60%, #92400e)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Statutory Compliance</span> Articles
+              <h1 className="blog-hub-title" style={{ color: '#eef0f5', fontWeight: 600 }}>
+                Chartered Engineering, Valuation &amp; <span style={{ color: '#38bdf8' }}>Statutory Compliance</span> Articles
               </h1>
 
-              <p className="blog-hub-desc" style={{ color: '#475569' }}>
-                Practical statutory guides, technical inspection checklists, DGFT procedures, and asset valuation methodologies compiled by verified corporate members of the <strong style={{ color: '#0f172a' }}>Institution of Engineers (India)</strong> and IIT Roorkee alumni.
+              <p className="blog-hub-desc" style={{ color: '#a3a9b8' }}>
+                Practical statutory guides, technical inspection checklists, DGFT procedures, and asset valuation methodologies compiled by verified corporate members of the <strong style={{ color: '#eef0f5' }}>Institution of Engineers (India)</strong> and IIT Roorkee alumni.
               </p>
 
               {/* Quick Search & Filters Bar */}
@@ -783,7 +783,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                   <input
                     type="text"
                     className="form-control"
-                    style={{ paddingLeft: '46px', height: '46px', fontSize: '0.92rem', width: '100%', boxSizing: 'border-box', background: '#ffffff', border: '1px solid #cbd5e1', color: '#0f172a' }}
+                    style={{ paddingLeft: '46px', height: '44px', fontSize: '0.90rem', width: '100%', boxSizing: 'border-box', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px', color: '#eef0f5', outline: 'none' }}
                     placeholder="Search articles (DGFT, IndAS 16, CESE, Boilers, Solar)..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -798,15 +798,18 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       onClick={() => setSelectedCategory(cat)}
                       className={`blog-filter-chip ${selectedCategory === cat ? 'active' : ''}`}
                       style={selectedCategory === cat ? {
-                        background: '#1e40af',
-                        borderColor: '#1e40af',
-                        color: '#ffffff',
-                        boxShadow: '0 2px 8px rgba(30, 64, 175, 0.25)'
+                        background: '#38bdf8',
+                        borderColor: '#38bdf8',
+                        color: '#07080d',
+                        borderRadius: '6px',
+                        padding: '6px 14px',
+                        fontWeight: 600
                       } : {
-                        background: '#ffffff',
-                        borderColor: '#e2e8f0',
-                        color: '#475569',
-                        boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+                        background: '#11141c',
+                        borderColor: 'rgba(255, 255, 255, 0.08)',
+                        color: '#a3a9b8',
+                        borderRadius: '6px',
+                        padding: '6px 14px'
                       }}
                     >
                       {cat}
@@ -818,8 +821,8 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
 
             {/* Results Counter */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-              <span style={{ fontSize: '0.88rem', color: '#64748b' }}>
-                Showing <strong style={{ color: '#0f172a' }}>{filteredPosts.length}</strong> authoritative engineering guides
+              <span style={{ fontSize: '0.84rem', color: '#7a8296' }}>
+                Showing <strong style={{ color: '#eef0f5' }}>{filteredPosts.length}</strong> authoritative engineering guides
               </span>
             </div>
 
@@ -837,20 +840,17 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                     overflow: 'hidden',
                     cursor: 'pointer',
                     transition: 'all 0.25s ease',
-                    background: '#ffffff',
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '14px',
-                    boxShadow: '0 4px 16px rgba(15, 23, 42, 0.05)'
+                    background: '#11141c',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: '12px'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.borderColor = '#93c5fd';
-                    e.currentTarget.style.boxShadow = '0 14px 34px rgba(15, 23, 42, 0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.4)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.borderColor = '#e2e8f0';
-                    e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.05)';
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
                   }}
                 >
                   {/* Humanized Card Image */}
@@ -904,23 +904,23 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       <span>{post.date}</span>
                     </div>
 
-                    <h2 style={{ fontSize: '1.15rem', color: '#0f172a', fontWeight: 700, lineHeight: 1.35, marginBottom: '10px' }}>
+                    <h2 style={{ fontSize: '1.15rem', color: '#eef0f5', fontWeight: 600, lineHeight: 1.35, marginBottom: '8px' }}>
                       {post.title}
                     </h2>
 
-                    <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: 1.55, marginBottom: '18px', flexGrow: 1 }}>
+                    <p style={{ color: '#a3a9b8', fontSize: '0.88rem', lineHeight: 1.55, marginBottom: '14px', flexGrow: 1 }}>
                       {post.excerpt}
                     </p>
 
                     {/* Key Takeaway Bullet Preview */}
                     <div style={{
-                      background: '#f8fafc',
-                      border: '1px solid #e2e8f0',
-                      borderRadius: 'var(--radius-sm)',
+                      background: '#1a1e28',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      borderRadius: '6px',
                       padding: '10px 12px',
                       marginBottom: '16px',
                       fontSize: '0.8rem',
-                      color: '#334155',
+                      color: '#cbd5e1',
                       display: 'flex',
                       alignItems: 'flex-start',
                       gap: '8px'
@@ -935,12 +935,12 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       justifyContent: 'space-between',
                       alignItems: 'center',
                       paddingTop: '12px',
-                      borderTop: '1px solid #f1f5f9'
+                      borderTop: '1px solid rgba(255, 255, 255, 0.06)'
                     }}>
                       <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
                         Full Statutory Guide
                       </span>
-                      <span style={{ color: '#1d4ed8', fontWeight: 700, fontSize: '0.84rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                      <span style={{ color: '#38bdf8', fontWeight: 600, fontSize: '0.84rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                         Read Guide <ArrowRight size={14} />
                       </span>
                     </div>
@@ -950,7 +950,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Bottom Lead Consultation Strip */}
-            <div className="glass-card blog-bottom-strip" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)', border: '1px solid #3b82f6', borderRadius: '16px', boxShadow: '0 14px 36px rgba(15, 23, 42, 0.16)' }}>
+            <div style={{ background: '#07080d', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '12px', padding: '32px 28px' }}>
               <h3 className="blog-bottom-title" style={{ color: '#ffffff' }}>
                 Need Certified Chartered Engineer or Plant &amp; Machinery Valuation?
               </h3>
