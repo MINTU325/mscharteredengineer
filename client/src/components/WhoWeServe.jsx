@@ -304,10 +304,10 @@ export default function WhoWeServe({ onOpenQuote }) {
                 background: '#f1f5f9',
                 padding: '14px 16px',
                 borderRadius: '8px',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
+                border: '1px solid #e2e8f0',
                 borderLeft: `3px solid ${activePersona.accentColor}`,
                 fontSize: '0.84rem',
-                color: '#cbd5e1',
+                color: '#334155',
                 lineHeight: 1.55
               }}>
                 <strong style={{ color: '#0f172a' }}>Why Institutional Clients Rely on Us:</strong> {activePersona.highlightQuote}
@@ -321,13 +321,13 @@ export default function WhoWeServe({ onOpenQuote }) {
               borderRadius: '10px',
               padding: '24px'
             }}>
-              <div style={{ fontSize: '0.78rem', fontWeight: 600, color: '#7a8296', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '14px' }}>
+              <div style={{ fontSize: '0.78rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '14px' }}>
                 Specialized Services for {activePersona.name}:
               </div>
 
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 22px 0', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {activePersona.servicesList.map((service, sIdx) => (
-                  <li key={sIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#cbd5e1', lineHeight: 1.45 }}>
+                  <li key={sIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.84rem', color: '#334155', lineHeight: 1.45 }}>
                     <Check size={14} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
                     <span>{service}</span>
                   </li>
@@ -377,8 +377,8 @@ export default function WhoWeServe({ onOpenQuote }) {
                     cursor: 'pointer',
                     transition: 'background 0.15s ease'
                   }}
-                  onMouseEnter={e => e.currentTarget.style.background = '#232938'}
-                  onMouseLeave={e => e.currentTarget.style.background = '#1a1e28'}
+                  onMouseEnter={e => e.currentTarget.style.background = '#ffffff'}
+                  onMouseLeave={e => e.currentTarget.style.background = '#f1f5f9'}
                 >
                   <PhoneCall size={14} style={{ color: '#10b981' }} />
                   <span>Direct WhatsApp</span>

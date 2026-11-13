@@ -214,7 +214,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
   };
 
   return (
-    <section id="purpose-selector" style={{ padding: '36px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
+    <section id="purpose-selector" style={{ padding: '42px 0', background: 'linear-gradient(180deg, #ffffff 0%, #fafbfc 100%)', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
@@ -429,7 +429,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
               </div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 {activePurpose.documents.map((doc, idx) => (
-                  <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.80rem', color: '#cbd5e1', lineHeight: 1.45 }}>
+                  <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.80rem', color: '#334155', lineHeight: 1.45 }}>
                     <Check size={13} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
                     <span>{doc}</span>
                   </li>
@@ -447,7 +447,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
               border: '1px solid #e2e8f0',
               borderRadius: '6px',
               fontSize: '0.78rem',
-              color: '#cbd5e1',
+              color: '#334155',
               marginBottom: '18px'
             }}>
               <AlertCircle size={14} style={{ color: '#f59e0b', flexShrink: 0 }} />
@@ -497,8 +497,8 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                   cursor: 'pointer',
                   transition: 'background 0.15s ease'
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = '#232938'}
-                onMouseLeave={e => e.currentTarget.style.background = '#1a1e28'}
+                onMouseEnter={e => e.currentTarget.style.background = '#ffffff'}
+                onMouseLeave={e => e.currentTarget.style.background = isSelected ? '#eff6ff' : '#f8fafc'}
               >
                 <MessageCircle size={14} style={{ color: '#10b981' }} />
                 <span>WhatsApp Query</span>

@@ -145,30 +145,30 @@ export default function FounderProfile({ onOpenQuote }) {
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', marginBottom: '24px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0', fontWeight: 500 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
                   <CheckCircle2 size={16} color="#10b981" />
                   <span>Chartered Engineer (India)</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0', fontWeight: 500 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
                   <CheckCircle2 size={16} color="#10b981" />
                   <span>Corporate Member of IEI</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0', fontWeight: 500 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
                   <CheckCircle2 size={16} color="#10b981" />
                   <span>Valuation &amp; Certification Expert</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#e2e8f0', fontWeight: 500 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
                   <CheckCircle2 size={16} color="#10b981" />
                   <span>Pan-India Statutory Practice</span>
                 </div>
               </div>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}>
-                <a href="tel:+919158658885" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#10b981' }}>
+                <a href="tel:+919158658885" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#10b981' }}>
                   <Phone size={15} color="#10b981" />
                   <span>+91 91586 58885</span>
                 </a>
-                <a href="mailto:ms.charteredengineer@gmail.com" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#fbbf24' }}>
+                <a href="mailto:ms.charteredengineer@gmail.com" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#fbbf24' }}>
                   <Mail size={15} color="#fbbf24" />
                   <span>Email Principal Engineer</span>
                 </a>
@@ -177,7 +177,7 @@ export default function FounderProfile({ onOpenQuote }) {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn-outline" 
-                  style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#0284c7' }}
+                  style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#0284c7' }}
                 >
                   <LinkedinIcon size={15} color="#38bdf8" />
                   <span>LinkedIn Profile</span>

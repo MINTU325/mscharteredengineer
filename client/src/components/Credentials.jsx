@@ -14,7 +14,7 @@ export default function Credentials() {
   ];
 
   return (
-    <section id="credentials" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', padding: '36px 0' }}>
+    <section id="credentials" style={{ background: '#f1f5f9', backgroundImage: 'radial-gradient(#cbd5e1 1.2px, transparent 1.2px)', backgroundSize: '24px 24px', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', padding: '42px 0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
@@ -109,27 +109,27 @@ export default function Credentials() {
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Chartered Engineer (India) — IEI</span>
+                  <span style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600 }}>Chartered Engineer (India) — IEI</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Chartered Electrical Safety Engineer (CESE)</span>
+                  <span style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600 }}>Chartered Electrical Safety Engineer (CESE)</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Certified Energy Manager — BEE</span>
+                  <span style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600 }}>Certified Energy Manager — BEE</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Competent Person — Factories &amp; Boilers</span>
+                  <span style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600 }}>Competent Person — Factories &amp; Boilers</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>NSCI / NSAT Authorized Safety Auditor</span>
+                  <span style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600 }}>NSCI / NSAT Authorized Safety Auditor</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
-                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>B.Tech Mechanical, IIT Roorkee</span>
+                  <span style={{ fontSize: '0.85rem', color: '#1e293b', fontWeight: 600 }}>B.Tech Mechanical, IIT Roorkee</span>
                 </div>
               </div>
             </div>
@@ -159,7 +159,7 @@ export default function Credentials() {
                 transition: 'border-color 0.15s ease'
               }}
               onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)'}
-              onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'}
+              onMouseLeave={e => e.currentTarget.style.borderColor = '#e2e8f0'}
             >
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{

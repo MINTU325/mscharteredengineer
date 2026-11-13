@@ -162,7 +162,7 @@ button, input, select, textarea {
 .section-description {
   font-size: 1.02rem;
   line-height: 1.65;
-  color: #cbd5e1;
+  color: #475569;
 }
 
 /* ==============================================================
@@ -3200,7 +3200,7 @@ body > .skiptranslate:not(#google_translate_element) {
 
 .texel-dept-desc {
   font-size: 0.84rem;
-  color: #475569;
+  color: #334155;
   line-height: 1.45;
   margin: 0;
 }

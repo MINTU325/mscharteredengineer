@@ -56,7 +56,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
   ];
 
   return (
-    <section id="why-us" style={{ padding: '48px 0', background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
+    <section id="why-us" style={{ padding: '48px 0', background: '#f1f5f9', backgroundImage: 'linear-gradient(135deg, rgba(226, 232, 240, 0.5) 25%, transparent 25%, transparent 50%, rgba(226, 232, 240, 0.5) 50%, rgba(226, 232, 240, 0.5) 75%, transparent 75%, transparent 100%)', backgroundSize: '40px 40px', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
           <div style={{
@@ -116,17 +116,17 @@ export default function WhyChooseUs({ onOpenQuote }) {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.background = '#1a1e28';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#0284c7';
                   e.currentTarget.style.borderTopColor = pillar.color;
-                  e.currentTarget.style.boxShadow = '0 12px 26px rgba(0, 0, 0, 0.45)';
+                  e.currentTarget.style.boxShadow = '0 12px 28px rgba(15, 23, 42, 0.1)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.background = '#11141c';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#e2e8f0';
                   e.currentTarget.style.borderTopColor = pillar.color;
-                  e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.25)';
+                  e.currentTarget.style.boxShadow = '0 2px 10px rgba(15, 23, 42, 0.05)';
                 }}
               >
                 <div>

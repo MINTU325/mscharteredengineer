@@ -112,17 +112,17 @@ export default function ServicesTeaser({ onOpenQuote }) {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.background = '#1a1e28';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.16)';
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#0284c7';
                   e.currentTarget.style.borderTopColor = item.color;
-                  e.currentTarget.style.boxShadow = '0 12px 26px rgba(0, 0, 0, 0.45)';
+                  e.currentTarget.style.boxShadow = '0 10px 24px rgba(15, 23, 42, 0.08)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.background = '#11141c';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.background = '#f8fafc';
+                  e.currentTarget.style.borderColor = '#e2e8f0';
                   e.currentTarget.style.borderTopColor = item.color;
-                  e.currentTarget.style.boxShadow = '0 4px 14px rgba(0, 0, 0, 0.25)';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(15, 23, 42, 0.04)';
                 }}
               >
                 <div>

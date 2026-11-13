@@ -34,7 +34,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
   const currentZoneData = zones.find(z => z.name === activeZone) || zones[0];
 
   return (
-    <section id="contact" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', padding: '36px 0' }}>
+    <section id="contact" style={{ background: '#f8fafc', backgroundImage: 'radial-gradient(#cbd5e1 1.2px, transparent 1.2px)', backgroundSize: '30px 30px', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', padding: '42px 0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
@@ -130,7 +130,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                     <Phone size={15} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.70rem', color: '#7a8296' }}>Direct Telephone Helpline</div>
+                    <div style={{ fontSize: '0.70rem', color: '#64748b' }}>Direct Telephone Helpline</div>
                     <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#0f172a' }}>+91 91586 58885</div>
                   </div>
                 </a>
@@ -152,7 +152,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                     <Mail size={15} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.70rem', color: '#7a8296' }}>Official Statutory Correspondence</div>
+                    <div style={{ fontSize: '0.70rem', color: '#64748b' }}>Official Statutory Correspondence</div>
                     <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#0f172a' }}>ms.charteredengineer@gmail.com</div>
                   </div>
                 </a>
@@ -249,11 +249,11 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                 <div style={{ fontSize: '0.75rem', color: '#0284c7', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
                   Operational Scope:
                 </div>
-                <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.55, margin: '0 0 12px 0' }}>
+                <p style={{ fontSize: '0.85rem', color: '#334155', lineHeight: 1.55, margin: '0 0 12px 0' }}>
                   {currentZoneData.specialty}
                 </p>
 
-                <div style={{ fontSize: '0.72rem', color: '#7a8296', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 600, marginBottom: '6px' }}>
+                <div style={{ fontSize: '0.72rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 600, marginBottom: '6px' }}>
                   Key Industrial Hubs Covered:
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -269,7 +269,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                         border: '1px solid #e2e8f0',
                         borderRadius: '4px',
                         fontSize: '0.74rem',
-                        color: '#cbd5e1'
+                        color: '#334155'
                       }}
                     >
                       <MapPin size={10} style={{ color: '#0284c7' }} />
@@ -291,7 +291,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
               borderRadius: '8px'
             }}>
               <ShieldCheck size={16} style={{ color: '#10b981', flexShrink: 0 }} />
-              <div style={{ fontSize: '0.78rem', color: '#cbd5e1', lineHeight: 1.45 }}>
+              <div style={{ fontSize: '0.78rem', color: '#334155', lineHeight: 1.45 }}>
                 Chartered Engineer site visit mobilization within <strong style={{ color: '#10b981' }}>24 to 48 hours</strong> across all Tier-1 and Tier-2 industrial zones.
               </div>
             </div>
