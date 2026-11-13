@@ -2891,10 +2891,9 @@ body > .skiptranslate:not(#google_translate_element) {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
-  border-top: 2px solid rgba(56, 189, 248, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 2px solid #0284c7;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
   padding: 16px 20px;
   margin-bottom: 24px;
@@ -2952,7 +2951,7 @@ body > .skiptranslate:not(#google_translate_element) {
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  background: #1a1e28;
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   padding: 10px 14px;
@@ -2962,7 +2961,7 @@ body > .skiptranslate:not(#google_translate_element) {
 
 .corridor-card-link:hover {
   transform: translateY(-2px);
-  background: #242938;
+  background: rgba(255, 255, 255, 0.08);
   border-color: rgba(56, 189, 248, 0.35);
   box-shadow: 0 8px 18px -4px rgba(0, 0, 0, 0.5);
 }

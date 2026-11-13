@@ -59,8 +59,8 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
         style={{
           maxWidth: '440px',
           padding: '32px 28px',
-          background: '#0e121b',
-          border: '1px solid rgba(255, 255, 255, 0.12)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
         }}
@@ -75,8 +75,8 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
             width: '56px',
             height: '56px',
             borderRadius: '8px',
-            background: '#1a1e28',
-            border: '1px solid rgba(245, 158, 11, 0.3)',
+            background: '#fffbeb',
+            border: '1px solid #fde68a',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -91,10 +91,10 @@ export default function AdminLoginModal({ isOpen, onClose, onLoginSuccess }) {
             <span>Restricted Access</span>
           </div>
 
-          <h3 style={{ fontSize: '1.4rem', color: '#ffffff', marginBottom: '6px' }}>
+          <h3 style={{ fontSize: '1.4rem', color: '#0f172a', marginBottom: '6px' }}>
             Admin Portal Login
           </h3>
-          <p style={{ fontSize: '0.86rem', color: '#94a3b8', lineHeight: 1.5 }}>
+          <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.5 }}>
             Enter your admin passkey to manage incoming client inquiries, valuations & leads.
           </p>
         </div>

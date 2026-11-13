@@ -1470,11 +1470,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, name: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#f1f5f9',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                            background: '#ffffff',
+                            border: '1px solid #cbd5e1',
                             borderRadius: '8px',
                             padding: '11px 12px',
-                            color: '#ffffff',
+                            color: '#0f172a',
                             fontSize: '0.90rem',
                             outline: 'none',
                             boxSizing: 'border-box'
@@ -1494,11 +1494,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, phone: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#f1f5f9',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                            background: '#ffffff',
+                            border: '1px solid #cbd5e1',
                             borderRadius: '8px',
                             padding: '11px 12px',
-                            color: '#ffffff',
+                            color: '#0f172a',
                             fontSize: '0.90rem',
                             outline: 'none',
                             boxSizing: 'border-box'
@@ -1517,11 +1517,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, product: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#f1f5f9',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                            background: '#ffffff',
+                            border: '1px solid #cbd5e1',
                             borderRadius: '8px',
                             padding: '11px 12px',
-                            color: '#ffffff',
+                            color: '#0f172a',
                             fontSize: '0.90rem',
                             outline: 'none',
                             boxSizing: 'border-box'
@@ -1545,11 +1545,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, quantity: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#f1f5f9',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
+                            background: '#ffffff',
+                            border: '1px solid #cbd5e1',
                             borderRadius: '8px',
                             padding: '11px 12px',
-                            color: '#ffffff',
+                            color: '#0f172a',
                             fontSize: '0.90rem',
                             outline: 'none',
                             boxSizing: 'border-box'
@@ -1574,11 +1574,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
                         onChange={(e) => setEnquiryForm({ ...enquiryForm, city: e.target.value })}
                         style={{
                           width: '100%',
-                          background: '#f8fafc',
-                          border: '1px solid #e2e8f0',
+                          background: '#ffffff',
+                          border: '1px solid #cbd5e1',
                           borderRadius: '8px',
                           padding: '11px 12px',
-                          color: '#ffffff',
+                          color: '#0f172a',
                           fontSize: '0.90rem',
                           outline: 'none',
                           boxSizing: 'border-box'
@@ -1597,11 +1597,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
                         onChange={(e) => setEnquiryForm({ ...enquiryForm, message: e.target.value })}
                         style={{
                           width: '100%',
-                          background: '#f8fafc',
-                          border: '1px solid #e2e8f0',
+                          background: '#ffffff',
+                          border: '1px solid #cbd5e1',
                           borderRadius: '8px',
                           padding: '10px 12px',
-                          color: '#ffffff',
+                          color: '#0f172a',
                           fontSize: '0.90rem',
                           outline: 'none',
                           resize: 'vertical',

@@ -1571,10 +1571,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               style={{
                 width: '100%',
                 background: '#ffffff',
-                border: '1px solid rgba(255, 255, 255, 0.18)',
+                border: '1px solid #cbd5e1',
                 borderRadius: '6px',
                 padding: '12px 18px 12px 46px',
-                color: '#ffffff',
+                color: '#0f172a',
                 fontSize: '0.92rem',
                 outline: 'none',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.3)',

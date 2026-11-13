@@ -479,8 +479,8 @@ _Directly sent via mscharteredengineer.com_`
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px', background: '#0e121b', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '12px', color: '#eef0f5', boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)' }}>
-        <button className="modal-close" onClick={onClose} aria-label="Close modal">
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '16px', color: '#0f172a', boxShadow: '0 25px 60px -15px rgba(15, 23, 42, 0.25)' }}>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal" style={{ background: '#f1f5f9', border: '1px solid #e2e8f0', color: '#64748b' }}>
           <X size={20} />
         </button>
 
@@ -496,7 +496,7 @@ _Directly sent via mscharteredengineer.com_`
                   Official Stamped Valuation Report
                 </span>
               </div>
-              <h3 style={{ fontSize: '1.45rem', color: '#ffffff', marginBottom: '6px' }}>
+              <h3 style={{ fontSize: '1.45rem', color: '#0f172a', marginBottom: '6px' }}>
                 Get Stamped Valuation Report
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
@@ -506,8 +506,8 @@ _Directly sent via mscharteredengineer.com_`
 
             {prefillData && (
               <div style={{
-                background: '#11141c',
-                border: '1px solid rgba(56, 189, 248, 0.25)',
+                background: '#f8fafc',
+                border: '1px solid #cbd5e1',
                 borderRadius: '8px',
                 padding: '16px 20px',
                 marginBottom: '22px'
@@ -515,11 +515,11 @@ _Directly sent via mscharteredengineer.com_`
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '10px' }}>
                   <div>
                     <span style={{ fontSize: '0.72rem', color: '#93c5fd', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600 }}>Assessed Machinery</span>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>{prefillData.assetType}</div>
+                    <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a' }}>{prefillData.assetType}</div>
                   </div>
                   <div style={{ textAlign: 'right' }}>
                     <span style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Original Cost</span>
-                    <div style={{ fontSize: '1rem', fontWeight: 600, color: '#cbd5e1' }}>₹ {Number(prefillData.originalCost || 0).toLocaleString('en-IN')}</div>
+                    <div style={{ fontSize: '1rem', fontWeight: 600, color: '#334155' }}>₹ {Number(prefillData.originalCost || 0).toLocaleString('en-IN')}</div>
                   </div>
                 </div>
 
@@ -719,9 +719,9 @@ _Directly sent via mscharteredengineer.com_`
                     type="button"
                     onClick={() => setShowDeptDropdown(!showDeptDropdown)}
                     style={{
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(255, 255, 255, 0.15)',
-                      color: '#94a3b8',
+                      background: '#f1f5f9',
+                      border: '1px solid #cbd5e1',
+                      color: '#334155',
                       fontSize: '0.72rem',
                       fontWeight: 600,
                       padding: '4px 10px',
@@ -742,10 +742,10 @@ _Directly sent via mscharteredengineer.com_`
                       right: 0,
                       top: '100%',
                       marginTop: '6px',
-                      background: '#11141c',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      background: '#ffffff',
+                      border: '1px solid #e2e8f0',
                       borderRadius: '8px',
-                      boxShadow: '0 12px 30px rgba(0,0,0,0.6)',
+                      boxShadow: '0 12px 30px rgba(15,23,42,0.15)',
                       zIndex: 100,
                       minWidth: '260px',
                       overflow: 'hidden'
@@ -763,7 +763,7 @@ _Directly sent via mscharteredengineer.com_`
                             style={{
                               padding: '10px 14px',
                               fontSize: '0.82rem',
-                              color: isSelected ? d.themeColor : '#cbd5e1',
+                              color: isSelected ? d.themeColor : '#334155',
                               background: isSelected ? 'rgba(255,255,255,0.06)' : 'transparent',
                               cursor: 'pointer',
                               display: 'flex',
@@ -784,7 +784,7 @@ _Directly sent via mscharteredengineer.com_`
                 </div>
               </div>
 
-              <h3 style={{ fontSize: '1.4rem', color: '#ffffff', margin: '4px 0' }}>
+              <h3 style={{ fontSize: '1.4rem', color: '#0f172a', margin: '4px 0' }}>
                 {step === 1 && `Select ${currentDeptConfig.shortName} Service`}
                 {step === 2 && "Location & Project Scale"}
                 {step === 3 && "Contact Details & Direct Booking"}
@@ -794,7 +794,7 @@ _Directly sent via mscharteredengineer.com_`
               <div style={{
                 width: '100%',
                 height: '4px',
-                background: 'rgba(255, 255, 255, 0.08)',
+                background: '#e2e8f0',
                 borderRadius: '2px',
                 marginTop: '14px',
                 overflow: 'hidden'
@@ -824,7 +824,7 @@ _Directly sent via mscharteredengineer.com_`
 
             {/* Step 1: Dynamic Department Service Selection */}
             {step === 1 && (
-              <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '22px' }}>
+              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '22px' }}>
                 <div className="form-group">
                   <label className="form-label">Active Division</label>
                   <div style={{
@@ -887,7 +887,7 @@ _Directly sent via mscharteredengineer.com_`
 
             {/* Step 2: Location & Dynamic Scale Options */}
             {step === 2 && (
-              <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '22px' }}>
+              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '22px' }}>
                 <div className="form-group">
                   <label className="form-label">Plant / Site / Office Location (City, State) *</label>
                   <input
@@ -930,7 +930,7 @@ _Directly sent via mscharteredengineer.com_`
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    style={{ padding: '12px 20px', background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#eef0f5', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                    style={{ padding: '12px 20px', background: '#ffffff', border: '1px solid #cbd5e1', color: '#334155', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <ArrowLeft size={16} />
                     <span>Back</span>
@@ -950,7 +950,7 @@ _Directly sent via mscharteredengineer.com_`
 
             {/* Step 3: Contact Details & Submit */}
             {step === 3 && (
-              <form onSubmit={handleSubmit} style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '22px' }}>
+              <form onSubmit={handleSubmit} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '22px' }}>
                 <div className="form-group">
                   <label className="form-label">Full Name *</label>
                   <input
@@ -1004,7 +1004,7 @@ _Directly sent via mscharteredengineer.com_`
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    style={{ padding: '12px 20px', background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', color: '#eef0f5', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                    style={{ padding: '12px 20px', background: '#ffffff', border: '1px solid #cbd5e1', color: '#334155', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <ArrowLeft size={16} />
                     <span>Back</span>

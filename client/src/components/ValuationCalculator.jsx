@@ -264,8 +264,8 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                   value={formData.assetType}
                   onChange={(e) => setFormData({...formData, assetType: e.target.value})}
                   style={{
-                    background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
-                    color: lightMode ? '#0f172a' : '#ffffff'
+                    background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px',
+                    color: '#0f172a'
                   }}
                 >
                   <option value="CNC & Heavy Engineering Machinery">CNC & Heavy Engineering Machinery</option>
@@ -291,8 +291,8 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     placeholder="e.g. 2500000"
                     required
                     style={{
-                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
-                      color: lightMode ? '#0f172a' : '#ffffff'
+                      background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px',
+                      color: '#0f172a'
                     }}
                   />
                 </div>
@@ -310,8 +310,8 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     placeholder="e.g. 4"
                     required
                     style={{
-                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
-                      color: lightMode ? '#0f172a' : '#ffffff'
+                      background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px',
+                      color: '#0f172a'
                     }}
                   />
                 </div>
@@ -329,8 +329,8 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     onChange={(e) => setFormData({...formData, expectedTotalLifeYears: e.target.value})}
                     placeholder="Default: 15"
                     style={{
-                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
-                      color: lightMode ? '#0f172a' : '#ffffff'
+                      background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px',
+                      color: '#0f172a'
                     }}
                   />
                 </div>
@@ -344,8 +344,8 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                     value={formData.maintenanceCondition}
                     onChange={(e) => setFormData({...formData, maintenanceCondition: e.target.value})}
                     style={{
-                      background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
-                      color: lightMode ? '#0f172a' : '#ffffff'
+                      background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px',
+                      color: '#0f172a'
                     }}
                   >
                     <option value="Excellent">Excellent (OEM Serviced)</option>
@@ -365,8 +365,8 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                   value={formData.usageIntensity}
                   onChange={(e) => setFormData({...formData, usageIntensity: e.target.value})}
                   style={{
-                    background: '#1a1e28', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '8px',
-                    color: lightMode ? '#0f172a' : '#ffffff'
+                    background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px',
+                    color: '#0f172a'
                   }}
                 >
                   <option value="Single Shift (8 hrs/day)">Single Shift (8 hrs/day)</option>
