@@ -241,7 +241,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
               border: '1px solid rgba(255, 255, 255, 0.08)',
               borderRadius: '12px',
               padding: 'clamp(20px, 3.2vw, 28px)',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
+              boxShadow: '0 2px 12px rgba(15, 23, 42, 0.06)',
               boxSizing: 'border-box'
             }}
           >

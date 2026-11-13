@@ -4,7 +4,7 @@ import LinkedinIcon from './LinkedinIcon';
 
 export default function FounderProfile({ onOpenQuote }) {
   return (
-    <section id="founder" style={{ padding: '48px 0', background: '#07080d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+    <section id="founder" style={{ padding: '48px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
           <div style={{
@@ -15,7 +15,7 @@ export default function FounderProfile({ onOpenQuote }) {
             background: 'rgba(56, 189, 248, 0.12)',
             border: '1px solid rgba(56, 189, 248, 0.25)',
             borderRadius: '6px',
-            color: '#38bdf8',
+            color: '#0284c7',
             fontSize: '0.78rem',
             fontWeight: 700,
             textTransform: 'uppercase',
@@ -27,14 +27,14 @@ export default function FounderProfile({ onOpenQuote }) {
           </div>
           <h2 style={{
             fontSize: 'clamp(1.7rem, 3vw, 2.3rem)',
-            color: '#ffffff',
+            color: '#0f172a',
             fontWeight: 800,
             lineHeight: 1.25,
             marginBottom: '10px'
           }}>
-            Core Team &amp; <span style={{ color: '#38bdf8' }}>Leadership</span>
+            Core Team &amp; <span style={{ color: '#0284c7' }}>Leadership</span>
           </h2>
-          <p style={{ color: '#a3a9b8', fontSize: '0.94rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6 }}>
             Headed by elite IIT engineering alumni and Chartered Engineers committed to regulatory integrity and technical excellence.
           </p>
         </div>
@@ -44,9 +44,9 @@ export default function FounderProfile({ onOpenQuote }) {
             maxWidth: '1020px',
             margin: '0 auto',
             borderRadius: '8px',
-            background: '#11141c',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
+            background: '#f8fafc',
+            border: '1px solid #e2e8f0',
+            boxShadow: '0 2px 12px rgba(15, 23, 42, 0.06)',
             position: 'relative',
             overflow: 'hidden',
             padding: '32px 36px'
@@ -56,8 +56,8 @@ export default function FounderProfile({ onOpenQuote }) {
             {/* Left: Emblem Logo & Leader Title */}
             <div style={{ textAlign: 'center' }}>
               <div style={{
-                background: '#1a1e28',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 padding: '24px 16px',
                 display: 'inline-flex',
@@ -92,7 +92,7 @@ export default function FounderProfile({ onOpenQuote }) {
                 </svg>
 
                 <div>
-                  <div style={{ fontSize: '0.80rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#ffffff' }}>
+                  <div style={{ fontSize: '0.80rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#0f172a' }}>
                     KS CHARTERED ENGINEERS
                   </div>
                   <div style={{ fontSize: '0.66rem', color: '#F58220', fontWeight: 700, letterSpacing: '0.04em', marginTop: '2px' }}>
@@ -102,16 +102,16 @@ export default function FounderProfile({ onOpenQuote }) {
               </div>
 
               <div style={{ marginTop: '16px' }}>
-                <h3 style={{ fontSize: '1.4rem', color: '#ffffff', fontWeight: 800, marginBottom: '2px' }}>
+                <h3 style={{ fontSize: '1.4rem', color: '#0f172a', fontWeight: 800, marginBottom: '2px' }}>
                   Mukesh Singh
                 </h3>
-                <div style={{ fontSize: '0.86rem', color: '#38bdf8', fontWeight: 700 }}>
+                <div style={{ fontSize: '0.86rem', color: '#0284c7', fontWeight: 700 }}>
                   CEng (INDIA) MIE
                 </div>
                 <div style={{ fontSize: '0.82rem', color: '#fbbf24', fontWeight: 600, marginTop: '2px' }}>
                   B.Tech (Mechanical), IIT Roorkee
                 </div>
-                <div style={{ fontSize: '0.78rem', color: '#a3a9b8', marginTop: '4px', lineHeight: 1.4 }}>
+                <div style={{ fontSize: '0.78rem', color: '#475569', marginTop: '4px', lineHeight: 1.4 }}>
                   Principal Consultant &amp; Registered Valuer
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function FounderProfile({ onOpenQuote }) {
                 border: '1px solid rgba(56, 189, 248, 0.22)',
                 borderRadius: '6px',
                 fontSize: '0.76rem',
-                color: '#38bdf8',
+                color: '#0284c7',
                 fontWeight: 600,
                 marginBottom: '14px'
               }}>
@@ -136,12 +136,12 @@ export default function FounderProfile({ onOpenQuote }) {
                 <span>Corporate Member of IEI (Institution of Engineers India)</span>
               </div>
 
-              <h4 style={{ fontSize: '1.3rem', color: '#ffffff', fontWeight: 800, marginBottom: '12px' }}>
+              <h4 style={{ fontSize: '1.3rem', color: '#0f172a', fontWeight: 800, marginBottom: '12px' }}>
                 Engineering Rigor, Regulatory Trust
               </h4>
 
-              <p style={{ color: '#a3a9b8', fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '20px' }}>
-                Mukesh Singh brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a <strong style={{ color: '#ffffff' }}>Chartered Engineer (India) MIE</strong> by the <strong style={{ color: '#ffffff' }}>Institution of Engineers (India)</strong>, he oversees every valuation and statutory certificate with unmatched analytical precision.
+              <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '20px' }}>
+                Mukesh Singh brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a <strong style={{ color: '#0f172a' }}>Chartered Engineer (India) MIE</strong> by the <strong style={{ color: '#0f172a' }}>Institution of Engineers (India)</strong>, he oversees every valuation and statutory certificate with unmatched analytical precision.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', marginBottom: '24px' }}>
@@ -177,7 +177,7 @@ export default function FounderProfile({ onOpenQuote }) {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn-outline" 
-                  style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#38bdf8' }}
+                  style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: 'rgba(255, 255, 255, 0.15)', color: '#0284c7' }}
                 >
                   <LinkedinIcon size={15} color="#38bdf8" />
                   <span>LinkedIn Profile</span>
@@ -191,7 +191,7 @@ export default function FounderProfile({ onOpenQuote }) {
                     background: '#F58220', 
                     borderColor: '#F58220', 
                     borderRadius: '6px', 
-                    color: '#ffffff',
+                    color: '#0f172a',
                     fontWeight: 600 
                   }}
                 >

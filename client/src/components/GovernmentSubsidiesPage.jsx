@@ -271,20 +271,20 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
   });
 
   return (
-    <div style={{ background: '#0b0d14', color: '#eef0f5', minHeight: '100vh', paddingBottom: '60px' }}>
+    <div style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingBottom: '60px' }}>
       
       {/* ── Breadcrumb & Top Bar ── */}
-      <div style={{ background: '#07080d', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 20px' }}>
+      <div style={{ background: '#f8fafc', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 20px' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
             <button 
               onClick={onNavigateHome}
-              style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0, fontSize: '0.85rem' }}
+              style={{ background: 'none', border: 'none', color: '#0284c7', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0, fontSize: '0.85rem' }}
             >
               <Home size={14} /> Home
             </button>
             <span>/</span>
-            <span style={{ color: '#eef0f5', fontWeight: 500 }}>Government Subsidies &amp; Grants Advisory</span>
+            <span style={{ color: '#0f172a', fontWeight: 500 }}>Government Subsidies &amp; Grants Advisory</span>
           </div>
 
           <span style={{
@@ -303,8 +303,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
 
       {/* ── Hero Section ── */}
       <section style={{
-        background: '#07080d',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        background: '#f8fafc',
+        borderBottom: '1px solid #e2e8f0',
         padding: '48px 20px 40px'
       }}>
         <div style={{ maxWidth: '880px', margin: '0 auto', textAlign: 'center' }}>
@@ -332,16 +332,16 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             fontWeight: 600,
             lineHeight: 1.18,
             marginBottom: '16px',
-            color: '#eef0f5',
+            color: '#0f172a',
             letterSpacing: '-0.02em'
           }}>
             Unlock Up to <span style={{ color: '#10b981' }}>35% Capital Subsidy</span> &amp; <br />
-            <span style={{ color: '#38bdf8' }}>Government Grants</span> for Your Industry
+            <span style={{ color: '#0284c7' }}>Government Grants</span> for Your Industry
           </h1>
 
           <p style={{
             fontSize: '1.02rem',
-            color: '#a3a9b8',
+            color: '#475569',
             lineHeight: 1.65,
             maxWidth: '740px',
             margin: '0 auto 28px auto'
@@ -373,8 +373,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             <a
               href="#subsidy-calculator"
               style={{
-                background: '#11141c',
-                color: '#eef0f5',
+                background: '#ffffff',
+                color: '#0f172a',
                 border: '1px solid rgba(255, 255, 255, 0.16)',
                 borderRadius: '8px',
                 padding: '12px 22px',
@@ -387,7 +387,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
               }}
             >
               <span>Instant Subsidy Estimator</span>
-              <Calculator size={16} style={{ color: '#38bdf8' }} />
+              <Calculator size={16} style={{ color: '#0284c7' }} />
             </a>
           </div>
 
@@ -398,23 +398,23 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             gap: '12px',
             marginTop: '36px',
             paddingTop: '24px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+            borderTop: '1px solid #e2e8f0'
           }}>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10b981', marginBottom: '2px' }}>25+ Schemes</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>State &amp; Central Covered</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>State &amp; Central Covered</div>
             </div>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#38bdf8', marginBottom: '2px' }}>Upto 35%</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>Direct Capital Margin Money</div>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
+              <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0284c7', marginBottom: '2px' }}>Upto 35%</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>Direct Capital Margin Money</div>
             </div>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#f59e0b', marginBottom: '2px' }}>100% Certified</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>Chartered Engineer Attestation</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>Chartered Engineer Attestation</div>
             </div>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#a855f7', marginBottom: '2px' }}>₹50L+ Grants</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>Textile &amp; Startup Grants</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>Textile &amp; Startup Grants</div>
             </div>
           </div>
 
@@ -424,9 +424,9 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
       {/* ── Interactive Subsidy Calculator Section ── */}
       <section id="subsidy-calculator" style={{ padding: '40px 20px', maxWidth: '1120px', margin: '0 auto' }}>
         <div style={{
-          background: '#11141c',
+          background: '#ffffff',
           borderRadius: '12px',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          border: '1px solid #e2e8f0',
           padding: '28px 24px'
         }}>
           
@@ -435,10 +435,10 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             <span style={{ fontSize: '0.80rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Interactive Estimator</span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.7rem)', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>
+          <h2 style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.7rem)', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>
             Estimate Your Eligible Government Subsidy &amp; Grant
           </h2>
-          <p style={{ fontSize: '0.90rem', color: '#a3a9b8', margin: '0 0 24px 0' }}>
+          <p style={{ fontSize: '0.90rem', color: '#475569', margin: '0 0 24px 0' }}>
             Select your industrial category and estimated capital expenditure to see your potential subsidy payout.
           </p>
 
@@ -458,17 +458,17 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                     padding: '10px 12px',
                     borderRadius: '8px',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
-                    background: '#1a1e28',
+                    background: '#f1f5f9',
                     fontSize: '0.90rem',
                     fontWeight: 500,
-                    color: '#eef0f5',
+                    color: '#0f172a',
                     outline: 'none'
                   }}
                 >
-                  <option value="manufacturing" style={{ background: '#1a1e28', color: '#eef0f5' }}>General Manufacturing / Engineering</option>
-                  <option value="textile" style={{ background: '#1a1e28', color: '#eef0f5' }}>Textiles, Apparel &amp; Garments (GREAT/RIPS)</option>
-                  <option value="agri" style={{ background: '#1a1e28', color: '#eef0f5' }}>Agro-Processing &amp; Cold Storage (MoFPI)</option>
-                  <option value="service" style={{ background: '#1a1e28', color: '#eef0f5' }}>Service Sector / IT / Logistics</option>
+                  <option value="manufacturing" style={{ background: '#f1f5f9', color: '#0f172a' }}>General Manufacturing / Engineering</option>
+                  <option value="textile" style={{ background: '#f1f5f9', color: '#0f172a' }}>Textiles, Apparel &amp; Garments (GREAT/RIPS)</option>
+                  <option value="agri" style={{ background: '#f1f5f9', color: '#0f172a' }}>Agro-Processing &amp; Cold Storage (MoFPI)</option>
+                  <option value="service" style={{ background: '#f1f5f9', color: '#0f172a' }}>Service Sector / IT / Logistics</option>
                 </select>
               </div>
 
@@ -495,7 +495,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                 </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: '#1a1e28', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 12px', background: '#f1f5f9', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
                 <input
                   type="checkbox"
                   id="specialCategory"
@@ -510,7 +510,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             </div>
 
             {/* Calculated Result Card */}
-            <div style={{ background: '#07080d', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#eef0f5', borderRadius: '10px', padding: '22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ background: '#f8fafc', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#0f172a', borderRadius: '10px', padding: '22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <div>
                 <div style={{ fontSize: '0.74rem', color: '#7a8296', textTransform: 'uppercase', fontWeight: 600 }}>
                   Estimated Capital Subsidy ({estimatedPercentage}%):
@@ -521,8 +521,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
               </div>
 
               <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '10px', display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem' }}>
-                <span style={{ color: '#a3a9b8' }}>Interest Subvention:</span>
-                <span style={{ fontWeight: 600, color: '#38bdf8' }}>{interestSubvention}% per annum</span>
+                <span style={{ color: '#475569' }}>Interest Subvention:</span>
+                <span style={{ fontWeight: 600, color: '#0284c7' }}>{interestSubvention}% per annum</span>
               </div>
 
               <div style={{ fontSize: '0.72rem', color: '#7a8296', lineHeight: 1.4 }}>
@@ -564,7 +564,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             <div style={{ fontSize: '0.80rem', fontWeight: 600, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
               Schemes Directory
             </div>
-            <h2 style={{ fontSize: '1.65rem', fontWeight: 600, color: '#eef0f5', margin: 0 }}>
+            <h2 style={{ fontSize: '1.65rem', fontWeight: 600, color: '#0f172a', margin: 0 }}>
               Explore Government Subsidy Schemes
             </h2>
           </div>
@@ -582,8 +582,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                 padding: '9px 12px 9px 36px',
                 borderRadius: '8px',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
-                background: '#11141c',
-                color: '#eef0f5',
+                background: '#ffffff',
+                color: '#0f172a',
                 fontSize: '0.90rem',
                 outline: 'none',
                 boxSizing: 'border-box'
@@ -631,8 +631,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             <div
               key={scheme.id}
               style={{
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '12px',
                 padding: '24px 20px',
                 display: 'flex',
@@ -650,7 +650,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                     fontWeight: 600,
                     color: scheme.badgeColor,
                     background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    border: '1px solid #e2e8f0',
                     padding: '3px 8px',
                     borderRadius: '4px'
                   }}>
@@ -659,7 +659,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                   <span style={{ fontSize: '0.72rem', color: '#7a8296' }}>Statutory Scheme</span>
                 </div>
 
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 4px 0', lineHeight: 1.3 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#0f172a', margin: '0 0 4px 0', lineHeight: 1.3 }}>
                   {scheme.title}
                 </h3>
                 <div style={{ fontSize: '0.76rem', color: '#7a8296', marginBottom: '12px' }}>
@@ -684,7 +684,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                   <span>{scheme.subsidyHighlight}</span>
                 </div>
 
-                <p style={{ fontSize: '0.88rem', color: '#a3a9b8', lineHeight: 1.55, margin: '0 0 14px 0' }}>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.55, margin: '0 0 14px 0' }}>
                   {scheme.desc}
                 </p>
 
@@ -702,8 +702,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                   </ul>
                 </div>
 
-                <div style={{ padding: '8px 10px', background: '#1a1e28', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.06)', fontSize: '0.74rem', color: '#a3a9b8', marginBottom: '16px' }}>
-                  <strong style={{ color: '#eef0f5' }}>Eligibility:</strong> {scheme.eligibility}
+                <div style={{ padding: '8px 10px', background: '#f1f5f9', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.06)', fontSize: '0.74rem', color: '#475569', marginBottom: '16px' }}>
+                  <strong style={{ color: '#0f172a' }}>Eligibility:</strong> {scheme.eligibility}
                 </div>
               </div>
 
@@ -711,9 +711,9 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                 onClick={() => onOpenQuote(`Government Subsidy Claim: ${scheme.title}`)}
                 style={{
                   width: '100%',
-                  background: '#1a1e28',
+                  background: '#f1f5f9',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
-                  color: '#eef0f5',
+                  color: '#0f172a',
                   borderRadius: '6px',
                   padding: '9px 14px',
                   fontSize: '0.85rem',
@@ -746,8 +746,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
       {/* ── Why Chartered Engineer Attestation Matters for Subsidies ── */}
       <section style={{ padding: '32px 20px', maxWidth: '1120px', margin: '0 auto' }}>
         <div style={{
-          background: '#07080d',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '32px 24px'
         }}>
@@ -755,43 +755,43 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Statutory Compliance &amp; Verification
             </span>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2rem)', fontWeight: 600, color: '#eef0f5', margin: '8px 0 8px 0' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2rem)', fontWeight: 600, color: '#0f172a', margin: '8px 0 8px 0' }}>
               Why Chartered Engineer Certification is Mandatory
             </h2>
-            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
               Government departments and commercial lenders mandate rigorous technical inspection and capacity certificates by an empanelled Chartered Engineer before subsidy disbursement.
             </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <FileCheck2 size={24} style={{ color: '#10b981', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>Plant &amp; Machinery Valuation</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>Plant &amp; Machinery Valuation</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Statutory physical verification of newly installed plant and machinery, customs duty invoices, and indigenous fabrication costs.
               </p>
             </div>
 
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-              <TrendingUp size={24} style={{ color: '#38bdf8', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>Bankable DPR &amp; TEV Study</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
+              <TrendingUp size={24} style={{ color: '#0284c7', marginBottom: '10px' }} />
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>Bankable DPR &amp; TEV Study</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Techno-Economic Viability (TEV) study with DSCR, IRR, sensitivity modeling, and cash flow forecasts formatted for state single-window approvals.
               </p>
             </div>
 
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <ShieldCheck size={24} style={{ color: '#a855f7', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>Subsidy Claim Endorsement</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>Subsidy Claim Endorsement</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Official Chartered Engineer utilization certificate confirming that funds were exclusively invested in the sanctioned plant and equipment.
               </p>
             </div>
 
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Landmark size={24} style={{ color: '#f59e0b', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>Institutional Liaison</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>Institutional Liaison</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Direct coordination with District Industries Centre (DIC), RIICO, KVIC, and financing banks for expedited verification and zero audit objections.
               </p>
             </div>
@@ -802,7 +802,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
       {/* ── Closing Consultation Card ── */}
       <section style={{ padding: '10px 20px 20px', maxWidth: '1120px', margin: '0 auto' }}>
         <div style={{
-          background: '#07080d',
+          background: '#f8fafc',
           border: '1px solid rgba(255, 255, 255, 0.12)',
           borderRadius: '12px',
           padding: '32px 28px',
@@ -816,10 +816,10 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#10b981', fontWeight: 600, marginBottom: '6px' }}>
               Free Scheme Eligibility Audit
             </div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 8px 0' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#0f172a', margin: '0 0 8px 0' }}>
               Ready to Claim Your Government Subsidy?
             </h3>
-            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', margin: 0, maxWidth: '640px', lineHeight: 1.6 }}>
+            <p style={{ color: '#475569', fontSize: '0.92rem', margin: 0, maxWidth: '640px', lineHeight: 1.6 }}>
               Speak with our senior Chartered Engineers and subsidy specialists. We verify your scheme eligibility in 24 hours with zero upfront consulting obligation.
             </p>
           </div>
@@ -845,8 +845,8 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: '#1a1e28',
-                color: '#eef0f5',
+                background: '#f1f5f9',
+                color: '#0f172a',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 borderRadius: '8px',
                 padding: '12px 20px',

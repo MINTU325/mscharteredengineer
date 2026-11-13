@@ -75,11 +75,11 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
     <div
       className="city-landing-page"
       style={{
-        background: '#0b0d14',
+        background: '#f8fafc',
         minHeight: '100vh',
         paddingTop: '24px',
         paddingBottom: '44px',
-        color: '#eef0f5'
+        color: '#0f172a'
       }}
     >
       {/* Inject localized JSON-LD schema into head */}
@@ -96,7 +96,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
             gap: '12px',
             padding: '12px 0',
             marginBottom: '18px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+            borderBottom: '1px solid #e2e8f0'
           }}
         >
           <button
@@ -105,11 +105,11 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '8px',
               padding: '6px 16px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.84rem',
               fontWeight: 600,
               cursor: 'pointer',
@@ -127,7 +127,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
             <ChevronRight size={14} />
             <span style={{ color: '#7a8296' }}>Pan-India Corridors</span>
             <ChevronRight size={14} />
-            <span style={{ color: '#eef0f5', fontWeight: 600 }}>{cityData.cityName}</span>
+            <span style={{ color: '#0f172a', fontWeight: 600 }}>{cityData.cityName}</span>
           </div>
         </div>
 
@@ -165,7 +165,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   background: 'rgba(56, 189, 248, 0.08)',
                   border: '1px solid rgba(56, 189, 248, 0.25)',
                   borderRadius: '6px',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   fontSize: '0.78rem',
                   fontWeight: 700,
                   letterSpacing: '0.04em',
@@ -185,7 +185,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   color: '#ffffff'
                 }}
               >
-                Chartered Engineer in <span style={{ color: '#38bdf8' }}>{cityData.cityName}</span>
+                Chartered Engineer in <span style={{ color: '#0284c7' }}>{cityData.cityName}</span>
               </h1>
 
               <p
@@ -216,7 +216,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     background: 'rgba(255, 255, 255, 0.08)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#eef0f5'
+                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#0f172a'
                   }}
                 >
                   <Clock size={15} color="#fbbf24" />
@@ -231,7 +231,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     background: 'rgba(255, 255, 255, 0.08)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#eef0f5'
+                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#0f172a'
                   }}
                 >
                   <Award size={15} color="#38bdf8" />
@@ -246,7 +246,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     background: 'rgba(255, 255, 255, 0.08)',
                     backdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#eef0f5'
+                    borderRadius: '6px', padding: '7px 14px', fontSize: '0.82rem', color: '#0f172a'
                   }}
                 >
                   <MapPin size={15} color="#34d399" />
@@ -280,10 +280,10 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   style={{
                     padding: '10px 18px',
                     fontSize: '0.90rem',
-                    background: '#1a1e28',
+                    background: '#f1f5f9',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
                     borderRadius: '8px',
-                    color: '#eef0f5',
+                    color: '#0f172a',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '8px',
@@ -342,7 +342,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     fontSize: '0.74rem',
-                    color: '#94a3b8'
+                    color: '#475569'
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -509,7 +509,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   background: 'rgba(56, 189, 248, 0.08)',
                   border: '1px solid rgba(56, 189, 248, 0.25)',
                   borderRadius: '6px',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   fontSize: '0.78rem',
                   fontWeight: 700,
                   letterSpacing: '0.04em',
@@ -520,9 +520,9 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 <span>VERIFIED ON-SITE FIELD INSPECTIONS</span>
               </div>
               <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#ffffff', fontWeight: 700, margin: '0 0 6px 0' }}>
-                Plant, Machinery &amp; Infrastructure Inspected in <span style={{ color: '#38bdf8' }}>{cityData.cityName}</span>
+                Plant, Machinery &amp; Infrastructure Inspected in <span style={{ color: '#0284c7' }}>{cityData.cityName}</span>
               </h2>
-              <p style={{ color: '#a3a9b8', fontSize: '0.94rem', margin: 0 }}>
+              <p style={{ color: '#475569', fontSize: '0.94rem', margin: 0 }}>
                 Authentic photographic records of statutory engineering appraisals, customs clearance &amp; industrial assets across the {cityData.state} corridor.
               </p>
             </div>
@@ -718,7 +718,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 background: 'rgba(56, 189, 248, 0.08)',
                 border: '1px solid rgba(56, 189, 248, 0.25)',
                 borderRadius: '6px',
-                color: '#38bdf8',
+                color: '#0284c7',
                 fontSize: '0.78rem',
                 fontWeight: 700,
                 letterSpacing: '0.04em',
@@ -729,9 +729,9 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               <span>CORE STATUTORY &amp; ENGINEERING SERVICES</span>
             </div>
             <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', color: '#ffffff', fontWeight: 700, margin: '0 0 6px 0' }}>
-              Services Provided in <span style={{ color: '#38bdf8' }}>{cityData.cityName}</span>
+              Services Provided in <span style={{ color: '#0284c7' }}>{cityData.cityName}</span>
             </h2>
-            <p style={{ color: '#a3a9b8', fontSize: '0.94rem', margin: 0 }}>
+            <p style={{ color: '#475569', fontSize: '0.94rem', margin: 0 }}>
               Tailored specifically to the regulatory, banking, and industrial profile of the {cityData.state} corridor.
             </p>
           </div>
@@ -747,8 +747,8 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               <div
                 key={idx}
                 style={{
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '12px',
                   padding: '22px',
                   display: 'flex',
@@ -762,9 +762,9 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                       width: '32px',
                       height: '32px',
                       borderRadius: '6px',
-                      background: '#1a1e28',
+                      background: '#f1f5f9',
                       border: '1px solid rgba(56, 189, 248, 0.25)',
-                      color: '#38bdf8',
+                      color: '#0284c7',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -778,7 +778,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   <h4 style={{ fontSize: '1.02rem', color: '#ffffff', fontWeight: 600, marginBottom: '8px' }}>
                     {pa.title}
                   </h4>
-                  <p style={{ fontSize: '0.86rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                     {pa.desc}
                   </p>
                 </div>
@@ -792,7 +792,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     marginTop: '16px',
                     background: 'transparent',
                     border: 'none',
-                    color: '#38bdf8',
+                    color: '#0284c7',
                     fontSize: '0.84rem',
                     fontWeight: 600,
                     cursor: 'pointer',

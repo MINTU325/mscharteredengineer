@@ -120,7 +120,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
           {/* Dual Category Tabs */}
           <div style={{
             display: 'inline-flex',
-            background: '#11141c',
+            background: '#f8fafc',
             border: '1px solid rgba(255, 255, 255, 0.08)',
             borderRadius: '8px',
             padding: '4px',
@@ -224,20 +224,20 @@ export default function TexelGroupSection({ onOpenQuote }) {
               alignItems: 'center',
               gap: '8px',
               padding: '10px 22px',
-              background: '#11141c',
-              border: '1px solid rgba(56, 189, 248, 0.3)',
+              background: '#f8fafc',
+              border: '1px solid #cbd5e1',
               borderRadius: '8px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.88rem',
               fontWeight: 600,
               transition: 'all 0.22s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#1a1e28';
-              e.currentTarget.style.borderColor = '#38bdf8';
+              e.currentTarget.style.background = '#ffffff';
+              e.currentTarget.style.borderColor = '#0284c7';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#11141c';
+              e.currentTarget.style.background = '#f8fafc';
               e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)';
             }}
           >

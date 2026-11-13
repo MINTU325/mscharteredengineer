@@ -762,7 +762,7 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
   };
 
   return (
-    <section id="services" style={{ position: 'relative', background: '#0b0d14', color: '#eef0f5', padding: '16px 0 32px' }}>
+    <section id="services" style={{ position: 'relative', background: '#f8fafc', color: '#0f172a', padding: '16px 0 32px' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto' }}>
         <div className="section-header" style={{ marginBottom: '28px', textAlign: 'center' }}>
           <div style={{
@@ -770,10 +770,10 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
             alignItems: 'center',
             gap: '6px',
             padding: '4px 10px',
-            background: 'rgba(56, 189, 248, 0.1)',
-            border: '1px solid rgba(56, 189, 248, 0.25)',
+            background: '#eff6ff',
+            border: '1px solid #bfdbfe',
             borderRadius: '6px',
-            color: '#38bdf8',
+            color: '#0284c7',
             fontSize: '0.75rem',
             fontWeight: 600,
             letterSpacing: '0.03em',
@@ -782,10 +782,10 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
             <ShieldCheck size={14} />
             <span>15 STATUTORY &amp; VALUATION VERTICALS</span>
           </div>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 600, color: '#eef0f5', margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
-            Services <span style={{ color: '#38bdf8' }}>We Offer</span>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 600, color: '#0f172a', margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            Services <span style={{ color: '#0284c7' }}>We Offer</span>
           </h2>
-          <p style={{ color: '#a3a9b8', fontSize: '0.98rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '0.98rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
             From statutory asset valuation, bank mortgage appraisals, and capital gains tax reports to DGFT Chartered Engineer certification, CESE electrical safety, and industrial plant valuation.
           </p>
 
@@ -803,8 +803,8 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                 display: 'flex',
                 alignItems: 'center',
                 borderRadius: '8px',
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1', boxShadow: '0 4px 16px rgba(15, 23, 42, 0.05)',
                 padding: '6px 14px',
               }}
             >
@@ -821,7 +821,7 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                   outline: 'none',
                   fontSize: '0.92rem',
                   fontFamily: 'inherit',
-                  color: '#eef0f5',
+                  color: '#0f172a',
                   padding: '6px 0',
                 }}
                 aria-label="Search services and statutory compliances"
@@ -888,13 +888,13 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                     key={idx}
                     onClick={() => handleChipClick(chip.query)}
                     style={{
-                      background: isSelected ? '#38bdf8' : '#11141c',
+                      background: isSelected ? '#0f2e5a' : '#ffffff',
                       border: `1px solid ${isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
                       borderRadius: '6px',
                       padding: '4px 11px',
                       fontSize: '0.74rem',
                       fontWeight: isSelected ? 600 : 500,
-                      color: isSelected ? '#07080d' : '#a3a9b8',
+                      color: isSelected ? '#ffffff' : '#475569',
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -930,9 +930,9 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                   fontSize: '0.82rem',
                   fontWeight: activeFilter === cat ? 600 : 500,
                   cursor: 'pointer',
-                  background: activeFilter === cat ? '#38bdf8' : '#11141c',
-                  border: activeFilter === cat ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                  color: activeFilter === cat ? '#07080d' : '#a3a9b8',
+                  background: activeFilter === cat ? '#0f2e5a' : '#ffffff',
+                  border: activeFilter === cat ? '1px solid #0f2e5a' : '1px solid #e2e8f0',
+                  color: activeFilter === cat ? '#ffffff' : '#475569',
                   transition: 'all 0.15s ease',
                 }}
               >
@@ -970,10 +970,10 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
             >
               <Search size={26} />
             </div>
-            <h4 style={{ fontSize: '1.2rem', color: '#ffffff', marginBottom: '8px' }}>
+            <h4 style={{ fontSize: '1.2rem', color: '#0f172a', marginBottom: '8px' }}>
               No services found for &ldquo;{searchQuery}&rdquo;
             </h4>
-            <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '22px' }}>
+            <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '22px' }}>
               Looking for a custom statutory compliance, government clearance, or technical audit? Our corporate Chartered Engineers provide tailored engineering solutions across all ministries.
             </p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
@@ -1005,8 +1005,8 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                   flexDirection: 'column',
                   alignItems: 'center',
                   textAlign: 'center',
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   padding: '36px 24px 28px',
                   borderRadius: '16px',
                   position: 'relative',
@@ -1101,7 +1101,7 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                   style={{
                     fontSize: '1.2rem',
                     fontWeight: 800,
-                    color: '#ffffff',
+                    color: '#0f172a',
                     marginBottom: '18px',
                     lineHeight: 1.35,
                     minHeight: '2.7em',
@@ -1125,7 +1125,7 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '6px',
-                      color: '#38bdf8',
+                      color: '#0284c7',
                       fontSize: '0.94rem',
                       fontWeight: 700,
                       textDecoration: 'none',
@@ -1152,9 +1152,9 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                       fontSize: '0.8rem',
                       fontWeight: 600,
                       borderRadius: '6px',
-                      background: 'rgba(255, 255, 255, 0.04)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
-                      color: '#94a3b8',
+                      background: '#f8fafc',
+                      border: '1px solid #e2e8f0',
+                      color: '#475569',
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
                     }}

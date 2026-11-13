@@ -56,7 +56,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
   ];
 
   return (
-    <section id="why-us" style={{ padding: '48px 0', background: '#07080d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+    <section id="why-us" style={{ padding: '48px 0', background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
           <div style={{
@@ -79,14 +79,14 @@ export default function WhyChooseUs({ onOpenQuote }) {
           </div>
           <h2 style={{
             fontSize: 'clamp(1.7rem, 3vw, 2.3rem)',
-            color: '#ffffff',
+            color: '#0f172a',
             fontWeight: 800,
             lineHeight: 1.25,
             marginBottom: '10px'
           }}>
             Engineered for <span style={{ color: "#F58220" }}>Trust &amp; Precision</span>
           </h2>
-          <p style={{ color: '#a3a9b8', fontSize: '0.94rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6 }}>
             Discover why India's leading industrial enterprises, commercial banks, and international importers trust KS Chartered Engineers.
           </p>
         </div>
@@ -107,11 +107,11 @@ export default function WhyChooseUs({ onOpenQuote }) {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   padding: '24px 22px',
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '8px',
                   borderTop: `3px solid ${pillar.color}`,
-                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)',
+                  boxShadow: '0 2px 10px rgba(15, 23, 42, 0.05)',
                   transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
                 onMouseEnter={(e) => {
@@ -145,13 +145,13 @@ export default function WhyChooseUs({ onOpenQuote }) {
                     <Icon size={22} />
                   </div>
 
-                  <h3 style={{ fontSize: '1.14rem', color: '#ffffff', fontWeight: 700, marginBottom: '4px' }}>
+                  <h3 style={{ fontSize: '1.14rem', color: '#0f172a', fontWeight: 700, marginBottom: '4px' }}>
                     {pillar.title}
                   </h3>
                   <div style={{ fontSize: '0.76rem', color: pillar.color, fontWeight: 600, marginBottom: '10px' }}>
                     {pillar.subtitle}
                   </div>
-                  <p style={{ fontSize: '0.86rem', color: '#a3a9b8', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
                     {pillar.description}
                   </p>
                 </div>
@@ -162,8 +162,8 @@ export default function WhyChooseUs({ onOpenQuote }) {
 
         {/* Banner Callout */}
         <div style={{
-          background: '#11141c',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
           borderRadius: '8px',
           padding: '24px 28px',
           display: 'flex',
@@ -173,10 +173,10 @@ export default function WhyChooseUs({ onOpenQuote }) {
           gap: '20px'
         }}>
           <div style={{ maxWidth: '640px' }}>
-            <h3 style={{ fontSize: '1.18rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
+            <h3 style={{ fontSize: '1.18rem', color: '#0f172a', fontWeight: 800, marginBottom: '6px' }}>
               Have a custom industrial or banking requirement?
             </h3>
-            <p style={{ color: '#a3a9b8', fontSize: '0.88rem', margin: 0, lineHeight: 1.5 }}>
+            <p style={{ color: '#475569', fontSize: '0.88rem', margin: 0, lineHeight: 1.5 }}>
               Speak directly with our principal Chartered Engineer for confidential project advisory.
             </p>
           </div>
@@ -190,7 +190,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
               background: '#F58220',
               borderColor: '#F58220',
               borderRadius: '6px',
-              color: '#ffffff'
+              color: '#0f172a'
             }}
           >
             Book Direct Consultation

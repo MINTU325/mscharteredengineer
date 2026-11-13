@@ -14,7 +14,7 @@ export default function Credentials() {
   ];
 
   return (
-    <section id="credentials" style={{ background: '#0b0d14', borderTop: '1px solid rgba(255, 255, 255, 0.08)', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', padding: '36px 0' }}>
+    <section id="credentials" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', padding: '36px 0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
@@ -25,10 +25,10 @@ export default function Credentials() {
               alignItems: 'center',
               gap: '6px',
               padding: '4px 10px',
-              background: 'rgba(56, 189, 248, 0.1)',
-              border: '1px solid rgba(56, 189, 248, 0.25)',
+              background: '#eff6ff',
+              border: '1px solid #bfdbfe',
               borderRadius: '6px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '0.03em',
@@ -39,10 +39,10 @@ export default function Credentials() {
             <span>ACCREDITATION &amp; STATUTORY VALIDITY</span>
           </div>
 
-          <h2 style={{ color: '#eef0f5', fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 600, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
-            Our Statutory <span style={{ color: '#38bdf8' }}>Credentials</span>
+          <h2 style={{ color: '#0f172a', fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 600, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            Our Statutory <span style={{ color: '#0284c7' }}>Credentials</span>
           </h2>
-          <p style={{ color: '#a3a9b8', fontSize: '0.96rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '0.96rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
             Certified engineering expertise backed by the <strong>Institution of Engineers (India)</strong>, BEE, CEIG, and registered statutory authorities.
           </p>
         </div>
@@ -52,8 +52,8 @@ export default function Credentials() {
           style={{
             maxWidth: '1080px',
             margin: '0 auto 28px auto',
-            background: '#11141c',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#ffffff',
+            border: '1px solid #e2e8f0',
             borderRadius: '12px',
             padding: '32px 28px'
           }}
@@ -71,38 +71,38 @@ export default function Credentials() {
                 height: '170px',
                 margin: '0 auto',
                 borderRadius: '50%',
-                background: '#1a1e28',
+                background: '#f8fafc',
                 border: '2px solid rgba(56, 189, 248, 0.35)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-                <Shield size={38} style={{ color: '#38bdf8', marginBottom: '6px' }} />
-                <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#eef0f5', letterSpacing: '0.04em' }}>
+                <Shield size={38} style={{ color: '#0284c7', marginBottom: '6px' }} />
+                <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#0f172a', letterSpacing: '0.04em' }}>
                   CHARTERED
                 </div>
-                <div style={{ fontSize: '0.72rem', color: '#38bdf8', fontWeight: 600 }}>
+                <div style={{ fontSize: '0.72rem', color: '#0284c7', fontWeight: 600 }}>
                   ENGINEER (INDIA)
                 </div>
-                <div style={{ fontSize: '0.68rem', color: '#7a8296', marginTop: '3px', fontWeight: 500 }}>
+                <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '3px', fontWeight: 500 }}>
                   IEI MECHANICAL · MIE
                 </div>
               </div>
-              <div style={{ marginTop: '14px', fontSize: '0.92rem', color: '#eef0f5', fontWeight: 600 }}>
+              <div style={{ marginTop: '14px', fontSize: '0.92rem', color: '#0f172a', fontWeight: 600 }}>
                 Corporate Member of IEI (India)
               </div>
-              <div style={{ fontSize: '0.76rem', color: '#7a8296', marginTop: '2px' }}>
+              <div style={{ fontSize: '0.76rem', color: '#64748b', marginTop: '2px' }}>
                 Established under Royal Charter 1935
               </div>
             </div>
 
             {/* Credential Points */}
             <div>
-              <h3 style={{ fontSize: '1.3rem', color: '#eef0f5', fontWeight: 600, margin: '0 0 10px 0' }}>
+              <h3 style={{ fontSize: '1.3rem', color: '#0f172a', fontWeight: 600, margin: '0 0 10px 0' }}>
                 Nationally Recognized Authority
               </h3>
-              <p style={{ color: '#a3a9b8', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: 1.6 }}>
+              <p style={{ color: '#475569', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: 1.6 }}>
                 Certified engineering expertise backed by the Institution of Engineers (India). Our certifications and statutory audit reports are officially accepted across government ministries, DISCOMs, customs hubs, and banking consortiums.
               </p>
 
@@ -138,7 +138,7 @@ export default function Credentials() {
 
         {/* Accepted Authorities Grid */}
         <div style={{ textAlign: 'center', marginBottom: '18px' }}>
-          <h4 style={{ fontSize: '0.80rem', color: '#7a8296', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600, margin: 0 }}>
+          <h4 style={{ fontSize: '0.80rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600, margin: 0 }}>
             Statutory Acceptance &amp; Regulatory Validity
           </h4>
         </div>
@@ -152,8 +152,8 @@ export default function Credentials() {
             <div 
               key={idx} 
               style={{
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 padding: '16px',
                 transition: 'border-color 0.15s ease'
@@ -163,11 +163,11 @@ export default function Credentials() {
             >
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{
-                  background: '#1a1e28',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '6px',
                   padding: '8px',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
@@ -183,8 +183,8 @@ export default function Credentials() {
                   {idx === 7 && <Scale size={18} />}
                 </div>
                 <div>
-                  <h5 style={{ fontSize: '0.90rem', color: '#eef0f5', fontWeight: 600, margin: '0 0 4px 0' }}>{entity.name}</h5>
-                  <p style={{ fontSize: '0.80rem', color: '#a3a9b8', lineHeight: 1.5, margin: 0 }}>{entity.desc}</p>
+                  <h5 style={{ fontSize: '0.90rem', color: '#0f172a', fontWeight: 600, margin: '0 0 4px 0' }}>{entity.name}</h5>
+                  <p style={{ fontSize: '0.80rem', color: '#475569', lineHeight: 1.5, margin: 0 }}>{entity.desc}</p>
                 </div>
               </div>
             </div>

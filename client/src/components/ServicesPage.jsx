@@ -7,10 +7,10 @@ import {
 import ServicesGrid from './ServicesGrid';
 
 const SERVICE_HIGHLIGHT_STATS = [
-  { color: '#38bdf8', value: '24–48 Hours', label: 'Fast-track Delivery' },
+  { color: '#0284c7', value: '24–48 Hours', label: 'Fast-track Delivery' },
   { color: '#10b981', value: '100% Acceptance', label: 'Banks, Tax & Courts' },
   { color: '#f59e0b', value: 'Dual Methodology', label: 'FMV + Forced Sale Value' },
-  { color: '#38bdf8', value: 'Jaipur HQ', label: 'Pan-India Jurisdiction' },
+  { color: '#0284c7', value: 'Jaipur HQ', label: 'Pan-India Jurisdiction' },
 ];
 
 export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateService, currentRoute = '/services' }) {
@@ -81,8 +81,8 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
 
   return (
     <div className="services-page" style={{
-      background: '#0b0d14',
-      color: '#eef0f5',
+      background: '#f8fafc',
+      color: '#0f172a',
       minHeight: '100vh',
       paddingTop: '20px',
       paddingBottom: '60px'
@@ -98,7 +98,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
           gap: '12px',
           padding: '12px 0 20px',
           marginBottom: '20px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          borderBottom: '1px solid #e2e8f0'
         }}>
           <button
             onClick={onNavigateHome}
@@ -106,11 +106,11 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#11141c',
+              background: '#ffffff',
               border: '1px solid rgba(255, 255, 255, 0.12)',
               borderRadius: '8px',
               padding: '6px 14px',
-              color: '#a3a9b8',
+              color: '#475569',
               fontSize: '0.85rem',
               fontWeight: 500,
               cursor: 'pointer',
@@ -131,16 +131,16 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
 
           {/* Breadcrumb */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
-            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#a3a9b8', textDecoration: 'none' }}>Home</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#475569', textDecoration: 'none' }}>Home</a>
             <ChevronRight size={14} />
-            <span style={{ color: '#eef0f5', fontWeight: 500 }}>Services We Offer</span>
+            <span style={{ color: '#0f172a', fontWeight: 500 }}>Services We Offer</span>
           </div>
         </div>
 
         {/* Dedicated Services Header Banner */}
         <div style={{
-          background: '#07080d',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '36px 32px',
           marginBottom: '32px',
@@ -155,7 +155,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               background: 'rgba(56, 189, 248, 0.1)',
               border: '1px solid rgba(56, 189, 248, 0.25)',
               borderRadius: '6px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '0.03em',
@@ -170,15 +170,15 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               fontWeight: 600,
               lineHeight: 1.15,
               marginBottom: '14px',
-              color: '#eef0f5',
+              color: '#0f172a',
               letterSpacing: '-0.02em'
             }}>
-              Engineering, Valuation &amp; <span style={{ color: '#38bdf8' }}>Statutory Audit Services</span>
+              Engineering, Valuation &amp; <span style={{ color: '#0284c7' }}>Statutory Audit Services</span>
             </h1>
 
             <p style={{
               fontSize: '1.02rem',
-              color: '#a3a9b8',
+              color: '#475569',
               lineHeight: 1.65,
               marginBottom: '24px',
               maxWidth: '820px'
@@ -198,8 +198,8 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
                   display: 'flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '8px',
                   padding: '6px 14px',
                   fontSize: '0.82rem',
@@ -236,8 +236,8 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               <a
                 href="tel:+919158658885"
                 style={{
-                  background: '#11141c',
-                  color: '#eef0f5',
+                  background: '#ffffff',
+                  color: '#0f172a',
                   border: '1px solid rgba(255, 255, 255, 0.16)',
                   borderRadius: '8px',
                   padding: '10px 18px',
@@ -252,7 +252,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
                 onMouseEnter={e => e.currentTarget.style.background = '#1a1e28'}
                 onMouseLeave={e => e.currentTarget.style.background = '#11141c'}
               >
-                <PhoneCall size={15} style={{ color: '#38bdf8' }} />
+                <PhoneCall size={15} style={{ color: '#0284c7' }} />
                 <span>Call: +91 91586 58885</span>
               </a>
 
@@ -261,8 +261,8 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  background: '#11141c',
-                  color: '#eef0f5',
+                  background: '#ffffff',
+                  color: '#0f172a',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '8px',
                   padding: '10px 18px',
@@ -290,8 +290,8 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
         {/* ── Bottom Purpose Helper Banner ── */}
         <div style={{
           marginTop: '40px',
-          background: '#07080d',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '28px 32px',
           display: 'flex',
@@ -305,7 +305,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.78rem',
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -315,10 +315,10 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               <FileText size={14} />
               <span>Interactive Discovery</span>
             </div>
-            <h3 style={{ fontSize: '1.3rem', color: '#eef0f5', fontWeight: 600, marginBottom: '6px' }}>
+            <h3 style={{ fontSize: '1.3rem', color: '#0f172a', fontWeight: 600, marginBottom: '6px' }}>
               Unsure which valuation report fits your legal or financial requirement?
             </h3>
-            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
               Use our 1-minute <strong>Valuation Purpose Selector</strong> to discover your exact document checklist, turnaround time, and statutory report format.
             </p>
           </div>
@@ -327,8 +327,8 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
             <a
               href="/purpose-selector"
               style={{
-                background: '#1a1e28',
-                color: '#eef0f5',
+                background: '#f1f5f9',
+                color: '#0f172a',
                 border: '1px solid rgba(255, 255, 255, 0.16)',
                 borderRadius: '8px',
                 padding: '10px 20px',

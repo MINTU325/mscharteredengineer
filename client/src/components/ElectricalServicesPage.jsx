@@ -150,7 +150,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
     <div 
       className="electrical-services-page" 
       style={{ 
-        background: '#0b0d14', 
+        background: '#f8fafc', 
         color: '#e2e8f0', 
         minHeight: '100vh', 
         paddingBottom: isMobile ? '100px' : '80px',
@@ -163,8 +163,8 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
       <section style={{ 
         position: 'relative', 
         padding: isMobile ? '75px 16px 36px' : '120px 20px 56px', 
-        background: '#07080d',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+        background: '#f8fafc',
+        borderBottom: '1px solid #e2e8f0'
       }}>
         <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
           
@@ -174,20 +174,20 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             alignItems: 'center', 
             gap: '6px', 
             fontSize: isMobile ? '0.78rem' : '0.85rem', 
-            color: '#a3a9b8', 
+            color: '#475569', 
             marginBottom: '16px',
             flexWrap: 'wrap'
           }}>
             <button 
               onClick={onNavigateHome} 
-              style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
+              style={{ background: 'transparent', border: 'none', color: '#0284c7', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
             >
               <Home size={13} /> Home
             </button>
             <span>/</span>
             <span style={{ color: '#cbd5e1' }}>Services</span>
             <span>/</span>
-            <span style={{ color: '#38bdf8', fontWeight: 600 }}>Electrical &amp; Substation Engineering</span>
+            <span style={{ color: '#0284c7', fontWeight: 600 }}>Electrical &amp; Substation Engineering</span>
           </div>
 
           <div style={{ 
@@ -198,7 +198,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             borderRadius: '6px', 
             background: 'rgba(56, 189, 248, 0.1)', 
             border: '1px solid rgba(56, 189, 248, 0.25)', 
-            color: '#38bdf8', 
+            color: '#0284c7', 
             fontSize: isMobile ? '0.75rem' : '0.82rem', 
             fontWeight: 700, 
             letterSpacing: '0.04em', 
@@ -217,12 +217,12 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             maxWidth: '980px', 
             marginBottom: '16px' 
           }}>
-            High Voltage Testing, Transformer Services &amp; <span style={{ color: '#38bdf8' }}>Substation Engineering</span>
+            High Voltage Testing, Transformer Services &amp; <span style={{ color: '#0284c7' }}>Substation Engineering</span>
           </h1>
 
           <p style={{ 
             fontSize: isMobile ? '0.92rem' : 'clamp(1rem, 1.8vw, 1.18rem)', 
-            color: '#a3a9b8', 
+            color: '#475569', 
             maxWidth: '850px', 
             lineHeight: 1.55, 
             marginBottom: isMobile ? '24px' : '36px' 
@@ -311,24 +311,24 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             marginTop: isMobile ? '28px' : '44px', 
             padding: isMobile ? '14px' : '20px', 
             borderRadius: '12px', 
-            background: '#11141c', 
-            border: '1px solid rgba(255, 255, 255, 0.08)' 
+            background: '#ffffff', 
+            border: '1px solid #e2e8f0' 
           }}>
             <div>
-              <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#38bdf8' }}>1500+</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#a3a9b8' }}>Transformers Tested</div>
+              <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#0284c7' }}>1500+</div>
+              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>Transformers Tested</div>
             </div>
             <div>
               <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#10b981' }}>&gt; 70 kV</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#a3a9b8' }}>Oil BDV Restored</div>
+              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>Oil BDV Restored</div>
             </div>
             <div>
               <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#fbbf24' }}>24x7</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#a3a9b8' }}>Emergency Dispatch</div>
+              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>Emergency Dispatch</div>
             </div>
             <div>
               <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#a78bfa' }}>100% CEA</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#a3a9b8' }}>CEIG Compliance</div>
+              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>CEIG Compliance</div>
             </div>
           </div>
 
@@ -405,7 +405,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                     right: '6px',
                     background: 'transparent',
                     border: 'none',
-                    color: '#a3a9b8',
+                    color: '#475569',
                     cursor: 'pointer',
                     fontSize: '0.75rem',
                     padding: '2px',
@@ -465,7 +465,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   height: '32px',
                   padding: isMobile ? '0 9px' : '0 12px',
                   borderRadius: '8px',
-                  background: '#1a1e28',
+                  background: '#f1f5f9',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   color: '#ffffff',
                   fontSize: isMobile ? '0.74rem' : '0.80rem',
@@ -480,7 +480,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               >
                 <SlidersHorizontal size={12} color="#38bdf8" />
                 <span style={{ 
-                  color: '#38bdf8', 
+                  color: '#0284c7', 
                   maxWidth: isMobile ? '80px' : '160px', 
                   overflow: 'hidden', 
                   textOverflow: 'ellipsis', 
@@ -518,7 +518,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   top: '38px',
                   right: 0,
                   width: isMobile ? 'min(280px, calc(100vw - 28px))' : '280px',
-                  background: '#11141c',
+                  background: '#ffffff',
                   backdropFilter: 'blur(20px)',
                   WebkitBackdropFilter: 'blur(20px)',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
@@ -527,7 +527,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   padding: '8px',
                   zIndex: 1001
                 }}>
-                  <div style={{ padding: '6px 10px 8px', fontSize: '0.72rem', fontWeight: 600, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                  <div style={{ padding: '6px 10px 8px', fontSize: '0.72rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
                     Filter By Discipline ({SERVICE_CATEGORIES.length})
                   </div>
                   
@@ -601,7 +601,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             <div style={{ textAlign: 'center', padding: isMobile ? '40px 14px' : '60px 20px', background: 'rgba(15, 23, 42, 0.4)', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.15)' }}>
               <AlertTriangle size={32} color="#f59e0b" style={{ margin: '0 auto 12px' }} />
               <h3 style={{ color: '#ffffff', marginBottom: '8px', fontSize: '1.1rem' }}>No matching engineering services found</h3>
-              <p style={{ color: '#a3a9b8', marginBottom: '16px', fontSize: '0.85rem' }}>Try searching for another keyword or select "All Services".</p>
+              <p style={{ color: '#475569', marginBottom: '16px', fontSize: '0.85rem' }}>Try searching for another keyword or select "All Services".</p>
               <button 
                 onClick={() => { setSelectedCategory('all'); setSearchQuery(''); }}
                 className="btn btn-primary"
@@ -623,8 +623,8 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                 <div 
                   key={service.id}
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '12px',
                     overflow: 'hidden',
                     display: 'flex',
@@ -683,7 +683,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                     <div style={{ position: 'absolute', bottom: '10px', left: '10px', right: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ 
                         fontSize: '0.70rem', 
-                        color: '#38bdf8', 
+                        color: '#0284c7', 
                         background: 'rgba(4, 9, 20, 0.85)', 
                         padding: '2px 7px', 
                         borderRadius: '4px',
@@ -701,7 +701,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                       {service.title}
                     </h3>
 
-                    <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.5, marginBottom: '16px' }}>
+                    <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.5, marginBottom: '16px' }}>
                       {service.shortDesc}
                     </p>
 
@@ -721,7 +721,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                     </div>
 
                     {/* Suitable For */}
-                    <div style={{ padding: '8px 10px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.06)', marginBottom: '16px', fontSize: '0.75rem', color: '#a3a9b8' }}>
+                    <div style={{ padding: '8px 10px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.06)', marginBottom: '16px', fontSize: '0.75rem', color: '#475569' }}>
                       <strong style={{ color: '#cbd5e1' }}>Suitable for: </strong>{service.suitableFor}
                     </div>
 
@@ -774,18 +774,18 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
       </section>
 
       {/* ── TECHNICAL STANDARDS & CALIBRATED INSTRUMENTS ── */}
-      <section style={{ padding: isMobile ? '36px 14px' : '56px 20px', background: '#07080d', borderTop: '1px solid rgba(255, 255, 255, 0.08)', borderBottom: '1px solid rgba(56, 189, 248, 0.1)', width: '100%' }}>
+      <section style={{ padding: isMobile ? '36px 14px' : '56px 20px', background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid rgba(56, 189, 248, 0.1)', width: '100%' }}>
         <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
           
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 32px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#38bdf8', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#0284c7', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
               <Gauge size={13} />
               Testing Infrastructure
             </div>
             <h2 style={{ fontSize: isMobile ? '1.45rem' : 'clamp(1.6rem, 3vw, 2.3rem)', fontWeight: 600, color: '#ffffff', marginBottom: '10px' }}>
               Advanced Testing Instruments &amp; Quality Rigor
             </h2>
-            <p style={{ color: '#a3a9b8', fontSize: isMobile ? '0.86rem' : '0.96rem', lineHeight: 1.55 }}>
+            <p style={{ color: '#475569', fontSize: isMobile ? '0.86rem' : '0.96rem', lineHeight: 1.55 }}>
               All tests are executed using NABL-calibrated precision instrumentation complying strictly with Indian Electricity Rules, Central Electricity Authority (CEA) norms, and international IEC/IEEE standards.
             </p>
           </div>
@@ -795,28 +795,28 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(260px, 1fr))', 
             gap: isMobile ? '14px' : '20px' 
           }}>
-            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Cpu size={22} color="#38bdf8" style={{ marginBottom: '10px' }} />
               <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>High-Speed Breaker Analyzers</h4>
-              <p style={{ color: '#a3a9b8', fontSize: '0.82rem', lineHeight: 1.5 }}>Multi-channel digital timing and contact resistance meters measuring contact bounce and millisecond operating sequences.</p>
+              <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>Multi-channel digital timing and contact resistance meters measuring contact bounce and millisecond operating sequences.</p>
             </div>
 
-            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Flame size={22} color="#ea580c" style={{ marginBottom: '10px' }} />
               <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>FLIR Infrared Thermography</h4>
-              <p style={{ color: '#a3a9b8', fontSize: '0.82rem', lineHeight: 1.5 }}>High-resolution radiometric thermal cameras detecting hot joints, unbalanced load, and loose terminations under live operation.</p>
+              <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>High-resolution radiometric thermal cameras detecting hot joints, unbalanced load, and loose terminations under live operation.</p>
             </div>
 
-            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Activity size={22} color="#10b981" style={{ marginBottom: '10px' }} />
               <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>100kV Automatic BDV Kits</h4>
-              <p style={{ color: '#a3a9b8', fontSize: '0.82rem', lineHeight: 1.5 }}>Microprocessor controlled transformer oil breakdown voltage test sets adhering to IS 6792 / IEC 60156 standards.</p>
+              <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>Microprocessor controlled transformer oil breakdown voltage test sets adhering to IS 6792 / IEC 60156 standards.</p>
             </div>
 
-            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: isMobile ? '16px' : '22px', borderRadius: '12px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <ShieldCheck size={22} color="#a78bfa" style={{ marginBottom: '10px' }} />
               <h4 style={{ color: '#ffffff', fontSize: '1.0rem', marginBottom: '6px' }}>CEIG &amp; DISCOM Liasioning</h4>
-              <p style={{ color: '#a3a9b8', fontSize: '0.82rem', lineHeight: 1.5 }}>Chartered Engineer certification and complete statutory clearance handling for Chief Electrical Inspector approval.</p>
+              <p style={{ color: '#475569', fontSize: '0.82rem', lineHeight: 1.5 }}>Chartered Engineer certification and complete statutory clearance handling for Chief Electrical Inspector approval.</p>
             </div>
           </div>
 
@@ -831,7 +831,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             <h2 style={{ fontSize: isMobile ? '1.45rem' : 'clamp(1.5rem, 2.8vw, 2.1rem)', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
               Frequently Asked Questions
             </h2>
-            <p style={{ color: '#a3a9b8', fontSize: isMobile ? '0.84rem' : '0.94rem' }}>
+            <p style={{ color: '#475569', fontSize: isMobile ? '0.84rem' : '0.94rem' }}>
               Essential insights on industrial electrical maintenance, testing cycles, and regulatory clearances.
             </p>
           </div>
@@ -844,8 +844,8 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   key={idx}
                   style={{ 
                     borderRadius: '8px', 
-                    background: '#11141c', 
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff', 
+                    border: '1px solid #e2e8f0',
                     overflow: 'hidden'
                   }}
                 >
@@ -872,7 +872,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   </button>
 
                   {isOpen && (
-                    <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 18px', color: '#a3a9b8', fontSize: '0.84rem', lineHeight: 1.55, borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '10px' }}>
+                    <div style={{ padding: isMobile ? '0 14px 14px' : '0 20px 18px', color: '#475569', fontSize: '0.84rem', lineHeight: 1.55, borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '10px' }}>
                       {faq.a}
                     </div>
                   )}
@@ -890,7 +890,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
           <div style={{ 
             padding: isMobile ? '24px 16px' : '40px 32px', 
             borderRadius: '14px', 
-            background: '#11141c',
+            background: '#ffffff',
             border: '1px solid rgba(255, 255, 255, 0.1)',
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
@@ -902,7 +902,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               <h3 style={{ fontSize: isMobile ? '1.25rem' : 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 600, color: '#ffffff', marginBottom: '6px' }}>
                 Need Substation Testing, Overhauling or Contracting?
               </h3>
-              <p style={{ color: '#a3a9b8', fontSize: isMobile ? '0.84rem' : '0.95rem', maxWidth: '650px', lineHeight: 1.45 }}>
+              <p style={{ color: '#475569', fontSize: isMobile ? '0.84rem' : '0.95rem', maxWidth: '650px', lineHeight: 1.45 }}>
                 Connect directly with our IIT Roorkee alumni Chartered Engineers for prompt mobilization, technical feasibility, and customized quotation across India.
               </p>
             </div>

@@ -268,7 +268,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
   });
 
   return (
-    <div style={{ background: '#0b0d14', color: '#f8fafc', minHeight: '100vh' }}>
+    <div style={{ background: '#f8fafc', color: '#f8fafc', minHeight: '100vh' }}>
       
       {/* ── HERO SECTION (FIRST FOLD) ── */}
       <section
@@ -284,7 +284,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
           backgroundRepeat: 'no-repeat',
           padding: '80px 20px',
           textAlign: 'center',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          borderBottom: '1px solid #e2e8f0'
         }}
       >
         <div style={{ maxWidth: '960px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
@@ -296,14 +296,14 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               justifyContent: 'center',
               gap: '6px',
               fontSize: '0.82rem',
-              color: '#a3a9b8',
+              color: '#475569',
               marginBottom: '20px',
               flexWrap: 'wrap'
             }}
           >
             <button
               onClick={onNavigateHome}
-              style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px', padding: 0, fontSize: '0.82rem' }}
+              style={{ background: 'transparent', border: 'none', color: '#0284c7', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '4px', padding: 0, fontSize: '0.82rem' }}
             >
               <ArrowLeft size={13} /> Home
             </button>
@@ -324,7 +324,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               borderRadius: '6px',
               fontSize: '0.80rem',
               fontWeight: 600,
-              color: '#38bdf8',
+              color: '#0284c7',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: '22px',
@@ -418,7 +418,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: '#11141c',
+                background: '#ffffff',
                 color: '#f8fafc',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 padding: '14px 26px',
@@ -471,8 +471,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         id="about"
         style={{
           padding: '80px 20px',
-          background: '#07080d',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          background: '#f8fafc',
+          borderBottom: '1px solid #e2e8f0'
         }}
       >
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
@@ -680,7 +680,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   fontSize: '0.78rem',
                   fontWeight: 600,
                   letterSpacing: '0.08em',
@@ -701,7 +701,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   marginBottom: '10px'
                 }}
               >
-                Engineered for Strength. <span style={{ color: '#38bdf8' }}>Certified for Safety.</span>
+                Engineered for Strength. <span style={{ color: '#0284c7' }}>Certified for Safety.</span>
               </h2>
 
               <div
@@ -729,7 +729,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
 
               <p
                 style={{
-                  color: '#a3a9b8',
+                  color: '#475569',
                   fontSize: '0.92rem',
                   lineHeight: 1.65,
                   marginBottom: '28px'
@@ -749,8 +749,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               >
                 <div
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
@@ -760,19 +760,19 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 </div>
                 <div
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
                 >
-                  <div style={{ fontSize: '1.6rem', fontWeight: 600, color: '#38bdf8', lineHeight: 1 }}>1,200+</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 600, color: '#0284c7', lineHeight: 1 }}>1,200+</div>
                   <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Projects &amp; Audits Completed</div>
                 </div>
                 <div
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
@@ -782,8 +782,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 </div>
                 <div
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
@@ -812,8 +812,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         id="services"
         style={{
           padding: '84px 20px',
-          background: '#0b0d14',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          background: '#f8fafc',
+          borderBottom: '1px solid #e2e8f0'
         }}
       >
         <div className="container" style={{ maxWidth: '1220px', margin: '0 auto' }}>
@@ -830,7 +830,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 borderRadius: '6px',
                 fontSize: '0.78rem',
                 fontWeight: 600,
-                color: '#38bdf8',
+                color: '#0284c7',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '16px'
@@ -866,14 +866,14 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             {/* SERVICE 1: Iron Fabrication Work */}
             <div
               style={{
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '16px',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
+                boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#f59e0b';
@@ -916,7 +916,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                   Iron Fabrication Work
                 </h3>
-                <p style={{ color: '#a3a9b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                <p style={{ color: '#475569', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
                   Heavy structural framing, industrial gates, platforms, crane gantry girders, factory mezzanine decks, and structural steel staircases designed for maximum load capacity.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -962,14 +962,14 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             {/* SERVICE 2: Tin Shed Fabrication Work */}
             <div
               style={{
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '16px',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
+                boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#38bdf8';
@@ -997,7 +997,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     left: '14px',
                     background: 'rgba(10, 16, 29, 0.85)',
                     border: '1px solid #38bdf8',
-                    color: '#38bdf8',
+                    color: '#0284c7',
                     padding: '4px 12px',
                     borderRadius: '6px',
                     fontSize: '0.74rem',
@@ -1012,7 +1012,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                   Tin Shed Fabrication Work
                 </h3>
-                <p style={{ color: '#a3a9b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                <p style={{ color: '#475569', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
                   Industrial sheds, warehouse roofing, and Pre-Engineered Building (PEB) structures built with premium Galvalume &amp; Zincalume sheets designed for 47 m/s wind safety.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -1037,7 +1037,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                       padding: '11px 18px',
                       background: 'rgba(56, 189, 248, 0.12)',
                       border: '1px solid #38bdf8',
-                      color: '#38bdf8',
+                      color: '#0284c7',
                       borderRadius: '8px',
                       fontWeight: 700,
                       fontSize: '0.88rem',
@@ -1058,14 +1058,14 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             {/* SERVICE 3: Valuation & Technical Consultancy */}
             <div
               style={{
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '16px',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
+                boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#10b981';
@@ -1108,7 +1108,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                   Valuation &amp; Technical Consultancy
                 </h3>
-                <p style={{ color: '#a3a9b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                <p style={{ color: '#475569', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
                   Certified engineering audits, structural stability assessments, plant &amp; machinery valuations, and official Chartered Engineer documentation for statutory bodies.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -1159,8 +1159,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         id="gallery"
         style={{
           padding: '84px 20px',
-          background: '#07080d',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          background: '#f8fafc',
+          borderBottom: '1px solid #e2e8f0'
         }}
       >
         <div className="container" style={{ maxWidth: '1220px', margin: '0 auto' }}>
@@ -1177,7 +1177,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 borderRadius: '6px',
                 fontSize: '0.78rem',
                 fontWeight: 600,
-                color: '#38bdf8',
+                color: '#0284c7',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
                 marginBottom: '16px'
@@ -1195,7 +1195,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 marginBottom: '14px'
               }}
             >
-              Explore Our <span style={{ color: '#38bdf8' }}>Work</span>
+              Explore Our <span style={{ color: '#0284c7' }}>Work</span>
             </h2>
             <p style={{ color: '#cbd5e1', fontSize: '1rem', lineHeight: 1.65 }}>
               Showcasing recent turnkey fabrication, PEB warehouse roofing, heavy iron works, and industrial chimneys executed across Rajasthan.
@@ -1253,10 +1253,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   position: 'relative',
                   borderRadius: '12px',
                   overflow: 'hidden',
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   cursor: 'pointer',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
+                  boxShadow: '0 8px 24px rgba(15, 23, 42, 0.08)',
                   transition: 'transform 0.3s ease, border-color 0.3s ease'
                 }}
                 onMouseEnter={(e) => {
@@ -1287,7 +1287,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   <div
                     style={{
                       fontSize: '0.70rem',
-                      color: '#38bdf8',
+                      color: '#0284c7',
                       fontWeight: 600,
                       textTransform: 'uppercase',
                       letterSpacing: '0.06em',
@@ -1299,7 +1299,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', marginBottom: '4px' }}>
                     {item.title}
                   </h4>
-                  <p style={{ fontSize: '0.80rem', color: '#a3a9b8', lineHeight: 1.5, marginBottom: '8px' }}>
+                  <p style={{ fontSize: '0.80rem', color: '#475569', lineHeight: 1.5, marginBottom: '8px' }}>
                     {item.subtitle}
                   </p>
                   <div style={{ fontSize: '0.74rem', color: '#f59e0b', fontWeight: 600 }}>
@@ -1346,7 +1346,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               style={{ width: '100%', maxHeight: '460px', objectFit: 'cover' }}
             />
             <div style={{ padding: '22px 26px' }}>
-              <div style={{ fontSize: '0.74rem', color: '#38bdf8', fontWeight: 600, textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '0.74rem', color: '#0284c7', fontWeight: 600, textTransform: 'uppercase' }}>
                 {selectedGalleryImage.category}
               </div>
               <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 600, margin: '6px 0' }}>
@@ -1396,7 +1396,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         style={{
           padding: '64px 20px',
           background: 'linear-gradient(135deg, rgba(12, 68, 131, 0.4) 0%, rgba(7, 13, 24, 0.95) 100%)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          borderBottom: '1px solid #e2e8f0'
         }}
       >
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
@@ -1433,7 +1433,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     <Phone size={18} color="#38bdf8" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#a3a9b8', textTransform: 'uppercase', fontWeight: 600 }}>Phone / Direct Helpline</div>
+                    <div style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', fontWeight: 600 }}>Phone / Direct Helpline</div>
                     <a href="tel:+919158658885" style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none' }}>+91 91586 58885</a>
                   </div>
                 </div>
@@ -1442,7 +1442,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     <Mail size={18} color="#10b981" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#a3a9b8', textTransform: 'uppercase', fontWeight: 600 }}>Email</div>
+                    <div style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', fontWeight: 600 }}>Email</div>
                     <a href="mailto:ms.charteredengineer@gmail.com" style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none' }}>ms.charteredengineer@gmail.com</a>
                   </div>
                 </div>
@@ -1451,7 +1451,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     <Globe size={18} color="#f59e0b" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#a3a9b8', textTransform: 'uppercase', fontWeight: 600 }}>Official Website</div>
+                    <div style={{ fontSize: '0.72rem', color: '#475569', textTransform: 'uppercase', fontWeight: 600 }}>Official Website</div>
                     <span style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.92rem' }}>www.mscharteredengineer.com</span>
                   </div>
                 </div>
@@ -1471,7 +1471,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                 Request Turnkey Quotation
               </h3>
-              <p style={{ color: '#a3a9b8', fontSize: '0.88rem', marginBottom: '22px', lineHeight: 1.6 }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', marginBottom: '22px', lineHeight: 1.6 }}>
                 Submit project specifications for PEB sheds, heavy gates, structural steel framing, or stability audit.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -1503,7 +1503,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         style={{
           background: 'radial-gradient(ellipse 80% 50% at 50% -10%, rgba(245, 158, 11, 0.15) 0%, rgba(7, 13, 24, 0.98) 75%)',
           padding: '64px 20px 42px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          borderBottom: '1px solid #e2e8f0',
           textAlign: 'center'
         }}
       >
@@ -1570,7 +1570,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               placeholder="Search questions (e.g. tin shed, chimney, cost, welding, certificate)..."
               style={{
                 width: '100%',
-                background: '#11141c',
+                background: '#ffffff',
                 border: '1px solid rgba(255, 255, 255, 0.18)',
                 borderRadius: '6px',
                 padding: '12px 18px 12px 46px',
@@ -1620,7 +1620,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             <div
               style={{
                 background: 'rgba(15, 23, 42, 0.8)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid #e2e8f0',
                 borderRadius: '16px',
                 padding: '40px 24px',
                 textAlign: 'center'
@@ -1628,7 +1628,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             >
               <HelpCircle size={36} color="#f59e0b" style={{ margin: '0 auto 12px' }} />
               <h3 style={{ color: '#ffffff', fontSize: '1.2rem', marginBottom: '8px' }}>No Questions Found</h3>
-              <p style={{ color: '#a3a9b8', fontSize: '0.90rem', marginBottom: '20px' }}>
+              <p style={{ color: '#475569', fontSize: '0.90rem', marginBottom: '20px' }}>
                 We couldn't find an FAQ matching "{searchQuery}". Feel free to speak directly with our structural engineering team.
               </p>
               <button
@@ -1645,8 +1645,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 <div
                   key={idx}
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderLeft: openFaq === idx ? '4px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '12px',
                     overflow: 'hidden',

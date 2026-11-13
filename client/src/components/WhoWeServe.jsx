@@ -164,7 +164,7 @@ export default function WhoWeServe({ onOpenQuote }) {
   };
 
   return (
-    <section id="who-we-serve" style={{ padding: '36px 0', background: '#0b0d14', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+    <section id="who-we-serve" style={{ padding: '36px 0', background: '#f8fafc', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
@@ -174,10 +174,10 @@ export default function WhoWeServe({ onOpenQuote }) {
             alignItems: 'center',
             gap: '6px',
             padding: '4px 10px',
-            background: 'rgba(56, 189, 248, 0.1)',
+            background: '#eff6ff',
             border: '1px solid rgba(56, 189, 248, 0.25)',
             borderRadius: '6px',
-            color: '#38bdf8',
+            color: '#0284c7',
             fontSize: '0.75rem',
             fontWeight: 600,
             letterSpacing: '0.03em',
@@ -187,10 +187,10 @@ export default function WhoWeServe({ onOpenQuote }) {
             <span>CLIENT-CENTERED PRACTICE</span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: '#eef0f5', fontWeight: 600, lineHeight: 1.25, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
-            Who We <span style={{ color: '#38bdf8' }}>Serve</span>
+          <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: '#0f172a', fontWeight: 600, lineHeight: 1.25, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            Who We <span style={{ color: '#0284c7' }}>Serve</span>
           </h2>
-          <p style={{ color: '#a3a9b8', fontSize: '0.96rem', lineHeight: 1.6, margin: 0 }}>
+          <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: 1.6, margin: 0 }}>
             Purpose-engineered valuation, technical audits, and statutory certifications tailored specifically for institutional, corporate, and individual clients.
           </p>
         </div>
@@ -246,9 +246,9 @@ export default function WhoWeServe({ onOpenQuote }) {
 
         {/* Dedicated Persona Deep-Dive Display Card */}
         <div style={{
-          background: '#11141c',
+          background: '#ffffff',
           borderRadius: '12px',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          border: '1px solid #e2e8f0',
           padding: '32px 28px',
           maxWidth: '1080px',
           margin: '0 auto',
@@ -268,7 +268,7 @@ export default function WhoWeServe({ onOpenQuote }) {
                 gap: '6px',
                 padding: '4px 10px',
                 background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid #e2e8f0',
                 borderRadius: '4px',
                 fontSize: '0.72rem',
                 fontWeight: 600,
@@ -283,7 +283,7 @@ export default function WhoWeServe({ onOpenQuote }) {
 
               <h3 style={{
                 fontSize: '1.35rem',
-                color: '#eef0f5',
+                color: '#0f172a',
                 fontWeight: 600,
                 lineHeight: 1.3,
                 margin: '0 0 12px 0'
@@ -292,7 +292,7 @@ export default function WhoWeServe({ onOpenQuote }) {
               </h3>
 
               <p style={{
-                color: '#a3a9b8',
+                color: '#475569',
                 fontSize: '0.92rem',
                 lineHeight: 1.6,
                 margin: '0 0 20px 0'
@@ -301,7 +301,7 @@ export default function WhoWeServe({ onOpenQuote }) {
               </p>
 
               <div style={{
-                background: '#1a1e28',
+                background: '#f1f5f9',
                 padding: '14px 16px',
                 borderRadius: '8px',
                 border: '1px solid rgba(255, 255, 255, 0.06)',
@@ -310,14 +310,14 @@ export default function WhoWeServe({ onOpenQuote }) {
                 color: '#cbd5e1',
                 lineHeight: 1.55
               }}>
-                <strong style={{ color: '#eef0f5' }}>Why Institutional Clients Rely on Us:</strong> {activePersona.highlightQuote}
+                <strong style={{ color: '#0f172a' }}>Why Institutional Clients Rely on Us:</strong> {activePersona.highlightQuote}
               </div>
             </div>
 
             {/* Right Column: Key Deliverables List & CTAs */}
             <div style={{
-              background: '#07080d',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#f8fafc',
+              border: '1px solid #e2e8f0',
               borderRadius: '10px',
               padding: '24px'
             }}>
@@ -345,7 +345,7 @@ export default function WhoWeServe({ onOpenQuote }) {
                     gap: '6px',
                     padding: '10px 14px',
                     background: '#F58220',
-                    color: '#ffffff',
+                    color: '#0f172a',
                     borderRadius: '8px',
                     fontWeight: 600,
                     fontSize: '0.85rem',
@@ -368,8 +368,8 @@ export default function WhoWeServe({ onOpenQuote }) {
                     justifyContent: 'center',
                     gap: '6px',
                     padding: '10px 14px',
-                    background: '#1a1e28',
-                    color: '#eef0f5',
+                    background: '#f1f5f9',
+                    color: '#0f172a',
                     borderRadius: '8px',
                     fontWeight: 500,
                     fontSize: '0.85rem',

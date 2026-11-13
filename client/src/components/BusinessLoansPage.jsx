@@ -158,27 +158,27 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
   });
 
   return (
-    <div style={{ background: '#0b0d14', color: '#eef0f5', minHeight: '100vh', paddingBottom: '60px' }}>
+    <div style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingBottom: '60px' }}>
       
       {/* ── Breadcrumb & Top Bar ── */}
-      <div style={{ background: '#07080d', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 20px' }}>
+      <div style={{ background: '#f8fafc', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 20px' }}>
         <div style={{ maxWidth: '1120px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
             <button 
               onClick={onNavigateHome}
-              style={{ background: 'none', border: 'none', color: '#38bdf8', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0, fontSize: '0.85rem' }}
+              style={{ background: 'none', border: 'none', color: '#0284c7', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0, fontSize: '0.85rem' }}
             >
               <Home size={14} /> Home
             </button>
             <span>/</span>
-            <span style={{ color: '#eef0f5', fontWeight: 500 }}>Business Loans &amp; Project Financing</span>
+            <span style={{ color: '#0f172a', fontWeight: 500 }}>Business Loans &amp; Project Financing</span>
           </div>
 
           <span style={{
             fontSize: '0.72rem',
             background: 'rgba(56, 189, 248, 0.1)',
             border: '1px solid rgba(56, 189, 248, 0.25)',
-            color: '#38bdf8',
+            color: '#0284c7',
             padding: '3px 10px',
             borderRadius: '6px',
             fontWeight: 600
@@ -190,8 +190,8 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
 
       {/* ── Hero Section ── */}
       <section style={{
-        background: '#07080d',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        background: '#f8fafc',
+        borderBottom: '1px solid #e2e8f0',
         padding: '48px 20px 40px'
       }}>
         <div style={{ maxWidth: '880px', margin: '0 auto', textAlign: 'center' }}>
@@ -204,7 +204,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
             border: '1px solid rgba(56, 189, 248, 0.25)',
             borderRadius: '6px',
             padding: '4px 12px',
-            color: '#38bdf8',
+            color: '#0284c7',
             fontSize: '0.75rem',
             fontWeight: 600,
             letterSpacing: '0.03em',
@@ -219,16 +219,16 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
             fontWeight: 600,
             lineHeight: 1.18,
             marginBottom: '16px',
-            color: '#eef0f5',
+            color: '#0f172a',
             letterSpacing: '-0.02em'
           }}>
-            Business, Machinery &amp; <span style={{ color: '#38bdf8' }}>Project Loans</span> <br />
+            Business, Machinery &amp; <span style={{ color: '#0284c7' }}>Project Loans</span> <br />
             with <span style={{ color: '#10b981' }}>Chartered Engineer TEV &amp; DPR</span>
           </h1>
 
           <p style={{
             fontSize: '1.02rem',
-            color: '#a3a9b8',
+            color: '#475569',
             lineHeight: 1.65,
             maxWidth: '740px',
             margin: '0 auto 28px auto'
@@ -260,8 +260,8 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
             <a
               href="#loan-calculator"
               style={{
-                background: '#11141c',
-                color: '#eef0f5',
+                background: '#ffffff',
+                color: '#0f172a',
                 border: '1px solid rgba(255, 255, 255, 0.16)',
                 borderRadius: '8px',
                 padding: '12px 22px',
@@ -274,7 +274,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
               }}
             >
               <span>Instant Loan EMI Calculator</span>
-              <Calculator size={16} style={{ color: '#38bdf8' }} />
+              <Calculator size={16} style={{ color: '#0284c7' }} />
             </a>
           </div>
 
@@ -285,23 +285,23 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
             gap: '12px',
             marginTop: '36px',
             paddingTop: '24px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+            borderTop: '1px solid #e2e8f0'
           }}>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#38bdf8', marginBottom: '2px' }}>Upto ₹5 Cr</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>Collateral-Free (CGTMSE)</div>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
+              <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0284c7', marginBottom: '2px' }}>Upto ₹5 Cr</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>Collateral-Free (CGTMSE)</div>
             </div>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#10b981', marginBottom: '2px' }}>85% LTV</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>Machinery &amp; Equipment Loan</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>Machinery &amp; Equipment Loan</div>
             </div>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#f59e0b', marginBottom: '2px' }}>100% TEV Study</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>Bankable DSCR &amp; Cash Flow</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>Bankable DSCR &amp; Cash Flow</div>
             </div>
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '14px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '14px' }}>
               <div style={{ fontSize: '1.5rem', fontWeight: 600, color: '#a855f7', marginBottom: '2px' }}>30+ Banks</div>
-              <div style={{ fontSize: '0.78rem', color: '#a3a9b8' }}>Nationalized &amp; Private Empanelled</div>
+              <div style={{ fontSize: '0.78rem', color: '#475569' }}>Nationalized &amp; Private Empanelled</div>
             </div>
           </div>
 
@@ -311,21 +311,21 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
       {/* ── Interactive Loan EMI & Eligibility Calculator Section ── */}
       <section id="loan-calculator" style={{ padding: '40px 20px', maxWidth: '1120px', margin: '0 auto' }}>
         <div style={{
-          background: '#11141c',
+          background: '#ffffff',
           borderRadius: '12px',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          border: '1px solid #e2e8f0',
           padding: '28px 24px'
         }}>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#38bdf8' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', color: '#0284c7' }}>
             <Calculator size={18} />
             <span style={{ fontSize: '0.80rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>Loan Financial Simulator</span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.7rem)', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>
+          <h2 style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.7rem)', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>
             Calculate Your Business Loan EMI &amp; Repayment
           </h2>
-          <p style={{ fontSize: '0.90rem', color: '#a3a9b8', margin: '0 0 24px 0' }}>
+          <p style={{ fontSize: '0.90rem', color: '#475569', margin: '0 0 24px 0' }}>
             Simulate loan tenure, interest rates, and estimated monthly debt service to plan your project capital requirements.
           </p>
 
@@ -338,7 +338,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                   <label style={{ fontSize: '0.84rem', fontWeight: 500, color: '#cbd5e1' }}>
                     Required Loan Amount:
                   </label>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#38bdf8' }}>₹{loanAmountLakhs} Lakhs</span>
+                  <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#0284c7' }}>₹{loanAmountLakhs} Lakhs</span>
                 </div>
                 <input
                   type="range"
@@ -404,23 +404,23 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Calculated Result Card */}
-            <div style={{ background: '#07080d', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#eef0f5', borderRadius: '10px', padding: '22px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div style={{ background: '#f8fafc', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#0f172a', borderRadius: '10px', padding: '22px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div>
                 <div style={{ fontSize: '0.74rem', color: '#7a8296', textTransform: 'uppercase', fontWeight: 600 }}>
                   Estimated Monthly EMI:
                 </div>
-                <div style={{ fontSize: 'clamp(1.8rem, 3vw, 2.3rem)', fontWeight: 600, color: '#38bdf8', lineHeight: 1.1, marginTop: '4px' }}>
+                <div style={{ fontSize: 'clamp(1.8rem, 3vw, 2.3rem)', fontWeight: 600, color: '#0284c7', lineHeight: 1.1, marginTop: '4px' }}>
                   ₹{emi.toLocaleString('en-IN')} <span style={{ fontSize: '0.85rem', fontWeight: 400, color: '#7a8296' }}>/ month</span>
                 </div>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '12px', fontSize: '0.84rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: '#a3a9b8' }}>Total Interest Payable:</span>
-                  <span style={{ fontWeight: 600, color: '#eef0f5' }}>₹{totalInterestPayableLakhs} Lakhs</span>
+                  <span style={{ color: '#475569' }}>Total Interest Payable:</span>
+                  <span style={{ fontWeight: 600, color: '#0f172a' }}>₹{totalInterestPayableLakhs} Lakhs</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: '#a3a9b8' }}>Total Repayment (P + I):</span>
+                  <span style={{ color: '#475569' }}>Total Repayment (P + I):</span>
                   <span style={{ fontWeight: 600, color: '#10b981' }}>₹{((totalAmountPayable) / 100000).toFixed(2)} Lakhs</span>
                 </div>
               </div>
@@ -461,10 +461,10 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
         
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
           <div>
-            <div style={{ fontSize: '0.80rem', fontWeight: 600, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+            <div style={{ fontSize: '0.80rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
               Products Directory
             </div>
-            <h2 style={{ fontSize: '1.65rem', fontWeight: 600, color: '#eef0f5', margin: 0 }}>
+            <h2 style={{ fontSize: '1.65rem', fontWeight: 600, color: '#0f172a', margin: 0 }}>
               Explore Business &amp; Commercial Loan Solutions
             </h2>
           </div>
@@ -482,8 +482,8 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                 padding: '9px 12px 9px 36px',
                 borderRadius: '8px',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
-                background: '#11141c',
-                color: '#eef0f5',
+                background: '#ffffff',
+                color: '#0f172a',
                 fontSize: '0.90rem',
                 outline: 'none',
                 boxSizing: 'border-box'
@@ -531,8 +531,8 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
             <div
               key={loan.id}
               style={{
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '12px',
                 padding: '24px 20px',
                 display: 'flex',
@@ -550,7 +550,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                     fontWeight: 600,
                     color: loan.badgeColor,
                     background: 'rgba(255, 255, 255, 0.04)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    border: '1px solid #e2e8f0',
                     padding: '3px 8px',
                     borderRadius: '4px'
                   }}>
@@ -559,7 +559,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                   <span style={{ fontSize: '0.72rem', color: '#7a8296' }}>Commercial Credit</span>
                 </div>
 
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#0f172a', margin: '0 0 8px 0', lineHeight: 1.3 }}>
                   {loan.title}
                 </h3>
 
@@ -567,7 +567,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                 <div style={{
                   background: 'rgba(56, 189, 248, 0.08)',
                   border: '1px solid rgba(56, 189, 248, 0.2)',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   padding: '7px 10px',
                   borderRadius: '6px',
                   fontSize: '0.82rem',
@@ -577,11 +577,11 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                   alignItems: 'center',
                   gap: '6px'
                 }}>
-                  <Coins size={15} style={{ color: '#38bdf8' }} />
+                  <Coins size={15} style={{ color: '#0284c7' }} />
                   <span>{loan.highlight}</span>
                 </div>
 
-                <p style={{ fontSize: '0.88rem', color: '#a3a9b8', lineHeight: 1.55, margin: '0 0 14px 0' }}>
+                <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.55, margin: '0 0 14px 0' }}>
                   {loan.desc}
                 </p>
 
@@ -599,8 +599,8 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                   </ul>
                 </div>
 
-                <div style={{ padding: '8px 10px', background: '#1a1e28', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.06)', fontSize: '0.74rem', color: '#a3a9b8', marginBottom: '16px' }}>
-                  <strong style={{ color: '#eef0f5' }}>Best Suited For:</strong> {loan.suitableFor}
+                <div style={{ padding: '8px 10px', background: '#f1f5f9', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.06)', fontSize: '0.74rem', color: '#475569', marginBottom: '16px' }}>
+                  <strong style={{ color: '#0f172a' }}>Best Suited For:</strong> {loan.suitableFor}
                 </div>
               </div>
 
@@ -608,9 +608,9 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                 onClick={() => onOpenQuote(`Business Loan Inquiry: ${loan.title}`)}
                 style={{
                   width: '100%',
-                  background: '#1a1e28',
+                  background: '#f1f5f9',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
-                  color: '#eef0f5',
+                  color: '#0f172a',
                   borderRadius: '6px',
                   padding: '9px 14px',
                   fontSize: '0.85rem',
@@ -643,52 +643,52 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
       {/* ── Why Banks Require Chartered Engineer TEV & Valuation Reports ── */}
       <section style={{ padding: '32px 20px', maxWidth: '1120px', margin: '0 auto' }}>
         <div style={{
-          background: '#07080d',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '32px 24px'
         }}>
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 32px auto' }}>
-            <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Institutional Lending Protocol
             </span>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2rem)', fontWeight: 600, color: '#eef0f5', margin: '8px 0 8px 0' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2rem)', fontWeight: 600, color: '#0f172a', margin: '8px 0 8px 0' }}>
               Why Banks Mandate Chartered Engineer TEV &amp; Valuation
             </h2>
-            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
               Under RBI credit guidelines, scheduled banks require an independent technical appraisal before sanctioning multi-crore industrial credit facilities.
             </p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-              <TrendingUp size={24} style={{ color: '#38bdf8', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>DSCR &amp; Cash Flow Assessment</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
+              <TrendingUp size={24} style={{ color: '#0284c7', marginBottom: '10px' }} />
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>DSCR &amp; Cash Flow Assessment</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Rigorous Debt Service Coverage Ratio (DSCR), Break-Even Point (BEP), and Internal Rate of Return (IRR) calculations required by bank credit committees.
               </p>
             </div>
 
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <FileCheck2 size={24} style={{ color: '#10b981', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>Machinery Valuation (FMV &amp; FSV)</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>Machinery Valuation (FMV &amp; FSV)</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Physical appraisal of imported &amp; indigenous machinery, determining Fair Market Value (FMV) and Forced Sale Value (FSV) for loan security charge.
               </p>
             </div>
 
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <ShieldCheck size={24} style={{ color: '#a855f7', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>Civil Works &amp; Cost Vetting</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>Civil Works &amp; Cost Vetting</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Vetting of factory shed civil estimates, BOQ items, and architect plans to ensure loan drawdowns match ground progress without fund diversion.
               </p>
             </div>
 
-            <div style={{ padding: '20px', borderRadius: '8px', background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+            <div style={{ padding: '20px', borderRadius: '8px', background: '#ffffff', border: '1px solid #e2e8f0' }}>
               <Landmark size={24} style={{ color: '#f59e0b', marginBottom: '10px' }} />
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 6px 0' }}>Consortium Bank Presentation</h3>
-              <p style={{ fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', margin: '0 0 6px 0' }}>Consortium Bank Presentation</h3>
+              <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Direct technical presentation to Lead Banks and NBFC risk teams, resolving technical queries with certified engineering credentials.
               </p>
             </div>
@@ -699,7 +699,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
       {/* ── Closing Consultation Card ── */}
       <section style={{ padding: '10px 20px 20px', maxWidth: '1120px', margin: '0 auto' }}>
         <div style={{
-          background: '#07080d',
+          background: '#f8fafc',
           border: '1px solid rgba(255, 255, 255, 0.12)',
           borderRadius: '12px',
           padding: '32px 28px',
@@ -710,13 +710,13 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
           alignItems: 'center'
         }}>
           <div>
-            <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#38bdf8', fontWeight: 600, marginBottom: '6px' }}>
+            <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#0284c7', fontWeight: 600, marginBottom: '6px' }}>
               Project Financing Consultation
             </div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 8px 0' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#0f172a', margin: '0 0 8px 0' }}>
               Planning an Industrial Project or Machinery Loan?
             </h3>
-            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', margin: 0, maxWidth: '640px', lineHeight: 1.6 }}>
+            <p style={{ color: '#475569', fontSize: '0.92rem', margin: 0, maxWidth: '640px', lineHeight: 1.6 }}>
               Speak directly with Er. Mukesh Singh and our institutional banking advisory desk. We prepare bank-approved Detailed Project Reports (DPR) and TEV studies accepted by all major commercial lenders.
             </p>
           </div>
@@ -742,8 +742,8 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: '#1a1e28',
-                color: '#eef0f5',
+                background: '#f1f5f9',
+                color: '#0f172a',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 borderRadius: '8px',
                 padding: '12px 20px',

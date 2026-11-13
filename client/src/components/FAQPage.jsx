@@ -27,7 +27,7 @@ function parseInlineLinks(text) {
           key={`lnk-${match.index}`}
           href={linkHref}
           style={{
-            color: '#38bdf8', fontWeight: isBoldLink ? 700 : 600, textDecoration: 'underline', textUnderlineOffset: '3px', transition: 'color 0.2s',
+            color: '#0284c7', fontWeight: isBoldLink ? 700 : 600, textDecoration: 'underline', textUnderlineOffset: '3px', transition: 'color 0.2s',
           }}
           onMouseEnter={(e) => (e.currentTarget.style.color = '#f59e0b')}
           onMouseLeave={(e) => (e.currentTarget.style.color = '#38bdf8')}
@@ -236,7 +236,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div id="faq" style={{ background: '#0b0d14', color: '#eef0f5', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
+    <div id="faq" style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
       {/* Schema.org FAQPage structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
@@ -263,10 +263,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
               alignItems: 'center',
               gap: '8px',
               padding: '8px 16px',
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '8px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.88rem',
               fontWeight: 600,
               cursor: 'pointer',
@@ -282,7 +282,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
             <span>Home</span>
             <span>&gt;</span>
-            <span style={{ color: '#eef0f5', fontWeight: 600 }}>Frequently Asked Questions</span>
+            <span style={{ color: '#0f172a', fontWeight: 600 }}>Frequently Asked Questions</span>
           </div>
         </div>
 
@@ -296,7 +296,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             background: 'rgba(56, 189, 248, 0.08)',
             border: '1px solid rgba(56, 189, 248, 0.25)',
             borderRadius: '6px',
-            color: '#38bdf8',
+            color: '#0284c7',
             fontSize: '0.82rem',
             fontWeight: 700,
             textTransform: 'uppercase',
@@ -308,10 +308,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           </div>
 
           <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#ffffff', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px' }}>
-            Frequently Asked <span style={{ color: '#38bdf8' }}>Questions</span>
+            Frequently Asked <span style={{ color: '#0284c7' }}>Questions</span>
           </h1>
 
-          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#a3a9b8', marginBottom: '28px' }}>
+          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#475569', marginBottom: '28px' }}>
             Authoritative answers on <strong>Chartered Engineer certification</strong>, <strong>DGFT Advance Authorisation</strong>, <strong>Bank Plant &amp; Machinery Valuation</strong>, <strong>CEIG Solar approvals</strong>, and <strong>FSSAI statutory compliance</strong> in Jaipur &amp; Pan-India.
           </p>
 
@@ -330,10 +330,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
               style={{
                 width: '100%',
                 padding: '14px 16px 14px 48px',
-                background: '#11141c',
+                background: '#ffffff',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 borderRadius: '8px',
-                color: '#eef0f5',
+                color: '#0f172a',
                 fontSize: '0.95rem',
                 outline: 'none',
                 transition: 'border-color 0.2s'
@@ -351,7 +351,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   transform: 'translateY(-50%)',
                   background: 'transparent',
                   border: 'none',
-                  color: '#a3a9b8',
+                  color: '#475569',
                   fontSize: '0.8rem',
                   cursor: 'pointer',
                   fontWeight: 600
@@ -414,14 +414,14 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           <div style={{ display: 'flex', gap: '12px' }}>
             <button
               onClick={expandAll}
-              style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', fontWeight: 600, fontSize: '0.82rem' }}
+              style={{ background: 'transparent', border: 'none', color: '#0284c7', cursor: 'pointer', fontWeight: 600, fontSize: '0.82rem' }}
             >
               Expand All
             </button>
             <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
             <button
               onClick={collapseAll}
-              style={{ background: 'transparent', border: 'none', color: '#a3a9b8', cursor: 'pointer', fontSize: '0.82rem' }}
+              style={{ background: 'transparent', border: 'none', color: '#475569', cursor: 'pointer', fontSize: '0.82rem' }}
             >
               Collapse All
             </button>
@@ -431,10 +431,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
         {/* FAQ Accordion List */}
         <div style={{ maxWidth: '860px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {filteredFaqs.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 20px', background: '#11141c', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.12)' }}>
+            <div style={{ textAlign: 'center', padding: '60px 20px', background: '#ffffff', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.12)' }}>
               <HelpCircle size={40} color="#f59e0b" style={{ margin: '0 auto 16px auto' }} />
               <h3 style={{ color: '#ffffff', marginBottom: '8px' }}>No exact matching questions found</h3>
-              <p style={{ color: '#a3a9b8', fontSize: '0.9rem', marginBottom: '20px' }}>
+              <p style={{ color: '#475569', fontSize: '0.9rem', marginBottom: '20px' }}>
                 Need specific guidance on your compliance case? Speak directly with our Chartered Engineer team.
               </p>
               <button
@@ -459,7 +459,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 <div
                   key={faq.id}
                   style={{
-                    background: '#11141c',
+                    background: '#ffffff',
                     border: `1px solid ${isOpen ? 'rgba(56, 189, 248, 0.35)' : 'rgba(255, 255, 255, 0.08)'}`,
                     borderRadius: '8px',
                     overflow: 'hidden',
@@ -568,7 +568,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           <h3 style={{ fontSize: '1.45rem', color: '#ffffff', fontWeight: 700, marginBottom: '10px' }}>
             Still Have a Statutory or Technical Question?
           </h3>
-          <p style={{ color: '#a3a9b8', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
             Our corporate team led by <strong style={{ color: '#ffffff' }}>Mukesh Singh, Chartered Engineer (India) MIE</strong>, is available for direct consultation regarding DGFT, Customs, Banking Valuation, and CEIG approvals.
           </p>
 
@@ -625,10 +625,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '12px 24px',
-                background: '#1a1e28',
+                background: '#f1f5f9',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 borderRadius: '8px',
-                color: '#eef0f5',
+                color: '#0f172a',
                 fontWeight: 600,
                 fontSize: '0.92rem',
                 textDecoration: 'none'

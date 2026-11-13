@@ -214,7 +214,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
   };
 
   return (
-    <section id="purpose-selector" style={{ padding: '36px 0', background: '#0b0d14', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+    <section id="purpose-selector" style={{ padding: '36px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
@@ -224,10 +224,10 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
             alignItems: 'center',
             gap: '6px',
             padding: '4px 10px',
-            background: 'rgba(56, 189, 248, 0.1)',
-            border: '1px solid rgba(56, 189, 248, 0.25)',
+            background: '#eff6ff',
+            border: '1px solid #bfdbfe',
             borderRadius: '6px',
-            color: '#38bdf8',
+            color: '#0284c7',
             fontSize: '0.75rem',
             fontWeight: 600,
             letterSpacing: '0.03em',
@@ -237,10 +237,10 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
             <span>INTERACTIVE PURPOSE SELECTOR</span>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: '#eef0f5', fontWeight: 600, lineHeight: 1.25, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
-            What is the <span style={{ color: '#38bdf8' }}>Purpose</span> of Your Valuation?
+          <h2 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', color: '#0f172a', fontWeight: 600, lineHeight: 1.25, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            What is the <span style={{ color: '#0284c7' }}>Purpose</span> of Your Valuation?
           </h2>
-          <p style={{ color: '#a3a9b8', fontSize: '0.96rem', lineHeight: 1.6, margin: 0 }}>
+          <p style={{ color: '#475569', fontSize: '0.96rem', lineHeight: 1.6, margin: 0 }}>
             Select your specific requirement below to instantly view <strong>required documents</strong>, <strong>turnaround time</strong>, and <strong>statutory acceptance</strong>.
           </p>
         </div>
@@ -277,7 +277,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
         }}>
           {/* Left Column: Purpose Cards List */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{ fontSize: '0.78rem', fontWeight: 600, color: '#7a8296', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+            <div style={{ fontSize: '0.78rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
               Select Valuation Purpose ({filteredPresets.length} Options)
             </div>
 
@@ -295,8 +295,8 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                       gap: '12px',
                       padding: '12px 14px',
                       borderRadius: '8px',
-                      border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                      background: isSelected ? '#1a1e28' : '#11141c',
+                      border: isSelected ? '1px solid #0284c7' : '1px solid #e2e8f0',
+                      background: isSelected ? '#eff6ff' : '#f8fafc',
                       textAlign: 'left',
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
@@ -321,9 +321,9 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                       <div style={{ fontSize: '0.90rem', fontWeight: isSelected ? 600 : 500, color: isSelected ? '#eef0f5' : '#cbd5e1', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {preset.title}
                       </div>
-                      <div style={{ fontSize: '0.74rem', color: '#7a8296', marginTop: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div style={{ fontSize: '0.74rem', color: '#64748b', marginTop: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <span style={{ display: 'inline-flex', alignItems: 'center', gap: '3px' }}>
-                          <Clock size={11} style={{ color: '#38bdf8' }} /> {preset.turnaround}
+                          <Clock size={11} style={{ color: '#0284c7' }} /> {preset.turnaround}
                         </span>
                         <span>·</span>
                         <span style={{ color: '#f59e0b', fontWeight: 500 }}>{preset.serviceCategory}</span>
@@ -339,22 +339,22 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
 
           {/* Right Column: Dynamic Deep-Dive Guidance Card */}
           <div style={{
-            background: '#11141c',
+            background: '#f8fafc',
             borderRadius: '12px',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            border: '1px solid #e2e8f0',
             padding: '24px',
             position: 'sticky',
             top: '20px'
           }}>
             {/* Header with Icon */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', paddingBottom: '16px', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', paddingBottom: '16px', borderBottom: '1px solid #e2e8f0' }}>
               <div style={{
                 width: '44px',
                 height: '44px',
                 borderRadius: '8px',
-                background: '#1a1e28',
-                border: '1px solid rgba(56, 189, 248, 0.25)',
-                color: '#38bdf8',
+                background: '#ffffff',
+                border: '1px solid #bfdbfe',
+                color: '#0284c7',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -378,7 +378,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                 }}>
                   {activePurpose.serviceCategory}
                 </span>
-                <h3 style={{ fontSize: '1.2rem', color: '#eef0f5', fontWeight: 600, lineHeight: 1.3, margin: 0 }}>
+                <h3 style={{ fontSize: '1.2rem', color: '#0f172a', fontWeight: 600, lineHeight: 1.3, margin: 0 }}>
                   {activePurpose.title}
                 </h3>
               </div>
@@ -396,35 +396,35 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
               border: '1px solid rgba(255, 255, 255, 0.06)'
             }}>
               <div>
-                <div style={{ fontSize: '0.70rem', color: '#7a8296', textTransform: 'uppercase', fontWeight: 600 }}>Estimated Turnaround</div>
+                <div style={{ fontSize: '0.70rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Estimated Turnaround</div>
                 <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#10b981', display: 'flex', alignItems: 'center', gap: '5px', marginTop: '2px' }}>
                   <Clock size={13} style={{ color: '#10b981' }} />
                   <span>{activePurpose.turnaround}</span>
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '0.70rem', color: '#7a8296', textTransform: 'uppercase', fontWeight: 600 }}>Inspection Required</div>
-                <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '5px', marginTop: '2px' }}>
-                  <CheckCircle2 size={13} style={{ color: '#38bdf8' }} />
+                <div style={{ fontSize: '0.70rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Inspection Required</div>
+                <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#0284c7', display: 'flex', alignItems: 'center', gap: '5px', marginTop: '2px' }}>
+                  <CheckCircle2 size={13} style={{ color: '#0284c7' }} />
                   <span>On-Site Physical Audit</span>
                 </div>
               </div>
             </div>
 
             {/* Who is it for & Acceptance */}
-            <div style={{ marginBottom: '16px', fontSize: '0.84rem', color: '#a3a9b8', lineHeight: 1.55 }}>
+            <div style={{ marginBottom: '16px', fontSize: '0.84rem', color: '#475569', lineHeight: 1.55 }}>
               <p style={{ margin: '0 0 6px 0' }}>
-                <strong style={{ color: '#eef0f5' }}>Target Applicability:</strong> {activePurpose.suitableFor}
+                <strong style={{ color: '#0f172a' }}>Target Applicability:</strong> {activePurpose.suitableFor}
               </p>
               <p style={{ margin: 0 }}>
-                <strong style={{ color: '#eef0f5' }}>Statutory Acceptance:</strong> {activePurpose.acceptedBy}
+                <strong style={{ color: '#0f172a' }}>Statutory Acceptance:</strong> {activePurpose.acceptedBy}
               </p>
             </div>
 
             {/* Documents Checklist Box */}
             <div style={{ marginBottom: '18px' }}>
-              <div style={{ fontSize: '0.76rem', fontWeight: 600, color: '#7a8296', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <FileText size={14} style={{ color: '#38bdf8' }} />
+              <div style={{ fontSize: '0.76rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <FileText size={14} style={{ color: '#0284c7' }} />
                 <span>Documents Required for this Valuation:</span>
               </div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -443,15 +443,15 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
               alignItems: 'center',
               gap: '8px',
               padding: '10px 12px',
-              background: '#1a1e28',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '6px',
               fontSize: '0.78rem',
               color: '#cbd5e1',
               marginBottom: '18px'
             }}>
               <AlertCircle size={14} style={{ color: '#f59e0b', flexShrink: 0 }} />
-              <span><strong style={{ color: '#eef0f5' }}>Methodology:</strong> {activePurpose.methodology}</span>
+              <span><strong style={{ color: '#0f172a' }}>Methodology:</strong> {activePurpose.methodology}</span>
             </div>
 
             {/* Action Buttons */}
@@ -488,8 +488,8 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                   justifyContent: 'center',
                   gap: '6px',
                   padding: '10px 14px',
-                  background: '#1a1e28',
-                  color: '#eef0f5',
+                  background: '#ffffff',
+                  color: '#0f172a',
                   borderRadius: '8px',
                   fontWeight: 500,
                   fontSize: '0.86rem',

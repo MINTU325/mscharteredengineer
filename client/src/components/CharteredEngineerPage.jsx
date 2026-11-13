@@ -174,12 +174,12 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div style={{ background: '#0b0d14', color: '#eef0f5', minHeight: '100vh', paddingBottom: '80px' }}>
+    <div style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingBottom: '80px' }}>
       
       {/* ── Pillar Page Hero Section ── */}
       <section style={{
-        background: '#07080d',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        background: '#f8fafc',
+        borderBottom: '1px solid #e2e8f0',
         padding: '48px 20px 40px',
         position: 'relative'
       }}>
@@ -193,11 +193,11 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: '#11141c',
+                background: '#ffffff',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 borderRadius: '8px',
                 padding: '6px 14px',
-                color: '#a3a9b8',
+                color: '#475569',
                 fontSize: '0.85rem',
                 fontWeight: 500,
                 cursor: 'pointer',
@@ -223,7 +223,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               border: '1px solid rgba(56, 189, 248, 0.25)',
               borderRadius: '6px',
               padding: '4px 10px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '0.03em'
@@ -238,15 +238,15 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               fontSize: 'clamp(2rem, 3.5vw, 3rem)',
               fontWeight: 600,
               lineHeight: 1.15,
-              color: '#eef0f5',
+              color: '#0f172a',
               margin: '0 0 16px 0',
               letterSpacing: '-0.02em'
             }}>
-              Government Certified <span style={{ color: '#38bdf8' }}>Chartered Engineer</span> in India
+              Government Certified <span style={{ color: '#0284c7' }}>Chartered Engineer</span> in India
             </h1>
             <p style={{
               fontSize: '1.05rem',
-              color: '#a3a9b8',
+              color: '#475569',
               lineHeight: 1.65,
               margin: '0 0 28px 0',
               fontWeight: 400
@@ -284,8 +284,8 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: '#11141c',
-                  color: '#eef0f5',
+                  background: '#ffffff',
+                  color: '#0f172a',
                   border: '1px solid rgba(255, 255, 255, 0.16)',
                   borderRadius: '8px',
                   padding: '10px 20px',
@@ -298,7 +298,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                 onMouseEnter={e => e.currentTarget.style.background = '#1a1e28'}
                 onMouseLeave={e => e.currentTarget.style.background = '#11141c'}
               >
-                <PhoneCall size={16} style={{ color: '#38bdf8' }} /> +91 91586 58885
+                <PhoneCall size={16} style={{ color: '#0284c7' }} /> +91 91586 58885
               </a>
 
               <span style={{ fontSize: '0.85rem', color: '#7a8296', marginLeft: '4px' }}>
@@ -315,47 +315,47 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
             marginTop: '12px'
           }}>
             <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '8px',
               padding: '16px'
             }}>
               <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#7a8296', marginBottom: '6px' }}>Statutory Authority</div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 600, color: '#eef0f5', marginBottom: '4px' }}>IEI MIE Corporate</div>
-              <div style={{ fontSize: '0.82rem', color: '#a3a9b8' }}>Empanelled under Royal Charter & Ministry of Commerce</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 600, color: '#0f172a', marginBottom: '4px' }}>IEI MIE Corporate</div>
+              <div style={{ fontSize: '0.82rem', color: '#475569' }}>Empanelled under Royal Charter & Ministry of Commerce</div>
             </div>
 
             <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '8px',
               padding: '16px'
             }}>
               <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#7a8296', marginBottom: '6px' }}>Turnaround</div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 600, color: '#38bdf8', marginBottom: '4px' }}>24 to 48 Hours</div>
-              <div style={{ fontSize: '0.82rem', color: '#a3a9b8' }}>Urgent customs appraisal and provisional draft delivery</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 600, color: '#0284c7', marginBottom: '4px' }}>24 to 48 Hours</div>
+              <div style={{ fontSize: '0.82rem', color: '#475569' }}>Urgent customs appraisal and provisional draft delivery</div>
             </div>
 
             <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '8px',
               padding: '16px'
             }}>
               <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#7a8296', marginBottom: '6px' }}>Port & ICD Coverage</div>
-              <div style={{ fontSize: '1.25rem', fontWeight: 600, color: '#eef0f5', marginBottom: '4px' }}>Pan-India Seaports</div>
-              <div style={{ fontSize: '0.82rem', color: '#a3a9b8' }}>JNPT, Mundra, Hazira, Chennai, ICD Concor Jaipur</div>
+              <div style={{ fontSize: '1.25rem', fontWeight: 600, color: '#0f172a', marginBottom: '4px' }}>Pan-India Seaports</div>
+              <div style={{ fontSize: '0.82rem', color: '#475569' }}>JNPT, Mundra, Hazira, Chennai, ICD Concor Jaipur</div>
             </div>
 
             <div style={{
-              background: '#11141c',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
               borderRadius: '8px',
               padding: '16px'
             }}>
               <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#7a8296', marginBottom: '6px' }}>Reports Delivered</div>
               <div style={{ fontSize: '1.25rem', fontWeight: 600, color: '#10b981', marginBottom: '4px' }}>1,200+ Reports</div>
-              <div style={{ fontSize: '0.82rem', color: '#a3a9b8' }}>100% acceptance across banks, DGFT & customs</div>
+              <div style={{ fontSize: '0.82rem', color: '#475569' }}>100% acceptance across banks, DGFT & customs</div>
             </div>
           </div>
 
@@ -367,25 +367,25 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
         
         {/* Section: Statutory Scope Overview */}
         <section style={{
-          background: '#11141c',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '28px',
           marginBottom: '40px'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#38bdf8', marginBottom: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#0284c7', marginBottom: '10px' }}>
             <Scale size={18} />
             <span style={{ fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
               Statutory Significance
             </span>
           </div>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 12px 0' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0f172a', margin: '0 0 12px 0' }}>
             What is a Chartered Engineer (CE) Certificate?
           </h2>
-          <p style={{ color: '#a3a9b8', lineHeight: 1.7, fontSize: '0.98rem', margin: '0 0 16px 0' }}>
+          <p style={{ color: '#475569', lineHeight: 1.7, fontSize: '0.98rem', margin: '0 0 16px 0' }}>
             A Chartered Engineer Certificate is a legally recognized, statutory engineering appraisal issued by a technical professional awarded Corporate Membership (MIE / FIE) by <strong>The Institution of Engineers (India)</strong>. Chartered Engineers are legally empowered under Section 4 of the IEI Charter and recognized by the Government of India, the Ministry of Commerce & Industry (DGFT), the Central Board of Indirect Taxes and Customs (CBIC), and financial regulatory authorities.
           </p>
-          <p style={{ color: '#a3a9b8', lineHeight: 1.7, fontSize: '0.98rem', margin: 0 }}>
+          <p style={{ color: '#475569', lineHeight: 1.7, fontSize: '0.98rem', margin: 0 }}>
             Whether an enterprise is importing second-hand industrial machinery through seaports, discharging export obligations under EPCG / Advance Authorisation, obtaining bank credit for industrial assets, or securing CEIG safety approvals for solar power plants, a valid Chartered Engineer Certificate provides the statutory technical verification required by government departments.
           </p>
         </section>
@@ -395,10 +395,10 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '24px' }}>
             <div>
-              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
                 Core Capabilities
               </div>
-              <h2 style={{ fontSize: '1.75rem', fontWeight: 600, color: '#eef0f5', margin: 0 }}>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 600, color: '#0f172a', margin: 0 }}>
                 Chartered Engineer Services in India
               </h2>
             </div>
@@ -413,11 +413,11 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                 onChange={e => setSearchQuery(e.target.value)}
                 style={{
                   width: '100%',
-                  background: '#11141c',
+                  background: '#ffffff',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '8px',
                   padding: '9px 12px 9px 36px',
-                  color: '#eef0f5',
+                  color: '#0f172a',
                   fontSize: '0.9rem',
                   outline: 'none',
                   boxSizing: 'border-box'
@@ -474,8 +474,8 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               <div
                 key={service.id}
                 style={{
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '12px',
                   padding: '24px',
                   display: 'flex',
@@ -509,7 +509,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                   <h3 style={{
                     fontSize: '1.15rem',
                     fontWeight: 600,
-                    color: '#eef0f5',
+                    color: '#0f172a',
                     margin: '0 0 10px 0',
                     lineHeight: 1.35
                   }}>
@@ -517,7 +517,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                   </h3>
 
                   <p style={{
-                    color: '#a3a9b8',
+                    color: '#475569',
                     fontSize: '0.9rem',
                     lineHeight: 1.6,
                     margin: '0 0 16px 0'
@@ -545,11 +545,11 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                     onClick={() => onOpenQuote(`${service.title} (CE Inquiry)`)}
                     style={{
                       flex: 1,
-                      background: '#1a1e28',
+                      background: '#f1f5f9',
                       border: '1px solid rgba(255, 255, 255, 0.12)',
                       borderRadius: '6px',
                       padding: '8px 12px',
-                      color: '#eef0f5',
+                      color: '#0f172a',
                       fontSize: '0.85rem',
                       fontWeight: 500,
                       cursor: 'pointer',
@@ -574,11 +574,11 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                   <a
                     href="tel:+919158658885"
                     style={{
-                      background: '#11141c',
+                      background: '#ffffff',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '6px',
                       padding: '8px 12px',
-                      color: '#38bdf8',
+                      color: '#0284c7',
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -595,16 +595,16 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
           </div>
 
           {filteredServices.length === 0 && (
-            <div style={{ textAlign: 'center', padding: '48px 20px', background: '#11141c', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-              <p style={{ color: '#a3a9b8', margin: '0 0 12px 0' }}>No certification services match your search terms.</p>
+            <div style={{ textAlign: 'center', padding: '48px 20px', background: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+              <p style={{ color: '#475569', margin: '0 0 12px 0' }}>No certification services match your search terms.</p>
               <button
                 onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}
                 style={{
-                  background: '#1a1e28',
+                  background: '#f1f5f9',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   borderRadius: '6px',
                   padding: '6px 14px',
-                  color: '#eef0f5',
+                  color: '#0f172a',
                   fontSize: '0.85rem',
                   cursor: 'pointer'
                 }}
@@ -617,16 +617,16 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
 
         {/* Section: 4-Step Statutory Workflow */}
         <section style={{
-          background: '#11141c',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#ffffff',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '32px 28px',
           marginBottom: '48px'
         }}>
-          <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
+          <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
             Operational Process
           </div>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 24px 0' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0f172a', margin: '0 0 24px 0' }}>
             Statutory Certification Workflow
           </h2>
 
@@ -636,33 +636,33 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
             gap: '20px'
           }}>
             <div style={{ borderLeft: '2px solid #38bdf8', paddingLeft: '16px' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#38bdf8', marginBottom: '4px' }}>STEP 01</div>
-              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', marginBottom: '6px' }}>Document Review</div>
-              <p style={{ fontSize: '0.85rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#0284c7', marginBottom: '4px' }}>STEP 01</div>
+              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', marginBottom: '6px' }}>Document Review</div>
+              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Verification of invoices, packing lists, Bill of Lading, SLDs, and prior customs / scheme filings.
               </p>
             </div>
 
             <div style={{ borderLeft: '2px solid #38bdf8', paddingLeft: '16px' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#38bdf8', marginBottom: '4px' }}>STEP 02</div>
-              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', marginBottom: '6px' }}>On-Site Inspection</div>
-              <p style={{ fontSize: '0.85rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#0284c7', marginBottom: '4px' }}>STEP 02</div>
+              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', marginBottom: '6px' }}>On-Site Inspection</div>
+              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Physical audit at port, ICD warehouse, or industrial factory plant. Assessment of machine condition & serials.
               </p>
             </div>
 
             <div style={{ borderLeft: '2px solid #38bdf8', paddingLeft: '16px' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#38bdf8', marginBottom: '4px' }}>STEP 03</div>
-              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', marginBottom: '6px' }}>Technical Valuation</div>
-              <p style={{ fontSize: '0.85rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#0284c7', marginBottom: '4px' }}>STEP 03</div>
+              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', marginBottom: '6px' }}>Technical Valuation</div>
+              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Engineering calculation of residual life, replacement cost, depreciation tables, and SION input balance.
               </p>
             </div>
 
             <div style={{ borderLeft: '2px solid #38bdf8', paddingLeft: '16px' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#38bdf8', marginBottom: '4px' }}>STEP 04</div>
-              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#eef0f5', marginBottom: '6px' }}>Stamped Certification</div>
-              <p style={{ fontSize: '0.85rem', color: '#a3a9b8', lineHeight: 1.55, margin: 0 }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 600, color: '#0284c7', marginBottom: '4px' }}>STEP 04</div>
+              <div style={{ fontSize: '1rem', fontWeight: 600, color: '#0f172a', marginBottom: '6px' }}>Stamped Certification</div>
+              <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
                 Issue of formal Chartered Engineer seal and signed report in physical + digital format for customs / DGFT clearance.
               </p>
             </div>
@@ -671,10 +671,10 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
 
         {/* Section: Frequently Asked Questions */}
         <section style={{ marginBottom: '48px' }}>
-          <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
+          <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
             Compliance & Guidelines
           </div>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 20px 0' }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#0f172a', margin: '0 0 20px 0' }}>
             Frequently Asked Questions on CE Certification
           </h2>
 
@@ -685,8 +685,8 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                 <div
                   key={idx}
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '8px',
                     overflow: 'hidden'
                   }}
@@ -708,13 +708,13 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                     <span style={{ fontSize: '0.95rem', fontWeight: 600, color: isOpen ? '#38bdf8' : '#eef0f5' }}>
                       {faq.q}
                     </span>
-                    {isOpen ? <ChevronUp size={18} style={{ color: '#38bdf8', flexShrink: 0 }} /> : <ChevronDown size={18} style={{ color: '#7a8296', flexShrink: 0 }} />}
+                    {isOpen ? <ChevronUp size={18} style={{ color: '#0284c7', flexShrink: 0 }} /> : <ChevronDown size={18} style={{ color: '#7a8296', flexShrink: 0 }} />}
                   </button>
 
                   {isOpen && (
                     <div style={{
                       padding: '0 20px 18px',
-                      color: '#a3a9b8',
+                      color: '#475569',
                       fontSize: '0.9rem',
                       lineHeight: 1.65,
                       borderTop: '1px solid rgba(255, 255, 255, 0.05)'
@@ -730,7 +730,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
 
         {/* Section: Direct Engineer Contact Card */}
         <section style={{
-          background: '#07080d',
+          background: '#f8fafc',
           border: '1px solid rgba(255, 255, 255, 0.12)',
           borderRadius: '12px',
           padding: '32px 28px',
@@ -741,24 +741,24 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
           alignItems: 'center'
         }}>
           <div>
-            <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#38bdf8', fontWeight: 600, marginBottom: '6px' }}>
+            <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#0284c7', fontWeight: 600, marginBottom: '6px' }}>
               Direct Engineering Consultation
             </div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 8px 0' }}>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#0f172a', margin: '0 0 8px 0' }}>
               Speak with Er. Mukesh Singh, MIE Chartered Engineer
             </h3>
-            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', margin: '0 0 16px 0', maxWidth: '640px', lineHeight: 1.6 }}>
+            <p style={{ color: '#475569', fontSize: '0.92rem', margin: '0 0 16px 0', maxWidth: '640px', lineHeight: 1.6 }}>
               Need urgent port clearance at JNPT / Mundra or an emergency DGFT EPCG filing? We offer expedited on-site inspection and rapid certificate dispatch across all Indian commercial ports and industrial corridors.
             </p>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#cbd5e1' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                <Phone size={14} style={{ color: '#38bdf8' }} /> +91 91586 58885
+                <Phone size={14} style={{ color: '#0284c7' }} /> +91 91586 58885
               </span>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                <Mail size={14} style={{ color: '#38bdf8' }} /> ms.charteredengineer@gmail.com
+                <Mail size={14} style={{ color: '#0284c7' }} /> ms.charteredengineer@gmail.com
               </span>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                <MapPin size={14} style={{ color: '#38bdf8' }} /> Jaipur, Rajasthan · Pan-India Dispatch
+                <MapPin size={14} style={{ color: '#0284c7' }} /> Jaipur, Rajasthan · Pan-India Dispatch
               </span>
             </div>
           </div>
@@ -784,8 +784,8 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: '#1a1e28',
-                color: '#eef0f5',
+                background: '#f1f5f9',
+                color: '#0f172a',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
                 borderRadius: '8px',
                 padding: '12px 20px',

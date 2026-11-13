@@ -279,7 +279,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
   };
 
   return (
-    <div style={{ background: '#0b0d14', color: '#f1f5f9', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', minHeight: '100vh', paddingBottom: '70px', overflowX: 'hidden' }}>
+    <div style={{ background: '#f8fafc', color: '#f1f5f9', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', minHeight: '100vh', paddingBottom: '70px', overflowX: 'hidden' }}>
       
       {/* ── Scoped Mobile Responsive CSS Rules ── */}
       <style>{`
@@ -353,7 +353,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
       `}</style>
 
       {/* ── 1. HERO SECTION WITH DYNAMIC SLIDER ── */}
-      <section id="hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '560px', background: '#07080d' }}>
+      <section id="hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '560px', background: '#f8fafc' }}>
         {heroSlides.map((slide, index) => {
           const isActive = index === currentSlide;
           return (
@@ -394,7 +394,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       {slide.title}
                     </h1>
 
-                    <p className="ks-hero-subtitle" style={{ fontSize: '1.08rem', color: '#a3a9b8', lineHeight: 1.65, margin: '0 0 24px 0', maxWidth: '700px' }}>
+                    <p className="ks-hero-subtitle" style={{ fontSize: '1.08rem', color: '#475569', lineHeight: 1.65, margin: '0 0 24px 0', maxWidth: '700px' }}>
                       {slide.subtitle}
                     </p>
 
@@ -470,19 +470,19 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     <div className="ks-hero-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 130px), 1fr))', gap: '16px', marginTop: '35px', paddingTop: '25px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
                       <div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#F58220', lineHeight: 1 }}>500+</div>
-                        <div style={{ fontSize: '0.80rem', color: '#a3a9b8', marginTop: '4px' }}>Mould Sets Delivered</div>
+                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Mould Sets Delivered</div>
                       </div>
                       <div>
-                        <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#38bdf8', lineHeight: 1 }}>IS 2062</div>
-                        <div style={{ fontSize: '0.80rem', color: '#a3a9b8', marginTop: '4px' }}>Certified Prime MS Steel</div>
+                        <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#0284c7', lineHeight: 1 }}>IS 2062</div>
+                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Certified Prime MS Steel</div>
                       </div>
                       <div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#10b981', lineHeight: 1 }}>100%</div>
-                        <div style={{ fontSize: '0.80rem', color: '#a3a9b8', marginTop: '4px' }}>Slurry Leakproof Guarantee</div>
+                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Slurry Leakproof Guarantee</div>
                       </div>
                       <div>
                         <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#fbbf24', lineHeight: 1 }}>Pan-India</div>
-                        <div style={{ fontSize: '0.80rem', color: '#a3a9b8', marginTop: '4px' }}>Fast Safe Transport</div>
+                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Fast Safe Transport</div>
                       </div>
                     </div>
 
@@ -566,7 +566,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
       </section>
 
       {/* ── BRAND VALUE PROPOSITION / TRUST STRIP ── */}
-      <section style={{ background: '#11141c', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', padding: '18px 20px' }}>
+      <section style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '18px 20px' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px', alignItems: 'center' }}>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -607,7 +607,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
       <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 20px' }}>
 
         {/* ── TECHNICAL LEADERSHIP & WORKSHOP CRAFTSMANSHIP (HUMANISED TRUST) ── */}
-        <section style={{ padding: '60px 0 20px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section style={{ padding: '60px 0 20px', borderBottom: '1px solid #e2e8f0' }}>
           <div style={{
             background: 'linear-gradient(135deg, rgba(11, 13, 20, 0.95) 0%, rgba(13, 27, 44, 0.98) 100%)',
             border: '1px solid rgba(245, 130, 32, 0.35)',
@@ -636,7 +636,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                 </div>
 
                 <div>
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(56, 189, 248, 0.15)', padding: '3px 10px', borderRadius: '6px', color: '#38bdf8', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', marginBottom: '6px' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(56, 189, 248, 0.15)', padding: '3px 10px', borderRadius: '6px', color: '#0284c7', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', marginBottom: '6px' }}>
                     <span>Technical Leadership</span>
                   </div>
                   <h3 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0' }}>
@@ -704,7 +704,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </section>
 
         {/* ── 2. ABOUT COMPANY SECTION ── */}
-        <section id="about" style={{ padding: '75px 0 60px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section id="about" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '40px', alignItems: 'center' }}>
             
             <div>
@@ -717,7 +717,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                 Specialized Manufacturers of High-Precision Precast Concrete &amp; Solar Moulds
               </h2>
 
-              <p style={{ color: '#a3a9b8', fontSize: '1.02rem', lineHeight: 1.75, marginBottom: '16px' }}>
+              <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: 1.75, marginBottom: '16px' }}>
                 <strong>KS Fabrication</strong> is a premier Indian engineering and fabrication firm specializing in the precision manufacture of <strong>Precast Concrete Moulds, RCC Fencing Pole Moulds, Boundary Wall Moulds, and Concrete Vibration Equipment</strong>.
               </p>
 
@@ -726,11 +726,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
 
               <div className="ks-two-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '14px', marginBottom: '28px' }}>
-                <div style={{ background: '#11141c', padding: '14px', borderRadius: '10px', borderLeft: '4px solid #F58220' }}>
+                <div style={{ background: '#ffffff', padding: '14px', borderRadius: '10px', borderLeft: '4px solid #F58220' }}>
                   <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.95rem' }}>Precision CNC Sizing</div>
                   <div style={{ color: '#7a8296', fontSize: '0.82rem' }}>Zero slurry leakage &amp; clean joints</div>
                 </div>
-                <div style={{ background: '#11141c', padding: '14px', borderRadius: '10px', borderLeft: '4px solid #F58220' }}>
+                <div style={{ background: '#ffffff', padding: '14px', borderRadius: '10px', borderLeft: '4px solid #F58220' }}>
                   <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.95rem' }}>Extreme Durability</div>
                   <div style={{ color: '#7a8296', fontSize: '0.82rem' }}>IS 2062 Grade Steel Plate</div>
                 </div>
@@ -762,8 +762,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
               <div style={{
                 borderRadius: '16px',
                 overflow: 'hidden',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                border: '1px solid #e2e8f0',
+                boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)',
                 position: 'relative'
               }}>
                 <img
@@ -789,7 +789,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </section>
 
         {/* ── 3. PRODUCTS SECTION (6 FEATURED CATEGORIES) ── */}
-        <section id="products" style={{ padding: '75px 0 60px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section id="products" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 45px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
@@ -809,18 +809,18 @@ _Inquiry sent via KS Fabrication Official Website_`;
               <div
                 key={prod.id}
                 style={{
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '16px',
                   overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
                   transition: 'transform 0.2s ease, border-color 0.2s ease',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
+                  boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
                 }}
               >
                 {/* Product Image */}
-                <div style={{ position: 'relative', height: '220px', background: '#07080d', overflow: 'hidden' }}>
+                <div style={{ position: 'relative', height: '220px', background: '#f8fafc', overflow: 'hidden' }}>
                   <img
                     src={prod.image}
                     alt={prod.name}
@@ -858,7 +858,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     <div style={{ fontSize: '0.78rem', color: '#F58220', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
                       Key Technical Features:
                     </div>
-                    <ul style={{ margin: 0, paddingLeft: '18px', color: '#a3a9b8', fontSize: '0.86rem', lineHeight: 1.6 }}>
+                    <ul style={{ margin: 0, paddingLeft: '18px', color: '#475569', fontSize: '0.86rem', lineHeight: 1.6 }}>
                       {prod.features.map((feat, fIdx) => (
                         <li key={fIdx} style={{ marginBottom: '4px' }}>{feat}</li>
                       ))}
@@ -917,7 +917,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </section>
 
         {/* ── 4. WHY CHOOSE US SECTION ── */}
-        <section style={{ padding: '75px 0 60px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 45px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
@@ -934,7 +934,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '22px' }}>
             
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '26px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                 <ShieldCheck size={26} color="#F58220" />
               </div>
@@ -944,7 +944,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '26px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                 <Settings size={26} color="#F58220" />
               </div>
@@ -954,7 +954,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '26px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                 <Sparkles size={26} color="#F58220" />
               </div>
@@ -964,7 +964,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '26px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                 <Award size={26} color="#F58220" />
               </div>
@@ -974,7 +974,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '26px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                 <Layers size={26} color="#F58220" />
               </div>
@@ -984,7 +984,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '26px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
               <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
                 <Truck size={26} color="#F58220" />
               </div>
@@ -998,7 +998,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </section>
 
         {/* ── 5. MANUFACTURING PROCESS (STEP-BY-STEP) ── */}
-        <section id="process" style={{ padding: '75px 0 60px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section id="process" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 45px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
@@ -1015,7 +1015,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '20px', position: 'relative' }}>
             
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', position: 'relative' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
                 1
               </div>
@@ -1025,7 +1025,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', position: 'relative' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
                 2
               </div>
@@ -1035,7 +1035,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', position: 'relative' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
                 3
               </div>
@@ -1045,7 +1045,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </p>
             </div>
 
-            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '24px', position: 'relative' }}>
+            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
               <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
                 4
               </div>
@@ -1059,13 +1059,13 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </section>
 
         {/* ── 6. SOLAR FENCING SOLUTIONS SECTION ── */}
-        <section id="solar-fencing" style={{ padding: '75px 0 60px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section id="solar-fencing" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           <div style={{
             background: 'linear-gradient(135deg, #10243A 0%, #0d1e30 100%)',
             border: '1px solid rgba(245, 130, 32, 0.3)',
             borderRadius: '20px',
             overflow: 'hidden',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
+            boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
           }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', alignItems: 'center' }}>
               
@@ -1079,7 +1079,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                   Engineered Boundary Fencing for Solar Power Plants
                 </h2>
 
-                <p style={{ color: '#a3a9b8', fontSize: '0.98rem', lineHeight: 1.7, marginBottom: '20px' }}>
+                <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.7, marginBottom: '20px' }}>
                   Solar power parks located across desert and rural expanses (Rajasthan, Gujarat, MP, Maharashtra) face severe challenges from cattle grazing, unauthorized trespass, dust accumulation, and cyclonic wind shear.
                 </p>
 
@@ -1154,7 +1154,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </section>
 
         {/* ── 7. PROJECT GALLERY SECTION ── */}
-        <section id="gallery" style={{ padding: '75px 0 60px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section id="gallery" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 35px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
@@ -1169,7 +1169,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             </p>
 
             {/* Gallery Category Filter Buttons */}
-            <div className="ks-gallery-filter" style={{ display: 'inline-flex', background: '#11141c', padding: '4px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)', maxWidth: '100%', overflowX: 'auto' }}>
+            <div className="ks-gallery-filter" style={{ display: 'inline-flex', background: '#ffffff', padding: '4px', borderRadius: '10px', border: '1px solid #e2e8f0', maxWidth: '100%', overflowX: 'auto' }}>
               {[
                 { id: 'all', label: 'All Photos' },
                 { id: 'moulds', label: 'Concrete Moulds' },
@@ -1202,15 +1202,15 @@ _Inquiry sent via KS Fabrication Official Website_`;
               <div
                 key={idx}
                 style={{
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '12px',
                   overflow: 'hidden',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.2)',
+                  boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)',
                   transition: 'transform 0.2s ease'
                 }}
               >
-                <div style={{ height: '210px', overflow: 'hidden', background: '#07080d' }}>
+                <div style={{ height: '210px', overflow: 'hidden', background: '#f8fafc' }}>
                   <img
                     src={item.image}
                     alt={item.title}
@@ -1229,7 +1229,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
         </section>
 
         {/* ── 8. FAQ SECTION ── */}
-        <section style={{ padding: '75px 0 60px', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <section style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 40px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
@@ -1251,8 +1251,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
                 <div 
                   key={idx}
                   style={{
-                    background: '#11141c',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '10px',
                     overflow: 'hidden'
                   }}
@@ -1310,7 +1310,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
             
             {/* Left Column: Direct Contact Info & Google Maps */}
             <div>
-              <div className="ks-padded-card" style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '30px', marginBottom: '24px' }}>
+              <div className="ks-padded-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '16px', padding: '30px', marginBottom: '24px' }}>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 20px 0' }}>
                   Factory &amp; Head Office Details
                 </h3>
@@ -1365,7 +1365,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
               </div>
 
               {/* Embedded Google Maps Location */}
-              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.08)', height: '240px' }}>
+              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0', height: '240px' }}>
                 <iframe
                   title="KS Fabrication Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113911.2384974786!2d75.71981882488828!3d26.88514168067425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
@@ -1382,11 +1382,11 @@ _Inquiry sent via KS Fabrication Official Website_`;
             {/* Right Column: Direct Fill Product Enquiry Form */}
             <div id="enquiry-form">
               <div className="form-card" style={{
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '12px',
                 padding: '28px 24px',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)'
+                boxShadow: '0 2px 12px rgba(15, 23, 42, 0.06)'
               }}>
                 <div style={{ marginBottom: '20px' }}>
                   <div style={{
@@ -1397,7 +1397,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     background: 'rgba(56, 189, 248, 0.08)',
                     border: '1px solid rgba(56, 189, 248, 0.25)',
                     borderRadius: '6px',
-                    color: '#38bdf8',
+                    color: '#0284c7',
                     fontSize: '0.74rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
@@ -1409,7 +1409,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                   <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
                     Request Mould Price &amp; Transport Estimate
                   </h3>
-                  <p style={{ color: '#a3a9b8', fontSize: '0.86rem', margin: 0, lineHeight: 1.5 }}>
+                  <p style={{ color: '#475569', fontSize: '0.86rem', margin: 0, lineHeight: 1.5 }}>
                     Fill out the form below. On submission, details will automatically be delivered to our WhatsApp team for fast response.
                   </p>
                 </div>
@@ -1422,7 +1422,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     <h4 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
                       Enquiry Generated Successfully!
                     </h4>
-                    <p style={{ color: '#a3a9b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '20px' }}>
+                    <p style={{ color: '#475569', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '20px' }}>
                       Your enquiry message has been prepared for WhatsApp. Click below to start chatting directly:
                     </p>
                     <a
@@ -1459,7 +1459,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#a3a9b8', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
                           Your Name / Company <span style={{ color: '#F58220' }}>*</span>
                         </label>
                         <input
@@ -1470,7 +1470,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, name: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#1a1e28',
+                            background: '#f1f5f9',
                             border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
@@ -1483,7 +1483,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       </div>
 
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#a3a9b8', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
                           WhatsApp / Phone Number <span style={{ color: '#F58220' }}>*</span>
                         </label>
                         <input
@@ -1494,7 +1494,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, phone: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#1a1e28',
+                            background: '#f1f5f9',
                             border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
@@ -1509,7 +1509,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#a3a9b8', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
                           Select Product Category
                         </label>
                         <select
@@ -1517,7 +1517,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, product: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#1a1e28',
+                            background: '#f1f5f9',
                             border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
@@ -1537,7 +1537,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       </div>
 
                       <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#a3a9b8', marginBottom: '6px' }}>
+                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
                           Required Quantity / Order Size
                         </label>
                         <select
@@ -1545,7 +1545,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                           onChange={(e) => setEnquiryForm({ ...enquiryForm, quantity: e.target.value })}
                           style={{
                             width: '100%',
-                            background: '#1a1e28',
+                            background: '#f1f5f9',
                             border: '1px solid rgba(255, 255, 255, 0.12)',
                             borderRadius: '8px',
                             padding: '11px 12px',
@@ -1564,7 +1564,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#a3a9b8', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
                         Delivery City &amp; State
                       </label>
                       <input
@@ -1574,8 +1574,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
                         onChange={(e) => setEnquiryForm({ ...enquiryForm, city: e.target.value })}
                         style={{
                           width: '100%',
-                          background: '#07080d',
-                          border: '1px solid rgba(255, 255, 255, 0.08)',
+                          background: '#f8fafc',
+                          border: '1px solid #e2e8f0',
                           borderRadius: '8px',
                           padding: '11px 12px',
                           color: '#ffffff',
@@ -1587,7 +1587,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#a3a9b8', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
                         Special Requirements / Dimensions (Optional)
                       </label>
                       <textarea
@@ -1597,8 +1597,8 @@ _Inquiry sent via KS Fabrication Official Website_`;
                         onChange={(e) => setEnquiryForm({ ...enquiryForm, message: e.target.value })}
                         style={{
                           width: '100%',
-                          background: '#07080d',
-                          border: '1px solid rgba(255, 255, 255, 0.08)',
+                          background: '#f8fafc',
+                          border: '1px solid #e2e8f0',
                           borderRadius: '8px',
                           padding: '10px 12px',
                           color: '#ffffff',
@@ -1650,7 +1650,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
       </div>
 
       {/* ── 10. FOOTER ── */}
-      <footer style={{ background: '#11141c', borderTop: '1px solid rgba(255, 255, 255, 0.1)', marginTop: '60px', padding: '45px 20px 25px' }}>
+      <footer style={{ background: '#ffffff', borderTop: '1px solid rgba(255, 255, 255, 0.1)', marginTop: '60px', padding: '45px 20px 25px' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '30px', marginBottom: '35px' }}>
           
           <div>
@@ -1700,7 +1700,7 @@ _Inquiry sent via KS Fabrication Official Website_`;
 
         </div>
 
-        <div style={{ maxWidth: '1240px', margin: '0 auto', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '0.78rem', color: '#64748b' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', paddingTop: '20px', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '0.78rem', color: '#64748b' }}>
           <div>© {new Date().getFullYear()} KS Fabrication. All Rights Reserved.</div>
           <div>Precast Concrete Moulds &amp; Solar Fencing Solutions</div>
         </div>
@@ -1711,12 +1711,12 @@ _Inquiry sent via KS Fabrication Official Website_`;
         
         {/* Floating Workshop Desk Status */}
         <div className="ks-floating-pill" style={{
-          background: '#11141c',
+          background: '#ffffff',
           border: '1px solid rgba(16, 185, 129, 0.3)',
           borderRadius: '6px',
           padding: '5px 10px',
           fontSize: '0.76rem',
-          color: '#a3a9b8',
+          color: '#475569',
           display: 'flex',
           alignItems: 'center',
           gap: '6px'

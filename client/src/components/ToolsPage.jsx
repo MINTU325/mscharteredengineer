@@ -33,11 +33,11 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
     <div 
       className="tools-page" 
       style={{ 
-        background: '#0b0d14', 
+        background: '#f8fafc', 
         minHeight: '100vh', 
         paddingTop: '20px', 
         paddingBottom: '60px', 
-        color: '#eef0f5' 
+        color: '#0f172a' 
       }}
     >
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
@@ -51,7 +51,7 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
           gap: '12px',
           padding: '12px 0 20px',
           marginBottom: '20px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
+          borderBottom: '1px solid #e2e8f0'
         }}>
           <button
             onClick={onNavigateHome}
@@ -59,11 +59,11 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#11141c',
+              background: '#ffffff',
               border: '1px solid rgba(255, 255, 255, 0.12)',
               borderRadius: '8px',
               padding: '6px 14px',
-              color: '#a3a9b8',
+              color: '#475569',
               fontSize: '0.85rem',
               fontWeight: 500,
               cursor: 'pointer',
@@ -84,16 +84,16 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
 
           {/* Breadcrumb */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
-            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#a3a9b8', textDecoration: 'none' }}>Home</a>
+            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#475569', textDecoration: 'none' }}>Home</a>
             <ChevronRight size={14} />
-            <span style={{ color: '#eef0f5', fontWeight: 500 }}>Interactive Engineering Tools</span>
+            <span style={{ color: '#0f172a', fontWeight: 500 }}>Interactive Engineering Tools</span>
           </div>
         </div>
 
         {/* Dedicated Hero Header Banner */}
         <div style={{
-          background: '#07080d',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '36px 32px',
           marginBottom: '32px',
@@ -108,7 +108,7 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               background: 'rgba(56, 189, 248, 0.1)',
               border: '1px solid rgba(56, 189, 248, 0.25)',
               borderRadius: '6px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '0.03em',
@@ -123,18 +123,18 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               fontWeight: 600,
               lineHeight: 1.18,
               marginBottom: '14px',
-              color: '#eef0f5',
+              color: '#0f172a',
               letterSpacing: '-0.02em'
             }}>
               Interactive Engineering &amp;{' '}
-              <span style={{ color: '#38bdf8' }}>
+              <span style={{ color: '#0284c7' }}>
                 Valuation Tools
               </span>
             </h1>
 
             <p style={{
               fontSize: '1.02rem',
-              color: '#a3a9b8',
+              color: '#475569',
               lineHeight: 1.65,
               marginBottom: '24px'
             }}>
@@ -153,13 +153,13 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 alignItems: 'center',
                 gap: '8px',
                 padding: '8px 12px',
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 fontSize: '0.80rem',
                 color: '#cbd5e1'
               }}>
-                <Gauge size={15} style={{ color: '#38bdf8' }} />
+                <Gauge size={15} style={{ color: '#0284c7' }} />
                 <span>Instant SLM / WDV RUL</span>
               </div>
 
@@ -168,8 +168,8 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 alignItems: 'center',
                 gap: '8px',
                 padding: '8px 12px',
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 fontSize: '0.80rem',
                 color: '#cbd5e1'
@@ -183,13 +183,13 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 alignItems: 'center',
                 gap: '8px',
                 padding: '8px 12px',
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 fontSize: '0.80rem',
                 color: '#cbd5e1'
               }}>
-                <Zap size={15} style={{ color: '#38bdf8' }} />
+                <Zap size={15} style={{ color: '#0284c7' }} />
                 <span>CEIG 2023 Matrix</span>
               </div>
 
@@ -198,8 +198,8 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 alignItems: 'center',
                 gap: '8px',
                 padding: '8px 12px',
-                background: '#11141c',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 fontSize: '0.80rem',
                 color: '#cbd5e1'
@@ -305,8 +305,8 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
 
         {/* ── Bottom Purpose Selector Prompt ── */}
         <div style={{
-          background: '#07080d',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: '12px',
           padding: '32px 28px',
           display: 'flex',
@@ -314,14 +314,14 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '20px',
-          color: '#eef0f5'
+          color: '#0f172a'
         }}>
           <div style={{ maxWidth: '640px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.78rem',
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -331,10 +331,10 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               <ShieldCheck size={14} />
               <span>Official Statutory Certification</span>
             </div>
-            <h3 style={{ fontSize: '1.25rem', color: '#eef0f5', fontWeight: 600, margin: '0 0 6px 0', lineHeight: 1.35 }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#0f172a', fontWeight: 600, margin: '0 0 6px 0', lineHeight: 1.35 }}>
               These online tools provide initial estimations. Ready for an authorized report?
             </h3>
-            <p style={{ color: '#a3a9b8', fontSize: '0.90rem', margin: 0, lineHeight: 1.55 }}>
+            <p style={{ color: '#475569', fontSize: '0.90rem', margin: 0, lineHeight: 1.55 }}>
               Get an official Chartered Engineer certificate, bank-accepted valuation report, or CEIG drawing approval attested by Corporate Member MIE of IEI.
             </p>
           </div>
@@ -358,8 +358,8 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
             <a
               href="/purpose-selector"
               style={{
-                background: '#1a1e28',
-                color: '#eef0f5',
+                background: '#f1f5f9',
+                color: '#0f172a',
                 border: '1px solid rgba(255, 255, 255, 0.16)',
                 borderRadius: '8px',
                 padding: '10px 18px',

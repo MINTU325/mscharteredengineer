@@ -34,7 +34,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
   const currentZoneData = zones.find(z => z.name === activeZone) || zones[0];
 
   return (
-    <section id="contact" style={{ background: '#0b0d14', borderTop: '1px solid rgba(255, 255, 255, 0.08)', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', padding: '36px 0' }}>
+    <section id="contact" style={{ background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', padding: '36px 0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
@@ -48,7 +48,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
               background: 'rgba(56, 189, 248, 0.1)',
               border: '1px solid rgba(56, 189, 248, 0.25)',
               borderRadius: '6px',
-              color: '#38bdf8',
+              color: '#0284c7',
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '0.03em',
@@ -59,10 +59,10 @@ export default function PanIndiaPresence({ onOpenQuote }) {
             <span>PAN-INDIA PRESENCE · JAIPUR HEADQUARTERS</span>
           </div>
 
-          <h2 style={{ color: '#eef0f5', fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 600, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
-            Nationwide Reach, <span style={{ color: '#38bdf8' }}>Local Precision</span>
+          <h2 style={{ color: '#0f172a', fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 600, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            Nationwide Reach, <span style={{ color: '#0284c7' }}>Local Precision</span>
           </h2>
-          <p style={{ color: '#a3a9b8', fontSize: '0.96rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '0.96rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
             Headquartered in Jaipur, Rajasthan (302019) with extensive chartered engineering field inspections and statutory practice across all Indian industrial corridors.
           </p>
         </div>
@@ -74,8 +74,8 @@ export default function PanIndiaPresence({ onOpenQuote }) {
         }}>
           {/* Left Column: Official Headquarters Card */}
           <div style={{
-            background: '#11141c',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#ffffff',
+            border: '1px solid #e2e8f0',
             borderRadius: '12px',
             padding: '28px 24px',
             display: 'flex',
@@ -88,19 +88,19 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                   width: '44px',
                   height: '44px',
                   borderRadius: '8px',
-                  background: '#1a1e28',
+                  background: '#f1f5f9',
                   border: '1px solid rgba(56, 189, 248, 0.25)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   flexShrink: 0
                 }}>
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.2rem', color: '#eef0f5', fontWeight: 600, margin: '0 0 2px 0' }}>
-                    KS Chartered Engineers <span style={{ fontSize: '0.80rem', color: '#38bdf8', fontWeight: 500 }}>(IIT Roorkee)</span>
+                  <h3 style={{ fontSize: '1.2rem', color: '#0f172a', fontWeight: 600, margin: '0 0 2px 0' }}>
+                    KS Chartered Engineers <span style={{ fontSize: '0.80rem', color: '#0284c7', fontWeight: 500 }}>(IIT Roorkee)</span>
                   </h3>
                   <div style={{ fontSize: '0.78rem', color: '#f59e0b', fontWeight: 600 }}>
                     Plant &amp; Asset Valuation | Jaipur Central HQ (PIN: 302019)
@@ -108,7 +108,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                 </div>
               </div>
 
-              <p style={{ color: '#a3a9b8', fontSize: '0.88rem', lineHeight: 1.6, margin: '0 0 20px 0' }}>
+              <p style={{ color: '#475569', fontSize: '0.88rem', lineHeight: 1.6, margin: '0 0 20px 0' }}>
                 Our Jaipur office coordinates on-site technical audits, statutory documentation, DGFT and customs liaisons, and bankable DPR engineering throughout Rajasthan and North India.
               </p>
 
@@ -120,8 +120,8 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                     alignItems: 'center',
                     gap: '12px',
                     padding: '10px 14px',
-                    background: '#1a1e28',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#f1f5f9',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '8px',
                     textDecoration: 'none'
                   }}
@@ -131,7 +131,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.70rem', color: '#7a8296' }}>Direct Telephone Helpline</div>
-                    <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#eef0f5' }}>+91 91586 58885</div>
+                    <div style={{ fontSize: '0.92rem', fontWeight: 600, color: '#0f172a' }}>+91 91586 58885</div>
                   </div>
                 </a>
 
@@ -142,18 +142,18 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                     alignItems: 'center',
                     gap: '12px',
                     padding: '10px 14px',
-                    background: '#1a1e28',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    background: '#f1f5f9',
+                    border: '1px solid #e2e8f0',
                     borderRadius: '8px',
                     textDecoration: 'none'
                   }}
                 >
-                  <div style={{ width: '32px', height: '32px', borderRadius: '6px', background: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#38bdf8' }}>
+                  <div style={{ width: '32px', height: '32px', borderRadius: '6px', background: 'rgba(56, 189, 248, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0284c7' }}>
                     <Mail size={15} />
                   </div>
                   <div>
                     <div style={{ fontSize: '0.70rem', color: '#7a8296' }}>Official Statutory Correspondence</div>
-                    <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#eef0f5' }}>ms.charteredengineer@gmail.com</div>
+                    <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#0f172a' }}>ms.charteredengineer@gmail.com</div>
                   </div>
                 </a>
               </div>
@@ -167,7 +167,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                 fontSize: '0.90rem',
                 fontWeight: 600,
                 background: '#F58220',
-                color: '#ffffff',
+                color: '#0f172a',
                 border: 'none',
                 borderRadius: '8px',
                 cursor: 'pointer',
@@ -184,8 +184,8 @@ export default function PanIndiaPresence({ onOpenQuote }) {
 
           {/* Right Column: Interactive Pan-India Regional Coverage */}
           <div style={{
-            background: '#11141c',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            background: '#ffffff',
+            border: '1px solid #e2e8f0',
             borderRadius: '12px',
             padding: '28px 24px',
             display: 'flex',
@@ -198,7 +198,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                   <span style={{ fontSize: '0.74rem', color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 600 }}>
                     Active Operational Corridors
                   </span>
-                  <h3 style={{ fontSize: '1.2rem', color: '#eef0f5', fontWeight: 600, margin: '2px 0 0 0' }}>
+                  <h3 style={{ fontSize: '1.2rem', color: '#0f172a', fontWeight: 600, margin: '2px 0 0 0' }}>
                     Pan-India Field Inspections
                   </h3>
                 </div>
@@ -207,7 +207,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                   padding: '3px 8px',
                   borderRadius: '4px',
                   background: 'rgba(56, 189, 248, 0.1)',
-                  color: '#38bdf8',
+                  color: '#0284c7',
                   fontWeight: 600,
                   border: '1px solid rgba(56, 189, 248, 0.25)'
                 }}>
@@ -241,12 +241,12 @@ export default function PanIndiaPresence({ onOpenQuote }) {
               {/* Selected Zone Content */}
               <div style={{
                 background: '#07080d',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                border: '1px solid #e2e8f0',
                 borderRadius: '8px',
                 padding: '16px',
                 marginBottom: '16px'
               }}>
-                <div style={{ fontSize: '0.75rem', color: '#38bdf8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+                <div style={{ fontSize: '0.75rem', color: '#0284c7', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
                   Operational Scope:
                 </div>
                 <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: 1.55, margin: '0 0 12px 0' }}>
@@ -265,14 +265,14 @@ export default function PanIndiaPresence({ onOpenQuote }) {
                         alignItems: 'center',
                         gap: '4px',
                         padding: '3px 8px',
-                        background: '#11141c',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        background: '#ffffff',
+                        border: '1px solid #e2e8f0',
                         borderRadius: '4px',
                         fontSize: '0.74rem',
                         color: '#cbd5e1'
                       }}
                     >
-                      <MapPin size={10} style={{ color: '#38bdf8' }} />
+                      <MapPin size={10} style={{ color: '#0284c7' }} />
                       <span>{city}</span>
                     </span>
                   ))}
@@ -286,7 +286,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
               alignItems: 'center',
               gap: '10px',
               padding: '10px 12px',
-              background: '#1a1e28',
+              background: '#f1f5f9',
               border: '1px solid rgba(16, 185, 129, 0.25)',
               borderRadius: '8px'
             }}>

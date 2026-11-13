@@ -7,7 +7,7 @@ import {
 const HIGHLIGHT_SERVICES = [
   {
     icon: Building2,
-    color: '#38bdf8',
+    color: '#0284c7',
     title: 'Property & Land Valuation',
     tag: 'Real Estate & Land',
     accepted: 'All Banks, Registrars & Courts',
@@ -45,7 +45,7 @@ const HIGHLIGHT_SERVICES = [
 
 export default function ServicesTeaser({ onOpenQuote }) {
   return (
-    <section id="services-preview" style={{ padding: '48px 0', background: '#07080d', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
+    <section id="services-preview" style={{ padding: '48px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
@@ -54,10 +54,10 @@ export default function ServicesTeaser({ onOpenQuote }) {
             alignItems: 'center',
             gap: '8px',
             padding: '4px 12px',
-            background: 'rgba(56, 189, 248, 0.12)',
+            background: '#eff6ff',
             border: '1px solid rgba(56, 189, 248, 0.25)',
             borderRadius: '6px',
-            color: '#38bdf8',
+            color: '#0284c7',
             fontSize: '0.78rem',
             fontWeight: 700,
             textTransform: 'uppercase',
@@ -70,15 +70,15 @@ export default function ServicesTeaser({ onOpenQuote }) {
 
           <h2 style={{
             fontSize: 'clamp(1.7rem, 3vw, 2.3rem)',
-            color: '#ffffff',
+            color: '#0f172a',
             fontWeight: 800,
             lineHeight: 1.25,
             marginBottom: '10px'
           }}>
-            Our Specialized <span style={{ color: '#38bdf8' }}>Engineering &amp; Valuation Services</span>
+            Our Specialized <span style={{ color: '#0284c7' }}>Engineering &amp; Valuation Services</span>
           </h2>
 
-          <p style={{ color: '#a3a9b8', fontSize: '0.94rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6 }}>
             Bankable valuations, statutory government certifications, and technical engineering audits delivered with 24–48 hour turnaround across Jaipur and Pan-India.
           </p>
         </div>
@@ -101,14 +101,14 @@ export default function ServicesTeaser({ onOpenQuote }) {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   padding: '22px 20px',
-                  background: '#11141c',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '8px',
                   textDecoration: 'none',
                   color: 'inherit',
                   transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
                   borderTop: `3px solid ${item.color}`,
-                  boxShadow: '0 4px 14px rgba(0, 0, 0, 0.25)'
+                  boxShadow: '0 2px 10px rgba(15, 23, 42, 0.05)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-3px)';
@@ -151,13 +151,13 @@ export default function ServicesTeaser({ onOpenQuote }) {
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.12rem', color: '#ffffff', fontWeight: 700, marginBottom: '8px', lineHeight: 1.35 }}>
+                  <h3 style={{ fontSize: '1.12rem', color: '#0f172a', fontWeight: 700, marginBottom: '8px', lineHeight: 1.35 }}>
                     {item.title}
                   </h3>
 
                   <div style={{
                     fontSize: '0.74rem',
-                    color: '#94a3b8',
+                    color: '#475569',
                     fontWeight: 600,
                     marginBottom: '10px',
                     display: 'flex',
@@ -168,7 +168,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
                     <span>{item.accepted}</span>
                   </div>
 
-                  <p style={{ fontSize: '0.85rem', color: '#a3a9b8', lineHeight: 1.55 }}>
+                  <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.55 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -193,11 +193,11 @@ export default function ServicesTeaser({ onOpenQuote }) {
         {/* Central Master CTA to Open New Dedicated Services Page */}
         <div style={{
           textAlign: 'center',
-          background: '#11141c',
-          border: '1px solid rgba(255, 255, 255, 0.08)',
+          background: '#f8fafc',
+          border: '1px solid #e2e8f0',
           borderRadius: '8px',
           padding: '24px 28px',
-          color: '#ffffff',
+          color: '#0f172a',
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
@@ -205,10 +205,10 @@ export default function ServicesTeaser({ onOpenQuote }) {
           gap: '20px'
         }}>
           <div style={{ textAlign: 'left', maxWidth: '640px' }}>
-            <h4 style={{ fontSize: '1.18rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px' }}>
+            <h4 style={{ fontSize: '1.18rem', color: '#0f172a', fontWeight: 800, marginBottom: '6px' }}>
               Explore All 15 Statutory &amp; Engineering Practice Areas
             </h4>
-            <p style={{ fontSize: '0.86rem', color: '#a3a9b8', margin: 0, lineHeight: 1.5 }}>
+            <p style={{ fontSize: '0.86rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
               Including Industrial Fabrication &amp; PEB Sheds, Electrical Substations, AutoCAD 2D Drafting, Plant &amp; Machinery, IBC/NCLT, and Industrial Safety &amp; Boilers.
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
               className="btn btn-outline"
               style={{
                 borderColor: 'rgba(255,255,255,0.18)',
-                color: '#ffffff',
+                color: '#0f172a',
                 padding: '10px 20px',
                 fontSize: '0.86rem',
                 borderRadius: '6px'
