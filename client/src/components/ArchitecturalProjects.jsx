@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
-  Eye, X, PhoneCall, Sparkles, ArrowLeft
+  Eye, X, PhoneCall, ArrowLeft, Building2, Sparkles, Phone, ArrowRight
 } from 'lucide-react';
 
 export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
@@ -16,137 +16,188 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
     {
       id: 'arch-1',
       title: 'Heritage Arched Portico & Jali Colonnade Facade',
+      category: 'Heritage & Facade',
       image: '/projects/architectural/heritage-facade-jali.webp'
     },
     {
       id: 'arch-2',
       title: 'Grand Neo-Classical Luxury Villa & Palace Residence',
+      category: 'Residential Palace',
       image: '/projects/architectural/luxury-classical-villa.webp'
     },
     {
       id: 'arch-3',
       title: 'Modern Rooftop Steel & Glass Conservatory Pavilion',
+      category: 'Glass Architecture',
       image: '/projects/architectural/glass-pavilion-terrace.webp'
     },
     {
       id: 'arch-4',
       title: 'Contemporary Minimalist Villa - Front Elevation & Screen',
+      category: 'Contemporary Minimalist',
       image: '/projects/architectural/modern-minimalist-residence-front.webp'
     },
     {
       id: 'arch-5',
       title: 'Sustainable Villa - Terracotta Jali & Solar Shading Fins',
+      category: 'Sustainable Green Design',
       image: '/projects/architectural/modern-minimalist-residence-side.webp'
     }
   ], []);
 
   return (
-    <div style={{ backgroundColor: '#f8fafc', minHeight: '100vh', color: '#1e293b' }}>
+    <div style={{ backgroundColor: '#0b0d14', minHeight: '100vh', color: '#eef0f5' }}>
       
       {/* 1. HERO HEADER */}
       <section style={{
-        background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%)',
-        color: '#ffffff',
-        padding: '50px 20px 45px',
-        position: 'relative',
-        overflow: 'hidden'
+        background: '#07080d',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+        padding: '48px 20px 40px',
+        position: 'relative'
       }}>
-        {/* Subtle background glow */}
-        <div style={{
-          position: 'absolute',
-          top: '-30%',
-          right: '-10%',
-          width: '500px',
-          height: '500px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%)',
-          pointerEvents: 'none'
-        }} />
-
-        <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: '1120px', margin: '0 auto' }}>
+          
           {/* Breadcrumb / Back button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', fontSize: '0.9rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '24px' }}>
             <button
               onClick={() => onNavigateHome ? onNavigateHome() : (window.location.href = '/')}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                color: '#e2e8f0',
+                gap: '8px',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                color: '#a3a9b8',
                 padding: '6px 14px',
                 borderRadius: '8px',
                 cursor: 'pointer',
                 fontSize: '0.85rem',
-                transition: 'all 0.2s ease'
+                fontWeight: 500,
+                transition: 'all 0.15s ease'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'; }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#eef0f5';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#a3a9b8';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+              }}
             >
-              <ArrowLeft size={16} /> Home
+              <ArrowLeft size={14} /> Back to Home
             </button>
-            <span style={{ color: 'rgba(255, 255, 255, 0.4)' }}>/</span>
-            <span style={{ color: '#93c5fd', fontWeight: 500 }}>Architectural Projects Gallery</span>
-          </div>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(59, 130, 246, 0.2)', border: '1px solid rgba(147, 197, 253, 0.3)', padding: '6px 16px', borderRadius: '50px', marginBottom: '14px' }}>
-            <Sparkles size={16} color="#fbbf24" />
-            <span style={{ fontSize: '0.82rem', color: '#e0f2fe', fontWeight: 600, letterSpacing: '0.5px' }}>
-              REAL SITE EXECUTION SHOWCASE • IIT ROORKEE CHARTERED ENGINEERS
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              background: 'rgba(56, 189, 248, 0.1)',
+              border: '1px solid rgba(56, 189, 248, 0.25)',
+              padding: '4px 10px',
+              borderRadius: '6px',
+              fontSize: '0.74rem',
+              color: '#38bdf8',
+              fontWeight: 600,
+              letterSpacing: '0.03em'
+            }}>
+              <Building2 size={13} />
+              REAL SITE EXECUTION SHOWCASE · IIT ROORKEE CHARTERED ENGINEERS
             </span>
           </div>
 
-          <h1 style={{
-            fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
-            fontWeight: 800,
-            lineHeight: 1.2,
-            marginBottom: '10px',
-            maxWidth: '900px'
-          }}>
-            Architectural &amp; Structural <span style={{ color: '#60a5fa' }}>Projects Gallery</span>
-          </h1>
+          <div style={{ maxWidth: '880px' }}>
+            <h1 style={{
+              fontSize: 'clamp(2rem, 3.5vw, 2.8rem)',
+              fontWeight: 600,
+              lineHeight: 1.18,
+              margin: '0 0 14px 0',
+              color: '#eef0f5',
+              letterSpacing: '-0.02em'
+            }}>
+              Architectural &amp; Structural <span style={{ color: '#38bdf8' }}>Projects Gallery</span>
+            </h1>
 
-          <p style={{
-            fontSize: 'clamp(0.95rem, 1.6vw, 1.05rem)',
-            color: '#cbd5e1',
-            lineHeight: 1.5,
-            maxWidth: '750px',
-            margin: 0
-          }}>
-            Real-world photographic execution across luxury residential villas, heritage jali facades, rooftop glass conservatories, and modern architecture.
-          </p>
+            <p style={{
+              fontSize: '1.02rem',
+              color: '#a3a9b8',
+              lineHeight: 1.65,
+              margin: '0 0 24px 0',
+              maxWidth: '750px'
+            }}>
+              Real-world photographic execution across luxury residential villas, heritage jali facades, rooftop glass conservatories, and modern architecture executed with precision engineering.
+            </p>
+
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => onOpenQuote ? onOpenQuote('Architectural & Structural Project Consultation') : (window.location.href = 'tel:+919158658885')}
+                style={{
+                  background: '#F58220',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  padding: '10px 20px',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+              >
+                <span>Request Project Proposal</span>
+                <ArrowRight size={15} />
+              </button>
+
+              <a
+                href="tel:+919158658885"
+                style={{
+                  background: '#11141c',
+                  color: '#eef0f5',
+                  border: '1px solid rgba(255, 255, 255, 0.16)',
+                  borderRadius: '8px',
+                  padding: '10px 18px',
+                  fontSize: '0.92rem',
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px'
+                }}
+              >
+                <Phone size={15} style={{ color: '#38bdf8' }} />
+                <span>Call +91 91586 58885</span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* 2. PHOTO GALLERY GRID (Clean Images Only) */}
-      <section style={{ maxWidth: '1200px', margin: '40px auto 60px', padding: '0 20px' }}>
+      <section style={{ maxWidth: '1120px', margin: '36px auto 60px', padding: '0 20px' }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-          gap: '24px'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+          gap: '20px'
         }}>
           {architecturalProjects.map((project) => (
             <div
               key={project.id}
               style={{
-                backgroundColor: '#0f172a',
-                borderRadius: '16px',
+                backgroundColor: '#11141c',
+                borderRadius: '12px',
                 overflow: 'hidden',
-                boxShadow: '0 6px 18px rgba(0, 0, 0, 0.08)',
                 position: 'relative',
                 height: '320px',
                 cursor: 'pointer',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                border: '1px solid #e2e8f0'
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                transition: 'border-color 0.15s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-6px)';
-                e.currentTarget.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.16)';
+                e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.4)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 6px 18px rgba(0, 0, 0, 0.08)';
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
               }}
               onClick={() => setLightboxItem(project)}
             >
@@ -158,32 +209,61 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  display: 'block',
-                  transition: 'transform 0.4s ease'
+                  display: 'block'
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.04)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
               />
 
-              {/* Tap to expand hint overlay */}
+              {/* Category chip top left */}
               <div style={{
                 position: 'absolute',
-                bottom: '14px',
-                right: '14px',
-                backgroundColor: 'rgba(15, 23, 42, 0.8)',
-                backdropFilter: 'blur(4px)',
-                color: '#ffffff',
-                padding: '6px 14px',
-                borderRadius: '8px',
-                fontSize: '0.8rem',
+                top: '12px',
+                left: '12px',
+                backgroundColor: 'rgba(7, 8, 13, 0.82)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                color: '#eef0f5',
+                padding: '4px 10px',
+                borderRadius: '6px',
+                fontSize: '0.72rem',
                 fontWeight: 600,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                pointerEvents: 'none',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.3)'
+                letterSpacing: '0.02em',
+                pointerEvents: 'none'
               }}>
-                <Eye size={15} /> Tap to expand
+                {project.category}
+              </div>
+
+              {/* Title & expand hint overlay */}
+              <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                background: 'linear-gradient(to top, rgba(7, 8, 13, 0.92) 0%, rgba(7, 8, 13, 0.4) 60%, transparent 100%)',
+                padding: '24px 16px 14px',
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'space-between',
+                gap: '12px',
+                pointerEvents: 'none'
+              }}>
+                <span style={{ fontSize: '0.86rem', color: '#eef0f5', fontWeight: 600, lineHeight: 1.35 }}>
+                  {project.title}
+                </span>
+
+                <span style={{
+                  backgroundColor: '#1a1e28',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  color: '#38bdf8',
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  flexShrink: 0
+                }}>
+                  <Eye size={13} /> View
+                </span>
               </div>
             </div>
           ))}
@@ -191,63 +271,69 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
       </section>
 
       {/* 3. CALL TO ACTION STRIP */}
-      <section style={{
-        background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-        color: '#ffffff',
-        padding: '50px 20px',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '14px' }}>
-            Need Architectural or Structural Consultancy?
-          </h2>
-          <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6, marginBottom: '28px' }}>
-            We provide EPC turnkey structural designs, architectural planning, and engineering site supervision across India.
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '14px' }}>
+      <section style={{ maxWidth: '1120px', margin: '0 auto 60px', padding: '0 20px' }}>
+        <div style={{
+          background: '#07080d',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
+          padding: '36px 28px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '24px',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <div>
+            <div style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.04em', color: '#38bdf8', fontWeight: 600, marginBottom: '6px' }}>
+              Turnkey Structural Planning &amp; Design
+            </div>
+            <h2 style={{ fontSize: '1.45rem', fontWeight: 600, color: '#eef0f5', margin: '0 0 8px 0' }}>
+              Need Architectural or Structural Consultancy?
+            </h2>
+            <p style={{ color: '#a3a9b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0, maxWidth: '640px' }}>
+              We provide EPC turnkey structural designs, architectural planning, 2D electrical drafting, and engineering site supervision across India.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
             <button
               onClick={() => onOpenQuote ? onOpenQuote('Architectural & Structural Project Consultation') : (window.location.href = 'tel:+919158658885')}
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                backgroundColor: '#2563eb',
+                background: '#F58220',
                 color: '#ffffff',
                 border: 'none',
-                padding: '12px 28px',
-                borderRadius: '10px',
-                fontWeight: 700,
-                fontSize: '1rem',
-                cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(37, 99, 235, 0.35)'
+                padding: '11px 22px',
+                borderRadius: '8px',
+                fontWeight: 600,
+                fontSize: '0.92rem',
+                cursor: 'pointer'
               }}
             >
-              Request Project Proposal
+              Request Proposal
             </button>
             <a
               href="tel:+919158658885"
               style={{
+                background: '#11141c',
+                color: '#eef0f5',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
+                borderRadius: '8px',
+                padding: '11px 20px',
+                fontWeight: 500,
+                fontSize: '0.92rem',
+                textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '8px',
-                backgroundColor: '#059669',
-                color: '#ffffff',
-                textDecoration: 'none',
-                padding: '12px 28px',
-                borderRadius: '10px',
-                fontWeight: 700,
-                fontSize: '1rem',
-                cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(5, 150, 105, 0.35)'
+                gap: '6px'
               }}
             >
-              <PhoneCall size={18} /> Call +91 91586 58885
+              <PhoneCall size={15} style={{ color: '#38bdf8' }} /> +91 91586 58885
             </a>
           </div>
         </div>
       </section>
 
-      {/* 4. LIGHTBOX MODAL (Pure Fullscreen Photo View) */}
+      {/* 4. LIGHTBOX MODAL */}
       {lightboxItem && (
         <div
           onClick={() => setLightboxItem(null)}
@@ -255,8 +341,8 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
             position: 'fixed',
             inset: 0,
             zIndex: 9999,
-            backgroundColor: 'rgba(15, 23, 42, 0.94)',
-            backdropFilter: 'blur(8px)',
+            backgroundColor: 'rgba(7, 8, 13, 0.92)',
+            backdropFilter: 'blur(6px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -266,13 +352,13 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: '#020617',
-              borderRadius: '16px',
-              maxWidth: '1000px',
+              background: '#11141c',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              borderRadius: '12px',
+              maxWidth: '960px',
               width: '100%',
               maxHeight: '92vh',
               overflow: 'hidden',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
               position: 'relative',
               display: 'flex',
               flexDirection: 'column'
@@ -283,34 +369,31 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
               onClick={() => setLightboxItem(null)}
               style={{
                 position: 'absolute',
-                top: '16px',
-                right: '16px',
+                top: '14px',
+                right: '14px',
                 zIndex: 10,
-                background: 'rgba(15, 23, 42, 0.85)',
-                color: '#ffffff',
-                border: '1px solid rgba(255, 255, 255, 0.2)',
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
+                background: '#1a1e28',
+                color: '#eef0f5',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                width: '36px',
+                height: '36px',
+                borderRadius: '6px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'background 0.2s ease'
+                cursor: 'pointer'
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = '#dc2626'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(15, 23, 42, 0.85)'; }}
             >
-              <X size={22} />
+              <X size={18} />
             </button>
 
             {/* High-Res Image Display */}
-            <div style={{ textAlign: 'center', maxHeight: '82vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#020617' }}>
+            <div style={{ textAlign: 'center', maxHeight: '80vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#07080d' }}>
               <img
                 src={lightboxItem.image}
                 alt={lightboxItem.title}
                 style={{
-                  maxHeight: '82vh',
+                  maxHeight: '80vh',
                   width: 'auto',
                   maxWidth: '100%',
                   objectFit: 'contain',
@@ -319,23 +402,28 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
               />
             </div>
 
-            {/* Simple Bottom Action Bar */}
+            {/* Bottom Action Bar */}
             <div style={{
-              padding: '12px 20px',
-              backgroundColor: '#0f172a',
+              padding: '14px 20px',
+              backgroundColor: '#11141c',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)'
             }}>
-              <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
-                KS Chartered Engineers • Architectural Showcase
-              </span>
+              <div>
+                <span style={{ color: '#eef0f5', fontSize: '0.88rem', fontWeight: 600 }}>
+                  {lightboxItem.title}
+                </span>
+                <span style={{ color: '#7a8296', fontSize: '0.8rem', marginLeft: '8px' }}>
+                  · {lightboxItem.category}
+                </span>
+              </div>
               <button
                 onClick={() => {
                   setLightboxItem(null);
                   if (onOpenQuote) {
-                    onOpenQuote('Architectural Project Consultation');
+                    onOpenQuote(`Inquiry: ${lightboxItem.title}`);
                   } else {
                     window.location.href = 'tel:+919158658885';
                   }
@@ -344,17 +432,17 @@ export default function ArchitecturalProjects({ onOpenQuote, onNavigateHome }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  padding: '8px 18px',
-                  borderRadius: '8px',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
                   border: 'none',
-                  background: '#2563eb',
+                  background: '#F58220',
                   color: '#ffffff',
                   fontWeight: 600,
-                  fontSize: '0.85rem',
+                  fontSize: '0.84rem',
                   cursor: 'pointer'
                 }}
               >
-                <PhoneCall size={14} /> Consult
+                <PhoneCall size={13} /> Consult on this Design
               </button>
             </div>
           </div>

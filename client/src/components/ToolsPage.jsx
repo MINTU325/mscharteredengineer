@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, ChevronRight, Calculator, Zap, 
-  Sparkles, ShieldCheck, PhoneCall, MessageSquare, 
+  ShieldCheck, PhoneCall, MessageSquare, 
   HelpCircle, CheckCircle2, ArrowRight, Gauge, 
   Cpu, FileCheck, Award, Layers
 } from 'lucide-react';
@@ -31,16 +31,17 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
 
   return (
     <div 
-      className="tools-page tools-page-light" 
+      className="tools-page" 
       style={{ 
-        background: 'radial-gradient(circle at 10% 8%, rgba(217, 119, 6, 0.06) 0%, transparent 40%), radial-gradient(circle at 90% 25%, rgba(180, 83, 9, 0.05) 0%, transparent 45%), linear-gradient(180deg, #F4F0E8 0%, #FAF8F5 45%, #F4F0E8 100%)', 
+        background: '#0b0d14', 
         minHeight: '100vh', 
-        paddingTop: '24px', 
-        paddingBottom: '36px', 
-        color: '#0f172a' 
+        paddingTop: '20px', 
+        paddingBottom: '60px', 
+        color: '#eef0f5' 
       }}
     >
-      <div className="container">
+      <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
+        
         {/* Top Breadcrumb & Navigation Bar */}
         <div style={{
           display: 'flex',
@@ -48,9 +49,9 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '12px',
-          padding: '16px 0',
+          padding: '12px 0 20px',
           marginBottom: '20px',
-          borderBottom: '1px solid #E8E2D8'
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}>
           <button
             onClick={onNavigateHome}
@@ -58,129 +59,107 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#ffffff',
-              border: '1px solid #E8E2D8',
-              borderRadius: '9999px',
-              padding: '8px 18px',
-              color: '#1e293b',
-              fontSize: '0.88rem',
-              fontWeight: 600,
+              background: '#11141c',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              borderRadius: '8px',
+              padding: '6px 14px',
+              color: '#a3a9b8',
+              fontSize: '0.85rem',
+              fontWeight: 500,
               cursor: 'pointer',
-              boxShadow: '0 2px 6px rgba(0, 0, 0, 0.04)',
-              transition: 'all 0.2s ease'
+              transition: 'all 0.15s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#2563eb';
-              e.currentTarget.style.color = '#1d4ed8';
-              e.currentTarget.style.transform = 'translateX(-3px)';
+              e.currentTarget.style.color = '#eef0f5';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#E8E2D8';
-              e.currentTarget.style.color = '#1e293b';
-              e.currentTarget.style.transform = 'translateX(0)';
+              e.currentTarget.style.color = '#a3a9b8';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
             }}
           >
-            <ArrowLeft size={16} />
-            <span>&larr; Back to Home</span>
+            <ArrowLeft size={14} />
+            <span>Back to Home</span>
           </button>
 
           {/* Breadcrumb */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#64748b' }}>
-            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#475569', textDecoration: 'none' }}>Home</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
+            <a href="/" onClick={(e) => { e.preventDefault(); onNavigateHome(); }} style={{ color: '#a3a9b8', textDecoration: 'none' }}>Home</a>
             <ChevronRight size={14} />
-            <span style={{ color: '#1d4ed8', fontWeight: 700 }}>Interactive Engineering Tools</span>
+            <span style={{ color: '#eef0f5', fontWeight: 500 }}>Interactive Engineering Tools</span>
           </div>
         </div>
 
-        {/* Dynamic Light Hero Header Banner */}
+        {/* Dedicated Hero Header Banner */}
         <div style={{
-          background: '#ffffff',
-          border: '1px solid #E8E2D8',
-          borderRadius: '24px',
-          padding: 'clamp(28px, 4vw, 44px) clamp(20px, 3.5vw, 40px)',
-          marginBottom: '36px',
-          position: 'relative',
-          overflow: 'hidden',
-          boxShadow: '0 12px 36px rgba(15, 23, 42, 0.05)'
+          background: '#07080d',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
+          padding: '36px 32px',
+          marginBottom: '32px',
+          position: 'relative'
         }}>
-          {/* Subtle Ambient Background Accents */}
-          <div style={{
-            position: 'absolute',
-            top: '-50px',
-            right: '-50px',
-            width: '240px',
-            height: '240px',
-            background: 'radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%)',
-            borderRadius: '50%',
-            pointerEvents: 'none'
-          }} />
-
-          <div style={{ maxWidth: '860px', position: 'relative', zIndex: 2 }}>
+          <div style={{ maxWidth: '860px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
-              padding: '6px 14px',
-              background: '#eff6ff',
-              border: '1px solid #bfdbfe',
-              borderRadius: '9999px',
-              color: '#1d4ed8',
-              fontSize: '0.80rem',
-              fontWeight: 700,
-              letterSpacing: '0.04em',
+              gap: '6px',
+              padding: '4px 10px',
+              background: 'rgba(56, 189, 248, 0.1)',
+              border: '1px solid rgba(56, 189, 248, 0.25)',
+              borderRadius: '6px',
+              color: '#38bdf8',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
               marginBottom: '16px'
             }}>
-              <Sparkles size={14} />
+              <Calculator size={13} />
               <span>STATUTORY ESTIMATORS &amp; REGULATORY ENGINES</span>
             </div>
 
             <h1 style={{
-              fontSize: 'clamp(1.85rem, 3.8vw, 2.75rem)',
-              fontWeight: 800,
-              lineHeight: 1.22,
+              fontSize: 'clamp(1.85rem, 3.5vw, 2.75rem)',
+              fontWeight: 600,
+              lineHeight: 1.18,
               marginBottom: '14px',
-              color: '#0f172a',
+              color: '#eef0f5',
               letterSpacing: '-0.02em'
             }}>
               Interactive Engineering &amp;{' '}
-              <span style={{
-                background: 'linear-gradient(135deg, #1e40af 0%, #0284c7 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
-              }}>
+              <span style={{ color: '#38bdf8' }}>
                 Valuation Tools
               </span>
             </h1>
 
             <p style={{
-              fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
-              color: '#475569',
+              fontSize: '1.02rem',
+              color: '#a3a9b8',
               lineHeight: 1.65,
-              marginBottom: '26px'
+              marginBottom: '24px'
             }}>
               Instant online calculators formulated by <strong>Er. Mukesh Singh (IIT Roorkee, Corporate Member IEI)</strong>. Estimate industrial machinery depreciation under Companies Act 2013 / IndAS 16 or evaluate statutory CEIG solar power drawing clearance requirements with live algorithmic precision.
             </p>
 
-            {/* 4 Interactive Feature Highlights */}
+            {/* 4 Feature Highlights */}
             <div style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: '12px',
-              marginBottom: '28px'
+              gap: '10px',
+              marginBottom: '26px'
             }}>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 14px',
-                background: '#FAF8F5',
-                border: '1px solid #E8E2D8',
-                borderRadius: '12px',
-                fontSize: '0.82rem',
-                color: '#1e293b',
-                fontWeight: 600
+                padding: '8px 12px',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '8px',
+                fontSize: '0.80rem',
+                color: '#cbd5e1'
               }}>
-                <Gauge size={16} color="#2563eb" />
+                <Gauge size={15} style={{ color: '#38bdf8' }} />
                 <span>Instant SLM / WDV RUL</span>
               </div>
 
@@ -188,15 +167,14 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 14px',
-                background: '#FAF8F5',
-                border: '1px solid #E8E2D8',
-                borderRadius: '12px',
-                fontSize: '0.82rem',
-                color: '#1e293b',
-                fontWeight: 600
+                padding: '8px 12px',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '8px',
+                fontSize: '0.80rem',
+                color: '#cbd5e1'
               }}>
-                <Cpu size={16} color="#d97706" />
+                <Cpu size={15} style={{ color: '#f59e0b' }} />
                 <span>Companies Act 2013</span>
               </div>
 
@@ -204,15 +182,14 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 14px',
-                background: '#FAF8F5',
-                border: '1px solid #E8E2D8',
-                borderRadius: '12px',
-                fontSize: '0.82rem',
-                color: '#1e293b',
-                fontWeight: 600
+                padding: '8px 12px',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '8px',
+                fontSize: '0.80rem',
+                color: '#cbd5e1'
               }}>
-                <Zap size={16} color="#0284c7" />
+                <Zap size={15} style={{ color: '#38bdf8' }} />
                 <span>CEIG 2023 Matrix</span>
               </div>
 
@@ -220,15 +197,14 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 display: 'flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 14px',
-                background: '#FAF8F5',
-                border: '1px solid #E8E2D8',
-                borderRadius: '12px',
-                fontSize: '0.82rem',
-                color: '#1e293b',
-                fontWeight: 600
+                padding: '8px 12px',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '8px',
+                fontSize: '0.80rem',
+                color: '#cbd5e1'
               }}>
-                <Award size={16} color="#15803d" />
+                <Award size={15} style={{ color: '#10b981' }} />
                 <span>IIT Roorkee Attested</span>
               </div>
             </div>
@@ -237,27 +213,26 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
             <div style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '10px'
+              gap: '8px'
             }}>
               <button
                 onClick={() => setActiveTab('all')}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
-                  fontSize: '0.88rem',
-                  fontWeight: 700,
+                  gap: '6px',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  fontSize: '0.85rem',
+                  fontWeight: activeTab === 'all' ? 600 : 500,
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  background: activeTab === 'all' ? 'linear-gradient(135deg, #1e40af, #2563eb)' : '#ffffff',
-                  border: `1px solid ${activeTab === 'all' ? '#1d4ed8' : '#E8E2D8'}`,
-                  color: activeTab === 'all' ? '#ffffff' : '#334155',
-                  boxShadow: activeTab === 'all' ? '0 4px 14px rgba(37, 99, 235, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.03)'
+                  transition: 'all 0.15s ease',
+                  background: activeTab === 'all' ? '#38bdf8' : '#11141c',
+                  border: `1px solid ${activeTab === 'all' ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
+                  color: activeTab === 'all' ? '#07080d' : '#a3a9b8'
                 }}
               >
-                <Layers size={16} />
+                <Layers size={14} />
                 <span>All Tools (2)</span>
               </button>
 
@@ -270,20 +245,19 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
-                  fontSize: '0.88rem',
-                  fontWeight: 700,
+                  gap: '6px',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  fontSize: '0.85rem',
+                  fontWeight: activeTab === 'calculator' ? 600 : 500,
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  background: activeTab === 'calculator' ? 'linear-gradient(135deg, #1e40af, #2563eb)' : '#ffffff',
-                  border: `1px solid ${activeTab === 'calculator' ? '#1d4ed8' : '#E8E2D8'}`,
-                  color: activeTab === 'calculator' ? '#ffffff' : '#334155',
-                  boxShadow: activeTab === 'calculator' ? '0 4px 14px rgba(37, 99, 235, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.03)'
+                  transition: 'all 0.15s ease',
+                  background: activeTab === 'calculator' ? '#38bdf8' : '#11141c',
+                  border: `1px solid ${activeTab === 'calculator' ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
+                  color: activeTab === 'calculator' ? '#07080d' : '#a3a9b8'
                 }}
               >
-                <Calculator size={16} color={activeTab === 'calculator' ? '#fbbf24' : '#d97706'} />
+                <Calculator size={14} />
                 <span>1. Machinery Valuation Calculator</span>
               </button>
 
@@ -296,93 +270,111 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 20px',
-                  borderRadius: '9999px',
-                  fontSize: '0.88rem',
-                  fontWeight: 700,
+                  gap: '6px',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  fontSize: '0.85rem',
+                  fontWeight: activeTab === 'solar' ? 600 : 500,
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  background: activeTab === 'solar' ? 'linear-gradient(135deg, #1e40af, #2563eb)' : '#ffffff',
-                  border: `1px solid ${activeTab === 'solar' ? '#1d4ed8' : '#E8E2D8'}`,
-                  color: activeTab === 'solar' ? '#ffffff' : '#334155',
-                  boxShadow: activeTab === 'solar' ? '0 4px 14px rgba(37, 99, 235, 0.3)' : '0 2px 4px rgba(0, 0, 0, 0.03)'
+                  transition: 'all 0.15s ease',
+                  background: activeTab === 'solar' ? '#38bdf8' : '#11141c',
+                  border: `1px solid ${activeTab === 'solar' ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
+                  color: activeTab === 'solar' ? '#07080d' : '#a3a9b8'
                 }}
               >
-                <Zap size={16} color={activeTab === 'solar' ? '#ffffff' : '#0284c7'} />
+                <Zap size={14} />
                 <span>2. CEIG Solar Compliance Checker</span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* ── Tool 1: Plant & Machinery Valuation Calculator (Light Mode) ── */}
+        {/* ── Tool 1: Plant & Machinery Valuation Calculator (Dark Mode) ── */}
         {(activeTab === 'all' || activeTab === 'calculator') && (
-          <div style={{ marginBottom: '40px' }}>
-            <ValuationCalculator onOpenQuote={onOpenQuote} lightMode={true} />
+          <div style={{ marginBottom: '32px' }}>
+            <ValuationCalculator onOpenQuote={onOpenQuote} lightMode={false} />
           </div>
         )}
 
-        {/* ── Tool 2: CEIG Solar Compliance Checker (Light Mode) ── */}
+        {/* ── Tool 2: CEIG Solar Compliance Checker (Dark Mode) ── */}
         {(activeTab === 'all' || activeTab === 'solar') && (
-          <div style={{ marginBottom: '40px' }}>
-            <ComplianceChecker onOpenQuote={onOpenQuote} lightMode={true} />
+          <div style={{ marginBottom: '32px' }}>
+            <ComplianceChecker onOpenQuote={onOpenQuote} lightMode={false} />
           </div>
         )}
 
-        {/* ── Bottom Purpose Selector Prompt (Modern Slate/Blue Banner) ── */}
+        {/* ── Bottom Purpose Selector Prompt ── */}
         <div style={{
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)',
-          borderRadius: '20px',
-          padding: 'clamp(24px, 3.5vw, 36px) clamp(20px, 3vw, 32px)',
+          background: '#07080d',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
+          padding: '32px 28px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '20px',
-          boxShadow: '0 12px 32px rgba(15, 23, 42, 0.15)',
-          color: '#ffffff'
+          color: '#eef0f5'
         }}>
           <div style={{ maxWidth: '640px' }}>
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              color: '#fbbf24',
+              color: '#38bdf8',
               fontSize: '0.78rem',
-              fontWeight: 700,
+              fontWeight: 600,
               textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              marginBottom: '8px'
+              letterSpacing: '0.04em',
+              marginBottom: '6px'
             }}>
               <ShieldCheck size={14} />
-              <span>Need Official Statutory Certification?</span>
+              <span>Official Statutory Certification</span>
             </div>
-            <h3 style={{ fontSize: '1.28rem', color: '#ffffff', fontWeight: 800, marginBottom: '6px', lineHeight: 1.35 }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#eef0f5', fontWeight: 600, margin: '0 0 6px 0', lineHeight: 1.35 }}>
               These online tools provide initial estimations. Ready for an authorized report?
             </h3>
-            <p style={{ color: '#cbd5e1', fontSize: '0.90rem', margin: 0, lineHeight: 1.55 }}>
+            <p style={{ color: '#a3a9b8', fontSize: '0.90rem', margin: 0, lineHeight: 1.55 }}>
               Get an official Chartered Engineer certificate, bank-accepted valuation report, or CEIG drawing approval attested by Corporate Member MIE of IEI.
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <button
               onClick={() => onOpenQuote('Tools Inquiry')}
-              className="btn btn-gold"
-              style={{ padding: '12px 24px', fontSize: '0.92rem', borderRadius: '12px' }}
+              style={{
+                background: '#F58220',
+                color: '#ffffff',
+                border: 'none',
+                borderRadius: '8px',
+                padding: '10px 20px',
+                fontSize: '0.92rem',
+                fontWeight: 600,
+                cursor: 'pointer'
+              }}
             >
               Request Formal Valuation &rarr;
             </button>
             <a
               href="/purpose-selector"
-              className="btn btn-outline"
-              style={{ padding: '12px 22px', fontSize: '0.92rem', borderColor: 'rgba(255, 255, 255, 0.25)', color: '#ffffff', borderRadius: '12px' }}
+              style={{
+                background: '#1a1e28',
+                color: '#eef0f5',
+                border: '1px solid rgba(255, 255, 255, 0.16)',
+                borderRadius: '8px',
+                padding: '10px 18px',
+                fontSize: '0.92rem',
+                fontWeight: 500,
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center'
+              }}
             >
               Purpose Selector
             </a>
           </div>
         </div>
+
       </div>
     </div>
   );

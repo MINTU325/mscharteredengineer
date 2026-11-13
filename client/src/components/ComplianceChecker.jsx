@@ -138,7 +138,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
               background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.12)',
               border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.35)'}`,
               color: lightMode ? '#1d4ed8' : '#fbbf24',
-              borderRadius: '9999px',
+              borderRadius: '6px',
               padding: '5px 14px',
               fontSize: '0.80rem',
               fontWeight: 700,
@@ -186,7 +186,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
           marginBottom: '26px'
         }}>
           <span style={{ fontSize: '0.80rem', fontWeight: 700, color: lightMode ? '#64748b' : '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em', marginRight: '4px' }}>
-            ⚡ Solar Presets:
+            Solar Presets:
           </span>
           {SOLAR_PRESETS.map((p, idx) => (
             <button
@@ -198,7 +198,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
                 alignItems: 'center',
                 gap: '6px',
                 padding: '6px 14px',
-                borderRadius: '9999px',
+                borderRadius: '6px',
                 fontSize: '0.80rem',
                 fontWeight: 600,
                 cursor: 'pointer',
@@ -335,7 +335,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
                         padding: '3px 10px',
                         fontSize: '0.72rem',
                         fontWeight: 700,
-                        borderRadius: '9999px',
+                        borderRadius: '6px',
                         background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.15)',
                         border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.35)'}`,
                         color: lightMode ? '#1d4ed8' : '#fbbf24',
@@ -363,7 +363,7 @@ export default function ComplianceChecker({ onOpenQuote, lightMode = false }) {
                   background: lightMode ? '#fffbeb' : 'rgba(245, 158, 11, 0.15)',
                   border: `1px solid ${lightMode ? '#fde68a' : 'rgba(245, 158, 11, 0.35)'}`,
                   padding: '7px 14px',
-                  borderRadius: '9999px',
+                  borderRadius: '6px',
                   fontSize: '0.82rem',
                   color: lightMode ? '#b45309' : '#fbbf24',
                   fontWeight: 700

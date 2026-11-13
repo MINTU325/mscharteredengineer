@@ -148,7 +148,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
               background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.12)',
               border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.35)'}`,
               color: lightMode ? '#1d4ed8' : '#fbbf24',
-              borderRadius: '9999px',
+              borderRadius: '6px',
               padding: '5px 14px',
               fontSize: '0.80rem',
               fontWeight: 700,
@@ -196,7 +196,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
           marginBottom: '26px'
         }}>
           <span style={{ fontSize: '0.80rem', fontWeight: 700, color: lightMode ? '#64748b' : '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em', marginRight: '4px' }}>
-            ⚡ Quick Presets:
+            Quick Presets:
           </span>
           {PRESETS.map((p, idx) => (
             <button
@@ -208,7 +208,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                 alignItems: 'center',
                 gap: '6px',
                 padding: '6px 14px',
-                borderRadius: '9999px',
+                borderRadius: '6px',
                 fontSize: '0.80rem',
                 fontWeight: 600,
                 cursor: 'pointer',
@@ -417,7 +417,7 @@ export default function ValuationCalculator({ onOpenQuote, lightMode = false }) 
                   padding: '4px 12px',
                   background: lightMode ? '#eff6ff' : 'rgba(245, 158, 11, 0.15)',
                   border: `1px solid ${lightMode ? '#bfdbfe' : 'rgba(245, 158, 11, 0.3)'}`,
-                  borderRadius: '9999px',
+                  borderRadius: '6px',
                   fontSize: '0.76rem',
                   color: lightMode ? '#1d4ed8' : '#fbbf24',
                   fontWeight: 700

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, CheckCircle, Shield, FileCheck, Scale, Landmark, Building, Zap, Flame, ShieldAlert } from 'lucide-react';
+import { Award, CheckCircle2, Shield, FileCheck, Scale, Landmark, Building, Zap, ShieldAlert, Check } from 'lucide-react';
 
 export default function Credentials() {
   const recognizedEntities = [
@@ -14,33 +14,35 @@ export default function Credentials() {
   ];
 
   return (
-    <section id="credentials" className="section" style={{ background: '#FAF8F5', borderTop: '1px solid #E8E2D8', borderBottom: '1px solid #E8E2D8', padding: '30px 0' }}>
-      <div className="container">
-        <div className="section-header" style={{ marginBottom: '16px', textAlign: 'center' }}>
+    <section id="credentials" style={{ background: '#0b0d14', borderTop: '1px solid rgba(255, 255, 255, 0.08)', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', padding: '36px 0' }}>
+      <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
+        
+        {/* Section Header */}
+        <div style={{ marginBottom: '24px', textAlign: 'center' }}>
           <div 
-            className="section-badge"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              padding: '4px 12px',
-              background: '#FFFBEB',
-              border: '1px solid #FDE68A',
-              borderRadius: '9999px',
-              color: '#B45309',
-              fontSize: '0.78rem',
-              fontWeight: 700,
-              letterSpacing: '0.04em',
-              marginBottom: '6px'
+              padding: '4px 10px',
+              background: 'rgba(56, 189, 248, 0.1)',
+              border: '1px solid rgba(56, 189, 248, 0.25)',
+              borderRadius: '6px',
+              color: '#38bdf8',
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '0.03em',
+              marginBottom: '10px'
             }}
           >
-            <Award size={14} />
-            <span>RECOGNITION | TRUST | PROFESSIONAL EXCELLENCE</span>
+            <Award size={13} />
+            <span>ACCREDITATION &amp; STATUTORY VALIDITY</span>
           </div>
-          <h2 className="section-title" style={{ color: '#0F172A', fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', fontWeight: 800, marginTop: '2px', marginBottom: '6px' }}>
-            Our <span style={{ color: '#B45309' }}>Statutory Credentials</span>
+
+          <h2 style={{ color: '#eef0f5', fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 600, margin: '0 0 10px 0', letterSpacing: '-0.02em' }}>
+            Our Statutory <span style={{ color: '#38bdf8' }}>Credentials</span>
           </h2>
-          <p className="section-description" style={{ color: '#475569', fontSize: '0.94rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.55 }}>
+          <p style={{ color: '#a3a9b8', fontSize: '0.96rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.6 }}>
             Certified engineering expertise backed by the <strong>Institution of Engineers (India)</strong>, BEE, CEIG, and registered statutory authorities.
           </p>
         </div>
@@ -48,13 +50,12 @@ export default function Credentials() {
         {/* Credential Seal Card */}
         <div 
           style={{
-            maxWidth: '1000px',
-            margin: '0 auto 20px auto',
-            background: '#FFFFFF',
-            border: '1px solid #E8E2D8',
-            borderRadius: '20px',
-            padding: 'clamp(20px, 3vw, 28px)',
-            boxShadow: '0 8px 24px rgba(15, 23, 42, 0.04)'
+            maxWidth: '1080px',
+            margin: '0 auto 28px auto',
+            background: '#11141c',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '12px',
+            padding: '32px 28px'
           }}
         >
           <div style={{
@@ -66,70 +67,69 @@ export default function Credentials() {
             {/* Seal / Badge Graphic */}
             <div style={{ textAlign: 'center', position: 'relative' }}>
               <div style={{
-                width: '180px',
-                height: '180px',
+                width: '170px',
+                height: '170px',
                 margin: '0 auto',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, rgba(217, 119, 6, 0.04) 70%)',
-                border: '3px dashed #D97706',
+                background: '#1a1e28',
+                border: '2px solid rgba(56, 189, 248, 0.35)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative'
+                justifyContent: 'center'
               }}>
-                <Shield size={44} color="#D97706" style={{ marginBottom: '6px' }} />
-                <div style={{ fontSize: '0.85rem', fontWeight: 900, color: '#0F172A', letterSpacing: '0.05em' }}>
+                <Shield size={38} style={{ color: '#38bdf8', marginBottom: '6px' }} />
+                <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#eef0f5', letterSpacing: '0.04em' }}>
                   CHARTERED
                 </div>
-                <div style={{ fontSize: '0.74rem', color: '#B45309', fontWeight: 800 }}>
+                <div style={{ fontSize: '0.72rem', color: '#38bdf8', fontWeight: 600 }}>
                   ENGINEER (INDIA)
                 </div>
-                <div style={{ fontSize: '0.66rem', color: '#64748b', marginTop: '4px', fontWeight: 600 }}>
-                  IEI MECHANICAL
+                <div style={{ fontSize: '0.68rem', color: '#7a8296', marginTop: '3px', fontWeight: 500 }}>
+                  IEI MECHANICAL · MIE
                 </div>
               </div>
-              <div style={{ marginTop: '16px', fontSize: '0.94rem', color: '#0F172A', fontWeight: 700 }}>
+              <div style={{ marginTop: '14px', fontSize: '0.92rem', color: '#eef0f5', fontWeight: 600 }}>
                 Corporate Member of IEI (India)
               </div>
-              <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
+              <div style={{ fontSize: '0.76rem', color: '#7a8296', marginTop: '2px' }}>
                 Established under Royal Charter 1935
               </div>
             </div>
 
             {/* Credential Points */}
             <div>
-              <h3 style={{ fontSize: '1.35rem', color: '#0F172A', fontWeight: 800, marginBottom: '12px' }}>
+              <h3 style={{ fontSize: '1.3rem', color: '#eef0f5', fontWeight: 600, margin: '0 0 10px 0' }}>
                 Nationally Recognized Authority
               </h3>
-              <p style={{ color: '#475569', fontSize: '0.94rem', marginBottom: '20px', lineHeight: 1.6 }}>
-                &ldquo;Certified engineering expertise backed by the Institution of Engineers (India). Our certifications and statutory audit reports are officially accepted across government ministries, DISCOMs, customs hubs, and banking consortiums.&rdquo;
+              <p style={{ color: '#a3a9b8', fontSize: '0.92rem', margin: '0 0 20px 0', lineHeight: 1.6 }}>
+                Certified engineering expertise backed by the Institution of Engineers (India). Our certifications and statutory audit reports are officially accepted across government ministries, DISCOMs, customs hubs, and banking consortiums.
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '12px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={18} color="#15803d" />
-                  <span style={{ fontSize: '0.88rem', color: '#1E293B', fontWeight: 600 }}>Chartered Engineer (India) — IEI</span>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Chartered Engineer (India) — IEI</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={18} color="#15803d" />
-                  <span style={{ fontSize: '0.88rem', color: '#1E293B', fontWeight: 600 }}>Chartered Electrical Safety Engineer (CESE)</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Chartered Electrical Safety Engineer (CESE)</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={18} color="#15803d" />
-                  <span style={{ fontSize: '0.88rem', color: '#1E293B', fontWeight: 600 }}>Certified Energy Manager — BEE</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Certified Energy Manager — BEE</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={18} color="#15803d" />
-                  <span style={{ fontSize: '0.88rem', color: '#1E293B', fontWeight: 600 }}>Competent Person — Factories &amp; Boilers</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>Competent Person — Factories &amp; Boilers</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={18} color="#15803d" />
-                  <span style={{ fontSize: '0.88rem', color: '#1E293B', fontWeight: 600 }}>NSCI / NSAT Authorized Safety Auditor</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>NSCI / NSAT Authorized Safety Auditor</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <CheckCircle size={18} color="#15803d" />
-                  <span style={{ fontSize: '0.88rem', color: '#1E293B', fontWeight: 600 }}>B.Tech Mechanical, IIT Roorkee</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Check size={15} style={{ color: '#10b981', flexShrink: 0 }} />
+                  <span style={{ fontSize: '0.85rem', color: '#cbd5e1', fontWeight: 500 }}>B.Tech Mechanical, IIT Roorkee</span>
                 </div>
               </div>
             </div>
@@ -137,8 +137,8 @@ export default function Credentials() {
         </div>
 
         {/* Accepted Authorities Grid */}
-        <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <h4 style={{ fontSize: '0.90rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 800 }}>
+        <div style={{ textAlign: 'center', marginBottom: '18px' }}>
+          <h4 style={{ fontSize: '0.80rem', color: '#7a8296', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600, margin: 0 }}>
             Statutory Acceptance &amp; Regulatory Validity
           </h4>
         </div>
@@ -146,46 +146,51 @@ export default function Credentials() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '16px'
+          gap: '14px'
         }}>
           {recognizedEntities.map((entity, idx) => (
             <div 
               key={idx} 
               style={{
-                background: '#FFFFFF',
-                border: '1px solid #E8E2D8',
-                borderRadius: '16px',
-                padding: '20px',
-                boxShadow: '0 2px 8px rgba(15, 23, 42, 0.03)',
-                transition: 'all 0.2s ease'
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '8px',
+                padding: '16px',
+                transition: 'border-color 0.15s ease'
               }}
+              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)'}
+              onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'}
             >
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <div style={{
-                  background: '#EFF6FF',
-                  border: '1px solid #BFDBFE',
-                  borderRadius: '10px',
-                  padding: '10px',
-                  color: '#1D4ED8',
-                  flexShrink: 0
+                  background: '#1a1e28',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                  borderRadius: '6px',
+                  padding: '8px',
+                  color: '#38bdf8',
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}>
-                  {idx === 0 && <Landmark size={22} />}
-                  {idx === 1 && <FileCheck size={22} />}
-                  {idx === 2 && <Shield size={22} />}
-                  {idx === 3 && <Zap size={22} />}
-                  {idx === 4 && <ShieldAlert size={22} />}
-                  {idx === 5 && <Building size={22} />}
-                  {idx === 6 && <Award size={22} />}
-                  {idx === 7 && <Scale size={22} />}
+                  {idx === 0 && <Landmark size={18} />}
+                  {idx === 1 && <FileCheck size={18} />}
+                  {idx === 2 && <Shield size={18} />}
+                  {idx === 3 && <Zap size={18} />}
+                  {idx === 4 && <ShieldAlert size={18} />}
+                  {idx === 5 && <Building size={18} />}
+                  {idx === 6 && <Award size={18} />}
+                  {idx === 7 && <Scale size={18} />}
                 </div>
                 <div>
-                  <h5 style={{ fontSize: '0.96rem', color: '#0F172A', fontWeight: 700, marginBottom: '4px' }}>{entity.name}</h5>
-                  <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.5, margin: 0 }}>{entity.desc}</p>
+                  <h5 style={{ fontSize: '0.90rem', color: '#eef0f5', fontWeight: 600, margin: '0 0 4px 0' }}>{entity.name}</h5>
+                  <p style={{ fontSize: '0.80rem', color: '#a3a9b8', lineHeight: 1.5, margin: 0 }}>{entity.desc}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
