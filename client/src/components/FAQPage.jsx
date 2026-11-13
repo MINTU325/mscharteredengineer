@@ -27,20 +27,16 @@ function parseInlineLinks(text) {
           key={`lnk-${match.index}`}
           href={linkHref}
           style={{
-            color: '#1d4ed8',
-            fontWeight: isBoldLink ? 700 : 600,
-            textDecoration: 'underline',
-            textUnderlineOffset: '3px',
-            transition: 'color 0.2s',
+            color: '#38bdf8', fontWeight: isBoldLink ? 700 : 600, textDecoration: 'underline', textUnderlineOffset: '3px', transition: 'color 0.2s',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#b45309')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = '#1d4ed8')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#f59e0b')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#38bdf8')}
         >
           {linkText}
         </a>
       );
     } else if (normalBold !== undefined) {
-      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#0f172a' }}>{normalBold}</strong>);
+      parts.push(<strong key={`bld-${match.index}`} style={{ color: '#f8fafc' }}>{normalBold}</strong>);
     }
     lastIndex = regex.lastIndex;
   }
@@ -80,8 +76,8 @@ Statutory authorities including the **[Directorate General of Foreign Trade (DGF
   {
     id: 'ce-03',
     category: 'chartered-engineer',
-    question: 'How fast can KS Chartered Engineers issue a Chartered Engineer Certificate in Jaipur?',
-    answer: `At **[KS Chartered Engineers in Jaipur](/)**, we provide expedited turnaround within **24 to 48 hours** for standard **[DGFT Appendix 4K Certificates](/chartered-engineer)**, customs machinery valuations, and EPCG certifications upon receiving the complete technical documentation and bill of materials (BOM). Emergency customs clearance services are also supported across Jaipur, Rajasthan, and nationwide.`
+    question: 'How fast can MS Chartered Engineers issue a Chartered Engineer Certificate in Jaipur?',
+    answer: `At **[MS Chartered Engineers in Jaipur](/)**, we provide expedited turnaround within **24 to 48 hours** for standard **[DGFT Appendix 4K Certificates](/chartered-engineer)**, customs machinery valuations, and EPCG certifications upon receiving the complete technical documentation and bill of materials (BOM). Emergency customs clearance services are also supported across Jaipur, Rajasthan, and nationwide.`
   },
   {
     id: 'ce-04',
@@ -106,7 +102,7 @@ Led by **[Mukesh Singh, IIT Roorkee Alumni](/founder)**, our valuation reports a
     id: 'val-prop-01',
     category: 'valuation',
     question: 'How is Property & Land Valuation conducted in Jaipur for Residential, Commercial & Industrial Assets?',
-    answer: `At **[KS Chartered Engineers in Jaipur](/property-valuation)**, property valuation is conducted through physical site inspection and dual assessment:
+    answer: `At **[MS Chartered Engineers in Jaipur](/property-valuation)**, property valuation is conducted through physical site inspection and dual assessment:
 1. **DLC / Circle Rate Benchmark:** Verified against the latest Rajasthan Sub-Registrar / IGRS portal rates.
 2. **Fair Market Value (FMV):** Evaluated using the Sales Comparison (Direct Market) Approach, CPWD Plinth Area construction rates, and local registry transaction history across Jaipur (Mansarovar, Vaishali Nagar, Jagatpura, Sitapura, Malviya Nagar, RIICO zones).
 3. **Statutory Acceptance:** Our reports adhere to IBBI valuation standards and are accepted by commercial banks, tax authorities, and civil courts across Rajasthan.`
@@ -117,7 +113,7 @@ Led by **[Mukesh Singh, IIT Roorkee Alumni](/founder)**, our valuation reports a
     question: 'What is Capital Gains Tax Valuation under Section 50C and Fair Market Value as on 01-04-2001?',
     answer: `When selling property acquired before April 1, 2001, taxpayers can substitute the original purchase cost with the **[Fair Market Value as on 01-04-2001](/tax-valuation)** (capped at stamp duty / circle rate) for indexation benefit under Section 55(2)(b).
 
-Additionally, under **Section 50C / 43CA / 56(2)(x)** of the Income Tax Act 1961, if the registered consideration is lower than the circle rate, a Government Registered Valuer report provides admissible technical evidence before the Assessing Officer (AO), CIT(Appeals), or ITAT. Contact **[KS Chartered Engineers](/tax-valuation)** for Section 50C defense reports.`
+Additionally, under **Section 50C / 43CA / 56(2)(x)** of the Income Tax Act 1961, if the registered consideration is lower than the circle rate, a Government Registered Valuer report provides admissible technical evidence before the Assessing Officer (AO), CIT(Appeals), or ITAT. Contact **[MS Chartered Engineers](/tax-valuation)** for Section 50C defense reports.`
   },
   {
     id: 'val-bank-01',
@@ -132,7 +128,7 @@ Banks and NBFCs require both FMV and FSV for loan-to-value (LTV) underwriting, L
   {
     id: 'ce-proc-01',
     category: 'chartered-engineer',
-    question: 'What is the 8-Step Valuation and Chartered Engineer certification process at KS Chartered Engineers?',
+    question: 'What is the 8-Step Valuation and Chartered Engineer certification process at MS Chartered Engineers?',
     answer: `Our transparent **[8-Step Valuation Process](/process)** ensures complete auditability and quick delivery:
 1. **Purpose Assessment & Scrutiny** (15 mins)
 2. **Document Completeness Review** (Title deed, sanctioned map, BOM, purchase invoice)
@@ -189,13 +185,13 @@ Our dedicated **[FSSAI Compliance Services](/fssai)** team handles new applicati
     id: 'fssai-02',
     category: 'fssai',
     question: 'Can you handle FSSAI license suspension revocation and annual return filings?',
-    answer: `Yes, our regulatory team at **[KS Chartered Engineers](/fssai)** assists food businesses in preparing statutory responses, corrective action reports (CAPA), hygiene audits, and filing appeals before the Designated Officer (DO) / Central Licensing Authority to revoke suspended FSSAI licenses.`
+    answer: `Yes, our regulatory team at **[MS Chartered Engineers](/fssai)** assists food businesses in preparing statutory responses, corrective action reports (CAPA), hygiene audits, and filing appeals before the Designated Officer (DO) / Central Licensing Authority to revoke suspended FSSAI licenses.`
   },
   {
     id: 'gen-01',
     category: 'chartered-engineer',
-    question: 'Can KS Chartered Engineers serve clients located outside Jaipur, Rajasthan?',
-    answer: `Yes, absolutely. **[KS Chartered Engineers](/)** has an established **[Pan-India Practice](/credentials)** with 15+ years of operational experience. We regularly serve corporate, banking, industrial, and exporter clients across Delhi-NCR, Mumbai, Ahmedabad, Bengaluru, Chennai, Hyderabad, and Kolkata for **[Chartered Engineer Certification](/chartered-engineer)** and **[Machinery Valuation](/valuation)**.`
+    question: 'Can MS Chartered Engineers serve clients located outside Jaipur, Rajasthan?',
+    answer: `Yes, absolutely. **[MS Chartered Engineers](/)** has an established **[Pan-India Practice](/credentials)** with 15+ years of operational experience. We regularly serve corporate, banking, industrial, and exporter clients across Delhi-NCR, Mumbai, Ahmedabad, Bengaluru, Chennai, Hyderabad, and Kolkata for **[Chartered Engineer Certification](/chartered-engineer)** and **[Machinery Valuation](/valuation)**.`
   }
 ];
 
@@ -240,7 +236,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
   }, [activeCategory, searchQuery]);
 
   return (
-    <div id="faq" style={{ background: '#f8fafc', color: '#334155', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
+    <div id="faq" style={{ background: '#0b0d14', color: '#eef0f5', minHeight: '100vh', paddingTop: '100px', paddingBottom: '80px' }}>
       {/* Schema.org FAQPage structured data */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
@@ -267,27 +263,26 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
               alignItems: 'center',
               gap: '8px',
               padding: '8px 16px',
-              background: '#ffffff',
-              border: '1px solid #cbd5e1',
+              background: '#11141c',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
               borderRadius: '8px',
-              color: '#1d4ed8',
+              color: '#38bdf8',
               fontSize: '0.88rem',
               fontWeight: 600,
               cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
               transition: 'all 0.2s ease'
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#1d4ed8'; e.currentTarget.style.background = '#eff6ff'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#ffffff'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)'; e.currentTarget.style.background = '#1a1e28'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'; e.currentTarget.style.background = '#11141c'; }}
           >
             <ArrowLeft size={16} />
             <span>&larr; Back to Homepage</span>
           </button>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#64748b' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: '#7a8296' }}>
             <span>Home</span>
             <span>&gt;</span>
-            <span style={{ color: '#0f172a', fontWeight: 600 }}>Frequently Asked Questions</span>
+            <span style={{ color: '#eef0f5', fontWeight: 600 }}>Frequently Asked Questions</span>
           </div>
         </div>
 
@@ -298,26 +293,25 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             alignItems: 'center',
             gap: '8px',
             padding: '6px 14px',
-            background: '#eff6ff',
-            border: '1px solid #bfdbfe',
-            borderRadius: '999px',
-            color: '#1d4ed8',
+            background: 'rgba(56, 189, 248, 0.08)',
+            border: '1px solid rgba(56, 189, 248, 0.25)',
+            borderRadius: '6px',
+            color: '#38bdf8',
             fontSize: '0.82rem',
             fontWeight: 700,
             textTransform: 'uppercase',
             letterSpacing: '0.05em',
-            marginBottom: '16px',
-            boxShadow: '0 2px 6px rgba(37, 99, 235, 0.08)'
+            marginBottom: '16px'
           }}>
             <HelpCircle size={15} />
             <span>Statutory Knowledge &amp; Regulatory Help Desk</span>
           </div>
 
-          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#0f172a', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px' }}>
-            Frequently Asked <span style={{ background: 'linear-gradient(135deg, #1e40af 0%, #0284c7 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Questions</span>
+          <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#ffffff', fontWeight: 800, lineHeight: 1.2, marginBottom: '16px' }}>
+            Frequently Asked <span style={{ color: '#38bdf8' }}>Questions</span>
           </h1>
 
-          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#475569', marginBottom: '28px' }}>
+          <p style={{ fontSize: '1.05rem', lineHeight: 1.6, color: '#a3a9b8', marginBottom: '28px' }}>
             Authoritative answers on <strong>Chartered Engineer certification</strong>, <strong>DGFT Advance Authorisation</strong>, <strong>Bank Plant &amp; Machinery Valuation</strong>, <strong>CEIG Solar approvals</strong>, and <strong>FSSAI statutory compliance</strong> in Jaipur &amp; Pan-India.
           </p>
 
@@ -327,7 +321,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             maxWidth: '560px',
             margin: '0 auto',
           }}>
-            <Search size={20} color="#1d4ed8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
+            <Search size={18} color="#38bdf8" style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)' }} />
             <input
               type="text"
               value={searchQuery}
@@ -336,17 +330,16 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
               style={{
                 width: '100%',
                 padding: '14px 16px 14px 48px',
-                background: '#ffffff',
-                border: '1px solid #cbd5e1',
-                borderRadius: '12px',
-                color: '#0f172a',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '8px',
+                color: '#eef0f5',
                 fontSize: '0.95rem',
                 outline: 'none',
-                boxShadow: '0 4px 16px rgba(15, 23, 42, 0.06)',
-                transition: 'border-color 0.2s, box-shadow 0.2s'
+                transition: 'border-color 0.2s'
               }}
-              onFocus={(e) => { e.currentTarget.style.borderColor = '#1d4ed8'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(29, 78, 216, 0.15)'; }}
-              onBlur={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.06)'; }}
+              onFocus={(e) => { e.currentTarget.style.borderColor = '#38bdf8'; }}
+              onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)'; }}
             />
             {searchQuery && (
               <button
@@ -358,7 +351,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   transform: 'translateY(-50%)',
                   background: 'transparent',
                   border: 'none',
-                  color: '#64748b',
+                  color: '#a3a9b8',
                   fontSize: '0.8rem',
                   cursor: 'pointer',
                   fontWeight: 600
@@ -389,19 +382,18 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  padding: '9px 18px',
-                  borderRadius: '30px',
-                  background: isSelected ? '#1e40af' : '#ffffff',
-                  border: `1px solid ${isSelected ? '#1e40af' : '#e2e8f0'}`,
-                  color: isSelected ? '#ffffff' : '#475569',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  background: isSelected ? '#38bdf8' : '#11141c',
+                  border: `1px solid ${isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
+                  color: isSelected ? '#07080d' : '#a3a9b8',
                   fontWeight: isSelected ? 700 : 500,
                   fontSize: '0.86rem',
                   cursor: 'pointer',
-                  boxShadow: isSelected ? '0 2px 8px rgba(30, 64, 175, 0.25)' : '0 1px 3px rgba(0,0,0,0.04)',
                   transition: 'all 0.2s ease'
                 }}
               >
-                <Icon size={15} color={isSelected ? '#ffffff' : '#1d4ed8'} />
+                <Icon size={15} color={isSelected ? '#07080d' : '#38bdf8'} />
                 <span>{cat.label}</span>
               </button>
             );
@@ -416,20 +408,20 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           maxWidth: '860px',
           margin: '0 auto 16px auto',
           fontSize: '0.86rem',
-          color: '#64748b'
+          color: '#7a8296'
         }}>
-          <span>Showing <strong style={{ color: '#0f172a' }}>{filteredFaqs.length}</strong> statutory questions</span>
+          <span>Showing <strong style={{ color: '#ffffff' }}>{filteredFaqs.length}</strong> statutory questions</span>
           <div style={{ display: 'flex', gap: '12px' }}>
             <button
               onClick={expandAll}
-              style={{ background: 'transparent', border: 'none', color: '#1d4ed8', cursor: 'pointer', fontWeight: 600, fontSize: '0.82rem' }}
+              style={{ background: 'transparent', border: 'none', color: '#38bdf8', cursor: 'pointer', fontWeight: 600, fontSize: '0.82rem' }}
             >
               Expand All
             </button>
-            <span>|</span>
+            <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
             <button
               onClick={collapseAll}
-              style={{ background: 'transparent', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: '0.82rem' }}
+              style={{ background: 'transparent', border: 'none', color: '#a3a9b8', cursor: 'pointer', fontSize: '0.82rem' }}
             >
               Collapse All
             </button>
@@ -439,23 +431,22 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
         {/* FAQ Accordion List */}
         <div style={{ maxWidth: '860px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {filteredFaqs.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '60px 20px', background: '#ffffff', borderRadius: '12px', border: '1px dashed #cbd5e1', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+            <div style={{ textAlign: 'center', padding: '60px 20px', background: '#11141c', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.12)' }}>
               <HelpCircle size={40} color="#f59e0b" style={{ margin: '0 auto 16px auto' }} />
-              <h3 style={{ color: '#0f172a', marginBottom: '8px' }}>No exact matching questions found</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '20px' }}>
+              <h3 style={{ color: '#ffffff', marginBottom: '8px' }}>No exact matching questions found</h3>
+              <p style={{ color: '#a3a9b8', fontSize: '0.9rem', marginBottom: '20px' }}>
                 Need specific guidance on your compliance case? Speak directly with our Chartered Engineer team.
               </p>
               <button
                 onClick={() => onOpenQuote('Chartered Engineer Services')}
                 style={{
                   padding: '10px 20px',
-                  background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                  background: '#F58220',
                   border: 'none',
                   borderRadius: '8px',
-                  color: '#000000',
+                  color: '#ffffff',
                   fontWeight: 700,
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(245, 158, 11, 0.25)'
+                  cursor: 'pointer'
                 }}
               >
                 Ask Our Chartered Engineers Directly
@@ -468,12 +459,11 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 <div
                   key={faq.id}
                   style={{
-                    background: '#ffffff',
-                    border: `1px solid ${isOpen ? '#93c5fd' : '#e2e8f0'}`,
-                    borderRadius: '12px',
+                    background: '#11141c',
+                    border: `1px solid ${isOpen ? 'rgba(56, 189, 248, 0.35)' : 'rgba(255, 255, 255, 0.08)'}`,
+                    borderRadius: '8px',
                     overflow: 'hidden',
-                    transition: 'all 0.25s ease',
-                    boxShadow: isOpen ? '0 8px 24px rgba(37, 99, 235, 0.08)' : '0 2px 6px rgba(15, 23, 42, 0.04)'
+                    transition: 'border-color 0.2s ease'
                   }}
                 >
                   <button
@@ -486,12 +476,12 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                       alignItems: 'center',
                       justifyContent: 'space-between',
                       gap: '16px',
-                      background: isOpen ? '#f8fafc' : '#ffffff',
+                      background: isOpen ? '#141824' : '#11141c',
                       border: 'none',
-                      color: isOpen ? '#1e40af' : '#0f172a',
+                      color: isOpen ? '#38bdf8' : '#eef0f5',
                       textAlign: 'left',
-                      fontSize: '1rem',
-                      fontWeight: 700,
+                      fontSize: '0.98rem',
+                      fontWeight: 600,
                       cursor: 'pointer',
                       transition: 'background 0.2s ease, color 0.2s ease'
                     }}
@@ -501,56 +491,56 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                         display: 'inline-flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        width: '28px',
-                        height: '28px',
-                        borderRadius: '50%',
-                        background: isOpen ? '#1e40af' : '#f1f5f9',
-                        color: isOpen ? '#ffffff' : '#64748b',
-                        fontSize: '0.8rem',
-                        fontWeight: 800,
+                        width: '26px',
+                        height: '26px',
+                        borderRadius: '4px',
+                        background: isOpen ? 'rgba(56, 189, 248, 0.15)' : '#1a1e28',
+                        color: isOpen ? '#38bdf8' : '#7a8296',
+                        fontSize: '0.78rem',
+                        fontWeight: 700,
                         flexShrink: 0
                       }}>
                         {index + 1}
                       </span>
-                      <span style={{ color: isOpen ? '#1e40af' : '#0f172a' }}>{faq.question}</span>
+                      <span style={{ color: isOpen ? '#38bdf8' : '#eef0f5' }}>{faq.question}</span>
                     </span>
 
                     <span style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      width: '32px',
-                      height: '32px',
-                      borderRadius: '8px',
-                      background: isOpen ? '#eff6ff' : '#f8fafc',
-                      color: isOpen ? '#1e40af' : '#64748b',
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '6px',
+                      background: isOpen ? 'rgba(56, 189, 248, 0.12)' : '#1a1e28',
+                      color: isOpen ? '#38bdf8' : '#7a8296',
                       flexShrink: 0
                     }}>
-                      {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                      {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </span>
                   </button>
 
                   {isOpen && (
                     <div style={{
-                      padding: '16px 22px 22px 62px',
+                      padding: '16px 22px 22px 58px',
                       fontSize: '0.94rem',
                       lineHeight: 1.75,
-                      color: '#334155',
-                      borderTop: '1px solid #e2e8f0',
-                      background: '#ffffff'
+                      color: '#cbd5e1',
+                      borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                      background: '#0c0f17'
                     }}>
                       {faq.answer.split('\n\n').map((paragraph, pIdx) => (
                         <p key={pIdx} style={{ marginBottom: pIdx === faq.answer.split('\n\n').length - 1 ? 0 : '12px' }}>
                           {paragraph.split('\n').map((line, lIdx) => {
                             if (line.startsWith('* ') || line.startsWith('1. ') || line.startsWith('2. ') || line.startsWith('3. ') || line.startsWith('4. ')) {
                               return (
-                                <span key={lIdx} style={{ display: 'block', paddingLeft: '8px', margin: '6px 0', color: '#334155' }}>
+                                <span key={lIdx} style={{ display: 'block', paddingLeft: '8px', margin: '6px 0', color: '#cbd5e1' }}>
                                   {parseInlineLinks(line)}
                                 </span>
                               );
                             }
                             return (
-                              <span key={lIdx} style={{ display: 'block', color: '#334155' }}>
+                              <span key={lIdx} style={{ display: 'block', color: '#cbd5e1' }}>
                                 {parseInlineLinks(line)}
                               </span>
                             );
@@ -570,17 +560,16 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
           maxWidth: '860px',
           margin: '50px auto 0 auto',
           padding: '38px',
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)',
-          border: '1px solid #3b82f6',
-          borderRadius: '16px',
-          textAlign: 'center',
-          boxShadow: '0 14px 36px rgba(15, 23, 42, 0.16)'
+          background: '#0e121b',
+          border: '1px solid rgba(56, 189, 248, 0.25)',
+          borderRadius: '12px',
+          textAlign: 'center'
         }}>
-          <h3 style={{ fontSize: '1.45rem', color: '#ffffff', fontWeight: 800, marginBottom: '10px' }}>
+          <h3 style={{ fontSize: '1.45rem', color: '#ffffff', fontWeight: 700, marginBottom: '10px' }}>
             Still Have a Statutory or Technical Question?
           </h3>
-          <p style={{ color: '#cbd5e1', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
-            Our corporate team led by <strong>Mukesh Singh, Chartered Engineer (India) MIE</strong>, is available for direct consultation regarding DGFT, Customs, Banking Valuation, and CEIG approvals.
+          <p style={{ color: '#a3a9b8', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
+            Our corporate team led by <strong style={{ color: '#ffffff' }}>Mukesh Singh, Chartered Engineer (India) MIE</strong>, is available for direct consultation regarding DGFT, Customs, Banking Valuation, and CEIG approvals.
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
@@ -591,15 +580,17 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '12px 24px',
-                background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                background: '#F58220',
                 border: 'none',
                 borderRadius: '8px',
-                color: '#000000',
-                fontWeight: 700,
+                color: '#ffffff',
+                fontWeight: 600,
                 fontSize: '0.92rem',
                 cursor: 'pointer',
-                boxShadow: '0 4px 14px rgba(245, 158, 11, 0.3)'
+                transition: 'background 0.2s'
               }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = '#e07316'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = '#F58220'; }}
             >
               <FileCheck2 size={18} />
               <span>Request Formal Quotation</span>
@@ -618,7 +609,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 border: 'none',
                 borderRadius: '8px',
                 color: '#ffffff',
-                fontWeight: 700,
+                fontWeight: 600,
                 fontSize: '0.92rem',
                 textDecoration: 'none'
               }}
@@ -634,10 +625,10 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '12px 24px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
+                background: '#1a1e28',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
                 borderRadius: '8px',
-                color: '#ffffff',
+                color: '#eef0f5',
                 fontWeight: 600,
                 fontSize: '0.92rem',
                 textDecoration: 'none'
