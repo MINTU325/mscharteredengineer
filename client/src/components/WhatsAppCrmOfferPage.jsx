@@ -143,15 +143,15 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
   };
 
   return (
-    <div style={{ background: '#070d18', color: '#f1f5f9', minHeight: '100vh', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif', lineHeight: '1.6' }}>
+    <div style={{ background: '#0b0d14', color: '#eef0f5', minHeight: '100vh', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif', lineHeight: '1.6' }}>
 
       {/* ─── HUMANIZED CLEAN TOPBAR ─── */}
       <header style={{
         position: 'sticky',
         top: 0,
         zIndex: 100,
-        background: '#0a1222',
-        borderBottom: '1px solid #1e293b',
+        background: '#07080d',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
         padding: '12px 20px'
       }}>
         <div style={{ maxWidth: '1140px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
@@ -176,7 +176,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
                 SumanTech <span style={{ color: '#10b981' }}>WhatsApp CRM</span>
               </div>
               <div style={{ fontSize: '11px', color: '#94a3b8' }}>
-                Windows Desktop Edition • By KS Chartered Engineers
+                Windows Desktop Edition • By MS Chartered Engineers
               </div>
             </div>
           </div>
@@ -230,11 +230,11 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            background: 'rgba(16, 185, 129, 0.1)',
-            border: '1px solid rgba(16, 185, 129, 0.3)',
+            background: 'rgba(16, 185, 129, 0.08)',
+            border: '1px solid rgba(16, 185, 129, 0.25)',
             padding: '5px 14px',
-            borderRadius: '20px',
-            color: '#34d399',
+            borderRadius: '6px',
+            color: '#10b981',
             fontSize: '12px',
             fontWeight: '600',
             marginBottom: '18px'
@@ -267,8 +267,8 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '16px',
-            background: '#0f172a',
-            border: '1px solid #1e293b',
+            background: '#11141c',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
             borderRadius: '12px',
             padding: '12px 24px',
             flexWrap: 'wrap',
@@ -295,9 +295,9 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
         {/* ─── ACTUAL SCREENSHOTS SHOWCASE (REAL SOFTWARE PREVIEW) ─── */}
         <div style={{
-          background: '#0b1329',
-          border: '1px solid #1e293b',
-          borderRadius: '16px',
+          background: '#11141c',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '12px',
           padding: '24px',
           marginBottom: '50px'
         }}>
@@ -328,9 +328,8 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 style={{
-                  background: activeTab === tab.id ? '#10b981' : '#1e293b',
+                  background: activeTab === tab.id ? '#10b981' : '#1a1e28', border: activeTab === tab.id ? '1px solid #10b981' : '1px solid rgba(255, 255, 255, 0.08)',
                   color: activeTab === tab.id ? '#ffffff' : '#94a3b8',
-                  border: 'none',
                   borderRadius: '6px',
                   padding: '8px 14px',
                   fontSize: '12px',
@@ -349,15 +348,15 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
           {/* Screenshot Display Card */}
           <div style={{
-            background: '#020617',
-            border: '1px solid #1e293b',
-            borderRadius: '12px',
+            background: '#07080d',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '8px',
             overflow: 'hidden'
           }}>
             {/* Topbar of the frame */}
             <div style={{
-              background: '#0f172a',
-              borderBottom: '1px solid #1e293b',
+              background: '#0e121b',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
               padding: '10px 16px',
               display: 'flex',
               alignItems: 'center',
@@ -386,7 +385,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
             </div>
 
             {/* Feature List under image */}
-            <div style={{ background: '#0f172a', padding: '16px 20px', borderTop: '1px solid #1e293b' }}>
+            <div style={{ background: '#0e121b', padding: '16px 20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
               <div style={{ fontSize: '13px', color: '#cbd5e1', fontWeight: '600', marginBottom: '8px' }}>
                 {screenshots[activeTab].subtitle}
               </div>
@@ -409,28 +408,28 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
           </h3>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
-            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '18px' }}>
               <div style={{ color: '#38bdf8', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 1: Download &amp; Test</div>
               <div style={{ fontSize: '13px', color: '#94a3b8' }}>
                 Neeche diye gaye link se ZIP file download karein aur apne computer me unzip karein.
               </div>
             </div>
 
-            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '18px' }}>
               <div style={{ color: '#10b981', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 2: 15 Free Trial Msgs</div>
               <div style={{ fontSize: '13px', color: '#94a3b8' }}>
                 <code>START-APP.bat</code> chala kar pehle 15 messages free me test karke dekh lijiye ki software perfectly chal raha hai.
               </div>
             </div>
 
-            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '18px' }}>
               <div style={{ color: '#f59e0b', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 3: ₹100 Pay Karein</div>
               <div style={{ fontSize: '13px', color: '#94a3b8' }}>
                 Neeche diye gaye PhonePe/SBI QR code ko scan karke ₹100 pay kijiye.
               </div>
             </div>
 
-            <div style={{ background: '#0f172a', border: '1px solid #1e293b', borderRadius: '10px', padding: '18px' }}>
+            <div style={{ background: '#11141c', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '8px', padding: '18px' }}>
               <div style={{ color: '#c084fc', fontWeight: '800', fontSize: '14px', marginBottom: '6px' }}>Step 4: Screenshot Bhejein</div>
               <div style={{ fontSize: '13px', color: '#94a3b8' }}>
                 Payment ka screenshot WhatsApp (+91 93515 39420) par bhejein — aapko turant Lifetime Unlimited Activation Key mil jayegi.
@@ -449,9 +448,9 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
           {/* LEFT: PHONEPE SBI BARCODE (CLEAN, WHITE CARD, 100% READABLE) */}
           <div style={{
-            background: '#0f172a',
-            border: '2px solid #10b981',
-            borderRadius: '16px',
+            background: '#11141c',
+            border: '1px solid rgba(16, 185, 129, 0.35)',
+            borderRadius: '12px',
             padding: '24px',
             textAlign: 'center'
           }}>
@@ -478,11 +477,10 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
             {/* Crisp QR Code Container */}
             <div style={{
               display: 'inline-block',
-              background: '#000000',
+              background: '#07080d',
               padding: '10px',
-              borderRadius: '16px',
-              border: '1px solid #334155',
-              boxShadow: '0 12px 32px rgba(0, 0, 0, 0.6)',
+              borderRadius: '8px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
               marginBottom: '16px',
               maxWidth: '280px',
               width: '100%'
@@ -501,9 +499,9 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
             {/* UPI ID Details */}
             <div style={{
-              background: '#070d18',
-              border: '1px solid #1e293b',
-              borderRadius: '8px',
+              background: '#1a1e28',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '6px',
               padding: '10px 14px',
               display: 'flex',
               alignItems: 'center',
@@ -569,9 +567,9 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
           {/* RIGHT: DOWNLOAD & 3-SHARE UNLOCK */}
           <div style={{
-            background: '#0f172a',
-            border: '1px solid #1e293b',
-            borderRadius: '16px',
+            background: '#11141c',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '12px',
             padding: '24px',
             display: 'flex',
             flexDirection: 'column',
@@ -623,7 +621,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
               {/* 3-Share Referral Box */}
               <div style={{
-                borderTop: '1px solid #1e293b',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                 paddingTop: '16px'
               }}>
                 <div style={{ fontSize: '12px', fontWeight: '700', color: '#ffffff', marginBottom: '6px' }}>
@@ -638,7 +636,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
                   <span style={{ color: sharesCount >= shareTarget ? '#10b981' : '#f59e0b' }}>{sharesCount} / {shareTarget} Shared</span>
                 </div>
 
-                <div style={{ height: '6px', background: '#1e293b', borderRadius: '3px', overflow: 'hidden', marginBottom: '12px' }}>
+                <div style={{ height: '6px', background: '#1a1e28', borderRadius: '3px', overflow: 'hidden', marginBottom: '12px' }}>
                   <div style={{ height: '100%', width: `${Math.min((sharesCount / shareTarget) * 100, 100)}%`, background: '#10b981' }} />
                 </div>
 
@@ -646,9 +644,9 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
                   onClick={handleShareOnWhatsApp}
                   style={{
                     width: '100%',
-                    background: '#1e293b',
-                    color: '#e2e8f0',
-                    border: '1px solid #334155',
+                    background: '#1a1e28',
+                    color: '#eef0f5',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderRadius: '6px',
                     padding: '8px',
                     fontSize: '12px',
@@ -672,8 +670,8 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
         {/* ─── REAL HUMAN COMPANY BACKING & CONTACT INFO ─── */}
         <div style={{
-          background: '#0f172a',
-          border: '1px solid #1e293b',
+          background: '#11141c',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
           borderRadius: '12px',
           padding: '24px',
           display: 'flex',
@@ -687,7 +685,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
               Developed &amp; Supported by SumanTech Solutions
             </div>
             <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '2px' }}>
-              In technical collaboration with KS Chartered Engineers &amp; Valuers (IIT Roorkee alumni led practice).
+              In technical collaboration with MS Chartered Engineers &amp; Valuers (IIT Roorkee alumni led practice).
             </div>
             <div style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
               Head Office: Jaipur, Rajasthan · Serving Clients Pan-India
@@ -722,7 +720,7 @@ export default function WhatsAppCrmOfferPage({ onNavigateHome }) {
 
       {/* ─── CLEAN FOOTER ─── */}
       <footer style={{
-        borderTop: '1px solid #1e293b',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
         background: '#040914',
         padding: '24px 20px',
         textAlign: 'center',
