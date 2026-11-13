@@ -103,7 +103,7 @@ export default function AdminDashboard({ onClose, onLogout }) {
   };
 
   return (
-    <section className="section" style={{ minHeight: '85vh', background: 'var(--bg-dark)' }}>
+    <section className="section" style={{ minHeight: '85vh', background: '#0b0d14' }}>
       <div className="container">
         {/* Header bar */}
         <div style={{
@@ -123,7 +123,7 @@ export default function AdminDashboard({ onClose, onLogout }) {
               Inquiry & <span className="gold-gradient-text">Lead Control Center</span>
             </h1>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-muted)' }}>
-              KS Chartered Engineers, Valuers & Technical Services — Jaipur HQ
+              MS Chartered Engineers, Valuers & Technical Services — Jaipur HQ
             </p>
           </div>
 
@@ -270,7 +270,7 @@ export default function AdminDashboard({ onClose, onLogout }) {
                           alignItems: 'center',
                           gap: '5px'
                         }}>
-                          ⭐ Stamped Valuation Report Lead
+                          Stamped Valuation Report Lead
                         </span>
                       )}
                     </div>

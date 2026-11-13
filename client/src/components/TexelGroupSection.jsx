@@ -82,14 +82,14 @@ export default function TexelGroupSection({ onOpenQuote }) {
     <section 
       id="ks-group" 
       className="texel-section"
-      aria-label="Welcome to KS Group - Our Services & Technology"
+      aria-label="Welcome to MS Group - Our Services & Technology"
     >
       <div className="texel-container">
         
         {/* Top Header & Intro Block */}
         <div className="texel-header">
           <h2 className="texel-main-title">
-            Welcome to KS Group
+            Welcome to MS Group
           </h2>
 
           {/* Green Divider Bar */}
@@ -120,11 +120,10 @@ export default function TexelGroupSection({ onOpenQuote }) {
           {/* Dual Category Tabs */}
           <div style={{
             display: 'inline-flex',
-            background: '#FFFFFF',
-            border: '1px solid #E8E2D8',
-            borderRadius: '9999px',
+            background: '#11141c',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
+            borderRadius: '8px',
             padding: '4px',
-            boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
             marginTop: '12px'
           }}>
             <button
@@ -134,10 +133,10 @@ export default function TexelGroupSection({ onOpenQuote }) {
                 alignItems: 'center',
                 gap: '6px',
                 padding: '8px 18px',
-                borderRadius: '9999px',
-                border: 'none',
-                background: activeTab === 'engineering' ? '#10B981' : 'transparent',
-                color: activeTab === 'engineering' ? '#FFFFFF' : '#475569',
+                borderRadius: '6px',
+                border: activeTab === 'engineering' ? '1px solid #38bdf8' : 'none',
+                background: activeTab === 'engineering' ? '#38bdf8' : 'transparent',
+                color: activeTab === 'engineering' ? '#07080d' : '#a3a9b8',
                 fontWeight: 700,
                 fontSize: '0.84rem',
                 cursor: 'pointer',
@@ -155,10 +154,10 @@ export default function TexelGroupSection({ onOpenQuote }) {
                 alignItems: 'center',
                 gap: '6px',
                 padding: '8px 18px',
-                borderRadius: '9999px',
-                border: 'none',
-                background: activeTab === 'tech' ? '#10B981' : 'transparent',
-                color: activeTab === 'tech' ? '#FFFFFF' : '#475569',
+                borderRadius: '6px',
+                border: activeTab === 'tech' ? '1px solid #38bdf8' : 'none',
+                background: activeTab === 'tech' ? '#38bdf8' : 'transparent',
+                color: activeTab === 'tech' ? '#07080d' : '#a3a9b8',
                 fontWeight: 700,
                 fontSize: '0.84rem',
                 cursor: 'pointer',
@@ -225,22 +224,21 @@ export default function TexelGroupSection({ onOpenQuote }) {
               alignItems: 'center',
               gap: '8px',
               padding: '10px 22px',
-              background: '#FFFFFF',
-              border: '1.5px solid #10B981',
-              borderRadius: '9999px',
-              color: '#047857',
+              background: '#11141c',
+              border: '1px solid rgba(56, 189, 248, 0.3)',
+              borderRadius: '8px',
+              color: '#38bdf8',
               fontSize: '0.88rem',
-              fontWeight: 700,
-              boxShadow: '0 4px 12px rgba(16, 185, 129, 0.12)',
+              fontWeight: 600,
               transition: 'all 0.22s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#10B981';
-              e.currentTarget.style.color = '#FFFFFF';
+              e.currentTarget.style.background = '#1a1e28';
+              e.currentTarget.style.borderColor = '#38bdf8';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#FFFFFF';
-              e.currentTarget.style.color = '#047857';
+              e.currentTarget.style.background = '#11141c';
+              e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)';
             }}
           >
             <span>Explore Our Full IT, Android Apps &amp; Products Division</span>

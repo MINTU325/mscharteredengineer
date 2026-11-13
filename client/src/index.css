@@ -3045,9 +3045,9 @@ body > .skiptranslate:not(#google_translate_element) {
    ══════════════════════════════════════════════════════════════════ */
 .texel-section {
   padding: 44px 0 52px 0;
-  background-color: #FAF8F5;
-  border-top: 1px solid #E8E2D8;
-  border-bottom: 1px solid #E8E2D8;
+  background-color: #0b0d14;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
@@ -3066,10 +3066,10 @@ body > .skiptranslate:not(#google_translate_element) {
 }
 
 .texel-main-title {
-  font-family: 'Merriweather', 'Georgia', 'Outfit', serif;
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(1.9rem, 4.2vw, 2.7rem);
   font-weight: 800;
-  color: #0F172A;
+  color: #ffffff;
   letter-spacing: -0.01em;
   line-height: 1.25;
   margin-bottom: 4px;
@@ -3087,7 +3087,7 @@ body > .skiptranslate:not(#google_translate_element) {
 .texel-divider-line {
   flex: 1;
   height: 1px;
-  background: #CBD5E1;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .texel-divider-bar {
@@ -3098,7 +3098,7 @@ body > .skiptranslate:not(#google_translate_element) {
 }
 
 .texel-description {
-  color: #334155;
+  color: #a3a9b8;
   font-size: clamp(0.96rem, 1.8vw, 1.06rem);
   line-height: 1.65;
   max-width: 680px;
@@ -3116,7 +3116,7 @@ body > .skiptranslate:not(#google_translate_element) {
   font-family: var(--font-heading);
   font-size: clamp(1.35rem, 3.2vw, 1.85rem);
   font-weight: 800;
-  color: #0F172A;
+  color: #ffffff;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 4px;
@@ -3134,22 +3134,19 @@ body > .skiptranslate:not(#google_translate_element) {
   display: flex;
   align-items: center;
   gap: 18px;
-  background: #FFFFFF;
-  border: 1px solid #E8E2D8;
-  border-radius: 14px;
+  background: #11141c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
   padding: 16px 20px;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
   cursor: pointer;
-  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.2s ease, background 0.2s ease;
   position: relative;
   text-align: left;
 }
 
 .texel-dept-card:hover {
-  border-color: #10B981;
-  background: #F0FDF4;
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.14), 0 2px 6px rgba(15, 23, 42, 0.04);
-  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.35);
+  background: #141824;
 }
 
 .texel-badge-wrapper {
@@ -3195,8 +3192,8 @@ body > .skiptranslate:not(#google_translate_element) {
 .texel-dept-title {
   font-family: var(--font-heading);
   font-size: clamp(0.98rem, 2.1vw, 1.15rem);
-  font-weight: 800;
-  color: #0F172A;
+  font-weight: 700;
+  color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   line-height: 1.35;
@@ -3204,12 +3201,12 @@ body > .skiptranslate:not(#google_translate_element) {
 }
 
 .texel-dept-card:hover .texel-dept-title {
-  color: #059669;
+  color: #38bdf8;
 }
 
 .texel-dept-desc {
   font-size: 0.84rem;
-  color: #64748B;
+  color: #a3a9b8;
   line-height: 1.45;
   margin: 0;
 }
@@ -3218,7 +3215,7 @@ body > .skiptranslate:not(#google_translate_element) {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #059669;
+  color: #38bdf8;
   font-weight: 700;
   font-size: 0.84rem;
   opacity: 0;
