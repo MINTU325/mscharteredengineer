@@ -1113,75 +1113,7 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                   {highlightText(service.title, searchQuery)}
                 </h3>
 
-                {/* 3 Green Checkmark Highlights (matching Shree Kalyan layout) */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '9px',
-                    width: '100%',
-                    maxWidth: '235px',
-                    margin: '0 auto 24px',
-                    textAlign: 'left',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.86rem', color: '#cbd5e1' }}>
-                    <div
-                      style={{
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        background: 'rgba(16, 185, 129, 0.2)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#10b981',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Check size={12} strokeWidth={3} />
-                    </div>
-                    <span>Engineering Consultancy</span>
-                  </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.86rem', color: '#cbd5e1' }}>
-                    <div
-                      style={{
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        background: 'rgba(16, 185, 129, 0.2)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#10b981',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Check size={12} strokeWidth={3} />
-                    </div>
-                    <span>Technical Documentation</span>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.86rem', color: '#cbd5e1' }}>
-                    <div
-                      style={{
-                        width: '18px',
-                        height: '18px',
-                        borderRadius: '50%',
-                        background: 'rgba(16, 185, 129, 0.2)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: '#10b981',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Check size={12} strokeWidth={3} />
-                    </div>
-                    <span>Regulatory Support</span>
-                  </div>
-                </div>
 
                 {/* Card Action Links: Learn More -> and Request Quote */}
                 <div style={{ width: '100%', marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>

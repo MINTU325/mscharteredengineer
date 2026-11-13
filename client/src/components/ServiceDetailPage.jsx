@@ -756,17 +756,7 @@ export default function ServiceDetailPage({
           </>
         )}
 
-        {/* Section 8: Why Choose KS Chartered Engineers (Stats Grid) */}
-        <h2 className="ske-section-h2">Why Choose KS Chartered Engineers</h2>
-        <div className="ske-stats-grid">
-          {(service.stats || []).map((s, i) => (
-            <div key={i} className="ske-stat-card">
-              <div>{renderIcon(s.icon, 22, '#f5b81b')}</div>
-              <div className="number">{s.number}</div>
-              <div className="label">{s.label}</div>
-            </div>
-          ))}
-        </div>
+
 
         {/* Section 9: Frequently Asked Questions */}
         {service.faqs && service.faqs.length > 0 && (
