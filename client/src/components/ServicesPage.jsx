@@ -13,7 +13,7 @@ const SERVICE_HIGHLIGHT_STATS = [
   { color: '#38bdf8', value: 'Jaipur HQ', label: 'Pan-India Jurisdiction' },
 ];
 
-export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute = '/services' }) {
+export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateService, currentRoute = '/services' }) {
   // Ensure the page scrolls to top on navigation, or to the specific service card if applicable
   useEffect(() => {
     if (currentRoute === '/services' || currentRoute === '/services/') {
@@ -285,7 +285,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, currentRoute
         </div>
 
         {/* ── Main Services Grid (All 15 Practice Areas) ── */}
-        <ServicesGrid onOpenQuote={onOpenQuote} />
+        <ServicesGrid onOpenQuote={onOpenQuote} onNavigateService={onNavigateService} />
 
         {/* ── Bottom Purpose Helper Banner ── */}
         <div style={{

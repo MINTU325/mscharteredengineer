@@ -201,7 +201,18 @@ if (fs.existsSync(clientDist)) {
   app.get('*', (req, res, next) => {
     if (req.url.startsWith('/api')) return next();
     const cleanPath = req.path.replace(/\/$/, '') || '/';
-    const meta = ROUTE_META[cleanPath];
+    let meta = ROUTE_META[cleanPath];
+    if (!meta && cleanPath.startsWith('/services/')) {
+      const slug = cleanPath.replace('/services/', '').replace(/\/$/, '');
+      const titleWords = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+      meta = {
+        title: `${titleWords} | KS Chartered Engineers (IIT Roorkee)`,
+        description: `Certified ${titleWords} by senior Chartered Engineers (IIT Roorkee alumni). 100% statutory acceptance across banks, government authorities & courts. Call +91 91586 58885.`,
+        keywords: `${titleWords}, Chartered Engineer, statutory clearance, Rajasthan, Jaipur, Pan-India`,
+        canonical: `https://www.mscharteredengineer.com${cleanPath}`,
+        ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+      };
+    }
 
     if (fs.existsSync(path.join(clientDist, 'index.html'))) {
       fs.readFile(path.join(clientDist, 'index.html'), 'utf8', (err, html) => {

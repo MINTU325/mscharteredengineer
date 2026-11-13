@@ -650,10 +650,50 @@ const CATEGORIES = [
   'Regulatory & Compliance',
 ];
 
-export default function ServicesGrid({ onOpenQuote }) {
+const CATEGORY_BADGES = {
+  'property-land-valuation': 'VALUATION & APPRAISAL',
+  'bank-mortgage-valuation': 'BANKING & FINANCE',
+  'statutory-tax-valuation': 'TAX & COMPLIANCE',
+  'ibc-nclt-corporate-valuation': 'IBC & NCLT VALUATION',
+  'chartered-engineer-certification': 'CERTIFICATION',
+  'plant-machinery-valuation': 'VALUATION & APPRAISAL',
+  'construction-cost-verification': 'PROJECT AUDIT',
+  'property-inspection-due-diligence': 'DUE DILIGENCE',
+  'jda-local-authority-services': 'REGULATORY SUPPORT',
+  'special-purpose-valuation': 'LEGAL & VISA',
+  'safety-energy-audits': 'AUDIT & COMPLIANCE',
+  'fssai-compliance-services': 'REGULATORY SUPPORT',
+  'autocad-electrical-drafting': 'ENGINEERING SERVICES',
+  'third-party-audit-inspection': 'TESTING & INSPECTION',
+  'fabrication-services': 'ENGINEERING SERVICES',
+  'ceig-approval-consultancy': 'AUDIT & COMPLIANCE',
+  'electrical-contractor-license': 'LICENSING & ADVISORY',
+  'ht-consumer-grievance': 'UTILITY ADVISORY',
+  'fire-safety-audit': 'AUDIT & COMPLIANCE',
+  'power-quality-analysis': 'TESTING & INSPECTION',
+  'plant-capacity-certificate': 'CERTIFICATION',
+  'solar-consultancy-net-metering': 'SOLAR & RENEWABLE'
+};
+
+export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState(null);
+
+  const handleNavigate = (code, e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const targetUrl = `/services/${code}`;
+    window.history.pushState({}, '', targetUrl);
+    if (onNavigateService) {
+      onNavigateService(targetUrl);
+    } else {
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
 
   // Keyword highlighting helper
   const highlightText = (text, query) => {
@@ -953,27 +993,36 @@ export default function ServicesGrid({ onOpenQuote }) {
         <div className="services-grid">
           {filteredServices.map((service) => {
             const Icon = service.icon;
-            const hasActiveSearch = Boolean(searchQuery.trim());
-            // Auto-expand card if user searched so matching bullet points are visible
-            const isExpanded = hasActiveSearch || expandedId === service.id;
-            const previewItems = hasActiveSearch ? service.deliverables : service.deliverables.slice(0, 4);
-            const extraItems = hasActiveSearch ? [] : service.deliverables.slice(4);
+            const categoryBadge = CATEGORY_BADGES[service.code] || service.category.toUpperCase();
 
             return (
               <div
                 key={service.id}
                 id={service.code}
+                onClick={(e) => handleNavigate(service.code, e)}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  textAlign: 'center',
                   background: '#11141c',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderTop: `2px solid ${service.badgeColor}`,
-                  padding: '24px 20px',
-                  borderRadius: '12px',
+                  padding: '36px 24px 28px',
+                  borderRadius: '16px',
                   position: 'relative',
-                  transition: 'border-color 0.15s ease',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.45)';
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
                 }}
               >
                 {/* Route alias anchors for seamless deep-linking */}
@@ -1008,263 +1057,190 @@ export default function ServicesGrid({ onOpenQuote }) {
                   </>
                 )}
 
-                <div>
-                  {/* Card Header: Icon + Number */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '14px',
-                    }}
-                  >
+                {/* Circular Top Icon (as in user screenshot) */}
+                <div
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '50%',
+                    background: `${service.badgeColor}18`,
+                    border: `1px solid ${service.badgeColor}35`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: service.badgeColor,
+                    marginBottom: '16px',
+                    transition: 'transform 0.2s ease',
+                  }}
+                >
+                  <Icon size={26} />
+                </div>
+
+                {/* Category Pill Badge */}
+                <div
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '0.72rem',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    color: service.badgeColor,
+                    background: `${service.badgeColor}14`,
+                    border: `1px solid ${service.badgeColor}30`,
+                    padding: '3px 12px',
+                    borderRadius: '999px',
+                    fontWeight: 700,
+                    marginBottom: '12px',
+                  }}
+                >
+                  {categoryBadge}
+                </div>
+
+                {/* Service Title */}
+                <h3
+                  className="service-card-title"
+                  style={{
+                    fontSize: '1.2rem',
+                    fontWeight: 800,
+                    color: '#ffffff',
+                    marginBottom: '18px',
+                    lineHeight: 1.35,
+                    minHeight: '2.7em',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {highlightText(service.title, searchQuery)}
+                </h3>
+
+                {/* 3 Green Checkmark Highlights (matching Shree Kalyan layout) */}
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '9px',
+                    width: '100%',
+                    maxWidth: '235px',
+                    margin: '0 auto 24px',
+                    textAlign: 'left',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.86rem', color: '#cbd5e1' }}>
                     <div
                       style={{
-                        width: '48px',
-                        height: '48px',
-                        borderRadius: '12px',
-                        background: `${service.badgeColor}18`,
-                        border: `1px solid ${service.badgeColor}40`,
+                        width: '18px',
+                        height: '18px',
+                        borderRadius: '50%',
+                        background: 'rgba(16, 185, 129, 0.2)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: service.badgeColor,
+                        color: '#10b981',
+                        flexShrink: 0,
                       }}
                     >
-                      <Icon size={24} />
+                      <Check size={12} strokeWidth={3} />
                     </div>
-                    <span
-                      className="service-card-num"
-                      style={{
-                        fontSize: '1.2rem',
-                        fontWeight: 800,
-                        fontFamily: 'var(--font-mono)',
-                        color: '#64748b',
-                      }}
-                    >
-                      {service.id}
-                    </span>
+                    <span>Engineering Consultancy</span>
                   </div>
 
-                  {/* Category tag */}
-                  <div
-                    style={{
-                      fontSize: '0.72rem',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.08em',
-                      color: service.badgeColor,
-                      fontWeight: 700,
-                      marginBottom: '6px',
-                    }}
-                  >
-                    {service.category}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="service-card-title" style={{ fontSize: '1.22rem', marginBottom: '8px', lineHeight: 1.35 }}>
-                    {highlightText(service.title, searchQuery)}
-                  </h3>
-
-                  {/* Badges: Turnaround + Acceptance */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '14px' }}>
-                    <span
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '4px',
-                        fontSize: '0.7rem',
-                        fontWeight: 600,
-                        padding: '2px 8px',
-                        borderRadius: '6px',
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        border: '1px solid rgba(255, 255, 255, 0.08)',
-                        color: '#e2e8f0',
-                      }}
-                    >
-                      <Clock size={11} color="#f59e0b" />
-                      <span>{service.turnaround}</span>
-                    </span>
-                    <span
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '4px',
-                        fontSize: '0.7rem',
-                        fontWeight: 600,
-                        padding: '2px 8px',
-                        borderRadius: '6px',
-                        background: `${service.badgeColor}12`,
-                        border: `1px solid ${service.badgeColor}30`,
-                        color: service.badgeColor,
-                      }}
-                    >
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}><Building2 size={11} color={service.badgeColor} /> {service.acceptedBy}</span>
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <p
-                    className="service-card-desc"
-                    style={{
-                      fontSize: '0.86rem',
-                      marginBottom: '16px',
-                      lineHeight: 1.6,
-                      color: '#cbd5e1',
-                    }}
-                  >
-                    {highlightText(service.description, searchQuery)}
-                  </p>
-
-                  {/* Sub-services / Scope of Services */}
-                  <div style={{ marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.86rem', color: '#cbd5e1' }}>
                     <div
                       style={{
-                        fontSize: '0.74rem',
-                        fontWeight: 700,
-                        color: '#64748b',
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.06em',
-                        marginBottom: '8px',
+                        width: '18px',
+                        height: '18px',
+                        borderRadius: '50%',
+                        background: 'rgba(16, 185, 129, 0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#10b981',
+                        flexShrink: 0,
                       }}
                     >
-                      Scope of Deliverables:
+                      <Check size={12} strokeWidth={3} />
                     </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '7px', margin: 0, padding: 0 }}>
-                      {previewItems.map((item, i) => (
-                        <li
-                          key={i}
-                          style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            gap: '8px',
-                            fontSize: '0.82rem',
-                            lineHeight: 1.48,
-                          }}
-                        >
-                          <Check size={14} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
-                          <span className="service-deliverable-item">{highlightText(item, searchQuery)}</span>
-                        </li>
-                      ))}
+                    <span>Technical Documentation</span>
+                  </div>
 
-                      {/* Expandable extra items (when not actively searching) */}
-                      {!hasActiveSearch && isExpanded &&
-                        extraItems.map((item, i) => (
-                          <li
-                            key={`extra-${i}`}
-                            style={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
-                              gap: '8px',
-                              fontSize: '0.82rem',
-                              lineHeight: 1.48,
-                            }}
-                          >
-                            <Check size={14} color={service.badgeColor} style={{ flexShrink: 0, marginTop: '3px' }} />
-                            <span className="service-deliverable-item">{highlightText(item, searchQuery)}</span>
-                          </li>
-                        ))}
-                    </ul>
-
-                    {/* Show more / less toggle (hidden during active search) */}
-                    {!hasActiveSearch && extraItems.length > 0 && (
-                      <button
-                        onClick={() => toggleExpand(service.id)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '5px',
-                          marginTop: '10px',
-                          background: 'none',
-                          border: 'none',
-                          color: service.badgeColor,
-                          fontSize: '0.8rem',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          padding: '4px 0',
-                          transition: 'opacity 0.2s ease',
-                        }}
-                      >
-                        {isExpanded ? (
-                          <>
-                            <ChevronUp size={14} /> Show Less
-                          </>
-                        ) : (
-                          <>
-                            <ChevronDown size={14} /> +{extraItems.length} More Deliverables
-                          </>
-                        )}
-                      </button>
-                    )}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '9px', fontSize: '0.86rem', color: '#cbd5e1' }}>
+                    <div
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        borderRadius: '50%',
+                        background: 'rgba(16, 185, 129, 0.2)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#10b981',
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Check size={12} strokeWidth={3} />
+                    </div>
+                    <span>Regulatory Support</span>
                   </div>
                 </div>
 
-                {/* Card Footer */}
-                <div style={{ marginTop: '18px' }}>
-                  {service.code === 'fabrication-services' && (
-                    <a
-                      href="/fabrication-services"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '6px',
-                        background: 'rgba(245, 158, 11, 0.12)',
-                        border: '1px solid rgba(245, 158, 11, 0.4)',
-                        color: '#fbbf24',
-                        padding: '9px 14px',
-                        borderRadius: 'var(--radius-md)',
-                        fontSize: '0.84rem',
-                        fontWeight: 700,
-                        textDecoration: 'none',
-                        marginBottom: '10px',
-                        transition: 'all 0.2s ease'
-                      }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(245, 158, 11, 0.22)'; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(245, 158, 11, 0.12)'; }}
-                    >
-                      <Eye size={15} />
-                      <span>View Real Completed Work &amp; Gallery</span>
-                    </a>
-                  )}
+                {/* Card Action Links: Learn More -> and Request Quote */}
+                <div style={{ width: '100%', marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <a
+                    href={`/services/${service.code}`}
+                    onClick={(e) => handleNavigate(service.code, e)}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '6px',
+                      color: '#38bdf8',
+                      fontSize: '0.94rem',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      padding: '8px 12px',
+                      borderRadius: '8px',
+                      transition: 'color 0.15s ease',
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#60a5fa'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = '#38bdf8'; }}
+                  >
+                    <span>Learn More</span>
+                    <ArrowRight size={15} />
+                  </a>
+
                   <button
-                    onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround, department: 'fabrication' })}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround });
+                    }}
                     style={{
                       width: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '10px 16px',
-                      fontSize: '0.85rem',
+                      padding: '8px 12px',
+                      fontSize: '0.8rem',
                       fontWeight: 600,
-                      borderRadius: '8px',
-                      background: '#1a1e28',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
-                      color: '#eef0f5',
+                      borderRadius: '6px',
+                      background: 'rgba(255, 255, 255, 0.04)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      color: '#94a3b8',
                       cursor: 'pointer',
-                      transition: 'all 0.15s ease'
+                      transition: 'all 0.15s ease',
                     }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.background = '#232938';
-                      e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                      e.currentTarget.style.color = '#ffffff';
                     }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.background = '#1a1e28';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+                      e.currentTarget.style.color = '#94a3b8';
                     }}
-                    title={`Request Quote and fill inquiry for ${service.title}`}
-                    type="button"
                   >
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                      <FileCheck2 size={15} style={{ color: '#38bdf8' }} />
-                      <span>Request Quote / Inquiry</span>
-                    </span>
-                    <ArrowRight size={15} />
+                    Request Quote
                   </button>
                 </div>
               </div>
             );
-          })}
-        </div>
+          })}        </div>
       </div>
     </section>
   );

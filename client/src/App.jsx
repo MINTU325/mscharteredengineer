@@ -17,7 +17,9 @@ const ValuationPurposeWizard = lazy(() => import('./components/ValuationPurposeW
 const WhoWeServe = lazy(() => import('./components/WhoWeServe'));
 
 // Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
+import { getServiceDetails } from './data/servicesDetailsData';
 const ServicesPage = lazy(() => import('./components/ServicesPage'));
+const ServiceDetailPage = lazy(() => import('./components/ServiceDetailPage'));
 const ToolsPage = lazy(() => import('./components/ToolsPage'));
 const CityLandingPage = lazy(() => import('./components/CityLandingPage'));
 const BlogPage = lazy(() => import('./components/BlogPage'));
@@ -497,8 +499,51 @@ export default function App() {
     if (routeId === 'projects') {
       return <ArchitecturalProjects onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
+    // Check if the route is a dedicated Service Detail Page (/services/:slug or /service-details?slug=...)
+    let serviceDetailSlug = null;
+    if (currentRoute.startsWith('/services/') && currentRoute.length > 10) {
+      serviceDetailSlug = currentRoute.replace('/services/', '').replace(/\/$/, '');
+    } else if (currentRoute.startsWith('/service-details')) {
+      const params = new URLSearchParams(window.location.search);
+      serviceDetailSlug = params.get('slug');
+    }
+
+    if (serviceDetailSlug) {
+      return (
+        <ServiceDetailPage 
+          slug={serviceDetailSlug}
+          onOpenQuote={handleOpenQuote}
+          onNavigateHome={handleNavigateHome}
+          onNavigateService={(path) => {
+            window.history.pushState({}, '', path);
+            setCurrentRoute(path);
+            const slug = path.replace('/services/', '').replace(/\/$/, '');
+            const details = getServiceDetails(slug);
+            if (details) {
+              document.title = `${details.title} | KS Chartered Engineers`;
+            }
+          }}
+        />
+      );
+    }
+
     if (isServicesRoute || routeId === 'services') {
-      return <ServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} currentRoute={currentRoute} />;
+      return (
+        <ServicesPage 
+          onOpenQuote={handleOpenQuote} 
+          onNavigateHome={handleNavigateHome} 
+          onNavigateService={(path) => {
+            window.history.pushState({}, '', path);
+            setCurrentRoute(path);
+            const slug = path.replace('/services/', '').replace(/\/$/, '');
+            const details = getServiceDetails(slug);
+            if (details) {
+              document.title = `${details.title} | KS Chartered Engineers`;
+            }
+          }}
+          currentRoute={currentRoute} 
+        />
+      );
     }
     if (isToolsRoute) {
       return <ToolsPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} currentRoute={currentRoute} />;
