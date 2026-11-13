@@ -475,7 +475,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             <LanguageToggle />
 
             {/* Desktop-only: Request Quote button */}
-            <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn desktop-nav-action">
+            <button onClick={() => onOpenQuote()} className="btn btn-primary nav-btn desktop-nav-action" style={{ borderRadius: '6px', background: '#F58220', borderColor: '#F58220', fontWeight: 600 }}>
               <span>Request Quote</span>
               <ArrowRight size={12} />
             </button>
@@ -499,7 +499,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
       <div className={`mobile-drawer ${mobileMenuOpen ? 'mobile-drawer--open' : ''}`}>
         <div className="mobile-drawer-links">
           
-          <div style={{ padding: '4px 14px', fontSize: '0.72rem', fontWeight: 800, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <div style={{ padding: '4px 14px', fontSize: '0.72rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Core Engineering &amp; Valuation
           </div>
           {/* Mobile Chartered Engineers & Valuations Accordion */}
@@ -512,55 +512,118 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               alignItems: 'center',
               width: '100%',
               color: '#38bdf8',
-              fontWeight: 700,
+              fontWeight: 600,
               background: 'none',
               border: 'none',
               cursor: 'pointer',
               textAlign: 'left'
             }}
           >
-            <span>📜 Chartered Engineers &amp; Valuations</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <FileCheck2 size={16} color="#38bdf8" />
+              <span>Chartered Engineers &amp; Valuations</span>
+            </span>
             <ChevronDown size={14} style={{ transform: mobileValuationOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s ease' }} />
           </button>
           {mobileValuationOpen && (
             <div style={{ paddingLeft: '14px', borderLeft: '2px solid rgba(56, 189, 248, 0.3)', margin: '4px 0 6px 14px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
-              <a href="/property-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🏢 Property &amp; Land Valuation</a>
-              <a href="/bank-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🏛️ Bank &amp; Mortgage Valuation</a>
-              <a href="/tax-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>⚖️ Capital Gains Tax &amp; 2001 FMV</a>
-              <a href="/chartered-engineer" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>📜 Chartered Engineer &amp; DGFT</a>
-              <a href="/machinery-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>⚙️ Plant &amp; Machinery Valuation</a>
-              <a href="/ibc-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem' }}>🛡️ IBC &amp; NCLT Corporate Valuation</a>
+              <a href="/property-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Building2 size={14} color="#38bdf8" />
+                <span>Property &amp; Land Valuation</span>
+              </a>
+              <a href="/bank-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Landmark size={14} color="#f59e0b" />
+                <span>Bank &amp; Mortgage Valuation</span>
+              </a>
+              <a href="/tax-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Scale size={14} color="#10b981" />
+                <span>Capital Gains Tax &amp; 2001 FMV</span>
+              </a>
+              <a href="/chartered-engineer" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <FileCheck2 size={14} color="#a855f7" />
+                <span>Chartered Engineer &amp; DGFT</span>
+              </a>
+              <a href="/machinery-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Cpu size={14} color="#f59e0b" />
+                <span>Plant &amp; Machinery Valuation</span>
+              </a>
+              <a href="/ibc-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <ShieldCheck size={14} color="#38bdf8" />
+                <span>IBC &amp; NCLT Corporate Valuation</span>
+              </a>
             </div>
           )}
-          <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 700 }}>⚡ Electrical &amp; Substation Services <span style={{ background: '#f59e0b', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
-          <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 700 }}>🏗️ Fabrication &amp; PEB Shed Works <span style={{ background: '#f97316', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
-          <a href="/solar-structural-analysis" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 700 }}>☀️ Solar Structural Analysis <span style={{ background: '#fbbf24', color: '#000', fontSize: '0.62rem', padding: '1px 5px', borderRadius: '4px', fontWeight: 800, marginLeft: '6px' }}>NEW</span></a>
-          <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🔩 All 15 Practice Areas</a>
+          <a href="/electrical-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f59e0b', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Zap size={16} color="#f59e0b" />
+            <span>Electrical &amp; Substation Services</span>
+            <span style={{ background: 'rgba(245, 158, 11, 0.15)', color: '#fbbf24', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>NEW</span>
+          </a>
+          <a href="/fabrication-services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#f97316', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Wrench size={16} color="#f97316" />
+            <span>Fabrication &amp; PEB Shed Works</span>
+            <span style={{ background: 'rgba(249, 115, 22, 0.15)', color: '#fb923c', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>NEW</span>
+          </a>
+          <a href="/solar-structural-analysis" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Sun size={16} color="#fbbf24" />
+            <span>Solar Structural Analysis</span>
+            <span style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fde047', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>NEW</span>
+          </a>
+          <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <ArrowRight size={15} color="#94a3b8" />
+            <span>All 15 Practice Areas</span>
+          </a>
 
-          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <div style={{ padding: '12px 14px 4px', fontSize: '0.72rem', fontWeight: 700, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Technology &amp; Software
           </div>
-          <a href="/tech-products" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#06b6d4', fontWeight: 700 }}>💻 IT</a>
+          <a href="/tech-products" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#06b6d4', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Cpu size={16} color="#06b6d4" />
+            <span>IT Solutions</span>
+          </a>
 
-          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <div style={{ padding: '12px 14px 4px', fontSize: '0.72rem', fontWeight: 700, color: '#10b981', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Subsidies &amp; Business Loans
           </div>
-          <a href="/government-subsidies" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 700 }}>🏛️ Government Subsidies &amp; Grants</a>
-          <a href="/business-loans" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 700 }}>💼 Business &amp; Machinery Loans</a>
+          <a href="/government-subsidies" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Coins size={16} color="#10b981" />
+            <span>Government Subsidies &amp; Grants</span>
+          </a>
+          <a href="/business-loans" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Landmark size={16} color="#38bdf8" />
+            <span>Business &amp; Machinery Loans</span>
+          </a>
 
-          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <div style={{ padding: '12px 14px 4px', fontSize: '0.72rem', fontWeight: 700, color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             About Company &amp; Credentials
           </div>
-          <a href="/who-we-serve" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👥 Who We Serve</a>
-          <a href="/credentials" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">🏅 Credentials &amp; IEI</a>
-          <a href="/founder" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">👤 Core Team (IIT Roorkee)</a>
+          <a href="/who-we-serve" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Users size={16} color="#a78bfa" />
+            <span>Who We Serve</span>
+          </a>
+          <a href="/credentials" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Award size={16} color="#fbbf24" />
+            <span>Credentials &amp; IEI</span>
+          </a>
+          <a href="/founder" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <GraduationCap size={16} color="#10b981" />
+            <span>Core Team (IIT Roorkee)</span>
+          </a>
 
-          <div style={{ padding: '10px 14px 4px', fontSize: '0.72rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+          <div style={{ padding: '12px 14px 4px', fontSize: '0.72rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
             Support &amp; Insights
           </div>
-          <a href="/blog" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📚 Insights &amp; Blog Guides</a>
-          <a href="/faq" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">❓ FAQs &amp; Help Desk</a>
-          <a href="/contact" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link">📍 Contact Jaipur HQ</a>
+          <a href="/blog" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <BookOpen size={16} color="#38bdf8" />
+            <span>Insights &amp; Blog Guides</span>
+          </a>
+          <a href="/faq" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <HelpCircle size={16} color="#fbbf24" />
+            <span>FAQs &amp; Help Desk</span>
+          </a>
+          <a href="/contact" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <MapPin size={16} color="#f59e0b" />
+            <span>Contact Jaipur HQ</span>
+          </a>
         </div>
 
         <div className="mobile-drawer-divider" />
@@ -572,6 +635,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           <button
             onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
             className="btn btn-primary mobile-cta-btn"
+            style={{ borderRadius: '8px', background: '#F58220', borderColor: '#F58220', fontWeight: 600 }}
           >
             <ArrowRight size={18} />
             <span>Request Quote / Valuation</span>

@@ -38,8 +38,8 @@ export default function Footer({ onOpenQuote }) {
 
   return (
     <footer style={{
-      background: '#040914',
-      borderTop: '1px solid rgba(255, 255, 255, 0.07)',
+      background: '#07080d',
+      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
       paddingTop: '56px',
       paddingBottom: '28px',
       color: '#94a3b8',
@@ -80,7 +80,7 @@ export default function Footer({ onOpenQuote }) {
                 <div style={{ fontSize: '1rem', fontWeight: 800, color: '#ffffff', lineHeight: 1.2 }}>
                   KS CHARTERED <span style={{ color: '#38bdf8' }}>ENGINEERS</span>
                 </div>
-                <div style={{ fontSize: '0.65rem', color: 'var(--accent-gold)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                <div style={{ fontSize: '0.65rem', color: '#F58220', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                   Valuers &amp; Technical Services
                 </div>
               </div>
@@ -135,17 +135,18 @@ export default function Footer({ onOpenQuote }) {
                 gap: '6px',
                 marginTop: '8px',
                 padding: '6px 12px',
-                background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(245, 158, 11, 0.15))',
-                border: '1px solid rgba(16, 185, 129, 0.35)',
+                background: 'rgba(16, 185, 129, 0.08)',
+                border: '1px solid rgba(16, 185, 129, 0.25)',
                 borderRadius: '6px',
-                color: '#34d399',
+                color: '#10b981',
                 fontSize: '0.78rem',
-                fontWeight: 700,
+                fontWeight: 600,
                 textDecoration: 'none',
               }}
               aria-label="WhatsApp CRM Bulk Marketing Suite Diwali Offer"
             >
-              <span>🔥 WhatsApp CRM ₹100 Offer</span>
+              <Zap size={13} color="#10b981" />
+              <span>WhatsApp CRM ₹100 Offer</span>
               <ArrowRight size={12} />
             </a>
           </div>
@@ -167,7 +168,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/fssai', label: 'FSSAI Compliance' },
                 { href: '/electrical-services', label: 'Electrical & Substation' },
                 { href: '/fabrication-services', label: 'Fabrication & PEB Shed' },
-                { href: '/whatsapp-crm', label: '🔥 WhatsApp CRM (Diwali ₹100)' },
+                { href: '/whatsapp-crm', label: 'WhatsApp CRM Suite (₹100)' },
                 { href: '/autocad-drafting', label: 'AutoCAD 2D Drafting' },
                 { href: '/advisory', label: 'IndAS 16 Advisory' },
                 { href: '/calculator', label: 'Valuation Calculator' },
@@ -261,7 +262,7 @@ export default function Footer({ onOpenQuote }) {
                     <span itemProp="postalCode">302019</span>,{' '}
                     <span itemProp="addressCountry">India</span>
                     <span style={{ display: 'block', fontSize: '0.72rem', color: '#f59e0b', marginTop: '2px' }}>
-                      📍 View on Google Maps →
+                      View on Google Maps →
                     </span>
                   </a>
                 </div>
@@ -296,8 +297,17 @@ export default function Footer({ onOpenQuote }) {
 
               <button
                 onClick={() => onOpenQuote()}
-                className="btn btn-gold"
-                style={{ padding: '9px 16px', fontSize: '0.82rem', marginTop: '4px', width: '100%' }}
+                className="btn btn-primary"
+                style={{
+                  padding: '9px 16px',
+                  fontSize: '0.82rem',
+                  marginTop: '6px',
+                  width: '100%',
+                  background: '#F58220',
+                  borderColor: '#F58220',
+                  borderRadius: '6px',
+                  fontWeight: 600
+                }}
                 aria-label="Book a Chartered Engineer Visit"
               >
                 Book Chartered Engineer Visit
@@ -329,7 +339,7 @@ export default function Footer({ onOpenQuote }) {
             </div>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '5px',
-              padding: '3px 10px', borderRadius: '9999px',
+              padding: '3px 10px', borderRadius: '6px',
               background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)',
               color: '#fbbf24', fontSize: '0.70rem', fontWeight: 600
             }}>
@@ -397,7 +407,7 @@ export default function Footer({ onOpenQuote }) {
             { href: '/founder', label: 'Core Team' },
             { href: '/blog', label: 'Blog' },
             { href: '/faq', label: 'FAQ', highlight: 'gold' },
-            { href: '/whatsapp-crm', label: '🔥 WhatsApp CRM (Diwali ₹100)', highlight: 'gold' },
+            { href: '/whatsapp-crm', label: 'WhatsApp CRM (₹100)', highlight: 'gold' },
             { href: '/contact', label: 'Contact' },
           ].map(({ href, label, highlight }, i, arr) => (
             <React.Fragment key={href}>
