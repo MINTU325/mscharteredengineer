@@ -37,7 +37,7 @@ export const DEPARTMENTS = {
     id: 'electrical',
     name: 'Electrical & Substation Engineering Services',
     shortName: 'Electrical & Substation',
-    badgeText: '⚡ Electrical & Substation Engineering Division',
+    badgeText: 'Electrical & Substation Engineering Division',
     themeColor: '#f59e0b',
     accentBg: 'rgba(245, 158, 11, 0.12)',
     accentBorder: 'rgba(245, 158, 11, 0.3)',
@@ -59,7 +59,7 @@ export const DEPARTMENTS = {
     id: 'subsidies',
     name: 'Government Subsidies & Grants',
     shortName: 'Government Subsidies',
-    badgeText: '🏛️ Central & State Government Subsidies & Grants Division',
+    badgeText: 'Central & State Government Subsidies & Grants Division',
     themeColor: '#10b981',
     accentBg: 'rgba(16, 185, 129, 0.12)',
     accentBorder: 'rgba(16, 185, 129, 0.3)',
@@ -92,7 +92,7 @@ export const DEPARTMENTS = {
     id: 'loans',
     name: 'Business, MSME & Machinery Loans',
     shortName: 'Business & Machinery Loans',
-    badgeText: '💼 Industrial Finance, Banking & Machinery Loans Division',
+    badgeText: 'Industrial Finance, Banking & Machinery Loans Division',
     themeColor: '#0284c7',
     accentBg: 'rgba(2, 132, 199, 0.12)',
     accentBorder: 'rgba(2, 132, 199, 0.3)',
@@ -122,7 +122,7 @@ export const DEPARTMENTS = {
     id: 'tech',
     name: 'IT, AI & Software Development',
     shortName: 'IT & Software Solutions',
-    badgeText: '💻 KS Tech Labs — AI, Enterprise Software & Mobile Apps',
+    badgeText: 'MS Tech Labs — AI, Enterprise Software & Mobile Apps',
     themeColor: '#a855f7',
     accentBg: 'rgba(168, 85, 247, 0.12)',
     accentBorder: 'rgba(168, 85, 247, 0.3)',
@@ -153,7 +153,7 @@ export const DEPARTMENTS = {
     id: 'valuation',
     name: 'Chartered Engineer & Assets Valuation Services',
     shortName: 'Chartered Engineer & Valuation',
-    badgeText: '📜 Chartered Engineer & Approved Assets Valuation Division',
+    badgeText: 'Chartered Engineer & Approved Assets Valuation Division',
     themeColor: '#d4a843',
     accentBg: 'rgba(212, 168, 67, 0.12)',
     accentBorder: 'rgba(212, 168, 67, 0.3)',
@@ -188,7 +188,7 @@ export const DEPARTMENTS = {
     id: 'fabrication',
     name: 'Heavy Industrial & Architectural Fabrication Works',
     shortName: 'Industrial Fabrication',
-    badgeText: '🏗️ Industrial Fabrication & PEB Shed Division',
+    badgeText: 'Industrial Fabrication & PEB Shed Division',
     themeColor: '#f59e0b',
     accentBg: 'rgba(245, 158, 11, 0.12)',
     accentBorder: 'rgba(245, 158, 11, 0.3)',
@@ -414,7 +414,7 @@ _Directly sent via mscharteredengineer.com_`
       finalSubCategory = 'Official Stamped Machinery Valuation Report';
       finalAssetValue = prefillData.fairMarketValueRange || `₹ ${Number(prefillData.originalCost || 0).toLocaleString('en-IN')}`;
       finalScope = 
-`📋 [OFFICIAL STAMPED VALUATION REPORT REQUEST]
+`[OFFICIAL STAMPED VALUATION REPORT REQUEST]
 • Machinery Category: ${prefillData.assetType}
 • Original Purchase Cost: ₹${Number(prefillData.originalCost || 0).toLocaleString('en-IN')}
 • Asset Age: ${prefillData.assetAgeYears} Years (Expected Total Life: ${prefillData.expectedTotalLifeYears} Years)
@@ -479,7 +479,7 @@ _Directly sent via mscharteredengineer.com_`
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px' }}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '640px', background: '#0e121b', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '12px', color: '#eef0f5', boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)' }}>
         <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <X size={20} />
         </button>
@@ -506,9 +506,9 @@ _Directly sent via mscharteredengineer.com_`
 
             {prefillData && (
               <div style={{
-                background: 'linear-gradient(135deg, rgba(24, 90, 219, 0.18) 0%, rgba(15, 26, 54, 0.7) 100%)',
-                border: '1px solid rgba(59, 130, 246, 0.35)',
-                borderRadius: 'var(--radius-md)',
+                background: '#11141c',
+                border: '1px solid rgba(56, 189, 248, 0.25)',
+                borderRadius: '8px',
                 padding: '16px 20px',
                 marginBottom: '22px'
               }}>
@@ -680,7 +680,7 @@ _Directly sent via mscharteredengineer.com_`
                   )}
                 </button>
                 <div style={{ textAlign: 'center', fontSize: '0.78rem', color: '#94a3b8', marginTop: '10px' }}>
-                  🔒 Your request will be directly dispatched to Mukesh Singh, CEng (India) MIE, IIT Roorkee.
+                  Your request will be directly dispatched to Mukesh Singh, CEng (India) MIE, IIT Roorkee.
                 </div>
               </div>
             </form>
@@ -742,8 +742,8 @@ _Directly sent via mscharteredengineer.com_`
                       right: 0,
                       top: '100%',
                       marginTop: '6px',
-                      background: '#0d1829',
-                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      background: '#11141c',
+                      border: '1px solid rgba(255, 255, 255, 0.12)',
                       borderRadius: '8px',
                       boxShadow: '0 12px 30px rgba(0,0,0,0.6)',
                       zIndex: 100,
@@ -794,15 +794,15 @@ _Directly sent via mscharteredengineer.com_`
               <div style={{
                 width: '100%',
                 height: '4px',
-                background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: 'var(--radius-full)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                borderRadius: '2px',
                 marginTop: '14px',
                 overflow: 'hidden'
               }}>
                 <div style={{
                   width: `${(step / 3) * 100}%`,
                   height: '100%',
-                  background: `linear-gradient(90deg, #185adb, ${currentDeptConfig.themeColor})`,
+                  background: currentDeptConfig.themeColor || '#38bdf8',
                   transition: 'width 0.3s ease'
                 }} />
               </div>
@@ -1039,18 +1039,18 @@ _Directly sent via mscharteredengineer.com_`
         {step === 4 && (
           <div style={{ textAlign: 'center', padding: '16px 0' }}>
             <div style={{
-              width: '70px',
-              height: '70px',
-              borderRadius: '50%',
-              background: 'rgba(16, 185, 129, 0.15)',
-              border: '2px solid #10b981',
+              width: '60px',
+              height: '60px',
+              borderRadius: '8px',
+              background: 'rgba(16, 185, 129, 0.12)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 20px auto',
               color: '#10b981'
             }}>
-              <CheckCircle2 size={40} />
+              <CheckCircle2 size={32} />
             </div>
 
             <h3 style={{ fontSize: '1.6rem', color: '#ffffff', marginBottom: '8px' }}>
@@ -1060,9 +1060,9 @@ _Directly sent via mscharteredengineer.com_`
             <div style={{
               display: 'inline-block',
               padding: '6px 16px',
-              background: 'rgba(24, 90, 219, 0.2)',
-              border: '1px solid rgba(59, 130, 246, 0.4)',
-              borderRadius: 'var(--radius-full)',
+              background: 'rgba(56, 189, 248, 0.12)',
+              border: '1px solid rgba(56, 189, 248, 0.25)',
+              borderRadius: '6px',
               color: '#38bdf8',
               fontSize: '0.9rem',
               fontWeight: 700,
