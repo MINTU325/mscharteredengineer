@@ -36,7 +36,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
 
   const aboutSlides = [
     {
-      image: '/fabrication/factory-tin-shed-peb-warehouse.jpg',
+      image: '/fabrication/factory-tin-shed-peb-warehouse.webp',
       alt: 'Factory Tin Shed & PEB Warehouse',
       badge: 'Turnkey Industrial Sheds',
       badgeColor: '#38bdf8',
@@ -44,7 +44,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       desc: 'JSW / Tata Bluescope Galvalume Roofing'
     },
     {
-      image: '/fabrication/structural-steel-tower-erection.jpg',
+      image: '/fabrication/structural-steel-tower-erection.webp',
       alt: 'On-site Structural Stability Audit',
       badge: 'Engineering & Audit',
       badgeColor: '#10b981',
@@ -52,7 +52,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       desc: '100% DISH & CEIG Regulatory Approvals'
     },
     {
-      image: '/fabrication/heavy-iron-fabrication-sliding-gate.jpg',
+      image: '/fabrication/heavy-iron-fabrication-sliding-gate.webp',
       alt: 'Heavy Iron Fabrication & Sliding Gate',
       badge: 'Heavy Metal Framing',
       badgeColor: '#f97316',
@@ -60,7 +60,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       desc: 'Precision Sliding & Industrial Gantries'
     },
     {
-      image: '/fabrication/industrial-chimney-stack-fabrication.jpg',
+      image: '/fabrication/industrial-chimney-stack-fabrication.webp',
       alt: 'Industrial Steel Chimney Fabrication',
       badge: 'Industrial Chimneys',
       badgeColor: '#eab308',
@@ -68,7 +68,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       desc: 'IS 6533 Standard with CPCB Sampling Ports'
     },
     {
-      image: '/fabrication/heavy-industrial-ducting-support.jpg',
+      image: '/fabrication/heavy-industrial-ducting-support.webp',
       alt: 'Heavy Industrial Ducting & Trestles',
       badge: 'Industrial Ducting & Stacks',
       badgeColor: '#38bdf8',
@@ -76,7 +76,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       desc: 'High-Temperature Expansion Joints & Trestles'
     },
     {
-      image: '/fabrication/architectural-glass-railing-facade.jpg',
+      image: '/fabrication/architectural-glass-railing-facade.webp',
       alt: 'Architectural Glass & Railing Facade',
       badge: 'Architectural Railings',
       badgeColor: '#a855f7',
@@ -138,7 +138,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Factory Tin Shed & PEB Warehouse',
       category: 'Tin Sheds',
       subtitle: 'Clear-span industrial warehouse with JSW Galvalume roofing',
-      image: '/fabrication/factory-tin-shed-peb-warehouse.jpg',
+      image: '/fabrication/factory-tin-shed-peb-warehouse.webp',
       specs: '28,000 Sq.Ft | Tata Bluescope 0.50mm | IS 2062 Grade Steel'
     },
     {
@@ -146,7 +146,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Heavy Iron Fabrication & Sliding Gate',
       category: 'Iron Works',
       subtitle: 'Automated cantilever sliding gate & structural framing',
-      image: '/fabrication/heavy-iron-fabrication-sliding-gate.jpg',
+      image: '/fabrication/heavy-iron-fabrication-sliding-gate.webp',
       specs: '42 Ft Clear Span | Motorized Cantilever | Anti-Sag Truss'
     },
     {
@@ -154,7 +154,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Industrial Chimney Stack Fabrication',
       category: 'Chimneys',
       subtitle: '30-meter self-supporting steel chimney stack with ladder cage',
-      image: '/fabrication/industrial-chimney-stack-fabrication.jpg',
+      image: '/fabrication/industrial-chimney-stack-fabrication.webp',
       specs: '30m Height | IS 6533 Standard | CPCB Emission Port'
     },
     {
@@ -162,7 +162,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Structural Steel Tower & Framework',
       category: 'Valuation & Technical',
       subtitle: 'Heavy industrial tower framing & load assessment',
-      image: '/fabrication/structural-steel-tower-erection.jpg',
+      image: '/fabrication/structural-steel-tower-erection.webp',
       specs: '100% UT Tested Welds | Stamped Stability Certificate'
     },
     {
@@ -170,7 +170,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Architectural Glass & MS Railings',
       category: 'Iron Works',
       subtitle: 'Toughened glass & stainless/mild steel architectural railing',
-      image: '/fabrication/architectural-glass-railing-facade.jpg',
+      image: '/fabrication/architectural-glass-railing-facade.webp',
       specs: '12mm Toughened Glass | SS 304 Grade Post Base'
     },
     {
@@ -178,7 +178,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Heavy Industrial Ducting & Support',
       category: 'Chimneys',
       subtitle: 'Large-bore boiler flue gas ducting and trestle supports',
-      image: '/fabrication/heavy-industrial-ducting-support.jpg',
+      image: '/fabrication/heavy-industrial-ducting-support.webp',
       specs: '1,800mm Diameter MS Ducting | Thermal Expansion Joints'
     },
     {
@@ -186,7 +186,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Boiler Stack Foundation & Base',
       category: 'Valuation & Technical',
       subtitle: 'Precision anchor bolt cluster and heavy base plate rigging',
-      image: '/fabrication/boiler-stack-foundation-base.jpg',
+      image: '/fabrication/boiler-stack-foundation-base.webp',
       specs: 'M35 Concrete Anchor Embedment | 40mm Base Plate'
     },
     {
@@ -194,7 +194,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
       title: 'Spiral Inspection Platform & Safety Cage',
       category: 'Iron Works',
       subtitle: 'OSHA compliant industrial ladder cage and access walkways',
-      image: '/fabrication/spiral-ladder-inspection-platform.jpg',
+      image: '/fabrication/spiral-ladder-inspection-platform.webp',
       specs: 'Galvanized Chequered Plate | Fall Arrest Safety Rail'
     }
   ];
@@ -268,7 +268,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
   });
 
   return (
-    <div style={{ background: '#0a101d', color: '#f8fafc', minHeight: '100vh' }}>
+    <div style={{ background: '#0b0d14', color: '#f8fafc', minHeight: '100vh' }}>
       
       {/* ── HERO SECTION (FIRST FOLD) ── */}
       <section
@@ -278,13 +278,13 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: 'linear-gradient(180deg, rgba(10, 16, 29, 0.78) 0%, rgba(10, 22, 44, 0.94) 100%), url(/fabrication/factory-tin-shed-peb-warehouse.jpg)',
+          backgroundImage: 'linear-gradient(180deg, rgba(10, 16, 29, 0.78) 0%, rgba(10, 22, 44, 0.94) 100%), url(/fabrication/factory-tin-shed-peb-warehouse.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           padding: '80px 20px',
           textAlign: 'center',
-          borderBottom: '1px solid rgba(56, 189, 248, 0.2)'
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}
       >
         <div style={{ maxWidth: '960px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
@@ -296,7 +296,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               justifyContent: 'center',
               gap: '6px',
               fontSize: '0.82rem',
-              color: '#94a3b8',
+              color: '#a3a9b8',
               marginBottom: '20px',
               flexWrap: 'wrap'
             }}
@@ -321,14 +321,14 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               background: 'rgba(12, 68, 131, 0.65)',
               border: '1px solid rgba(56, 189, 248, 0.5)',
               padding: '6px 18px',
-              borderRadius: '9999px',
+              borderRadius: '6px',
               fontSize: '0.80rem',
-              fontWeight: 800,
+              fontWeight: 600,
               color: '#38bdf8',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: '22px',
-              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)'
+              boxShadow: 'none'
             }}
           >
             <ShieldCheck size={16} color="#38bdf8" />
@@ -339,15 +339,15 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
           <h1
             style={{
               fontSize: 'clamp(2.4rem, 5.2vw, 4rem)',
-              fontWeight: 900,
+              fontWeight: 600,
               lineHeight: 1.15,
               color: '#ffffff',
               margin: '0 auto 20px',
               letterSpacing: '-0.02em',
-              textShadow: '0 2px 20px rgba(0,0,0,0.6)'
+              textShadow: 'none'
             }}
           >
-            Expert Valuers &amp; <span style={{ color: '#f59e0b', textShadow: '0 0 30px rgba(245, 158, 11, 0.35)' }}>Premium Fabrication</span> Services
+            Expert Valuers &amp; <span style={{ color: '#f59e0b', textShadow: 'none' }}>Premium Fabrication</span> Services
           </h1>
 
           {/* Sub-headline */}
@@ -383,13 +383,13 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 gap: '8px',
                 background: '#ffffff',
                 color: '#0c4483',
-                fontWeight: 800,
+                fontWeight: 600,
                 fontSize: '0.96rem',
                 padding: '14px 30px',
-                borderRadius: '30px',
+                borderRadius: '8px',
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: '0 4px 20px rgba(255, 255, 255, 0.25)',
+                boxShadow: 'none',
                 transition: 'all 0.2s ease'
               }}
             >
@@ -405,8 +405,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 gap: '8px',
                 fontSize: '0.96rem',
                 padding: '14px 32px',
-                borderRadius: '30px',
-                boxShadow: '0 4px 25px rgba(245, 158, 11, 0.45)'
+                borderRadius: '8px',
+                boxShadow: 'none'
               }}
             >
               <Wrench size={16} />
@@ -418,11 +418,11 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'rgba(15, 23, 42, 0.85)',
+                background: '#11141c',
                 color: '#f8fafc',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 padding: '14px 26px',
-                borderRadius: '30px',
+                borderRadius: '8px',
                 fontSize: '0.94rem',
                 fontWeight: 700,
                 textDecoration: 'none'
@@ -471,7 +471,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         id="about"
         style={{
           padding: '80px 20px',
-          background: '#070d18',
+          background: '#07080d',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}
       >
@@ -496,7 +496,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   borderRadius: '16px',
                   overflow: 'hidden',
                   height: '440px',
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.6)',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
                   border: '1px solid rgba(56, 189, 248, 0.35)',
                   background: 'linear-gradient(180deg, #0c4483 0%, #070d18 100%)'
                 }}
@@ -611,7 +611,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     gap: '6px',
                     background: 'rgba(10, 16, 29, 0.75)',
                     padding: '5px 12px',
-                    borderRadius: '20px',
+                    borderRadius: '6px',
                     backdropFilter: 'blur(6px)'
                   }}
                 >
@@ -657,14 +657,14 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   style={{
                     fontSize: '0.70rem',
                     color: aboutSlides[currentAboutSlide].badgeColor,
-                    fontWeight: 800,
+                    fontWeight: 600,
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em'
                   }}
                 >
                   {aboutSlides[currentAboutSlide].badge}
                 </div>
-                <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '0.94rem', marginTop: '2px', lineHeight: 1.25 }}>
+                <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '0.94rem', marginTop: '2px', lineHeight: 1.25 }}>
                   {aboutSlides[currentAboutSlide].title}
                 </div>
                 <div style={{ fontSize: '0.76rem', color: '#cbd5e1', marginTop: '2px' }}>
@@ -682,7 +682,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   gap: '8px',
                   color: '#38bdf8',
                   fontSize: '0.78rem',
-                  fontWeight: 800,
+                  fontWeight: 600,
                   letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                   marginBottom: '10px'
@@ -695,7 +695,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               <h2
                 style={{
                   fontSize: 'clamp(1.9rem, 3.4vw, 2.7rem)',
-                  fontWeight: 800,
+                  fontWeight: 600,
                   color: '#ffffff',
                   lineHeight: 1.22,
                   marginBottom: '10px'
@@ -729,7 +729,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
 
               <p
                 style={{
-                  color: '#94a3b8',
+                  color: '#a3a9b8',
                   fontSize: '0.92rem',
                   lineHeight: 1.65,
                   marginBottom: '28px'
@@ -749,46 +749,46 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               >
                 <div
                   style={{
-                    background: 'rgba(15, 23, 42, 0.7)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    background: '#11141c',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
                 >
-                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#f59e0b', lineHeight: 1 }}>25+</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 600, color: '#f59e0b', lineHeight: 1 }}>25+</div>
                   <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Years Technical Experience</div>
                 </div>
                 <div
                   style={{
-                    background: 'rgba(15, 23, 42, 0.7)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    background: '#11141c',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
                 >
-                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#38bdf8', lineHeight: 1 }}>1,200+</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 600, color: '#38bdf8', lineHeight: 1 }}>1,200+</div>
                   <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Projects &amp; Audits Completed</div>
                 </div>
                 <div
                   style={{
-                    background: 'rgba(15, 23, 42, 0.7)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    background: '#11141c',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
                 >
-                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#10b981', lineHeight: 1 }}>100%</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 600, color: '#10b981', lineHeight: 1 }}>100%</div>
                   <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Stamped Stability Pass Rate</div>
                 </div>
                 <div
                   style={{
-                    background: 'rgba(15, 23, 42, 0.7)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    background: '#11141c',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderRadius: '10px',
                     padding: '16px'
                   }}
                 >
-                  <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#a855f7', lineHeight: 1 }}>IIT</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 600, color: '#a855f7', lineHeight: 1 }}>IIT</div>
                   <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '6px', fontWeight: 600 }}>Roorkee Technical Pedigree</div>
                 </div>
               </div>
@@ -812,7 +812,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         id="services"
         style={{
           padding: '84px 20px',
-          background: '#0c1424',
+          background: '#0b0d14',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}
       >
@@ -827,9 +827,9 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 background: 'rgba(12, 68, 131, 0.4)',
                 border: '1px solid rgba(56, 189, 248, 0.4)',
                 padding: '6px 18px',
-                borderRadius: '9999px',
+                borderRadius: '6px',
                 fontSize: '0.78rem',
-                fontWeight: 800,
+                fontWeight: 600,
                 color: '#38bdf8',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -842,7 +842,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             <h2
               style={{
                 fontSize: 'clamp(2rem, 3.8vw, 3rem)',
-                fontWeight: 900,
+                fontWeight: 600,
                 color: '#ffffff',
                 lineHeight: 1.2,
                 marginBottom: '16px'
@@ -866,29 +866,29 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             {/* SERVICE 1: Iron Fabrication Work */}
             <div
               style={{
-                background: 'rgba(15, 23, 42, 0.85)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 borderRadius: '16px',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)'
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#f59e0b';
-                e.currentTarget.style.transform = 'translateY(-6px)';
+                
                 e.currentTarget.style.boxShadow = '0 16px 36px rgba(245, 158, 11, 0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                
                 e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.3)';
               }}
             >
               <div style={{ height: '230px', overflow: 'hidden', position: 'relative' }}>
                 <img
-                  src="/fabrication/heavy-iron-fabrication-sliding-gate.jpg"
+                  src="/fabrication/heavy-iron-fabrication-sliding-gate.webp"
                   alt="Iron Fabrication Work"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.06)'; }}
@@ -903,9 +903,9 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     border: '1px solid #f59e0b',
                     color: '#f59e0b',
                     padding: '4px 12px',
-                    borderRadius: '20px',
+                    borderRadius: '6px',
                     fontSize: '0.74rem',
-                    fontWeight: 800,
+                    fontWeight: 600,
                     textTransform: 'uppercase'
                   }}
                 >
@@ -913,10 +913,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 </div>
               </div>
               <div style={{ padding: '26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                   Iron Fabrication Work
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                <p style={{ color: '#a3a9b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
                   Heavy structural framing, industrial gates, platforms, crane gantry girders, factory mezzanine decks, and structural steel staircases designed for maximum load capacity.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -962,29 +962,29 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             {/* SERVICE 2: Tin Shed Fabrication Work */}
             <div
               style={{
-                background: 'rgba(15, 23, 42, 0.85)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 borderRadius: '16px',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)'
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#38bdf8';
-                e.currentTarget.style.transform = 'translateY(-6px)';
+                
                 e.currentTarget.style.boxShadow = '0 16px 36px rgba(56, 189, 248, 0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                
                 e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.3)';
               }}
             >
               <div style={{ height: '230px', overflow: 'hidden', position: 'relative' }}>
                 <img
-                  src="/fabrication/factory-tin-shed-peb-warehouse.jpg"
+                  src="/fabrication/factory-tin-shed-peb-warehouse.webp"
                   alt="Tin Shed Fabrication Work"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.06)'; }}
@@ -999,9 +999,9 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     border: '1px solid #38bdf8',
                     color: '#38bdf8',
                     padding: '4px 12px',
-                    borderRadius: '20px',
+                    borderRadius: '6px',
                     fontSize: '0.74rem',
-                    fontWeight: 800,
+                    fontWeight: 600,
                     textTransform: 'uppercase'
                   }}
                 >
@@ -1009,10 +1009,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 </div>
               </div>
               <div style={{ padding: '26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                   Tin Shed Fabrication Work
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                <p style={{ color: '#a3a9b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
                   Industrial sheds, warehouse roofing, and Pre-Engineered Building (PEB) structures built with premium Galvalume &amp; Zincalume sheets designed for 47 m/s wind safety.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -1058,29 +1058,29 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             {/* SERVICE 3: Valuation & Technical Consultancy */}
             <div
               style={{
-                background: 'rgba(15, 23, 42, 0.85)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: '#11141c',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 borderRadius: '16px',
                 overflow: 'hidden',
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease',
-                boxShadow: '0 8px 30px rgba(0, 0, 0, 0.3)'
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = '#10b981';
-                e.currentTarget.style.transform = 'translateY(-6px)';
+                
                 e.currentTarget.style.boxShadow = '0 16px 36px rgba(16, 185, 129, 0.15)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.currentTarget.style.transform = 'translateY(0)';
+                
                 e.currentTarget.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.3)';
               }}
             >
               <div style={{ height: '230px', overflow: 'hidden', position: 'relative' }}>
                 <img
-                  src="/fabrication/structural-steel-tower-erection.jpg"
+                  src="/fabrication/structural-steel-tower-erection.webp"
                   alt="Valuation & Technical Consultancy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
                   onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.06)'; }}
@@ -1095,9 +1095,9 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     border: '1px solid #10b981',
                     color: '#10b981',
                     padding: '4px 12px',
-                    borderRadius: '20px',
+                    borderRadius: '6px',
                     fontSize: '0.74rem',
-                    fontWeight: 800,
+                    fontWeight: 600,
                     textTransform: 'uppercase'
                   }}
                 >
@@ -1105,10 +1105,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 </div>
               </div>
               <div style={{ padding: '26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                   Valuation &amp; Technical Consultancy
                 </h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
+                <p style={{ color: '#a3a9b8', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '18px' }}>
                   Certified engineering audits, structural stability assessments, plant &amp; machinery valuations, and official Chartered Engineer documentation for statutory bodies.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '24px' }}>
@@ -1159,7 +1159,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         id="gallery"
         style={{
           padding: '84px 20px',
-          background: '#070d18',
+          background: '#07080d',
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}
       >
@@ -1174,9 +1174,9 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 background: 'rgba(12, 68, 131, 0.4)',
                 border: '1px solid rgba(56, 189, 248, 0.4)',
                 padding: '6px 18px',
-                borderRadius: '9999px',
+                borderRadius: '6px',
                 fontSize: '0.78rem',
-                fontWeight: 800,
+                fontWeight: 600,
                 color: '#38bdf8',
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -1189,7 +1189,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             <h2
               style={{
                 fontSize: 'clamp(2rem, 3.8vw, 3rem)',
-                fontWeight: 900,
+                fontWeight: 600,
                 color: '#ffffff',
                 lineHeight: 1.2,
                 marginBottom: '14px'
@@ -1224,7 +1224,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                       fontWeight: 700,
                       fontSize: '0.82rem',
                       padding: '7px 18px',
-                      borderRadius: '20px',
+                      borderRadius: '6px',
                       cursor: 'pointer',
                       transition: 'all 0.2s ease',
                       boxShadow: isActive ? '0 4px 14px rgba(12, 68, 131, 0.4)' : 'none'
@@ -1253,18 +1253,18 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   position: 'relative',
                   borderRadius: '12px',
                   overflow: 'hidden',
-                  background: 'rgba(15, 23, 42, 0.9)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  background: '#11141c',
+                  border: '1px solid rgba(255, 255, 255, 0.08)',
                   cursor: 'pointer',
                   boxShadow: '0 8px 24px rgba(0, 0, 0, 0.35)',
                   transition: 'transform 0.3s ease, border-color 0.3s ease'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  
                   e.currentTarget.style.borderColor = '#38bdf8';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                 }}
               >
@@ -1288,7 +1288,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     style={{
                       fontSize: '0.70rem',
                       color: '#38bdf8',
-                      fontWeight: 800,
+                      fontWeight: 600,
                       textTransform: 'uppercase',
                       letterSpacing: '0.06em',
                       marginBottom: '4px'
@@ -1299,7 +1299,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                   <h4 style={{ fontSize: '1rem', fontWeight: 700, color: '#ffffff', marginBottom: '4px' }}>
                     {item.title}
                   </h4>
-                  <p style={{ fontSize: '0.80rem', color: '#94a3b8', lineHeight: 1.5, marginBottom: '8px' }}>
+                  <p style={{ fontSize: '0.80rem', color: '#a3a9b8', lineHeight: 1.5, marginBottom: '8px' }}>
                     {item.subtitle}
                   </p>
                   <div style={{ fontSize: '0.74rem', color: '#f59e0b', fontWeight: 600 }}>
@@ -1346,10 +1346,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               style={{ width: '100%', maxHeight: '460px', objectFit: 'cover' }}
             />
             <div style={{ padding: '22px 26px' }}>
-              <div style={{ fontSize: '0.74rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '0.74rem', color: '#38bdf8', fontWeight: 600, textTransform: 'uppercase' }}>
                 {selectedGalleryImage.category}
               </div>
-              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 800, margin: '6px 0' }}>
+              <h3 style={{ color: '#ffffff', fontSize: '1.3rem', fontWeight: 600, margin: '6px 0' }}>
                 {selectedGalleryImage.title}
               </h3>
               <p style={{ color: '#cbd5e1', fontSize: '0.90rem', marginBottom: '12px' }}>
@@ -1396,7 +1396,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
         style={{
           padding: '64px 20px',
           background: 'linear-gradient(135deg, rgba(12, 68, 131, 0.4) 0%, rgba(7, 13, 24, 0.95) 100%)',
-          borderBottom: '1px solid rgba(56, 189, 248, 0.2)'
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
         }}
       >
         <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
@@ -1413,7 +1413,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 style={{
                   fontSize: '0.78rem',
                   color: '#f59e0b',
-                  fontWeight: 800,
+                  fontWeight: 600,
                   textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                   marginBottom: '10px'
@@ -1421,7 +1421,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               >
                 Direct Fabrication Desk
               </div>
-              <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
+              <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', fontWeight: 600, color: '#ffffff', marginBottom: '14px' }}>
                 Ready to Start Your Project?
               </h2>
               <p style={{ color: '#cbd5e1', fontSize: '0.96rem', lineHeight: 1.65, marginBottom: '22px' }}>
@@ -1433,7 +1433,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     <Phone size={18} color="#38bdf8" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600 }}>Phone / Direct Helpline</div>
+                    <div style={{ fontSize: '0.72rem', color: '#a3a9b8', textTransform: 'uppercase', fontWeight: 600 }}>Phone / Direct Helpline</div>
                     <a href="tel:+919158658885" style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none' }}>+91 91586 58885</a>
                   </div>
                 </div>
@@ -1442,7 +1442,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     <Mail size={18} color="#10b981" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600 }}>Email</div>
+                    <div style={{ fontSize: '0.72rem', color: '#a3a9b8', textTransform: 'uppercase', fontWeight: 600 }}>Email</div>
                     <a href="mailto:ms.charteredengineer@gmail.com" style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none' }}>ms.charteredengineer@gmail.com</a>
                   </div>
                 </div>
@@ -1451,7 +1451,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     <Globe size={18} color="#f59e0b" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600 }}>Official Website</div>
+                    <div style={{ fontSize: '0.72rem', color: '#a3a9b8', textTransform: 'uppercase', fontWeight: 600 }}>Official Website</div>
                     <span style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.92rem' }}>www.mscharteredengineer.com</span>
                   </div>
                 </div>
@@ -1468,10 +1468,10 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 textAlign: 'center'
               }}
             >
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
                 Request Turnkey Quotation
               </h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.88rem', marginBottom: '22px', lineHeight: 1.6 }}>
+              <p style={{ color: '#a3a9b8', fontSize: '0.88rem', marginBottom: '22px', lineHeight: 1.6 }}>
                 Submit project specifications for PEB sheds, heavy gates, structural steel framing, or stability audit.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -1515,11 +1515,11 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               gap: '8px',
               background: 'rgba(245, 158, 11, 0.12)',
               border: '1px solid rgba(245, 158, 11, 0.35)',
-              borderRadius: '9999px',
+              borderRadius: '6px',
               padding: '6px 18px',
               color: '#fbbf24',
               fontSize: '0.78rem',
-              fontWeight: 800,
+              fontWeight: 600,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               marginBottom: '18px'
@@ -1532,7 +1532,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
           <h2
             style={{
               fontSize: 'clamp(2.1rem, 4vw, 3.2rem)',
-              fontWeight: 900,
+              fontWeight: 600,
               lineHeight: 1.2,
               color: '#ffffff',
               margin: '0 auto 16px',
@@ -1570,9 +1570,9 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
               placeholder="Search questions (e.g. tin shed, chimney, cost, welding, certificate)..."
               style={{
                 width: '100%',
-                background: 'rgba(15, 23, 42, 0.85)',
+                background: '#11141c',
                 border: '1px solid rgba(255, 255, 255, 0.18)',
-                borderRadius: '9999px',
+                borderRadius: '6px',
                 padding: '12px 18px 12px 46px',
                 color: '#ffffff',
                 fontSize: '0.92rem',
@@ -1600,7 +1600,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                     fontWeight: 700,
                     fontSize: '0.80rem',
                     padding: '6px 16px',
-                    borderRadius: '20px',
+                    borderRadius: '6px',
                     cursor: 'pointer',
                     transition: 'all 0.2s ease'
                   }}
@@ -1620,7 +1620,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             <div
               style={{
                 background: 'rgba(15, 23, 42, 0.8)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
                 borderRadius: '16px',
                 padding: '40px 24px',
                 textAlign: 'center'
@@ -1628,7 +1628,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
             >
               <HelpCircle size={36} color="#f59e0b" style={{ margin: '0 auto 12px' }} />
               <h3 style={{ color: '#ffffff', fontSize: '1.2rem', marginBottom: '8px' }}>No Questions Found</h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.90rem', marginBottom: '20px' }}>
+              <p style={{ color: '#a3a9b8', fontSize: '0.90rem', marginBottom: '20px' }}>
                 We couldn't find an FAQ matching "{searchQuery}". Feel free to speak directly with our structural engineering team.
               </p>
               <button
@@ -1645,8 +1645,8 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
                 <div
                   key={idx}
                   style={{
-                    background: 'rgba(15, 23, 42, 0.9)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    background: '#11141c',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
                     borderLeft: openFaq === idx ? '4px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '12px',
                     overflow: 'hidden',
