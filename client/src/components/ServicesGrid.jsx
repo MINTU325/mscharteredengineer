@@ -28,6 +28,7 @@ import {
   FlaskConical,
   Hammer,
   Factory,
+  Sun,
 } from 'lucide-react';
 
 const servicesData = [

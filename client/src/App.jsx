@@ -497,7 +497,7 @@ export default function App() {
     if (routeId === 'projects') {
       return <ArchitecturalProjects onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
-    if (isServicesRoute) {
+    if (isServicesRoute || routeId === 'services') {
       return <ServicesPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} currentRoute={currentRoute} />;
     }
     if (isToolsRoute) {
