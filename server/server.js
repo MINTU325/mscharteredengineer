@@ -143,13 +143,6 @@ const ROUTE_META = {
     canonical: 'https://www.mscharteredengineer.com/solar-structural-analysis',
     ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
   },
-  '/whatsapp-crm': {
-    title: 'SumanTech WhatsApp Marketing CRM & Bulk Sender | Lifetime Access ₹100',
-    description: 'Send bulk WhatsApp broadcasts from PC with anti-ban safe timing, Excel contacts import, automated PDF quotation generator. 100% localhost privacy. Single payment of ₹100.',
-    keywords: 'WhatsApp CRM, WhatsApp bulk sender PC, WhatsApp marketing software India, Excel to WhatsApp sender, WhatsApp quotation maker',
-    canonical: 'https://www.mscharteredengineer.com/whatsapp-crm',
-    ogImage: 'https://www.mscharteredengineer.com/images/whatsapp-crm-upi-qr.jpg'
-  }
 };
 
 // Serve static client build in production if built

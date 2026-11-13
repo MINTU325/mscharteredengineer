@@ -31,20 +31,9 @@ const GovernmentSubsidiesPage = lazy(() => import('./components/GovernmentSubsid
 const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
 const ElectricalServicesPage = lazy(() => import('./components/ElectricalServicesPage'));
 const FabricationServicesPage = lazy(() => import('./components/FabricationServicesPage'));
-const WhatsAppCrmOfferPage = lazy(() => import('./components/WhatsAppCrmOfferPage'));
 const SolarStructuralAnalysisPage = lazy(() => import('./components/SolarStructuralAnalysisPage'));
 
 const ROUTE_CONFIG = {
-  '/whatsapp-crm': {
-    id: 'whatsapp-crm',
-    title: 'SumanTech WhatsApp Marketing CRM & Bulk Sender | Lifetime Diwali Offer ₹100',
-    description: 'Get Lifetime Access to SumanTech WhatsApp CRM for ₹100. Send bulk messages, Excel upload, quotation PDF generator, anti-ban humanized pacing, and 24/7 AI Sales Bot. 100% local, safe and private on your PC.'
-  },
-  '/crm-offer': {
-    id: 'whatsapp-crm',
-    title: 'SumanTech WhatsApp Marketing CRM & Bulk Sender | Lifetime Diwali Offer ₹100',
-    description: 'Get Lifetime Access to SumanTech WhatsApp CRM for ₹100. Send bulk messages, Excel upload, quotation PDF generator, anti-ban humanized pacing, and 24/7 AI Sales Bot. 100% local, safe and private on your PC.'
-  },
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | KS Chartered Engineers (IIT Roorkee)' },
   '/fabrication-services': { 
     id: 'fabrication-services', 
@@ -226,7 +215,7 @@ const FULL_PAGE_IDS = new Set([
   'home', 'admin', 'projects', 'faq', 'blog', 'services', 'tools', 'city-hub',
   'chartered-engineer', 'tech-products',
   'government-subsidies', 'business-loans', 'electrical-services', 'fabrication-services',
-  'whatsapp-crm', 'solar-structural-analysis'
+  'solar-structural-analysis'
 ]);
 
 const SERVICES_ROUTES = new Set([
@@ -444,9 +433,6 @@ export default function App() {
       );
     }
 
-    if (routeId === 'whatsapp-crm') {
-      return <WhatsAppCrmOfferPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
-    }
     if (routeId === 'chartered-engineer') {
       return <CharteredEngineerPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
@@ -521,17 +507,7 @@ export default function App() {
     );
   };
 
-  const isStandaloneCrmPage = currentRoute === '/whatsapp-crm' || currentRoute === '/crm-offer';
 
-  if (isStandaloneCrmPage) {
-    return (
-      <div className="standalone-crm-container" style={{ background: '#040914', minHeight: '100vh', color: '#e2e8f0' }}>
-        <Suspense fallback={<div style={{ minHeight: '100vh', background: '#040914', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />}>
-          <WhatsAppCrmOfferPage onNavigateHome={handleNavigateHome} onOpenQuote={handleOpenQuote} />
-        </Suspense>
-      </div>
-    );
-  }
 
   return (
     <div className="app-container">

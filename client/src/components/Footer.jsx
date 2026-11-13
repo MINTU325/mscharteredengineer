@@ -127,28 +127,7 @@ export default function Footer({ onOpenQuote }) {
               <span>Knowledge Hub &amp; Blog</span>
             </a>
 
-            <a
-              href="/whatsapp-crm"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                marginTop: '8px',
-                padding: '6px 12px',
-                background: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
-                borderRadius: '6px',
-                color: '#10b981',
-                fontSize: '0.78rem',
-                fontWeight: 600,
-                textDecoration: 'none',
-              }}
-              aria-label="WhatsApp CRM Bulk Marketing Suite Diwali Offer"
-            >
-              <Zap size={13} color="#10b981" />
-              <span>WhatsApp CRM ₹100 Offer</span>
-              <ArrowRight size={12} />
-            </a>
+
           </div>
 
           {/* ── Col 2: Practice Areas (2-column sub-grid) ── */}
@@ -168,7 +147,7 @@ export default function Footer({ onOpenQuote }) {
                 { href: '/fssai', label: 'FSSAI Compliance' },
                 { href: '/electrical-services', label: 'Electrical & Substation' },
                 { href: '/fabrication-services', label: 'Fabrication & PEB Shed' },
-                { href: '/whatsapp-crm', label: 'WhatsApp CRM Suite (₹100)' },
+                { href: '/solar-structural-analysis', label: 'Solar Structural Analysis' },
                 { href: '/autocad-drafting', label: 'AutoCAD 2D Drafting' },
                 { href: '/advisory', label: 'IndAS 16 Advisory' },
                 { href: '/calculator', label: 'Valuation Calculator' },
@@ -407,7 +386,7 @@ export default function Footer({ onOpenQuote }) {
             { href: '/founder', label: 'Core Team' },
             { href: '/blog', label: 'Blog' },
             { href: '/faq', label: 'FAQ', highlight: 'gold' },
-            { href: '/whatsapp-crm', label: 'WhatsApp CRM (₹100)', highlight: 'gold' },
+            { href: '/solar-structural-analysis', label: 'Solar Analysis', highlight: 'gold' },
             { href: '/contact', label: 'Contact' },
           ].map(({ href, label, highlight }, i, arr) => (
             <React.Fragment key={href}>
