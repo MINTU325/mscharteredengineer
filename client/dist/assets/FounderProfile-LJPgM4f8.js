@@ -1,0 +1,88 @@
+import{j as e,L as n}from"./index-CpC8AdSZ.js";import{G as t,j as o,Q as i,P as s,b as a}from"./icons-COLPKCh7.js";import"./react-vendor-DJh2Hx8i.js";function x({onOpenQuote:r}){return e.jsxs("section",{id:"founder",style:{padding:"48px 0",background:"#edf2f7",borderBottom:"1px solid #cbd5e1"},children:[e.jsx("style",{children:`
+        .founder-grid-responsive {
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          gap: 36px;
+          align-items: center;
+          width: 100%;
+        }
+
+        .founder-left-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+        }
+
+        .founder-right-col {
+          width: 100%;
+          min-width: 0;
+        }
+
+        .founder-card-box {
+          max-width: 1020px;
+          margin: 0 auto;
+          border-radius: 12px;
+          background: #ffffff;
+          border: 1px solid #cbd5e1;
+          box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+          position: relative;
+          overflow: hidden;
+          padding: 32px 36px;
+          box-sizing: border-box;
+          width: 100%;
+        }
+
+        .founder-action-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          align-items: center;
+          width: 100%;
+        }
+
+        @media (max-width: 992px) {
+          .founder-grid-responsive {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 28px !important;
+            width: 100% !important;
+          }
+          .founder-card-box {
+            padding: 24px 16px !important;
+          }
+          .founder-left-col {
+            margin: 0 auto !important;
+            max-width: 100% !important;
+          }
+          .founder-right-col {
+            text-align: center !important;
+          }
+          .founder-iei-badge {
+            margin: 0 auto 14px auto !important;
+          }
+          .founder-checklist-grid {
+            text-align: left !important;
+          }
+          .founder-action-buttons {
+            justify-content: center !important;
+          }
+        }
+
+        @media (max-width: 580px) {
+          .founder-card-box {
+            padding: 20px 14px !important;
+          }
+          .founder-action-buttons {
+            flex-direction: column !important;
+            width: 100% !important;
+          }
+          .founder-action-buttons > * {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
+        }
+      `}),e.jsxs("div",{className:"container",style:{width:"100%",boxSizing:"border-box"},children:[e.jsxs("div",{style:{textAlign:"center",maxWidth:"820px",margin:"0 auto 32px auto"},children:[e.jsxs("div",{style:{display:"inline-flex",alignItems:"center",gap:"8px",padding:"4px 12px",background:"rgba(56, 189, 248, 0.12)",border:"1px solid rgba(56, 189, 248, 0.25)",borderRadius:"6px",color:"#0284c7",fontSize:"0.78rem",fontWeight:700,textTransform:"uppercase",letterSpacing:"0.04em",marginBottom:"12px"},children:[e.jsx(t,{size:14}),e.jsx("span",{children:"Leadership & Technical Governance"})]}),e.jsxs("h2",{style:{fontSize:"clamp(1.7rem, 3vw, 2.3rem)",color:"#0f172a",fontWeight:800,lineHeight:1.25,marginBottom:"10px"},children:["Core Team & ",e.jsx("span",{style:{color:"#0284c7"},children:"Leadership"})]}),e.jsx("p",{style:{color:"#334155",fontSize:"0.94rem",lineHeight:1.6,fontWeight:500},children:"Headed by elite IIT engineering alumni and Chartered Engineers committed to regulatory integrity and technical excellence."})]}),e.jsx("div",{className:"founder-card-box",children:e.jsxs("div",{className:"founder-grid-responsive",children:[e.jsxs("div",{className:"founder-left-col",children:[e.jsxs("div",{style:{background:"#ffffff",border:"1px solid #e2e8f0",borderRadius:"8px",padding:"24px 16px",display:"inline-flex",flexDirection:"column",alignItems:"center",gap:"12px",width:"100%",maxWidth:"240px",boxShadow:"0 2px 8px rgba(15, 23, 42, 0.04)"},children:[e.jsxs("svg",{width:"88",height:"88",viewBox:"0 0 100 100",xmlns:"http://www.w3.org/2000/svg",children:[e.jsxs("defs",{children:[e.jsxs("linearGradient",{id:"founderBlueGear",x1:"0%",y1:"0%",x2:"100%",y2:"100%",children:[e.jsx("stop",{offset:"0%",stopColor:"#38bdf8"}),e.jsx("stop",{offset:"100%",stopColor:"#1d4ed8"})]}),e.jsxs("linearGradient",{id:"founderGoldRing",x1:"0%",y1:"0%",x2:"100%",y2:"100%",children:[e.jsx("stop",{offset:"0%",stopColor:"#fbbf24"}),e.jsx("stop",{offset:"100%",stopColor:"#d97706"})]})]}),e.jsxs("g",{className:"spin-ring",style:{transformOrigin:"50px 50px"},children:[e.jsx("circle",{cx:"50",cy:"50",r:"42",fill:"none",stroke:"url(#founderBlueGear)",strokeWidth:"7",strokeDasharray:"14 9",strokeLinecap:"round"}),e.jsx("circle",{cx:"50",cy:"50",r:"35",fill:"none",stroke:"url(#founderGoldRing)",strokeWidth:"2.5",opacity:"0.9"})]}),e.jsx("circle",{cx:"50",cy:"50",r:"26",fill:"#07080d",stroke:"#ffffff",strokeWidth:"2.5"}),e.jsx("circle",{cx:"50",cy:"50",r:"21",fill:"none",stroke:"#38bdf8",strokeWidth:"1",strokeDasharray:"3 3",opacity:"0.6"}),e.jsx("text",{x:"50",y:"60.5",fontFamily:"system-ui, -apple-system, sans-serif",fontWeight:"900",fontSize:"26",fill:"#ffffff",textAnchor:"middle",letterSpacing:"1",children:"KS"})]}),e.jsxs("div",{children:[e.jsx("div",{style:{fontSize:"0.80rem",fontWeight:800,textTransform:"uppercase",letterSpacing:"0.05em",color:"#0f172a"},children:"KS CHARTERED ENGINEERS"}),e.jsx("div",{style:{fontSize:"0.66rem",color:"#F58220",fontWeight:700,letterSpacing:"0.04em",marginTop:"2px"},children:"Valuers & Technical Services"})]})]}),e.jsxs("div",{style:{marginTop:"16px"},children:[e.jsx("h3",{style:{fontSize:"1.4rem",color:"#0f172a",fontWeight:800,marginBottom:"2px"},children:"Mukesh Singh"}),e.jsx("div",{style:{fontSize:"0.86rem",color:"#0284c7",fontWeight:700},children:"CEng (INDIA) MIE"}),e.jsx("div",{style:{fontSize:"0.82rem",color:"#b45309",fontWeight:600,marginTop:"2px"},children:"B.Tech (Mechanical), IIT Roorkee"}),e.jsx("div",{style:{fontSize:"0.78rem",color:"#475569",marginTop:"4px",lineHeight:1.4},children:"Principal Consultant & Registered Valuer"})]})]}),e.jsxs("div",{className:"founder-right-col",children:[e.jsxs("div",{className:"founder-iei-badge",style:{display:"inline-flex",alignItems:"center",gap:"8px",padding:"5px 12px",background:"rgba(56, 189, 248, 0.10)",border:"1px solid rgba(56, 189, 248, 0.22)",borderRadius:"6px",fontSize:"0.76rem",color:"#0284c7",fontWeight:600,marginBottom:"14px",maxWidth:"100%",boxSizing:"border-box"},children:[e.jsx(o,{size:14,color:"#d97706",style:{flexShrink:0}}),e.jsx("span",{children:"Corporate Member of IEI (Institution of Engineers India)"})]}),e.jsx("h4",{style:{fontSize:"clamp(1.15rem, 3.2vw, 1.35rem)",color:"#0f172a",fontWeight:800,marginBottom:"12px",lineHeight:1.3},children:"Engineering Rigor, Regulatory Trust"}),e.jsxs("p",{style:{color:"#334155",fontSize:"0.92rem",lineHeight:1.7,marginBottom:"20px"},children:["Mukesh Singh brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a ",e.jsx("strong",{style:{color:"#0f172a"},children:"Chartered Engineer (India) MIE"})," by the ",e.jsx("strong",{style:{color:"#0f172a"},children:"Institution of Engineers (India)"}),", he oversees every valuation and statutory certificate with unmatched analytical precision."]}),e.jsxs("div",{className:"founder-checklist-grid",style:{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 180px), 1fr))",gap:"10px",marginBottom:"24px",width:"100%"},children:[e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:"8px",fontSize:"0.86rem",color:"#1e293b",fontWeight:600},children:[e.jsx(i,{size:16,color:"#10b981",style:{flexShrink:0}}),e.jsx("span",{children:"Chartered Engineer (India)"})]}),e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:"8px",fontSize:"0.86rem",color:"#1e293b",fontWeight:600},children:[e.jsx(i,{size:16,color:"#10b981",style:{flexShrink:0}}),e.jsx("span",{children:"Corporate Member of IEI"})]}),e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:"8px",fontSize:"0.86rem",color:"#1e293b",fontWeight:600},children:[e.jsx(i,{size:16,color:"#10b981",style:{flexShrink:0}}),e.jsx("span",{children:"Valuation & Certification Expert"})]}),e.jsxs("div",{style:{display:"flex",alignItems:"center",gap:"8px",fontSize:"0.86rem",color:"#1e293b",fontWeight:600},children:[e.jsx(i,{size:16,color:"#10b981",style:{flexShrink:0}}),e.jsx("span",{children:"Pan-India Statutory Practice"})]})]}),e.jsxs("div",{className:"founder-action-buttons",children:[e.jsxs("a",{href:"tel:+919158658885",className:"btn btn-outline",style:{padding:"10px 18px",fontSize:"0.84rem",borderRadius:"6px",borderColor:"#cbd5e1",color:"#10b981",background:"#f8fafc",display:"inline-flex",alignItems:"center",gap:"6px"},children:[e.jsx(s,{size:15,color:"#10b981"}),e.jsx("span",{children:"+91 91586 58885"})]}),e.jsxs("a",{href:"mailto:ms.charteredengineer@gmail.com",className:"btn btn-outline",style:{padding:"10px 18px",fontSize:"0.84rem",borderRadius:"6px",borderColor:"#cbd5e1",color:"#b45309",background:"#f8fafc",display:"inline-flex",alignItems:"center",gap:"6px"},children:[e.jsx(a,{size:15,color:"#b45309"}),e.jsx("span",{children:"Email Principal Engineer"})]}),e.jsxs("a",{href:"https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy",target:"_blank",rel:"noopener noreferrer",className:"btn btn-outline",style:{padding:"10px 18px",fontSize:"0.84rem",borderRadius:"6px",borderColor:"#cbd5e1",color:"#0284c7",background:"#f8fafc",display:"inline-flex",alignItems:"center",gap:"6px"},children:[e.jsx(n,{size:15,color:"#0284c7"}),e.jsx("span",{children:"LinkedIn Profile"})]}),e.jsx("button",{onClick:()=>r(),className:"btn btn-primary",style:{padding:"10px 20px",fontSize:"0.84rem",background:"#F58220",borderColor:"#F58220",borderRadius:"6px",color:"#ffffff",fontWeight:700,cursor:"pointer"},children:"Book Consultation"})]})]})]})})]})]})}export{x as default};

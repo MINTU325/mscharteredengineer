@@ -76,6 +76,8 @@ body {
   background: #edf2f7;
   color: #0f172a;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Typography */
@@ -1197,11 +1199,23 @@ select option {
   gap: 24px;
 }
 
-.founder-grid {
+.founder-grid,
+.founder-grid-responsive {
   display: grid;
   grid-template-columns: 280px 1fr;
-  gap: 40px;
+  gap: 36px;
   align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .founder-grid,
+  .founder-grid-responsive {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    width: 100% !important;
+  }
 }
 
 .presence-grid {

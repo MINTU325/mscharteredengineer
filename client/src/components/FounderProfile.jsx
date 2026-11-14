@@ -6,40 +6,95 @@ export default function FounderProfile({ onOpenQuote }) {
   return (
     <section id="founder" style={{ padding: '48px 0', background: '#edf2f7', borderBottom: '1px solid #cbd5e1' }}>
       <style>{`
-        .founder-grid {
+        .founder-grid-responsive {
           display: grid;
           grid-template-columns: 280px 1fr;
           gap: 36px;
           align-items: center;
+          width: 100%;
         }
-        @media (max-width: 900px) {
-          .founder-grid {
-            grid-template-columns: 1fr !important;
-            gap: 24px !important;
+
+        .founder-left-col {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
+        }
+
+        .founder-right-col {
+          width: 100%;
+          min-width: 0;
+        }
+
+        .founder-card-box {
+          max-width: 1020px;
+          margin: 0 auto;
+          border-radius: 12px;
+          background: #ffffff;
+          border: 1px solid #cbd5e1;
+          box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+          position: relative;
+          overflow: hidden;
+          padding: 32px 36px;
+          box-sizing: border-box;
+          width: 100%;
+        }
+
+        .founder-action-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          align-items: center;
+          width: 100%;
+        }
+
+        @media (max-width: 992px) {
+          .founder-grid-responsive {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 28px !important;
+            width: 100% !important;
           }
           .founder-card-box {
             padding: 24px 16px !important;
           }
           .founder-left-col {
             margin: 0 auto !important;
-            width: 100% !important;
+            max-width: 100% !important;
+          }
+          .founder-right-col {
+            text-align: center !important;
+          }
+          .founder-iei-badge {
+            margin: 0 auto 14px auto !important;
+          }
+          .founder-checklist-grid {
+            text-align: left !important;
           }
           .founder-action-buttons {
             justify-content: center !important;
           }
         }
-        @media (max-width: 480px) {
+
+        @media (max-width: 580px) {
           .founder-card-box {
-            padding: 20px 12px !important;
+            padding: 20px 14px !important;
+          }
+          .founder-action-buttons {
+            flex-direction: column !important;
+            width: 100% !important;
           }
           .founder-action-buttons > * {
             width: 100% !important;
+            box-sizing: border-box !important;
             justify-content: center !important;
             text-align: center !important;
           }
         }
       `}</style>
-      <div className="container">
+
+      <div className="container" style={{ width: '100%', boxSizing: 'border-box' }}>
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
           <div style={{
             display: 'inline-flex',
@@ -73,23 +128,10 @@ export default function FounderProfile({ onOpenQuote }) {
           </p>
         </div>
 
-        <div 
-          className="founder-card-box"
-          style={{
-            maxWidth: '1020px',
-            margin: '0 auto',
-            borderRadius: '12px',
-            background: '#ffffff',
-            border: '1px solid #cbd5e1',
-            boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)',
-            position: 'relative',
-            overflow: 'hidden',
-            padding: '32px 36px'
-          }}
-        >
-          <div className="founder-grid">
+        <div className="founder-card-box">
+          <div className="founder-grid-responsive">
             {/* Left: Emblem Logo & Leader Title */}
-            <div className="founder-left-col" style={{ textAlign: 'center' }}>
+            <div className="founder-left-col">
               <div style={{
                 background: '#ffffff',
                 border: '1px solid #e2e8f0',
@@ -100,7 +142,8 @@ export default function FounderProfile({ onOpenQuote }) {
                 alignItems: 'center',
                 gap: '12px',
                 width: '100%',
-                maxWidth: '240px'
+                maxWidth: '240px',
+                boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
               }}>
                 <svg width="88" height="88" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                   <defs>
@@ -143,7 +186,7 @@ export default function FounderProfile({ onOpenQuote }) {
                 <div style={{ fontSize: '0.86rem', color: '#0284c7', fontWeight: 700 }}>
                   CEng (INDIA) MIE
                 </div>
-                <div style={{ fontSize: '0.82rem', color: '#fbbf24', fontWeight: 600, marginTop: '2px' }}>
+                <div style={{ fontSize: '0.82rem', color: '#b45309', fontWeight: 600, marginTop: '2px' }}>
                   B.Tech (Mechanical), IIT Roorkee
                 </div>
                 <div style={{ fontSize: '0.78rem', color: '#475569', marginTop: '4px', lineHeight: 1.4 }}>
@@ -153,58 +196,60 @@ export default function FounderProfile({ onOpenQuote }) {
             </div>
 
             {/* Right: Qualifications, Rigor & Contact */}
-            <div>
-              <div style={{
+            <div className="founder-right-col">
+              <div className="founder-iei-badge" style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '4px 12px',
+                padding: '5px 12px',
                 background: 'rgba(56, 189, 248, 0.10)',
                 border: '1px solid rgba(56, 189, 248, 0.22)',
                 borderRadius: '6px',
                 fontSize: '0.76rem',
                 color: '#0284c7',
                 fontWeight: 600,
-                marginBottom: '14px'
+                marginBottom: '14px',
+                maxWidth: '100%',
+                boxSizing: 'border-box'
               }}>
-                <Award size={14} color="#fbbf24" />
+                <Award size={14} color="#d97706" style={{ flexShrink: 0 }} />
                 <span>Corporate Member of IEI (Institution of Engineers India)</span>
               </div>
 
-              <h4 style={{ fontSize: '1.3rem', color: '#0f172a', fontWeight: 800, marginBottom: '12px' }}>
+              <h4 style={{ fontSize: 'clamp(1.15rem, 3.2vw, 1.35rem)', color: '#0f172a', fontWeight: 800, marginBottom: '12px', lineHeight: 1.3 }}>
                 Engineering Rigor, Regulatory Trust
               </h4>
 
-              <p style={{ color: '#475569', fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '20px' }}>
+              <p style={{ color: '#334155', fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '20px' }}>
                 Mukesh Singh brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a <strong style={{ color: '#0f172a' }}>Chartered Engineer (India) MIE</strong> by the <strong style={{ color: '#0f172a' }}>Institution of Engineers (India)</strong>, he oversees every valuation and statutory certificate with unmatched analytical precision.
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '10px', marginBottom: '24px' }}>
+              <div className="founder-checklist-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '10px', marginBottom: '24px', width: '100%' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
-                  <CheckCircle2 size={16} color="#10b981" />
+                  <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0 }} />
                   <span>Chartered Engineer (India)</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
-                  <CheckCircle2 size={16} color="#10b981" />
+                  <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0 }} />
                   <span>Corporate Member of IEI</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
-                  <CheckCircle2 size={16} color="#10b981" />
+                  <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0 }} />
                   <span>Valuation &amp; Certification Expert</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
-                  <CheckCircle2 size={16} color="#10b981" />
+                  <CheckCircle2 size={16} color="#10b981" style={{ flexShrink: 0 }} />
                   <span>Pan-India Statutory Practice</span>
                 </div>
               </div>
 
-              <div className="founder-action-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}>
-                <a href="tel:+919158658885" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#10b981' }}>
+              <div className="founder-action-buttons">
+                <a href="tel:+919158658885" className="btn btn-outline" style={{ padding: '10px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#10b981', background: '#f8fafc', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                   <Phone size={15} color="#10b981" />
                   <span>+91 91586 58885</span>
                 </a>
-                <a href="mailto:ms.charteredengineer@gmail.com" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#fbbf24' }}>
-                  <Mail size={15} color="#fbbf24" />
+                <a href="mailto:ms.charteredengineer@gmail.com" className="btn btn-outline" style={{ padding: '10px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#b45309', background: '#f8fafc', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <Mail size={15} color="#b45309" />
                   <span>Email Principal Engineer</span>
                 </a>
                 <a 
@@ -212,22 +257,23 @@ export default function FounderProfile({ onOpenQuote }) {
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn btn-outline" 
-                  style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#0284c7' }}
+                  style={{ padding: '10px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#0284c7', background: '#f8fafc', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                 >
-                  <LinkedinIcon size={15} color="#38bdf8" />
+                  <LinkedinIcon size={15} color="#0284c7" />
                   <span>LinkedIn Profile</span>
                 </a>
                 <button 
                   onClick={() => onOpenQuote()} 
                   className="btn btn-primary" 
                   style={{ 
-                    padding: '9px 20px', 
+                    padding: '10px 20px', 
                     fontSize: '0.84rem', 
                     background: '#F58220', 
                     borderColor: '#F58220', 
                     borderRadius: '6px', 
-                    color: '#0f172a',
-                    fontWeight: 600 
+                    color: '#ffffff',
+                    fontWeight: 700,
+                    cursor: 'pointer'
                   }}
                 >
                   Book Consultation
