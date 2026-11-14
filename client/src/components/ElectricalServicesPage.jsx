@@ -162,7 +162,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
       {/* ── BREADCRUMB & HERO SECTION ── */}
       <section style={{ 
         position: 'relative', 
-        padding: isMobile ? '75px 16px 36px' : '120px 20px 56px', 
+        padding: isMobile ? '75px 16px 36px' : '110px 20px 48px', 
         background: '#f8fafc',
         borderBottom: '1px solid #e2e8f0'
       }}>
@@ -180,13 +180,13 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
           }}>
             <button 
               onClick={onNavigateHome} 
-              style={{ background: 'transparent', border: 'none', color: '#0284c7', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
+              style={{ background: 'transparent', border: 'none', color: '#0284c7', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0, fontWeight: 500 }}
             >
               <Home size={13} /> Home
             </button>
-            <span>/</span>
-            <span style={{ color: '#cbd5e1' }}>Services</span>
-            <span>/</span>
+            <span style={{ color: '#94a3b8' }}>/</span>
+            <span style={{ color: '#64748b' }}>Services</span>
+            <span style={{ color: '#94a3b8' }}>/</span>
             <span style={{ color: '#0284c7', fontWeight: 600 }}>Electrical &amp; Substation Engineering</span>
           </div>
 
@@ -196,8 +196,8 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             gap: '8px', 
             padding: '5px 12px', 
             borderRadius: '6px', 
-            background: 'rgba(56, 189, 248, 0.1)', 
-            border: '1px solid rgba(56, 189, 248, 0.25)', 
+            background: 'rgba(2, 132, 199, 0.08)', 
+            border: '1px solid rgba(2, 132, 199, 0.25)', 
             color: '#0284c7', 
             fontSize: isMobile ? '0.75rem' : '0.82rem', 
             fontWeight: 700, 
@@ -210,9 +210,9 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
           <h1 style={{ 
             fontSize: isMobile ? '1.85rem' : 'clamp(2rem, 4.5vw, 3.4rem)', 
-            fontWeight: 600, 
+            fontWeight: 800, 
             lineHeight: 1.18, 
-            color: '#ffffff', 
+            color: '#0f172a', 
             letterSpacing: '-0.02em', 
             maxWidth: '980px', 
             marginBottom: '16px' 
@@ -222,9 +222,9 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
           <p style={{ 
             fontSize: isMobile ? '0.92rem' : 'clamp(1rem, 1.8vw, 1.18rem)', 
-            color: '#475569', 
+            color: '#334155', 
             maxWidth: '850px', 
-            lineHeight: 1.55, 
+            lineHeight: 1.6, 
             marginBottom: isMobile ? '24px' : '36px' 
           }}>
             Comprehensive on-site testing for Circuit Breakers, Power Transformers, Relays, and Earth Pits up to 220kV. Turnkey 11kV/33kV substation erection, high-vacuum oil filtration, cable jointing, and statutory CEA safety audits by certified Chartered Engineers.
@@ -265,18 +265,19 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                 padding: isMobile ? '11px 16px' : '13px 22px', 
                 fontSize: '0.90rem', 
                 fontWeight: 600, 
-                background: 'rgba(255, 255, 255, 0.05)', 
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: '#ffffff',
+                background: '#ffffff', 
+                border: '1.5px solid #cbd5e1', 
+                color: '#0f172a',
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
                 gap: '8px',
                 borderRadius: '8px',
-                width: isMobile ? '100%' : 'auto'
+                width: isMobile ? '100%' : 'auto',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
               }}
             >
-              <Phone size={15} color="#10b981" />
+              <Phone size={15} color="#0284c7" />
               <span>Talk to Chief Engineer (+91 91586 58885)</span>
             </a>
 
@@ -287,8 +288,8 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                 fontSize: '0.90rem', 
                 fontWeight: 600, 
                 background: 'rgba(16, 185, 129, 0.12)', 
-                border: '1px solid rgba(16, 185, 129, 0.3)',
-                color: '#34d399',
+                border: '1.5px solid #10b981',
+                color: '#059669',
                 display: 'inline-flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
@@ -303,49 +304,20 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             </button>
           </div>
 
-          {/* Quick Metrics Bar */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', 
-            gap: isMobile ? '10px' : '16px', 
-            marginTop: isMobile ? '28px' : '44px', 
-            padding: isMobile ? '14px' : '20px', 
-            borderRadius: '12px', 
-            background: '#ffffff', 
-            border: '1px solid #e2e8f0' 
-          }}>
-            <div>
-              <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#0284c7' }}>1500+</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>Transformers Tested</div>
-            </div>
-            <div>
-              <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#10b981' }}>&gt; 70 kV</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>Oil BDV Restored</div>
-            </div>
-            <div>
-              <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#fbbf24' }}>24x7</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>Emergency Dispatch</div>
-            </div>
-            <div>
-              <div style={{ fontSize: isMobile ? '1.35rem' : '1.6rem', fontWeight: 600, color: '#a78bfa' }}>100% CEA</div>
-              <div style={{ fontSize: isMobile ? '0.74rem' : '0.85rem', color: '#475569' }}>CEIG Compliance</div>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* ── FUTURISTIC CYBER-HUD CONTROL STRIP (FULLY RESPONSIVE & AUTO-DOCKING) ── */}
+      {/* ── STICKY CONTROL STRIP & FILTER BAR ── */}
       <section style={{ 
         position: 'sticky', 
         top: stickyTop, 
         zIndex: 990, 
-        padding: isMobile ? '6px 12px' : '8px 20px', 
-        background: 'rgba(11, 13, 20, 0.95)', 
+        padding: isMobile ? '8px 16px' : '10px 20px', 
+        background: 'rgba(255, 255, 255, 0.96)', 
         backdropFilter: 'blur(20px)', 
         WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(56, 189, 248, 0.18)',
-        boxShadow: navVisible ? '0 4px 16px rgba(0, 0, 0, 0.4)' : '0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(2, 132, 199, 0.15)',
+        borderBottom: '1px solid #cbd5e1',
+        boxShadow: '0 4px 14px rgba(15, 23, 42, 0.05)',
         transition: 'top 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease',
         willChange: 'top'
       }}>
@@ -359,7 +331,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             width: '100%'
           }}>
             
-            {/* 1. Left: Cyber Search Bar */}
+            {/* 1. Left: Search Bar */}
             <div style={{ 
               position: 'relative', 
               display: 'flex', 
@@ -369,29 +341,29 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               maxWidth: isMobile ? 'none' : '340px'
             }}>
               <Search 
-                size={13} 
+                size={14} 
                 style={{ 
                   position: 'absolute', 
                   left: '10px', 
-                  color: searchQuery ? '#38bdf8' : '#64748b', 
+                  color: searchQuery ? '#0284c7' : '#64748b', 
                   pointerEvents: 'none',
                   transition: 'color 0.2s ease'
                 }} 
               />
               <input 
                 type="text"
-                placeholder={isMobile ? "Search services..." : "Search 24+ services (e.g. breaker, BDV)..."}
+                placeholder={isMobile ? "Search services..." : "Search services (e.g. breaker, BDV, relay)..."}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
                   width: '100%',
-                  height: '32px',
-                  padding: '0 24px 0 28px',
+                  height: '34px',
+                  padding: '0 24px 0 32px',
                   borderRadius: '8px',
-                  background: 'rgba(15, 23, 42, 0.95)',
-                  border: searchQuery ? '1px solid #38bdf8' : '1px solid rgba(56, 189, 248, 0.22)',
-                  color: '#ffffff',
-                  fontSize: isMobile ? '0.78rem' : '0.82rem',
+                  background: '#f8fafc',
+                  border: searchQuery ? '1.5px solid #0284c7' : '1px solid #cbd5e1',
+                  color: '#0f172a',
+                  fontSize: isMobile ? '0.78rem' : '0.84rem',
                   outline: 'none',
                   boxShadow: 'none',
                   transition: 'all 0.2s ease'
@@ -405,7 +377,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                     right: '6px',
                     background: 'transparent',
                     border: 'none',
-                    color: '#475569',
+                    color: '#64748b',
                     cursor: 'pointer',
                     fontSize: '0.75rem',
                     padding: '2px',
@@ -419,11 +391,11 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               )}
             </div>
 
-            {/* 2. Center: Quick Micro HUD Chips (Visible on desktop/tablet only > 860px) */}
+            {/* 2. Center: Quick Micro Chips (Visible on desktop/tablet only > 860px) */}
             {windowWidth > 860 && (
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
                 {[
-                  { id: 'all', label: 'All' },
+                  { id: 'all', label: 'All Services' },
                   { id: 'testing', label: 'Testing' },
                   { id: 'installation', label: 'Substation' },
                   { id: 'filtration', label: 'Oil BDV' },
@@ -435,15 +407,15 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                       key={chip.id}
                       onClick={() => setSelectedCategory(chip.id)}
                       style={{
-                        height: '28px',
-                        padding: '0 10px',
-                        borderRadius: '14px',
-                        fontSize: '0.74rem',
+                        height: '30px',
+                        padding: '0 12px',
+                        borderRadius: '15px',
+                        fontSize: '0.76rem',
                         fontWeight: 600,
                         cursor: 'pointer',
-                        border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                        background: isSelected ? 'rgba(2, 132, 199, 0.35)' : 'rgba(15, 23, 42, 0.6)',
-                        color: isSelected ? '#38bdf8' : '#94a3b8',
+                        border: isSelected ? '1.5px solid #0284c7' : '1px solid #cbd5e1',
+                        background: isSelected ? 'rgba(2, 132, 199, 0.12)' : '#ffffff',
+                        color: isSelected ? '#0284c7' : '#334155',
                         boxShadow: 'none',
                         transition: 'all 0.18s ease',
                         whiteSpace: 'nowrap'
@@ -456,31 +428,31 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
               </div>
             )}
 
-            {/* 3. Right: Futuristic Category HUD Popover Dropdown + Live Count */}
+            {/* 3. Right: Category Dropdown + Live Count */}
             <div className="category-hud-container" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
               
               <button
                 onClick={() => setCategoryDropdownOpen(!categoryDropdownOpen)}
                 style={{
-                  height: '32px',
+                  height: '34px',
                   padding: isMobile ? '0 9px' : '0 12px',
                   borderRadius: '8px',
-                  background: '#f1f5f9',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
-                  color: '#ffffff',
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  color: '#0f172a',
                   fontSize: isMobile ? '0.74rem' : '0.80rem',
-                  fontWeight: 700,
+                  fontWeight: 600,
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '5px',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
+                  gap: '6px',
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
                   whiteSpace: 'nowrap'
                 }}
               >
-                <SlidersHorizontal size={12} color="#38bdf8" />
+                <SlidersHorizontal size={13} color="#0284c7" />
                 <span style={{ 
-                  color: '#0284c7', 
+                  color: '#0f172a', 
                   maxWidth: isMobile ? '80px' : '160px', 
                   overflow: 'hidden', 
                   textOverflow: 'ellipsis', 
@@ -488,46 +460,44 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                 }}>
                   {selectedCategoryObj?.name || 'All'}
                 </span>
-                <ChevronDown size={12} color="#38bdf8" style={{ transform: categoryDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease', flexShrink: 0 }} />
+                <ChevronDown size={13} color="#0284c7" style={{ transform: categoryDropdownOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease', flexShrink: 0 }} />
               </button>
 
-              {/* Glowing Live Results Pill */}
+              {/* Live Results Pill */}
               <div style={{
-                height: '32px',
-                padding: isMobile ? '0 7px' : '0 10px',
+                height: '34px',
+                padding: isMobile ? '0 8px' : '0 12px',
                 borderRadius: '8px',
-                background: 'rgba(16, 185, 129, 0.08)',
-                border: '1px solid rgba(16, 185, 129, 0.25)',
+                background: 'rgba(16, 185, 129, 0.1)',
+                border: '1px solid rgba(16, 185, 129, 0.3)',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '4px',
+                gap: '5px',
                 fontSize: isMobile ? '0.70rem' : '0.74rem',
-                color: '#34d399',
+                color: '#059669',
                 fontWeight: 600,
                 fontFamily: 'monospace',
                 whiteSpace: 'nowrap'
               }}>
-                <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#10b981', boxShadow: 'none', display: 'inline-block' }} />
-                <span>{filteredServices.length} {isMobile ? '' : 'LIVE'}</span>
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
+                <span>{filteredServices.length} {isMobile ? '' : 'SERVICES'}</span>
               </div>
 
-              {/* Futuristic Cyber Dropdown Menu Popover */}
+              {/* Category Dropdown Menu Popover */}
               {categoryDropdownOpen && (
                 <div style={{
                   position: 'absolute',
-                  top: '38px',
+                  top: '40px',
                   right: 0,
                   width: isMobile ? 'min(280px, calc(100vw - 28px))' : '280px',
                   background: '#ffffff',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  border: '1px solid #cbd5e1',
                   borderRadius: '12px',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5)',
+                  boxShadow: '0 10px 25px -5px rgba(15, 23, 42, 0.15)',
                   padding: '8px',
                   zIndex: 1001
                 }}>
-                  <div style={{ padding: '6px 10px 8px', fontSize: '0.72rem', fontWeight: 600, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+                  <div style={{ padding: '6px 10px 8px', fontSize: '0.72rem', fontWeight: 700, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em', borderBottom: '1px solid #e2e8f0' }}>
                     Filter By Discipline ({SERVICE_CATEGORIES.length})
                   </div>
                   
@@ -546,9 +516,9 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                             width: '100%',
                             padding: '8px 10px',
                             borderRadius: '6px',
-                            background: isSelected ? 'rgba(2, 132, 199, 0.25)' : 'transparent',
-                            border: isSelected ? '1px solid rgba(56, 189, 248, 0.35)' : '1px solid transparent',
-                            color: isSelected ? '#38bdf8' : '#cbd5e1',
+                            background: isSelected ? 'rgba(2, 132, 199, 0.1)' : 'transparent',
+                            border: isSelected ? '1px solid rgba(2, 132, 199, 0.25)' : '1px solid transparent',
+                            color: isSelected ? '#0284c7' : '#334155',
                             fontSize: '0.80rem',
                             fontWeight: isSelected ? 700 : 500,
                             display: 'flex',
@@ -561,20 +531,19 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                         >
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <span style={{ 
-                              width: '5px', 
-                              height: '5px', 
+                              width: '6px', 
+                              height: '6px', 
                               borderRadius: '50%', 
-                              background: isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.2)',
-                              boxShadow: 'none'
+                              background: isSelected ? '#0284c7' : '#cbd5e1'
                             }} />
                             <span>{cat.name}</span>
                           </div>
                           <span style={{ 
                             fontSize: '0.70rem', 
-                            padding: '1px 5px', 
+                            padding: '2px 6px', 
                             borderRadius: '8px', 
-                            background: isSelected ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.06)',
-                            color: isSelected ? '#38bdf8' : '#94a3b8',
+                            background: isSelected ? 'rgba(2, 132, 199, 0.15)' : '#f1f5f9', 
+                            color: isSelected ? '#0284c7' : '#64748b',
                             fontFamily: 'monospace'
                           }}>
                             {count}
@@ -598,7 +567,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
         <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
           
           {filteredServices.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: isMobile ? '40px 14px' : '60px 20px', background: 'rgba(15, 23, 42, 0.4)', borderRadius: '12px', border: '1px dashed rgba(255, 255, 255, 0.15)' }}>
+            <div style={{ textAlign: 'center', padding: isMobile ? '40px 14px' : '60px 20px', background: '#ffffff', borderRadius: '12px', border: '1px dashed #cbd5e1' }}>
               <AlertTriangle size={32} color="#f59e0b" style={{ margin: '0 auto 12px' }} />
               <h3 style={{ color: '#0f172a', marginBottom: '8px', fontSize: '1.1rem' }}>No matching engineering services found</h3>
               <p style={{ color: '#475569', marginBottom: '16px', fontSize: '0.85rem' }}>Try searching for another keyword or select "All Services".</p>
@@ -635,12 +604,14 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   }}
                   onMouseEnter={(e) => {
                     if (!isMobile) {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                      e.currentTarget.style.borderColor = '#0284c7';
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(2, 132, 199, 0.12)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isMobile) {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                      e.currentTarget.style.borderColor = '#e2e8f0';
+                      e.currentTarget.style.boxShadow = 'none';
                     }
                   }}
                 >
@@ -721,8 +692,8 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                     </div>
 
                     {/* Suitable For */}
-                    <div style={{ padding: '8px 10px', borderRadius: '6px', background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.06)', marginBottom: '16px', fontSize: '0.75rem', color: '#475569' }}>
-                      <strong style={{ color: '#cbd5e1' }}>Suitable for: </strong>{service.suitableFor}
+                    <div style={{ padding: '8px 10px', borderRadius: '6px', background: '#f8fafc', border: '1px solid #e2e8f0', marginBottom: '16px', fontSize: '0.78rem', color: '#334155' }}>
+                      <strong style={{ color: '#0f172a' }}>Suitable for: </strong>{service.suitableFor}
                     </div>
 
                     {/* Card CTAs */}
@@ -891,7 +862,8 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             padding: isMobile ? '24px 16px' : '40px 32px', 
             borderRadius: '14px', 
             background: '#ffffff',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            border: '1px solid #cbd5e1',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.05)',
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
             alignItems: isMobile ? 'stretch' : 'center',
@@ -899,10 +871,10 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
             gap: '18px'
           }}>
             <div>
-              <h3 style={{ fontSize: isMobile ? '1.25rem' : 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 600, color: '#0f172a', marginBottom: '6px' }}>
+              <h3 style={{ fontSize: isMobile ? '1.25rem' : 'clamp(1.4rem, 2.5vw, 1.8rem)', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
                 Need Substation Testing, Overhauling or Contracting?
               </h3>
-              <p style={{ color: '#475569', fontSize: isMobile ? '0.84rem' : '0.95rem', maxWidth: '650px', lineHeight: 1.45 }}>
+              <p style={{ color: '#334155', fontSize: isMobile ? '0.84rem' : '0.95rem', maxWidth: '650px', lineHeight: 1.55 }}>
                 Connect directly with our IIT Roorkee alumni Chartered Engineers for prompt mobilization, technical feasibility, and customized quotation across India.
               </p>
             </div>
@@ -933,9 +905,9 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   padding: isMobile ? '11px 16px' : '12px 20px', 
                   fontSize: '0.90rem', 
                   fontWeight: 600, 
-                  background: 'rgba(255, 255, 255, 0.08)', 
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  color: '#ffffff',
+                  background: '#f8fafc', 
+                  border: '1.5px solid #cbd5e1', 
+                  color: '#0f172a',
                   width: isMobile ? '100%' : 'auto',
                   justifyContent: 'center',
                   display: 'inline-flex',
@@ -943,7 +915,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                   gap: '6px'
                 }}
               >
-                <Phone size={14} color="#10b981" />
+                <Phone size={14} color="#0284c7" />
                 <span>+91 91586 58885</span>
               </a>
             </div>
