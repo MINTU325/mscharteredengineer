@@ -4,7 +4,41 @@ import LinkedinIcon from './LinkedinIcon';
 
 export default function FounderProfile({ onOpenQuote }) {
   return (
-    <section id="founder" style={{ padding: '48px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
+    <section id="founder" style={{ padding: '48px 0', background: '#edf2f7', borderBottom: '1px solid #cbd5e1' }}>
+      <style>{`
+        .founder-grid {
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          gap: 36px;
+          align-items: center;
+        }
+        @media (max-width: 900px) {
+          .founder-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .founder-card-box {
+            padding: 24px 16px !important;
+          }
+          .founder-left-col {
+            margin: 0 auto !important;
+            width: 100% !important;
+          }
+          .founder-action-buttons {
+            justify-content: center !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .founder-card-box {
+            padding: 20px 12px !important;
+          }
+          .founder-action-buttons > * {
+            width: 100% !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
+        }
+      `}</style>
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
           <div style={{
@@ -34,27 +68,28 @@ export default function FounderProfile({ onOpenQuote }) {
           }}>
             Core Team &amp; <span style={{ color: '#0284c7' }}>Leadership</span>
           </h2>
-          <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6 }}>
+          <p style={{ color: '#334155', fontSize: '0.94rem', lineHeight: 1.6, fontWeight: 500 }}>
             Headed by elite IIT engineering alumni and Chartered Engineers committed to regulatory integrity and technical excellence.
           </p>
         </div>
 
         <div 
+          className="founder-card-box"
           style={{
             maxWidth: '1020px',
             margin: '0 auto',
-            borderRadius: '8px',
-            background: '#f8fafc',
-            border: '1px solid #e2e8f0',
-            boxShadow: '0 2px 12px rgba(15, 23, 42, 0.06)',
+            borderRadius: '12px',
+            background: '#ffffff',
+            border: '1px solid #cbd5e1',
+            boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)',
             position: 'relative',
             overflow: 'hidden',
             padding: '32px 36px'
           }}
         >
-          <div className="founder-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(220px, 280px) 1fr', gap: '36px', alignItems: 'center' }}>
+          <div className="founder-grid">
             {/* Left: Emblem Logo & Leader Title */}
-            <div style={{ textAlign: 'center' }}>
+            <div className="founder-left-col" style={{ textAlign: 'center' }}>
               <div style={{
                 background: '#ffffff',
                 border: '1px solid #e2e8f0',
@@ -144,7 +179,7 @@ export default function FounderProfile({ onOpenQuote }) {
                 Mukesh Singh brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a <strong style={{ color: '#0f172a' }}>Chartered Engineer (India) MIE</strong> by the <strong style={{ color: '#0f172a' }}>Institution of Engineers (India)</strong>, he oversees every valuation and statutory certificate with unmatched analytical precision.
               </p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', marginBottom: '24px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '10px', marginBottom: '24px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.86rem', color: '#1e293b', fontWeight: 600 }}>
                   <CheckCircle2 size={16} color="#10b981" />
                   <span>Chartered Engineer (India)</span>
@@ -163,7 +198,7 @@ export default function FounderProfile({ onOpenQuote }) {
                 </div>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}>
+              <div className="founder-action-buttons" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}>
                 <a href="tel:+919158658885" className="btn btn-outline" style={{ padding: '9px 18px', fontSize: '0.84rem', borderRadius: '6px', borderColor: '#cbd5e1', color: '#10b981' }}>
                   <Phone size={15} color="#10b981" />
                   <span>+91 91586 58885</span>

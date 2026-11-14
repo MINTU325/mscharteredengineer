@@ -271,7 +271,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
         {/* 2-Column Interactive Workspace */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
           gap: '24px',
           alignItems: 'start'
         }}>
@@ -295,8 +295,9 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                       gap: '12px',
                       padding: '12px 14px',
                       borderRadius: '8px',
-                      border: isSelected ? '1px solid #0284c7' : '1px solid #e2e8f0',
-                      background: isSelected ? '#eff6ff' : '#f8fafc',
+                      border: isSelected ? '1.5px solid #0284c7' : '1px solid #cbd5e1',
+                      background: isSelected ? '#eff6ff' : '#ffffff',
+                      boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
                       textAlign: 'left',
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
@@ -318,7 +319,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                     </div>
 
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: '0.90rem', fontWeight: isSelected ? 600 : 500, color: isSelected ? '#eef0f5' : '#cbd5e1', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      <div style={{ fontSize: '0.90rem', fontWeight: isSelected ? 600 : 500, color: isSelected ? '#0f172a' : '#1e293b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         {preset.title}
                       </div>
                       <div style={{ fontSize: '0.74rem', color: '#64748b', marginTop: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -330,7 +331,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                       </div>
                     </div>
 
-                    <ArrowRight size={14} color={isSelected ? '#38bdf8' : '#7a8296'} style={{ flexShrink: 0 }} />
+                    <ArrowRight size={14} color={isSelected ? '#0284c7' : '#64748b'} style={{ flexShrink: 0 }} />
                   </button>
                 );
               })}
@@ -339,9 +340,10 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
 
           {/* Right Column: Dynamic Deep-Dive Guidance Card */}
           <div style={{
-            background: '#f8fafc',
+            background: '#ffffff',
             borderRadius: '12px',
-            border: '1px solid #e2e8f0',
+            border: '1px solid #cbd5e1',
+            boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)',
             padding: '24px',
             position: 'sticky',
             top: '20px'
@@ -387,13 +389,13 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
             {/* Quick Summary Bar */}
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
               gap: '12px',
               margin: '16px 0',
               padding: '12px',
-              background: '#07080d',
+              background: '#f1f5f9',
               borderRadius: '8px',
-              border: '1px solid rgba(255, 255, 255, 0.06)'
+              border: '1px solid #e2e8f0'
             }}>
               <div>
                 <div style={{ fontSize: '0.70rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>Estimated Turnaround</div>
