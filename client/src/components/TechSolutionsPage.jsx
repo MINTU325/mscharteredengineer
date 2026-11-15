@@ -44,7 +44,6 @@ import {
 
 export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   const [activeTab, setActiveTab] = useState('build'); // 'build', 'run', 'evolve'
-  const [activeTechFilter, setActiveTechFilter] = useState('all');
   const [openFaq, setOpenFaq] = useState(0);
   const [aiPrompt, setAiPrompt] = useState('');
   const [aiResponse, setAiResponse] = useState(null);
@@ -126,26 +125,6 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
       });
     }
   };
-
-  // Technologies list
-  const techStack = [
-    { name: 'React & Next.js', category: 'frontend', desc: 'Server-side rendering, sub-second loads' },
-    { name: 'TypeScript', category: 'frontend', desc: 'Type-safe enterprise applications' },
-    { name: 'Tailwind & Vanilla CSS', category: 'frontend', desc: 'Ultra-fast, responsive styling' },
-    { name: 'Node.js & Express', category: 'backend', desc: 'High-throughput event-driven APIs' },
-    { name: 'Python & FastAPI', category: 'backend', desc: 'High-performance AI model serving' },
-    { name: 'Go (Golang)', category: 'backend', desc: 'Ultra low-latency microservices' },
-    { name: 'OpenAI & Claude 3.5', category: 'ai', desc: 'State-of-the-art cognitive reasoning' },
-    { name: 'LangChain & LlamaIndex', category: 'ai', desc: 'Agentic orchestration & RAG pipelines' },
-    { name: 'Pinecone & pgvector', category: 'ai', desc: 'High-dimensional semantic memory' },
-    { name: 'AWS & Google Cloud', category: 'cloud', desc: 'Scalable multi-region cloud hosting' },
-    { name: 'Docker & Kubernetes', category: 'cloud', desc: 'Containerized deployment & auto-scaling' },
-    { name: 'PostgreSQL & Redis', category: 'cloud', desc: 'ACID compliant data & microsecond caching' }
-  ];
-
-  const filteredTech = activeTechFilter === 'all'
-    ? techStack
-    : techStack.filter((t) => t.category === activeTechFilter);
 
   // FAQs
   const faqs = [
@@ -1923,70 +1902,6 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* ── 6. TECHNOLOGY STACK & TOOLING ── */}
-      <section className="tech-section" style={{ background: '#090e1b', borderBottom: '1px solid rgba(255, 255, 255, 0.08)' }}>
-        <div className="container" style={{ maxWidth: '1160px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 40px' }}>
-            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '8px' }}>
-              MODERN TOOLING
-            </div>
-            <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 3rem)', fontWeight: 900, color: '#ffffff', marginBottom: '14px' }}>
-              Our Technology Stack
-            </h2>
-            <p style={{ color: '#94a3b8', fontSize: '1rem', lineHeight: 1.6 }}>
-              Battle-tested frameworks and high-performance cloud architectures.
-            </p>
-
-            {/* Tech filter tabs */}
-            <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', marginTop: '22px' }}>
-              {['all', 'frontend', 'backend', 'ai', 'cloud'].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveTechFilter(cat)}
-                  style={{
-                    background: activeTechFilter === cat ? '#2563eb' : 'rgba(255, 255, 255, 0.05)',
-                    border: `1px solid ${activeTechFilter === cat ? '#3b82f6' : 'rgba(255, 255, 255, 0.12)'}`,
-                    color: activeTechFilter === cat ? '#ffffff' : '#94a3b8',
-                    padding: '6px 18px',
-                    borderRadius: '20px',
-                    fontWeight: 700,
-                    fontSize: '0.80rem',
-                    cursor: 'pointer',
-                    textTransform: 'capitalize'
-                  }}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
-            {filteredTech.map((tech, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: 'rgba(15, 23, 42, 0.75)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  borderRadius: '12px',
-                  padding: '20px',
-                  transition: 'border-color 0.2s ease'
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#3b82f6'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'; }}
-              >
-                <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.05rem', marginBottom: '4px' }}>
-                  {tech.name}
-                </div>
-                <div style={{ color: '#94a3b8', fontSize: '0.82rem' }}>
-                  {tech.desc}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
