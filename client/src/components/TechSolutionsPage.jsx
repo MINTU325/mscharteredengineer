@@ -35,10 +35,7 @@ import {
   Send,
   Play,
   Check,
-  Copy,
-  Download,
   FileSpreadsheet,
-  Flame,
   Gift,
   RefreshCw,
   Sliders,
@@ -51,10 +48,6 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   const [openFaq, setOpenFaq] = useState(0);
   const [aiPrompt, setAiPrompt] = useState('');
   const [aiResponse, setAiResponse] = useState(null);
-
-  // ── KS Bulk WhatsApp Messenger Offer State ──
-  const [copiedCoupon, setCopiedCoupon] = useState(false);
-  const [monthlyMsgs, setMonthlyMsgs] = useState(2000);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -74,7 +67,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
     updateOrCreateMeta('description', 'AI-Native Engineering Partner & KS Bulk WhatsApp Messenger by KS Chartered Engineers. Build, Run, and Evolve enterprise platforms, custom software, agentic AI, and zero-cost WhatsApp automation.');
     updateOrCreateMeta('keywords', 'AI engineering, KS Bulk Messenger, bulk WhatsApp software, zero API cost WhatsApp, custom software, ERP solutions, Jaipur, India');
     updateOrCreateMeta('og:title', 'AI-Native Engineering & KS Bulk Messenger | KS Chartered Engineers', true);
-    updateOrCreateMeta('og:description', 'Deploy KS Bulk WhatsApp Messenger with 50% Launch Offer. Unlimited WhatsApp reach with Excel import and anti-ban protection.', true);
+    updateOrCreateMeta('og:description', 'Deploy KS Bulk WhatsApp Messenger and AI-native automation platforms with Excel import and anti-ban protection.', true);
     updateOrCreateMeta('og:url', 'https://www.mscharteredengineer.com/tech-products', true);
 
     // Auto-scroll if hash or route is bulk-messenger
@@ -87,7 +80,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   }, []);
 
   const samplePrompts = [
-    'KS Bulk WhatsApp Messenger (50% Launch Offer)',
+    'KS Bulk WhatsApp Messenger Automation',
     'Build an autonomous valuation & audit AI agent',
     'Modernize our legacy desktop ERP to Cloud SaaS',
     'Develop a multi-vendor E-Commerce marketplace'
@@ -97,11 +90,11 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
     const textToSearch = query || aiPrompt;
     if (!textToSearch.trim()) return;
 
-    if (textToSearch.toLowerCase().includes('bulk') || textToSearch.toLowerCase().includes('whatsapp') || textToSearch.toLowerCase().includes('messenger') || textToSearch.toLowerCase().includes('offer')) {
+    if (textToSearch.toLowerCase().includes('bulk') || textToSearch.toLowerCase().includes('whatsapp') || textToSearch.toLowerCase().includes('messenger')) {
       setAiResponse({
-        recommendation: 'KS Bulk WhatsApp Messenger™ (Launch Offer: 50% OFF)',
+        recommendation: 'KS Bulk WhatsApp Messenger™',
         architecture: 'Local Node.js/Puppeteer desktop automation engine with 0% Meta per-message fees, dynamic Excel tag interpolation, automated visiting card attachment, and humanized anti-ban jitter algorithm.',
-        timeline: 'Special Launch Offer available below • Only ₹1,999 (Code: KSTECH50)'
+        timeline: 'Production ready in 2–4 days • Enterprise setup'
       });
       setTimeout(() => {
         const el = document.getElementById('bulk-messenger');
@@ -131,17 +124,6 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
         architecture: 'Agentic AI orchestration using LangChain & Claude/GPT-4o APIs, coupled with custom responsive frontend & enterprise security.',
         timeline: 'Prototype in 48 hours • Production in 3-5 weeks'
       });
-    }
-  };
-
-  const handleCopyCoupon = () => {
-    try {
-      navigator.clipboard?.writeText('KSTECH50');
-      setCopiedCoupon(true);
-      setTimeout(() => setCopiedCoupon(false), 2500);
-    } catch {
-      setCopiedCoupon(true);
-      setTimeout(() => setCopiedCoupon(false), 2500);
     }
   };
 
@@ -192,81 +174,6 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
   return (
     <div className="tech-page-container" style={{ background: '#070b14', color: '#f8fafc', minHeight: '100vh', overflowX: 'hidden', width: '100%' }}>
       
-      {/* ── SPECIAL LAUNCH OFFER TOP PROMO BANNER ── */}
-      <div className="tech-promo-banner">
-        <div className="container tech-promo-inner">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            <span style={{
-              background: '#22c55e',
-              color: '#052e16',
-              fontWeight: 900,
-              fontSize: '0.72rem',
-              padding: '2px 8px',
-              borderRadius: '999px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '4px'
-            }}>
-              <Flame size={12} color="#052e16" />
-              LAUNCH OFFER • 50% OFF
-            </span>
-            <span style={{ fontWeight: 600, fontSize: '0.86rem' }}>
-              <strong>KS Bulk WhatsApp Messenger™</strong> — Zero API Cost, Dynamic Excel Tags &amp; Anti-Ban Throttling.
-            </span>
-            <span style={{ color: '#86efac', fontSize: '0.82rem' }}>
-              Only ₹1,999 <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>₹4,999</span> with coupon <code style={{ background: 'rgba(0,0,0,0.3)', padding: '2px 6px', borderRadius: '4px', color: '#fef08a' }}>KSTECH50</code>
-            </span>
-          </div>
-          <div className="tech-promo-actions">
-            <button
-              onClick={() => {
-                const el = document.getElementById('bulk-messenger');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              style={{
-                background: '#ffffff',
-                color: '#15803d',
-                border: 'none',
-                padding: '6px 14px',
-                borderRadius: '6px',
-                fontWeight: 800,
-                fontSize: '0.78rem',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '5px'
-              }}
-            >
-              <span>View 50% Offer</span>
-              <ArrowRight size={13} />
-            </button>
-            <a
-              href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20KS%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20(₹1%2C999)%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                background: '#25D366',
-                color: '#ffffff',
-                border: 'none',
-                padding: '6px 14px',
-                borderRadius: '6px',
-                fontWeight: 700,
-                fontSize: '0.78rem',
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '4px'
-              }}
-            >
-              <MessageSquare size={13} />
-              <span>Claim Offer</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* ── BREADCRUMB NAVIGATION ── */}
       <div style={{ background: '#0a101d', borderBottom: '1px solid rgba(255, 255, 255, 0.06)', padding: '12px 20px' }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.84rem', color: '#94a3b8' }}>
@@ -1849,10 +1756,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </div>
 
             {/* Product 4 - KS Bulk WhatsApp Messenger */}
-            <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(34, 197, 94, 0.45)', borderRadius: '16px', padding: '28px', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: 0, right: 0, background: 'linear-gradient(135deg, #22c55e, #16a34a)', color: '#052e16', padding: '4px 14px', fontSize: '0.70rem', fontWeight: 900, borderBottomLeftRadius: '10px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                50% OFF OFFER
-              </div>
+            <div style={{ background: 'rgba(15, 23, 42, 0.85)', border: '1px solid rgba(34, 197, 94, 0.45)', borderRadius: '16px', padding: '28px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                 <span style={{ fontSize: '0.72rem', background: 'rgba(34, 197, 94, 0.15)', color: '#4ade80', padding: '3px 10px', borderRadius: '4px', fontWeight: 800 }}>
                   WHATSAPP AUTOMATION
@@ -1868,25 +1772,19 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <div style={{ color: '#cbd5e1', fontSize: '0.80rem', marginBottom: '20px' }}>
                 Stack: Node.js, WhatsApp-Web.js, Puppeteer, XLSX, LocalAuth
               </div>
-              <div style={{ display: 'flex', gap: '8px' }}>
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('bulk-messenger');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="btn btn-gold"
-                  style={{ width: '100%', fontSize: '0.84rem', padding: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
-                >
-                  <Flame size={14} />
-                  <span>View 50% Launch Offer</span>
-                </button>
-              </div>
+              <button
+                onClick={() => onOpenQuote('KS Bulk WhatsApp Messenger Demo')}
+                className="btn btn-outline"
+                style={{ width: '100%', fontSize: '0.84rem' }}
+              >
+                Request Messenger Demo
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 6.5. KS BULK WHATSAPP MESSENGER — 50% LAUNCH OFFER & PLATFORM OVERVIEW ── */}
+      {/* ── 6.5. KS BULK WHATSAPP MESSENGER — PLATFORM OVERVIEW ── */}
       <section
         id="bulk-messenger"
         className="tech-section"
@@ -1917,8 +1815,8 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 marginBottom: '16px'
               }}
             >
-              <Flame size={14} color="#22c55e" />
-              <span>EXCLUSIVE 50% LAUNCH OFFER • 0% PER-MESSAGE META FEES</span>
+              <MessageSquare size={14} color="#22c55e" />
+              <span>OUTREACH AUTOMATION • ZERO META PER-MESSAGE FEES</span>
             </div>
 
             <h2
@@ -1933,7 +1831,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             >
               KS Bulk WhatsApp Messenger™ <br />
               <span style={{ color: '#22c55e', textShadow: '0 0 35px rgba(34, 197, 94, 0.45)' }}>
-                High-Velocity WhatsApp Outreach &amp; Special Offer
+                High-Velocity WhatsApp Outreach &amp; Campaign Management Engine
               </span>
             </h2>
 
@@ -1942,164 +1840,8 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
             </p>
           </div>
 
-          {/* ── HIGH-CONVERTING LAUNCH OFFER BANNER BOX (OFFER LGA DIYA) ── */}
-          <div
-            className="tech-launch-offer-box"
-            style={{
-              background: 'linear-gradient(135deg, rgba(20, 83, 45, 0.4) 0%, rgba(15, 23, 42, 0.95) 50%, rgba(6, 78, 59, 0.45) 100%)',
-              border: '2px solid rgba(74, 222, 128, 0.6)',
-              borderRadius: '24px',
-              position: 'relative',
-              overflow: 'hidden'
-            }}
-          >
-            <div style={{ position: 'absolute', top: 0, right: 0, width: '250px', height: '250px', background: 'radial-gradient(circle at top right, rgba(74, 222, 128, 0.2), transparent 70%)', pointerEvents: 'none' }} />
-
-            <div className="tech-offer-grid">
-              <div>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#22c55e', color: '#052e16', padding: '4px 12px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 900, textTransform: 'uppercase', marginBottom: '14px' }}>
-                  <Gift size={14} />
-                  SPECIAL LAUNCH CELEBRATION OFFER
-                </div>
-                <h3 style={{ color: '#ffffff', fontSize: '1.9rem', fontWeight: 900, margin: '0 0 10px', lineHeight: 1.25 }}>
-                  Get Lifetime Access at <span style={{ color: '#4ade80' }}>50% OFF</span>
-                </h3>
-                <p style={{ color: '#cbd5e1', fontSize: '0.94rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                  Say goodbye to expensive Meta WhatsApp API charges (₹0.85 per chat). Run your own high-converting local bulk campaigns directly from your PC or laptop.
-                </p>
-
-                {/* Offer features bullet grid */}
-                <div className="tech-feature-bullets">
-                  {[
-                    'Zero recurring per-message cost (100% Free)',
-                    'Smart Anti-Ban Humanizer (15-35s jitter)',
-                    'Dynamic Excel Placeholders ({Name}, {Company})',
-                    'Auto-attach Visiting Card & PDF Brochure',
-                    'Complete desktop script + Guided setup',
-                    '1-on-1 assistance by IIT Roorkee Engineers'
-                  ].map((feat, idx) => (
-                    <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#e2e8f0', fontSize: '0.86rem' }}>
-                      <CheckCircle2 size={15} color="#22c55e" style={{ flexShrink: 0 }} />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Pricing & Coupon Action Box */}
-              <div
-                style={{
-                  background: 'rgba(15, 23, 42, 0.85)',
-                  border: '1px solid rgba(74, 222, 128, 0.35)',
-                  borderRadius: '18px',
-                  padding: '26px',
-                  textAlign: 'center',
-                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.4)'
-                }}
-              >
-                <div style={{ fontSize: '0.80rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
-                  Limited Time Launch Price
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '14px' }}>
-                  <span style={{ fontSize: '1.3rem', color: '#64748b', textDecoration: 'line-through', fontWeight: 600 }}>
-                    ₹4,999
-                  </span>
-                  <span style={{ fontSize: '2.4rem', color: '#22c55e', fontWeight: 900 }}>
-                    ₹1,999
-                  </span>
-                  <span style={{ background: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', padding: '3px 8px', borderRadius: '6px', fontSize: '0.74rem', fontWeight: 800 }}>
-                    SAVE ₹3,000
-                  </span>
-                </div>
-
-                {/* Coupon Code Pill */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    background: 'rgba(0, 0, 0, 0.45)',
-                    border: '1px dashed #22c55e',
-                    borderRadius: '10px',
-                    padding: '8px 14px',
-                    marginBottom: '18px'
-                  }}
-                >
-                  <div style={{ textAlign: 'left' }}>
-                    <div style={{ fontSize: '0.68rem', color: '#94a3b8', textTransform: 'uppercase' }}>Coupon Code:</div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 900, color: '#fef08a', letterSpacing: '0.08em' }}>KSTECH50</div>
-                  </div>
-                  <button
-                    onClick={handleCopyCoupon}
-                    style={{
-                      background: copiedCoupon ? '#22c55e' : 'rgba(255, 255, 255, 0.1)',
-                      color: copiedCoupon ? '#052e16' : '#ffffff',
-                      border: 'none',
-                      borderRadius: '6px',
-                      padding: '6px 12px',
-                      fontSize: '0.76rem',
-                      fontWeight: 800,
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '5px'
-                    }}
-                  >
-                    {copiedCoupon ? <Check size={13} /> : <Copy size={13} />}
-                    <span>{copiedCoupon ? 'Copied!' : 'Copy Code'}</span>
-                  </button>
-                </div>
-
-                {/* Claim Offer WhatsApp Button */}
-                <a
-                  href={`https://api.whatsapp.com/send?phone=919158658885&text=${encodeURIComponent(
-                    'Hello KS Team, I tested the KS Bulk WhatsApp Messenger on your Tech page. I want to claim the Launch Offer (₹1,999 with Coupon KSTECH50) for my business. Please share details and setup instructions!'
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    background: 'linear-gradient(135deg, #22c55e, #16a34a)',
-                    color: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    padding: '13px 20px',
-                    borderRadius: '12px',
-                    fontWeight: 800,
-                    fontSize: '0.96rem',
-                    textDecoration: 'none',
-                    boxShadow: '0 6px 20px rgba(34, 197, 94, 0.45)',
-                    marginBottom: '10px',
-                    transition: 'transform 0.2s'
-                  }}
-                >
-                  <MessageSquare size={17} />
-                  <span>Claim 50% Off via WhatsApp</span>
-                </a>
-
-                <button
-                  onClick={() => onOpenQuote('KS Bulk Messenger - Launch Offer Special', { coupon: 'KSTECH50', price: '₹1,999' })}
-                  style={{
-                    background: 'transparent',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    color: '#cbd5e1',
-                    width: '100%',
-                    padding: '9px 16px',
-                    borderRadius: '10px',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    cursor: 'pointer'
-                  }}
-                >
-                  Request Official Invoice &amp; Bank Transfer Details
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* ── VISUAL PRODUCT DASHBOARD & CAPABILITIES (LIVE TESTER REMOVED) ── */}
-          <div style={{ marginBottom: '50px' }}>
+          {/* ── VISUAL PRODUCT DASHBOARD & CAPABILITIES ── */}
+          <div style={{ marginBottom: '20px' }}>
             {/* Visual Dashboard Banner */}
             <div
               style={{
@@ -2125,52 +1867,6 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   <h3 style={{ color: '#ffffff', fontSize: '1.4rem', fontWeight: 800, margin: 0 }}>
                     KS Bulk WhatsApp Outreach &amp; Campaign Management Engine
                   </h3>
-                </div>
-
-                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                  <a
-                    href="/data/sample_contacts.csv"
-                    download="MS_Bulk_Messenger_Sample_Contacts.csv"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.12)',
-                      border: '1px solid rgba(255, 255, 255, 0.25)',
-                      color: '#ffffff',
-                      borderRadius: '10px',
-                      padding: '10px 18px',
-                      fontSize: '0.84rem',
-                      fontWeight: 700,
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      backdropFilter: 'blur(8px)'
-                    }}
-                  >
-                    <Download size={14} />
-                    <span>Download Sample Excel</span>
-                  </a>
-
-                  <a
-                    href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20KS%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      background: 'linear-gradient(135deg, #22c55e, #16a34a)',
-                      color: '#ffffff',
-                      borderRadius: '10px',
-                      padding: '10px 20px',
-                      fontSize: '0.84rem',
-                      fontWeight: 800,
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      boxShadow: '0 4px 15px rgba(34, 197, 94, 0.45)'
-                    }}
-                  >
-                    <MessageSquare size={14} />
-                    <span>Claim Offer (₹1,999)</span>
-                  </a>
                 </div>
               </div>
             </div>
@@ -2224,96 +1920,6 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   Runs completely on your local computer. Your client numbers stay 100% private with ₹0 per-message recurring bills.
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* ── ROI & COST SAVINGS CALCULATOR (META API VS KS BULK MESSENGER) ── */}
-          <div
-            style={{
-              background: 'rgba(15, 23, 42, 0.7)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '20px',
-              padding: '30px',
-              textAlign: 'center'
-            }}
-          >
-            <div style={{ fontSize: '0.78rem', color: '#38bdf8', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
-              GUARANTEED RETURN ON INVESTMENT
-            </div>
-            <h3 style={{ color: '#ffffff', fontSize: '1.6rem', fontWeight: 800, marginBottom: '14px' }}>
-              How Much Money Will You Save Every Month?
-            </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.90rem', maxWidth: '620px', margin: '0 auto 24px' }}>
-              Meta WhatsApp Business Cloud API charges ₹0.85 per conversation plus recurring monthly portal subscriptions. With KS Bulk Messenger, you pay ₹0 per message.
-            </p>
-
-            {/* Slider */}
-            <div style={{ maxWidth: '520px', margin: '0 auto 24px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', color: '#cbd5e1', marginBottom: '8px' }}>
-                <span>Monthly Client Database:</span>
-                <strong style={{ color: '#22c55e', fontSize: '1rem' }}>{monthlyMsgs.toLocaleString()} Contacts</strong>
-              </div>
-              <input
-                type="range"
-                min="500"
-                max="10000"
-                step="500"
-                value={monthlyMsgs}
-                onChange={(e) => setMonthlyMsgs(Number(e.target.value))}
-                style={{ width: '100%', cursor: 'pointer', accentColor: '#22c55e' }}
-              />
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.70rem', color: '#64748b', marginTop: '4px' }}>
-                <span>500 msgs</span>
-                <span>5,000 msgs</span>
-                <span>10,000 msgs</span>
-              </div>
-            </div>
-
-            {/* Comparison Cards */}
-            <div className="tech-cards-grid" style={{ maxWidth: '780px', margin: '0 auto 24px' }}>
-              <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', borderRadius: '12px', padding: '16px' }}>
-                <div style={{ fontSize: '0.74rem', color: '#f87171', fontWeight: 700, textTransform: 'uppercase' }}>Meta Cloud API Cost</div>
-                <div style={{ fontSize: '1.4rem', color: '#ef4444', fontWeight: 900, margin: '6px 0' }}>
-                  ₹{Math.round(monthlyMsgs * 0.85).toLocaleString()}/mo
-                </div>
-                <div style={{ fontSize: '0.74rem', color: '#94a3b8' }}>₹{Math.round(monthlyMsgs * 0.85 * 12).toLocaleString()} per year</div>
-              </div>
-
-              <div style={{ background: 'rgba(34, 197, 94, 0.15)', border: '2px solid #22c55e', borderRadius: '12px', padding: '16px' }}>
-                <div style={{ fontSize: '0.74rem', color: '#4ade80', fontWeight: 700, textTransform: 'uppercase' }}>KS Bulk Messenger</div>
-                <div style={{ fontSize: '1.4rem', color: '#22c55e', fontWeight: 900, margin: '6px 0' }}>
-                  ₹0/mo forever
-                </div>
-                <div style={{ fontSize: '0.74rem', color: '#86efac' }}>Only ₹1,999 One-Time Setup</div>
-              </div>
-
-              <div style={{ background: 'rgba(56, 189, 248, 0.12)', border: '1px solid rgba(56, 189, 248, 0.35)', borderRadius: '12px', padding: '16px' }}>
-                <div style={{ fontSize: '0.74rem', color: '#38bdf8', fontWeight: 700, textTransform: 'uppercase' }}>Your Net Annual Savings</div>
-                <div style={{ fontSize: '1.4rem', color: '#38bdf8', fontWeight: 900, margin: '6px 0' }}>
-                  ₹{Math.round(monthlyMsgs * 0.85 * 12 - 1999).toLocaleString()}
-                </div>
-                <div style={{ fontSize: '0.74rem', color: '#93c5fd' }}>Saved in Year 1</div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
-              <a
-                href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20KS%20Sir%2C%20I%20want%20to%20order%20MS%20Bulk%20WhatsApp%20Messenger%20with%2050%25%20Launch%20Offer%20(Code%3A%20KSTECH50)."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-gold"
-                style={{ padding: '12px 28px', fontSize: '0.90rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-              >
-                <Flame size={16} />
-                <span>Claim Offer at ₹1,999 Today</span>
-              </a>
-              <button
-                onClick={() => onOpenQuote('KS Bulk Messenger Deployment Assistance')}
-                className="btn btn-outline"
-                style={{ padding: '12px 22px', fontSize: '0.90rem' }}
-              >
-                <span>Talk to Tech Lead (+91 91586 58885)</span>
-              </button>
             </div>
           </div>
 

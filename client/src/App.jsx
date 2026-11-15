@@ -171,13 +171,13 @@ const ROUTE_CONFIG = {
   },
   '/bulk-messenger': { 
     id: 'tech-products', 
-    title: 'KS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | KS Tech Labs',
-    description: 'Test KS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
+    title: 'KS Bulk WhatsApp Messenger | Outreach Automation Engine | KS Tech Labs',
+    description: 'Explore KS Bulk WhatsApp Messenger platform. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and zero Meta per-message charges.'
   },
   '/whatsapp-bulk-messenger': { 
     id: 'tech-products', 
-    title: 'KS Bulk WhatsApp Messenger | Live Testing Lab & 50% Launch Offer | KS Tech Labs',
-    description: 'Test KS Bulk WhatsApp Messenger live. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and get 50% launch discount.'
+    title: 'KS Bulk WhatsApp Messenger | Outreach Automation Engine | KS Tech Labs',
+    description: 'Explore KS Bulk WhatsApp Messenger platform. Send personalized WhatsApp messages with Excel import, anti-ban humanized delay, and zero Meta per-message charges.'
   },
   '/government-subsidies': { 
     id: 'government-subsidies', 
