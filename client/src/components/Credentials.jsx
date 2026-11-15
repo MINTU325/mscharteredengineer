@@ -1,18 +1,7 @@
 import React from 'react';
-import { Award, CheckCircle2, Shield, FileCheck, Scale, Landmark, Building, Zap, ShieldAlert, Check } from 'lucide-react';
+import { Award, Shield, Check } from 'lucide-react';
 
 export default function Credentials() {
-  const recognizedEntities = [
-    { name: "Commercial & Nationalized Banks", desc: "Approved for machinery hypothecation & asset valuation" },
-    { name: "Income Tax Department & CBDT", desc: "Capital gains 50C, Fair Market Value as on 01-04-2001 & ITAT appeals" },
-    { name: "Customs & Central Excise", desc: "Import-export appraisal, machinery nexus & DGFT compliance" },
-    { name: "Directorate General of Foreign Trade (DGFT)", desc: "Advance Authorisation, EPCG scheme & capital goods audit" },
-    { name: "Bureau of Energy Efficiency (BEE)", desc: "Certified Energy Manager & statutory energy conservation audits" },
-    { name: "Electrical Inspectorate / CEIG", desc: "Chartered Electrical Safety Engineer (CESE) & HT/LT safety audits" },
-    { name: "Directorate of Factories & Boilers", desc: "Competent Person under Factories Act 1948 (vessels, cranes & safety)" },
-    { name: "Courts & Insolvency (IBC/NCLT)", desc: "Statutory liquidation value & fair market value assessment" }
-  ];
-
   return (
     <section id="credentials" style={{ background: '#f1f5f9', backgroundImage: 'radial-gradient(#cbd5e1 1.2px, transparent 1.2px)', backgroundSize: '24px 24px', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', padding: '42px 0' }}>
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
@@ -53,7 +42,7 @@ export default function Credentials() {
           data-aos-delay="100"
           style={{
             maxWidth: '1080px',
-            margin: '0 auto 28px auto',
+            margin: '0 auto',
             background: '#ffffff',
             border: '1px solid #e2e8f0',
             borderRadius: '12px',
@@ -136,63 +125,6 @@ export default function Credentials() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Accepted Authorities Grid */}
-        <div style={{ textAlign: 'center', marginBottom: '18px' }} data-aos="fade-up">
-          <h4 style={{ fontSize: '0.80rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600, margin: 0 }}>
-            Statutory Acceptance &amp; Regulatory Validity
-          </h4>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '14px'
-        }}>
-          {recognizedEntities.map((entity, idx) => (
-            <div 
-              key={idx} 
-              data-aos="fade-up"
-              data-aos-delay={idx * 60}
-              style={{
-                background: '#ffffff',
-                border: '1px solid #e2e8f0',
-                borderRadius: '8px',
-                padding: '16px',
-                transition: 'border-color 0.15s ease'
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)'}
-              onMouseLeave={e => e.currentTarget.style.borderColor = '#e2e8f0'}
-            >
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-                <div style={{
-                  background: '#f8fafc',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '6px',
-                  padding: '8px',
-                  color: '#0284c7',
-                  flexShrink: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  {idx === 0 && <Landmark size={18} />}
-                  {idx === 1 && <FileCheck size={18} />}
-                  {idx === 2 && <Shield size={18} />}
-                  {idx === 3 && <Zap size={18} />}
-                  {idx === 4 && <ShieldAlert size={18} />}
-                  {idx === 5 && <Building size={18} />}
-                  {idx === 6 && <Award size={18} />}
-                  {idx === 7 && <Scale size={18} />}
-                </div>
-                <div>
-                  <h5 style={{ fontSize: '0.90rem', color: '#0f172a', fontWeight: 600, margin: '0 0 4px 0' }}>{entity.name}</h5>
-                  <p style={{ fontSize: '0.80rem', color: '#475569', lineHeight: 1.5, margin: 0 }}>{entity.desc}</p>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
 
       </div>
