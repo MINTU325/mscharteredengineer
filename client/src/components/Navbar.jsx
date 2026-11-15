@@ -216,7 +216,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button 
-                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'services' || currentPath.includes('/service') || currentPath.includes('/valuation') ? 'active' : ''}`}
+                  className={`nav-link nav-dropdown-trigger ${activeDropdown === 'services' || currentPath.includes('/service') || currentPath.includes('/valuation') || currentPath.includes('/solar-structural-analysis') || currentPath.includes('/electrical-services') || currentPath.includes('/fabrication-services') ? 'active' : ''}`}
                   onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                   aria-expanded={activeDropdown === 'services'}
                 >
@@ -314,6 +314,17 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                         <span>Fabrication &amp; PEB Shed Works</span>
                       </div>
                       <div className="dropdown-item-desc">Industrial Chimneys, PEB Sheds, MS &amp; Glass Railings</div>
+                    </div>
+                  </a>
+
+                  {/* 4. Solar Structural Analysis */}
+                  <a href="/solar-structural-analysis" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Sun size={16} color="#fbbf24" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#fbbf24', fontWeight: 600 }}>
+                        <span>Solar Structural Analysis</span>
+                      </div>
+                      <div className="dropdown-item-desc">MMS Foundation, Wind Load IS 875 &amp; Rooftop Safety Audit</div>
                     </div>
                   </a>
 
@@ -502,6 +513,11 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             <Wrench size={16} color="#f97316" />
             <span>Fabrication &amp; PEB Shed Works</span>
             <span style={{ background: 'rgba(249, 115, 22, 0.15)', color: '#fb923c', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>NEW</span>
+          </a>
+          <a href="/solar-structural-analysis" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#fbbf24', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Sun size={16} color="#fbbf24" />
+            <span>Solar Structural Analysis</span>
+            <span style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>NEW</span>
           </a>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <ArrowRight size={15} color="#94a3b8" />
