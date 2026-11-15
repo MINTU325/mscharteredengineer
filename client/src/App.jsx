@@ -665,7 +665,7 @@ export default function App() {
         </Suspense>
       )}
 
-      {/* Floating Action Button: WhatsApp Quick Connect */}
+      {/* Floating Action Button: Official WhatsApp Icon Only (No Circular Border Wrapper) */}
       <a 
         href="https://wa.me/919158658885?text=Hello%20MS%20Chartered%20Engineers,%20I%20would%20like%20to%20consult%20regarding%20Chartered%20Engineer%20services."
         target="_blank"
@@ -677,23 +677,29 @@ export default function App() {
           right: '24px',
           width: '58px',
           height: '58px',
-          borderRadius: '50%',
-          background: '#25D366',
-          color: '#ffffff',
+          background: 'transparent',
+          border: 'none',
+          padding: 0,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 8px 25px rgba(37, 211, 102, 0.45)',
+          filter: 'drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35))',
           zIndex: 1500,
-          transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: 'transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease',
           cursor: 'pointer'
         }}
         title="Chat on WhatsApp (+91 91586 58885)"
         aria-label="Chat on WhatsApp with KS Chartered Engineers"
-        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'scale(1.12)';
+          e.currentTarget.style.filter = 'drop-shadow(0 10px 26px rgba(37, 211, 102, 0.65))';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'scale(1)';
+          e.currentTarget.style.filter = 'drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35))';
+        }}
       >
-        <WhatsAppIcon size={32} color="#ffffff" />
+        <WhatsAppIcon size={58} />
       </a>
     </div>
   );
