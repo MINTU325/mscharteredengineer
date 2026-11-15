@@ -168,7 +168,7 @@ export default function WhoWeServe({ onOpenQuote }) {
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 24px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 24px auto' }} data-aos="fade-up">
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -196,13 +196,17 @@ export default function WhoWeServe({ onOpenQuote }) {
         </div>
 
         {/* Persona Selector Tabs */}
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '8px',
-          marginBottom: '24px'
-        }}>
+        <div 
+          data-aos="fade-up" 
+          data-aos-delay="100"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '8px',
+            marginBottom: '24px'
+          }}
+        >
           {CLIENT_PERSONAS.map((persona) => {
             const isSelected = persona.id === activePersonaId;
             const Icon = persona.icon;
@@ -214,27 +218,16 @@ export default function WhoWeServe({ onOpenQuote }) {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  padding: '7px 14px',
-                  borderRadius: '6px',
+                  padding: '7px 16px',
+                  borderRadius: '8px',
                   fontSize: '0.84rem',
-                  fontWeight: isSelected ? 600 : 500,
-                  border: isSelected ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                  background: isSelected ? '#38bdf8' : '#11141c',
-                  color: isSelected ? '#07080d' : '#a3a9b8',
+                  fontWeight: isSelected ? 700 : 500,
+                  border: isSelected ? '1px solid #0284c7' : '1px solid #cbd5e1',
+                  background: isSelected ? '#0284c7' : '#ffffff',
+                  color: isSelected ? '#ffffff' : '#334155',
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease'
-                }}
-                onMouseEnter={e => {
-                  if (!isSelected) {
-                    e.currentTarget.style.color = '#eef0f5';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                  }
-                }}
-                onMouseLeave={e => {
-                  if (!isSelected) {
-                    e.currentTarget.style.color = '#a3a9b8';
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-                  }
+                  transition: 'all 0.15s ease',
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)'
                 }}
               >
                 <Icon size={14} />
@@ -245,15 +238,19 @@ export default function WhoWeServe({ onOpenQuote }) {
         </div>
 
         {/* Dedicated Persona Deep-Dive Display Card */}
-        <div style={{
-          background: '#ffffff',
-          borderRadius: '12px',
-          border: '1px solid #e2e8f0',
-          padding: '32px 28px',
-          maxWidth: '1080px',
-          margin: '0 auto',
-          boxSizing: 'border-box'
-        }}>
+        <div 
+          data-aos="fade-up" 
+          data-aos-delay="150"
+          style={{
+            background: '#ffffff',
+            borderRadius: '12px',
+            border: '1px solid #e2e8f0',
+            padding: '32px 28px',
+            maxWidth: '1080px',
+            margin: '0 auto',
+            boxSizing: 'border-box'
+          }}
+        >
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',

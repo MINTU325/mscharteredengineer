@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
+import AOS from 'aos';
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import LazySection from './components/LazySection';
@@ -84,8 +85,8 @@ const ROUTE_CONFIG = {
   },
   '/solar-structural-analysis': { 
     id: 'solar-structural-analysis', 
-    title: 'Precast Concrete Moulds & Solar Fencing Moulds | Soharvadi Fabrication',
-    description: 'Specialized manufacturer of Precast Boundary Wall Moulds, Aluminium Moulds, RCC Fencing Pole Moulds, H-Pole Slotted Columns, and Concrete Vibrator Machines. Strong, durable & all-India transport.'
+    title: 'Solar Structural Stability Analysis & MMS Certification | KS Chartered Engineers',
+    description: 'Statutory Solar Structural Stability Certificates (Form-B), 3D STAAD.Pro wind load simulation (IS 875 Part 3), MMS design verification, and CEIG/DISCOM approvals by IIT Roorkee Chartered Engineers.'
   },
   '/tin-shed-fabrication': { 
     id: 'fabrication-services', 
@@ -305,6 +306,25 @@ export default function App() {
   });
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [currentRoute, setCurrentRoute] = useState(() => window.location.pathname.replace(/\/$/, '') || '/');
+
+  // Initialize Animate On Scroll (AOS) for smooth scroll motion transitions
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 40,
+      delay: 50,
+    });
+    window.AOS = AOS;
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      AOS.refresh();
+    }, 120);
+    return () => clearTimeout(timer);
+  }, [currentRoute]);
 
   // Handle direct clean URL navigation on initial load & browser Back/Forward
   useEffect(() => {

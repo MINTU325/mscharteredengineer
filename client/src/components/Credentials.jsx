@@ -18,7 +18,7 @@ export default function Credentials() {
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
-        <div style={{ marginBottom: '24px', textAlign: 'center' }}>
+        <div style={{ marginBottom: '24px', textAlign: 'center' }} data-aos="fade-up">
           <div 
             style={{
               display: 'inline-flex',
@@ -49,6 +49,8 @@ export default function Credentials() {
 
         {/* Credential Seal Card */}
         <div 
+          data-aos="fade-up"
+          data-aos-delay="100"
           style={{
             maxWidth: '1080px',
             margin: '0 auto 28px auto',
@@ -137,7 +139,7 @@ export default function Credentials() {
         </div>
 
         {/* Accepted Authorities Grid */}
-        <div style={{ textAlign: 'center', marginBottom: '18px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '18px' }} data-aos="fade-up">
           <h4 style={{ fontSize: '0.80rem', color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 600, margin: 0 }}>
             Statutory Acceptance &amp; Regulatory Validity
           </h4>
@@ -151,6 +153,8 @@ export default function Credentials() {
           {recognizedEntities.map((entity, idx) => (
             <div 
               key={idx} 
+              data-aos="fade-up"
+              data-aos-delay={idx * 60}
               style={{
                 background: '#ffffff',
                 border: '1px solid #e2e8f0',

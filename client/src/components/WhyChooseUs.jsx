@@ -58,7 +58,7 @@ export default function WhyChooseUs({ onOpenQuote }) {
   return (
     <section id="why-us" style={{ padding: '48px 0', background: '#f1f5f9', backgroundImage: 'linear-gradient(135deg, rgba(226, 232, 240, 0.5) 25%, transparent 25%, transparent 50%, rgba(226, 232, 240, 0.5) 50%, rgba(226, 232, 240, 0.5) 75%, transparent 75%, transparent 100%)', backgroundSize: '40px 40px', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }} data-aos="fade-up">
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -102,6 +102,8 @@ export default function WhyChooseUs({ onOpenQuote }) {
             return (
               <div 
                 key={idx} 
+                data-aos="fade-up"
+                data-aos-delay={idx * 70}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',

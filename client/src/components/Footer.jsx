@@ -299,7 +299,7 @@ export default function Footer({ onOpenQuote }) {
         </div>
 
         {/* ─── Pan-India Corridors Hub ─── */}
-        <div className="pan-india-corridors-hub">
+        <div className="pan-india-corridors-hub" data-aos="fade-up">
           <div style={{
             display: 'flex',
             alignItems: 'center',

@@ -218,7 +218,7 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 24px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '860px', margin: '0 auto 24px auto' }} data-aos="fade-up">
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -246,21 +246,22 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
         </div>
 
         {/* Category Filter Chips */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', marginBottom: '24px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', marginBottom: '24px' }} data-aos="fade-up" data-aos-delay="100">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedTab(cat)}
               style={{
-                padding: '6px 14px',
-                borderRadius: '6px',
+                padding: '7px 16px',
+                borderRadius: '8px',
                 fontSize: '0.82rem',
-                fontWeight: selectedTab === cat ? 600 : 500,
-                border: selectedTab === cat ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
-                background: selectedTab === cat ? '#38bdf8' : '#11141c',
-                color: selectedTab === cat ? '#07080d' : '#a3a9b8',
+                fontWeight: selectedTab === cat ? 700 : 500,
+                border: selectedTab === cat ? '1px solid #0284c7' : '1px solid #cbd5e1',
+                background: selectedTab === cat ? '#0284c7' : '#ffffff',
+                color: selectedTab === cat ? '#ffffff' : '#334155',
                 cursor: 'pointer',
-                transition: 'all 0.15s ease'
+                transition: 'all 0.15s ease',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)'
               }}
             >
               {cat}
@@ -269,12 +270,16 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
         </div>
 
         {/* 2-Column Interactive Workspace */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-          gap: '24px',
-          alignItems: 'start'
-        }}>
+        <div 
+          data-aos="fade-up" 
+          data-aos-delay="150"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+            gap: '24px',
+            alignItems: 'start'
+          }}
+        >
           {/* Left Column: Purpose Cards List */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <div style={{ fontSize: '0.78rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>

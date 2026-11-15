@@ -95,6 +95,14 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
     return () => document.removeEventListener('click', handleOutsideClick);
   }, [categoryDropdownOpen]);
 
+  // Mount scroll & AOS initialization
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    if (window.AOS) {
+      window.AOS.refresh();
+    }
+  }, []);
+
   // Pre-calculate item counts per category
   const categoryCounts = useMemo(() => {
     const counts = { all: ELECTRICAL_SERVICES_LIST.length };
@@ -166,7 +174,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
         background: '#f8fafc',
         borderBottom: '1px solid #e2e8f0'
       }}>
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }} data-aos="fade-up">
           
           {/* Breadcrumb */}
           <div style={{ 
@@ -321,7 +329,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
         transition: 'top 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease',
         willChange: 'top'
       }}>
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }} data-aos="fade-up">
           
           <div style={{
             display: 'flex',
@@ -564,7 +572,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
       {/* ── SERVICES GRID (FULLY RESPONSIVE 1-COL ON MOBILE, 2-3 COL ON DESKTOP) ── */}
       <section style={{ padding: isMobile ? '32px 14px' : '60px 20px', width: '100%' }}>
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }} data-aos="fade-up">
           
           {filteredServices.length === 0 ? (
             <div style={{ textAlign: 'center', padding: isMobile ? '40px 14px' : '60px 20px', background: '#ffffff', borderRadius: '12px', border: '1px dashed #cbd5e1' }}>
@@ -746,7 +754,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
       {/* ── TECHNICAL STANDARDS & CALIBRATED INSTRUMENTS ── */}
       <section style={{ padding: isMobile ? '36px 14px' : '56px 20px', background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid rgba(56, 189, 248, 0.1)', width: '100%' }}>
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }} data-aos="fade-up">
           
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 32px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#0284c7', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
@@ -857,7 +865,7 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
       {/* ── HIGH-CONVERSION CTA FOOTER BANNER ── */}
       <section style={{ padding: isMobile ? '10px 14px 0' : '20px 20px 0', width: '100%' }}>
-        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }}>
+        <div className="container" style={{ maxWidth: '1240px', margin: '0 auto', padding: 0 }} data-aos="fade-up">
           <div style={{ 
             padding: isMobile ? '24px 16px' : '40px 32px', 
             borderRadius: '14px', 

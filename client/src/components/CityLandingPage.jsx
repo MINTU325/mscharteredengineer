@@ -28,6 +28,9 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
     if (cityData) {
       document.title = cityData.seoTitle;
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      if (window.AOS) {
+        window.AOS.refresh();
+      }
     }
   }, [cityData]);
 
@@ -133,6 +136,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
 
         {/* ── High-Impact Hero Banner with Real Photo Showcase ── */}
         <div
+          data-aos="fade-up"
           style={{
             background: '#ffffff',
             border: '1px solid #cbd5e1',
@@ -446,6 +450,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
 
         {/* ── Founder Verification Strip ── */}
         <div
+          data-aos="fade-up"
           style={{
             background: 'linear-gradient(135deg, #ffffff 0%, #FAF8F5 100%)',
             border: '1px solid #E8E2D8',

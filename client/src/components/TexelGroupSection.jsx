@@ -87,7 +87,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
       <div className="texel-container">
 
         {/* Top Header & Intro Block */}
-        <div className="texel-header">
+        <div className="texel-header" data-aos="fade-up">
           <h2 className="texel-main-title">
             Welcome to KS Group
           </h2>
@@ -105,7 +105,7 @@ export default function TexelGroupSection({ onOpenQuote }) {
         </div>
 
         {/* Section Title: OUR SERVICES */}
-        <div className="texel-departments-header">
+        <div className="texel-departments-header" data-aos="fade-up" data-aos-delay="100">
           <h3 className="texel-sub-title">
             OUR SERVICES
           </h3>
@@ -173,10 +173,12 @@ export default function TexelGroupSection({ onOpenQuote }) {
 
         {/* Department / Services List Grid */}
         <div className="texel-departments-list">
-          {activeServices.map((dept) => (
+          {activeServices.map((dept, idx) => (
             <div
               key={dept.id}
               className="texel-dept-card"
+              data-aos="fade-up"
+              data-aos-delay={idx * 80}
               onClick={() => handleDepartmentClick(dept)}
               role="button"
               tabIndex={0}

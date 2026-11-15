@@ -1,1250 +1,897 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  MessageSquare, 
-  Send, 
-  CheckCircle2, 
+  Sun, 
   ShieldCheck, 
+  Award, 
+  FileText, 
+  CheckCircle2, 
   ArrowRight, 
+  Phone, 
+  MessageSquare, 
+  MapPin, 
+  Building2, 
+  Wind, 
+  Layers, 
+  Check, 
   ChevronDown, 
   ChevronUp, 
-  ChevronLeft, 
-  ChevronRight, 
-  Star, 
-  Truck, 
-  Wrench, 
   Sparkles, 
   Clock, 
-  Settings, 
-  Award, 
-  Factory, 
-  Sun, 
-  Layers, 
-  Box, 
-  FileText,
-  Check
+  FileCheck, 
+  Gauge, 
+  Home,
+  Zap,
+  HardHat,
+  Send
 } from 'lucide-react';
 
 export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuote }) {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    document.title = 'Precast Concrete Moulds & Solar Fencing Moulds | KS Fabrication';
+    document.title = 'Solar Structural Stability Analysis & MMS Certification | KS Chartered Engineers';
+    if (window.AOS) {
+      window.AOS.refresh();
+    }
   }, []);
 
-  // ── Top Hero Slider State ──
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const heroSlides = [
-    {
-      title: "Precision Engineered Concrete Moulds for Stronger Infrastructure",
-      subtitle: "Reliable, Durable and Easy-to-Use Moulds for Solar Fencing, Precast Concrete and Industrial Construction.",
-      tagline: "KS Fabrication • Industrial Manufacturing",
-      image: "/corridors/auto_welding_robots.webp",
-      badge: "Heavy Duty Mild Steel & Aluminium"
-    },
-    {
-      title: "Engineered Precast Moulds for Mega Solar Power Plants",
-      subtitle: "Heavy-Duty RCC Fencing Pole Moulds & Boundary Wall Systems protecting 500+ MW solar installations across India.",
-      tagline: "Solar Farm Boundary Fencing Solutions",
-      image: "/corridors/solar_pv_plant.webp",
-      badge: "Zero-Maintenance Security Fencing"
-    },
-    {
-      title: "High-Compaction Vibration Tables & Custom Precast Moulds",
-      subtitle: "Mirror-smooth concrete finish, zero honeycombing, high daily casting output with 2000+ repeat mould life.",
-      tagline: "Turnkey Precast Machinery & Equipment",
-      image: "/corridors/machinery_cnc_center.webp",
-      badge: "Direct Factory Pricing • All-India Transport"
-    }
-  ];
-
-  // Auto-play slider
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [heroSlides.length]);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
-
-  // ── Product Categories Data ──
-  const products = [
-    {
-      id: "boundary-wall-mould",
-      name: "Boundary Wall Mould",
-      badge: "Bestseller for Precast Plants",
-      image: "/fabrication/heavy-iron-fabrication-sliding-gate.webp",
-      shortDesc: "Heavy-gauge 3mm to 5mm MS sheet boundary wall panel mould with interlocking channels and reinforcement rib design for high daily casting output.",
-      features: [
-        "Modular lengths: 6ft, 7ft & 8ft panels (1ft / 1.5ft height)",
-        "Precision laser-cut interlocking male-female joints",
-        "High-finish smooth surface with quick wedge locking",
-        "Rigid outer stiffeners preventing mould bulging"
-      ],
-      whatsappMsg: "Hello KS Fabrication, I am interested in Boundary Wall Moulds. Please share price, sizes, and transport details."
-    },
-    {
-      id: "aluminium-mould",
-      name: "Aluminium Mould",
-      badge: "Ultra Lightweight & Smooth",
-      image: "/corridors/machinery_cnc_center.webp",
-      shortDesc: "High-grade extruded aluminium alloy mould ensuring zero rust, mirror-smooth concrete face finish, and effortless manual demoulding.",
-      features: [
-        "60% lighter than steel — easy manual shifting",
-        "100% rustproof — no concrete staining or pitting",
-        "2,000+ repeat casting cycle life",
-        "Sharp corner edges with zero slurry leakage"
-      ],
-      whatsappMsg: "Hello KS Fabrication, I want to inquire about Aluminium Precast Concrete Moulds. Please share technical specs and pricing."
-    },
-    {
-      id: "fencing-pole-mould",
-      name: "RCC Fencing Pole Mould",
-      badge: "Solar Boundary Essential",
-      image: "/fabrication/structural-steel-tower-erection.webp",
-      shortDesc: "Precision-fabricated fencing pole mould with pre-machined pin holes for barbed wire, razor wire, and chain link fencing fasteners.",
-      features: [
-        "Straight pole & Y-Arm / L-Arm curved security designs",
-        "Heights: 7ft, 8ft, 9ft & 10ft (4x4 inch & 5x5 inch section)",
-        "Pre-engineered wire hole spacers for perfect alignment",
-        "Tapered profile for rapid, damage-free demoulding"
-      ],
-      whatsappMsg: "Hello KS Fabrication, I need quotation for RCC Fencing Pole Moulds for a solar farm / boundary project."
-    },
-    {
-      id: "h-pole-mould",
-      name: "H-Pole Mould (Slotted Column)",
-      badge: "Heavy Structural Load",
-      image: "/fabrication/boiler-stack-foundation-base.webp",
-      shortDesc: "Precision slotted H-shape column mould engineered for seamless sliding and interlocking of precast concrete boundary wall slabs.",
-      features: [
-        "Double-sided precision grooves for slab insertion",
-        "Lengths: 8ft, 9ft, 10ft & 12ft standard casting columns",
-        "Reinforced base plate anchor & heavy outer gussets",
-        "High structural rigidity under heavy table vibration"
-      ],
-      whatsappMsg: "Hello KS Fabrication, I need quotation for H-Pole Moulds (Slotted Columns) for boundary wall manufacturing."
-    },
-    {
-      id: "vibrator-machine",
-      name: "Concrete Vibrator Machine",
-      badge: "High Density Compaction",
-      image: "/corridors/hydraulic_forging_press.webp",
-      shortDesc: "Industrial concrete vibration table and heavy-duty plate vibrator equipment ensuring zero air voids, honeycombing prevention, and maximum concrete strength.",
-      features: [
-        "2 HP & 3 HP 100% copper-wound continuous rating motor",
-        "Heavy-duty spring isolated steel table frame",
-        "Adjustable centrifugal force for optimal compaction",
-        "Operates smoothly with high daily mould turnaround"
-      ],
-      whatsappMsg: "Hello KS Fabrication, I want details and price for Concrete Vibrator Table / Machine."
-    },
-    {
-      id: "custom-moulds",
-      name: "All Types of Custom Concrete Moulds",
-      badge: "Bespoke Engineering",
-      image: "/fabrication/heavy-industrial-ducting-support.webp",
-      shortDesc: "Custom-tailored concrete moulds engineered as per your exact CAD drawings for U-drains, box culverts, tree guards, flower pots, and architectural precast.",
-      features: [
-        "100% custom sizing as per client CAD / architectural drawings",
-        "High-grade IS 2062 mild steel plate construction",
-        "3D structural design preview before fabrication starts",
-        "All-India secure transport & dispatch support"
-      ],
-      whatsappMsg: "Hello KS Fabrication, I have custom concrete mould requirements as per my drawings. Please connect with me."
-    }
-  ];
-
-  // ── Gallery Data & Filters ──
-  const [galleryFilter, setGalleryFilter] = useState('all');
-  const galleryItems = [
-    { title: "Boundary Wall Mould Batch", category: "moulds", image: "/fabrication/heavy-iron-fabrication-sliding-gate.webp", desc: "Heavy MS boundary wall mould ready for dispatch" },
-    { title: "Solar Power Plant Fencing", category: "solar", image: "/corridors/solar_pv_plant.webp", desc: "Completed RCC pole & boundary wall solar farm perimeter" },
-    { title: "Precision CNC Machine Shop", category: "factory", image: "/corridors/machinery_cnc_center.webp", desc: "Automated milling & drilling of aluminium mould dies" },
-    { title: "Automated Welding & Assembly", category: "factory", image: "/corridors/auto_welding_robots.webp", desc: "Robotic & MIG welding of structural H-pole moulds" },
-    { title: "H-Column Slotted Precast Mould", category: "moulds", image: "/fabrication/boiler-stack-foundation-base.webp", desc: "Heavy-duty slotted column mould for sliding concrete panels" },
-    { title: "Industrial Precast Shed Works", category: "solar", image: "/fabrication/factory-tin-shed-peb-warehouse.webp", desc: "Turnkey precast boundary enclosure for industrial substation" },
-    { title: "Heavy Hydraulic Bending", category: "factory", image: "/corridors/hydraulic_forging_press.webp", desc: "CNC press brake bending of 4mm & 5mm mould steel plates" },
-    { title: "Custom Heavy Ducting Mould", category: "moulds", image: "/fabrication/heavy-industrial-ducting-support.webp", desc: "Specialized precast box culvert and drain channel mould" }
-  ];
-
-  const filteredGallery = galleryFilter === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === galleryFilter);
-
-  // ── FAQ Accordion ──
-  const [activeFaq, setActiveFaq] = useState(null);
-  const faqs = [
-    {
-      q: "What steel grade and plate thickness do you use for boundary wall moulds?",
-      a: "We use prime IS 2062 Grade mild steel (MS) plates in 3.15 mm, 4 mm, and 5 mm thickness depending on the mould design. Outer framework and ribs are reinforced with heavy structural angles and channels to withstand continuous compaction from vibrator machines without bending."
-    },
-    {
-      q: "What is the key difference between Aluminium Moulds and MS Moulds?",
-      a: "Aluminium moulds are 60% lighter, making manual demoulding fast without cranes or heavy labour. Aluminium also produces a glass-smooth mirror finish without any rust stains on concrete. Mild steel (MS) moulds are heavier, exceptionally rigid, and more cost-effective for large-volume industrial casting plants."
-    },
-    {
-      q: "Can you manufacture moulds according to our custom dimensions and CAD drawings?",
-      a: "Yes! We specialize in custom precast moulds. You can share your CAD drawing, PDF, or sample photos. Our engineering team reviews the dimensional tolerances and interlocking channels before laser cutting and fabrication."
-    },
-    {
-      q: "What are your payment terms and delivery timeline across India?",
-      a: "Our standard payment terms are 50% Advance with order confirmation and 50% Balance payment upon completion prior to dispatch. Standard moulds are typically dispatched within 7 to 12 days across India via reliable road transport."
-    },
-    {
-      q: "Why are precast boundary walls and RCC poles preferred for solar power plants?",
-      a: "Solar power plants span vast rural areas requiring rapid perimeter installation. Precast concrete walls and RCC H-poles provide theft-proof, cattle-proof security with 50+ years of lifespan, zero maintenance, and complete resistance to harsh weather and cyclonic wind speeds."
-    },
-    {
-      q: "Do you supply concrete vibrator tables along with the moulds?",
-      a: "Yes, we manufacture high-frequency vibrating tables (2 HP / 3 HP) engineered specifically for precast boundary panels, fencing poles, and pavers to eliminate all air voids and deliver high compressive strength concrete."
-    }
-  ];
-
-  // ── Direct Enquiry Form State ──
-  const [enquiryForm, setEnquiryForm] = useState({
+  const [activeFaq, setActiveFaq] = useState(0);
+  const [activeTab, setActiveTab] = useState('rooftop');
+  const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
+    plantCapacity: '100 kWp',
+    installationType: 'RCC Roof',
     city: '',
-    product: 'Boundary Wall Mould',
-    quantity: '1 to 5 Moulds (Starter Pack)',
-    message: ''
+    notes: ''
   });
-  const [formSubmitting, setFormSubmitting] = useState(false);
-  const [formSuccess, setFormSuccess] = useState(false);
-  const [whatsAppUrl, setWhatsAppUrl] = useState('');
-  const [formError, setFormError] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const scrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleEnquirySubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (!enquiryForm.name.trim()) {
-      setFormError('Please enter your full name or company name.');
-      return;
+    if (onOpenQuote) {
+      onOpenQuote(`Solar Structural Stability Analysis (${formData.plantCapacity} - ${formData.installationType})`, {
+        ...formData,
+        serviceType: 'Solar Structural Stability Analysis'
+      });
     }
-    const cleanPhone = enquiryForm.phone.replace(/[^0-9]/g, '');
-    if (cleanPhone.length < 10) {
-      setFormError('Please enter a valid 10-digit WhatsApp / mobile number.');
-      return;
-    }
-    setFormError('');
-    setFormSubmitting(true);
-
-    const waText = 
-`🏗️ *NEW PRODUCT ENQUIRY • KS FABRICATION*
-━━━━━━━━━━━━━━━━━━━━━━━━
-👤 *Client Name:* ${enquiryForm.name.trim()}
-📱 *WhatsApp Number:* ${cleanPhone}
-📍 *Location / City:* ${enquiryForm.city.trim() || 'Not specified'}
-📦 *Product Required:* ${enquiryForm.product}
-🔢 *Quantity / Scale:* ${enquiryForm.quantity}
-${enquiryForm.email.trim() ? `✉️ *Email:* ${enquiryForm.email.trim()}\n` : ''}${enquiryForm.message.trim() ? `📝 *Requirements:* ${enquiryForm.message.trim()}\n` : ''}━━━━━━━━━━━━━━━━━━━━━━━━
-_Inquiry sent via KS Fabrication Official Website_`;
-
-    const generatedUrl = `https://wa.me/919158658885?text=${encodeURIComponent(waText)}`;
-    setWhatsAppUrl(generatedUrl);
-
-    // Record inquiry to backend
-    fetch('/api/inquiries', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: enquiryForm.name.trim(),
-        phone: cleanPhone,
-        email: enquiryForm.email.trim(),
-        service: `Moulds: ${enquiryForm.product} (${enquiryForm.quantity})`,
-        location: enquiryForm.city.trim() || 'India',
-        projectScope: `Product: ${enquiryForm.product}. Quantity: ${enquiryForm.quantity}. Note: ${enquiryForm.message.trim()}`
-      })
-    }).catch(() => {});
-
-    setTimeout(() => {
-      setFormSubmitting(false);
-      setFormSuccess(true);
-      window.open(generatedUrl, '_blank');
-    }, 350);
+    setFormSubmitted(true);
   };
 
-  const handleQuickProductWhatsApp = (prodName, customMsg) => {
-    const waText = customMsg || `Hello KS Fabrication, I am interested in ${prodName}. Please share catalogue, price, and delivery timeline.`;
-    window.open(`https://wa.me/919158658885?text=${encodeURIComponent(waText)}`, '_blank');
-  };
+  const services = [
+    {
+      id: 'rooftop',
+      title: 'Rooftop Solar Structural Stability & Building Load Audit',
+      badge: 'Mandatory for DISCOM Net-Metering & CEIG',
+      icon: <Building2 size={24} color="#0284c7" />,
+      shortDesc: 'Comprehensive dead load, live load, and wind uplift assessment for RCC slabs, industrial shed PEB structures, and curved roofs. Format-B structural certificate issued with Chartered Engineer stamp.',
+      deliverables: [
+        'Building dead load & solar PV payload structural capacity calculation',
+        'Wind uplift force evaluation as per IS 875 (Part 3: 2015)',
+        'Purlin, truss, column, and rafter stress checks on STAAD.Pro',
+        'Official Form-B / Annexure Stability Certificate signed & sealed by Chartered Engineer (IEI MIE)'
+      ],
+      idealFor: 'Commercial factories, industrial tin sheds, hospitals, educational institutions, residential societies.'
+    },
+    {
+      id: 'mms',
+      title: 'Ground-Mount MMS Structural Analysis & 3D FEA Design',
+      badge: 'Utility & C&I Solar Farms',
+      icon: <Sun size={24} color="#d97706" />,
+      shortDesc: '3D finite element structural analysis of Module Mounting Structures (MMS) across fixed-tilt, seasonal-tilt, and single-axis trackers. Optimized for minimum steel weight while resisting 150–180 km/h wind gusts.',
+      deliverables: [
+        '3D STAAD.Pro FEA modeling and stress concentration contour maps',
+        'Cold-formed steel profile optimization (POSMAC, Galvalume, HDG)',
+        'Fastener torque, bolt shear, and slotted hole connection verification',
+        'Detailed fabrication drawings with bill of quantities (BOQ)'
+      ],
+      idealFor: 'Solar EPC contractors, developers, utility-scale IPPs, and module mounting structure manufacturers.'
+    },
+    {
+      id: 'foundation',
+      title: 'Solar Foundation, Piling & Geotechnical Interaction',
+      badge: 'Pull-out & Uplift Safety',
+      icon: <Layers size={24} color="#059669" />,
+      shortDesc: 'Engineering analysis and design of solar foundations tailored to local soil parameters. Comprehensive verification of bored cast-in-situ concrete piles, rammed steel posts, helical screws, and ballast blocks.',
+      deliverables: [
+        'Geotechnical report review and soil bearing capacity validation',
+        'Pile compression, pull-out (uplift), and lateral load calculations',
+        'Factor of safety (FoS) certification under maximum cyclonic wind',
+        'Ballast foundation sliding and overturning safety analysis'
+      ],
+      idealFor: 'Ground-mount solar parks, canal-top installations, rocky terrain solar projects.'
+    },
+    {
+      id: 'peer-review',
+      title: 'Third-Party Design Vetting & EPC Peer Review',
+      badge: 'Bankability & Lender Due Diligence',
+      icon: <FileCheck size={24} color="#7c3aed" />,
+      shortDesc: 'Independent technical due diligence and peer review of solar structural designs submitted by EPC contractors. Ensures compliance with Bureau of Indian Standards and bank financing criteria.',
+      deliverables: [
+        'Design check of structural member utilization ratios (< 0.90 target)',
+        'Corrosion protection audit (HDG micron thickness & salt-spray rating)',
+        'Risk assessment report for project lenders and insurance underwriters',
+        'Formal Chartered Engineer vetting endorsement letter'
+      ],
+      idealFor: 'Banks, NBFCs, equity investors, solar asset owners, and independent power producers.'
+    }
+  ];
+
+  const standards = [
+    {
+      code: 'IS 875 (Part 3: 2015)',
+      title: 'Design Loads (Other Than Earthquake) For Buildings and Structures - Wind Loads',
+      desc: 'Determination of basic wind speeds (Vb), design wind speed (Vz), terrain category factors (k1, k2, k3, k4), and local aerodynamic pressure coefficients.'
+    },
+    {
+      code: 'IS 800:2007',
+      title: 'General Construction in Steel — Code of Practice',
+      desc: 'Limit state design philosophy for hot-rolled structural steel sections, member bucking checks, weld stresses, and serviceability deflection limits.'
+    },
+    {
+      code: 'IS 801:1975',
+      title: 'Code of Practice for Use of Cold-Formed Light Gauge Steel Members',
+      desc: 'Structural design and effective section modulus calculation for cold-rolled steel purlins, channels, and hat-sections deployed in solar MMS.'
+    },
+    {
+      code: 'IS 1893 (Part 1: 2016)',
+      title: 'Criteria for Earthquake Resistant Design of Structures',
+      desc: 'Seismic zone coefficient assessment and dynamic horizontal acceleration analysis for critical solar power infrastructure.'
+    },
+    {
+      code: 'IS 456:2000',
+      title: 'Plain and Reinforced Concrete — Code of Practice',
+      desc: 'Design of RCC pile foundations, pedestals, and ballast weight sizing to prevent uplift and overturning.'
+    },
+    {
+      code: 'MNRE Guidelines',
+      title: 'Ministry of New & Renewable Energy Quality Standards',
+      desc: 'Statutory compliance benchmarks for grid-connected rooftop solar PV systems and PM Surya Ghar Muft Bijli Yojana.'
+    }
+  ];
+
+  const faqs = [
+    {
+      q: 'Why is a Chartered Engineer Structural Stability Certificate mandatory for rooftop solar in India?',
+      a: 'State electricity distribution companies (DISCOMs such as JVVNL, AVVNL, JDVVNL, MSEDCL, DHBVN, BSES, etc.) and Chief Electrical Inspectorates (CEIG) mandate that before erecting solar panels on a building or industrial shed roof, a certified Chartered Engineer (Civil/Structural) must inspect and certify that the structure can safely withstand the dead weight of panels, mounting frames, and extreme wind uplift forces without risk of structural failure or roof collapse.'
+    },
+    {
+      q: 'What wind speed and aerodynamic parameters do you verify the solar structure against?',
+      a: 'We evaluate structural stability strictly in accordance with IS 875 (Part 3: 2015). Basic wind speeds typically range from 39 m/s to 50 m/s (approx. 140 km/h to 180 km/h) depending on the regional wind zone, building height, terrain category (Category 1 to 4), cyclonic risk factor (k4), and topography. Both downward wind pressure and upward suction forces are rigorously simulated.'
+    },
+    {
+      q: 'Can you certify solar installations on older industrial tin sheds or PEB buildings?',
+      a: 'Yes. We conduct a detailed engineering assessment of existing PEB trusses, purlin spacing, sheet gauge, and corrosion levels. If needed, we provide engineered retrofitting or purlin-reinforcement recommendations to ensure the shed meets statutory safety standards before issuing the final Chartered Engineer certificate.'
+    },
+    {
+      q: 'What deliverables are included in a Solar Structural Stability report?',
+      a: 'Our report package includes: (1) 3D STAAD.Pro finite element stress and deflection model, (2) Member utilization check calculations, (3) Foundation / anchoring pull-out calculations, (4) Stamped and sealed Chartered Engineer Stability Certificate on official letterhead (Format-B / CEIG prescribed format), and (5) Corporate Member of IEI registration verification with digital QR code.'
+    },
+    {
+      q: 'How quickly can we obtain a Solar Structural Stability Certificate for our project?',
+      a: 'For commercial and industrial rooftop projects up to 500 kWp, preliminary reports and certificates are typically delivered within 24 to 48 hours following document review and site inspection. Large ground-mount solar parks (5 MW to 100+ MW) are completed in 3 to 5 business days.'
+    },
+    {
+      q: 'Is your Chartered Engineer certification accepted by all DISCOMs, CEIG, and Nationalized Banks?',
+      a: 'Yes. As a Chartered Engineer (India) MIE corporate member of the Institution of Engineers (India) and an alumnus of IIT Roorkee, Er. Mukesh Singh’s statutory certifications and structural audit reports are recognized and accepted by all state DISCOMs across India, CEIG departments, MNRE empanelment portals, and major financial institutions.'
+    }
+  ];
 
   return (
-    <div style={{ background: '#edf2f7', color: '#0f172a', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', minHeight: '100vh', paddingBottom: '70px', overflowX: 'hidden' }}>
+    <div className="solar-structural-page" style={{ background: '#edf2f7', minHeight: '100vh', color: '#0f172a' }}>
       
-      {/* ── Scoped Mobile Responsive CSS Rules ── */}
-      <style>{`
-        @media (max-width: 900px) {
-          .ks-nav-arrow {
-            display: none !important;
-          }
-          .ks-hero-content {
-            padding: 48px 16px 60px !important;
-          }
-          .ks-hero-title {
-            font-size: 2.1rem !important;
-            line-height: 1.2 !important;
-          }
-        }
-        @media (max-width: 640px) {
-          .ks-hero-title {
-            font-size: 1.72rem !important;
-            margin-bottom: 14px !important;
-          }
-          .ks-hero-subtitle {
-            font-size: 0.95rem !important;
-            line-height: 1.6 !important;
-            margin-bottom: 20px !important;
-          }
-          .ks-hero-ctas {
-            flex-direction: column !important;
-            width: 100% !important;
-            gap: 10px !important;
-          }
-          .ks-hero-ctas > * {
-            width: 100% !important;
-            justify-content: center !important;
-            text-align: center !important;
-          }
-          .ks-hero-stats {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 12px !important;
-            margin-top: 24px !important;
-            padding-top: 18px !important;
-          }
-          .ks-hero-stats > div > div:first-child {
-            font-size: 1.4rem !important;
-          }
-          .ks-product-actions {
-            flex-direction: column !important;
-            gap: 8px !important;
-          }
-          .ks-product-actions > * {
-            width: 100% !important;
-          }
-          .ks-gallery-filter {
-            flex-wrap: wrap !important;
-            justify-content: center !important;
-          }
-          .ks-gallery-filter button {
-            padding: 6px 12px !important;
-            font-size: 0.78rem !important;
-          }
-          .ks-padded-card {
-            padding: 24px 16px !important;
-          }
-          .ks-floating-pill {
-            display: none !important;
-          }
-          .ks-floating-wrap {
-            bottom: 16px !important;
-            right: 16px !important;
-          }
-        }
-      `}</style>
-
-      {/* ── 1. HERO SECTION WITH DYNAMIC SLIDER ── */}
-      <section id="hero" style={{ position: 'relative', overflow: 'hidden', minHeight: '560px', background: '#f8fafc' }}>
-        {heroSlides.map((slide, index) => {
-          const isActive = index === currentSlide;
-          return (
-            <div
-              key={index}
-              style={{
-                position: isActive ? 'relative' : 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                opacity: isActive ? 1 : 0,
-                visibility: isActive ? 'visible' : 'hidden',
-                transition: 'opacity 0.7s ease-in-out',
-                display: isActive ? 'block' : 'none'
-              }}
-            >
-              {/* Slide Background Image with Gradient Overlay */}
-              <div style={{
-                position: 'relative',
-                minHeight: '560px',
-                backgroundImage: `linear-gradient(90deg, rgba(11, 13, 20, 0.96) 0%, rgba(11, 13, 20, 0.85) 50%, rgba(11, 13, 20, 0.6) 100%), url(${slide.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
-                <div className="ks-hero-content" style={{ maxWidth: '1240px', margin: '0 auto', padding: '70px 20px', width: '100%' }}>
-                  <div style={{ maxWidth: '780px' }}>
-                    
-                    {/* Clean Industry Badge */}
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245, 130, 32, 0.1)', border: '1px solid rgba(245, 130, 32, 0.3)', padding: '5px 12px', borderRadius: '6px', color: '#F58220', fontSize: '0.80rem', fontWeight: 600, marginBottom: '18px' }}>
-                      <Factory size={14} />
-                      <span>{slide.tagline}</span>
-                    </div>
-
-                    <h1 className="ks-hero-title" style={{ fontSize: 'clamp(1.9rem, 4.4vw, 3.4rem)', fontWeight: 700, color: '#ffffff', margin: '0 0 16px 0', lineHeight: 1.18, letterSpacing: '-0.01em' }}>
-                      {slide.title}
-                    </h1>
-
-                    <p className="ks-hero-subtitle" style={{ fontSize: '1.08rem', color: '#cbd5e1', lineHeight: 1.65, margin: '0 0 24px 0', maxWidth: '700px' }}>
-                      {slide.subtitle}
-                    </p>
-
-                    {/* Live Workshop Availability Marker */}
-                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.25)', padding: '6px 12px', borderRadius: '6px', color: '#34d399', fontSize: '0.82rem', fontWeight: 600, marginBottom: '28px' }}>
-                      <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
-                      <span>Jaipur Workshop Floor Active: Dispatch &amp; Custom CAD Fabrication Open</span>
-                    </div>
-
-                    {/* CTA Buttons */}
-                    <div className="ks-hero-ctas" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                      <button
-                        onClick={() => scrollToSection('products')}
-                        style={{
-                          background: '#F58220',
-                          color: '#ffffff',
-                          border: 'none',
-                          borderRadius: '8px',
-                          padding: '12px 24px',
-                          fontSize: '0.95rem',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '8px'
-                        }}
-                      >
-                        <span>Explore Products</span>
-                        <ArrowRight size={16} />
-                      </button>
-
-                      <button
-                        onClick={() => scrollToSection('enquiry-form')}
-                        style={{
-                          background: 'rgba(255, 255, 255, 0.06)',
-                          color: '#ffffff',
-                          border: '1px solid rgba(255, 255, 255, 0.2)',
-                          borderRadius: '8px',
-                          padding: '12px 22px',
-                          fontSize: '0.95rem',
-                          fontWeight: 600,
-                          cursor: 'pointer'
-                        }}
-                      >
-                        Get Free Quotation
-                      </button>
-
-                      <a
-                        href="https://wa.me/919158658885?text=Hello%20KS%20Fabrication,%20I%20want%20to%20inquire%20about%20Concrete%20Boundary%20Wall%20and%20Solar%20Fencing%20Moulds."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          background: '#10b981',
-                          color: '#ffffff',
-                          border: 'none',
-                          borderRadius: '10px',
-                          padding: '14px 24px',
-                          fontSize: '1rem',
-                          fontWeight: 700,
-                          textDecoration: 'none',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                          boxShadow: '0 4px 18px rgba(16, 185, 129, 0.3)'
-                        }}
-                      >
-                        <MessageSquare size={18} />
-                        <span>WhatsApp Us</span>
-                      </a>
-                    </div>
-
-                    {/* Trust Statistics / Micro-Metrics Strip inside Hero */}
-                    <div className="ks-hero-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 130px), 1fr))', gap: '16px', marginTop: '35px', paddingTop: '25px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
-                      <div>
-                        <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#F58220', lineHeight: 1 }}>500+</div>
-                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Mould Sets Delivered</div>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#0284c7', lineHeight: 1 }}>IS 2062</div>
-                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Certified Prime MS Steel</div>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#10b981', lineHeight: 1 }}>100%</div>
-                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Slurry Leakproof Guarantee</div>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: '1.75rem', fontWeight: 600, color: '#fbbf24', lineHeight: 1 }}>Pan-India</div>
-                        <div style={{ fontSize: '0.80rem', color: '#475569', marginTop: '4px' }}>Fast Safe Transport</div>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-
-        {/* Slider Controls (Prev / Next & Dots) */}
-        <button
-          className="ks-nav-arrow"
-          onClick={prevSlide}
-          aria-label="Previous Slide"
-          style={{
-            position: 'absolute',
-            left: '20px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '44px',
-            height: '44px',
-            borderRadius: '50%',
-            background: 'rgba(16, 36, 58, 0.7)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            color: '#ffffff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            zIndex: 10
-          }}
-        >
-          <ChevronLeft size={24} />
-        </button>
-
-        <button
-          className="ks-nav-arrow"
-          onClick={nextSlide}
-          aria-label="Next Slide"
-          style={{
-            position: 'absolute',
-            right: '20px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            width: '44px',
-            height: '44px',
-            borderRadius: '50%',
-            background: 'rgba(16, 36, 58, 0.7)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            color: '#ffffff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            zIndex: 10
-          }}
-        >
-          <ChevronRight size={24} />
-        </button>
-
-        {/* Slide Indicator Dots */}
-        <div style={{ position: 'absolute', bottom: '22px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px', zIndex: 10 }}>
-          {heroSlides.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              style={{
-                width: idx === currentSlide ? '28px' : '10px',
-                height: '10px',
-                borderRadius: '5px',
-                background: idx === currentSlide ? '#F58220' : 'rgba(255, 255, 255, 0.3)',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease'
-              }}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* ── BRAND VALUE PROPOSITION / TRUST STRIP ── */}
-      <section style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '18px 20px' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '16px', alignItems: 'center' }}>
+      {/* ── BREADCRUMB & HERO SECTION ── */}
+      <section style={{ 
+        position: 'relative', 
+        padding: '110px 20px 48px', 
+        background: '#ffffff',
+        borderBottom: '1px solid #cbd5e1'
+      }}>
+        <div className="container" style={{ maxWidth: '1140px', margin: '0 auto' }}>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <ShieldCheck size={28} color="#F58220" />
-            <div>
-              <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '0.92rem' }}>Strong • Durable • Easy to Use</div>
-              <div style={{ color: '#334155', fontSize: '0.78rem' }}>Heavy IS 2062 MS &amp; Aluminium</div>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Truck size={28} color="#F58220" />
-            <div>
-              <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '0.92rem' }}>All-India Safe Transport</div>
-              <div style={{ color: '#334155', fontSize: '0.78rem' }}>Fast dispatch across every state</div>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Award size={28} color="#F58220" />
-            <div>
-              <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '0.92rem' }}>Direct Factory Pricing</div>
-              <div style={{ color: '#334155', fontSize: '0.78rem' }}>No middlemen • Max profitability</div>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Box size={28} color="#F58220" />
-            <div>
-              <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '0.92rem' }}>Transparent Terms</div>
-              <div style={{ color: '#334155', fontSize: '0.78rem' }}>50% Advance • 50% on Completion</div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 20px' }}>
-
-        {/* ── TECHNICAL LEADERSHIP & WORKSHOP CRAFTSMANSHIP (HUMANISED TRUST) ── */}
-        <section style={{ padding: '60px 0 20px', borderBottom: '1px solid #e2e8f0' }}>
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(11, 13, 20, 0.95) 0%, rgba(13, 27, 44, 0.98) 100%)',
-            border: '1px solid rgba(245, 130, 32, 0.35)',
-            borderRadius: '20px',
-            padding: '36px 30px',
-            boxShadow: '0 16px 40px rgba(0, 0, 0, 0.45)',
-            position: 'relative',
-            overflow: 'hidden'
+          {/* Breadcrumb Navigation */}
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '8px', 
+            fontSize: '0.84rem', 
+            color: '#64748b', 
+            marginBottom: '20px' 
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '32px', alignItems: 'center' }}>
-              
-              {/* Leader Credentials */}
-              <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                <div style={{
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '12px',
-                  background: 'rgba(245, 130, 32, 0.15)',
-                  border: '1px solid rgba(245, 130, 32, 0.4)',
+            <button 
+              onClick={onNavigateHome} 
+              style={{ background: 'transparent', border: 'none', color: '#0284c7', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0, fontWeight: 600 }}
+            >
+              <Home size={14} /> Home
+            </button>
+            <span style={{ color: '#94a3b8' }}>/</span>
+            <span style={{ color: '#64748b' }}>Technical Services</span>
+            <span style={{ color: '#94a3b8' }}>/</span>
+            <span style={{ color: '#0284c7', fontWeight: 600 }}>Solar Structural Analysis</span>
+          </div>
+
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '5px 12px',
+            borderRadius: '6px',
+            background: 'rgba(2, 132, 199, 0.08)',
+            border: '1px solid rgba(2, 132, 199, 0.25)',
+            color: '#0284c7',
+            fontSize: '0.82rem',
+            fontWeight: 700,
+            letterSpacing: '0.04em',
+            marginBottom: '16px'
+          }} data-aos="fade-up">
+            <Sun size={15} color="#d97706" />
+            <span>Chartered Engineer (Civil &amp; Structural) • IIT Roorkee Alumni</span>
+          </div>
+
+          <h1 style={{ 
+            fontSize: 'clamp(2rem, 4.2vw, 3.2rem)', 
+            fontWeight: 800, 
+            lineHeight: 1.2, 
+            color: '#0f172a', 
+            letterSpacing: '-0.02em', 
+            maxWidth: '1000px', 
+            marginBottom: '16px' 
+          }} data-aos="fade-up" data-aos-delay="80">
+            Solar Structural Stability Analysis &amp; <span style={{ color: '#0284c7' }}>MMS Wind Load Certification</span>
+          </h1>
+
+          <p style={{ 
+            fontSize: 'clamp(1rem, 1.8vw, 1.15rem)', 
+            color: '#334155', 
+            maxWidth: '880px', 
+            lineHeight: 1.65, 
+            marginBottom: '28px',
+            fontWeight: 500
+          }} data-aos="fade-up" data-aos-delay="140">
+            Comprehensive building structural audits, 3D STAAD.Pro finite element analysis, wind load feasibility (IS 875 Part 3), module mounting structure (MMS) design verification, and statutory DISCOM / CEIG stability certificates issued with Chartered Engineer seal across India.
+          </p>
+
+          {/* Key Metrics Chips */}
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '10px',
+            marginBottom: '32px'
+          }} data-aos="fade-up" data-aos-delay="180">
+            {[
+              { icon: <ShieldCheck size={16} color="#059669" />, label: 'IS 875 (Part 3) & IS 800 Compliant' },
+              { icon: <Clock size={16} color="#d97706" />, label: '24–48h Statutory Stability Certificates' },
+              { icon: <FileCheck size={16} color="#0284c7" />, label: 'DISCOM & CEIG Approved Format-B' },
+              { icon: <Award size={16} color="#7c3aed" />, label: '500+ MW Solar Projects Vetted' }
+            ].map((chip, idx) => (
+              <div 
+                key={idx}
+                style={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0
-                }}>
-                  <Award size={28} color="#F58220" />
-                </div>
-
-                <div>
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: 'rgba(56, 189, 248, 0.15)', padding: '3px 10px', borderRadius: '6px', color: '#0284c7', fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', marginBottom: '6px' }}>
-                    <span>Technical Leadership</span>
-                  </div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0f172a', margin: '0 0 4px 0' }}>
-                    Er. Mukesh Singh
-                  </h3>
-                  <div style={{ color: '#F58220', fontSize: '0.85rem', fontWeight: 700 }}>
-                    Principal Technical Advisor • IIT Roorkee Alumnus
-                  </div>
-                  <div style={{ color: '#334155', fontSize: '0.78rem', marginTop: '2px' }}>
-                    Chartered Engineer (India) • Corporate Member IEI
-                  </div>
-                </div>
-              </div>
-
-              {/* Personal Engineer Quote & Assurance */}
-              <div style={{ borderLeft: '2px solid rgba(245, 130, 32, 0.3)', paddingLeft: '24px' }}>
-                <p style={{ color: '#e2e8f0', fontSize: '0.96rem', lineHeight: 1.65, fontStyle: 'italic', margin: '0 0 14px 0' }}>
-                  "We treat every precast mould not as simple metal, but as an engine of daily production profitability. Our reinforced stiffeners and CNC laser alignment eliminate bulging and joint leakage, giving contractors 2,000+ flawless castings with zero headache."
-                </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', alignItems: 'center' }}>
-                  <a
-                    href="https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20need%20direct%20technical%20guidance%20for%20our%20precast%20mould%20and%20solar%20fencing%20project."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      background: '#10b981',
-                      color: '#ffffff',
-                      textDecoration: 'none',
-                      borderRadius: '8px',
-                      padding: '8px 16px',
-                      fontSize: '0.84rem',
-                      fontWeight: 700,
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px'
-                    }}
-                  >
-                    <MessageSquare size={15} />
-                    <span>Chat with Technical Advisor on WhatsApp</span>
-                  </a>
-                  <a
-                    href="tel:+919158658885"
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.08)',
-                      color: '#ffffff',
-                      textDecoration: 'none',
-                      borderRadius: '8px',
-                      padding: '8px 14px',
-                      fontSize: '0.84rem',
-                      fontWeight: 700,
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      border: '1px solid rgba(255, 255, 255, 0.2)'
-                    }}
-                  >
-                    <Phone size={15} color="#F58220" />
-                    <span>Call Workshop Desk</span>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* ── 2. ABOUT COMPANY SECTION ── */}
-        <section id="about" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '40px', alignItems: 'center' }}>
-            
-            <div>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '10px' }}>
-                <Factory size={15} />
-                <span>About KS Fabrication</span>
-              </div>
-              
-              <h2 style={{ fontSize: 'clamp(1.8rem, 2.8vw, 2.5rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 18px 0', lineHeight: 1.25 }}>
-                Specialized Manufacturers of High-Precision Precast Concrete &amp; Solar Moulds
-              </h2>
-
-              <p style={{ color: '#475569', fontSize: '1.02rem', lineHeight: 1.75, marginBottom: '16px' }}>
-                <strong>KS Fabrication</strong> is a premier Indian engineering and fabrication firm specializing in the precision manufacture of <strong>Precast Concrete Moulds, RCC Fencing Pole Moulds, Boundary Wall Moulds, and Concrete Vibration Equipment</strong>.
-              </p>
-
-              <p style={{ color: '#334155', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '24px' }}>
-                Engineered for solar EPC companies, infrastructure contractors, and commercial precast plants, our moulds are crafted using heavy-gauge mild steel (MS) and aircraft-grade aluminium. With laser-guided dimensional accuracy and reinforced stiffening ribs, our moulds deliver mirror-finish concrete panels, rapid demoulding, and extreme structural durability under thousands of repeat casting cycles.
-              </p>
-
-              <div className="ks-two-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '14px', marginBottom: '28px' }}>
-                <div style={{ background: '#ffffff', padding: '14px', borderRadius: '10px', borderLeft: '4px solid #F58220' }}>
-                  <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '0.95rem' }}>Precision CNC Sizing</div>
-                  <div style={{ color: '#334155', fontSize: '0.82rem' }}>Zero slurry leakage &amp; clean joints</div>
-                </div>
-                <div style={{ background: '#ffffff', padding: '14px', borderRadius: '10px', borderLeft: '4px solid #F58220' }}>
-                  <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '0.95rem' }}>Extreme Durability</div>
-                  <div style={{ color: '#334155', fontSize: '0.82rem' }}>IS 2062 Grade Steel Plate</div>
-                </div>
-              </div>
-
-              <button
-                onClick={() => scrollToSection('contact')}
-                style={{
-                  background: '#F58220',
-                  color: '#ffffff',
-                  border: 'none',
+                  gap: '8px',
+                  background: '#f8fafc',
+                  border: '1px solid #cbd5e1',
                   borderRadius: '8px',
-                  padding: '12px 24px',
-                  fontSize: '0.95rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px'
+                  padding: '8px 14px',
+                  fontSize: '0.84rem',
+                  color: '#0f172a',
+                  fontWeight: 600,
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.04)'
                 }}
               >
-                <span>Connect with Our Manufacturing Team</span>
-                <ArrowRight size={16} />
-              </button>
-            </div>
-
-            {/* Visual Factory Image Card */}
-            <div style={{ position: 'relative' }}>
-              <div style={{
-                borderRadius: '16px',
-                overflow: 'hidden',
-                border: '1px solid #e2e8f0',
-                boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)',
-                position: 'relative'
-              }}>
-                <img
-                  src="/fabrication/factory-tin-shed-peb-warehouse.webp"
-                  alt="KS Fabrication Mould Manufacturing Factory"
-                  style={{ width: '100%', height: '380px', objectFit: 'cover', display: 'block' }}
-                />
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(to top, rgba(11, 13, 20, 0.95) 0%, rgba(11, 13, 20, 0.4) 70%, transparent 100%)',
-                  padding: '24px'
-                }}>
-                  <div style={{ color: '#F58220', fontSize: '0.80rem', fontWeight: 600, textTransform: 'uppercase' }}>Factory Infrastructure</div>
-                  <div style={{ color: '#ffffff', fontSize: '1.1rem', fontWeight: 700 }}>Heavy Duty Mould Fabrication &amp; Assembly Bay</div>
-                </div>
+                {chip.icon}
+                <span>{chip.label}</span>
               </div>
-            </div>
-
+            ))}
           </div>
-        </section>
 
-        {/* ── 3. PRODUCTS SECTION (6 FEATURED CATEGORIES) ── */}
-        <section id="products" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
+          {/* Quick CTA Actions */}
+          <div style={{ 
+            display: 'flex', 
+            flexWrap: 'wrap',
+            gap: '12px', 
+            alignItems: 'center'
+          }} data-aos="fade-up" data-aos-delay="220">
+            <button 
+              onClick={() => onOpenQuote('Solar Structural Stability Analysis', { service: 'Solar Structural Stability Analysis' })}
+              className="btn btn-primary"
+              style={{ 
+                padding: '13px 26px', 
+                fontSize: '0.94rem', 
+                fontWeight: 700, 
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                borderRadius: '8px',
+                background: '#F58220',
+                color: '#ffffff',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 4px 14px rgba(245, 130, 32, 0.28)'
+              }}
+            >
+              <span>Request Structural Stability Audit</span>
+              <ArrowRight size={16} />
+            </button>
+
+            <a 
+              href="tel:+919158658885" 
+              style={{ 
+                padding: '12px 22px', 
+                fontSize: '0.92rem', 
+                fontWeight: 600, 
+                background: '#ffffff', 
+                border: '1.5px solid #cbd5e1', 
+                color: '#0f172a',
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+              }}
+            >
+              <Phone size={15} color="#0284c7" />
+              <span>Call: +91 91586 58885</span>
+            </a>
+
+            <a 
+              href="https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20need%20a%20Solar%20Structural%20Stability%20Certificate%20and%20MMS%20Analysis." 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                padding: '12px 22px', 
+                fontSize: '0.92rem', 
+                fontWeight: 600, 
+                background: '#25D366', 
+                border: 'none', 
+                color: '#ffffff',
+                display: 'inline-flex', 
+                alignItems: 'center', 
+                gap: '8px',
+                borderRadius: '8px',
+                textDecoration: 'none'
+              }}
+            >
+              <MessageSquare size={15} color="#ffffff" />
+              <span>WhatsApp Consultation</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── CORE ENGINEERING SERVICES TABS ── */}
+      <section style={{ padding: '56px 20px', background: '#edf2f7' }}>
+        <div className="container" style={{ maxWidth: '1140px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 45px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-              <Box size={15} />
-              <span>Engineered Products</span>
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 36px' }} data-aos="fade-up">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#0284c7', fontSize: '0.80rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+              <Gauge size={14} />
+              <span>ENGINEERING DIVISIONS &amp; SCOPE OF WORK</span>
             </div>
-            <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 12px 0' }}>
-              Precast Concrete Moulds &amp; Equipment
+            <h2 style={{ fontSize: 'clamp(1.75rem, 3.2vw, 2.4rem)', fontWeight: 800, color: '#0f172a', margin: '0 0 10px 0' }}>
+              Specialized Solar Structural Engineering
             </h2>
-            <p style={{ color: '#334155', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>
-              Heavy-duty steel, aluminium, and composite concrete moulds manufactured to stringent industrial standards for high daily production and long operational lifespan.
+            <p style={{ color: '#334155', fontSize: '0.98rem', margin: 0, fontWeight: 500 }}>
+              End-to-end structural vetting, simulation, and statutory sign-offs for rooftop solar, utility-scale solar parks, and C&amp;I installations.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '26px' }}>
-            {products.map((prod) => (
-              <div
-                key={prod.id}
+          {/* Service Cards Grid */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 520px), 1fr))',
+            gap: '24px',
+            marginBottom: '40px'
+          }}>
+            {services.map((srv, idx) => (
+              <div 
+                key={srv.id}
                 style={{
                   background: '#ffffff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '16px',
-                  overflow: 'hidden',
+                  border: '1px solid #cbd5e1',
+                  borderRadius: '12px',
+                  padding: '28px',
+                  boxShadow: '0 4px 16px -2px rgba(15, 23, 42, 0.05)',
                   display: 'flex',
                   flexDirection: 'column',
-                  transition: 'transform 0.2s ease, border-color 0.2s ease',
-                  boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
+                  justifyContent: 'space-between'
                 }}
+                data-aos="fade-up"
+                data-aos-delay={idx * 80}
               >
-                {/* Product Image */}
-                <div style={{ position: 'relative', height: '220px', background: '#f8fafc', overflow: 'hidden' }}>
-                  <img
-                    src={prod.image}
-                    alt={prod.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.4s ease' }}
-                    loading="lazy"
-                  />
-                  <div style={{
-                    position: 'absolute',
-                    top: '12px',
-                    left: '12px',
-                    background: '#F58220',
-                    color: '#ffffff',
-                    fontSize: '0.75rem',
-                    fontWeight: 600,
-                    padding: '4px 10px',
-                    borderRadius: '6px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em'
-                  }}>
-                    {prod.badge}
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', marginBottom: '14px' }}>
+                    <div style={{ padding: '10px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '10px' }}>
+                      {srv.icon}
+                    </div>
+                    <span style={{ 
+                      fontSize: '0.72rem', 
+                      fontWeight: 700, 
+                      padding: '4px 10px', 
+                      borderRadius: '6px', 
+                      background: 'rgba(2, 132, 199, 0.08)', 
+                      color: '#0284c7', 
+                      border: '1px solid rgba(2, 132, 199, 0.2)' 
+                    }}>
+                      {srv.badge}
+                    </span>
                   </div>
-                </div>
 
-                {/* Product Content */}
-                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0' }}>
-                    {prod.name}
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0f172a', marginBottom: '10px', lineHeight: 1.35 }}>
+                    {srv.title}
                   </h3>
 
-                  <p style={{ color: '#334155', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '16px' }}>
-                    {prod.shortDesc}
+                  <p style={{ fontSize: '0.90rem', color: '#334155', lineHeight: 1.6, marginBottom: '16px' }}>
+                    {srv.shortDesc}
                   </p>
 
-                  <div style={{ marginBottom: '22px', flex: 1 }}>
-                    <div style={{ fontSize: '0.78rem', color: '#F58220', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-                      Key Technical Features:
+                  <div style={{ marginBottom: '18px' }}>
+                    <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                      Key Deliverables:
                     </div>
-                    <ul style={{ margin: 0, paddingLeft: '18px', color: '#475569', fontSize: '0.86rem', lineHeight: 1.6 }}>
-                      {prod.features.map((feat, fIdx) => (
-                        <li key={fIdx} style={{ marginBottom: '4px' }}>{feat}</li>
+                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {srv.deliverables.map((item, dIdx) => (
+                        <li key={dIdx} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '0.86rem', color: '#1e293b' }}>
+                          <CheckCircle2 size={16} color="#059669" style={{ flexShrink: 0, marginTop: '2px' }} />
+                          <span>{item}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
+                </div>
 
-                  {/* Actions */}
-                  <div className="ks-product-actions" style={{ display: 'flex', gap: '10px' }}>
-                    <button
-                      onClick={() => handleQuickProductWhatsApp(prod.name, prod.whatsappMsg)}
-                      style={{
-                        flex: 1,
-                        background: '#10b981',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '11px 16px',
-                        fontSize: '0.88rem',
-                        fontWeight: 700,
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '6px'
-                      }}
-                    >
-                      <MessageSquare size={16} />
-                      <span>Enquire on WhatsApp</span>
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        setEnquiryForm({ ...enquiryForm, product: prod.name });
-                        scrollToSection('enquiry-form');
-                      }}
-                      style={{
-                        background: 'transparent',
-                        color: '#F58220',
-                        border: '1px solid #F58220',
-                        borderRadius: '8px',
-                        padding: '11px 16px',
-                        fontSize: '0.88rem',
-                        fontWeight: 700,
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Get Quote
-                    </button>
-                  </div>
-
+                <div style={{ paddingTop: '16px', borderTop: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+                  <span style={{ fontSize: '0.78rem', color: '#64748b', fontStyle: 'italic' }}>
+                    Ideal for: {srv.idealFor}
+                  </span>
+                  <button
+                    onClick={() => onOpenQuote(srv.title, { service: srv.title })}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      background: 'transparent',
+                      border: 'none',
+                      color: '#d97706',
+                      fontWeight: 700,
+                      fontSize: '0.86rem',
+                      cursor: 'pointer',
+                      padding: 0
+                    }}
+                  >
+                    <span>Request Audit</span>
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
               </div>
             ))}
           </div>
 
-        </section>
+        </div>
+      </section>
 
-        {/* ── 4. WHY CHOOSE US SECTION ── */}
-        <section style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
+      {/* ── ENGINEERING CODES & COMPLIANCE STANDARDS ── */}
+      <section style={{ padding: '56px 20px', background: '#ffffff', borderTop: '1px solid #cbd5e1', borderBottom: '1px solid #cbd5e1' }}>
+        <div className="container" style={{ maxWidth: '1140px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 45px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-              <ShieldCheck size={15} />
-              <span>Competitive Advantage</span>
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 36px' }} data-aos="fade-up">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#059669', fontSize: '0.80rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+              <ShieldCheck size={14} />
+              <span>BUREAU OF INDIAN STANDARDS (BIS) COMPLIANCE</span>
             </div>
-            <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 12px 0' }}>
-              Why Choose KS Fabrication?
+            <h2 style={{ fontSize: 'clamp(1.75rem, 3.2vw, 2.3rem)', fontWeight: 800, color: '#0f172a', margin: '0 0 10px 0' }}>
+              Design Codes &amp; Structural Norms Followed
             </h2>
-            <p style={{ color: '#334155', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>
-              Over 10+ years of dedicated structural steel &amp; precision precast mould fabrication experience serving clients nationwide.
+            <p style={{ color: '#334155', fontSize: '0.98rem', margin: 0, fontWeight: 500 }}>
+              Every solar stability assessment, wind load simulation, and MMS design conforms to statutory Indian Standards.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '22px' }}>
-            
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <ShieldCheck size={26} color="#F58220" />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0' }}>Strong &amp; Durable Products</h3>
-              <p style={{ color: '#334155', fontSize: '0.90rem', lineHeight: 1.65, margin: 0 }}>
-                Fabricated with prime certified steel plates and heavy reinforcement gussets that resist high pressure and intense vibration without deformation.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <Settings size={26} color="#F58220" />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0' }}>Precision Engineering</h3>
-              <p style={{ color: '#334155', fontSize: '0.90rem', lineHeight: 1.65, margin: 0 }}>
-                Computer-controlled laser cutting and CNC press bending guarantee millimeter-accurate joint tolerances and 100% slurry leak prevention.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <Sparkles size={26} color="#F58220" />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0' }}>Easy to Use &amp; Demould</h3>
-              <p style={{ color: '#334155', fontSize: '0.90rem', lineHeight: 1.65, margin: 0 }}>
-                Engineered with ergonomic wedge locking and smooth release angles, enabling faster demoulding and higher daily concrete output with less labour.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <Award size={26} color="#F58220" />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0' }}>Quality Manufacturing</h3>
-              <p style={{ color: '#334155', fontSize: '0.90rem', lineHeight: 1.65, margin: 0 }}>
-                Every mould batch undergoes test casting, weld penetrant inspection, and diagonal squareness verification before dispatch.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <Layers size={26} color="#F58220" />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0' }}>Custom Mould Solutions</h3>
-              <p style={{ color: '#334155', fontSize: '0.90rem', lineHeight: 1.65, margin: 0 }}>
-                From standard 7ft poles to custom drainage culverts, we tailor dimensions, textures, and reinforcement to match your project specifications.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '26px' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px' }}>
-                <Truck size={26} color="#F58220" />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0f172a', margin: '0 0 10px 0' }}>Reliable Logistics &amp; Support</h3>
-              <p style={{ color: '#334155', fontSize: '0.90rem', lineHeight: 1.65, margin: 0 }}>
-                Safe wooden batten packaging and trusted transport partner tie-ups ensuring damage-free delivery to plant sites across every Indian state.
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ── 5. MANUFACTURING PROCESS (STEP-BY-STEP) ── */}
-        <section id="process" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
-          
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 45px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-              <Wrench size={15} />
-              <span>Step-by-Step Workflow</span>
-            </div>
-            <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 12px 0' }}>
-              Our 4-Stage Manufacturing Process
-            </h2>
-            <p style={{ color: '#334155', fontSize: '1rem', lineHeight: 1.6, margin: 0 }}>
-              How raw heavy steel plates are transformed into high-precision precast moulds ready for production.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: '20px', position: 'relative' }}>
-            
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
-                1
-              </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a', margin: '0 0 8px 0' }}>CAD Design &amp; Sizing</h3>
-              <p style={{ color: '#334155', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-                Detailed 3D modelling of interlocking grooves, wall draft angles, and structural stiffener placements based on concrete casting load calculations.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
-                2
-              </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a', margin: '0 0 8px 0' }}>Mould Manufacturing</h3>
-              <p style={{ color: '#334155', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-                High-precision laser plate cutting, heavy hydraulic CNC press brake folding, and automated MIG welding of reinforcing ribs.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
-                3
-              </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a', margin: '0 0 8px 0' }}>Quality Inspection</h3>
-              <p style={{ color: '#334155', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-                Rigorous testing of internal surface flatness, weld joint continuity, diagonal tolerance checks, and test casting verification.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '24px', position: 'relative' }}>
-              <div style={{ width: '36px', height: '36px', borderRadius: '50%', background: '#F58220', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 600, fontSize: '1rem', marginBottom: '14px' }}>
-                4
-              </div>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a', margin: '0 0 8px 0' }}>All-India Delivery</h3>
-              <p style={{ color: '#334155', fontSize: '0.88rem', lineHeight: 1.6, margin: 0 }}>
-                Protective anti-rust oil coating, heavy strapped wooden batten packaging, and door-step dispatch via commercial freight to your plant.
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ── 6. SOLAR FENCING SOLUTIONS SECTION ── */}
-        <section id="solar-fencing" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
           <div style={{
-            background: 'linear-gradient(135deg, #10243A 0%, #0d1e30 100%)',
-            border: '1px solid rgba(245, 130, 32, 0.3)',
-            borderRadius: '20px',
-            overflow: 'hidden',
-            boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)'
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+            gap: '20px'
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', alignItems: 'center' }}>
-              
-              <div className="ks-padded-card" style={{ padding: '45px 35px' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '12px' }}>
-                  <Sun size={16} />
-                  <span>Solar EPC &amp; Power Plant Solutions</span>
+            {standards.map((std, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '10px',
+                  padding: '20px 22px',
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.03)'
+                }}
+                data-aos="fade-up"
+                data-aos-delay={idx * 60}
+              >
+                <div style={{ 
+                  display: 'inline-block',
+                  fontSize: '0.76rem', 
+                  fontWeight: 800, 
+                  color: '#0284c7', 
+                  background: '#e0f2fe', 
+                  padding: '3px 8px', 
+                  borderRadius: '4px',
+                  marginBottom: '10px'
+                }}>
+                  {std.code}
+                </div>
+                <h4 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#0f172a', marginBottom: '8px', lineHeight: 1.4 }}>
+                  {std.title}
+                </h4>
+                <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
+                  {std.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 4-STEP CERTIFICATION WORKFLOW ── */}
+      <section style={{ padding: '56px 20px', background: '#edf2f7', borderBottom: '1px solid #cbd5e1' }}>
+        <div className="container" style={{ maxWidth: '1140px', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 36px' }} data-aos="fade-up">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#d97706', fontSize: '0.80rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+              <Sparkles size={14} />
+              <span>RAPID 24–48 HOUR CERTIFICATION WORKFLOW</span>
+            </div>
+            <h2 style={{ fontSize: 'clamp(1.75rem, 3.2vw, 2.3rem)', fontWeight: 800, color: '#0f172a', margin: '0 0 10px 0' }}>
+              How We Certify Your Solar Structure
+            </h2>
+            <p style={{ color: '#334155', fontSize: '0.98rem', margin: 0, fontWeight: 500 }}>
+              Rigorous, transparent, and streamlined engineering process ensuring zero DISCOM or CEIG rejections.
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+            gap: '18px'
+          }}>
+            {[
+              {
+                step: '01',
+                title: 'Data & Drawing Intake',
+                desc: 'Client provides architectural roof layout, existing structural framing drawings, solar PV panel layout, and proposed MMS configuration.'
+              },
+              {
+                step: '02',
+                title: 'STAAD.Pro 3D Simulation',
+                desc: 'Creation of 3D mathematical space frame model. Simulation of dead load, live load, and wind suction up to 180 km/h wind gusts under IS 875 (Part 3).'
+              },
+              {
+                step: '03',
+                title: 'On-Site Physical Audit',
+                desc: 'Verification of roof slab health, concrete compressive strength via rebound hammer, purlin gauge thickness, and anchor bolt holding capacity.'
+              },
+              {
+                step: '04',
+                title: 'Stamped Certificate',
+                desc: 'Issuance of the formal Chartered Engineer Stability Certificate (Format-B) with official IEI seal, membership number, and digital QR verification.'
+              }
+            ].map((st, sIdx) => (
+              <div 
+                key={sIdx}
+                style={{
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  borderRadius: '10px',
+                  padding: '24px 20px',
+                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
+                  position: 'relative'
+                }}
+                data-aos="fade-up"
+                data-aos-delay={sIdx * 80}
+              >
+                <div style={{
+                  fontSize: '2rem',
+                  fontWeight: 900,
+                  color: '#e2e8f0',
+                  lineHeight: 1,
+                  marginBottom: '12px'
+                }}>
+                  {st.step}
+                </div>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f172a', marginBottom: '8px' }}>
+                  {st.title}
+                </h4>
+                <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.55, margin: 0 }}>
+                  {st.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── INTERACTIVE QUOTATION & AUDIT INQUIRY ── */}
+      <section style={{ padding: '60px 20px', background: '#ffffff', borderBottom: '1px solid #cbd5e1' }}>
+        <div className="container" style={{ maxWidth: '980px', margin: '0 auto' }}>
+          
+          <div style={{
+            background: '#edf2f7',
+            border: '1px solid #cbd5e1',
+            borderRadius: '14px',
+            padding: 'clamp(24px, 4vw, 40px)',
+            boxShadow: '0 8px 24px rgba(15, 23, 42, 0.06)'
+          }} data-aos="fade-up">
+            
+            <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#0284c7', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '6px' }}>
+                <FileText size={14} />
+                <span>DIRECT TECHNICAL DESK</span>
+              </div>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 2.8vw, 2.1rem)', fontWeight: 800, color: '#0f172a', margin: '0 0 8px 0' }}>
+                Request Solar Structural Stability Audit &amp; Quote
+              </h3>
+              <p style={{ color: '#334155', fontSize: '0.94rem', margin: 0 }}>
+                Speak directly with IIT Roorkee Chartered Engineers. Get instant fee estimates and document checklists for DISCOM &amp; CEIG submissions.
+              </p>
+            </div>
+
+            {formSubmitted ? (
+              <div style={{
+                background: '#ecfdf5',
+                border: '1px solid #a7f3d0',
+                borderRadius: '10px',
+                padding: '28px',
+                textAlign: 'center'
+              }}>
+                <CheckCircle2 size={44} color="#059669" style={{ margin: '0 auto 12px' }} />
+                <h4 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#065f46', marginBottom: '8px' }}>
+                  Inquiry Received Successfully!
+                </h4>
+                <p style={{ color: '#047857', fontSize: '0.92rem', maxWidth: '540px', margin: '0 auto 16px' }}>
+                  Our Principal Engineer Er. Mukesh Singh will review your project details and contact you within 2 business hours.
+                </p>
+                <button
+                  onClick={() => setFormSubmitted(false)}
+                  className="btn btn-outline"
+                  style={{ borderColor: '#059669', color: '#059669', padding: '8px 18px', fontSize: '0.86rem' }}
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                      Your Full Name *
+                    </label>
+                    <input 
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="e.g. Rajesh Sharma"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      style={{
+                        width: '100%',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid #cbd5e1',
+                        background: '#ffffff',
+                        fontSize: '0.92rem',
+                        color: '#0f172a',
+                        boxSizing: 'border-box'
+                      }}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                      Phone / Mobile Number *
+                    </label>
+                    <input 
+                      type="tel"
+                      name="phone"
+                      required
+                      placeholder="+91 98765 43210"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      style={{
+                        width: '100%',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid #cbd5e1',
+                        background: '#ffffff',
+                        fontSize: '0.92rem',
+                        color: '#0f172a',
+                        boxSizing: 'border-box'
+                      }}
+                    />
+                  </div>
                 </div>
 
-                <h2 style={{ fontSize: 'clamp(1.7rem, 2.8vw, 2.4rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 16px 0', lineHeight: 1.25 }}>
-                  Engineered Boundary Fencing for Solar Power Plants
-                </h2>
-
-                <p style={{ color: '#475569', fontSize: '0.98rem', lineHeight: 1.7, marginBottom: '20px' }}>
-                  Solar power parks located across desert and rural expanses (Rajasthan, Gujarat, MP, Maharashtra) face severe challenges from cattle grazing, unauthorized trespass, dust accumulation, and cyclonic wind shear.
-                </p>
-
-                <p style={{ color: '#334155', fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '24px' }}>
-                  Our specialized <strong>RCC Fencing Pole Moulds</strong> and <strong>Precast H-Column Boundary Wall Moulds</strong> allow solar EPC contractors to cast perimeter security walls locally on-site at a fraction of traditional brick masonry cost, saving weeks of project timeline.
-                </p>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '28px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#e2e8f0', fontSize: '0.92rem' }}>
-                    <CheckCircle2 size={18} color="#F58220" />
-                    <span>Withstands cyclonic winds up to 170 km/h (IS 875 Part 3 compliant)</span>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                      Plant Capacity (kWp / MWp) *
+                    </label>
+                    <select
+                      name="plantCapacity"
+                      value={formData.plantCapacity}
+                      onChange={handleInputChange}
+                      style={{
+                        width: '100%',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid #cbd5e1',
+                        background: '#ffffff',
+                        fontSize: '0.92rem',
+                        color: '#0f172a',
+                        boxSizing: 'border-box'
+                      }}
+                    >
+                      <option value="Up to 50 kWp (Residential / Small C&I)">Up to 50 kWp (Residential / Small C&amp;I)</option>
+                      <option value="50 kWp to 250 kWp (Commercial / Industrial)">50 kWp to 250 kWp (Commercial / Industrial)</option>
+                      <option value="250 kWp to 1 MWp (Factory / Warehouse)">250 kWp to 1 MWp (Factory / Warehouse)</option>
+                      <option value="1 MWp to 10 MWp (Large C&I / Open Access)">1 MWp to 10 MWp (Large C&amp;I / Open Access)</option>
+                      <option value="10+ MWp (Utility Scale Solar Farm)">10+ MWp (Utility Scale Solar Farm)</option>
+                    </select>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#e2e8f0', fontSize: '0.92rem' }}>
-                    <CheckCircle2 size={18} color="#F58220" />
-                    <span>50+ Years lifespan with zero maintenance, painting, or termite issues</span>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                      Installation Structure Type *
+                    </label>
+                    <select
+                      name="installationType"
+                      value={formData.installationType}
+                      onChange={handleInputChange}
+                      style={{
+                        width: '100%',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid #cbd5e1',
+                        background: '#ffffff',
+                        fontSize: '0.92rem',
+                        color: '#0f172a',
+                        boxSizing: 'border-box'
+                      }}
+                    >
+                      <option value="RCC Flat Roof (Ballasted / Chemical Anchor)">RCC Flat Roof (Ballasted / Chemical Anchor)</option>
+                      <option value="Industrial Tin Shed / PEB Trapezoidal Roof">Industrial Tin Shed / PEB Trapezoidal Roof</option>
+                      <option value="Ground Mount Fixed Tilt Structure">Ground Mount Fixed Tilt Structure</option>
+                      <option value="Single Axis Tracker System">Single Axis Tracker System</option>
+                      <option value="Solar Carport / Elevated Structure">Solar Carport / Elevated Structure</option>
+                    </select>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#e2e8f0', fontSize: '0.92rem' }}>
-                    <CheckCircle2 size={18} color="#F58220" />
-                    <span>Fast installation: Up to 500 meters of boundary erected per day</span>
+                </div>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                      Site City / Location
+                    </label>
+                    <input 
+                      type="text"
+                      name="city"
+                      placeholder="e.g. Jaipur, Neemrana, Pune, Ahmedabad"
+                      value={formData.city}
+                      onChange={handleInputChange}
+                      style={{
+                        width: '100%',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid #cbd5e1',
+                        background: '#ffffff',
+                        fontSize: '0.92rem',
+                        color: '#0f172a',
+                        boxSizing: 'border-box'
+                      }}
+                    />
                   </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                      Email Address
+                    </label>
+                    <input 
+                      type="email"
+                      name="email"
+                      placeholder="contact@company.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      style={{
+                        width: '100%',
+                        padding: '10px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid #cbd5e1',
+                        background: '#ffffff',
+                        fontSize: '0.92rem',
+                        color: '#0f172a',
+                        boxSizing: 'border-box'
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#0f172a', marginBottom: '6px' }}>
+                    Project Notes &amp; Specific Requirements
+                  </label>
+                  <textarea
+                    name="notes"
+                    rows="3"
+                    placeholder="Provide details such as DISCOM authority (e.g. JVVNL), shed age, wind zone, or urgent submission deadlines..."
+                    value={formData.notes}
+                    onChange={handleInputChange}
+                    style={{
+                      width: '100%',
+                      padding: '10px 14px',
+                      borderRadius: '8px',
+                      border: '1px solid #cbd5e1',
+                      background: '#ffffff',
+                      fontSize: '0.92rem',
+                      color: '#0f172a',
+                      boxSizing: 'border-box'
+                    }}
+                  />
                 </div>
 
                 <button
-                  onClick={() => {
-                    setEnquiryForm({ ...enquiryForm, product: 'RCC Fencing Pole Mould (Solar)' });
-                    scrollToSection('enquiry-form');
-                  }}
+                  type="submit"
                   style={{
+                    padding: '14px 28px',
+                    fontSize: '0.96rem',
+                    fontWeight: 700,
                     background: '#F58220',
                     color: '#ffffff',
                     border: 'none',
                     borderRadius: '8px',
-                    padding: '12px 26px',
-                    fontSize: '0.95rem',
-                    fontWeight: 700,
                     cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '8px'
+                    justifyContent: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 14px rgba(245, 130, 32, 0.3)',
+                    marginTop: '8px'
                   }}
                 >
-                  <span>Request Solar Fencing Mould Quote</span>
-                  <ArrowRight size={16} />
+                  <Send size={16} />
+                  <span>Submit Structural Audit Inquiry</span>
                 </button>
-              </div>
+              </form>
+            )}
 
-              {/* Solar Plant Image */}
-              <div style={{ height: '100%', minHeight: '360px', position: 'relative' }}>
-                <img
-                  src="/corridors/solar_pv_plant.webp"
-                  alt="Solar Power Plant Boundary Fencing with RCC Poles"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: '380px' }}
-                />
-                <div style={{
-                  position: 'absolute',
-                  bottom: '16px',
-                  left: '16px',
-                  right: '16px',
-                  background: 'rgba(11, 13, 20, 0.90)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(255, 255, 255, 0.15)',
-                  padding: '12px 16px',
-                  borderRadius: '10px'
-                }}>
-                  <div style={{ color: '#F58220', fontSize: '0.80rem', fontWeight: 600 }}>Field Proven in 500+ MW Installations</div>
-                  <div style={{ color: '#e2e8f0', fontSize: '0.85rem' }}>Heavy-duty precast boundary fencing safeguarding solar assets</div>
-                </div>
-              </div>
-
-            </div>
           </div>
-        </section>
 
-        {/* ── 7. PROJECT GALLERY SECTION ── */}
-        <section id="gallery" style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
+        </div>
+      </section>
+
+      {/* ── FREQUENTLY ASKED QUESTIONS (100% RELEVANT & ACCURATE) ── */}
+      <section style={{ padding: '60px 20px', background: '#edf2f7', borderBottom: '1px solid #cbd5e1' }}>
+        <div className="container" style={{ maxWidth: '880px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 35px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-              <Layers size={15} />
-              <span>Visual Showcase</span>
-            </div>
-            <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 12px 0' }}>
-              Factory &amp; Project Gallery
-            </h2>
-            <p style={{ color: '#334155', fontSize: '1rem', margin: '0 0 24px 0' }}>
-              Real manufacturing bay photographs, precision mould dies, and completed boundary fencing projects across India.
-            </p>
-
-            {/* Gallery Category Filter Buttons */}
-            <div className="ks-gallery-filter" style={{ display: 'inline-flex', background: '#ffffff', padding: '4px', borderRadius: '10px', border: '1px solid #e2e8f0', maxWidth: '100%', overflowX: 'auto' }}>
-              {[
-                { id: 'all', label: 'All Photos' },
-                { id: 'moulds', label: 'Concrete Moulds' },
-                { id: 'solar', label: 'Solar & Fencing' },
-                { id: 'factory', label: 'Factory & Machines' }
-              ].map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setGalleryFilter(tab.id)}
-                  style={{
-                    background: galleryFilter === tab.id ? '#F58220' : 'transparent',
-                    color: galleryFilter === tab.id ? '#ffffff' : '#94a3b8',
-                    border: 'none',
-                    borderRadius: '7px',
-                    padding: '8px 18px',
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease'
-                  }}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 250px), 1fr))', gap: '20px' }}>
-            {filteredGallery.map((item, idx) => (
-              <div
-                key={idx}
-                style={{
-                  background: '#ffffff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  boxShadow: '0 1px 4px rgba(15, 23, 42, 0.04)',
-                  transition: 'transform 0.2s ease'
-                }}
-              >
-                <div style={{ height: '210px', overflow: 'hidden', background: '#f8fafc' }}>
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    loading="lazy"
-                  />
-                </div>
-                <div style={{ padding: '16px' }}>
-                  <div style={{ color: '#0f172a', fontWeight: 700, fontSize: '1rem', marginBottom: '4px' }}>{item.title}</div>
-                  <div style={{ color: '#334155', fontSize: '0.82rem' }}>{item.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </section>
-
-        {/* ── 8. FAQ SECTION ── */}
-        <section style={{ padding: '75px 0 60px', borderBottom: '1px solid #e2e8f0' }}>
-          
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 40px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '36px' }} data-aos="fade-up">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
               <FileText size={15} />
               <span>Questions &amp; Answers</span>
             </div>
-            <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 12px 0' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.4rem)', fontWeight: 800, color: '#0f172a', margin: '0 0 10px 0' }}>
               Frequently Asked Questions
             </h2>
-            <p style={{ color: '#334155', fontSize: '1rem', margin: 0, fontWeight: 500 }}>
-              Find quick answers regarding mould materials, custom orders, vibration machines, and delivery logistics.
+            <p style={{ color: '#334155', fontSize: '0.98rem', margin: 0, fontWeight: 500 }}>
+              Clear answers regarding solar structural stability certification, DISCOM rules, wind load testing, and turnaround times.
             </p>
           </div>
 
-          <div style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {faqs.map((faq, idx) => {
               const isOpen = activeFaq === idx;
               return (
@@ -1252,21 +899,24 @@ _Inquiry sent via KS Fabrication Official Website_`;
                   key={idx}
                   style={{
                     background: '#ffffff',
-                    border: '1px solid #e2e8f0',
+                    border: '1px solid #cbd5e1',
                     borderRadius: '10px',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.03)'
                   }}
+                  data-aos="fade-up"
+                  data-aos-delay={idx * 50}
                 >
                   <button
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
                     style={{
                       width: '100%',
-                      padding: '16px 20px',
+                      padding: '18px 22px',
                       background: isOpen ? '#f8fafc' : '#ffffff',
                       border: 'none',
                       color: '#0f172a',
                       textAlign: 'left',
-                      fontSize: '0.98rem',
+                      fontSize: '1.0rem',
                       fontWeight: 700,
                       cursor: 'pointer',
                       display: 'flex',
@@ -1276,11 +926,20 @@ _Inquiry sent via KS Fabrication Official Website_`;
                       transition: 'background 0.2s ease'
                     }}
                   >
-                    <span style={{ color: isOpen ? '#F58220' : '#0f172a' }}>{faq.q}</span>
-                    {isOpen ? <ChevronUp size={18} color="#F58220" /> : <ChevronDown size={18} color="#64748b" />}
+                    <span style={{ color: isOpen ? '#0284c7' : '#0f172a' }}>{faq.q}</span>
+                    {isOpen ? <ChevronUp size={18} color="#0284c7" /> : <ChevronDown size={18} color="#64748b" />}
                   </button>
+
                   {isOpen && (
-                    <div style={{ padding: '16px 20px 18px', color: '#334155', fontSize: '0.92rem', lineHeight: 1.65, borderTop: '1px solid #e2e8f0', background: '#ffffff' }}>
+                    <div style={{ 
+                      padding: '0 22px 20px', 
+                      background: '#f8fafc', 
+                      color: '#334155', 
+                      fontSize: '0.90rem', 
+                      lineHeight: 1.65, 
+                      borderTop: '1px solid #e2e8f0', 
+                      paddingTop: '12px' 
+                    }}>
                       {faq.a}
                     </div>
                   )}
@@ -1289,466 +948,100 @@ _Inquiry sent via KS Fabrication Official Website_`;
             })}
           </div>
 
-        </section>
+        </div>
+      </section>
 
-        {/* ── 9. CONTACT & ENQUIRY SECTION (DIRECT FORM & WHATSAPP) ── */}
-        <section id="contact" style={{ padding: '75px 0 30px' }}>
+      {/* ── FOUNDER TRUST & SIGN-OFF BANNER ── */}
+      <section style={{ padding: '44px 20px', background: '#ffffff' }}>
+        <div className="container" style={{ maxWidth: '980px', margin: '0 auto' }}>
           
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 40px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#F58220', fontSize: '0.82rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
-              <Phone size={15} />
-              <span>Get in Touch</span>
-            </div>
-            <h2 style={{ fontSize: 'clamp(1.9rem, 3.2vw, 2.6rem)', fontWeight: 700, color: '#0f172a', margin: '0 0 12px 0' }}>
-              Contact KS Fabrication
-            </h2>
-            <p style={{ color: '#334155', fontSize: '1rem', margin: 0 }}>
-              Speak directly with our mould fabrication specialists or submit the enquiry form below for an instant quotation.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '30px' }}>
-            
-            {/* Left Column: Direct Contact Info & Google Maps */}
-            <div>
-              <div className="ks-padded-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '16px', padding: '30px', marginBottom: '24px' }}>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', margin: '0 0 20px 0' }}>
-                  Factory &amp; Head Office Details
-                </h3>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                  
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Phone size={20} color="#F58220" />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '0.80rem', color: '#334155', fontWeight: 700, textTransform: 'uppercase' }}>Phone &amp; Mobile Support</div>
-                      <a href="tel:+919158658885" style={{ color: '#0f172a', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none' }}>+91 91586 58885</a>
-                      <div style={{ fontSize: '0.78rem', color: '#64748b' }}>Mon – Sat, 9:00 AM – 7:30 PM</div>
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <MessageSquare size={20} color="#10b981" />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '0.80rem', color: '#334155', fontWeight: 700, textTransform: 'uppercase' }}>WhatsApp Direct Chat</div>
-                      <a href="https://wa.me/919158658885" target="_blank" rel="noopener noreferrer" style={{ color: '#10b981', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none' }}>+91 91586 58885</a>
-                      <div style={{ fontSize: '0.78rem', color: '#64748b' }}>Instant replies for price lists &amp; photos</div>
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(56, 189, 248, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Mail size={20} color="#38bdf8" />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '0.80rem', color: '#334155', fontWeight: 700, textTransform: 'uppercase' }}>Business Email</div>
-                      <a href="mailto:ms.charteredengineer@gmail.com" style={{ color: '#0284c7', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none' }}>ms.charteredengineer@gmail.com</a>
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-                    <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(245, 130, 32, 0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <MapPin size={20} color="#F58220" />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: '0.80rem', color: '#334155', fontWeight: 700, textTransform: 'uppercase' }}>Manufacturing Works &amp; Yard</div>
-                      <div style={{ color: '#334155', fontWeight: 600, fontSize: '0.92rem', lineHeight: 1.5 }}>
-                        Industrial Fabrication Area, Jaipur, Rajasthan 302019 • Pan-India Transport Available
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-              {/* Embedded Google Maps Location */}
-              <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid #e2e8f0', height: '240px' }}>
-                <iframe
-                  title="KS Fabrication Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113911.2384974786!2d75.71981882488828!3d26.88514168067425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-
-            {/* Right Column: Direct Fill Product Enquiry Form */}
-            <div id="enquiry-form">
-              <div className="form-card" style={{
-                background: '#ffffff',
-                border: '1px solid #e2e8f0',
-                borderRadius: '12px',
-                padding: '28px 24px',
-                boxShadow: '0 2px 12px rgba(15, 23, 42, 0.06)'
-              }}>
-                <div style={{ marginBottom: '20px' }}>
-                  <div style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '4px 10px',
-                    background: 'rgba(56, 189, 248, 0.08)',
-                    border: '1px solid rgba(56, 189, 248, 0.25)',
-                    borderRadius: '6px',
-                    color: '#0284c7',
-                    fontSize: '0.74rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.04em',
-                    marginBottom: '8px'
-                  }}>
-                    Quick Price Quotation Form
-                  </div>
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#0f172a', margin: '0 0 6px 0' }}>
-                    Request Mould Price &amp; Transport Estimate
-                  </h3>
-                  <p style={{ color: '#475569', fontSize: '0.86rem', margin: 0, lineHeight: 1.5 }}>
-                    Fill out the form below. On submission, details will automatically be delivered to our WhatsApp team for fast response.
-                  </p>
-                </div>
-
-                {formSuccess ? (
-                  <div style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.4)', borderRadius: '12px', padding: '28px 20px', textAlign: 'center' }}>
-                    <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'rgba(16, 185, 129, 0.2)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: '14px' }}>
-                      <Check size={28} color="#10b981" />
-                    </div>
-                    <h4 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0f172a', margin: '0 0 8px 0' }}>
-                      Enquiry Generated Successfully!
-                    </h4>
-                    <p style={{ color: '#475569', fontSize: '0.90rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                      Your enquiry message has been prepared for WhatsApp. Click below to start chatting directly:
-                    </p>
-                    <a
-                      href={whatsAppUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        background: '#10b981',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '12px 24px',
-                        fontSize: '0.95rem',
-                        fontWeight: 700,
-                        textDecoration: 'none',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        boxShadow: '0 4px 14px rgba(16, 185, 129, 0.35)'
-                      }}
-                    >
-                      <MessageSquare size={17} />
-                      <span>Open WhatsApp Chat Now</span>
-                    </a>
-                  </div>
-                ) : (
-                  <form onSubmit={handleEnquirySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                    
-                    {formError && (
-                      <div style={{ background: 'rgba(239, 68, 68, 0.12)', border: '1px solid rgba(239, 68, 68, 0.35)', color: '#fca5a5', padding: '10px 14px', borderRadius: '8px', fontSize: '0.86rem' }}>
-                        {formError}
-                      </div>
-                    )}
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
-                      <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
-                          Your Name / Company <span style={{ color: '#F58220' }}>*</span>
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          placeholder="e.g. Rajesh Patel"
-                          value={enquiryForm.name}
-                          onChange={(e) => setEnquiryForm({ ...enquiryForm, name: e.target.value })}
-                          style={{
-                            width: '100%',
-                            background: '#ffffff',
-                            border: '1px solid #cbd5e1',
-                            borderRadius: '8px',
-                            padding: '11px 12px',
-                            color: '#0f172a',
-                            fontSize: '0.90rem',
-                            outline: 'none',
-                            boxSizing: 'border-box'
-                          }}
-                        />
-                      </div>
-
-                      <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
-                          WhatsApp / Phone Number <span style={{ color: '#F58220' }}>*</span>
-                        </label>
-                        <input
-                          type="tel"
-                          required
-                          placeholder="e.g. 98290 12345"
-                          value={enquiryForm.phone}
-                          onChange={(e) => setEnquiryForm({ ...enquiryForm, phone: e.target.value })}
-                          style={{
-                            width: '100%',
-                            background: '#ffffff',
-                            border: '1px solid #cbd5e1',
-                            borderRadius: '8px',
-                            padding: '11px 12px',
-                            color: '#0f172a',
-                            fontSize: '0.90rem',
-                            outline: 'none',
-                            boxSizing: 'border-box'
-                          }}
-                        />
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '14px' }}>
-                      <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
-                          Select Product Category
-                        </label>
-                        <select
-                          value={enquiryForm.product}
-                          onChange={(e) => setEnquiryForm({ ...enquiryForm, product: e.target.value })}
-                          style={{
-                            width: '100%',
-                            background: '#ffffff',
-                            border: '1px solid #cbd5e1',
-                            borderRadius: '8px',
-                            padding: '11px 12px',
-                            color: '#0f172a',
-                            fontSize: '0.90rem',
-                            outline: 'none',
-                            boxSizing: 'border-box'
-                          }}
-                        >
-                          <option value="Boundary Wall Mould">Boundary Wall Mould</option>
-                          <option value="Aluminium Mould">Aluminium Mould</option>
-                          <option value="RCC Fencing Pole Mould">RCC Fencing Pole Mould</option>
-                          <option value="H-Pole Mould (Slotted Column)">H-Pole Mould (Slotted Column)</option>
-                          <option value="Concrete Vibrator Machine">Concrete Vibrator Machine</option>
-                          <option value="Custom Precast Concrete Moulds">Custom Precast Concrete Moulds</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
-                          Required Quantity / Order Size
-                        </label>
-                        <select
-                          value={enquiryForm.quantity}
-                          onChange={(e) => setEnquiryForm({ ...enquiryForm, quantity: e.target.value })}
-                          style={{
-                            width: '100%',
-                            background: '#ffffff',
-                            border: '1px solid #cbd5e1',
-                            borderRadius: '8px',
-                            padding: '11px 12px',
-                            color: '#0f172a',
-                            fontSize: '0.90rem',
-                            outline: 'none',
-                            boxSizing: 'border-box'
-                          }}
-                        >
-                          <option value="1 to 5 Moulds (Starter Pack)">1 to 5 Moulds (Starter Pack)</option>
-                          <option value="5 to 15 Moulds (Medium Project)">5 to 15 Moulds (Medium Project)</option>
-                          <option value="15 to 50 Moulds (Commercial Plant)">15 to 50 Moulds (Commercial Plant)</option>
-                          <option value="50+ Moulds (Mega Solar / Infrastructure EPC)">50+ Moulds (Mega Solar / Infrastructure EPC)</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
-                        Delivery City &amp; State
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="e.g. Jodhpur, Rajasthan"
-                        value={enquiryForm.city}
-                        onChange={(e) => setEnquiryForm({ ...enquiryForm, city: e.target.value })}
-                        style={{
-                          width: '100%',
-                          background: '#ffffff',
-                          border: '1px solid #cbd5e1',
-                          borderRadius: '8px',
-                          padding: '11px 12px',
-                          color: '#0f172a',
-                          fontSize: '0.90rem',
-                          outline: 'none',
-                          boxSizing: 'border-box'
-                        }}
-                      />
-                    </div>
-
-                    <div>
-                      <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#475569', marginBottom: '6px' }}>
-                        Special Requirements / Dimensions (Optional)
-                      </label>
-                      <textarea
-                        rows={2}
-                        placeholder="e.g. Need 8ft boundary wall panels with 10 H-poles for a 5 MW solar site."
-                        value={enquiryForm.message}
-                        onChange={(e) => setEnquiryForm({ ...enquiryForm, message: e.target.value })}
-                        style={{
-                          width: '100%',
-                          background: '#ffffff',
-                          border: '1px solid #cbd5e1',
-                          borderRadius: '8px',
-                          padding: '10px 12px',
-                          color: '#0f172a',
-                          fontSize: '0.90rem',
-                          outline: 'none',
-                          resize: 'vertical',
-                          boxSizing: 'border-box'
-                        }}
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={formSubmitting}
-                      style={{
-                        width: '100%',
-                        background: '#F58220',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '12px',
-                        fontSize: '0.96rem',
-                        fontWeight: 600,
-                        cursor: formSubmitting ? 'wait' : 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '8px',
-                        marginTop: '6px'
-                      }}
-                    >
-                      <Send size={16} />
-                      <span>{formSubmitting ? 'Preparing WhatsApp Message...' : 'Submit & Connect on WhatsApp'}</span>
-                    </button>
-
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', color: '#64748b', fontSize: '0.78rem' }}>
-                      <ShieldCheck size={13} color="#F58220" />
-                      <span>Direct connection with KS Fabrication sales team • Fast response</span>
-                    </div>
-
-                  </form>
-                )}
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-      </div>
-
-      {/* ── 10. FOOTER ── */}
-      <footer style={{ background: '#0a101d', borderTop: '1px solid #1e293b', marginTop: '60px', padding: '45px 20px 25px' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '30px', marginBottom: '35px' }}>
-          
-          <div>
-            <div style={{ fontSize: '1.2rem', fontWeight: 600, color: '#ffffff', marginBottom: '10px' }}>
-              KS <span style={{ color: '#F58220' }}>FABRICATION</span>
-            </div>
-            <p style={{ color: '#334155', fontSize: '0.85rem', lineHeight: 1.65, margin: '0 0 14px 0' }}>
-              Specialized Indian industrial manufacturer of Precast Concrete Moulds, Aluminium Moulds, RCC Fencing Pole Moulds, and Concrete Vibration Equipment.
-            </p>
-            <div style={{ color: '#F58220', fontWeight: 700, fontSize: '0.82rem' }}>
-              Strong • Durable • Easy to Use
-            </div>
-          </div>
-
-          <div>
-            <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.95rem', marginBottom: '12px' }}>Product Range</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.85rem', color: '#334155' }}>
-              <span>• Boundary Wall Mould</span>
-              <span>• Aluminium Mould</span>
-              <span>• RCC Fencing Pole Mould</span>
-              <span>• H-Pole Mould (Slotted Column)</span>
-              <span>• Concrete Vibrator Machine</span>
-              <span>• Custom Precast Moulds</span>
-            </div>
-          </div>
-
-          <div>
-            <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.95rem', marginBottom: '12px' }}>Target Industries</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.85rem', color: '#334155' }}>
-              <span>• Solar EPC Companies</span>
-              <span>• Solar Power Plant Contractors</span>
-              <span>• Precast Concrete Manufacturers</span>
-              <span>• Construction &amp; Highway Builders</span>
-              <span>• Industrial Fencing Contractors</span>
-            </div>
-          </div>
-
-          <div>
-            <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.95rem', marginBottom: '12px' }}>Contact &amp; Orders</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: '#334155' }}>
-              <div>📞 <strong style={{ color: '#ffffff' }}>+91 91586 58885</strong></div>
-              <div>💬 WhatsApp Support Available 24/7</div>
-              <div>🚚 All-India Transport Dispatch</div>
-              <div>📦 50% Advance • 50% on Completion</div>
-            </div>
-          </div>
-
-        </div>
-
-        <div style={{ maxWidth: '1240px', margin: '0 auto', paddingTop: '20px', borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', fontSize: '0.78rem', color: '#64748b' }}>
-          <div>© {new Date().getFullYear()} KS Fabrication. All Rights Reserved.</div>
-          <div>Precast Concrete Moulds &amp; Solar Fencing Solutions</div>
-        </div>
-      </footer>
-
-      {/* ── FLOATING WHATSAPP BUTTON WITH HUMAN LIVE STATUS ── */}
-      <div className="ks-floating-wrap" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '8px' }}>
-        
-        {/* Floating Workshop Desk Status */}
-        <div className="ks-floating-pill" style={{
-          background: '#ffffff',
-          border: '1px solid rgba(16, 185, 129, 0.3)',
-          borderRadius: '6px',
-          padding: '5px 10px',
-          fontSize: '0.76rem',
-          color: '#475569',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '6px'
-        }}>
-          <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
-          <span>Workshop Desk Online</span>
-        </div>
-
-        <a
-          href="https://wa.me/919158658885?text=Hello%20KS%20Fabrication,%20I%20am%20interested%20in%20Precast%20Concrete%20and%20Solar%20Fencing%20Moulds."
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-          style={{
-            width: '52px',
-            height: '52px',
-            borderRadius: '50%',
-            background: '#25D366',
-            color: '#ffffff',
+          <div style={{
+            background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+            border: '1px solid #cbd5e1',
+            borderRadius: '12px',
+            padding: '24px 28px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-            transition: 'background-color 0.15s ease'
-          }}
-        >
-          <MessageSquare size={24} />
-        </a>
-      </div>
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '20px',
+            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)'
+          }} data-aos="fade-up">
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <img
+                src="/mukesh-singh-founder.webp"
+                alt="Er. Mukesh Singh - IIT Roorkee"
+                style={{
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  border: '3px solid #0284c7',
+                  boxShadow: '0 4px 12px rgba(2, 132, 199, 0.2)',
+                  flexShrink: 0
+                }}
+              />
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
+                    Er. Mukesh Singh
+                  </h3>
+                  <span style={{ fontSize: '0.72rem', padding: '2px 8px', borderRadius: '4px', background: '#dbeafe', color: '#1e40af', fontWeight: 700 }}>
+                    B.Tech (IIT Roorkee)
+                  </span>
+                  <span style={{ fontSize: '0.72rem', padding: '2px 8px', borderRadius: '4px', background: '#fef3c7', color: '#92400e', fontWeight: 700 }}>
+                    CEng (India) MIE
+                  </span>
+                </div>
+                <p style={{ margin: '4px 0 0 0', fontSize: '0.84rem', color: '#475569' }}>
+                  Chartered Engineer (Institution of Engineers India) · Registered Valuer IBBI · Empanelled with Nationalized Banks &amp; DISCOMs.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <a
+                href="tel:+919158658885"
+                style={{
+                  padding: '10px 18px',
+                  fontSize: '0.86rem',
+                  fontWeight: 600,
+                  background: '#ffffff',
+                  border: '1.5px solid #cbd5e1',
+                  borderRadius: '8px',
+                  color: '#0f172a',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                <Phone size={14} color="#0284c7" />
+                <span>+91 91586 58885</span>
+              </a>
+
+              <button
+                onClick={() => onOpenQuote('Solar Structural Stability Consultation', { service: 'Solar Structural Stability Consultation' })}
+                style={{
+                  padding: '10px 20px',
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  background: '#F58220',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                Book Site Inspection
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
 
     </div>
   );

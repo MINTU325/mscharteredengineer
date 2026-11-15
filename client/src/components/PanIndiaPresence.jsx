@@ -38,7 +38,7 @@ export default function PanIndiaPresence({ onOpenQuote }) {
       <div className="container" style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 20px' }}>
         
         {/* Section Header */}
-        <div style={{ marginBottom: '24px', textAlign: 'center' }}>
+        <div style={{ marginBottom: '24px', textAlign: 'center' }} data-aos="fade-up">
           <div 
             style={{
               display: 'inline-flex',
@@ -73,15 +73,19 @@ export default function PanIndiaPresence({ onOpenQuote }) {
           gap: '24px'
         }}>
           {/* Left Column: Official Headquarters Card */}
-          <div style={{
-            background: '#ffffff',
-            border: '1px solid #e2e8f0',
-            borderRadius: '12px',
-            padding: '28px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between'
-          }}>
+          <div 
+            style={{
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              padding: '28px 24px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
                 <div style={{
@@ -183,15 +187,19 @@ export default function PanIndiaPresence({ onOpenQuote }) {
           </div>
 
           {/* Right Column: Interactive Pan-India Regional Coverage */}
-          <div style={{
-            background: '#ffffff',
-            border: '1px solid #e2e8f0',
-            borderRadius: '12px',
-            padding: '28px 24px',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between'
-          }}>
+          <div 
+            style={{
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              padding: '28px 24px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between'
+            }}
+            data-aos="fade-left"
+            data-aos-delay="150"
+          >
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                 <div>

@@ -12,7 +12,7 @@ export default function LazySection({ children, minHeight = '300px' }) {
           observer.disconnect();
         }
       },
-      { rootMargin: '200px' }
+      { rootMargin: '250px' }
     );
 
     if (containerRef.current) {
@@ -22,8 +22,21 @@ export default function LazySection({ children, minHeight = '300px' }) {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (isVisible && typeof window !== 'undefined' && window.AOS) {
+      const timer = setTimeout(() => {
+        window.AOS.refresh();
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible]);
+
   return (
-    <div ref={containerRef} style={{ minHeight: isVisible ? 'auto' : minHeight }}>
+    <div 
+      ref={containerRef} 
+      className={isVisible ? 'lazy-section-revealed' : ''}
+      style={{ minHeight: isVisible ? 'auto' : minHeight }}
+    >
       {isVisible ? children : null}
     </div>
   );

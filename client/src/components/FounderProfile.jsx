@@ -95,7 +95,7 @@ export default function FounderProfile({ onOpenQuote }) {
       `}</style>
 
       <div className="container" style={{ width: '100%', boxSizing: 'border-box' }}>
-        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }} data-aos="fade-up">
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -128,10 +128,10 @@ export default function FounderProfile({ onOpenQuote }) {
           </p>
         </div>
 
-        <div className="founder-card-box">
+        <div className="founder-card-box" data-aos="fade-up" data-aos-delay="100">
           <div className="founder-grid-responsive">
             {/* Left: Emblem Logo & Leader Title */}
-            <div className="founder-left-col">
+            <div className="founder-left-col" data-aos="fade-right" data-aos-delay="150">
               <div style={{
                 background: '#ffffff',
                 border: '1px solid #e2e8f0',
@@ -196,7 +196,7 @@ export default function FounderProfile({ onOpenQuote }) {
             </div>
 
             {/* Right: Qualifications, Rigor & Contact */}
-            <div className="founder-right-col">
+            <div className="founder-right-col" data-aos="fade-left" data-aos-delay="200">
               <div className="founder-iei-badge" style={{
                 display: 'inline-flex',
                 alignItems: 'center',

@@ -48,7 +48,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
     <section id="services-preview" style={{ padding: '48px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
       <div className="container">
         {/* Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }}>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px auto' }} data-aos="fade-up">
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -96,6 +96,8 @@ export default function ServicesTeaser({ onOpenQuote }) {
               <a
                 key={idx}
                 href={item.route}
+                data-aos="fade-up"
+                data-aos-delay={idx * 90}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
