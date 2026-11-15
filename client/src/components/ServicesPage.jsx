@@ -183,7 +183,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               marginBottom: '24px',
               maxWidth: '820px'
             }}>
-              Certified Chartered Engineer &amp; Government Approved Registered Valuer practice led by <strong>Er. Mukesh Singh (B.Tech IIT Roorkee, Corporate Member IEI)</strong>. Accepted across Scheduled Commercial Banks, Income Tax Department (CBDT), NCLT Benches, DGFT, and Central Ministries Pan-India.
+              Certified Chartered Engineer &amp; Government Approved Registered Valuer practice led by <strong>Er. KS (B.Tech IIT Roorkee, Corporate Member IEI)</strong>. Accepted across Scheduled Commercial Banks, Income Tax Department (CBDT), NCLT Benches, DGFT, and Central Ministries Pan-India.
             </p>
 
             {/* Quick Stat Highlights */}
@@ -257,7 +257,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               </a>
 
               <a
-                href="https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20am%20reviewing%20your%20services%20page%20and%20need%20a%20statutory%20valuation%20or%20Chartered%20Engineer%20certificate."
+                href="https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20am%20reviewing%20your%20services%20page%20and%20need%20a%20statutory%20valuation%20or%20Chartered%20Engineer%20certificate."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

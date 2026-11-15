@@ -48,7 +48,7 @@ export default function Hero({ onOpenQuote }) {
               marginBottom: '28px',
               maxWidth: '580px'
             }}>
-              Government Approved Valuer &amp; Corporate Member IEI led by <strong>Mukesh Singh (IIT Roorkee)</strong>. Bank-compliant property valuations, plant &amp; machinery appraisal, capital gains 50C reports, and statutory DGFT certifications across Jaipur &amp; Pan-India.
+              Government Approved Valuer &amp; Corporate Member IEI led by <strong>Er. KS (IIT Roorkee)</strong>. Bank-compliant property valuations, plant &amp; machinery appraisal, capital gains 50C reports, and statutory DGFT certifications across Jaipur &amp; Pan-India.
             </p>
 
             {/* Credential Pills */}

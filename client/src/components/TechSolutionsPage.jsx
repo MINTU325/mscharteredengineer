@@ -243,7 +243,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
               <ArrowRight size={13} />
             </button>
             <a
-              href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20(₹1%2C999)%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
+              href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20KS%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20(₹1%2C999)%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -2053,7 +2053,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                 {/* Claim Offer WhatsApp Button */}
                 <a
                   href={`https://api.whatsapp.com/send?phone=919158658885&text=${encodeURIComponent(
-                    'Hello Mukesh Sir, I tested the KS Bulk WhatsApp Messenger on your Tech page. I want to claim the Launch Offer (₹1,999 with Coupon KSTECH50) for my business. Please share details and setup instructions!'
+                    'Hello KS Team, I tested the KS Bulk WhatsApp Messenger on your Tech page. I want to claim the Launch Offer (₹1,999 with Coupon KSTECH50) for my business. Please share details and setup instructions!'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -2151,7 +2151,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
                   </a>
 
                   <a
-                    href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
+                    href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20KS%20Sir%2C%20I%20want%20to%20claim%20the%2050%25%20Launch%20Offer%20for%20KS%20Bulk%20WhatsApp%20Messenger%20(Coupon%3A%20KSTECH50)."
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -2298,7 +2298,7 @@ export default function TechSolutionsPage({ onOpenQuote, onNavigateHome }) {
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
               <a
-                href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20Mukesh%20Sir%2C%20I%20want%20to%20order%20MS%20Bulk%20WhatsApp%20Messenger%20with%2050%25%20Launch%20Offer%20(Code%3A%20KSTECH50)."
+                href="https://api.whatsapp.com/send?phone=919158658885&text=Hello%20KS%20Sir%2C%20I%20want%20to%20order%20MS%20Bulk%20WhatsApp%20Messenger%20with%2050%25%20Launch%20Offer%20(Code%3A%20KSTECH50)."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-gold"

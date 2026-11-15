@@ -87,7 +87,7 @@ export default function Footer({ onOpenQuote }) {
             </div>
 
             <p style={{ color: '#64748b', fontSize: '0.82rem', lineHeight: 1.6, marginBottom: '14px' }}>
-              Certified Chartered Engineer &amp; Registered Valuer practice led by Er. Mukesh Singh (IIT Roorkee, MIE).
+              Certified Chartered Engineer &amp; Registered Valuer practice led by Er. KS (IIT Roorkee, MIE).
             </p>
 
             <div style={{

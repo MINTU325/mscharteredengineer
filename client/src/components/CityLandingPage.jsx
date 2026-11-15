@@ -69,7 +69,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
     ],
     "founder": {
       "@type": "Person",
-      "name": "Er. Mukesh Singh",
+      "name": "Er. KS",
       "alumniOf": "IIT Roorkee",
       "jobTitle": "Chartered Engineer (India) MIE & Government Approved Valuer"
     }
@@ -249,7 +249,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                   }}
                 >
                   <Award size={16} color="#0284c7" />
-                  <span>Er. Mukesh Singh (IIT Roorkee, IEI MIE)</span>
+                  <span>Er. KS (IIT Roorkee, IEI MIE)</span>
                 </div>
 
                 <div
@@ -316,7 +316,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                 </a>
 
                 <a
-                  href={`https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20am%20inquiring%20regarding%20Chartered%20Engineer%20services%20in%20${encodeURIComponent(cityData.cityName)}.`}
+                  href={`https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20am%20inquiring%20regarding%20Chartered%20Engineer%20services%20in%20${encodeURIComponent(cityData.cityName)}.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -469,7 +469,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <img
               src="/mukesh-singh-founder.webp"
-              alt="Er. Mukesh Singh - IIT Roorkee Alumni"
+              alt="Er. KS - IIT Roorkee Alumni"
               style={{
                 width: '62px',
                 height: '62px',
@@ -483,7 +483,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
-                  Er. Mukesh Singh
+                  Er. KS
                 </h3>
                 <span style={{ fontSize: '0.70rem', padding: '2px 8px', borderRadius: '9999px', background: '#dbeafe', color: '#1e40af', fontWeight: 700 }}>
                   B.Tech (IIT Roorkee)
@@ -508,7 +508,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
               Direct Call
             </a>
             <button
-              onClick={() => onOpenQuote('Consultation with Er. Mukesh Singh', { city: cityData.cityName })}
+              onClick={() => onOpenQuote('Consultation with Er. KS', { city: cityData.cityName })}
               className="btn btn-gold"
               style={{ padding: '8px 18px', fontSize: '0.84rem', fontWeight: 700 }}
             >

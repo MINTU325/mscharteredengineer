@@ -680,7 +680,7 @@ _Directly sent via mscharteredengineer.com_`
                   )}
                 </button>
                 <div style={{ textAlign: 'center', fontSize: '0.78rem', color: '#94a3b8', marginTop: '10px' }}>
-                  Your request will be directly dispatched to Mukesh Singh, CEng (India) MIE, IIT Roorkee.
+                  Your request will be directly dispatched to Er. KS, CEng (India) MIE, IIT Roorkee.
                 </div>
               </div>
             </form>
@@ -958,7 +958,7 @@ _Directly sent via mscharteredengineer.com_`
                     className="form-control"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Mukesh Kumar"
+                    placeholder="e.g. Rajesh Sharma"
                     required
                     autoFocus
                   />

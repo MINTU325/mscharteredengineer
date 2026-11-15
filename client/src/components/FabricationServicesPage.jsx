@@ -220,7 +220,7 @@ export default function FabricationServicesPage({ onOpenQuote, onNavigateHome })
     {
       category: 'Certification & Safety',
       q: 'Do you provide structural stability and Chartered Engineer inspection certificates for sheds and chimneys?',
-      a: 'Yes, absolutely. Because our core firm is headed by Er. Mukesh Singh (B.Tech IIT Roorkee, Chartered Engineer IEI), every fabrication project undergoes structural design verification. We issue official stamped Structural Stability Certificates, Wind Load Compliance reports, and weld inspection documentation needed for DISH (Factories Act), CEIG, and local municipality approvals.'
+      a: 'Yes, absolutely. Because our core firm is headed by Er. KS (B.Tech IIT Roorkee, Chartered Engineer IEI), every fabrication project undergoes structural design verification. We issue official stamped Structural Stability Certificates, Wind Load Compliance reports, and weld inspection documentation needed for DISH (Factories Act), CEIG, and local municipality approvals.'
     },
     {
       category: 'Iron Works',

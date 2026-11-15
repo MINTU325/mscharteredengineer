@@ -138,7 +138,7 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               lineHeight: 1.65,
               marginBottom: '24px'
             }}>
-              Instant online calculators formulated by <strong>Er. Mukesh Singh (IIT Roorkee, Corporate Member IEI)</strong>. Estimate industrial machinery depreciation under Companies Act 2013 / IndAS 16 or evaluate statutory CEIG solar power drawing clearance requirements with live algorithmic precision.
+              Instant online calculators formulated by <strong>Er. KS (IIT Roorkee, Corporate Member IEI)</strong>. Estimate industrial machinery depreciation under Companies Act 2013 / IndAS 16 or evaluate statutory CEIG solar power drawing clearance requirements with live algorithmic precision.
             </p>
 
             {/* 4 Feature Highlights */}

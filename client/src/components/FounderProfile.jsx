@@ -181,7 +181,7 @@ export default function FounderProfile({ onOpenQuote }) {
 
               <div style={{ marginTop: '16px' }}>
                 <h3 style={{ fontSize: '1.4rem', color: '#0f172a', fontWeight: 800, marginBottom: '2px' }}>
-                  Mukesh Singh
+                  Er. KS
                 </h3>
                 <div style={{ fontSize: '0.86rem', color: '#0284c7', fontWeight: 700 }}>
                   CEng (INDIA) MIE
@@ -221,7 +221,7 @@ export default function FounderProfile({ onOpenQuote }) {
               </h4>
 
               <p style={{ color: '#334155', fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '20px' }}>
-                Mukesh Singh brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a <strong style={{ color: '#0f172a' }}>Chartered Engineer (India) MIE</strong> by the <strong style={{ color: '#0f172a' }}>Institution of Engineers (India)</strong>, he oversees every valuation and statutory certificate with unmatched analytical precision.
+                Er. KS brings extensive industrial experience in technical valuation, engineering machinery appraisals, energy compliance, and project feasibility. Recognized as a <strong style={{ color: '#0f172a' }}>Chartered Engineer (India) MIE</strong> by the <strong style={{ color: '#0f172a' }}>Institution of Engineers (India)</strong>, our leadership oversees every valuation and statutory certificate with unmatched analytical precision.
               </p>
 
               <div className="founder-checklist-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: '10px', marginBottom: '24px', width: '100%' }}>

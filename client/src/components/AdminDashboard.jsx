@@ -358,7 +358,7 @@ export default function AdminDashboard({ onClose, onLogout }) {
                     )}
                     {inq.phone && (
                       <a 
-                        href={`https://wa.me/${inq.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(inq.name)},%20this%20is%20Mukesh%20Singh%20from%20MS%20Chartered%20Engineers%20regarding%20your%20inquiry%20${inq.id}.`}
+                        href={`https://wa.me/${inq.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(inq.name)},%20this%20is%20KS%20from%20KS%20Chartered%20Engineers%20regarding%20your%20inquiry%20${inq.id}.`}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-whatsapp"

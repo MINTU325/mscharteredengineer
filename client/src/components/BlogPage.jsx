@@ -17,7 +17,7 @@ export const BLOG_POSTS = [
     icon: Shield,
     date: 'September 2026',
     readTime: '6 min read',
-    author: 'Mukesh Singh, CEng (India) MIE',
+    author: 'Er. KS, CEng (India) MIE',
     authorRole: 'IIT Roorkee Alumni | Chartered Engineer',
     tags: ['DGFT', 'Advance Authorisation', 'Appendix 4K', 'EPCG Scheme', 'Customs Duty Exemption'],
     keyTakeaways: [
@@ -70,7 +70,7 @@ However, to prevent misuse of customs duty exemptions, the DGFT mandates technic
     icon: Award,
     date: 'September 2026',
     readTime: '8 min read',
-    author: 'Mukesh Singh, CEng (India) MIE',
+    author: 'Er. KS, CEng (India) MIE',
     authorRole: 'Registered Valuer | IIT Roorkee',
     tags: ['Machinery Valuation', 'Bank Loans', 'IndAS 16', 'Fair Market Value', 'Depreciated Replacement Cost'],
     keyTakeaways: [
@@ -120,7 +120,7 @@ Under Indian Accounting Standard 16 (**IndAS 16**), companies must split complex
     icon: Zap,
     date: 'September 2026',
     readTime: '7 min read',
-    author: 'Mukesh Singh, CEng (India) MIE',
+    author: 'Er. KS, CEng (India) MIE',
     authorRole: 'CESE & BEE Certified Energy Manager',
     tags: ['CESE', 'Electrical Safety', 'BEE Energy Audit', 'CEA Regulations', 'Thermography'],
     keyTakeaways: [
@@ -164,7 +164,7 @@ Conducted by accredited Bureau of Energy Efficiency (BEE) Energy Managers under 
     icon: Wrench,
     date: 'September 2026',
     readTime: '6 min read',
-    author: 'Mukesh Singh, CEng (India) MIE',
+    author: 'Er. KS, CEng (India) MIE',
     authorRole: 'Competent Person — Factories & Boilers',
     tags: ['Factories Act 1948', 'Competent Person', 'Boiler Inspection', 'EOT Cranes', 'Pressure Vessels'],
     keyTakeaways: [
@@ -210,7 +210,7 @@ Operating plant machinery without valid statutory fitness certificates can lead 
     icon: Sun,
     date: 'September 2026',
     readTime: '5 min read',
-    author: 'Mukesh Singh, CEng (India) MIE',
+    author: 'Er. KS, CEng (India) MIE',
     authorRole: '450+ MW Cleared | IIT Roorkee',
     tags: ['CEIG Approval', 'Solar Power Plant', 'Single Line Diagram', 'Grid Synchronization', 'Electrical Safety'],
     keyTakeaways: [
@@ -671,7 +671,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                       Require Statutory Certification or Valuation for this Requirement?
                     </h3>
                     <p className="article-cta-desc" style={{ color: '#cbd5e1' }}>
-                      Directly certified by <strong style={{ color: '#ffffff' }}>Mukesh Singh, IIT Roorkee alumni</strong>. Valid for DGFT, Customs, Commercial Banks, NCLT, and State Electrical Inspectorates across India.
+                      Directly certified by <strong style={{ color: '#ffffff' }}>Er. KS, IIT Roorkee alumni</strong>. Valid for DGFT, Customs, Commercial Banks, NCLT, and State Electrical Inspectorates across India.
                     </p>
                   </div>
 
@@ -955,7 +955,7 @@ export default function BlogPage({ initialSlug, onOpenQuote, onNavigateHome }) {
                 Need Certified Chartered Engineer or Plant &amp; Machinery Valuation?
               </h3>
               <p className="blog-bottom-desc" style={{ color: '#334155' }}>
-                Led by <strong style={{ color: '#0f172a' }}>Mukesh Singh (B.Tech Mechanical Engineering, IIT Roorkee)</strong>. Providing approved reports for Banks, DGFT, Customs, State CEIG, and Industries across India.
+                Led by <strong style={{ color: '#0f172a' }}>Er. KS (B.Tech Mechanical Engineering, IIT Roorkee)</strong>. Providing approved reports for Banks, DGFT, Customs, State CEIG, and Industries across India.
               </p>
 
               <div className="blog-bottom-actions">

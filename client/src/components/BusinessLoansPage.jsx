@@ -717,7 +717,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
               Planning an Industrial Project or Machinery Loan?
             </h3>
             <p style={{ color: '#475569', fontSize: '0.92rem', margin: 0, maxWidth: '640px', lineHeight: 1.6 }}>
-              Speak directly with Er. Mukesh Singh and our institutional banking advisory desk. We prepare bank-approved Detailed Project Reports (DPR) and TEV studies accepted by all major commercial lenders.
+              Speak directly with Er. KS and our institutional banking advisory desk. We prepare bank-approved Detailed Project Reports (DPR) and TEV studies accepted by all major commercial lenders.
             </p>
           </div>
 
@@ -738,7 +738,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
               Request Project Appraisal
             </button>
             <a
-              href="https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20need%20a%20Chartered%20Engineer%20TEV%20/%20DPR%20report%20for%20a%20business%20loan."
+              href="https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20need%20a%20Chartered%20Engineer%20TEV%20/%20DPR%20report%20for%20a%20business%20loan."
               target="_blank"
               rel="noopener noreferrer"
               style={{

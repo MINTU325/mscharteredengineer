@@ -96,7 +96,7 @@ Statutory authorities including the **[Directorate General of Foreign Trade (DGF
     question: 'What is Plant & Machinery Valuation and which banks accept your reports in Jaipur?',
     answer: `**[Plant & Machinery Valuation](/valuation)** is a scientific appraisal determining Fair Market Value (FMV), Realizable Value, and Orderly/Forced Liquidation Value as per Companies Act 2013, Income Tax Act 1961, and IBBI Valuation Standards.
     
-Led by **[Mukesh Singh, IIT Roorkee Alumni](/founder)**, our valuation reports are accepted by major public sector banks, private commercial banks, NBFCs, and financial institutions for mortgage loans, collateral security, and consortium lending across Jaipur and Pan-India. You can also estimate machinery depreciation with our **[Online Valuation Calculator](/calculator)**.`
+Led by **[Er. KS, IIT Roorkee Alumni](/founder)**, our valuation reports are accepted by major public sector banks, private commercial banks, NBFCs, and financial institutions for mortgage loans, collateral security, and consortium lending across Jaipur and Pan-India. You can also estimate machinery depreciation with our **[Online Valuation Calculator](/calculator)**.`
   },
   {
     id: 'val-prop-01',
@@ -569,7 +569,7 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
             Still Have a Statutory or Technical Question?
           </h3>
           <p style={{ color: '#cbd5e1', fontSize: '0.95rem', maxWidth: '640px', margin: '0 auto 24px auto', lineHeight: 1.6 }}>
-            Our corporate team led by <strong style={{ color: '#ffffff' }}>Mukesh Singh, Chartered Engineer (India) MIE</strong>, is available for direct consultation regarding DGFT, Customs, Banking Valuation, and CEIG approvals.
+            Our corporate team led by <strong style={{ color: '#ffffff' }}>Er. KS, Chartered Engineer (India) MIE</strong>, is available for direct consultation regarding DGFT, Customs, Banking Valuation, and CEIG approvals.
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>

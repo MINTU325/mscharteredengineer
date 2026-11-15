@@ -179,7 +179,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
     },
     {
       q: 'Is your Chartered Engineer certification accepted by all DISCOMs, CEIG, and Nationalized Banks?',
-      a: 'Yes. As a Chartered Engineer (India) MIE corporate member of the Institution of Engineers (India) and an alumnus of IIT Roorkee, Er. Mukesh Singh’s statutory certifications and structural audit reports are recognized and accepted by all state DISCOMs across India, CEIG departments, MNRE empanelment portals, and major financial institutions.'
+      a: 'Yes. As a Chartered Engineer (India) MIE corporate member of the Institution of Engineers (India) and an alumnus of IIT Roorkee, Er. KS’s statutory certifications and structural audit reports are recognized and accepted by all state DISCOMs across India, CEIG departments, MNRE empanelment portals, and major financial institutions.'
     }
   ];
 
@@ -343,7 +343,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
             </a>
 
             <a 
-              href="https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20need%20a%20Solar%20Structural%20Stability%20Certificate%20and%20MMS%20Analysis." 
+              href="https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20need%20a%20Solar%20Structural%20Stability%20Certificate%20and%20MMS%20Analysis." 
               target="_blank" 
               rel="noopener noreferrer"
               style={{ 
@@ -656,7 +656,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
                   Inquiry Received Successfully!
                 </h4>
                 <p style={{ color: '#047857', fontSize: '0.92rem', maxWidth: '540px', margin: '0 auto 16px' }}>
-                  Our Principal Engineer Er. Mukesh Singh will review your project details and contact you within 2 business hours.
+                  Our Principal Engineer Er. KS will review your project details and contact you within 2 business hours.
                 </p>
                 <button
                   onClick={() => setFormSubmitted(false)}
@@ -972,7 +972,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <img
                 src="/mukesh-singh-founder.webp"
-                alt="Er. Mukesh Singh - IIT Roorkee"
+                alt="Er. KS - IIT Roorkee"
                 style={{
                   width: '64px',
                   height: '64px',
@@ -986,7 +986,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0f172a', margin: 0 }}>
-                    Er. Mukesh Singh
+                    Er. KS
                   </h3>
                   <span style={{ fontSize: '0.72rem', padding: '2px 8px', borderRadius: '4px', background: '#dbeafe', color: '#1e40af', fontWeight: 700 }}>
                     B.Tech (IIT Roorkee)

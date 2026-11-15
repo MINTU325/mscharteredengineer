@@ -251,7 +251,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               margin: '0 0 28px 0',
               fontWeight: 400
             }}>
-              KS Chartered Engineers provides statutory technical certifications accepted by DGFT, Indian Customs, Central Excise, Banks, and State Electricity Inspectorates (CEIG). Headed by Er. Mukesh Singh, Corporate Member (MIE) of The Institution of Engineers (India) with engineering credentials from IIT Roorkee.
+              KS Chartered Engineers provides statutory technical certifications accepted by DGFT, Indian Customs, Central Excise, Banks, and State Electricity Inspectorates (CEIG). Headed by Er. KS, Corporate Member (MIE) of The Institution of Engineers (India) with engineering credentials from IIT Roorkee.
             </p>
 
             {/* CTAs */}
@@ -745,7 +745,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               Direct Engineering Consultation
             </div>
             <h3 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#0f172a', margin: '0 0 8px 0' }}>
-              Speak with Er. Mukesh Singh, MIE Chartered Engineer
+              Speak with Er. KS, MIE Chartered Engineer
             </h3>
             <p style={{ color: '#475569', fontSize: '0.92rem', margin: '0 0 16px 0', maxWidth: '640px', lineHeight: 1.6 }}>
               Need urgent port clearance at JNPT / Mundra or an emergency DGFT EPCG filing? We offer expedited on-site inspection and rapid certificate dispatch across all Indian commercial ports and industrial corridors.
@@ -780,7 +780,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               Initiate Assessment
             </button>
             <a
-              href="https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20need%20a%20Chartered%20Engineer%20Certificate%20for%20Customs%20/%20DGFT."
+              href="https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20need%20a%20Chartered%20Engineer%20Certificate%20for%20Customs%20/%20DGFT."
               target="_blank"
               rel="noopener noreferrer"
               style={{

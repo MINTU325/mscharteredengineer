@@ -799,7 +799,7 @@ export default function ServiceDetailPage({
             </button>
 
             <a
-              href={`https://wa.me/919158658885?text=Hello%20Er.%20Mukesh%20Singh,%20I%20am%20interested%20in%20${encodeURIComponent(service.heroTitle)}`}
+              href={`https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20am%20interested%20in%20${encodeURIComponent(service.heroTitle)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="ske-btn-whatsapp"
