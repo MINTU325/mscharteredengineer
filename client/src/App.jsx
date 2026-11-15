@@ -6,6 +6,7 @@ import LazySection from './components/LazySection';
 // Code-split heavy sub-pages & modals to minimize initial bundle size and maximize Core Web Vitals
 import { getCityBySlug, PAN_INDIA_CITIES } from './data/cityHubData';
 import { MessageSquare, PhoneCall, Lock } from 'lucide-react';
+import WhatsAppIcon from './components/WhatsAppIcon';
 const Credentials = lazy(() => import('./components/Credentials'));
 const ArchitecturalProjects = lazy(() => import('./components/ArchitecturalProjects'));
 const TexelGroupSection = lazy(() => import('./components/TexelGroupSection'));
@@ -692,7 +693,7 @@ export default function App() {
         onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
         onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
       >
-        <MessageSquare size={28} />
+        <WhatsAppIcon size={32} color="#ffffff" />
       </a>
     </div>
   );

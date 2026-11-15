@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, Phone, MessageCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Phone } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const SLIDES = [
   {
@@ -317,7 +318,7 @@ export default function HeroSlider({ onOpenQuote }) {
               className="hs-cta-secondary hs-whatsapp-btn"
               style={{ borderColor: 'rgba(37, 211, 102, 0.35)', background: 'rgba(37, 211, 102, 0.12)' }}
             >
-              <MessageCircle size={16} color="#25D366" />
+              <WhatsAppIcon size={18} color="#25D366" />
               <span style={{ color: '#ffffff' }}>WhatsApp Us</span>
             </a>
           </div>

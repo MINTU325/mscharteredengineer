@@ -635,10 +635,10 @@ button, input, select, textarea {
 }
 
 .top-bar {
-  background: #0a192f;
+  background: #060b17 !important;
   font-size: 0.82rem;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22) !important;
 }
 
 .top-bar-inner {
@@ -656,14 +656,21 @@ button, input, select, textarea {
 }
 
 .top-bar-item {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--text-muted);
+  color: #e2e8f0 !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.top-bar-item strong {
+  color: #ffffff !important;
 }
 
 .top-bar-item:hover {
-  color: #ffffff;
+  color: #38bdf8 !important;
 }
 
 .navbar-container {

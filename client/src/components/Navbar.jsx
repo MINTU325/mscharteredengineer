@@ -130,23 +130,31 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
       <div className="top-bar">
         <div className="container top-bar-inner">
           <div className="top-bar-left">
-            <span className="top-bar-item">
-              <ShieldCheck size={14} color="#f59e0b" />
-              <span>Chartered Engineer (India) | Corporate Member of IEI</span>
-            </span>
-            <span className="top-bar-item">
-              <MapPin size={14} color="#38bdf8" />
-              <span>HQ: Jaipur, Rajasthan - 302019 | Pan-India Practice</span>
-            </span>
+            <div className="top-bar-item" style={{ color: '#ffffff', fontSize: '0.80rem' }}>
+              <ShieldCheck size={14} color="#fbbf24" style={{ flexShrink: 0 }} />
+              <span>
+                <strong style={{ color: '#ffffff', fontWeight: 700 }}>Chartered Engineer (India)</strong>{' '}
+                <span style={{ color: '#64748b' }}>|</span>{' '}
+                <span style={{ color: '#e2e8f0', fontWeight: 500 }}>Corporate Member of IEI</span>
+              </span>
+            </div>
+            <div className="top-bar-item" style={{ color: '#e2e8f0', fontSize: '0.80rem' }}>
+              <MapPin size={14} color="#38bdf8" style={{ flexShrink: 0 }} />
+              <span>
+                <strong style={{ color: '#ffffff', fontWeight: 600 }}>HQ: Jaipur (302019)</strong>{' '}
+                <span style={{ color: '#64748b' }}>|</span>{' '}
+                <span style={{ color: '#cbd5e1' }}>Pan-India Practice</span>
+              </span>
+            </div>
           </div>
           <div className="top-bar-right">
-            <a href="tel:+919158658885" className="top-bar-item" style={{ color: '#ffffff', fontWeight: 600 }}>
-              <Phone size={14} color="#10b981" />
-              <span>+91 91586 58885</span>
+            <a href="tel:+919158658885" className="top-bar-item" style={{ color: '#ffffff', fontSize: '0.80rem', textDecoration: 'none' }}>
+              <Phone size={13} color="#10b981" style={{ flexShrink: 0 }} />
+              <strong style={{ color: '#ffffff', fontWeight: 700, letterSpacing: '0.02em' }}>+91 91586 58885</strong>
             </a>
-            <a href="mailto:ms.charteredengineer@gmail.com" className="top-bar-item">
-              <Mail size={14} color="#38bdf8" />
-              <span>ms.charteredengineer@gmail.com</span>
+            <a href="mailto:ms.charteredengineer@gmail.com" className="top-bar-item" style={{ color: '#e2e8f0', fontSize: '0.80rem', textDecoration: 'none' }}>
+              <Mail size={13} color="#38bdf8" style={{ flexShrink: 0 }} />
+              <span style={{ color: '#e2e8f0' }}>ms.charteredengineer@gmail.com</span>
             </a>
             <a 
               href="https://www.linkedin.com/company/ms-chartered-engineers-valuers-technical-consultancy" 
@@ -154,9 +162,9 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
               rel="noopener noreferrer" 
               className="top-bar-item"
               title="Official LinkedIn Company Page"
-              style={{ color: '#38bdf8' }}
+              style={{ color: '#38bdf8', fontSize: '0.80rem', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '5px' }}
             >
-              <LinkedinIcon size={14} color="#0077b5" />
+              <LinkedinIcon size={14} color="#38bdf8" />
               <span>LinkedIn</span>
             </a>
           </div>

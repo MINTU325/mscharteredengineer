@@ -24,6 +24,7 @@ import {
   HardHat,
   Send
 } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuote }) {
   useEffect(() => {
@@ -359,7 +360,7 @@ export default function SolarStructuralAnalysisPage({ onNavigateHome, onOpenQuot
                 textDecoration: 'none'
               }}
             >
-              <MessageSquare size={15} color="#ffffff" />
+              <WhatsAppIcon size={16} color="#ffffff" />
               <span>WhatsApp Consultation</span>
             </a>
           </div>

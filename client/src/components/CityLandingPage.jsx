@@ -22,6 +22,7 @@ import {
   Zap
 } from 'lucide-react';
 import { PAN_INDIA_CITIES } from '../data/cityHubData';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome, onSelectCity }) {
   useEffect(() => {
@@ -332,7 +333,7 @@ export default function CityLandingPage({ cityData, onOpenQuote, onNavigateHome,
                     textDecoration: 'none'
                   }}
                 >
-                  <MessageSquare size={15} color="#ffffff" />
+                  <WhatsAppIcon size={16} color="#ffffff" />
                   <span>WhatsApp Consultation</span>
                 </a>
               </div>
