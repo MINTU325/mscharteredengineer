@@ -70,12 +70,14 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
               transition: 'all 0.15s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#eef0f5';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
+              e.currentTarget.style.color = '#0284c7';
+              e.currentTarget.style.borderColor = '#0284c7';
+              e.currentTarget.style.background = '#f1f5f9';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#a3a9b8';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+              e.currentTarget.style.color = '#475569';
+              e.currentTarget.style.borderColor = '#cbd5e1';
+              e.currentTarget.style.background = '#ffffff';
             }}
           >
             <ArrowLeft size={14} />
@@ -227,9 +229,9 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                   fontWeight: activeTab === 'all' ? 600 : 500,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
-                  background: activeTab === 'all' ? '#38bdf8' : '#11141c',
-                  border: `1px solid ${activeTab === 'all' ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
-                  color: activeTab === 'all' ? '#07080d' : '#a3a9b8'
+                  background: activeTab === 'all' ? '#0284c7' : '#ffffff',
+                  border: `1px solid ${activeTab === 'all' ? '#0284c7' : '#cbd5e1'}`,
+                  color: activeTab === 'all' ? '#ffffff' : '#475569'
                 }}
               >
                 <Layers size={14} />
@@ -252,9 +254,9 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                   fontWeight: activeTab === 'calculator' ? 600 : 500,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
-                  background: activeTab === 'calculator' ? '#38bdf8' : '#11141c',
-                  border: `1px solid ${activeTab === 'calculator' ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
-                  color: activeTab === 'calculator' ? '#07080d' : '#a3a9b8'
+                  background: activeTab === 'calculator' ? '#0284c7' : '#ffffff',
+                  border: `1px solid ${activeTab === 'calculator' ? '#0284c7' : '#cbd5e1'}`,
+                  color: activeTab === 'calculator' ? '#ffffff' : '#475569'
                 }}
               >
                 <Calculator size={14} />
@@ -277,9 +279,9 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                   fontWeight: activeTab === 'solar' ? 600 : 500,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
-                  background: activeTab === 'solar' ? '#38bdf8' : '#11141c',
-                  border: `1px solid ${activeTab === 'solar' ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
-                  color: activeTab === 'solar' ? '#07080d' : '#a3a9b8'
+                  background: activeTab === 'solar' ? '#0284c7' : '#ffffff',
+                  border: `1px solid ${activeTab === 'solar' ? '#0284c7' : '#cbd5e1'}`,
+                  color: activeTab === 'solar' ? '#ffffff' : '#475569'
                 }}
               >
                 <Zap size={14} />

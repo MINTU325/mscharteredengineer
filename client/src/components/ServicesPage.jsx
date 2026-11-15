@@ -107,7 +107,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               alignItems: 'center',
               gap: '8px',
               background: '#ffffff',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              border: '1px solid #cbd5e1',
               borderRadius: '8px',
               padding: '6px 14px',
               color: '#475569',
@@ -117,12 +117,14 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               transition: 'all 0.15s ease'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#eef0f5';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
+              e.currentTarget.style.color = '#0284c7';
+              e.currentTarget.style.borderColor = '#0284c7';
+              e.currentTarget.style.background = '#f1f5f9';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#a3a9b8';
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+              e.currentTarget.style.color = '#475569';
+              e.currentTarget.style.borderColor = '#cbd5e1';
+              e.currentTarget.style.background = '#ffffff';
             }}
           >
             <ArrowLeft size={14} />
@@ -238,19 +240,27 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
                 style={{
                   background: '#ffffff',
                   color: '#0f172a',
-                  border: '1px solid rgba(255, 255, 255, 0.16)',
+                  border: '1px solid #cbd5e1',
                   borderRadius: '8px',
                   padding: '10px 18px',
                   fontSize: '0.92rem',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  transition: 'background 0.15s ease'
+                  transition: 'all 0.15s ease'
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = '#1a1e28'}
-                onMouseLeave={e => e.currentTarget.style.background = '#11141c'}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#f1f5f9';
+                  e.currentTarget.style.borderColor = '#0284c7';
+                  e.currentTarget.style.color = '#0284c7';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                  e.currentTarget.style.color = '#0f172a';
+                }}
               >
                 <PhoneCall size={15} style={{ color: '#0284c7' }} />
                 <span>Call: +91 91586 58885</span>
@@ -263,19 +273,27 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
                 style={{
                   background: '#ffffff',
                   color: '#0f172a',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  border: '1px solid #cbd5e1',
                   borderRadius: '8px',
                   padding: '10px 18px',
                   fontSize: '0.92rem',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   textDecoration: 'none',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  transition: 'background 0.15s ease'
+                  transition: 'all 0.15s ease'
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = '#1a1e28'}
-                onMouseLeave={e => e.currentTarget.style.background = '#11141c'}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#f1f5f9';
+                  e.currentTarget.style.borderColor = '#10b981';
+                  e.currentTarget.style.color = '#047857';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                  e.currentTarget.style.color = '#0f172a';
+                }}
               >
                 <MessageSquare size={15} style={{ color: '#10b981' }} />
                 <span>WhatsApp Consultation</span>

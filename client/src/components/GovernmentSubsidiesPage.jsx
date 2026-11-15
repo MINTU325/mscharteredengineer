@@ -284,7 +284,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
               <Home size={14} /> Home
             </button>
             <span>/</span>
-            <span style={{ color: '#0f172a', fontWeight: 500 }}>Government Subsidies &amp; Grants Advisory</span>
+            <span style={{ color: '#0f172a', fontWeight: 600 }}>MSME Subsidies &amp; Government Grants Advisory</span>
           </div>
 
           <span style={{
@@ -296,7 +296,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             borderRadius: '6px',
             fontWeight: 600
           }}>
-            Chartered Engineer Certified DPR
+            MSME Subsidies &amp; DPR Verification
           </span>
         </div>
       </div>
@@ -324,19 +324,19 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             marginBottom: '16px'
           }}>
             <Coins size={14} />
-            <span>STATUTORY GOVERNMENT SUBSIDY &amp; CAPITAL INCENTIVES ADVISORY</span>
+            <span>MSME SUBSIDIES &amp; STATUTORY GOVERNMENT CAPITAL INCENTIVES ADVISORY</span>
           </div>
 
           <h1 style={{
             fontSize: 'clamp(2rem, 3.8vw, 2.9rem)',
-            fontWeight: 600,
+            fontWeight: 700,
             lineHeight: 1.18,
             marginBottom: '16px',
             color: '#0f172a',
             letterSpacing: '-0.02em'
           }}>
-            Unlock Up to <span style={{ color: '#10b981' }}>35% Capital Subsidy</span> &amp; <br />
-            <span style={{ color: '#0284c7' }}>Government Grants</span> for Your Industry
+            MSME Subsidies, Capital Grants &amp; <br />
+            <span style={{ color: '#10b981' }}>Government Incentives</span> for Your Enterprise
           </h1>
 
           <p style={{
@@ -346,7 +346,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
             maxWidth: '740px',
             margin: '0 auto 28px auto'
           }}>
-            End-to-end guidance from scheme identification to <strong>Chartered Engineer machinery verification</strong>, bankable Detailed Project Reports (DPR), and direct treasury disbursement under Central &amp; Rajasthan State policies.
+            Complete statutory consultancy for <strong>MSME Subsidies</strong>, Central &amp; State incentive schemes, PMEGP, RIPS 2024, PM-FME, and ZED grants with <strong>Chartered Engineer machinery verification</strong>, bankable Detailed Project Reports (DPR), and fast-track subsidy disbursement.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px' }}>
@@ -609,10 +609,10 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                 borderRadius: '6px',
                 fontSize: '0.82rem',
                 fontWeight: selectedCategory === tab.id ? 600 : 500,
-                border: selectedCategory === tab.id ? '1px solid #10b981' : '1px solid rgba(255, 255, 255, 0.08)',
+                border: selectedCategory === tab.id ? '1px solid #10b981' : '1px solid #cbd5e1',
                 cursor: 'pointer',
-                background: selectedCategory === tab.id ? '#10b981' : '#11141c',
-                color: selectedCategory === tab.id ? '#07080d' : '#a3a9b8',
+                background: selectedCategory === tab.id ? '#10b981' : '#ffffff',
+                color: selectedCategory === tab.id ? '#ffffff' : '#475569',
                 transition: 'all 0.15s ease'
               }}
             >
@@ -712,7 +712,7 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                 style={{
                   width: '100%',
                   background: '#f1f5f9',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  border: '1px solid #cbd5e1',
                   color: '#0f172a',
                   borderRadius: '6px',
                   padding: '9px 14px',
@@ -723,15 +723,17 @@ export default function GovernmentSubsidiesPage({ onOpenQuote, onNavigateHome })
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '6px',
-                  transition: 'background 0.15s ease'
+                  transition: 'all 0.15s ease'
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = '#232938';
-                  e.currentTarget.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+                  e.currentTarget.style.background = '#059669';
+                  e.currentTarget.style.borderColor = '#059669';
+                  e.currentTarget.style.color = '#ffffff';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background = '#1a1e28';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+                  e.currentTarget.style.background = '#f1f5f9';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                  e.currentTarget.style.color = '#0f172a';
                 }}
               >
                 <span>Inquire / Get Scheme Consultation</span>

@@ -56,17 +56,23 @@
     <priority>0.95</priority>
   </url>
 
-  <!-- 2.A Government Subsidies & Grants (RIPS 2024, PMEGP, MSME, Textile, Agro) -->
+  <!-- 2.A MSME Subsidies & Government Grants (RIPS 2024, PMEGP, PM-FME, Textile, Agro) -->
   <url>
     <loc>https://www.mscharteredengineer.com/government-subsidies</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.95</priority>
+    <priority>0.98</priority>
     <image:image>
       <image:loc>https://www.mscharteredengineer.com/og-image-ks.png</image:loc>
-      <image:title>Government Subsidies &amp; Grants 2024-25 - RIPS, PMEGP, MSME &amp; Textile Grants</image:title>
-      <image:caption>Statutory Chartered Engineer Attestations, Net Worth Verification &amp; Bankable DPR for 26+ Government Subsidies</image:caption>
+      <image:title>MSME Subsidies &amp; Government Grants - RIPS 2024, PMEGP, PM-FME &amp; Capital Subsidies</image:title>
+      <image:caption>Statutory Chartered Engineer Attestation, Net Worth Verification &amp; Bankable DPR for MSME Subsidies across India</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://www.mscharteredengineer.com/subsidies</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.98</priority>
   </url>
 
   <!-- 2.B Business, MSME & Machinery Loans (CGTMSE, Term Finance, Working Capital, LAP) -->

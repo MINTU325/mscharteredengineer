@@ -236,13 +236,26 @@ export default function ServicesTeaser({ onOpenQuote }) {
             </a>
             <button
               onClick={() => onOpenQuote('General Inquiry')}
-              className="btn btn-outline"
               style={{
-                borderColor: 'rgba(255,255,255,0.18)',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
                 color: '#0f172a',
                 padding: '10px 20px',
                 fontSize: '0.86rem',
-                borderRadius: '6px'
+                fontWeight: 600,
+                borderRadius: '6px',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#f1f5f9';
+                e.currentTarget.style.borderColor = '#0284c7';
+                e.currentTarget.style.color = '#0284c7';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#ffffff';
+                e.currentTarget.style.borderColor = '#cbd5e1';
+                e.currentTarget.style.color = '#0f172a';
               }}
             >
               Request Quote

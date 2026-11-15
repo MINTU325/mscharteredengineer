@@ -264,16 +264,16 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
               gap: '8px',
               padding: '8px 16px',
               background: '#ffffff',
-              border: '1px solid #e2e8f0',
+              border: '1px solid #cbd5e1',
               borderRadius: '8px',
               color: '#0284c7',
               fontSize: '0.88rem',
               fontWeight: 600,
               cursor: 'pointer',
-              transition: 'all 0.2s ease'
+              transition: 'all 0.15s ease'
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)'; e.currentTarget.style.background = '#1a1e28'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)'; e.currentTarget.style.background = '#11141c'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#0284c7'; e.currentTarget.style.background = '#f1f5f9'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.background = '#ffffff'; }}
           >
             <ArrowLeft size={16} />
             <span>&larr; Back to Homepage</span>
@@ -384,16 +384,16 @@ export default function FAQPage({ onOpenQuote, onNavigateHome }) {
                   gap: '8px',
                   padding: '8px 16px',
                   borderRadius: '6px',
-                  background: isSelected ? '#38bdf8' : '#11141c',
-                  border: `1px solid ${isSelected ? '#38bdf8' : 'rgba(255, 255, 255, 0.08)'}`,
-                  color: isSelected ? '#07080d' : '#a3a9b8',
+                  background: isSelected ? '#0284c7' : '#ffffff',
+                  border: `1px solid ${isSelected ? '#0284c7' : '#cbd5e1'}`,
+                  color: isSelected ? '#ffffff' : '#475569',
                   fontWeight: isSelected ? 700 : 500,
                   fontSize: '0.86rem',
                   cursor: 'pointer',
-                  transition: 'all 0.2s ease'
+                  transition: 'all 0.15s ease'
                 }}
               >
-                <Icon size={15} color={isSelected ? '#07080d' : '#38bdf8'} />
+                <Icon size={15} color={isSelected ? '#ffffff' : '#0284c7'} />
                 <span>{cat.label}</span>
               </button>
             );

@@ -181,13 +181,13 @@ const ROUTE_CONFIG = {
   },
   '/government-subsidies': { 
     id: 'government-subsidies', 
-    title: 'Central & State Government Subsidies & Grants 2024-25 | KS Group',
-    description: 'Apply for Central & State Government Subsidies: Rajasthan RIPS 2024, PMEGP, Ambedkar Scheme, PM-FME, Textile GREAT & Solar grants with Chartered Engineer DPR & TEV study.'
+    title: 'MSME Subsidies & Government Grants 2025 | Central & State Schemes | KS Group',
+    description: 'Apply for MSME Subsidies, Central & State Government Grants: Rajasthan RIPS 2024, PMEGP, PM-FME, Dr. Ambedkar Scheme & Capital Subsidies with Chartered Engineer DPR.'
   },
   '/subsidies': { 
     id: 'government-subsidies', 
-    title: 'Central & State Government Subsidies & Grants 2024-25 | KS Group',
-    description: 'Apply for Central & State Government Subsidies: Rajasthan RIPS 2024, PMEGP, Ambedkar Scheme, PM-FME, Textile GREAT & Solar grants with Chartered Engineer DPR & TEV study.'
+    title: 'MSME Subsidies & Government Grants 2025 | Central & State Schemes | KS Group',
+    description: 'Apply for MSME Subsidies, Central & State Government Grants: Rajasthan RIPS 2024, PMEGP, PM-FME, Dr. Ambedkar Scheme & Capital Subsidies with Chartered Engineer DPR.'
   },
   '/business-loans': { 
     id: 'business-loans', 

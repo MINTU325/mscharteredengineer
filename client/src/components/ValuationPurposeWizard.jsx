@@ -498,14 +498,22 @@ export default function ValuationPurposeWizard({ onOpenQuote }) {
                   background: '#ffffff',
                   color: '#0f172a',
                   borderRadius: '8px',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   fontSize: '0.86rem',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  border: '1px solid #cbd5e1',
                   cursor: 'pointer',
-                  transition: 'background 0.15s ease'
+                  transition: 'all 0.15s ease'
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = '#ffffff'}
-                onMouseLeave={e => e.currentTarget.style.background = isSelected ? '#eff6ff' : '#f8fafc'}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#f1f5f9';
+                  e.currentTarget.style.borderColor = '#10b981';
+                  e.currentTarget.style.color = '#047857';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                  e.currentTarget.style.color = '#0f172a';
+                }}
               >
                 <MessageCircle size={14} style={{ color: '#10b981' }} />
                 <span>WhatsApp Query</span>

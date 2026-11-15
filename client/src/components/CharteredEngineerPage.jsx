@@ -194,7 +194,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                 alignItems: 'center',
                 gap: '8px',
                 background: '#ffffff',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                border: '1px solid #cbd5e1',
                 borderRadius: '8px',
                 padding: '6px 14px',
                 color: '#475569',
@@ -204,12 +204,14 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                 transition: 'all 0.15s ease'
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.color = '#eef0f5';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.24)';
+                e.currentTarget.style.color = '#0284c7';
+                e.currentTarget.style.borderColor = '#0284c7';
+                e.currentTarget.style.background = '#f1f5f9';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.color = '#a3a9b8';
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+                e.currentTarget.style.color = '#475569';
+                e.currentTarget.style.borderColor = '#cbd5e1';
+                e.currentTarget.style.background = '#ffffff';
               }}
             >
               <ArrowLeft size={14} /> Back to Home
@@ -286,17 +288,25 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                   gap: '8px',
                   background: '#ffffff',
                   color: '#0f172a',
-                  border: '1px solid rgba(255, 255, 255, 0.16)',
+                  border: '1px solid #cbd5e1',
                   borderRadius: '8px',
                   padding: '10px 20px',
                   fontSize: '0.95rem',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   textDecoration: 'none',
                   cursor: 'pointer',
-                  transition: 'background 0.15s ease'
+                  transition: 'all 0.15s ease'
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = '#1a1e28'}
-                onMouseLeave={e => e.currentTarget.style.background = '#11141c'}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#f1f5f9';
+                  e.currentTarget.style.borderColor = '#0284c7';
+                  e.currentTarget.style.color = '#0284c7';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = '#ffffff';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                  e.currentTarget.style.color = '#0f172a';
+                }}
               >
                 <PhoneCall size={16} style={{ color: '#0284c7' }} /> +91 91586 58885
               </a>
@@ -435,9 +445,9 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   style={{
-                    background: isActive ? '#38bdf8' : '#11141c',
-                    color: isActive ? '#07080d' : '#a3a9b8',
-                    border: isActive ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
+                    background: isActive ? '#0284c7' : '#ffffff',
+                    color: isActive ? '#ffffff' : '#475569',
+                    border: isActive ? '1px solid #0284c7' : '1px solid #cbd5e1',
                     borderRadius: '6px',
                     padding: '6px 14px',
                     fontSize: '0.85rem',
@@ -447,14 +457,16 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                   }}
                   onMouseEnter={e => {
                     if (!isActive) {
-                      e.currentTarget.style.color = '#eef0f5';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                      e.currentTarget.style.color = '#0284c7';
+                      e.currentTarget.style.borderColor = '#0284c7';
+                      e.currentTarget.style.background = '#f1f5f9';
                     }
                   }}
                   onMouseLeave={e => {
                     if (!isActive) {
-                      e.currentTarget.style.color = '#a3a9b8';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+                      e.currentTarget.style.color = '#475569';
+                      e.currentTarget.style.borderColor = '#cbd5e1';
+                      e.currentTarget.style.background = '#ffffff';
                     }
                   }}
                 >
@@ -546,26 +558,28 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                     style={{
                       flex: 1,
                       background: '#f1f5f9',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
+                      border: '1px solid #cbd5e1',
                       borderRadius: '6px',
                       padding: '8px 12px',
                       color: '#0f172a',
                       fontSize: '0.85rem',
-                      fontWeight: 500,
+                      fontWeight: 600,
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '6px',
-                      transition: 'background 0.15s ease'
+                      transition: 'all 0.15s ease'
                     }}
                     onMouseEnter={e => {
-                      e.currentTarget.style.background = '#232938';
-                      e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+                      e.currentTarget.style.background = '#0284c7';
+                      e.currentTarget.style.color = '#ffffff';
+                      e.currentTarget.style.borderColor = '#0284c7';
                     }}
                     onMouseLeave={e => {
-                      e.currentTarget.style.background = '#1a1e28';
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+                      e.currentTarget.style.background = '#f1f5f9';
+                      e.currentTarget.style.color = '#0f172a';
+                      e.currentTarget.style.borderColor = '#cbd5e1';
                     }}
                   >
                     Get Certificate <ArrowRight size={14} />
@@ -575,14 +589,23 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                     href="tel:+919158658885"
                     style={{
                       background: '#ffffff',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      border: '1px solid #cbd5e1',
                       borderRadius: '6px',
                       padding: '8px 12px',
                       color: '#0284c7',
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      textDecoration: 'none'
+                      textDecoration: 'none',
+                      transition: 'all 0.15s ease'
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = '#f1f5f9';
+                      e.currentTarget.style.borderColor = '#0284c7';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = '#ffffff';
+                      e.currentTarget.style.borderColor = '#cbd5e1';
                     }}
                     title="Call directly"
                   >
@@ -750,7 +773,7 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
             <p style={{ color: '#475569', fontSize: '0.92rem', margin: '0 0 16px 0', maxWidth: '640px', lineHeight: 1.6 }}>
               Need urgent port clearance at JNPT / Mundra or an emergency DGFT EPCG filing? We offer expedited on-site inspection and rapid certificate dispatch across all Indian commercial ports and industrial corridors.
             </p>
-            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', fontSize: '0.85rem', color: '#475569' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                 <Phone size={14} style={{ color: '#0284c7' }} /> +91 91586 58885
               </span>
@@ -774,8 +797,11 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
                 padding: '12px 24px',
                 fontSize: '0.95rem',
                 fontWeight: 600,
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'background 0.15s ease'
               }}
+              onMouseEnter={e => e.currentTarget.style.background = '#e07316'}
+              onMouseLeave={e => e.currentTarget.style.background = '#F58220'}
             >
               Initiate Assessment
             </button>
@@ -784,17 +810,28 @@ export default function CharteredEngineerPage({ onNavigateHome, onOpenQuote }) {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: '#f1f5f9',
+                background: '#ffffff',
                 color: '#0f172a',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
+                border: '1px solid #cbd5e1',
                 borderRadius: '8px',
                 padding: '12px 20px',
                 fontSize: '0.95rem',
-                fontWeight: 500,
+                fontWeight: 600,
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '8px'
+                gap: '8px',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = '#f1f5f9';
+                e.currentTarget.style.borderColor = '#10b981';
+                e.currentTarget.style.color = '#047857';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = '#ffffff';
+                e.currentTarget.style.borderColor = '#cbd5e1';
+                e.currentTarget.style.color = '#0f172a';
               }}
             >
               WhatsApp Us

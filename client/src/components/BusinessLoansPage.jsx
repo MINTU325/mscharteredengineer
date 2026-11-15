@@ -509,10 +509,10 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                 borderRadius: '6px',
                 fontSize: '0.82rem',
                 fontWeight: selectedCategory === tab.id ? 600 : 500,
-                border: selectedCategory === tab.id ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.08)',
+                border: selectedCategory === tab.id ? '1px solid #0284c7' : '1px solid #cbd5e1',
                 cursor: 'pointer',
-                background: selectedCategory === tab.id ? '#38bdf8' : '#11141c',
-                color: selectedCategory === tab.id ? '#07080d' : '#a3a9b8',
+                background: selectedCategory === tab.id ? '#0284c7' : '#ffffff',
+                color: selectedCategory === tab.id ? '#ffffff' : '#475569',
                 transition: 'all 0.15s ease'
               }}
             >
@@ -609,7 +609,7 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                 style={{
                   width: '100%',
                   background: '#f1f5f9',
-                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  border: '1px solid #cbd5e1',
                   color: '#0f172a',
                   borderRadius: '6px',
                   padding: '9px 14px',
@@ -620,15 +620,17 @@ export default function BusinessLoansPage({ onOpenQuote, onNavigateHome }) {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '6px',
-                  transition: 'background 0.15s ease'
+                  transition: 'all 0.15s ease'
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = '#232938';
-                  e.currentTarget.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+                  e.currentTarget.style.background = '#0284c7';
+                  e.currentTarget.style.borderColor = '#0284c7';
+                  e.currentTarget.style.color = '#ffffff';
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.background = '#1a1e28';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
+                  e.currentTarget.style.background = '#f1f5f9';
+                  e.currentTarget.style.borderColor = '#cbd5e1';
+                  e.currentTarget.style.color = '#0f172a';
                 }}
               >
                 <span>Check Eligibility &amp; Apply</span>

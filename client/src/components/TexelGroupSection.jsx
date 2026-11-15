@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Smartphone, Globe, Layers, Rocket, Building2, Bot } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Smartphone, Globe, Layers, Rocket, Building2, Bot, Award, Zap } from 'lucide-react';
 
 export default function TexelGroupSection({ onOpenQuote }) {
   const [activeTab, setActiveTab] = useState('engineering'); // 'engineering' or 'tech'
 
   const engineeringServices = [
     {
+      id: 'chartered-engineers-valuations',
+      title: 'Chartered Engineers & Valuations',
+      serviceName: 'Chartered Engineers & Valuations',
+      desc: 'Statutory Chartered Engineer certifications for DGFT, Indian Customs port clearance, CEIG solar clearance, and IBBI Registered Valuer appraisals for plant, machinery, industrial assets & capital gains.',
+      icon: <Award size={26} />
+    },
+    {
+      id: 'electrical-substation-services',
+      title: 'Electrical & Substation Services',
+      serviceName: 'Electrical & Substation Engineering Services',
+      desc: 'Turnkey 11kV/33kV substation erection, power transformer testing, high-vacuum oil filtration, cable fault detection, harmonic audits, and statutory CEIG safety compliance.',
+      icon: <Zap size={26} />
+    },
+    {
       id: 'structural-design-rehabilitation',
       title: 'STRUCTURAL DESIGN, ENGINEERING & REHABILITATION',
       serviceName: 'Structural Design, Engineering & Rehabilitation',
       desc: 'Advanced structural analysis, RCC & steel design, seismic resistance modeling, Non-Destructive Testing (NDT), structural integrity evaluations, distress investigation, seismic retrofitting, and conditional health assessments.',
       icon: (
-        // Interlocking dual gears matching the screenshot
+        // Interlocking dual gears matching the icon
         <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
           <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
-        </svg>
-      )
-    },
-    {
-      id: 'project-management',
-      title: 'PROJECT MANAGEMENT',
-      serviceName: 'Project Management',
-      desc: 'End-to-end Project Management Consultancy (PMC), techno-commercial audits, contractor supervision, timeline governance, and statutory bill vetting.',
-      icon: (
-        // Lifebuoy / Helm steering wheel matching the screenshot
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.01 8.01 0 0 1-8 8zm0-13a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3z" />
-          <path d="M11 4h2v3h-2zm0 13h2v3h-2zM4 11h3v2H4zm13 0h3v2h-3z" />
         </svg>
       )
     }

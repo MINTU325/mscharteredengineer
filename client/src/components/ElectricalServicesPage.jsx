@@ -268,7 +268,6 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
 
             <a 
               href="tel:+919158658885" 
-              className="btn"
               style={{ 
                 padding: isMobile ? '11px 16px' : '13px 22px', 
                 fontSize: '0.90rem', 
@@ -282,7 +281,19 @@ export default function ElectricalServicesPage({ onOpenQuote, onNavigateHome }) 
                 gap: '8px',
                 borderRadius: '8px',
                 width: isMobile ? '100%' : 'auto',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+                boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+                textDecoration: 'none',
+                transition: 'all 0.15s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#f1f5f9';
+                e.currentTarget.style.borderColor = '#0284c7';
+                e.currentTarget.style.color = '#0284c7';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#ffffff';
+                e.currentTarget.style.borderColor = '#cbd5e1';
+                e.currentTarget.style.color = '#0f172a';
               }}
             >
               <Phone size={15} color="#0284c7" />
