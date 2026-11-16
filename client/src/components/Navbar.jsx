@@ -28,7 +28,8 @@ import {
   ExternalLink,
   Coins,
   Wrench,
-  Sun
+  Sun,
+  Activity
 } from 'lucide-react';
 import LinkedinIcon from './LinkedinIcon';
 import LanguageToggle from './LanguageToggle';
@@ -328,9 +329,20 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                     </div>
                   </a>
 
+                  {/* 5. Oil & Gas Pipeline Stress Analysis */}
+                  <a href="/services/oil-gas-pipeline-stress-analysis" onClick={handleDropdownItemClick} className="nav-dropdown-item">
+                    <Activity size={16} color="#38bdf8" className="dropdown-item-icon" />
+                    <div>
+                      <div className="dropdown-item-title" style={{ color: '#38bdf8', fontWeight: 600 }}>
+                        <span>Oil &amp; Gas Pipeline Stress Analysis</span>
+                      </div>
+                      <div className="dropdown-item-desc">CAESAR II, ASME B31.3 / B31.4 / B31.8 &amp; PESO Audit</div>
+                    </div>
+                  </a>
+
                   <div className="dropdown-divider" />
                   <a href="/services" onClick={handleDropdownItemClick} className="nav-dropdown-footer-link">
-                    <span>Explore All 22 Engineering Services</span>
+                    <span>Explore All 23 Engineering Services</span>
                     <ArrowRight size={13} />
                   </a>
                 </div>
@@ -519,9 +531,14 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
             <span>Solar Structural Analysis</span>
             <span style={{ background: 'rgba(251, 191, 36, 0.15)', color: '#fbbf24', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>NEW</span>
           </a>
+          <a href="/services/oil-gas-pipeline-stress-analysis" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ color: '#38bdf8', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Activity size={16} color="#38bdf8" />
+            <span>Oil &amp; Gas Pipeline Stress Analysis</span>
+            <span style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>NEW</span>
+          </a>
           <a href="/services" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <ArrowRight size={15} color="#94a3b8" />
-            <span>All 22 Practice Areas</span>
+            <span>All 23 Practice Areas</span>
           </a>
 
           <div style={{ padding: '12px 14px 4px', fontSize: '0.72rem', fontWeight: 700, color: '#06b6d4', textTransform: 'uppercase', letterSpacing: '0.06em' }}>

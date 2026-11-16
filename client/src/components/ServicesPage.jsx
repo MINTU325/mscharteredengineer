@@ -50,7 +50,10 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
         '/power-quality-analysis': 'power-quality-analysis',
         '/plant-capacity-certificate': 'plant-capacity-certificate',
         '/pm-surya-ghar': 'solar-consultancy-net-metering',
-        '/solar-consultancy': 'solar-consultancy-net-metering'
+        '/solar-consultancy': 'solar-consultancy-net-metering',
+        '/oil-gas-pipeline-stress-analysis': 'oil-gas-pipeline-stress-analysis',
+        '/pipeline-stress-analysis': 'oil-gas-pipeline-stress-analysis',
+        '/piping-stress-analysis': 'oil-gas-pipeline-stress-analysis'
       };
 
       const targetId = serviceIdMap[currentRoute];
@@ -164,7 +167,7 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
               marginBottom: '16px'
             }}>
               <ShieldCheck size={13} />
-              <span>15 COMPREHENSIVE STATUTORY &amp; ENGINEERING PRACTICE AREAS</span>
+              <span>23 COMPREHENSIVE STATUTORY &amp; ENGINEERING PRACTICE AREAS</span>
             </div>
 
             <h1 style={{

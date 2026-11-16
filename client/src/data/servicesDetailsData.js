@@ -6108,10 +6108,203 @@ export const SERVICES_DETAILS_DATA = {
         "third-party-audit-inspection"
     ]
 },
+  'oil-gas-pipeline-stress-analysis': {
+    "slug": "oil-gas-pipeline-stress-analysis",
+    "code": "oil-gas-pipeline-stress-analysis",
+    "categoryTag": "Oil & Gas Piping Engineering",
+    "heroTitle": "Oil & Gas Pipeline Stress Analysis",
+    "heroSubtitle": "Advanced CAESAR II 3D piping flexibility analysis, static & dynamic stress calculations, nozzle loads, and pipe support engineering conforming strictly to ASME B31.3, B31.4 & B31.8, PESO & PNGRB regulations.",
+    "fullTitle": "Oil & Gas Pipeline Stress Analysis & Piping Flexibility Engineering",
+    "lead": "Statutory piping stress analysis, flexibility calculations, and equipment nozzle load verification for refineries, petrochemical plants, cross-country transmission lines, and CGD networks by IIT Roorkee alumni Chartered Engineers.",
+    "whatIsHeading": "What is Oil & Gas Pipeline Stress Analysis?",
+    "whatIs": "Piping stress analysis is a critical safety and mechanical engineering discipline that ensures industrial pipeline systems can safely withstand operational pressures, extreme temperature variations, sustained weight, dynamic slug flow, wind, seismic, and accidental settlement loads without structural failure, flange leakage, or excessive nozzle reactions on connected rotating equipment. Using industry-standard CAESAR II software, our engineering team models 3D piping networks to evaluate code stresses under ASME B31.3 (Process Piping), ASME B31.4 (Pipeline Transportation Systems for Liquids and Slurries), and ASME B31.8 (Gas Transmission and Distribution Piping Systems). Each report is rigorously vetted and stamped by Corporate Members (MIE) of the Institution of Engineers (India) with IIT Roorkee credentials for submission to PESO, PNGRB, TPIA, and public sector oil & gas undertakings (IOCL, BPCL, HPCL, GAIL, ONGC).",
+    "grid3Heading": "Core Stress Analysis Capabilities",
+    "grid3Cards": [
+        {
+            "title": "CAESAR II 3D Stress Modeling",
+            "desc": "Finite element beam modeling of complex piping networks, expansion loops, and thermal flexibility.",
+            "icon": "Layers"
+        },
+        {
+            "title": "ASME B31 Code Compliance",
+            "desc": "Rigorous verification against ASME B31.3, B31.4, B31.8, and OISD-141 / OISD-226 safety standards.",
+            "icon": "ShieldCheck"
+        },
+        {
+            "title": "Rotating Equipment Nozzle Check",
+            "desc": "Allowable nozzle load verification on pumps (API 610), compressors, turbines (NEMA SM23), and pressure vessels.",
+            "icon": "Cpu"
+        },
+        {
+            "title": "Pipe Support & Hanger Engineering",
+            "desc": "Optimized placement and load calculation for rigid restraints, guides, variable spring hangers, and snubbers.",
+            "icon": "Wrench"
+        },
+        {
+            "title": "Flange Leakage & Prying Audit",
+            "desc": "Equivalent pressure method (NC 3658.3) and ASME Section VIII Div 1 Appendix 2 flange joint integrity.",
+            "icon": "Activity"
+        },
+        {
+            "title": "Cross-Country Buried Pipelines",
+            "desc": "Soil-pipe interaction modeling, road/railway crossing stress (API 1102), and seismic fault line crossing.",
+            "icon": "Compass"
+        }
+    ],
+    "scopeHeading": "Piping Systems & Pipeline Sectors Covered",
+    "scopeCards": [
+        {
+            "title": "Refineries & Petrochemical Plants",
+            "desc": "High-temperature crude distillation lines, FCCU, hydrocracker units, and high-pressure steam headers.",
+            "icon": "Factory"
+        },
+        {
+            "title": "Cross-Country Liquid & Gas Lines",
+            "desc": "Underground and above-ground long-distance crude oil, petroleum product, and natural gas transmission lines.",
+            "icon": "Compass"
+        },
+        {
+            "title": "City Gas Distribution (CGD)",
+            "desc": "Steel city gate stations (CGS), mother stations, district regulating skids (DRS), and commercial PE/steel piping.",
+            "icon": "Building2"
+        },
+        {
+            "title": "Cryogenic & LNG Terminals",
+            "desc": "LNG regasification plants, cryogenic vacuum-insulated lines, boil-off gas (BOG), and liquid nitrogen networks.",
+            "icon": "Droplet"
+        },
+        {
+            "title": "Offsite Tank Farms & Terminals",
+            "desc": "Product tank manifolds, pump house suction/discharge headers, rail/truck loading gantry piping.",
+            "icon": "Layers"
+        },
+        {
+            "title": "Fertilizer & Chemical Plants",
+            "desc": "Ammonia, urea synthesis, sulfuric acid, and corrosive high-pressure process fluid transfer systems.",
+            "icon": "Shield"
+        }
+    ],
+    "grid4CHeading": "Pipeline Stress Engineering Workflow",
+    "grid4CSubtitle": "Methodical 8-stage CAESAR II analysis ensuring zero-hazard plant commissioning:",
+    "grid4CCards": [
+        {
+            "title": "Data Input & P&ID Review",
+            "desc": "Extracting line specs, design temperature/pressure, insulation density, and corrosion allowance.",
+            "icon": "FileText"
+        },
+        {
+            "title": "3D Geometry & Routing Modeling",
+            "desc": "Building the pipe network in CAESAR II from isometrics, including bends, tees, valves, and reducers.",
+            "icon": "Layers"
+        },
+        {
+            "title": "Boundary & Support Definition",
+            "desc": "Assigning anchors, guides, stops, resting supports, and connected nozzle stiffnesses.",
+            "icon": "Compass"
+        },
+        {
+            "title": "Static Load Cases Setup",
+            "desc": "Configuring Sustained (SUS), Thermal Expansion (EXP), Hydrotest (HYD), and Occasional (OCC) cases.",
+            "icon": "Activity"
+        },
+        {
+            "title": "Stress & Displacement Analysis",
+            "desc": "Solving finite element equations to check code stress ratios, displacements, and thermal growth.",
+            "icon": "Cpu"
+        },
+        {
+            "title": "Support Optimization & Hangers",
+            "desc": "Re-routing expansion loops, adding guides, or selecting variable/constant spring hangers where required.",
+            "icon": "Wrench"
+        },
+        {
+            "title": "Nozzle & Flange Verification",
+            "desc": "Checking pump/vessel nozzle loads against manufacturer allowable limits and flange leakage criteria.",
+            "icon": "CheckCircle2"
+        },
+        {
+            "title": "Stamped Formal Engineering Report",
+            "desc": "Issuing comprehensive CAESAR II computation dossier signed by Corporate Member IEI / IIT Roorkee CE.",
+            "icon": "Award"
+        }
+    ],
+    "deliverables": [
+        "Comprehensive CAESAR II 3D Piping Stress Analysis Report (.CII / PDF)",
+        "Code Stress Compliance Summary Table for Sustained, Expansion & Occasional Cases",
+        "Displacement, Rotation & Thermal Expansion Vector Summary at All Critical Nodes",
+        "Pipe Support Load Summary Datasheets for Civil/Structural Foundation Design",
+        "Spring Hanger Schedule with Hot Load, Cold Load & Travel Range Specifications",
+        "Equipment Nozzle Load vs Allowable Check Sheets (API 610, API 650, NEMA SM23)",
+        "Flange Leakage Verification Sheets (Equivalent Pressure & ASME VIII Method)",
+        "Chartered Engineer Attestation Seal & Stamped Calculation Dossier for PESO/PNGRB"
+    ],
+    "industries": [
+        { "name": "Oil & Gas Refineries", "icon": "Factory" },
+        { "name": "Petrochemical Complexes", "icon": "Factory" },
+        { "name": "City Gas Distribution (CGD)", "icon": "Building2" },
+        { "name": "Cross-Country Pipelines", "icon": "Compass" },
+        { "name": "Chemical & Fertilizer Plants", "icon": "Layers" },
+        { "name": "Thermal & Nuclear Power Plants", "icon": "Zap" },
+        { "name": "Cryogenic & LNG Terminals", "icon": "Droplet" },
+        { "name": "Bulk Liquid Storage Terminals", "icon": "Warehouse" }
+    ],
+    "faqs": [
+        {
+            "q": "Why is piping stress analysis mandatory for oil & gas installations?",
+            "a": "High operating temperatures cause massive thermal pipe expansion, while internal high pressure exerts longitudinal and hoop stresses. Without flexibility analysis, excessive forces can crack pipe welds, cause catastrophic flange leakage, distort connected rotating equipment shafts, or trigger pipeline ruptures under seismic and slug conditions. PNGRB, PESO, and insurance underwriters require certified CAESAR II stress dossiers before commissioning."
+        },
+        {
+            "q": "Which design codes are used for stress calculations?",
+            "a": "We strictly adhere to ASME B31.3 (Process Piping in refineries and chemical plants), ASME B31.4 (Liquid Hydrocarbon Pipelines), ASME B31.8 (Gas Transmission & Distribution Pipelines), API 610 (Centrifugal Pumps), API 650 (Storage Tank Nozzles), and API 1102 (Steel Pipelines Crossing Railroads and Highways)."
+        },
+        {
+            "q": "What software and engineering tools do you use?",
+            "a": "Our piping stress specialists use Bentley AutoPIPE and Hexagon CAESAR II — the globally accepted gold standard for static and dynamic piping stress analysis."
+        },
+        {
+            "q": "What documents are required to start a piping stress study?",
+            "a": "To initiate CAESAR II modeling, we require Piping Isometrics (with dimensions, line size, and schedule), Line List (operating & design temperatures and pressures), P&IDs, equipment General Arrangement (GA) drawings with nozzle allowable loads, and insulation specifications."
+        },
+        {
+            "q": "What is the typical turnaround time for a stress analysis report?",
+            "a": "For a standard piping stress package (5 to 15 stress-critical lines), the full CAESAR II model, support optimization, and signed Chartered Engineer report are completed within 3 to 7 working days."
+        }
+    ],
+    "regulatoryHeading": "Codes, Standards & Statutory Regulations",
+    "regulatoryActs": [
+        {
+            "title": "ASME B31 Code for Pressure Piping (B31.3, B31.4, B31.8):",
+            "desc": "International benchmark governing piping flexibility, allowable stresses, and material selection."
+        },
+        {
+            "title": "Petroleum and Explosives Safety Organization (PESO):",
+            "desc": "Mandatory safety certifications under Petroleum Rules 2002 and Gas Cylinders / SMPV Rules."
+        },
+        {
+            "title": "Petroleum and Natural Gas Regulatory Board (PNGRB) Regulations:",
+            "desc": "Technical standards and safety guidelines for natural gas networks, City Gas Distribution, and petroleum pipelines."
+        },
+        {
+            "title": "OISD Standards (OISD-141, OISD-226, OISD-118):",
+            "desc": "Oil Industry Safety Directorate standards for plant layout, pipeline design, and emergency shutdown mechanisms."
+        }
+    ],
+    "ctaTitle": "Schedule Oil & Gas Pipeline Stress Analysis Consultation",
+    "ctaDesc": "Fast-track CAESAR II flexibility analysis and equipment nozzle safety verification certified by IIT Roorkee alumni Chartered Engineers.",
+    "relatedSlugs": [
+        "chartered-engineer-certification",
+        "third-party-audit-inspection",
+        "safety-energy-audits",
+        "plant-capacity-certificate"
+    ]
+},
 };
 
 // Aliases mapping legacy or alternate slugs directly to canonical service records
 export const SERVICE_SLUG_ALIASES = {
+  'oil-gas-pipeline-stress-analysis': 'oil-gas-pipeline-stress-analysis',
+  'pipeline-stress-analysis': 'oil-gas-pipeline-stress-analysis',
+  'piping-stress-analysis': 'oil-gas-pipeline-stress-analysis',
   'fire-safety-audit-rajasthan': 'fire-safety-audit',
   'fire-safety': 'fire-safety-audit',
   'fire-audit': 'fire-safety-audit',

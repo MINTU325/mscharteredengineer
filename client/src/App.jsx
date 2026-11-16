@@ -89,6 +89,16 @@ const ROUTE_CONFIG = {
     title: 'Solar Structural Stability Analysis & MMS Certification | KS Chartered Engineers',
     description: 'Statutory Solar Structural Stability Certificates (Form-B), 3D STAAD.Pro wind load simulation (IS 875 Part 3), MMS design verification, and CEIG/DISCOM approvals by IIT Roorkee Chartered Engineers.'
   },
+  '/oil-gas-pipeline-stress-analysis': {
+    id: 'services',
+    title: 'Oil & Gas Pipeline Stress Analysis (ASME B31.3 / B31.4 / B31.8) | KS Chartered Engineers',
+    description: 'CAESAR II piping stress analysis, flexibility calculations, equipment nozzle loads, and pipe support engineering conforming to ASME B31, PESO & PNGRB by IIT Roorkee Chartered Engineers.'
+  },
+  '/pipeline-stress-analysis': {
+    id: 'services',
+    title: 'Oil & Gas Pipeline Stress Analysis (ASME B31.3 / B31.4 / B31.8) | KS Chartered Engineers',
+    description: 'CAESAR II piping stress analysis, flexibility calculations, equipment nozzle loads, and pipe support engineering conforming to ASME B31, PESO & PNGRB by IIT Roorkee Chartered Engineers.'
+  },
   '/tin-shed-fabrication': { 
     id: 'fabrication-services', 
     title: 'Factory PEB Industrial Shed & Warehouse Fabrication | KS Group',
@@ -266,7 +276,8 @@ const SERVICES_ROUTES = new Set([
   '/electrical-contractor-license', '/contractor-license',
   '/ht-consumer-grievance', '/fire-safety-audit',
   '/power-quality-analysis', '/plant-capacity-certificate',
-  '/solar-consultancy', '/pm-surya-ghar'
+  '/solar-consultancy', '/pm-surya-ghar',
+  '/oil-gas-pipeline-stress-analysis', '/pipeline-stress-analysis'
 ]);
 
 const TOOLS_ROUTES = new Set([

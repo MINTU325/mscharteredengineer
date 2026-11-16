@@ -65,7 +65,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
             marginBottom: '12px'
           }}>
             <ShieldCheck size={14} />
-            <span>15 Statutory &amp; Commercial Practice Areas</span>
+            <span>23 Statutory &amp; Commercial Practice Areas</span>
           </div>
 
           <h2 style={{
@@ -79,7 +79,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
           </h2>
 
           <p style={{ color: '#475569', fontSize: '0.94rem', lineHeight: 1.6 }}>
-            Bankable valuations, statutory government certifications, and technical engineering audits delivered with 24–48 hour turnaround across Jaipur and Pan-India.
+            Bankable valuations, statutory government certifications, solar structural analysis, pipeline stress analysis, and technical engineering audits delivered with 24–48 hour turnaround across Jaipur and Pan-India.
           </p>
         </div>
 
@@ -208,10 +208,10 @@ export default function ServicesTeaser({ onOpenQuote }) {
         }}>
           <div style={{ textAlign: 'left', maxWidth: '640px' }}>
             <h4 style={{ fontSize: '1.18rem', color: '#0f172a', fontWeight: 800, marginBottom: '6px' }}>
-              Explore All 15 Statutory &amp; Engineering Practice Areas
+              Explore All 23 Statutory &amp; Engineering Practice Areas
             </h4>
             <p style={{ fontSize: '0.86rem', color: '#475569', margin: 0, lineHeight: 1.5 }}>
-              Including Industrial Fabrication &amp; PEB Sheds, Electrical Substations, AutoCAD 2D Drafting, Plant &amp; Machinery, IBC/NCLT, and Industrial Safety &amp; Boilers.
+              Including Oil &amp; Gas Pipeline Stress Analysis, Solar Structural MMS Audit, Industrial Fabrication &amp; PEB Sheds, Electrical Substations, Plant &amp; Machinery, and IBC/NCLT.
             </p>
           </div>
 
@@ -232,7 +232,7 @@ export default function ServicesTeaser({ onOpenQuote }) {
                 borderRadius: '6px'
               }}
             >
-              <span>View All 15 Services &rarr;</span>
+              <span>View All 23 Services &rarr;</span>
             </a>
             <button
               onClick={() => onOpenQuote('General Inquiry')}

@@ -621,10 +621,41 @@ const servicesData = [
     highlight:
       'One-stop technical bridge between solar installers, consumers, and electrical DISCOMs.',
   },
+  {
+    id: '23',
+    code: 'oil-gas-pipeline-stress-analysis',
+    title: 'Oil & Gas Pipeline Stress Analysis',
+    category: 'Industrial, Safety & Energy',
+    icon: Activity,
+    badgeColor: '#ef4444',
+    turnaround: '3–7 Working Days',
+    acceptedBy: 'PESO, PNGRB, ASME B31.3 / B31.4 / B31.8 & Oil Majors (IOCL, BPCL, HPCL, GAIL)',
+    description:
+      'Advanced CAESAR II piping stress analysis, flexibility calculations, and finite element structural verification for oil, gas, chemical, cryogenic, and high-pressure cross-country pipeline networks as per ASME B31.3, B31.4 & B31.8.',
+    deliverables: [
+      'CAESAR II 3D Piping Flexibility & Stress Analysis Modeling',
+      'ASME B31.3 (Process Piping) & ASME B31.4/B31.8 (Liquid & Gas Pipelines) Compliance',
+      'Sustained, Thermal Expansion, and Occasional Load Analysis (Wind, Seismic & Slug Loading)',
+      'Pipe Support Design, Variable/Constant Spring Hanger Sizing & Structural Load Datasheets',
+      'Flange Leakage Verification (NC 3658.3 / ASME Section VIII Div 1 & 2)',
+      'Equipment Nozzle Load Assessment for Pumps, Vessels, Compressors & Heat Exchangers (API 610/API 650)',
+      'Underground Cross-Country Pipeline Stress, Soil Spring Modeling & Road Crossing (API 1102) Calculations',
+      'Chartered Engineer Stamped Stress Analysis Report by IIT Roorkee Alumni Corporate Member IEI',
+    ],
+    documents: [
+      'Piping & Instrumentation Diagram (P&ID) and Line List',
+      'Piping Isometrics (ISOs) with Coordinates and Dimensions',
+      'Equipment GA Drawings with Allowable Nozzle Load Tables',
+      'Process Parameters (Design Pressure, Operating Temp, Fluid Density, Insulation & Corrosion Allowance)',
+    ],
+    highlight:
+      'Comprehensive CAESAR II stress reports certified by IIT Roorkee alumni Chartered Engineers conforming strictly to ASME B31 series, PESO & PNGRB safety norms.',
+  },
 ];
 
 // Quick search suggestion chips
 const QUICK_SUGGESTIONS = [
+  { label: 'Oil & Gas Pipeline', query: 'Pipeline' },
   { label: 'CEIG Approval', query: 'CEIG' },
   { label: 'Electrical Contractor License', query: 'Contractor License' },
   { label: 'HT Consumer Grievance', query: 'Grievance' },
@@ -672,7 +703,8 @@ const CATEGORY_BADGES = {
   'fire-safety-audit': 'AUDIT & COMPLIANCE',
   'power-quality-analysis': 'TESTING & INSPECTION',
   'plant-capacity-certificate': 'CERTIFICATION',
-  'solar-consultancy-net-metering': 'SOLAR & RENEWABLE'
+  'solar-consultancy-net-metering': 'SOLAR & RENEWABLE',
+  'oil-gas-pipeline-stress-analysis': 'PIPING & STRESS ANALYSIS'
 };
 
 export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
@@ -813,7 +845,7 @@ export default function ServicesGrid({ onOpenQuote, onNavigateService }) {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search 15 services (e.g. AutoCAD Drafting, Property, Bank Loan, Capital Gains 50C, DGFT, Machinery)..."
+                placeholder="Search 23 services (e.g. Pipeline Stress, Solar MMS, AutoCAD, Property, Bank Loan, Capital Gains 50C, DGFT, Machinery)..."
                 style={{
                   width: '100%',
                   background: 'transparent',
