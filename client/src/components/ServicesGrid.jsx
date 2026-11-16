@@ -29,6 +29,7 @@ import {
   Hammer,
   Factory,
   Sun,
+  Activity,
 } from 'lucide-react';
 
 const servicesData = [
