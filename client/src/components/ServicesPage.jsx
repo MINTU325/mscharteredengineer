@@ -4,7 +4,7 @@ import {
   MessageSquare, FileText, CheckCircle2, ChevronRight,
   Building2, Landmark, Scale, FileCheck2, Cpu
 } from 'lucide-react';
-import ServicesGrid from './ServicesGrid';
+import ServicesGrid, { servicesData } from './ServicesGrid';
 
 const SERVICE_HIGHLIGHT_STATS = [
   { color: '#0284c7', value: '24–48 Hours', label: 'Fast-track Delivery' },
@@ -19,44 +19,16 @@ export default function ServicesPage({ onOpenQuote, onNavigateHome, onNavigateSe
     if (currentRoute === '/services' || currentRoute === '/services/') {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     } else {
-      // If navigated to a specific service sub-route, attempt to scroll to that card
-      const serviceIdMap = {
-        '/property-valuation': 'property-land-valuation',
-        '/bank-valuation': 'bank-mortgage-valuation',
-        '/tax-valuation': 'statutory-tax-valuation',
-        '/ibc-valuation': 'ibc-nclt-corporate-valuation',
-        '/machinery-valuation': 'plant-machinery-valuation',
-        '/valuation': 'plant-machinery-valuation',
-        '/assets-valuation': 'plant-machinery-valuation',
-        '/chartered-engineer': 'chartered-engineer-certification',
-        '/safety-energy-audits': 'safety-energy-audits',
-        '/fssai': 'fssai-compliance-services',
-        '/advisory': 'plant-machinery-valuation',
-        '/autocad-drafting': 'autocad-electrical-drafting',
-        '/autocad-electrical-drafting': 'autocad-electrical-drafting',
-        '/inspection-services': 'third-party-audit-inspection',
-        '/third-party-inspection': 'third-party-audit-inspection',
-        '/audit-services': 'third-party-audit-inspection',
-        '/fabrication': 'fabrication-services',
-        '/tin-shed': 'fabrication-services',
-        '/iron-fabrication': 'fabrication-services',
-        '/ceig-approval': 'ceig-approval-consultancy',
-        '/ceig-approval-consultancy': 'ceig-approval-consultancy',
-        '/ceig': 'ceig-approval-consultancy',
-        '/electrical-contractor-license': 'electrical-contractor-license',
-        '/contractor-license': 'electrical-contractor-license',
-        '/ht-consumer-grievance': 'ht-consumer-grievance',
-        '/fire-safety-audit': 'fire-safety-audit',
-        '/power-quality-analysis': 'power-quality-analysis',
-        '/plant-capacity-certificate': 'plant-capacity-certificate',
-        '/pm-surya-ghar': 'solar-consultancy-net-metering',
-        '/solar-consultancy': 'solar-consultancy-net-metering',
-        '/oil-gas-pipeline-stress-analysis': 'oil-gas-pipeline-stress-analysis',
-        '/pipeline-stress-analysis': 'oil-gas-pipeline-stress-analysis',
-        '/piping-stress-analysis': 'oil-gas-pipeline-stress-analysis'
-      };
+      // Dynamically match service code or alias from servicesData
+      const cleanSlug = currentRoute.replace(/^\//, '').replace(/\/$/, '').toLowerCase();
+      const matched = servicesData.find(s => 
+        s.code === cleanSlug || 
+        cleanSlug.includes(s.code) || 
+        s.code.includes(cleanSlug) ||
+        s.title.toLowerCase().includes(cleanSlug)
+      );
+      const targetId = matched?.code || cleanSlug;
 
-      const targetId = serviceIdMap[currentRoute];
       if (targetId) {
         const scrollToElement = () => {
           const el = document.getElementById(targetId);

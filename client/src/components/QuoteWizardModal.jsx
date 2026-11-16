@@ -4,6 +4,35 @@ import {
   Phone, MessageSquare, FileText, CheckCircle, Zap, 
   Landmark, Laptop, ShieldCheck, ChevronDown, Check, Hammer
 } from 'lucide-react';
+import { servicesData } from './ServicesGrid';
+
+export const ALL_STATUTORY_SERVICES = (servicesData && servicesData.length > 0)
+  ? servicesData.map(s => s.title)
+  : [
+      'Property & Land Valuation',
+      'Bank & Mortgage Valuation',
+      'Statutory & Capital Gains Tax Valuation',
+      'IBC / NCLT / Corporate Valuation',
+      'Chartered Engineer Certification (IEI MIE)',
+      'Plant & Machinery Valuation',
+      'Project Cost & Construction Verification',
+      'Property Inspection & Technical Due Diligence',
+      'JDA & Local Authority Technical Reports',
+      'Special Purpose Valuation (Court, Litigation & Visa)',
+      'Industrial Safety & Energy Audits',
+      'FSSAI Regulatory Advisory',
+      'AutoCAD 2D Electrical Drafting Services',
+      'Third-Party Audit & Inspection Services',
+      'Industrial Fabrication, PEB Shed & Iron Works',
+      'CEIG Approval & Statutory Electrical Inspection',
+      'Electrical Contractor License Consultancy',
+      'HT Consumer Grievance & Regulatory Consultancy',
+      'Fire Safety Audit & Fire NOC Consultancy',
+      'Power Quality Analysis, Harmonics & APFC Optimization',
+      'Plant Production Capacity Certification',
+      'PM Surya Ghar & Solar Rooftop Net-Metering Consultancy',
+      'Oil & Gas Pipeline Stress Analysis'
+    ];
 
 export const ELECTRICAL_SERVICE_SUB_OPTIONS = [
   "High Voltage Circuit Breaker Testing Services",
@@ -168,21 +197,7 @@ export const DEPARTMENTS = {
       'Above ₹25 Crores (Large Industrial / Plant Scale)'
     ],
     scopePlaceholder: 'e.g. Plant and machinery valuation for SBI term loan / Customs CE certificate for imported machine.',
-    services: [
-      'Plant & Machinery Valuation (FMV, FSV, WDV)',
-      'Land & Building / Commercial Property Valuation',
-      'Bank Loan & Mortgage Valuation (Nationalised / Private Banks)',
-      'DGFT Advance Authorisation & EPCG Certification',
-      'Customs Import Used Machinery Valuation & Inspection',
-      'Income Tax 2001 Fair Market Valuation & Capital Gains',
-      'IBC 2016 & NCLT Insolvency Valuation',
-      'Remaining Useful Life (RLA) Assessment of Machinery',
-      'Chartered Electrical Safety Engineer (CESE) & BEE Energy Audit',
-      'AutoCAD 2D Electrical Drafting & Single Line Diagrams (SLD)',
-      'FSSAI Food Safety & Regulatory Compliance',
-      'Technical Advisory & IndAS 16 Asset Componentization',
-      'Third-Party Audit & Inspection Services (PDI, CLS, DUPRO)'
-    ]
+    services: ALL_STATUTORY_SERVICES
   },
   fabrication: {
     id: 'fabrication',
@@ -267,6 +282,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
   const [submittedData, setSubmittedData] = useState(null);
   const [error, setError] = useState('');
   const [showDeptDropdown, setShowDeptDropdown] = useState(false);
+  const [showServiceSelector, setShowServiceSelector] = useState(false);
 
   const isValuationFlow = Boolean(prefillData?.isValuationReport);
 
@@ -283,7 +299,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
     phone: '',
     email: '',
     service: currentDeptConfig.name,
-    subCategory: currentDeptConfig.services[0],
+    subCategory: initialService || currentDeptConfig.services[0],
     location: 'Jaipur, Rajasthan',
     estimatedAssetValue: currentDeptConfig.scaleOptions[1] || currentDeptConfig.scaleOptions[0],
     urgency: 'Immediate (Within 48-72 Hours Express)',
@@ -302,6 +318,7 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
 
       if (prefillData?.isValuationReport) {
         setActiveDept('valuation');
+        setShowServiceSelector(false);
         setFormData(prev => ({
           ...prev,
           service: 'Chartered Engineer & Assets Valuation Services',
@@ -313,27 +330,25 @@ export default function QuoteWizardModal({ isOpen, onClose, initialService, pref
           notes: ''
         }));
       } else {
-        const resolvedDept = detectDepartment(currentRoute, initialService, prefillData);
+        const exactService = initialService || prefillData?.service || prefillData?.title || '';
+        const resolvedDept = detectDepartment(currentRoute, exactService, prefillData);
         setActiveDept(resolvedDept);
         const deptConfig = DEPARTMENTS[resolvedDept] || DEPARTMENTS.valuation;
 
-        // Find best matching service in that department
-        let matchedSub = deptConfig.services[0];
-        const searchTarget = (initialService || prefillData?.title || '').toLowerCase();
-        
-        if (searchTarget) {
-          const found = deptConfig.services.find(s => {
-            const sLower = s.toLowerCase();
-            return sLower.includes(searchTarget) || searchTarget.includes(sLower.slice(0, 15));
-          });
+        // If client clicked a specific service, use that exact service directly!
+        let matchedSub = exactService || deptConfig.services[0];
+        if (exactService) {
+          const found = deptConfig.services.find(s => s.toLowerCase() === exactService.toLowerCase());
           if (found) matchedSub = found;
         }
+
+        setShowServiceSelector(!exactService);
 
         setFormData(prev => ({
           ...prev,
           service: deptConfig.name,
           subCategory: matchedSub,
-          projectScope: prefillData?.shortDesc || (searchTarget && searchTarget !== matchedSub.toLowerCase() ? `Inquiry regarding ${initialService}` : ''),
+          projectScope: prefillData?.shortDesc || (exactService ? `Quotation & consultation request for ${exactService}.` : ''),
           purpose: deptConfig.defaultPurpose,
           estimatedAssetValue: deptConfig.scaleOptions[1] || deptConfig.scaleOptions[0]
         }));
@@ -688,13 +703,13 @@ _Directly sent via mscharteredengineer.com_`
         )}
 
         {/* ============================================================ */}
-        {/* CASE B: DYNAMIC CONTEXTUAL 3-STEP CONSULTATION WIZARD        */}
+        {/* CASE B: DYNAMIC CONTEXTUAL CONSULTATION & QUOTATION FORM     */}
         {/* ============================================================ */}
         {!isValuationFlow && step < 4 && (
           <div>
-            <div style={{ marginBottom: '24px' }}>
-              {/* Dynamic Header & Switcher */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '10px' }}>
+            <div style={{ marginBottom: '20px' }}>
+              {/* Dynamic Division Badge & Minimal Switcher */}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '12px' }}>
                 <span 
                   className="section-badge" 
                   style={{ 
@@ -784,173 +799,102 @@ _Directly sent via mscharteredengineer.com_`
                 </div>
               </div>
 
-              <h3 style={{ fontSize: '1.4rem', color: '#0f172a', margin: '4px 0' }}>
-                {step === 1 && `Select ${currentDeptConfig.shortName} Service`}
-                {step === 2 && "Location & Project Scale"}
-                {step === 3 && "Contact Details & Direct Booking"}
-              </h3>
-
-              {/* Progress bar */}
+              {/* DYNAMIC SELECTED SERVICE BANNER */}
               <div style={{
-                width: '100%',
-                height: '4px',
-                background: '#e2e8f0',
-                borderRadius: '2px',
-                marginTop: '14px',
-                overflow: 'hidden'
+                background: '#f0fdf4',
+                border: '1px solid #86efac',
+                borderRadius: '10px',
+                padding: '12px 16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '10px'
               }}>
-                <div style={{
-                  width: `${(step / 3) * 100}%`,
-                  height: '100%',
-                  background: currentDeptConfig.themeColor || '#38bdf8',
-                  transition: 'width 0.3s ease'
-                }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <div style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '8px',
+                    background: '#dcfce7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#16a34a',
+                    flexShrink: 0
+                  }}>
+                    <ShieldCheck size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.70rem', color: '#166534', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      Requested Service
+                    </div>
+                    <div style={{ fontSize: '0.98rem', fontWeight: 800, color: '#0f172a' }}>
+                      {formData.subCategory || 'General Valuation & Technical Consultation'}
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowServiceSelector(!showServiceSelector)}
+                  style={{
+                    fontSize: '0.75rem',
+                    color: '#0284c7',
+                    background: '#ffffff',
+                    border: '1px solid #bfdbfe',
+                    borderRadius: '6px',
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                    fontWeight: 600
+                  }}
+                >
+                  {showServiceSelector ? 'Keep Selected' : 'Change Service'}
+                </button>
               </div>
+
+              {showServiceSelector && (
+                <div style={{ marginTop: '10px', background: '#ffffff', border: '1px solid #cbd5e1', borderRadius: '8px', padding: '12px' }}>
+                  <label className="form-label" style={{ fontSize: '0.80rem', marginBottom: '6px' }}>
+                    Select Another Service from {currentDeptConfig.shortName}
+                  </label>
+                  <select
+                    className="form-control"
+                    value={formData.subCategory}
+                    onChange={(e) => {
+                      setFormData({ ...formData, subCategory: e.target.value });
+                      setShowServiceSelector(false);
+                    }}
+                    style={{ fontSize: '0.88rem', padding: '8px 12px' }}
+                  >
+                    {(currentDeptConfig.services.includes(formData.subCategory) 
+                      ? currentDeptConfig.services 
+                      : [formData.subCategory, ...currentDeptConfig.services]
+                    ).map((sub, sIdx) => (
+                      <option key={sIdx} value={sub}>{sub}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
             </div>
 
             {error && (
               <div style={{
                 background: 'rgba(244, 63, 94, 0.15)',
                 border: '1px solid rgba(244, 63, 94, 0.3)',
-                borderRadius: 'var(--radius-md)',
+                borderRadius: '8px',
                 padding: '12px 16px',
-                color: '#fda4af',
+                color: '#e11d48',
                 fontSize: '0.88rem',
-                marginBottom: '20px'
+                marginBottom: '16px'
               }}>
                 {error}
               </div>
             )}
 
-            {/* Step 1: Dynamic Department Service Selection */}
-            {step === 1 && (
-              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '22px' }}>
-                <div className="form-group">
-                  <label className="form-label">Active Division</label>
-                  <div style={{
-                    padding: '10px 14px',
-                    borderRadius: '8px',
-                    background: currentDeptConfig.accentBg,
-                    border: `1px solid ${currentDeptConfig.accentBorder}`,
-                    color: currentDeptConfig.themeColor,
-                    fontWeight: 700,
-                    fontSize: '0.88rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px'
-                  }}>
-                    <DeptIcon size={16} color={currentDeptConfig.themeColor} />
-                    <span>{currentDeptConfig.name}</span>
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">
-                    Specific Service Required ({currentDeptConfig.services.length} Options) *
-                  </label>
-                  <select
-                    className="form-control"
-                    value={formData.subCategory}
-                    onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
-                    style={{ fontSize: '0.90rem', padding: '11px 14px' }}
-                  >
-                    {currentDeptConfig.services.map((sub, sIdx) => (
-                      <option key={sIdx} value={sub}>{sub}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">Requirement Brief / Specific Remarks (Optional)</label>
-                  <textarea
-                    className="form-control"
-                    rows="3"
-                    value={formData.projectScope}
-                    onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
-                    placeholder={currentDeptConfig.scopePlaceholder}
-                    style={{ fontSize: '0.88rem' }}
-                  />
-                </div>
-
-                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '24px' }}>
-                  <button
-                    type="button"
-                    onClick={() => setStep(2)}
-                    style={{ padding: '12px 24px', background: '#38bdf8', color: '#07080d', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  >
-                    <span>Continue to Project Scale</span>
-                    <ArrowRight size={16} />
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Location & Dynamic Scale Options */}
-            {step === 2 && (
-              <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '22px' }}>
-                <div className="form-group">
-                  <label className="form-label">Plant / Site / Office Location (City, State) *</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    placeholder="e.g. Jaipur, Rajasthan / Bhiwadi / Neemrana / Delhi NCR"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">{currentDeptConfig.scaleLabel}</label>
-                  <select
-                    className="form-control"
-                    value={formData.estimatedAssetValue}
-                    onChange={(e) => setFormData({ ...formData, estimatedAssetValue: e.target.value })}
-                  >
-                    {currentDeptConfig.scaleOptions.map((opt, oIdx) => (
-                      <option key={oIdx} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">Project Timeline / Urgency</label>
-                  <select
-                    className="form-control"
-                    value={formData.urgency}
-                    onChange={(e) => setFormData({ ...formData, urgency: e.target.value })}
-                  >
-                    <option value="Immediate (Within 48-72 Hours Express)">Immediate (Within 48-72 Hours Express)</option>
-                    <option value="Standard (Within 1-2 Weeks)">Standard (Within 1-2 Weeks)</option>
-                    <option value="Planning Phase / Future Project">Planning Phase / Future Project</option>
-                  </select>
-                </div>
-
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px' }}>
-                  <button
-                    type="button"
-                    onClick={() => setStep(1)}
-                    style={{ padding: '12px 20px', background: '#ffffff', border: '1px solid #cbd5e1', color: '#334155', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  >
-                    <ArrowLeft size={16} />
-                    <span>Back</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setStep(3)}
-                    style={{ padding: '12px 24px', background: '#38bdf8', color: '#07080d', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  >
-                    <span>Next: Contact Details</span>
-                    <ArrowRight size={16} />
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Step 3: Contact Details & Submit */}
-            {step === 3 && (
-              <form onSubmit={handleSubmit} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '22px' }}>
+            {/* Direct 1-Step Consultation & Quotation Form */}
+            <form onSubmit={handleSubmit} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px', padding: '22px' }}>
+              <div className="form-row-2col">
                 <div className="form-group">
                   <label className="form-label">Full Name *</label>
                   <input
@@ -958,14 +902,28 @@ _Directly sent via mscharteredengineer.com_`
                     className="form-control"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Rajesh Sharma"
+                    placeholder="e.g. Rajesh Kumar"
                     required
                     autoFocus
                   />
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Company / Factory / Proprietorship</label>
+                  <label className="form-label">Contact Phone Number *</label>
+                  <input
+                    type="tel"
+                    className="form-control"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="e.g. +91 98290 12345"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-row-2col">
+                <div className="form-group">
+                  <label className="form-label">Company / Factory / Firm (Optional)</label>
                   <input
                     type="text"
                     className="form-control"
@@ -975,56 +933,78 @@ _Directly sent via mscharteredengineer.com_`
                   />
                 </div>
 
-                <div className="form-row-2col">
-                  <div className="form-group">
-                    <label className="form-label">Phone Number *</label>
-                    <input
-                      type="tel"
-                      className="form-control"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="e.g. +91 98290 12345"
-                      required
-                    />
-                  </div>
+                <div className="form-group">
+                  <label className="form-label">Email Address (Optional)</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="e.g. director@company.in"
+                  />
+                </div>
+              </div>
 
-                  <div className="form-group">
-                    <label className="form-label">Email Address (Optional)</label>
-                    <input
-                      type="email"
-                      className="form-control"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="e.g. director@company.in"
-                    />
-                  </div>
+              <div className="form-row-2col">
+                <div className="form-group">
+                  <label className="form-label">Site / Plant Location (City, State) *</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    placeholder="e.g. Jaipur, Rajasthan / Pan-India"
+                    required
+                  />
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px' }}>
-                  <button
-                    type="button"
-                    onClick={() => setStep(2)}
-                    style={{ padding: '12px 20px', background: '#ffffff', border: '1px solid #cbd5e1', color: '#334155', borderRadius: '8px', fontWeight: 500, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                <div className="form-group">
+                  <label className="form-label">Delivery Urgency / Turnaround</label>
+                  <select
+                    className="form-control"
+                    value={formData.urgency}
+                    onChange={(e) => setFormData({ ...formData, urgency: e.target.value })}
                   >
-                    <ArrowLeft size={16} />
-                    <span>Back</span>
-                  </button>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    style={{ padding: '12px 28px', background: '#F58220', color: '#ffffff', border: 'none', borderRadius: '8px', fontWeight: 600, fontSize: '0.90rem', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                  >
-                    {loading ? <span>Submitting...</span> : (
-                      <>
-                        <Send size={16} />
-                        <span>Submit Booking Request</span>
-                      </>
-                    )}
-                  </button>
+                    <option value="Immediate (Within 48-72 Hours Express)">Immediate (Within 48-72 Hours Express)</option>
+                    <option value="Standard (Within 1-2 Weeks)">Standard (Within 1-2 Weeks)</option>
+                    <option value="Planning Phase / Next Month">Planning Phase / Next Month</option>
+                  </select>
                 </div>
-              </form>
-            )}
+              </div>
+
+              <div className="form-group">
+                <label className="form-label">Requirement Brief / Specific Remarks (Optional)</label>
+                <textarea
+                  className="form-control"
+                  rows="2"
+                  value={formData.projectScope}
+                  onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
+                  placeholder={currentDeptConfig.scopePlaceholder}
+                  style={{ fontSize: '0.88rem' }}
+                />
+              </div>
+
+              <div style={{ marginTop: '20px' }}>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn btn-gold"
+                  style={{ width: '100%', padding: '13px', fontSize: '0.98rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                >
+                  {loading ? (
+                    <span>Submitting Quotation Request...</span>
+                  ) : (
+                    <>
+                      <Send size={18} />
+                      <span>Submit Request for {formData.subCategory || 'Service'}</span>
+                    </>
+                  )}
+                </button>
+                <div style={{ textAlign: 'center', fontSize: '0.78rem', color: '#64748b', marginTop: '10px' }}>
+                  Directly dispatched to Er. KS (B.Tech IIT Roorkee, Corporate Member IEI). Fast response guaranteed.
+                </div>
+              </div>
+            </form>
           </div>
         )}
 

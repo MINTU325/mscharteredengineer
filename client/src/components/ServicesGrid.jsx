@@ -32,7 +32,7 @@ import {
   Activity,
 } from 'lucide-react';
 
-const servicesData = [
+export const servicesData = [
   {
     id: '01',
     code: 'property-land-valuation',
