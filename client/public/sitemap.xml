@@ -56,6 +56,17 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://www.mscharteredengineer.com/registered-valuers</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.mscharteredengineer.com/slides/slide1.webp</image:loc>
+      <image:title>Registered Valuers - Section 34 AB Wealth Tax &amp; IBBI Companies Act 2013</image:title>
+      <image:caption>Statutory Independent &amp; Compliant Valuation Reports across 13 Practice Areas by Master of Valuation &amp; Chartered Engineers</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.mscharteredengineer.com/services/oil-gas-pipeline-stress-analysis</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>

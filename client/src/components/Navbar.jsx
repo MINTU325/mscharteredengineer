@@ -241,7 +241,7 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
                         <div>
                           <div className="dropdown-item-title" style={{ color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '6px' }}>
                             <span>Chartered Engineers &amp; Valuations</span>
-                            <span style={{ fontSize: '0.62rem', background: 'rgba(56, 189, 248, 0.18)', color: '#38bdf8', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>6 SERVICES</span>
+                            <span style={{ fontSize: '0.62rem', background: 'rgba(56, 189, 248, 0.18)', color: '#38bdf8', padding: '1px 5px', borderRadius: '4px', fontWeight: 800 }}>IBBI &amp; CE</span>
                           </div>
                           <div className="dropdown-item-desc">Asset appraisals, bank loans, DGFT &amp; statutory audit</div>
                         </div>
@@ -251,6 +251,16 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
 
                     {/* Flyout Sub-Service Menu */}
                     <div className={`nav-sub-menu ${valuationSubmenuOpen ? 'sub-menu--open' : ''}`}>
+                      <a href="/registered-valuers" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item" style={{ background: 'rgba(56, 189, 248, 0.1)', borderBottom: '1px solid rgba(56, 189, 248, 0.2)' }}>
+                        <Award size={15} color="#38bdf8" className="dropdown-item-icon" />
+                        <div>
+                          <div className="dropdown-item-title" style={{ color: '#38bdf8', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <span>Registered Valuers Portal</span>
+                            <span style={{ fontSize: '0.58rem', background: '#38bdf8', color: '#031726', padding: '1px 5px', borderRadius: '3px', fontWeight: 800 }}>IBBI &amp; 34AB</span>
+                          </div>
+                          <div className="dropdown-item-desc">All 13 Statutory Practice Areas &amp; Reports</div>
+                        </div>
+                      </a>
                       <a href="/property-valuation" onClick={handleDropdownItemClick} className="nav-dropdown-item sub-item">
                         <Building2 size={15} color="#0284c7" className="dropdown-item-icon" />
                         <div>
@@ -490,6 +500,11 @@ export default function Navbar({ onOpenQuote, onToggleAdmin, isAdminOpen }) {
           </button>
           {mobileValuationOpen && (
             <div style={{ paddingLeft: '14px', borderLeft: '2px solid rgba(56, 189, 248, 0.3)', margin: '4px 0 6px 14px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              <a href="/registered-valuers" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#38bdf8', fontWeight: 700 }}>
+                <Award size={14} color="#38bdf8" />
+                <span>Registered Valuers (IBBI &amp; Sec 34 AB)</span>
+                <span style={{ background: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8', fontSize: '0.62rem', padding: '1px 6px', borderRadius: '4px', fontWeight: 700, marginLeft: 'auto' }}>13 AREAS</span>
+              </a>
               <a href="/property-valuation" onClick={() => setMobileMenuOpen(false)} className="mobile-drawer-link" style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Building2 size={14} color="#38bdf8" />
                 <span>Property &amp; Land Valuation</span>

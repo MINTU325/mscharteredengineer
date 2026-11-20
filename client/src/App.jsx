@@ -36,6 +36,7 @@ const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
 const ElectricalServicesPage = lazy(() => import('./components/ElectricalServicesPage'));
 const FabricationServicesPage = lazy(() => import('./components/FabricationServicesPage'));
 const SolarStructuralAnalysisPage = lazy(() => import('./components/SolarStructuralAnalysisPage'));
+const RegisteredValuersPage = lazy(() => import('./components/RegisteredValuersPage'));
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | KS Chartered Engineers (IIT Roorkee)' },
@@ -128,8 +129,23 @@ const ROUTE_CONFIG = {
   '/tax-valuation': { id: 'statutory-tax-valuation', title: 'Capital Gains & 2001 Fair Market Valuation | KS Chartered Engineers' },
   '/ibc-valuation': { id: 'ibc-nclt-corporate-valuation', title: 'IBC 2016 & NCLT Asset Valuation | KS Chartered Engineers' },
   '/machinery-valuation': { id: 'plant-machinery-valuation', title: 'Plant & Machinery Valuation | KS Chartered Engineers' },
-  '/valuation': { id: 'valuation', title: 'Assets Valuation Services | KS Chartered Engineers' },
-  '/assets-valuation': { id: 'valuation', title: 'Assets Valuation Services | KS Chartered Engineers' },
+  '/registered-valuers': {
+    id: 'registered-valuers',
+    title: 'Registered Valuers | Section 34 AB & IBBI Valuations | KS Chartered Engineers',
+    description: 'Approved under Section 34 AB Wealth Tax Act & IBBI Registered Valuers under Companies Act 2013. Independent compliant valuation reports for capital gains, DCF share transfer, IBC, and commercial properties.'
+  },
+  '/registered-valuer': {
+    id: 'registered-valuers',
+    title: 'Registered Valuers | Section 34 AB & IBBI Valuations | KS Chartered Engineers',
+    description: 'Approved under Section 34 AB Wealth Tax Act & IBBI Registered Valuers under Companies Act 2013. Independent compliant valuation reports for capital gains, DCF share transfer, IBC, and commercial properties.'
+  },
+  '/valuation-services': {
+    id: 'registered-valuers',
+    title: 'Registered Valuers | Section 34 AB & IBBI Valuations | KS Chartered Engineers',
+    description: 'Approved under Section 34 AB Wealth Tax Act & IBBI Registered Valuers under Companies Act 2013. Independent compliant valuation reports for capital gains, DCF share transfer, IBC, and commercial properties.'
+  },
+  '/valuation': { id: 'registered-valuers', title: 'Registered Valuers & Assets Valuation | KS Chartered Engineers' },
+  '/assets-valuation': { id: 'registered-valuers', title: 'Registered Valuers & Assets Valuation | KS Chartered Engineers' },
   '/chartered-engineer': { id: 'chartered-engineer', title: 'Chartered Engineer in Jaipur & India | DGFT, Customs & Machinery | KS Chartered Engineers' },
   '/safety-energy-audits': { id: 'safety-energy-audits', title: 'Industrial Safety & BEE Energy Audits | KS Chartered Engineers' },
   '/fssai': { id: 'fssai', title: 'FSSAI Compliance Services | KS Chartered Engineers' },
@@ -527,6 +543,9 @@ export default function App() {
     }
     if (routeId === 'solar-structural-analysis') {
       return <SolarStructuralAnalysisPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'registered-valuers') {
+      return <RegisteredValuersPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
     if (routeId === 'projects') {
       return <ArchitecturalProjects onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
