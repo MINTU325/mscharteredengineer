@@ -347,36 +347,6 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
     });
   }, [selectedCategory, searchQuery]);
 
-  // Active service object for Dossier view
-  const activeService = useMemo(() => {
-    return VALUATION_SERVICES_DATA.find((s) => s.id === activeServiceId) || VALUATION_SERVICES_DATA[0];
-  }, [activeServiceId]);
-
-  // 3 Statutory Pillars for Grouped Presentation
-  const statutoryPillars = [
-    {
-      id: 'tax-wealth',
-      pillarTitle: 'Taxation & Personal Wealth Valuations',
-      actSubtitle: 'Approved under Section 34 AB – Wealth Tax Act & CBDT Scrutiny',
-      badgeColor: '#0284c7',
-      serviceIds: ['01', '02', '03', '04']
-    },
-    {
-      id: 'corporate-dcf',
-      pillarTitle: 'Corporate Restructuring, M&A & DCF Valuations',
-      actSubtitle: 'Registered under Section 247 – Companies Act 2013 & IBBI (IBC 2016)',
-      badgeColor: '#7c3aed',
-      serviceIds: ['08', '09', '10', '11', '13']
-    },
-    {
-      id: 'commercial-legal',
-      pillarTitle: 'Commercial, Banking & Judicial Dispute Valuations',
-      actSubtitle: 'Civil Courts, SARFAESI Lending, Ind AS 16 & Institutional Appraisals',
-      badgeColor: '#10b981',
-      serviceIds: ['05', '06', '07', '12']
-    }
-  ];
-
   // FAQs
   const faqs = [
     {
@@ -1482,7 +1452,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
 
         <button
           type="button"
-          onClick={() => onOpenQuote(activeService ? activeService.title : 'Registered Valuer Valuation', { category: 'Registered Valuers' })}
+          onClick={() => onOpenQuote('Registered Valuer Valuation', { category: 'Registered Valuers' })}
           style={{
             flex: '1',
             background: '#F58220',
