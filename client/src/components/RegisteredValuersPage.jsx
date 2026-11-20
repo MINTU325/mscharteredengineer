@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import {
   ArrowLeft,
   ChevronLeft,
@@ -23,7 +23,12 @@ import {
   TrendingUp,
   FileCheck2,
   Check,
-  ChevronDown
+  ChevronDown,
+  Table,
+  LayoutGrid,
+  Sparkles,
+  ArrowRight,
+  Filter
 } from 'lucide-react';
 
 // ── 1. Interactive Slider Showcase Data ─────────────────────────────────────
@@ -275,6 +280,11 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
   const [isSliderPaused, setIsSliderPaused] = useState(false);
   const slideTimerRef = useRef(null);
 
+  // View Mode: 'dossier' (Split Master-Detail) | 'table' (Statutory Ledger) | 'cards' (Grid)
+  const [viewMode, setViewMode] = useState('dossier');
+  const [activeServiceId, setActiveServiceId] = useState('01');
+  const [expandedTableRow, setExpandedTableRow] = useState('01');
+
   // Search & Filter State
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -304,14 +314,46 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
   const categories = ['All', 'Taxation & CBDT', 'Banking & Mortgage', 'Corporate Governance', 'Legal & Immigration', 'Commercial & M&A'];
 
   // Filtered Services
-  const filteredServices = VALUATION_SERVICES_DATA.filter((service) => {
-    const matchesCategory = selectedCategory === 'All' || service.category.includes(selectedCategory);
-    const matchesSearch =
-      service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.actCompliance.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      service.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredServices = useMemo(() => {
+    return VALUATION_SERVICES_DATA.filter((service) => {
+      const matchesCategory = selectedCategory === 'All' || service.category.includes(selectedCategory);
+      const matchesSearch =
+        service.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        service.actCompliance.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        service.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
+
+  // Active service object for Dossier view
+  const activeService = useMemo(() => {
+    return VALUATION_SERVICES_DATA.find((s) => s.id === activeServiceId) || VALUATION_SERVICES_DATA[0];
+  }, [activeServiceId]);
+
+  // 3 Statutory Pillars for Grouped Presentation
+  const statutoryPillars = [
+    {
+      id: 'tax-wealth',
+      pillarTitle: 'Taxation & Personal Wealth Valuations',
+      actSubtitle: 'Approved under Section 34 AB – Wealth Tax Act & CBDT Scrutiny',
+      badgeColor: '#0284c7',
+      serviceIds: ['01', '02', '03', '04']
+    },
+    {
+      id: 'corporate-dcf',
+      pillarTitle: 'Corporate Restructuring, M&A & DCF Valuations',
+      actSubtitle: 'Registered under Section 247 – Companies Act 2013 & IBBI (IBC 2016)',
+      badgeColor: '#7c3aed',
+      serviceIds: ['08', '09', '10', '11', '13']
+    },
+    {
+      id: 'commercial-legal',
+      pillarTitle: 'Commercial, Banking & Judicial Dispute Valuations',
+      actSubtitle: 'Civil Courts, SARFAESI Lending, Ind AS 16 & Institutional Appraisals',
+      badgeColor: '#10b981',
+      serviceIds: ['05', '06', '07', '12']
+    }
+  ];
 
   // FAQs
   const faqs = [
@@ -719,65 +761,147 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
         </div>
       </section>
 
-      {/* ── 4. COMPLETE 13 VALUATION SERVICES DIRECTORY ── */}
-      <section style={{ padding: '48px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
-        <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 20px' }}>
+      {/* ── 4. COMPLETE 13 VALUATION SERVICES DIRECTORY (MULTI-VIEW EXPERIENCE) ── */}
+      <section style={{ padding: '52px 0 60px', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 20px' }}>
           
-          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px' }}>
-            <div style={{ fontSize: '0.78rem', color: '#0284c7', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
-              Statutory Directory
+          {/* Header & Unslop Context */}
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 32px' }}>
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '4px 12px',
+              background: '#eff6ff',
+              border: '1px solid #bfdbfe',
+              borderRadius: '6px',
+              color: '#0284c7',
+              fontSize: '0.74rem',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              marginBottom: '10px'
+            }}>
+              <Award size={13} />
+              <span>Independent &amp; Compliant Practice Areas</span>
             </div>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 800, color: '#0f172a', marginBottom: '12px' }}>
-              Our Valuation Services (13 Practice Areas)
+            
+            <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.4rem)', fontWeight: 800, color: '#0f172a', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+              Statutory Valuation Directory (All 13 Practice Areas)
             </h2>
-            <p style={{ color: '#64748b', fontSize: '0.98rem', lineHeight: 1.6 }}>
-              Independent, accurate, and bank-compliant reports prepared under the Companies Act 2013, Section 34 AB Wealth Tax Act, and International Valuation Standards (IVS).
+            <p style={{ color: '#64748b', fontSize: '0.98rem', lineHeight: 1.6, margin: 0 }}>
+              Independent, accurate, and bank-compliant reports prepared under the <strong>Companies Act 2013</strong>, <strong>Section 34 AB Wealth Tax Act</strong>, and <strong>International Valuation Standards (IVS)</strong>.
             </p>
           </div>
 
-          {/* Search & Category Pills */}
+          {/* Interactive Toolbar: View Switcher + Quick Purpose Search */}
           <div style={{
             background: '#f8fafc',
             border: '1px solid #e2e8f0',
-            borderRadius: '10px',
+            borderRadius: '12px',
             padding: '16px 20px',
-            marginBottom: '32px',
+            marginBottom: '28px',
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '14px'
+            gap: '16px'
           }}>
-            {/* Category Pills */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setSelectedCategory(cat)}
-                  style={{
-                    padding: '6px 14px',
-                    borderRadius: '6px',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    border: selectedCategory === cat ? '1px solid #0284c7' : '1px solid #cbd5e1',
-                    background: selectedCategory === cat ? '#0284c7' : '#ffffff',
-                    color: selectedCategory === cat ? '#ffffff' : '#334155',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease'
-                  }}
-                >
-                  {cat}
-                </button>
-              ))}
+            {/* View Switcher Controls */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em', marginRight: '4px' }}>
+                View Mode:
+              </span>
+
+              {/* 1. Split Dossier Explorer (Master-Detail) */}
+              <button
+                type="button"
+                onClick={() => setViewMode('dossier')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  padding: '7px 14px',
+                  borderRadius: '6px',
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  border: viewMode === 'dossier' ? '1px solid #0284c7' : '1px solid #cbd5e1',
+                  background: viewMode === 'dossier' ? '#0284c7' : '#ffffff',
+                  color: viewMode === 'dossier' ? '#ffffff' : '#334155',
+                  boxShadow: viewMode === 'dossier' ? '0 2px 4px rgba(2, 132, 199, 0.2)' : 'none',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <Layers size={14} />
+                <span>Split Dossier Explorer</span>
+                <span style={{
+                  fontSize: '0.62rem',
+                  background: viewMode === 'dossier' ? 'rgba(255,255,255,0.25)' : '#eff6ff',
+                  color: viewMode === 'dossier' ? '#ffffff' : '#0284c7',
+                  padding: '1px 5px',
+                  borderRadius: '3px',
+                  fontWeight: 800
+                }}>
+                  RECOMMENDED
+                </span>
+              </button>
+
+              {/* 2. Statutory Ledger Table */}
+              <button
+                type="button"
+                onClick={() => setViewMode('table')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  padding: '7px 14px',
+                  borderRadius: '6px',
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  border: viewMode === 'table' ? '1px solid #0284c7' : '1px solid #cbd5e1',
+                  background: viewMode === 'table' ? '#0284c7' : '#ffffff',
+                  color: viewMode === 'table' ? '#ffffff' : '#334155',
+                  boxShadow: viewMode === 'table' ? '0 2px 4px rgba(2, 132, 199, 0.2)' : 'none',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <Table size={14} />
+                <span>Statutory Ledger Table</span>
+              </button>
+
+              {/* 3. Cards View */}
+              <button
+                type="button"
+                onClick={() => setViewMode('cards')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '7px',
+                  padding: '7px 14px',
+                  borderRadius: '6px',
+                  fontSize: '0.84rem',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  border: viewMode === 'cards' ? '1px solid #0284c7' : '1px solid #cbd5e1',
+                  background: viewMode === 'cards' ? '#0284c7' : '#ffffff',
+                  color: viewMode === 'cards' ? '#ffffff' : '#334155',
+                  boxShadow: viewMode === 'cards' ? '0 2px 4px rgba(2, 132, 199, 0.2)' : 'none',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <LayoutGrid size={14} />
+                <span>Cards Grid</span>
+              </button>
             </div>
 
-            {/* Search Input */}
+            {/* Fast Search Input */}
             <div style={{ position: 'relative', minWidth: '240px', flex: '1', maxWidth: '320px' }}>
               <Search size={15} color="#94a3b8" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
               <input
                 type="text"
-                placeholder="Search valuation services..."
+                placeholder="Search practice areas, acts, DCF..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 style={{
@@ -793,122 +917,534 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
             </div>
           </div>
 
-          {/* Services Grid (All 13 Services) */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-            gap: '20px'
-          }}>
-            {filteredServices.map((service) => (
-              <div
-                key={service.id}
-                style={{
-                  background: '#ffffff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '10px',
-                  padding: '24px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
-                  boxShadow: '0 2px 6px rgba(15, 23, 42, 0.03)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#0284c7';
-                  e.currentTarget.style.boxShadow = '0 6px 18px rgba(2, 132, 199, 0.08)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = '#e2e8f0';
-                  e.currentTarget.style.boxShadow = '0 2px 6px rgba(15, 23, 42, 0.03)';
-                }}
-              >
-                <div>
-                  {/* Card Header: Category & ID */}
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
-                    <span style={{
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      color: '#0284c7',
-                      background: '#eff6ff',
-                      border: '1px solid #bfdbfe',
-                      padding: '2px 8px',
-                      borderRadius: '4px',
-                      textTransform: 'uppercase'
-                    }}>
-                      {service.category}
-                    </span>
-                    <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>
-                      #{service.id}
-                    </span>
-                  </div>
+          {/* ═════════════════════════════════════════════════════════════════════
+              VIEW 1: SPLIT DOSSIER EXPLORER (Master-Detail Dynamic Architecture)
+             ═════════════════════════════════════════════════════════════════════ */}
+          {viewMode === 'dossier' && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(300px, 420px) minmax(460px, 1fr)',
+              gap: '24px',
+              alignItems: 'start'
+            }}>
+              
+              {/* Left Column: Categorized Index Grouped by 3 Statutory Pillars */}
+              <div style={{
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
+                borderRadius: '12px',
+                padding: '20px',
+                boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
+                maxHeight: '840px',
+                overflowY: 'auto'
+              }}>
+                <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '14px' }}>
+                  Select Practice Area ({filteredServices.length} of 13 Available)
+                </div>
 
-                  <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#0f172a', margin: '0 0 8px', lineHeight: 1.35 }}>
-                    {service.title}
-                  </h3>
+                {statutoryPillars.map((pillar) => {
+                  const servicesInPillar = filteredServices.filter((s) => pillar.serviceIds.includes(s.id));
+                  if (servicesInPillar.length === 0) return null;
 
-                  <div style={{ fontSize: '0.76rem', color: '#16a34a', fontWeight: 600, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <ShieldCheck size={14} />
-                    <span>{service.actCompliance}</span>
-                  </div>
+                  return (
+                    <div key={pillar.id} style={{ marginBottom: '22px' }}>
+                      {/* Pillar Header Badge */}
+                      <div style={{
+                        background: '#f8fafc',
+                        borderLeft: `3px solid ${pillar.badgeColor}`,
+                        padding: '6px 10px',
+                        borderRadius: '0 6px 6px 0',
+                        marginBottom: '8px'
+                      }}>
+                        <div style={{ fontSize: '0.80rem', fontWeight: 700, color: '#0f172a' }}>
+                          {pillar.pillarTitle}
+                        </div>
+                        <div style={{ fontSize: '0.68rem', color: '#64748b' }}>
+                          {pillar.actSubtitle}
+                        </div>
+                      </div>
 
-                  <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6, marginBottom: '16px' }}>
-                    {service.description}
-                  </p>
+                      {/* Items in Pillar */}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                        {servicesInPillar.map((service) => {
+                          const isSelected = service.id === activeService.id;
 
-                  {/* Deliverables Checklist */}
-                  <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '12px', marginBottom: '16px' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '6px' }}>
-                      Key Deliverables:
+                          return (
+                            <button
+                              key={service.id}
+                              type="button"
+                              onClick={() => setActiveServiceId(service.id)}
+                              style={{
+                                width: '100%',
+                                textAlign: 'left',
+                                padding: '10px 12px',
+                                borderRadius: '8px',
+                                border: isSelected ? '1px solid #0284c7' : '1px solid #f1f5f9',
+                                background: isSelected ? '#f0f9ff' : '#ffffff',
+                                cursor: 'pointer',
+                                transition: 'all 0.15s ease',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                gap: '8px'
+                              }}
+                              onMouseEnter={(e) => {
+                                if (!isSelected) {
+                                  e.currentTarget.style.background = '#f8fafc';
+                                  e.currentTarget.style.borderColor = '#cbd5e1';
+                                }
+                              }}
+                              onMouseLeave={(e) => {
+                                if (!isSelected) {
+                                  e.currentTarget.style.background = '#ffffff';
+                                  e.currentTarget.style.borderColor = '#f1f5f9';
+                                }
+                              }}
+                            >
+                              <div>
+                                <div style={{
+                                  fontSize: '0.86rem',
+                                  fontWeight: isSelected ? 700 : 600,
+                                  color: isSelected ? '#0284c7' : '#1e293b',
+                                  lineHeight: 1.3
+                                }}>
+                                  {service.title}
+                                </div>
+                                <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>
+                                  {service.actCompliance}
+                                </div>
+                              </div>
+
+                              <div style={{
+                                fontSize: '0.72rem',
+                                color: isSelected ? '#0284c7' : '#94a3b8',
+                                fontWeight: 700,
+                                flexShrink: 0
+                              }}>
+                                #{service.id}
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                      {service.deliverables.map((item, dIdx) => (
-                        <li key={dIdx} style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'flex-start', gap: '6px', marginBottom: '4px' }}>
-                          <Check size={14} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  );
+                })}
+              </div>
+
+              {/* Right Column: Dynamic Statutory Dossier Preview (Sticky) */}
+              <div style={{
+                position: 'sticky',
+                top: '90px',
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
+                borderRadius: '12px',
+                padding: '30px',
+                boxShadow: '0 8px 24px rgba(15, 23, 42, 0.06)'
+              }}>
+                {/* Official Dossier Header */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  borderBottom: '1px solid #e2e8f0',
+                  paddingBottom: '14px',
+                  marginBottom: '18px'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <ShieldCheck size={18} color="#0284c7" />
+                    <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                      Statutory Valuation Dossier
+                    </span>
+                  </div>
+
+                  <span style={{
+                    fontSize: '0.74rem',
+                    fontWeight: 700,
+                    color: '#16a34a',
+                    background: '#f0fdf4',
+                    border: '1px solid #bbf7d0',
+                    padding: '3px 8px',
+                    borderRadius: '4px'
+                  }}>
+                    {activeService.turnaround} SLA
+                  </span>
+                </div>
+
+                {/* Title & Statutory Act Tag */}
+                <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0f172a', margin: '0 0 8px', lineHeight: 1.25 }}>
+                  {activeService.title}
+                </h3>
+
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '4px 10px',
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '6px',
+                  color: '#334155',
+                  fontSize: '0.80rem',
+                  fontWeight: 600,
+                  marginBottom: '16px'
+                }}>
+                  <FileCheck2 size={14} color="#0284c7" />
+                  <span>Governing Law: <strong>{activeService.actCompliance}</strong></span>
+                </div>
+
+                {/* Description */}
+                <p style={{ fontSize: '0.94rem', color: '#475569', lineHeight: 1.65, marginBottom: '20px' }}>
+                  {activeService.description}
+                </p>
+
+                {/* Key Deliverables Section */}
+                <div style={{
+                  background: '#f8fafc',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '8px',
+                  padding: '16px 18px',
+                  marginBottom: '18px'
+                }}>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 700, color: '#0f172a', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>
+                    Certified Deliverables in Report:
+                  </div>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {activeService.deliverables.map((item, idx) => (
+                      <li key={idx} style={{ fontSize: '0.84rem', color: '#334155', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                        <Check size={14} color="#16a34a" style={{ flexShrink: 0, marginTop: '3px' }} />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Required Client Documents Checklist */}
+                <div style={{ marginBottom: '24px' }}>
+                  <div style={{ fontSize: '0.76rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '8px' }}>
+                    Client Checklist / Required Documents:
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {activeService.documentsRequired.map((doc, idx) => (
+                      <span
+                        key={idx}
+                        style={{
+                          background: '#ffffff',
+                          border: '1px solid #cbd5e1',
+                          padding: '3px 9px',
+                          borderRadius: '4px',
+                          fontSize: '0.76rem',
+                          color: '#475569'
+                        }}
+                      >
+                        ✓ {doc}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Card Action Row */}
-                <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
-                  <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                    <Clock size={12} style={{ display: 'inline', marginRight: '4px' }} />
-                    <span>{service.turnaround}</span>
-                  </div>
-
+                {/* Dossier Action Buttons */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', borderTop: '1px solid #e2e8f0', paddingTop: '18px' }}>
                   <button
                     type="button"
-                    onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
+                    onClick={() => onOpenQuote(activeService.title, { category: activeService.category, turnaround: activeService.turnaround })}
                     style={{
-                      background: '#f8fafc',
-                      border: '1px solid #cbd5e1',
+                      flex: '1',
+                      minWidth: '200px',
+                      background: '#F58220',
+                      color: '#ffffff',
+                      border: 'none',
                       borderRadius: '6px',
-                      padding: '7px 14px',
-                      fontSize: '0.82rem',
-                      fontWeight: 600,
-                      color: '#0f172a',
+                      padding: '11px 18px',
+                      fontSize: '0.88rem',
+                      fontWeight: 700,
                       cursor: 'pointer',
-                      transition: 'all 0.15s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#0284c7';
-                      e.currentTarget.style.color = '#ffffff';
-                      e.currentTarget.style.borderColor = '#0284c7';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = '#f8fafc';
-                      e.currentTarget.style.color = '#0f172a';
-                      e.currentTarget.style.borderColor = '#cbd5e1';
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      boxShadow: '0 2px 6px rgba(245, 130, 32, 0.3)'
                     }}
                   >
-                    Request Quote
+                    <span>Request Statutory Quote</span>
+                    <ArrowRight size={14} />
                   </button>
+
+                  <a
+                    href={`https://wa.me/919158658885?text=${encodeURIComponent(`Hello Er. KS, I require a statutory Registered Valuer report for: ${activeService.title}. Please provide checklist and quotation.`)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      background: '#10b981',
+                      color: '#ffffff',
+                      borderRadius: '6px',
+                      padding: '11px 16px',
+                      fontSize: '0.86rem',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}
+                  >
+                    <MessageSquare size={15} />
+                    <span>WhatsApp Desk</span>
+                  </a>
                 </div>
+
               </div>
-            ))}
-          </div>
+
+            </div>
+          )}
+
+          {/* ═════════════════════════════════════════════════════════════════════
+              VIEW 2: STATUTORY LEDGER TABLE (Institutional Audit Schedule)
+             ═════════════════════════════════════════════════════════════════════ */}
+          {viewMode === 'table' && (
+            <div style={{
+              background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)'
+            }}>
+              <div style={{ overflowX: 'auto' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px' }}>
+                  <thead>
+                    <tr style={{ background: '#f8fafc', borderBottom: '1px solid #cbd5e1' }}>
+                      <th style={{ padding: '12px 16px', fontSize: '0.76rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', width: '60px' }}>#</th>
+                      <th style={{ padding: '12px 16px', fontSize: '0.76rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase' }}>Valuation Practice Area</th>
+                      <th style={{ padding: '12px 16px', fontSize: '0.76rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase' }}>Statutory Law / Authority</th>
+                      <th style={{ padding: '12px 16px', fontSize: '0.76rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', width: '130px' }}>Turnaround</th>
+                      <th style={{ padding: '12px 16px', fontSize: '0.76rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', width: '140px', textAlign: 'right' }}>Direct Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredServices.map((service, idx) => {
+                      const isExpanded = expandedTableRow === service.id;
+
+                      return (
+                        <React.Fragment key={service.id}>
+                          <tr
+                            onClick={() => setExpandedTableRow(isExpanded ? null : service.id)}
+                            style={{
+                              borderBottom: '1px solid #f1f5f9',
+                              background: isExpanded ? '#f0f9ff' : (idx % 2 === 0 ? '#ffffff' : '#fafafa'),
+                              cursor: 'pointer',
+                              transition: 'background 0.15s ease'
+                            }}
+                          >
+                            <td style={{ padding: '14px 16px', fontSize: '0.82rem', fontWeight: 700, color: '#64748b' }}>
+                              #{service.id}
+                            </td>
+                            <td style={{ padding: '14px 16px' }}>
+                              <div style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0f172a' }}>
+                                {service.title}
+                              </div>
+                              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+                                {service.category}
+                              </div>
+                            </td>
+                            <td style={{ padding: '14px 16px' }}>
+                              <span style={{
+                                fontSize: '0.76rem',
+                                color: '#0284c7',
+                                background: '#eff6ff',
+                                border: '1px solid #bfdbfe',
+                                padding: '3px 8px',
+                                borderRadius: '4px',
+                                fontWeight: 600
+                              }}>
+                                {service.actCompliance}
+                              </span>
+                            </td>
+                            <td style={{ padding: '14px 16px', fontSize: '0.82rem', color: '#16a34a', fontWeight: 600 }}>
+                              <Clock size={13} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'middle' }} />
+                              <span>{service.turnaround}</span>
+                            </td>
+                            <td style={{ padding: '14px 16px', textAlign: 'right' }}>
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround });
+                                }}
+                                style={{
+                                  background: '#0284c7',
+                                  color: '#ffffff',
+                                  border: 'none',
+                                  borderRadius: '4px',
+                                  padding: '6px 12px',
+                                  fontSize: '0.78rem',
+                                  fontWeight: 600,
+                                  cursor: 'pointer'
+                                }}
+                              >
+                                Quote
+                              </button>
+                            </td>
+                          </tr>
+
+                          {/* Expanded Drawer Row */}
+                          {isExpanded && (
+                            <tr style={{ background: '#f8fafc', borderBottom: '1px solid #cbd5e1' }}>
+                              <td colSpan={5} style={{ padding: '18px 24px' }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+                                  <div>
+                                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0f172a', textTransform: 'uppercase', marginBottom: '6px' }}>
+                                      Scope &amp; Description:
+                                    </div>
+                                    <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
+                                      {service.description}
+                                    </p>
+                                  </div>
+
+                                  <div>
+                                    <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0f172a', textTransform: 'uppercase', marginBottom: '6px' }}>
+                                      Certified Deliverables:
+                                    </div>
+                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                                      {service.deliverables.map((del, dIdx) => (
+                                        <li key={dIdx} style={{ fontSize: '0.80rem', color: '#334155', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '3px' }}>
+                                          <Check size={12} color="#16a34a" />
+                                          <span>{del}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* ═════════════════════════════════════════════════════════════════════
+              VIEW 3: CARDS GRID VIEW
+             ═════════════════════════════════════════════════════════════════════ */}
+          {viewMode === 'cards' && (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+              gap: '20px'
+            }}>
+              {filteredServices.map((service) => (
+                <div
+                  key={service.id}
+                  style={{
+                    background: '#ffffff',
+                    border: '1px solid #e2e8f0',
+                    borderRadius: '10px',
+                    padding: '24px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    transition: 'border-color 0.15s ease, box-shadow 0.15s ease',
+                    boxShadow: '0 2px 6px rgba(15, 23, 42, 0.03)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#0284c7';
+                    e.currentTarget.style.boxShadow = '0 6px 18px rgba(2, 132, 199, 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#e2e8f0';
+                    e.currentTarget.style.boxShadow = '0 2px 6px rgba(15, 23, 42, 0.03)';
+                  }}
+                >
+                  <div>
+                    {/* Card Header: Category & ID */}
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                      <span style={{
+                        fontSize: '0.72rem',
+                        fontWeight: 700,
+                        color: '#0284c7',
+                        background: '#eff6ff',
+                        border: '1px solid #bfdbfe',
+                        padding: '2px 8px',
+                        borderRadius: '4px',
+                        textTransform: 'uppercase'
+                      }}>
+                        {service.category}
+                      </span>
+                      <span style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>
+                        #{service.id}
+                      </span>
+                    </div>
+
+                    <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#0f172a', margin: '0 0 8px', lineHeight: 1.35 }}>
+                      {service.title}
+                    </h3>
+
+                    <div style={{ fontSize: '0.76rem', color: '#16a34a', fontWeight: 600, marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <ShieldCheck size={14} />
+                      <span>{service.actCompliance}</span>
+                    </div>
+
+                    <p style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.6, marginBottom: '16px' }}>
+                      {service.description}
+                    </p>
+
+                    {/* Deliverables Checklist */}
+                    <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '12px', marginBottom: '16px' }}>
+                      <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.03em', marginBottom: '6px' }}>
+                        Key Deliverables:
+                      </div>
+                      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                        {service.deliverables.map((item, dIdx) => (
+                          <li key={dIdx} style={{ fontSize: '0.82rem', color: '#475569', display: 'flex', alignItems: 'flex-start', gap: '6px', marginBottom: '4px' }}>
+                            <Check size={14} color="#10b981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Card Action Row */}
+                  <div style={{ borderTop: '1px solid #e2e8f0', paddingTop: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+                    <div style={{ fontSize: '0.78rem', color: '#64748b' }}>
+                      <Clock size={12} style={{ display: 'inline', marginRight: '4px' }} />
+                      <span>{service.turnaround}</span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
+                      style={{
+                        background: '#f8fafc',
+                        border: '1px solid #cbd5e1',
+                        borderRadius: '6px',
+                        padding: '7px 14px',
+                        fontSize: '0.82rem',
+                        fontWeight: 600,
+                        color: '#0f172a',
+                        cursor: 'pointer',
+                        transition: 'all 0.15s ease'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = '#0284c7';
+                        e.currentTarget.style.color = '#ffffff';
+                        e.currentTarget.style.borderColor = '#0284c7';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = '#f8fafc';
+                        e.currentTarget.style.color = '#0f172a';
+                        e.currentTarget.style.borderColor = '#cbd5e1';
+                      }}
+                    >
+                      Request Quote
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
         </div>
       </section>
