@@ -380,7 +380,130 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
   ];
 
   return (
-    <div className="registered-valuers-page" style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingBottom: '60px' }}>
+    <div className="registered-valuers-page rv-page-container" style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingBottom: '70px' }}>
+      
+      {/* ── RESPONSIVE MOBILE-FIRST CSS RULES ── */}
+      <style>{`
+        .rv-dossier-layout {
+          display: grid;
+          grid-template-columns: minmax(320px, 420px) minmax(460px, 1fr);
+          gap: 24px;
+          align-items: start;
+        }
+        .rv-desktop-dossier {
+          display: block;
+        }
+        .rv-mobile-in-place-dossier {
+          display: none;
+        }
+        .rv-sticky-mobile-bar {
+          display: none;
+        }
+        .rv-table-scroll-hint {
+          display: none;
+        }
+        .rv-text-mobile {
+          display: none;
+        }
+        .rv-text-desktop {
+          display: inline;
+        }
+
+        /* Tablet & Mobile Screens (<= 900px) */
+        @media (max-width: 900px) {
+          .rv-page-container {
+            padding-bottom: 90px !important;
+          }
+          .rv-dossier-layout {
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+          }
+          .rv-desktop-dossier {
+            display: none !important;
+          }
+          .rv-mobile-in-place-dossier {
+            display: block !important;
+            margin-top: 12px;
+            padding-top: 14px;
+            border-top: 1px dashed #cbd5e1;
+            text-align: left;
+          }
+          .rv-sticky-mobile-bar {
+            display: flex !important;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            padding: 10px 14px;
+            gap: 10px;
+            box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+            z-index: 999;
+          }
+          .rv-toolbar-row {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            gap: 12px !important;
+          }
+          .rv-view-switcher {
+            width: 100% !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr 1fr !important;
+            gap: 6px !important;
+          }
+          .rv-view-switcher button {
+            justify-content: center !important;
+            padding: 9px 6px !important;
+            font-size: 0.80rem !important;
+          }
+          .rv-view-switcher .rv-rec-badge {
+            display: none !important;
+          }
+          .rv-text-mobile {
+            display: inline !important;
+          }
+          .rv-text-desktop {
+            display: none !important;
+          }
+          .rv-slider-box {
+            min-height: 320px !important;
+          }
+          .rv-slide-img {
+            height: 320px !important;
+          }
+          .rv-slide-overlay {
+            padding: 22px 18px !important;
+          }
+          .rv-slide-title {
+            font-size: 1.32rem !important;
+            line-height: 1.25 !important;
+            margin-bottom: 8px !important;
+          }
+          .rv-slide-subtitle {
+            font-size: 0.84rem !important;
+            line-height: 1.45 !important;
+            margin-bottom: 14px !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          .rv-table-scroll-hint {
+            display: flex !important;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.74rem;
+            color: #0284c7;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-weight: 600;
+          }
+        }
+      `}</style>
       
       {/* ── TOP BREADCRUMB & JURISDICTION BAR ── */}
       <div style={{ background: '#ffffff', borderBottom: '1px solid #e2e8f0', padding: '12px 0' }}>
@@ -623,7 +746,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
           </div>
 
           {/* Slider Shell */}
-          <div style={{
+          <div className="rv-slider-box" style={{
             position: 'relative',
             borderRadius: '12px',
             overflow: 'hidden',
@@ -645,6 +768,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 <img
                   src={slide.image}
                   alt={slide.title}
+                  className="rv-slide-img"
                   style={{
                     width: '100%',
                     height: '380px',
@@ -654,7 +778,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 />
 
                 {/* Overlay Content */}
-                <div style={{
+                <div className="rv-slide-overlay" style={{
                   position: 'absolute',
                   top: 0,
                   left: 0,
@@ -679,15 +803,15 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                     fontSize: '0.74rem',
                     fontWeight: 700,
                     textTransform: 'uppercase',
-                    marginBottom: '12px',
+                    marginBottom: '10px',
                     width: 'fit-content'
                   }}>
                     <Award size={13} />
                     <span>{slide.badge}</span>
                   </div>
 
-                  <h3 style={{
-                    fontSize: 'clamp(1.5rem, 2.8vw, 2.2rem)',
+                  <h3 className="rv-slide-title" style={{
+                    fontSize: 'clamp(1.4rem, 2.8vw, 2.2rem)',
                     fontWeight: 800,
                     color: '#ffffff',
                     lineHeight: 1.25,
@@ -696,11 +820,11 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                     {slide.title}
                   </h3>
 
-                  <p style={{
+                  <p className="rv-slide-subtitle" style={{
                     color: '#cbd5e1',
-                    fontSize: '0.96rem',
+                    fontSize: '0.94rem',
                     lineHeight: 1.6,
-                    marginBottom: '20px'
+                    marginBottom: '18px'
                   }}>
                     {slide.subtitle}
                   </p>
@@ -722,7 +846,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                     >
                       Request {slide.highlight}
                     </button>
-                    <span style={{ fontSize: '0.82rem', color: '#94a3b8' }}>
+                    <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
                       Attested by Corporate Member IEI &amp; IBBI Registered Valuer
                     </span>
                   </div>
@@ -786,16 +910,16 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
               <span>Independent &amp; Compliant Practice Areas</span>
             </div>
             
-            <h2 style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.4rem)', fontWeight: 800, color: '#0f172a', marginBottom: '12px', letterSpacing: '-0.02em' }}>
+            <h2 style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.4rem)', fontWeight: 800, color: '#0f172a', marginBottom: '12px', letterSpacing: '-0.02em' }}>
               Statutory Valuation Directory (All 13 Practice Areas)
             </h2>
-            <p style={{ color: '#64748b', fontSize: '0.98rem', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ color: '#64748b', fontSize: '0.96rem', lineHeight: 1.6, margin: 0 }}>
               Independent, accurate, and bank-compliant reports prepared under the <strong>Companies Act 2013</strong>, <strong>Section 34 AB Wealth Tax Act</strong>, and <strong>International Valuation Standards (IVS)</strong>.
             </p>
           </div>
 
           {/* Interactive Toolbar: View Switcher + Quick Purpose Search */}
-          <div style={{
+          <div className="rv-toolbar-row" style={{
             background: '#f8fafc',
             border: '1px solid #e2e8f0',
             borderRadius: '12px',
@@ -808,9 +932,9 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
             gap: '16px'
           }}>
             {/* View Switcher Controls */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <div className="rv-view-switcher" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em', marginRight: '4px' }}>
-                View Mode:
+                View:
               </span>
 
               {/* 1. Split Dossier Explorer (Master-Detail) */}
@@ -834,8 +958,9 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 }}
               >
                 <Layers size={14} />
-                <span>Split Dossier Explorer</span>
-                <span style={{
+                <span className="rv-text-desktop">Split Dossier Explorer</span>
+                <span className="rv-text-mobile">Dossier</span>
+                <span className="rv-rec-badge" style={{
                   fontSize: '0.62rem',
                   background: viewMode === 'dossier' ? 'rgba(255,255,255,0.25)' : '#eff6ff',
                   color: viewMode === 'dossier' ? '#ffffff' : '#0284c7',
@@ -868,7 +993,8 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 }}
               >
                 <Table size={14} />
-                <span>Statutory Ledger Table</span>
+                <span className="rv-text-desktop">Statutory Ledger Table</span>
+                <span className="rv-text-mobile">Table</span>
               </button>
 
               {/* 3. Cards View */}
@@ -892,7 +1018,8 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 }}
               >
                 <LayoutGrid size={14} />
-                <span>Cards Grid</span>
+                <span className="rv-text-desktop">Cards Grid</span>
+                <span className="rv-text-mobile">Cards</span>
               </button>
             </div>
 
@@ -921,10 +1048,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
               VIEW 1: SPLIT DOSSIER EXPLORER (Master-Detail Dynamic Architecture)
              ═════════════════════════════════════════════════════════════════════ */}
           {viewMode === 'dossier' && (
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(300px, 420px) minmax(460px, 1fr)',
-              gap: '24px',
+            <div className="rv-dossier-layout" style={{
               alignItems: 'start'
             }}>
               
@@ -933,7 +1057,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 background: '#ffffff',
                 border: '1px solid #e2e8f0',
                 borderRadius: '12px',
-                padding: '20px',
+                padding: '16px',
                 boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
                 maxHeight: '840px',
                 overflowY: 'auto'
@@ -947,7 +1071,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                   if (servicesInPillar.length === 0) return null;
 
                   return (
-                    <div key={pillar.id} style={{ marginBottom: '22px' }}>
+                    <div key={pillar.id} style={{ marginBottom: '20px' }}>
                       {/* Pillar Header Badge */}
                       <div style={{
                         background: '#f8fafc',
@@ -965,65 +1089,161 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                       </div>
 
                       {/* Items in Pillar */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         {servicesInPillar.map((service) => {
                           const isSelected = service.id === activeService.id;
 
                           return (
-                            <button
+                            <div
                               key={service.id}
-                              type="button"
-                              onClick={() => setActiveServiceId(service.id)}
                               style={{
-                                width: '100%',
-                                textAlign: 'left',
-                                padding: '10px 12px',
                                 borderRadius: '8px',
                                 border: isSelected ? '1px solid #0284c7' : '1px solid #f1f5f9',
                                 background: isSelected ? '#f0f9ff' : '#ffffff',
-                                cursor: 'pointer',
                                 transition: 'all 0.15s ease',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
-                                gap: '8px'
-                              }}
-                              onMouseEnter={(e) => {
-                                if (!isSelected) {
-                                  e.currentTarget.style.background = '#f8fafc';
-                                  e.currentTarget.style.borderColor = '#cbd5e1';
-                                }
-                              }}
-                              onMouseLeave={(e) => {
-                                if (!isSelected) {
-                                  e.currentTarget.style.background = '#ffffff';
-                                  e.currentTarget.style.borderColor = '#f1f5f9';
-                                }
+                                overflow: 'hidden'
                               }}
                             >
-                              <div>
-                                <div style={{
-                                  fontSize: '0.86rem',
-                                  fontWeight: isSelected ? 700 : 600,
-                                  color: isSelected ? '#0284c7' : '#1e293b',
-                                  lineHeight: 1.3
-                                }}>
-                                  {service.title}
+                              {/* Service Header Bar */}
+                              <button
+                                type="button"
+                                onClick={() => setActiveServiceId(activeServiceId === service.id ? '' : service.id)}
+                                style={{
+                                  width: '100%',
+                                  textAlign: 'left',
+                                  padding: '11px 12px',
+                                  background: 'transparent',
+                                  border: 'none',
+                                  cursor: 'pointer',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'space-between',
+                                  gap: '8px'
+                                }}
+                              >
+                                <div>
+                                  <div style={{
+                                    fontSize: '0.86rem',
+                                    fontWeight: isSelected ? 700 : 600,
+                                    color: isSelected ? '#0284c7' : '#1e293b',
+                                    lineHeight: 1.3
+                                  }}>
+                                    {service.title}
+                                  </div>
+                                  <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>
+                                    {service.actCompliance}
+                                  </div>
                                 </div>
-                                <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '2px' }}>
-                                  {service.actCompliance}
-                                </div>
-                              </div>
 
-                              <div style={{
-                                fontSize: '0.72rem',
-                                color: isSelected ? '#0284c7' : '#94a3b8',
-                                fontWeight: 700,
-                                flexShrink: 0
-                              }}>
-                                #{service.id}
-                              </div>
-                            </button>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+                                  <span style={{
+                                    fontSize: '0.72rem',
+                                    color: isSelected ? '#0284c7' : '#94a3b8',
+                                    fontWeight: 700
+                                  }}>
+                                    #{service.id}
+                                  </span>
+                                  <ChevronDown
+                                    size={15}
+                                    color={isSelected ? '#0284c7' : '#94a3b8'}
+                                    style={{
+                                      transform: isSelected ? 'rotate(180deg)' : 'rotate(0deg)',
+                                      transition: 'transform 0.2s ease'
+                                    }}
+                                  />
+                                </div>
+                              </button>
+
+                              {/* IN-PLACE MOBILE DOSSIER (< 900px screens) */}
+                              {isSelected && (
+                                <div className="rv-mobile-in-place-dossier" style={{ padding: '0 12px 14px' }}>
+                                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                                    <span style={{ fontSize: '0.70rem', fontWeight: 700, color: '#16a34a', background: '#f0fdf4', padding: '2px 7px', borderRadius: '4px' }}>
+                                      ⚡ {service.turnaround}
+                                    </span>
+                                    <span style={{ fontSize: '0.70rem', color: '#64748b' }}>
+                                      {service.category}
+                                    </span>
+                                  </div>
+
+                                  <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.55, marginBottom: '10px' }}>
+                                    {service.description}
+                                  </p>
+
+                                  {/* Deliverables */}
+                                  <div style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '8px 10px', marginBottom: '10px' }}>
+                                    <div style={{ fontSize: '0.70rem', fontWeight: 700, color: '#0f172a', textTransform: 'uppercase', marginBottom: '4px' }}>
+                                      Deliverables:
+                                    </div>
+                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                      {service.deliverables.map((item, dIdx) => (
+                                        <li key={dIdx} style={{ fontSize: '0.76rem', color: '#334155', display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
+                                          <Check size={12} color="#16a34a" style={{ flexShrink: 0, marginTop: '2px' }} />
+                                          <span>{item}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+
+                                  {/* Documents */}
+                                  <div style={{ marginBottom: '12px' }}>
+                                    <div style={{ fontSize: '0.68rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', marginBottom: '4px' }}>
+                                      Required Documents:
+                                    </div>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
+                                      {service.documentsRequired.map((doc, docIdx) => (
+                                        <span key={docIdx} style={{ background: '#ffffff', border: '1px solid #cbd5e1', padding: '2px 6px', borderRadius: '4px', fontSize: '0.68rem', color: '#475569' }}>
+                                          ✓ {doc}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  </div>
+
+                                  {/* Action Buttons */}
+                                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                                    <button
+                                      type="button"
+                                      onClick={() => onOpenQuote(service.title, { category: service.category, turnaround: service.turnaround })}
+                                      style={{
+                                        background: '#F58220',
+                                        color: '#ffffff',
+                                        border: 'none',
+                                        borderRadius: '6px',
+                                        padding: '9px 8px',
+                                        fontSize: '0.78rem',
+                                        fontWeight: 700,
+                                        cursor: 'pointer',
+                                        textAlign: 'center'
+                                      }}
+                                    >
+                                      Request Quote
+                                    </button>
+                                    <a
+                                      href={`https://wa.me/919158658885?text=${encodeURIComponent(`Hello Er. KS, I require a statutory Registered Valuer report for: ${service.title}.`)}`}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      style={{
+                                        background: '#10b981',
+                                        color: '#ffffff',
+                                        borderRadius: '6px',
+                                        padding: '9px 8px',
+                                        fontSize: '0.78rem',
+                                        fontWeight: 700,
+                                        textDecoration: 'none',
+                                        textAlign: 'center',
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        gap: '4px'
+                                      }}
+                                    >
+                                      <MessageSquare size={13} />
+                                      <span>WhatsApp</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
                           );
                         })}
                       </div>
@@ -1032,8 +1252,8 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 })}
               </div>
 
-              {/* Right Column: Dynamic Statutory Dossier Preview (Sticky) */}
-              <div style={{
+              {/* Right Column: Dynamic Statutory Dossier Preview (Sticky Desktop Only) */}
+              <div className="rv-desktop-dossier" style={{
                 position: 'sticky',
                 top: '90px',
                 background: '#ffffff',
@@ -1201,14 +1421,19 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
               VIEW 2: STATUTORY LEDGER TABLE (Institutional Audit Schedule)
              ═════════════════════════════════════════════════════════════════════ */}
           {viewMode === 'table' && (
-            <div style={{
-              background: '#ffffff',
-              border: '1px solid #e2e8f0',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)'
-            }}>
-              <div style={{ overflowX: 'auto' }}>
+            <div>
+              <div className="rv-table-scroll-hint">
+                <ArrowRight size={13} />
+                <span>Swipe left/right to view full statutory schedule, turnaround &amp; direct actions</span>
+              </div>
+              <div style={{
+                background: '#ffffff',
+                border: '1px solid #e2e8f0',
+                borderRadius: '12px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 12px rgba(15, 23, 42, 0.04)'
+              }}>
+                <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '800px' }}>
                   <thead>
                     <tr style={{ background: '#f8fafc', borderBottom: '1px solid #cbd5e1' }}>
@@ -1323,7 +1548,8 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                 </table>
               </div>
             </div>
-          )}
+          </div>
+        )}
 
           {/* ═════════════════════════════════════════════════════════════════════
               VIEW 3: CARDS GRID VIEW
@@ -1750,6 +1976,56 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
           </div>
         </div>
       </section>
+
+      {/* ── MOBILE STICKY FLOATING BOTTOM BAR (< 900px) ── */}
+      <div className="rv-sticky-mobile-bar">
+        <a
+          href="https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20need%20a%20Registered%20Valuer%20statutory%20report%20for%20my%20property%20/%20assets."
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            flex: '1',
+            background: '#10b981',
+            color: '#ffffff',
+            borderRadius: '8px',
+            padding: '12px 14px',
+            fontSize: '0.86rem',
+            fontWeight: 700,
+            textAlign: 'center',
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '6px'
+          }}
+        >
+          <MessageSquare size={16} />
+          <span>WhatsApp Valuer</span>
+        </a>
+
+        <button
+          type="button"
+          onClick={() => onOpenQuote(activeService ? activeService.title : 'Registered Valuer Valuation', { category: 'Registered Valuers' })}
+          style={{
+            flex: '1',
+            background: '#F58220',
+            color: '#ffffff',
+            border: 'none',
+            borderRadius: '8px',
+            padding: '12px 14px',
+            fontSize: '0.86rem',
+            fontWeight: 700,
+            cursor: 'pointer',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '6px'
+          }}
+        >
+          <span>Request Quote</span>
+          <ArrowRight size={14} />
+        </button>
+      </div>
 
     </div>
   );
