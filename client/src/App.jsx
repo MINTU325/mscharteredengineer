@@ -36,7 +36,7 @@ const BusinessLoansPage = lazy(() => import('./components/BusinessLoansPage'));
 const ElectricalServicesPage = lazy(() => import('./components/ElectricalServicesPage'));
 const FabricationServicesPage = lazy(() => import('./components/FabricationServicesPage'));
 const SolarStructuralAnalysisPage = lazy(() => import('./components/SolarStructuralAnalysisPage'));
-const RegisteredValuersPage = lazy(() => import('./components/RegisteredValuersPage'));
+import RegisteredValuersPage from './components/RegisteredValuersPage';
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | KS Chartered Engineers (IIT Roorkee)' },

@@ -191,6 +191,27 @@ const ROUTE_META = {
     keywords: 'PM Surya Ghar vendor registration, rooftop solar consultancy, net metering liaisoning Jaipur, DISCOM solar feasibility Rajasthan',
     canonical: 'https://www.mscharteredengineer.com/solar-consultancy',
     ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/registered-valuers': {
+    title: 'Registered Valuers | Section 34 AB & IBBI Valuations | KS Chartered Engineers',
+    description: 'Approved under Section 34 AB Wealth Tax Act & IBBI Registered Valuers under Companies Act 2013. Accurate, reliable and compliant valuation services for capital gains, DCF share transfer, IBC, and commercial properties.',
+    keywords: 'Registered Valuers, IBBI registered valuer, Section 34 AB wealth tax act, capital gain valuation 50C, DCF share transfer valuation, IBC valuation NCLT, master of valuation Jaipur India',
+    canonical: 'https://www.mscharteredengineer.com/registered-valuers',
+    ogImage: 'https://www.mscharteredengineer.com/slides/slide1.webp'
+  },
+  '/registered-valuer': {
+    title: 'Registered Valuers | Section 34 AB & IBBI Valuations | KS Chartered Engineers',
+    description: 'Approved under Section 34 AB Wealth Tax Act & IBBI Registered Valuers under Companies Act 2013. Accurate, reliable and compliant valuation services for capital gains, DCF share transfer, IBC, and commercial properties.',
+    keywords: 'Registered Valuers, IBBI registered valuer, Section 34 AB wealth tax act, capital gain valuation 50C, DCF share transfer valuation, IBC valuation NCLT, master of valuation Jaipur India',
+    canonical: 'https://www.mscharteredengineer.com/registered-valuers',
+    ogImage: 'https://www.mscharteredengineer.com/slides/slide1.webp'
+  },
+  '/valuation-services': {
+    title: 'Registered Valuers | Section 34 AB & IBBI Valuations | KS Chartered Engineers',
+    description: 'Approved under Section 34 AB Wealth Tax Act & IBBI Registered Valuers under Companies Act 2013. Accurate, reliable and compliant valuation services for capital gains, DCF share transfer, IBC, and commercial properties.',
+    keywords: 'Registered Valuers, IBBI registered valuer, Section 34 AB wealth tax act, capital gain valuation 50C, DCF share transfer valuation, IBC valuation NCLT, master of valuation Jaipur India',
+    canonical: 'https://www.mscharteredengineer.com/registered-valuers',
+    ogImage: 'https://www.mscharteredengineer.com/slides/slide1.webp'
   }
 };
 
@@ -200,6 +221,7 @@ if (fs.existsSync(clientDist)) {
   app.use(express.static(clientDist));
   app.get('*', (req, res, next) => {
     if (req.url.startsWith('/api')) return next();
+    if (req.path.startsWith('/assets/')) return res.status(404).send('Asset not found');
     const cleanPath = req.path.replace(/\/$/, '') || '/';
     let meta = ROUTE_META[cleanPath];
     if (!meta && cleanPath.startsWith('/services/')) {
@@ -255,9 +277,13 @@ if (fs.existsSync(clientDist)) {
           modifiedHtml = modifiedHtml.replace(/<meta name="twitter:image" content=".*?" \/>/i, `<meta name="twitter:image" content="${meta.ogImage}" />`);
         }
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
         return res.send(modifiedHtml);
       });
     } else {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       res.sendFile(path.join(clientDist, 'index.html'));
     }
   });
