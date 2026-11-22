@@ -28,7 +28,8 @@ import {
   LayoutGrid,
   Sparkles,
   ArrowRight,
-  Filter
+  Filter,
+  Cpu
 } from 'lucide-react';
 
 // ── 1. Interactive Slider Showcase Data ─────────────────────────────────────
