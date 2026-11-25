@@ -678,7 +678,68 @@ _Directly sent via mscharteredengineer.com_`
                 </div>
               </div>
 
-              <div style={{ marginTop: '24px' }}>
+              {/* DPDP Act 2023 Statutory Privacy Notice & Consent Checkbox */}
+              <div style={{
+                background: 'rgba(245, 158, 11, 0.08)',
+                border: '1px solid rgba(245, 158, 11, 0.25)',
+                borderRadius: '8px',
+                padding: '12px 14px',
+                fontSize: '0.80rem',
+                color: '#fde68a',
+                lineHeight: 1.5,
+                marginTop: '16px'
+              }}>
+                <div style={{ fontWeight: 700, color: '#f59e0b', marginBottom: '4px' }}>
+                  🛡️ Statutory Privacy Notice (DPDP Act 2023)
+                </div>
+                <div style={{ color: '#cbd5e1' }}>
+                  Please do <strong>NOT submit unnecessary PAN, Aadhaar, bank credentials, or sensitive documents</strong> through this form. Official documents are collected securely only upon formal engagement.
+                </div>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginTop: '8px', cursor: 'pointer', color: '#e2e8f0' }}>
+                  <input
+                    type="checkbox"
+                    required
+                    defaultChecked={true}
+                    style={{ marginTop: '2px', accentColor: '#f59e0b' }}
+                  />
+                  <span>
+                    I consent to KS Chartered Engineers processing my contact details for this consultation in compliance with the DPDP Act 2023. <a href="/privacy-policy" target="_blank" rel="noreferrer" style={{ color: '#f59e0b', textDecoration: 'underline' }}>Privacy Policy</a>.
+                  </span>
+                </label>
+              </div>
+
+              {/* DPDP Act 2023 Statutory Privacy Notice & Consent Checkbox */}
+              <div style={{
+                background: '#fffbeb',
+                border: '1px solid #fde68a',
+                borderRadius: '8px',
+                padding: '12px 14px',
+                fontSize: '0.80rem',
+                color: '#92400e',
+                lineHeight: 1.5,
+                marginTop: '14px',
+                marginBottom: '14px'
+              }}>
+                <div style={{ fontWeight: 700, color: '#b45309', marginBottom: '4px' }}>
+                  🛡️ Statutory Privacy Notice (DPDP Act 2023)
+                </div>
+                <div style={{ color: '#78350f' }}>
+                  Please do <strong>NOT submit unnecessary PAN, Aadhaar, bank credentials, or sensitive documents</strong> through this form. Official documents are collected securely only upon formal engagement.
+                </div>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginTop: '8px', cursor: 'pointer', color: '#78350f' }}>
+                  <input
+                    type="checkbox"
+                    required
+                    defaultChecked={true}
+                    style={{ marginTop: '2px', accentColor: '#d97706' }}
+                  />
+                  <span>
+                    I consent to KS Chartered Engineers processing my contact details for this consultation in compliance with the DPDP Act 2023. <a href="/privacy-policy" target="_blank" rel="noreferrer" style={{ color: '#b45309', textDecoration: 'underline' }}>Privacy Policy</a>.
+                  </span>
+                </label>
+              </div>
+
+              <div style={{ marginTop: '10px' }}>
                 <button
                   type="submit"
                   disabled={loading}
@@ -984,7 +1045,38 @@ _Directly sent via mscharteredengineer.com_`
                 />
               </div>
 
-              <div style={{ marginTop: '20px' }}>
+              {/* DPDP Act 2023 Statutory Privacy Notice & Consent Checkbox */}
+              <div style={{
+                background: '#fffbeb',
+                border: '1px solid #fde68a',
+                borderRadius: '8px',
+                padding: '12px 14px',
+                fontSize: '0.80rem',
+                color: '#92400e',
+                lineHeight: 1.5,
+                marginTop: '14px',
+                marginBottom: '14px'
+              }}>
+                <div style={{ fontWeight: 700, color: '#b45309', marginBottom: '4px' }}>
+                  🛡️ Statutory Privacy Notice (DPDP Act 2023)
+                </div>
+                <div style={{ color: '#78350f' }}>
+                  Please do <strong>NOT submit unnecessary PAN, Aadhaar, bank credentials, or sensitive documents</strong> through this form. Official documents are collected securely only upon formal engagement.
+                </div>
+                <label style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginTop: '8px', cursor: 'pointer', color: '#78350f' }}>
+                  <input
+                    type="checkbox"
+                    required
+                    defaultChecked={true}
+                    style={{ marginTop: '2px', accentColor: '#d97706' }}
+                  />
+                  <span>
+                    I consent to KS Chartered Engineers processing my contact details for this consultation in compliance with the DPDP Act 2023. <a href="/privacy-policy" target="_blank" rel="noreferrer" style={{ color: '#b45309', textDecoration: 'underline' }}>Privacy Policy</a>.
+                  </span>
+                </label>
+              </div>
+
+              <div style={{ marginTop: '10px' }}>
                 <button
                   type="submit"
                   disabled={loading}

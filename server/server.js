@@ -212,6 +212,48 @@ const ROUTE_META = {
     keywords: 'Registered Valuers, IBBI registered valuer, Section 34 AB wealth tax act, capital gain valuation 50C, DCF share transfer valuation, IBC valuation NCLT, master of valuation Jaipur India',
     canonical: 'https://www.mscharteredengineer.com/registered-valuers',
     ogImage: 'https://www.mscharteredengineer.com/slides/slide1.webp'
+  },
+  '/privacy-policy': {
+    title: 'Privacy Policy & DPDP Act 2023 Statutory Notice | KS Chartered Engineers',
+    description: 'Statutory privacy notice under Section 5 of India’s Digital Personal Data Protection Act 2023. Notice on personal data collection, purpose, Data Principal rights, and designated Grievance Officer.',
+    keywords: 'DPDP Act 2023 privacy policy, data fiduciary notice, section 5 DPDP, KS Chartered Engineers privacy, data protection grievance officer',
+    canonical: 'https://www.mscharteredengineer.com/privacy-policy',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/cookie-policy': {
+    title: 'Cookie Policy & Consent Architecture | KS Chartered Engineers',
+    description: 'Comprehensive disclosure of strictly necessary vs optional analytics cookies under DPDP Act 2023. Interactive cookie preference management.',
+    keywords: 'cookie policy, DPDP Act cookie consent, necessary cookies, Google Analytics consent, cookie settings India',
+    canonical: 'https://www.mscharteredengineer.com/cookie-policy',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/data-privacy-rights': {
+    title: 'Data Principal Rights Portal (Chapter III DPDP 2023) | KS Chartered Engineers',
+    description: 'Exercise statutory rights under DPDP Act 2023: Right to access data summary, correction, erasure, and nomination under Section 14.',
+    keywords: 'Data Principal Rights, section 11 access, section 12 erasure, section 14 nominee, DPDP Act 2023 rights',
+    canonical: 'https://www.mscharteredengineer.com/data-privacy-rights',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/privacy-grievance': {
+    title: 'Privacy Grievance Redressal (Section 13 DPDP) | KS Chartered Engineers',
+    description: 'Designated Data Protection Grievance Officer details, 30-day statutory resolution SLA, and appellate escalation to Data Protection Board of India.',
+    keywords: 'DPDP grievance redressal, data protection officer Jaipur, section 13 DPDP, DPBI appeal, privacy complaint',
+    canonical: 'https://www.mscharteredengineer.com/privacy-grievance',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/terms-and-conditions': {
+    title: 'Terms & Conditions of Professional Practice | KS Chartered Engineers',
+    description: 'Statutory terms governing engineering valuation, Chartered Engineer certificates, and initial advisory services.',
+    keywords: 'terms of service, chartered engineer agreement, valuation disclaimer, professional engineering terms',
+    canonical: 'https://www.mscharteredengineer.com/terms-and-conditions',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
+  },
+  '/dpdp-compliance': {
+    title: 'DPDP Act 2023 Compliance & Tick-Box Analysis Tool | KS Chartered Engineers',
+    description: 'Interactive 31-point self-assessment audit for enterprises to evaluate statutory readiness under India’s Digital Personal Data Protection Act 2023.',
+    keywords: 'DPDP Act 2023 compliance checklist, privacy tick-box analysis, DPBI penalty assessment, data protection audit India',
+    canonical: 'https://www.mscharteredengineer.com/dpdp-compliance',
+    ogImage: 'https://www.mscharteredengineer.com/og-image-ks.png?v=2'
   }
 };
 

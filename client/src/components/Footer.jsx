@@ -406,6 +406,51 @@ export default function Footer({ onOpenQuote }) {
           ))}
         </div>
 
+        {/* ─── DPDP Act 2023 Statutory Legal & Privacy Bar ─── */}
+        <div style={{
+          borderTop: '1px solid rgba(255,255,255,0.06)',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          padding: '14px 0',
+          marginBottom: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '12px 18px',
+          fontSize: '0.80rem'
+        }}>
+          <span style={{ color: '#f59e0b', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', fontSize: '0.72rem' }}>
+            🇮🇳 DPDP ACT 2023 STATUTORY COMPLIANCE:
+          </span>
+          <a href="/privacy-policy" style={{ color: '#94a3b8', textDecoration: 'none' }}>Privacy Notice</a>
+          <span style={{ color: '#334155' }}>·</span>
+          <a href="/cookie-policy" style={{ color: '#94a3b8', textDecoration: 'none' }}>Cookie Notice</a>
+          <span style={{ color: '#334155' }}>·</span>
+          <a href="/data-privacy-rights" style={{ color: '#38bdf8', textDecoration: 'none', fontWeight: 500 }}>Data Principal Rights</a>
+          <span style={{ color: '#334155' }}>·</span>
+          <a href="/privacy-grievance" style={{ color: '#f59e0b', textDecoration: 'none', fontWeight: 500 }}>Grievance Redressal (S.13)</a>
+          <span style={{ color: '#334155' }}>·</span>
+          <a href="/terms-and-conditions" style={{ color: '#94a3b8', textDecoration: 'none' }}>Terms &amp; Conditions</a>
+          <span style={{ color: '#334155' }}>·</span>
+          <a href="/dpdp-compliance" style={{ color: '#10b981', textDecoration: 'none', fontWeight: 600 }}>DPDP 31-Point Audit Tool</a>
+          <span style={{ color: '#334155' }}>·</span>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('ks_open_cookie_banner'))}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#d4a373',
+              cursor: 'pointer',
+              padding: 0,
+              fontSize: '0.80rem',
+              fontWeight: 600,
+              textDecoration: 'underline'
+            }}
+          >
+            🍪 Cookie Preferences
+          </button>
+        </div>
+
         {/* ─── Bottom Bar ─── */}
         <div style={{
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',

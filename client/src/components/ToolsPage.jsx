@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import ValuationCalculator from './ValuationCalculator';
 import ComplianceChecker from './ComplianceChecker';
+import DpdpComplianceTool from './DpdpComplianceTool';
 
 export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = '/tools' }) {
   const [activeTab, setActiveTab] = useState(() => {
@@ -287,6 +288,31 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
                 <Zap size={14} />
                 <span>2. CEIG Solar Compliance Checker</span>
               </button>
+
+              <button
+                onClick={() => {
+                  setActiveTab('dpdp');
+                  const el = document.getElementById('dpdp-tool');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  fontSize: '0.85rem',
+                  fontWeight: activeTab === 'dpdp' ? 600 : 500,
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                  background: activeTab === 'dpdp' ? '#0284c7' : '#ffffff',
+                  border: `1px solid ${activeTab === 'dpdp' ? '#0284c7' : '#cbd5e1'}`,
+                  color: activeTab === 'dpdp' ? '#ffffff' : '#475569'
+                }}
+              >
+                <ShieldCheck size={14} />
+                <span>3. DPDP Act 2023 Compliance Audit Tool</span>
+              </button>
             </div>
           </div>
         </div>
@@ -302,6 +328,13 @@ export default function ToolsPage({ onOpenQuote, onNavigateHome, currentRoute = 
         {(activeTab === 'all' || activeTab === 'solar') && (
           <div style={{ marginBottom: '32px' }}>
             <ComplianceChecker onOpenQuote={onOpenQuote} lightMode={false} />
+          </div>
+        )}
+
+        {/* ── Tool 3: DPDP Act 2023 Compliance & Tick-Box Analysis ── */}
+        {(activeTab === 'all' || activeTab === 'dpdp') && (
+          <div id="dpdp-tool" style={{ marginBottom: '32px' }}>
+            <DpdpComplianceTool onOpenQuote={onOpenQuote} onNavigateHome={onNavigateHome} />
           </div>
         )}
 

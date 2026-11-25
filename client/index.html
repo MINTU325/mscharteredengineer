@@ -5,21 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Google tag (gtag.js) - Deferred to prioritize Core Web Vitals -->
+    <!-- Google tag (gtag.js) - DPDP Act 2023 Compliant Consent-Gated Loading -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-JJERZPYXRW');
+
+      function isConsentGiven() {
+        try {
+          var consent = localStorage.getItem('ks_dpdp_consent');
+          if (consent) {
+            var parsed = JSON.parse(consent);
+            return parsed.optional === true;
+          }
+        } catch(e) {}
+        return false;
+      }
 
       function loadGtag() {
+        if (!isConsentGiven()) return; // Stays OFF unless user accepts optional cookies
         if (window.__gtagLoaded) return;
         window.__gtagLoaded = true;
+        gtag('config', 'G-JJERZPYXRW');
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JJERZPYXRW';
         document.head.appendChild(s);
       }
+
+      window.addEventListener('ks_cookie_consent_updated', function(e) {
+        if (e.detail && e.detail.optional) {
+          loadGtag();
+        }
+      });
+
       if ('requestIdleCallback' in window) {
         requestIdleCallback(loadGtag, { timeout: 3000 });
       } else {

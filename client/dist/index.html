@@ -4,21 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) - Deferred to prioritize Core Web Vitals -->
+    <!-- Google tag (gtag.js) - DPDP Act 2023 Compliant Consent-Gated Loading -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-JJERZPYXRW');
+
+      function isConsentGiven() {
+        try {
+          var consent = localStorage.getItem('ks_dpdp_consent');
+          if (consent) {
+            var parsed = JSON.parse(consent);
+            return parsed.optional === true;
+          }
+        } catch(e) {}
+        return false;
+      }
 
       function loadGtag() {
+        if (!isConsentGiven()) return; // Stays OFF unless user accepts optional cookies
         if (window.__gtagLoaded) return;
         window.__gtagLoaded = true;
+        gtag('config', 'G-JJERZPYXRW');
         var s = document.createElement('script');
         s.async = true;
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JJERZPYXRW';
         document.head.appendChild(s);
       }
+
+      window.addEventListener('ks_cookie_consent_updated', function(e) {
+        if (e.detail && e.detail.optional) {
+          loadGtag();
+        }
+      });
+
       if ('requestIdleCallback' in window) {
         requestIdleCallback(loadGtag, { timeout: 3000 });
       } else {
@@ -111,9 +130,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="preload" as="image" href="/slides/slide1.webp" type="image/webp" />
-    <script type="module" crossorigin src="/assets/index-BVV7z1J1.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/icons-r93B74N6.js">
-    <link rel="modulepreload" crossorigin href="/assets/react-vendor-D9iEM6Ez.js">
+    <script type="module" crossorigin src="/assets/index-CFPR3zUe.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/icons-BUm4Qet5.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-CMZ2w-L5.js">
     <link rel="stylesheet" crossorigin href="/assets/index-Coq1oAs0.css">
   </head>
   <body>

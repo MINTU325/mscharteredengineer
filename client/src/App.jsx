@@ -37,6 +37,13 @@ const ElectricalServicesPage = lazy(() => import('./components/ElectricalService
 const FabricationServicesPage = lazy(() => import('./components/FabricationServicesPage'));
 const SolarStructuralAnalysisPage = lazy(() => import('./components/SolarStructuralAnalysisPage'));
 import RegisteredValuersPage from './components/RegisteredValuersPage';
+import CookieConsentBanner from './components/CookieConsentBanner';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import CookiePolicyPage from './components/CookiePolicyPage';
+import DataPrincipalRightsPage from './components/DataPrincipalRightsPage';
+import PrivacyGrievancePage from './components/PrivacyGrievancePage';
+import TermsAndConditionsPage from './components/TermsAndConditionsPage';
+import DpdpComplianceTool from './components/DpdpComplianceTool';
 
 const ROUTE_CONFIG = {
   '/': { id: 'home', title: 'Chartered Engineer in Jaipur & India | KS Chartered Engineers (IIT Roorkee)' },
@@ -245,6 +252,41 @@ const ROUTE_CONFIG = {
     title: 'Projects & Engineering Gallery | KS Chartered Engineers',
     description: 'Explore verified engineering audits, machinery certification, and architectural structural project gallery by IIT Roorkee Chartered Engineers.'
   },
+  '/privacy-policy': {
+    id: 'privacy-policy',
+    title: 'Privacy Policy & DPDP Act 2023 Statutory Notice | KS Chartered Engineers',
+    description: 'Statutory privacy notice under Section 5 of India’s Digital Personal Data Protection Act 2023. Disclosures regarding personal data collection, purpose, Data Principal rights, and grievance officer.'
+  },
+  '/cookie-policy': {
+    id: 'cookie-policy',
+    title: 'Cookie Policy & Consent Architecture | KS Chartered Engineers',
+    description: 'Detailed disclosure of strictly necessary vs optional analytics cookies under DPDP Act 2023. Live preference controls.'
+  },
+  '/data-privacy-rights': {
+    id: 'data-privacy-rights',
+    title: 'Data Principal Rights Portal (Chapter III DPDP 2023) | KS Chartered Engineers',
+    description: 'Exercise statutory rights under DPDP Act 2023: Right to access summary, correction, erasure, and nomination.'
+  },
+  '/privacy-grievance': {
+    id: 'privacy-grievance',
+    title: 'Privacy Grievance Redressal (Section 13 DPDP) | KS Chartered Engineers',
+    description: 'Designated Data Protection Grievance Officer details, statutory 30-day SLA, and appellate escalation to Data Protection Board of India.'
+  },
+  '/terms-and-conditions': {
+    id: 'terms-and-conditions',
+    title: 'Terms & Conditions of Professional Practice | KS Chartered Engineers',
+    description: 'Statutory terms governing engineering valuation, Chartered Engineer certificates, and initial advisory services.'
+  },
+  '/terms': {
+    id: 'terms-and-conditions',
+    title: 'Terms & Conditions of Professional Practice | KS Chartered Engineers',
+    description: 'Statutory terms governing engineering valuation, Chartered Engineer certificates, and initial advisory services.'
+  },
+  '/dpdp-compliance': {
+    id: 'dpdp-compliance',
+    title: 'DPDP Act 2023 Compliance & Tick-Box Analysis Tool | KS Chartered Engineers',
+    description: 'Interactive 31-point self-assessment audit for enterprises to evaluate statutory readiness under India’s Digital Personal Data Protection Act 2023.'
+  },
 };
 
 const updateSeoMeta = (config, pathname) => {
@@ -280,7 +322,8 @@ const FULL_PAGE_IDS = new Set([
   'home', 'admin', 'projects', 'faq', 'blog', 'services', 'tools', 'city-hub',
   'chartered-engineer', 'tech-products',
   'government-subsidies', 'business-loans', 'electrical-services', 'fabrication-services',
-  'solar-structural-analysis'
+  'solar-structural-analysis', 'registered-valuers',
+  'privacy-policy', 'cookie-policy', 'data-privacy-rights', 'privacy-grievance', 'terms-and-conditions', 'dpdp-compliance'
 ]);
 
 const SERVICES_ROUTES = new Set([
@@ -550,6 +593,24 @@ export default function App() {
     if (routeId === 'projects') {
       return <ArchitecturalProjects onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
     }
+    if (routeId === 'privacy-policy') {
+      return <PrivacyPolicyPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'cookie-policy') {
+      return <CookiePolicyPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'data-privacy-rights') {
+      return <DataPrincipalRightsPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'privacy-grievance') {
+      return <PrivacyGrievancePage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'terms-and-conditions') {
+      return <TermsAndConditionsPage onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
+    if (routeId === 'dpdp-compliance') {
+      return <DpdpComplianceTool onOpenQuote={handleOpenQuote} onNavigateHome={handleNavigateHome} />;
+    }
     // Check if the route is a dedicated Service Detail Page (/services/:slug or /service-details?slug=...)
     let serviceDetailSlug = null;
     if (currentRoute.startsWith('/services/') && currentRoute.length > 10) {
@@ -731,6 +792,17 @@ export default function App() {
       >
         <WhatsAppIcon size={58} />
       </a>
+
+      {/* Statutory DPDP Act 2023 Cookie Consent Banner & Floating Preferences */}
+      <CookieConsentBanner
+        onNavigate={(path) => {
+          window.history.pushState({}, '', path);
+          setCurrentRoute(path);
+          const cfg = ROUTE_CONFIG[path];
+          if (cfg) document.title = cfg.title;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
     </div>
   );
 }
