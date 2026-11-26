@@ -7,6 +7,7 @@ const inquiryController = require('./controllers/inquiryController');
 const toolsController = require('./controllers/toolsController');
 const dpdpController = require('./controllers/dpdpController');
 const retentionService = require('./services/retentionService');
+const prerenderService = require('./services/prerenderService');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -343,6 +344,24 @@ if (fs.existsSync(clientDist)) {
           modifiedHtml = modifiedHtml.replace(/<meta property="og:image" content=".*?" \/>/i, `<meta property="og:image" content="${meta.ogImage}" />`);
           modifiedHtml = modifiedHtml.replace(/<meta name="twitter:image" content=".*?" \/>/i, `<meta name="twitter:image" content="${meta.ogImage}" />`);
         }
+
+        // ─────────────────────────────────────────────────────────────
+        // Dynamic SEO & Bot Pre-rendering Architecture
+        // ─────────────────────────────────────────────────────────────
+        const userAgent = req.headers['user-agent'] || '';
+        const isBot = prerenderService.isBot(userAgent) || req.query.bot === '1' || req.query.prerender === '1';
+
+        // 1. Inject Rich Schema.org JSON-LD
+        const jsonLd = prerenderService.generateJsonLd(cleanPath, meta);
+        modifiedHtml = modifiedHtml.replace('</head>', `${jsonLd}\n</head>`);
+
+        // 2. If crawler detected, inject rich semantic pre-rendered HTML into #root
+        if (isBot) {
+          const prerenderedBody = prerenderService.getPrerenderedHtml(cleanPath, meta);
+          modifiedHtml = modifiedHtml.replace('<div id="root"></div>', `<div id="root">${prerenderedBody}</div>`);
+          res.setHeader('X-Prerendered', 'true');
+        }
+
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         res.setHeader('Pragma', 'no-cache');
