@@ -40,6 +40,21 @@ export default function CookieConsentBanner({ onNavigate }) {
       localStorage.setItem('ks_dpdp_consent', JSON.stringify(consentObj));
       // Dispatch custom event so app components or Google Analytics tag can respond
       window.dispatchEvent(new CustomEvent('ks_cookie_consent_updated', { detail: consentObj }));
+
+      // Statutory DPDP Section 6 Audit Log on Backend
+      fetch('/api/dpdp/consent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          choice: consentObj.choice,
+          necessary: true,
+          optional: isOptionalAllowed,
+          version: 'dpdp_2023_v1'
+        })
+      }).catch(err => {
+        // Non-blocking fallback
+        console.debug('DPDP Consent backend logging skipped or offline:', err);
+      });
     } catch (e) {
       console.warn('Storage error for cookie consent:', e);
     }

@@ -5,6 +5,8 @@ require('dotenv').config();
 
 const inquiryController = require('./controllers/inquiryController');
 const toolsController = require('./controllers/toolsController');
+const dpdpController = require('./controllers/dpdpController');
+const retentionService = require('./services/retentionService');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -98,6 +100,29 @@ const fs = require('fs');
 // Smart Engineering Tools Endpoints
 app.post('/api/tools/valuation-estimate', toolsController.calculateValuationEstimate);
 app.post('/api/tools/ceig-readiness', toolsController.checkCeigReadiness);
+
+// ─────────────────────────────────────────────────────────
+// DPDP Act 2023 Statutory Compliance & Audit Endpoints
+// ─────────────────────────────────────────────────────────
+// Initialize background retention engine (Section 8(7))
+retentionService.init();
+
+// Statutory Cookie Consent Logging (Section 6)
+app.post('/api/dpdp/consent', dpdpController.recordConsent);
+app.get('/api/dpdp/consents', requireAdminAuth, dpdpController.getConsents);
+
+// Privacy Grievance Redressal (Section 13)
+app.post('/api/dpdp/grievance', dpdpController.submitGrievance);
+app.get('/api/dpdp/grievances', requireAdminAuth, dpdpController.getGrievances);
+app.patch('/api/dpdp/grievances/:id', requireAdminAuth, dpdpController.updateGrievance);
+
+// Data Principal Statutory Rights (Chapter III, Sections 11-14)
+app.post('/api/dpdp/rights-request', dpdpController.submitRightsRequest);
+app.get('/api/dpdp/rights-requests', requireAdminAuth, dpdpController.getRightsRequests);
+
+// Automated Data Retention Status & Manual Execution
+app.get('/api/dpdp/retention/status', dpdpController.getRetentionStatus);
+app.post('/api/dpdp/retention/run', requireAdminAuth, dpdpController.triggerRetentionPrune);
 
 // Route Meta for Dynamic SEO & Social Sharing Crawlers
 const ROUTE_META = {

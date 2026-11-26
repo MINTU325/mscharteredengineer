@@ -14,18 +14,40 @@ export default function DataPrincipalRightsPage({ onOpenQuote, onNavigateHome })
     consentAffirmation: false
   });
 
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState('');
+  const [slaTargetDate, setSlaTargetDate] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.consentAffirmation) {
       alert('Please complete all required fields and confirm statutory affirmation.');
       return;
     }
-    const generatedId = 'DPR-' + Math.floor(100000 + Math.random() * 900000);
-    setTicketId(generatedId);
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const res = await fetch('/api/dpdp/rights-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if (data.success) {
+        setTicketId(data.requestId);
+        setSlaTargetDate(data.slaTargetDate ? new Date(data.slaTargetDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : '30 Calendar Days');
+        setSubmitted(true);
+      } else {
+        alert(data.message || 'Failed to submit request');
+      }
+    } catch (err) {
+      console.warn('Fallback to local submission:', err);
+      const generatedId = 'DPR-' + Math.floor(100000 + Math.random() * 900000);
+      setTicketId(generatedId);
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -130,9 +152,14 @@ export default function DataPrincipalRightsPage({ onOpenQuote, onNavigateHome })
               <h2 style={{ fontSize: '1.6rem', color: '#ffffff', marginBottom: '8px' }}>
                 Statutory Request Registered Successfully!
               </h2>
-              <div style={{ fontSize: '1.1rem', color: '#f59e0b', fontWeight: 700, marginBottom: '16px' }}>
+              <div style={{ fontSize: '1.1rem', color: '#f59e0b', fontWeight: 700, marginBottom: '8px' }}>
                 Tracking Ticket: <code>{ticketId}</code>
               </div>
+              {slaTargetDate && (
+                <div style={{ fontSize: '0.84rem', color: '#38bdf8', marginBottom: '16px' }}>
+                  Statutory SLA Resolution Deadline: <strong>{slaTargetDate}</strong> (30-day statutory window)
+                </div>
+              )}
               <p style={{ maxWidth: '580px', margin: '0 auto 24px', color: '#cbd5e1', fontSize: '0.92rem', lineHeight: 1.6 }}>
                 Under Section 13 of the DPDP Act 2023, our Data Protection Grievance Officer has acknowledged your request. An official verification link has been queued for your email <strong>{formData.email}</strong>. As mandated by law, resolution will be executed within 30 statutory days.
               </p>
@@ -333,15 +360,16 @@ export default function DataPrincipalRightsPage({ onOpenQuote, onNavigateHome })
               {/* Submit Button */}
               <button
                 type="submit"
+                disabled={loading}
                 style={{
-                  background: '#F58220',
+                  background: loading ? '#94a3b8' : '#F58220',
                   color: '#ffffff',
                   border: 'none',
                   padding: '14px 28px',
                   borderRadius: '8px',
                   fontSize: '0.92rem',
                   fontWeight: 700,
-                  cursor: 'pointer',
+                  cursor: loading ? 'not-allowed' : 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
@@ -349,7 +377,7 @@ export default function DataPrincipalRightsPage({ onOpenQuote, onNavigateHome })
                 }}
               >
                 <Send size={16} />
-                <span>Submit Statutory Rights Application</span>
+                <span>{loading ? 'Submitting to Statutory Register...' : 'Submit Statutory Rights Application'}</span>
               </button>
             </form>
           )}

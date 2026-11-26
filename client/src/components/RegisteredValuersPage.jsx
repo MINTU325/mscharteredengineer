@@ -31,6 +31,7 @@ import {
   Filter,
   Cpu
 } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
 // ── 1. Interactive Slider Showcase Data ─────────────────────────────────────
 const VALUATION_SLIDES = [
@@ -858,12 +859,14 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
                   key={slide.id}
                   className={`rv-slide-item ${isActive ? 'active' : ''}`}
                 >
-                  {/* Real Authentic Photograph */}
-                  <img
+                  {/* Real Authentic Photograph with Dynamic CDN Optimization & Progressive Blur-Up */}
+                  <OptimizedImage
                     src={slide.image}
                     alt={slide.title}
                     className="rv-slide-img"
-                    loading="lazy"
+                    priority={idx === 0}
+                    width={1200}
+                    quality={85}
                     style={{
                       width: '100%',
                       height: '440px',

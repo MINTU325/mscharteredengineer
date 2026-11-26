@@ -1,0 +1,21 @@
+[
+  {
+    "requestId": "DPR-591729",
+    "createdAt": "2026-11-26T19:02:27.732Z",
+    "slaTargetDate": "2026-12-26T19:02:27.732Z",
+    "fullName": "Test Data Principal",
+    "email": "principal@example.com",
+    "phone": "Not provided",
+    "requestType": "access",
+    "details": "Requesting summary of personal data held",
+    "nomineeDetails": null,
+    "status": "Received",
+    "verificationStatus": "Pending ID Verification",
+    "actionLog": [
+      {
+        "timestamp": "2026-11-26T19:02:27.732Z",
+        "action": "Statutory rights request logged under DPDP Act 2023."
+      }
+    ]
+  }
+]

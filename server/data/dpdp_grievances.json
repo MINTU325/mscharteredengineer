@@ -1,0 +1,17 @@
+[
+  {
+    "ticketId": "DPBI-GRV-518384",
+    "createdAt": "2026-11-26T19:02:27.729Z",
+    "slaTargetDate": "2026-12-26T19:02:27.729Z",
+    "slaDaysRemaining": 30,
+    "name": "Test Client",
+    "email": "client@example.com",
+    "phone": "+91 9999999999",
+    "grievanceType": "unauthorized_contact",
+    "description": "Test statutory grievance logging",
+    "status": "Open",
+    "designatedOfficer": "Grievance Officer, KS Chartered Engineers (Jaipur HQ)",
+    "resolutionNotes": "",
+    "resolvedAt": null
+  }
+]

@@ -1,0 +1,15 @@
+[
+  {
+    "consentId": "CST-MWXX693H-6935",
+    "timestamp": "2026-11-26T19:02:27.725Z",
+    "choice": "accepted_optional",
+    "necessary": true,
+    "optional": true,
+    "ipHash": "9edff363031e825b",
+    "userAgent": "Standard Browser",
+    "referer": "/",
+    "version": "dpdp_2023_v1",
+    "status": "Active",
+    "expiresAt": "2027-05-25T19:02:27.725Z"
+  }
+]
