@@ -36,43 +36,63 @@ import {
 const VALUATION_SLIDES = [
   {
     id: 1,
-    image: '/slides/slide1.webp',
-    badge: 'IBBI Registered Valuers · Companies Act 2013',
-    title: 'Statutory Corporate & M&A Valuations',
-    subtitle: 'DCF (Discounted Cash Flow) and Net Asset Value (NAV) methodologies for share transfers, mergers, amalgamations, and Section 247 regulatory compliance.',
-    highlight: 'DCF & Fair Value Compliant',
-    tag: 'Corporate & M&A',
-    serviceKey: 'Share Transfer Valuation (DCF Method)'
+    image: '/seo/plant-machinery-asset-valuation-india.jpg',
+    badge: 'IBBI Registered Valuers · Plant & Machinery Asset Class',
+    title: 'Plant, Machinery & Industrial Factory Valuations',
+    subtitle: 'Physical technical inspection, balance useful life (RUL) estimation, and Fair Market Value (FMV) assessment for manufacturing plants, heavy machinery, and industrial utilities under Companies Act 2013 & IndAS 16.',
+    highlight: 'Statutory Bank & Customs Accepted',
+    tag: 'Plant & Machinery',
+    serviceKey: 'Immovable Asset – Book Value Valuation',
+    pill: 'Factories & Machinery',
+    statPillar: 'Companies Act 2013 · IndAS 16'
   },
   {
     id: 2,
-    image: '/slides/slide2.webp',
-    badge: 'Section 34 AB Wealth Tax Act · CBDT Approved',
-    title: 'Direct Tax, Section 50C & 2001 FMV',
-    subtitle: 'Government-approved valuation reports for capital gains tax indexation as on 01-04-2001, Section 50C/54 defense, and Income Tax Appellate Tribunal (ITAT) scrutiny.',
-    highlight: '100% Tax Dept Acceptance',
-    tag: 'Income Tax & Capital Gains',
-    serviceKey: 'Capital Gain Valuation'
+    image: '/corridors/mumbai_pune_hero.jpg',
+    badge: 'IBBI Registered Valuers · Securities & Financial Assets',
+    title: 'Corporate M&A, DCF & Share Transfer Valuations',
+    subtitle: 'Statutory Discounted Cash Flow (DCF), Net Asset Value (NAV), and PE multiple appraisals for FDI/FEMA compliance, Section 247, rights issues, and company mergers under NCLT.',
+    highlight: '100% RoC & RBI Compliant',
+    tag: 'Corporate & M&A',
+    serviceKey: 'Share Transfer Valuation (DCF Method)',
+    pill: 'DCF & Share Transfer',
+    statPillar: 'Rule 11UA(2) & FEMA Standards'
   },
   {
     id: 3,
-    image: '/slides/slide3.webp',
-    badge: 'Commercial Banks, NBFCs & SARFAESI Standards',
-    title: 'Bank Mortgage & Secured Lending Valuations',
-    subtitle: 'Dual-methodology appraisals establishing Fair Market Value (FMV), Realizable Value, and Forced Sale Value (FSV) for industrial, commercial, and residential properties.',
-    highlight: '24–48 Hours Turnaround',
-    tag: 'Banking & Mortgage',
-    serviceKey: 'Investment Valuation'
+    image: '/corridors/chemical_refinery_plant.jpg',
+    badge: 'Section 34 AB Wealth Tax Act · CBDT Approved',
+    title: 'Capital Gains 50C & 2001 Fair Market Valuation',
+    subtitle: 'Government-approved valuation reports for capital gains tax indexation as on 01-04-2001, defending Section 50C circle rate disputes before Assessing Officers & Income Tax Appellate Tribunal (ITAT).',
+    highlight: '100% Tax Dept Acceptance',
+    tag: 'Income Tax & Capital Gains',
+    serviceKey: 'Capital Gain Valuation',
+    pill: 'Tax & Section 50C',
+    statPillar: 'Income Tax Act 1961 (Sec 50C, 54, 55)'
   },
   {
     id: 4,
-    image: '/slides/slide4.webp',
-    badge: 'Civil Courts, IBC Insolvency & Family Estate',
-    title: 'Court Litigation, Partition & IBC Valuations',
-    subtitle: 'Independent and admissible valuation certificates for High Court disputes, family partition deeds, probate matters, and CIRP liquidation value under IBBI.',
-    highlight: 'Judicial & Tribunal Valid',
-    tag: 'Litigation & Partition',
-    serviceKey: 'Court Case / Litigation Valuation'
+    image: '/projects/architectural/luxury-classical-villa.webp',
+    badge: 'Commercial Banks & NBFCs Empanelled · SARFAESI Standards',
+    title: 'Bank Mortgage & Secured Lending Valuations',
+    subtitle: 'Comprehensive dual-methodology appraisals establishing Fair Market Value (FMV), Realizable Value, and Forced Sale Value (FSV) for industrial estates, commercial complexes, and prime real estate.',
+    highlight: '24–48 Hours Turnaround',
+    tag: 'Banking & Mortgage',
+    serviceKey: 'Investment Valuation',
+    pill: 'Bank Loan & FSV',
+    statPillar: 'SARFAESI Act & RBI Prudent Norms'
+  },
+  {
+    id: 5,
+    image: '/projects/architectural/glass-pavilion-terrace.webp',
+    badge: 'Commercial Real Estate & Hospitality Valuations',
+    title: 'Hotels, Resorts, Malls & Institutional Valuations',
+    subtitle: 'Income capitalization of net operating yields (NOI), replacement cost method, and DCF hospitality projections for hotels, luxury resorts, cinemas, and educational campuses across India.',
+    highlight: 'Income Capitalization Approach',
+    tag: 'Hospitality & Commercial',
+    serviceKey: 'Hotel / Resort / Institutional / Cinema Valuation',
+    pill: 'Hotels & Resorts',
+    statPillar: 'Income Capitalization Approach'
   }
 ];
 
@@ -293,10 +313,42 @@ const SERVICE_ICONS = {
 };
 
 export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
-  // Slider State
+  // Slider State & Enhanced Auto-play
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSliderPaused, setIsSliderPaused] = useState(false);
   const slideTimerRef = useRef(null);
+  const touchStartXRef = useRef(null);
+
+  // Auto-play slider with clean interval
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % VALUATION_SLIDES.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + VALUATION_SLIDES.length) % VALUATION_SLIDES.length);
+  }, []);
+
+  const goToSlide = (idx) => {
+    setCurrentSlide(idx);
+  };
+
+  const handleTouchStart = (e) => {
+    if (e.touches && e.touches[0]) {
+      touchStartXRef.current = e.touches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartXRef.current === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const diff = touchStartXRef.current - endX;
+    if (diff > 45) {
+      nextSlide();
+    } else if (diff < -45) {
+      prevSlide();
+    }
+    touchStartXRef.current = null;
+  };
 
   // Dynamic Card Expansion State (Key: service.id, Value: boolean)
   const [expandedCards, setExpandedCards] = useState({});
@@ -312,15 +364,6 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeFaq, setActiveFaq] = useState(0);
-
-  // Auto-play slider with clean interval
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % VALUATION_SLIDES.length);
-  }, []);
-
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + VALUATION_SLIDES.length) % VALUATION_SLIDES.length);
-  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -375,7 +418,7 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
   return (
     <div className="registered-valuers-page rv-page-container" style={{ background: '#f8fafc', color: '#0f172a', minHeight: '100vh', paddingBottom: '70px' }}>
       
-      {/* ── RESPONSIVE MOBILE-FIRST CSS RULES ── */}
+      {/* ── RESPONSIVE MOBILE-FIRST CSS RULES & SLIDER MOTION ── */}
       <style>{`
         @keyframes rvFadeIn {
           from { opacity: 0; transform: translateY(-4px); }
@@ -383,6 +426,43 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
         }
         .rv-sticky-mobile-bar {
           display: none;
+        }
+
+        /* Enhanced Slider Cross-fade & Ken Burns Animation */
+        .rv-slide-item {
+          position: absolute;
+          inset: 0;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.75s ease;
+          z-index: 1;
+        }
+        .rv-slide-item.active {
+          opacity: 1;
+          visibility: visible;
+          z-index: 2;
+        }
+        .rv-slide-img {
+          width: 100%;
+          height: 440px;
+          object-fit: cover;
+          transform: scale(1.05);
+          transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .rv-slide-item.active .rv-slide-img {
+          transform: scale(1.0);
+        }
+        @keyframes rvProgressAnim {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+        .rv-progress-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #f59e0b, #38bdf8);
+          animation: rvProgressAnim 5.5s linear infinite;
+        }
+        .rv-progress-paused .rv-progress-fill {
+          animation-play-state: paused;
         }
 
         /* Mobile Responsive (< 768px) */
@@ -404,27 +484,39 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
             z-index: 999;
           }
           .rv-slider-box {
-            min-height: 320px !important;
+            min-height: 400px !important;
           }
           .rv-slide-img {
-            height: 320px !important;
+            height: 400px !important;
+          }
+          .rv-gradient-mask {
+            background: linear-gradient(180deg, rgba(11, 19, 43, 0.75) 0%, rgba(11, 19, 43, 0.95) 75%) !important;
           }
           .rv-slide-overlay {
-            padding: 22px 18px !important;
+            padding: 24px 18px !important;
           }
           .rv-slide-title {
-            font-size: 1.30rem !important;
+            font-size: 1.25rem !important;
             line-height: 1.25 !important;
             margin-bottom: 8px !important;
           }
           .rv-slide-subtitle {
-            font-size: 0.84rem !important;
+            font-size: 0.82rem !important;
             line-height: 1.45 !important;
-            margin-bottom: 14px !important;
+            margin-bottom: 12px !important;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+          }
+          .rv-pill-tabs {
+            overflow-x: auto;
+            flex-wrap: nowrap !important;
+            padding-bottom: 6px;
+            scrollbar-width: none;
+          }
+          .rv-pill-tabs::-webkit-scrollbar {
+            display: none;
           }
         }
       `}</style>
@@ -616,190 +708,335 @@ export default function RegisteredValuersPage({ onOpenQuote, onNavigateHome }) {
       >
         <div className="container" style={{ maxWidth: '1180px', margin: '0 auto', padding: '0 20px' }}>
           
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }}>
+          {/* Slider Header & Controls */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '12px' }}>
             <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                Featured Practice Corridors
+              <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#0284c7', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                ⭐ REAL SITE AUDITS &amp; CORE VALUATION DOMAINS
               </div>
-              <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0f172a', margin: '4px 0 0' }}>
-                Specialized Valuation Domains
+              <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#0f172a', margin: '3px 0 0', letterSpacing: '-0.02em' }}>
+                Featured Statutory Practice Areas
               </h2>
             </div>
 
-            {/* Slider Controls */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <button
-                type="button"
-                onClick={prevSlide}
-                aria-label="Previous Slide"
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '6px',
-                  background: '#ffffff',
-                  border: '1px solid #cbd5e1',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  color: '#334155'
-                }}
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                type="button"
-                onClick={nextSlide}
-                aria-label="Next Slide"
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '6px',
-                  background: '#ffffff',
-                  border: '1px solid #cbd5e1',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  color: '#334155'
-                }}
-              >
-                <ChevronRight size={18} />
-              </button>
+            {/* Slider Controls & Slide Counter */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{
+                background: '#ffffff',
+                border: '1px solid #cbd5e1',
+                borderRadius: '20px',
+                padding: '4px 12px',
+                fontSize: '0.78rem',
+                fontWeight: 700,
+                color: '#475569',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px'
+              }}>
+                <span style={{ color: '#0284c7' }}>{String(currentSlide + 1).padStart(2, '0')}</span>
+                <span style={{ color: '#94a3b8' }}>/</span>
+                <span>{String(VALUATION_SLIDES.length).padStart(2, '0')}</span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <button
+                  type="button"
+                  onClick={prevSlide}
+                  aria-label="Previous Slide"
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: '#334155',
+                    boxShadow: '0 2px 5px rgba(0,0,0,0.04)',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#0284c7'; e.currentTarget.style.color = '#0284c7'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.color = '#334155'; }}
+                >
+                  <ChevronLeft size={18} />
+                </button>
+                <button
+                  type="button"
+                  onClick={nextSlide}
+                  aria-label="Next Slide"
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    background: '#ffffff',
+                    border: '1px solid #cbd5e1',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: '#334155',
+                    boxShadow: '0 2px 5px rgba(0,0,0,0.04)',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#0284c7'; e.currentTarget.style.color = '#0284c7'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#cbd5e1'; e.currentTarget.style.color = '#334155'; }}
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Slider Shell */}
-          <div className="rv-slider-box" style={{
-            position: 'relative',
-            borderRadius: '12px',
-            overflow: 'hidden',
-            border: '1px solid #e2e8f0',
-            background: '#0f172a',
-            minHeight: '380px',
-            boxShadow: '0 10px 30px rgba(15, 23, 42, 0.08)'
-          }}>
-            {VALUATION_SLIDES.map((slide, idx) => (
-              <div
-                key={slide.id}
-                style={{
-                  display: idx === currentSlide ? 'block' : 'none',
-                  position: 'relative',
-                  width: '100%',
-                  height: '100%'
-                }}
-              >
-                <img
-                  src={slide.image}
-                  alt={slide.title}
-                  className="rv-slide-img"
+          {/* Interactive Domain Quick-Jump Pill Tabs */}
+          <div className="rv-pill-tabs" style={{ display: 'flex', gap: '8px', marginBottom: '14px', flexWrap: 'wrap' }}>
+            {VALUATION_SLIDES.map((slide, idx) => {
+              const isSelected = currentSlide === idx;
+              return (
+                <button
+                  key={slide.id}
+                  type="button"
+                  onClick={() => goToSlide(idx)}
                   style={{
-                    width: '100%',
-                    height: '380px',
-                    objectFit: 'cover',
-                    filter: 'brightness(0.35)'
-                  }}
-                />
-
-                {/* Overlay Content */}
-                <div className="rv-slide-overlay" style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  padding: '36px 44px',
-                  maxWidth: '780px'
-                }}>
-                  <div style={{
+                    padding: '7px 15px',
+                    borderRadius: '30px',
+                    fontSize: '0.80rem',
+                    fontWeight: isSelected ? 700 : 500,
+                    background: isSelected ? '#0284c7' : '#ffffff',
+                    color: isSelected ? '#ffffff' : '#475569',
+                    border: `1px solid ${isSelected ? '#0284c7' : '#cbd5e1'}`,
+                    cursor: 'pointer',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    padding: '4px 10px',
-                    background: 'rgba(255, 255, 255, 0.12)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid rgba(255, 255, 255, 0.25)',
-                    borderRadius: '4px',
-                    color: '#38bdf8',
-                    fontSize: '0.74rem',
-                    fontWeight: 700,
-                    textTransform: 'uppercase',
-                    marginBottom: '10px',
-                    width: 'fit-content'
-                  }}>
-                    <Award size={13} />
-                    <span>{slide.badge}</span>
-                  </div>
+                    boxShadow: isSelected ? '0 4px 12px rgba(2, 132, 199, 0.25)' : 'none',
+                    transition: 'all 0.15s ease',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  <span style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: isSelected ? '#ffffff' : '#94a3b8'
+                  }} />
+                  <span>{slide.pill}</span>
+                </button>
+              );
+            })}
+          </div>
 
-                  <h3 className="rv-slide-title" style={{
-                    fontSize: 'clamp(1.4rem, 2.8vw, 2.2rem)',
-                    fontWeight: 800,
-                    color: '#ffffff',
-                    lineHeight: 1.25,
-                    marginBottom: '10px'
-                  }}>
-                    {slide.title}
-                  </h3>
+          {/* Enhanced Cinematic Slider Shell */}
+          <div
+            className="rv-slider-box"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            style={{
+              position: 'relative',
+              borderRadius: '16px',
+              overflow: 'hidden',
+              border: '1px solid #cbd5e1',
+              background: '#090e1a',
+              minHeight: '440px',
+              boxShadow: '0 16px 40px rgba(15, 23, 42, 0.14)'
+            }}
+          >
+            {/* Subtle Top Progress Fill */}
+            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'rgba(255,255,255,0.1)', zIndex: 10 }}>
+              <div
+                key={currentSlide}
+                className={`rv-progress-fill ${isSliderPaused ? 'rv-progress-paused' : ''}`}
+              />
+            </div>
 
-                  <p className="rv-slide-subtitle" style={{
-                    color: '#cbd5e1',
-                    fontSize: '0.94rem',
-                    lineHeight: 1.6,
-                    marginBottom: '18px'
-                  }}>
-                    {slide.subtitle}
-                  </p>
+            {/* Stacked Cross-fading Slides */}
+            {VALUATION_SLIDES.map((slide, idx) => {
+              const isActive = idx === currentSlide;
+              return (
+                <div
+                  key={slide.id}
+                  className={`rv-slide-item ${isActive ? 'active' : ''}`}
+                >
+                  {/* Real Authentic Photograph */}
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="rv-slide-img"
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      height: '440px',
+                      objectFit: 'cover',
+                      objectPosition: 'center',
+                      filter: 'contrast(1.05) brightness(0.92)'
+                    }}
+                  />
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
-                    <button
-                      type="button"
-                      onClick={() => onOpenQuote(slide.serviceKey, { category: 'Registered Valuers' })}
-                      style={{
-                        background: '#0284c7',
-                        color: '#ffffff',
-                        border: 'none',
-                        borderRadius: '6px',
-                        padding: '10px 18px',
-                        fontSize: '0.86rem',
-                        fontWeight: 700,
-                        cursor: 'pointer'
-                      }}
-                    >
-                      Request {slide.highlight}
-                    </button>
-                    <span style={{ fontSize: '0.78rem', color: '#94a3b8' }}>
-                      Attested by Corporate Member IEI &amp; IBBI Registered Valuer
-                    </span>
+                  {/* Asymmetric Studio Gradient Mask (Vibrant real photo on right, crisp dark text on left) */}
+                  <div
+                    className="rv-gradient-mask"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: 'linear-gradient(90deg, rgba(11, 19, 43, 0.96) 0%, rgba(11, 19, 43, 0.88) 38%, rgba(11, 19, 43, 0.45) 68%, rgba(11, 19, 43, 0.15) 100%)'
+                    }}
+                  />
+
+                  {/* Overlay Content Card */}
+                  <div className="rv-slide-overlay" style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    padding: '38px 46px',
+                    maxWidth: '780px',
+                    zIndex: 3
+                  }}>
+                    {/* Badge */}
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '7px',
+                      padding: '5px 12px',
+                      background: 'rgba(245, 158, 11, 0.18)',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(245, 158, 11, 0.4)',
+                      borderRadius: '6px',
+                      color: '#f59e0b',
+                      fontSize: '0.76rem',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                      marginBottom: '12px',
+                      width: 'fit-content'
+                    }}>
+                      <Award size={14} />
+                      <span>{slide.badge}</span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="rv-slide-title" style={{
+                      fontSize: 'clamp(1.5rem, 3vw, 2.3rem)',
+                      fontWeight: 800,
+                      color: '#ffffff',
+                      lineHeight: 1.22,
+                      letterSpacing: '-0.02em',
+                      marginBottom: '12px'
+                    }}>
+                      {slide.title}
+                    </h3>
+
+                    {/* Subtitle */}
+                    <p className="rv-slide-subtitle" style={{
+                      color: '#cbd5e1',
+                      fontSize: '0.96rem',
+                      lineHeight: 1.65,
+                      marginBottom: '16px',
+                      maxWidth: '680px'
+                    }}>
+                      {slide.subtitle}
+                    </p>
+
+                    {/* Statutory Pillar Tag */}
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      marginBottom: '20px',
+                      fontSize: '0.80rem',
+                      color: '#38bdf8',
+                      background: 'rgba(56, 189, 248, 0.12)',
+                      padding: '4px 10px',
+                      borderRadius: '4px',
+                      border: '1px solid rgba(56, 189, 248, 0.25)',
+                      width: 'fit-content'
+                    }}>
+                      <ShieldCheck size={14} />
+                      <span>{slide.statPillar} · {slide.highlight}</span>
+                    </div>
+
+                    {/* Dual Action Buttons */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                      <button
+                        type="button"
+                        onClick={() => onOpenQuote(slide.serviceKey, { category: 'Registered Valuers' })}
+                        style={{
+                          background: '#F58220',
+                          color: '#ffffff',
+                          border: 'none',
+                          borderRadius: '8px',
+                          padding: '11px 22px',
+                          fontSize: '0.88rem',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          boxShadow: '0 4px 14px rgba(245, 130, 32, 0.35)',
+                          transition: 'all 0.15s ease'
+                        }}
+                      >
+                        <span>Request Official Valuation Report</span>
+                        <ArrowRight size={15} />
+                      </button>
+
+                      <a
+                        href={`https://wa.me/919158658885?text=Hello%20Er.%20KS,%20I%20would%20like%20to%20consult%20regarding%20${encodeURIComponent(slide.serviceKey)}.`}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          background: '#10b981',
+                          color: '#ffffff',
+                          borderRadius: '8px',
+                          padding: '11px 18px',
+                          fontSize: '0.88rem',
+                          fontWeight: 700,
+                          textDecoration: 'none',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)',
+                          transition: 'all 0.15s ease'
+                        }}
+                      >
+                        <MessageSquare size={16} />
+                        <span>WhatsApp Valuer Desk</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
 
-            {/* Slide Dots */}
+            {/* Slide Dots at Bottom Right */}
             <div style={{
               position: 'absolute',
-              bottom: '16px',
+              bottom: '18px',
               right: '24px',
               display: 'flex',
-              gap: '6px'
+              alignItems: 'center',
+              gap: '6px',
+              zIndex: 5
             }}>
               {VALUATION_SLIDES.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
-                  onClick={() => setCurrentSlide(idx)}
+                  onClick={() => goToSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
                   style={{
-                    width: idx === currentSlide ? '22px' : '8px',
+                    width: idx === currentSlide ? '24px' : '8px',
                     height: '8px',
                     borderRadius: '4px',
-                    background: idx === currentSlide ? '#38bdf8' : 'rgba(255, 255, 255, 0.4)',
+                    background: idx === currentSlide ? '#f59e0b' : 'rgba(255, 255, 255, 0.35)',
                     border: 'none',
                     cursor: 'pointer',
-                    transition: 'all 0.2s ease'
+                    transition: 'all 0.25s ease'
                   }}
                 />
               ))}
